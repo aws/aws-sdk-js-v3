@@ -29,7 +29,7 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update the event configuration by resource types.</p>
+ * <p>Update the event configuration based on resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

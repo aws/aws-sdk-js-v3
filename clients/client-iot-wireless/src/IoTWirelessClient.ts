@@ -206,6 +206,11 @@ import {
   GetNetworkAnalyzerConfigurationCommandOutput,
 } from "./commands/GetNetworkAnalyzerConfigurationCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "./commands/GetPartnerAccountCommand";
+import { GetPositionCommandInput, GetPositionCommandOutput } from "./commands/GetPositionCommand";
+import {
+  GetPositionConfigurationCommandInput,
+  GetPositionConfigurationCommandOutput,
+} from "./commands/GetPositionConfigurationCommand";
 import {
   GetResourceEventConfigurationCommandInput,
   GetResourceEventConfigurationCommandOutput,
@@ -265,6 +270,10 @@ import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
 } from "./commands/ListPartnerAccountsCommand";
+import {
+  ListPositionConfigurationsCommandInput,
+  ListPositionConfigurationsCommandOutput,
+} from "./commands/ListPositionConfigurationsCommand";
 import { ListQueuedMessagesCommandInput, ListQueuedMessagesCommandOutput } from "./commands/ListQueuedMessagesCommand";
 import {
   ListServiceProfilesCommandInput,
@@ -286,6 +295,10 @@ import {
   ListWirelessGatewayTaskDefinitionsCommandInput,
   ListWirelessGatewayTaskDefinitionsCommandOutput,
 } from "./commands/ListWirelessGatewayTaskDefinitionsCommand";
+import {
+  PutPositionConfigurationCommandInput,
+  PutPositionConfigurationCommandOutput,
+} from "./commands/PutPositionConfigurationCommand";
 import {
   PutResourceLogLevelCommandInput,
   PutResourceLogLevelCommandOutput,
@@ -344,6 +357,7 @@ import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
+import { UpdatePositionCommandInput, UpdatePositionCommandOutput } from "./commands/UpdatePositionCommand";
 import {
   UpdateResourceEventConfigurationCommandInput,
   UpdateResourceEventConfigurationCommandOutput,
@@ -404,6 +418,8 @@ export type ServiceInputTypes =
   | GetMulticastGroupSessionCommandInput
   | GetNetworkAnalyzerConfigurationCommandInput
   | GetPartnerAccountCommandInput
+  | GetPositionCommandInput
+  | GetPositionConfigurationCommandInput
   | GetResourceEventConfigurationCommandInput
   | GetResourceLogLevelCommandInput
   | GetServiceEndpointCommandInput
@@ -424,12 +440,14 @@ export type ServiceInputTypes =
   | ListMulticastGroupsCommandInput
   | ListNetworkAnalyzerConfigurationsCommandInput
   | ListPartnerAccountsCommandInput
+  | ListPositionConfigurationsCommandInput
   | ListQueuedMessagesCommandInput
   | ListServiceProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListWirelessDevicesCommandInput
   | ListWirelessGatewayTaskDefinitionsCommandInput
   | ListWirelessGatewaysCommandInput
+  | PutPositionConfigurationCommandInput
   | PutResourceLogLevelCommandInput
   | ResetAllResourceLogLevelsCommandInput
   | ResetResourceLogLevelCommandInput
@@ -449,6 +467,7 @@ export type ServiceInputTypes =
   | UpdateMulticastGroupCommandInput
   | UpdateNetworkAnalyzerConfigurationCommandInput
   | UpdatePartnerAccountCommandInput
+  | UpdatePositionCommandInput
   | UpdateResourceEventConfigurationCommandInput
   | UpdateWirelessDeviceCommandInput
   | UpdateWirelessGatewayCommandInput;
@@ -499,6 +518,8 @@ export type ServiceOutputTypes =
   | GetMulticastGroupSessionCommandOutput
   | GetNetworkAnalyzerConfigurationCommandOutput
   | GetPartnerAccountCommandOutput
+  | GetPositionCommandOutput
+  | GetPositionConfigurationCommandOutput
   | GetResourceEventConfigurationCommandOutput
   | GetResourceLogLevelCommandOutput
   | GetServiceEndpointCommandOutput
@@ -519,12 +540,14 @@ export type ServiceOutputTypes =
   | ListMulticastGroupsCommandOutput
   | ListNetworkAnalyzerConfigurationsCommandOutput
   | ListPartnerAccountsCommandOutput
+  | ListPositionConfigurationsCommandOutput
   | ListQueuedMessagesCommandOutput
   | ListServiceProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWirelessDevicesCommandOutput
   | ListWirelessGatewayTaskDefinitionsCommandOutput
   | ListWirelessGatewaysCommandOutput
+  | PutPositionConfigurationCommandOutput
   | PutResourceLogLevelCommandOutput
   | ResetAllResourceLogLevelsCommandOutput
   | ResetResourceLogLevelCommandOutput
@@ -544,6 +567,7 @@ export type ServiceOutputTypes =
   | UpdateMulticastGroupCommandOutput
   | UpdateNetworkAnalyzerConfigurationCommandOutput
   | UpdatePartnerAccountCommandOutput
+  | UpdatePositionCommandOutput
   | UpdateResourceEventConfigurationCommandOutput
   | UpdateWirelessDeviceCommandOutput
   | UpdateWirelessGatewayCommandOutput;

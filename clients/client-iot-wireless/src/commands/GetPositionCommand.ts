@@ -13,41 +13,41 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdatePartnerAccountRequest, UpdatePartnerAccountResponse } from "../models/models_1";
+import { GetPositionRequest, GetPositionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdatePartnerAccountCommand,
-  serializeAws_restJson1UpdatePartnerAccountCommand,
+  deserializeAws_restJson1GetPositionCommand,
+  serializeAws_restJson1GetPositionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdatePartnerAccountCommandInput extends UpdatePartnerAccountRequest {}
-export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountResponse, __MetadataBearer {}
+export interface GetPositionCommandInput extends GetPositionRequest {}
+export interface GetPositionCommandOutput extends GetPositionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates properties of a partner account.</p>
+ * <p>Get the position information for a given resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdatePartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetPositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetPositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const command = new UpdatePartnerAccountCommand(input);
+ * const command = new GetPositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdatePartnerAccountCommandInput} for command's `input` shape.
- * @see {@link UpdatePartnerAccountCommandOutput} for command's `response` shape.
+ * @see {@link GetPositionCommandInput} for command's `input` shape.
+ * @see {@link GetPositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
-export class UpdatePartnerAccountCommand extends $Command<
-  UpdatePartnerAccountCommandInput,
-  UpdatePartnerAccountCommandOutput,
+export class GetPositionCommand extends $Command<
+  GetPositionCommandInput,
+  GetPositionCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdatePartnerAccountCommandInput) {
+  constructor(readonly input: GetPositionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class UpdatePartnerAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTWirelessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdatePartnerAccountCommandInput, UpdatePartnerAccountCommandOutput> {
+  ): Handler<GetPositionCommandInput, GetPositionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTWirelessClient";
-    const commandName = "UpdatePartnerAccountCommand";
+    const commandName = "GetPositionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePartnerAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePartnerAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPositionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPositionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class UpdatePartnerAccountCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdatePartnerAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePartnerAccountCommand(input, context);
+  private serialize(input: GetPositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetPositionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerAccountCommandOutput> {
-    return deserializeAws_restJson1UpdatePartnerAccountCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionCommandOutput> {
+    return deserializeAws_restJson1GetPositionCommand(output, context);
   }
 
   // Start section: command_body_extra

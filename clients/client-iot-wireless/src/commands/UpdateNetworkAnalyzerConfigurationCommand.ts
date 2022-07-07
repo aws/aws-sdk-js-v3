@@ -16,7 +16,7 @@ import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   UpdateNetworkAnalyzerConfigurationRequest,
   UpdateNetworkAnalyzerConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand,
   serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand,

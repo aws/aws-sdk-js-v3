@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdateResourceEventConfigurationRequest, UpdateResourceEventConfigurationResponse } from "../models/models_0";
+import { UpdateResourceEventConfigurationRequest, UpdateResourceEventConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateResourceEventConfigurationCommand,
   serializeAws_restJson1UpdateResourceEventConfigurationCommand,

@@ -28,7 +28,7 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Get the event configuration by resource types.</p>
+ * <p>Get the event configuration based on resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

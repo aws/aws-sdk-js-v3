@@ -226,6 +226,12 @@ import {
   GetPartnerAccountCommandInput,
   GetPartnerAccountCommandOutput,
 } from "./commands/GetPartnerAccountCommand";
+import { GetPositionCommand, GetPositionCommandInput, GetPositionCommandOutput } from "./commands/GetPositionCommand";
+import {
+  GetPositionConfigurationCommand,
+  GetPositionConfigurationCommandInput,
+  GetPositionConfigurationCommandOutput,
+} from "./commands/GetPositionConfigurationCommand";
 import {
   GetResourceEventConfigurationCommand,
   GetResourceEventConfigurationCommandInput,
@@ -327,6 +333,11 @@ import {
   ListPartnerAccountsCommandOutput,
 } from "./commands/ListPartnerAccountsCommand";
 import {
+  ListPositionConfigurationsCommand,
+  ListPositionConfigurationsCommandInput,
+  ListPositionConfigurationsCommandOutput,
+} from "./commands/ListPositionConfigurationsCommand";
+import {
   ListQueuedMessagesCommand,
   ListQueuedMessagesCommandInput,
   ListQueuedMessagesCommandOutput,
@@ -356,6 +367,11 @@ import {
   ListWirelessGatewayTaskDefinitionsCommandInput,
   ListWirelessGatewayTaskDefinitionsCommandOutput,
 } from "./commands/ListWirelessGatewayTaskDefinitionsCommand";
+import {
+  PutPositionConfigurationCommand,
+  PutPositionConfigurationCommandInput,
+  PutPositionConfigurationCommandOutput,
+} from "./commands/PutPositionConfigurationCommand";
 import {
   PutResourceLogLevelCommand,
   PutResourceLogLevelCommandInput,
@@ -447,6 +463,11 @@ import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
+import {
+  UpdatePositionCommand,
+  UpdatePositionCommandInput,
+  UpdatePositionCommandOutput,
+} from "./commands/UpdatePositionCommand";
 import {
   UpdateResourceEventConfigurationCommand,
   UpdateResourceEventConfigurationCommandInput,
@@ -1711,7 +1732,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Get the event configuration by resource types.</p>
+   * <p>Get the event configuration based on resource types.</p>
    */
   public getEventConfigurationByResourceTypes(
     args: GetEventConfigurationByResourceTypesCommandInput,
@@ -1922,6 +1943,64 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: GetPartnerAccountCommandOutput) => void
   ): Promise<GetPartnerAccountCommandOutput> | void {
     const command = new GetPartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the position information for a given resource.</p>
+   */
+  public getPosition(args: GetPositionCommandInput, options?: __HttpHandlerOptions): Promise<GetPositionCommandOutput>;
+  public getPosition(args: GetPositionCommandInput, cb: (err: any, data?: GetPositionCommandOutput) => void): void;
+  public getPosition(
+    args: GetPositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPositionCommandOutput) => void
+  ): void;
+  public getPosition(
+    args: GetPositionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPositionCommandOutput) => void),
+    cb?: (err: any, data?: GetPositionCommandOutput) => void
+  ): Promise<GetPositionCommandOutput> | void {
+    const command = new GetPositionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get position configuration for a given resource.</p>
+   */
+  public getPositionConfiguration(
+    args: GetPositionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPositionConfigurationCommandOutput>;
+  public getPositionConfiguration(
+    args: GetPositionConfigurationCommandInput,
+    cb: (err: any, data?: GetPositionConfigurationCommandOutput) => void
+  ): void;
+  public getPositionConfiguration(
+    args: GetPositionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPositionConfigurationCommandOutput) => void
+  ): void;
+  public getPositionConfiguration(
+    args: GetPositionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPositionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetPositionConfigurationCommandOutput) => void
+  ): Promise<GetPositionConfigurationCommandOutput> | void {
+    const command = new GetPositionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2576,6 +2655,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>List position configurations for a given resource, such as positioning solvers.</p>
+   */
+  public listPositionConfigurations(
+    args: ListPositionConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPositionConfigurationsCommandOutput>;
+  public listPositionConfigurations(
+    args: ListPositionConfigurationsCommandInput,
+    cb: (err: any, data?: ListPositionConfigurationsCommandOutput) => void
+  ): void;
+  public listPositionConfigurations(
+    args: ListPositionConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPositionConfigurationsCommandOutput) => void
+  ): void;
+  public listPositionConfigurations(
+    args: ListPositionConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPositionConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListPositionConfigurationsCommandOutput) => void
+  ): Promise<ListPositionConfigurationsCommandOutput> | void {
+    const command = new ListPositionConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List queued messages in the downlink queue.</p>
    */
   public listQueuedMessages(
@@ -2757,6 +2868,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: ListWirelessGatewayTaskDefinitionsCommandOutput) => void
   ): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput> | void {
     const command = new ListWirelessGatewayTaskDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Put position configuration for a given resource.</p>
+   */
+  public putPositionConfiguration(
+    args: PutPositionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPositionConfigurationCommandOutput>;
+  public putPositionConfiguration(
+    args: PutPositionConfigurationCommandInput,
+    cb: (err: any, data?: PutPositionConfigurationCommandOutput) => void
+  ): void;
+  public putPositionConfiguration(
+    args: PutPositionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPositionConfigurationCommandOutput) => void
+  ): void;
+  public putPositionConfiguration(
+    args: PutPositionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPositionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutPositionConfigurationCommandOutput) => void
+  ): Promise<PutPositionConfigurationCommandOutput> | void {
+    const command = new PutPositionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3184,7 +3327,7 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
-   * <p>Update the event configuration by resource types.</p>
+   * <p>Update the event configuration based on resource types.</p>
    */
   public updateEventConfigurationByResourceTypes(
     args: UpdateEventConfigurationByResourceTypesCommandInput,
@@ -3368,6 +3511,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdatePartnerAccountCommandOutput) => void
   ): Promise<UpdatePartnerAccountCommandOutput> | void {
     const command = new UpdatePartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the position information of a resource.</p>
+   */
+  public updatePosition(
+    args: UpdatePositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePositionCommandOutput>;
+  public updatePosition(
+    args: UpdatePositionCommandInput,
+    cb: (err: any, data?: UpdatePositionCommandOutput) => void
+  ): void;
+  public updatePosition(
+    args: UpdatePositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePositionCommandOutput) => void
+  ): void;
+  public updatePosition(
+    args: UpdatePositionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePositionCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePositionCommandOutput) => void
+  ): Promise<UpdatePositionCommandOutput> | void {
+    const command = new UpdatePositionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

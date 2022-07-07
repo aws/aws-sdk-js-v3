@@ -11,8 +11,10 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -174,6 +176,11 @@ import {
   GetNetworkAnalyzerConfigurationCommandOutput,
 } from "../commands/GetNetworkAnalyzerConfigurationCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "../commands/GetPartnerAccountCommand";
+import { GetPositionCommandInput, GetPositionCommandOutput } from "../commands/GetPositionCommand";
+import {
+  GetPositionConfigurationCommandInput,
+  GetPositionConfigurationCommandOutput,
+} from "../commands/GetPositionConfigurationCommand";
 import {
   GetResourceEventConfigurationCommandInput,
   GetResourceEventConfigurationCommandOutput,
@@ -233,6 +240,10 @@ import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
 } from "../commands/ListPartnerAccountsCommand";
+import {
+  ListPositionConfigurationsCommandInput,
+  ListPositionConfigurationsCommandOutput,
+} from "../commands/ListPositionConfigurationsCommand";
 import { ListQueuedMessagesCommandInput, ListQueuedMessagesCommandOutput } from "../commands/ListQueuedMessagesCommand";
 import {
   ListServiceProfilesCommandInput,
@@ -254,6 +265,10 @@ import {
   ListWirelessGatewayTaskDefinitionsCommandInput,
   ListWirelessGatewayTaskDefinitionsCommandOutput,
 } from "../commands/ListWirelessGatewayTaskDefinitionsCommand";
+import {
+  PutPositionConfigurationCommandInput,
+  PutPositionConfigurationCommandOutput,
+} from "../commands/PutPositionConfigurationCommand";
 import {
   PutResourceLogLevelCommandInput,
   PutResourceLogLevelCommandOutput,
@@ -312,6 +327,7 @@ import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "../commands/UpdatePartnerAccountCommand";
+import { UpdatePositionCommandInput, UpdatePositionCommandOutput } from "../commands/UpdatePositionCommand";
 import {
   UpdateResourceEventConfigurationCommandInput,
   UpdateResourceEventConfigurationCommandOutput,
@@ -329,6 +345,7 @@ import {
   AbpV1_0_x,
   AbpV1_1,
   AccessDeniedException,
+  Accuracy,
   CertificateList,
   ConflictException,
   ConnectionStatusEventConfiguration,
@@ -367,7 +384,6 @@ import {
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
   LoRaWANStartFuotaTask,
-  LoRaWANUpdateDevice,
   LoRaWANUpdateGatewayTaskCreate,
   LoRaWANUpdateGatewayTaskEntry,
   MulticastGroup,
@@ -376,9 +392,15 @@ import {
   NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
+  PositionConfigurationItem,
+  Positioning,
+  PositionSolverConfigurations,
+  PositionSolverDetails,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
   ResourceNotFoundException,
+  SemtechGnssConfiguration,
+  SemtechGnssDetail,
   ServiceProfile,
   SessionKeysAbpV1_0_x,
   SessionKeysAbpV1_1,
@@ -390,13 +412,10 @@ import {
   SidewalkListDevice,
   SidewalkResourceTypeEventConfiguration,
   SidewalkSendDataToDevice,
-  SidewalkUpdateAccount,
   Tag,
   ThrottlingException,
   TooManyTagsException,
   TraceContent,
-  UpdateAbpV1_0_x,
-  UpdateAbpV1_1,
   UpdateWirelessGatewayTaskCreate,
   UpdateWirelessGatewayTaskEntry,
   ValidationException,
@@ -408,6 +427,13 @@ import {
   WirelessGatewayStatistics,
   WirelessMetadata,
 } from "../models/models_0";
+import {
+  LoRaWANUpdateDevice,
+  SidewalkUpdateAccount,
+  UpdateAbpV1_0_x,
+  UpdateAbpV1_1,
+  UpdateFPorts,
+} from "../models/models_1";
 
 export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand = async (
   input: AssociateAwsAccountWithPartnerAccountCommandInput,
@@ -1805,6 +1831,73 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetPositionCommand = async (
+  input: GetPositionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/positions/{ResourceIdentifier}";
+  if (input.ResourceIdentifier !== undefined) {
+    const labelValue: string = input.ResourceIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceIdentifier.");
+  }
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetPositionConfigurationCommand = async (
+  input: GetPositionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/position-configurations/{ResourceIdentifier}";
+  if (input.ResourceIdentifier !== undefined) {
+    const labelValue: string = input.ResourceIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceIdentifier.");
+  }
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetResourceEventConfigurationCommand = async (
   input: GetResourceEventConfigurationCommandInput,
   context: __SerdeContext
@@ -2370,6 +2463,32 @@ export const serializeAws_restJson1ListPartnerAccountsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListPositionConfigurationsCommand = async (
+  input: ListPositionConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/position-configurations";
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListQueuedMessagesCommand = async (
   input: ListQueuedMessagesCommandInput,
   context: __SerdeContext
@@ -2525,6 +2644,49 @@ export const serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand = a
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutPositionConfigurationCommand = async (
+  input: PutPositionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/position-configurations/{ResourceIdentifier}";
+  if (input.ResourceIdentifier !== undefined) {
+    const labelValue: string = input.ResourceIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceIdentifier.");
+  }
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
+    ...(input.Solvers !== undefined &&
+      input.Solvers !== null && {
+        Solvers: serializeAws_restJson1PositionSolverConfigurations(input.Solvers, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     query,
@@ -3200,6 +3362,45 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
   body = JSON.stringify({
     ...(input.Sidewalk !== undefined &&
       input.Sidewalk !== null && { Sidewalk: serializeAws_restJson1SidewalkUpdateAccount(input.Sidewalk, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePositionCommand = async (
+  input: UpdatePositionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/positions/{ResourceIdentifier}";
+  if (input.ResourceIdentifier !== undefined) {
+    const labelValue: string = input.ResourceIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceIdentifier.");
+  }
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Position !== undefined &&
+      input.Position !== null && { Position: serializeAws_restJson1PositionCoordinate(input.Position, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -6060,6 +6261,144 @@ const deserializeAws_restJson1GetPartnerAccountCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetPositionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPositionCommandError(output, context);
+  }
+  const contents: GetPositionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Accuracy: undefined,
+    Position: undefined,
+    SolverProvider: undefined,
+    SolverType: undefined,
+    SolverVersion: undefined,
+    Timestamp: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Accuracy !== undefined && data.Accuracy !== null) {
+    contents.Accuracy = deserializeAws_restJson1Accuracy(data.Accuracy, context);
+  }
+  if (data.Position !== undefined && data.Position !== null) {
+    contents.Position = deserializeAws_restJson1PositionCoordinate(data.Position, context);
+  }
+  if (data.SolverProvider !== undefined && data.SolverProvider !== null) {
+    contents.SolverProvider = __expectString(data.SolverProvider);
+  }
+  if (data.SolverType !== undefined && data.SolverType !== null) {
+    contents.SolverType = __expectString(data.SolverType);
+  }
+  if (data.SolverVersion !== undefined && data.SolverVersion !== null) {
+    contents.SolverVersion = __expectString(data.SolverVersion);
+  }
+  if (data.Timestamp !== undefined && data.Timestamp !== null) {
+    contents.Timestamp = __expectString(data.Timestamp);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetPositionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetPositionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPositionConfigurationCommandError(output, context);
+  }
+  const contents: GetPositionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Destination: undefined,
+    Solvers: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Destination !== undefined && data.Destination !== null) {
+    contents.Destination = __expectString(data.Destination);
+  }
+  if (data.Solvers !== undefined && data.Solvers !== null) {
+    contents.Solvers = deserializeAws_restJson1PositionSolverDetails(data.Solvers, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetPositionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPositionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetResourceEventConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7367,6 +7706,67 @@ const deserializeAws_restJson1ListPartnerAccountsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListPositionConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPositionConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPositionConfigurationsCommandError(output, context);
+  }
+  const contents: ListPositionConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    PositionConfigurationList: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.PositionConfigurationList !== undefined && data.PositionConfigurationList !== null) {
+    contents.PositionConfigurationList = deserializeAws_restJson1PositionConfigurationList(
+      data.PositionConfigurationList,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPositionConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPositionConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListQueuedMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7707,6 +8107,59 @@ const deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommandError = a
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1PutPositionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPositionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutPositionConfigurationCommandError(output, context);
+  }
+  const contents: PutPositionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutPositionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPositionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotwireless#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -8754,6 +9207,59 @@ const deserializeAws_restJson1UpdatePartnerAccountCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdatePositionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePositionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePositionCommandError(output, context);
+  }
+  const contents: UpdatePositionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePositionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePositionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateResourceEventConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9133,6 +9639,8 @@ const serializeAws_restJson1FPorts = (input: FPorts, context: __SerdeContext): a
     ...(input.ClockSync !== undefined && input.ClockSync !== null && { ClockSync: input.ClockSync }),
     ...(input.Fuota !== undefined && input.Fuota !== null && { Fuota: input.Fuota }),
     ...(input.Multicast !== undefined && input.Multicast !== null && { Multicast: input.Multicast }),
+    ...(input.Positioning !== undefined &&
+      input.Positioning !== null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
   };
 };
 
@@ -9365,6 +9873,8 @@ const serializeAws_restJson1LoRaWANUpdateDevice = (input: LoRaWANUpdateDevice, c
       input.AbpV1_1 !== null && { AbpV1_1: serializeAws_restJson1UpdateAbpV1_1(input.AbpV1_1, context) }),
     ...(input.DeviceProfileId !== undefined &&
       input.DeviceProfileId !== null && { DeviceProfileId: input.DeviceProfileId }),
+    ...(input.FPorts !== undefined &&
+      input.FPorts !== null && { FPorts: serializeAws_restJson1UpdateFPorts(input.FPorts, context) }),
     ...(input.ServiceProfileId !== undefined &&
       input.ServiceProfileId !== null && { ServiceProfileId: input.ServiceProfileId }),
   };
@@ -9426,6 +9936,37 @@ const serializeAws_restJson1OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext
   };
 };
 
+const serializeAws_restJson1PositionCoordinate = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __serializeFloat(entry);
+    });
+};
+
+const serializeAws_restJson1Positioning = (input: Positioning, context: __SerdeContext): any => {
+  return {
+    ...(input.ClockSync !== undefined && input.ClockSync !== null && { ClockSync: input.ClockSync }),
+    ...(input.Gnss !== undefined && input.Gnss !== null && { Gnss: input.Gnss }),
+    ...(input.Stream !== undefined && input.Stream !== null && { Stream: input.Stream }),
+  };
+};
+
+const serializeAws_restJson1PositionSolverConfigurations = (
+  input: PositionSolverConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SemtechGnss !== undefined &&
+      input.SemtechGnss !== null && {
+        SemtechGnss: serializeAws_restJson1SemtechGnssConfiguration(input.SemtechGnss, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1ProximityEventConfiguration = (
   input: ProximityEventConfiguration,
   context: __SerdeContext
@@ -9449,6 +9990,16 @@ const serializeAws_restJson1ProximityResourceTypeEventConfiguration = (
       input.Sidewalk !== null && {
         Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
       }),
+  };
+};
+
+const serializeAws_restJson1SemtechGnssConfiguration = (
+  input: SemtechGnssConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Fec !== undefined && input.Fec !== null && { Fec: input.Fec }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
@@ -9559,6 +10110,13 @@ const serializeAws_restJson1UpdateAbpV1_0_x = (input: UpdateAbpV1_0_x, context: 
 const serializeAws_restJson1UpdateAbpV1_1 = (input: UpdateAbpV1_1, context: __SerdeContext): any => {
   return {
     ...(input.FCntStart !== undefined && input.FCntStart !== null && { FCntStart: input.FCntStart }),
+  };
+};
+
+const serializeAws_restJson1UpdateFPorts = (input: UpdateFPorts, context: __SerdeContext): any => {
+  return {
+    ...(input.Positioning !== undefined &&
+      input.Positioning !== null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
   };
 };
 
@@ -9732,6 +10290,13 @@ const deserializeAws_restJson1AbpV1_1 = (output: any, context: __SerdeContext): 
       output.SessionKeys !== undefined && output.SessionKeys !== null
         ? deserializeAws_restJson1SessionKeysAbpV1_1(output.SessionKeys, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Accuracy = (output: any, context: __SerdeContext): Accuracy => {
+  return {
+    HorizontalAccuracy: __limitedParseFloat32(output.HorizontalAccuracy),
+    VerticalAccuracy: __limitedParseFloat32(output.VerticalAccuracy),
   } as any;
 };
 
@@ -9945,6 +10510,10 @@ const deserializeAws_restJson1FPorts = (output: any, context: __SerdeContext): F
     ClockSync: __expectInt32(output.ClockSync),
     Fuota: __expectInt32(output.Fuota),
     Multicast: __expectInt32(output.Multicast),
+    Positioning:
+      output.Positioning !== undefined && output.Positioning !== null
+        ? deserializeAws_restJson1Positioning(output.Positioning, context)
+        : undefined,
   } as any;
 };
 
@@ -10397,6 +10966,65 @@ const deserializeAws_restJson1OtaaV1_1 = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1PositionConfigurationItem = (
+  output: any,
+  context: __SerdeContext
+): PositionConfigurationItem => {
+  return {
+    Destination: __expectString(output.Destination),
+    ResourceIdentifier: __expectString(output.ResourceIdentifier),
+    ResourceType: __expectString(output.ResourceType),
+    Solvers:
+      output.Solvers !== undefined && output.Solvers !== null
+        ? deserializeAws_restJson1PositionSolverDetails(output.Solvers, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PositionConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): PositionConfigurationItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PositionConfigurationItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PositionCoordinate = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __limitedParseFloat32(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Positioning = (output: any, context: __SerdeContext): Positioning => {
+  return {
+    ClockSync: __expectInt32(output.ClockSync),
+    Gnss: __expectInt32(output.Gnss),
+    Stream: __expectInt32(output.Stream),
+  } as any;
+};
+
+const deserializeAws_restJson1PositionSolverDetails = (output: any, context: __SerdeContext): PositionSolverDetails => {
+  return {
+    SemtechGnss:
+      output.SemtechGnss !== undefined && output.SemtechGnss !== null
+        ? deserializeAws_restJson1SemtechGnssDetail(output.SemtechGnss, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ProximityEventConfiguration = (
   output: any,
   context: __SerdeContext
@@ -10419,6 +11047,15 @@ const deserializeAws_restJson1ProximityResourceTypeEventConfiguration = (
       output.Sidewalk !== undefined && output.Sidewalk !== null
         ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SemtechGnssDetail = (output: any, context: __SerdeContext): SemtechGnssDetail => {
+  return {
+    Fec: __expectString(output.Fec),
+    Provider: __expectString(output.Provider),
+    Status: __expectString(output.Status),
+    Type: __expectString(output.Type),
   } as any;
 };
 

@@ -141,6 +141,32 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The accuracy of the estimated position in meters. An empty value indicates that no position data is available.
+ *             A value of ‘0.0’ value indicates that position data is available. This data corresponds to the position information
+ *             that you specified instead of the position computed by solver.</p>
+ */
+export interface Accuracy {
+  /**
+   * <p>The horizontal accuracy of the estimated position in meters.</p>
+   */
+  HorizontalAccuracy?: number;
+
+  /**
+   * <p>The vertical accuracy of the estimated position in meters.</p>
+   */
+  VerticalAccuracy?: number;
+}
+
+export namespace Accuracy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Accuracy): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a Sidewalk account.</p>
  */
 export interface SidewalkAccountInfo {
@@ -639,7 +665,7 @@ export enum EventNotificationTopicStatus {
  */
 export interface LoRaWANConnectionStatusEventNotificationConfigurations {
   /**
-   * <p>Enum to denote whether the gateway eui connection status event topic is enabled or disabled.</p>
+   * <p>Enum to denote whether the gateway EUI connection status event topic is enabled or disabled.</p>
    */
   GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -663,8 +689,7 @@ export interface ConnectionStatusEventConfiguration {
   LoRaWAN?: LoRaWANConnectionStatusEventNotificationConfigurations;
 
   /**
-   * <p>Enum to denote whether the wireless gateway id connection status event topic is enabled or disabled
-   *             .</p>
+   * <p>Enum to denote whether the wireless gateway ID connection status event topic is enabled or disabled.</p>
    */
   WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -1147,7 +1172,8 @@ export enum WirelessDeviceFrameInfo {
  */
 export interface TraceContent {
   /**
-   * <p>FrameInfo of your wireless device resources for the trace content. Use FrameInfo to debug
+   * <p>
+   *             <code>FrameInfo</code> of your wireless device resources for the trace content. Use FrameInfo to debug
    *             the communication between your LoRaWAN end devices and the network server.</p>
    */
   WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
@@ -1307,6 +1333,35 @@ export namespace CreateServiceProfileResponse {
 }
 
 /**
+ * <p>The FPorts for the position information.</p>
+ */
+export interface Positioning {
+  /**
+   * <p>The Fport value.</p>
+   */
+  ClockSync?: number;
+
+  /**
+   * <p>The Fport value.</p>
+   */
+  Stream?: number;
+
+  /**
+   * <p>The Fport value.</p>
+   */
+  Gnss?: number;
+}
+
+export namespace Positioning {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Positioning): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>List of FPort assigned for different LoRaWAN application packages to use</p>
  */
 export interface FPorts {
@@ -1324,6 +1379,11 @@ export interface FPorts {
    * <p>The Fport value.</p>
    */
   ClockSync?: number;
+
+  /**
+   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
+   */
+  Positioning?: Positioning;
 }
 
 export namespace FPorts {
@@ -2198,8 +2258,9 @@ export namespace DeviceProfile {
 }
 
 /**
- * <p> SidewalkEventNotificationConfigurations object
- *             Event configuration object for Sidewalk related event topics.</p>
+ * <p>
+ *             <code>SidewalkEventNotificationConfigurations</code>  object, which is the event configuration
+ *             object for Sidewalk-related event topics.</p>
  */
 export interface SidewalkEventNotificationConfigurations {
   /**
@@ -2569,7 +2630,7 @@ export enum Event {
  */
 export interface LoRaWANJoinEventNotificationConfigurations {
   /**
-   * <p>Enum to denote whether the dev eui join event topic is enabled or disabled.</p>
+   * <p>Enum to denote whether the Dev EUI join event topic is enabled or disabled.</p>
    */
   DevEuiEventTopic?: EventNotificationTopicStatus | string;
 }
@@ -2943,22 +3004,22 @@ export namespace ProximityResourceTypeEventConfiguration {
 
 export interface GetEventConfigurationByResourceTypesResponse {
   /**
-   * <p>Resource type event configuration for the device registration state event</p>
+   * <p>Resource type event configuration for the device registration state event.</p>
    */
   DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
 
   /**
-   * <p>Resource type event configuration for the proximity event</p>
+   * <p>Resource type event configuration for the proximity event.</p>
    */
   Proximity?: ProximityResourceTypeEventConfiguration;
 
   /**
-   * <p>Resource type event configuration for the join event</p>
+   * <p>Resource type event configuration for the join event.</p>
    */
   Join?: JoinResourceTypeEventConfiguration;
 
   /**
-   * <p>Resource type event configuration for the connection status event</p>
+   * <p>Resource type event configuration for the connection status event.</p>
    */
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
 }
@@ -3529,6 +3590,189 @@ export namespace GetPartnerAccountResponse {
   });
 }
 
+export enum PositionResourceType {
+  WirelessDevice = "WirelessDevice",
+  WirelessGateway = "WirelessGateway",
+}
+
+export interface GetPositionRequest {
+  /**
+   * <p>Resource identifier used to retrieve the position information.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>Resource type of the resource for which position information is retrieved.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+}
+
+export namespace GetPositionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPositionRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PositionSolverProvider {
+  SEMTECH = "Semtech",
+}
+
+export enum PositionSolverType {
+  GNSS = "GNSS",
+}
+
+export interface GetPositionResponse {
+  /**
+   * <p>The position information of the resource.</p>
+   */
+  Position?: number[];
+
+  /**
+   * <p>The accuracy of the estimated position in meters. An empty value indicates that no position data is available.
+   *             A value of ‘0.0’ value indicates that position data is available. This data corresponds to the position information
+   *             that you specified instead of the position computed by solver.</p>
+   */
+  Accuracy?: Accuracy;
+
+  /**
+   * <p>The type of solver used to identify the position of the resource.</p>
+   */
+  SolverType?: PositionSolverType | string;
+
+  /**
+   * <p>The vendor of the positioning solver.</p>
+   */
+  SolverProvider?: PositionSolverProvider | string;
+
+  /**
+   * <p>The version of the positioning solver.</p>
+   */
+  SolverVersion?: string;
+
+  /**
+   * <p>The timestamp at which the device's position was determined.</p>
+   */
+  Timestamp?: string;
+}
+
+export namespace GetPositionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPositionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPositionConfigurationRequest {
+  /**
+   * <p>Resource identifier used in a position configuration.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>Resource type of the resource for which position configuration is retrieved.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+}
+
+export namespace GetPositionConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPositionConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PositionConfigurationFec {
+  NONE = "NONE",
+  ROSE = "ROSE",
+}
+
+export enum PositionConfigurationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Details of the Semtech GNSS solver object.</p>
+ */
+export interface SemtechGnssDetail {
+  /**
+   * <p>The vendor of the solver object.</p>
+   */
+  Provider?: PositionSolverProvider | string;
+
+  /**
+   * <p>The type of positioning solver used.</p>
+   */
+  Type?: PositionSolverType | string;
+
+  /**
+   * <p>The status indicating whether the solver is enabled.</p>
+   */
+  Status?: PositionConfigurationStatus | string;
+
+  /**
+   * <p>Whether forward error correction is enabled.</p>
+   */
+  Fec?: PositionConfigurationFec | string;
+}
+
+export namespace SemtechGnssDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SemtechGnssDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The wrapper for position solver details.</p>
+ */
+export interface PositionSolverDetails {
+  /**
+   * <p>The Semtech GNSS solver object details.</p>
+   */
+  SemtechGnss?: SemtechGnssDetail;
+}
+
+export namespace PositionSolverDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PositionSolverDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPositionConfigurationResponse {
+  /**
+   * <p>The wrapper for the solver configuration details object.</p>
+   */
+  Solvers?: PositionSolverDetails;
+
+  /**
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by
+   *             AWS IoT Core for LoRaWAN.</p>
+   */
+  Destination?: string;
+}
+
+export namespace GetPositionConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPositionConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetResourceEventConfigurationRequest {
   /**
    * <p>Resource identifier to opt in for event messaging.</p>
@@ -3541,7 +3785,7 @@ export interface GetResourceEventConfigurationRequest {
   IdentifierType: IdentifierType | string | undefined;
 
   /**
-   * <p>Partner type of the resource if the identifier type is PartnerAccountId.</p>
+   * <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>.</p>
    */
   PartnerType?: EventNotificationPartnerType | string;
 }
@@ -3557,12 +3801,12 @@ export namespace GetResourceEventConfigurationRequest {
 
 export interface GetResourceEventConfigurationResponse {
   /**
-   * <p>Event configuration for the device registration state event</p>
+   * <p>Event configuration for the device registration state event.</p>
    */
   DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration;
 
   /**
-   * <p>Event configuration for the Proximity event</p>
+   * <p>Event configuration for the proximity event.</p>
    */
   Proximity?: ProximityEventConfiguration;
 
@@ -4832,6 +5076,89 @@ export namespace ListPartnerAccountsResponse {
   });
 }
 
+export interface ListPositionConfigurationsRequest {
+  /**
+   * <p>Resource type for which position configurations are listed.</p>
+   */
+  ResourceType?: PositionResourceType | string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b>
+   *             to receive the first set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPositionConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPositionConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The wrapper for a position configuration.</p>
+ */
+export interface PositionConfigurationItem {
+  /**
+   * <p>Resource identifier for the position configuration.</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * <p>Resource type of the resource for the position configuration.</p>
+   */
+  ResourceType?: PositionResourceType | string;
+
+  /**
+   * <p>The details of the positioning solver object used to compute the location.</p>
+   */
+  Solvers?: PositionSolverDetails;
+
+  /**
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by
+   *             AWS IoT Core for LoRaWAN.</p>
+   */
+  Destination?: string;
+}
+
+export namespace PositionConfigurationItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PositionConfigurationItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPositionConfigurationsResponse {
+  /**
+   * <p>A list of position configurations.</p>
+   */
+  PositionConfigurationList?: PositionConfigurationItem[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPositionConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPositionConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListQueuedMessagesRequest {
   /**
    * <p>The ID of a given wireless device which the downlink message packets are being sent.</p>
@@ -5369,6 +5696,92 @@ export namespace ListWirelessGatewayTaskDefinitionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListWirelessGatewayTaskDefinitionsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Semtech GNSS solver configuration.</p>
+ */
+export interface SemtechGnssConfiguration {
+  /**
+   * <p>The status indicating whether the solver is enabled.</p>
+   */
+  Status: PositionConfigurationStatus | string | undefined;
+
+  /**
+   * <p>Whether forward error correction is enabled.</p>
+   */
+  Fec: PositionConfigurationFec | string | undefined;
+}
+
+export namespace SemtechGnssConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SemtechGnssConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The wrapper for position solver configurations.</p>
+ */
+export interface PositionSolverConfigurations {
+  /**
+   * <p>The Semtech GNSS solver configuration object.</p>
+   */
+  SemtechGnss?: SemtechGnssConfiguration;
+}
+
+export namespace PositionSolverConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PositionSolverConfigurations): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPositionConfigurationRequest {
+  /**
+   * <p>Resource identifier used to update the position configuration.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>Resource type of the resource for which you want to update the position configuration.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+
+  /**
+   * <p>The positioning solvers used to update the position configuration of the resource.</p>
+   */
+  Solvers?: PositionSolverConfigurations;
+
+  /**
+   * <p>The position data destination that describes the AWS IoT rule that processes the device's position data for use by
+   *             AWS IoT Core for LoRaWAN.</p>
+   */
+  Destination?: string;
+}
+
+export namespace PutPositionConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPositionConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPositionConfigurationResponse {}
+
+export namespace PutPositionConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPositionConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -6146,348 +6559,6 @@ export namespace UpdateMulticastGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNetworkAnalyzerConfigurationRequest {
-  /**
-   * <p>Name of the network analyzer configuration.</p>
-   */
-  ConfigurationName: string | undefined;
-
-  /**
-   * <p>Trace content for your wireless gateway and wireless device resources.</p>
-   */
-  TraceContent?: TraceContent;
-
-  /**
-   * <p>Wireless device resources to add to the network analyzer configuration. Provide the
-   *             <code>WirelessDeviceId</code> of the resource to add in the input array.</p>
-   */
-  WirelessDevicesToAdd?: string[];
-
-  /**
-   * <p>Wireless device resources to remove from the network analyzer configuration. Provide the
-   *             <code>WirelessDeviceId</code> of the resources to remove in the input array.</p>
-   */
-  WirelessDevicesToRemove?: string[];
-
-  /**
-   * <p>Wireless gateway resources to add to the network analyzer configuration. Provide the
-   *             <code>WirelessGatewayId</code> of the resource to add in the input array.</p>
-   */
-  WirelessGatewaysToAdd?: string[];
-
-  /**
-   * <p>Wireless gateway resources to remove from the network analyzer configuration. Provide the
-   *             <code>WirelessGatewayId</code> of the resources to remove in the input array.</p>
-   */
-  WirelessGatewaysToRemove?: string[];
-
-  /**
-   * <p>The description of the new resource.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateNetworkAnalyzerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNetworkAnalyzerConfigurationResponse {}
-
-export namespace UpdateNetworkAnalyzerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Sidewalk update.</p>
- */
-export interface SidewalkUpdateAccount {
-  /**
-   * <p>The new Sidewalk application server private key.</p>
-   */
-  AppServerPrivateKey?: string;
-}
-
-export namespace SidewalkUpdateAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkUpdateAccount): any => ({
-    ...obj,
-    ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdatePartnerAccountRequest {
-  /**
-   * <p>The Sidewalk account credentials.</p>
-   */
-  Sidewalk: SidewalkUpdateAccount | undefined;
-
-  /**
-   * <p>The ID of the partner account to update.</p>
-   */
-  PartnerAccountId: string | undefined;
-
-  /**
-   * <p>The partner type.</p>
-   */
-  PartnerType: PartnerType | string | undefined;
-}
-
-export namespace UpdatePartnerAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartnerAccountRequest): any => ({
-    ...obj,
-    ...(obj.Sidewalk && { Sidewalk: SidewalkUpdateAccount.filterSensitiveLog(obj.Sidewalk) }),
-  });
-}
-
-export interface UpdatePartnerAccountResponse {}
-
-export namespace UpdatePartnerAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartnerAccountResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateResourceEventConfigurationRequest {
-  /**
-   * <p>Resource identifier to opt in for event messaging.</p>
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>Identifier type of the particular resource identifier for event configuration.</p>
-   */
-  IdentifierType: IdentifierType | string | undefined;
-
-  /**
-   * <p>Partner type of the resource if the identifier type is PartnerAccountId</p>
-   */
-  PartnerType?: EventNotificationPartnerType | string;
-
-  /**
-   * <p>Event configuration for the device registration state event</p>
-   */
-  DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration;
-
-  /**
-   * <p>Event configuration for the Proximity event</p>
-   */
-  Proximity?: ProximityEventConfiguration;
-
-  /**
-   * <p>Event configuration for the join event</p>
-   */
-  Join?: JoinEventConfiguration;
-
-  /**
-   * <p>Event configuration for the connection status event</p>
-   */
-  ConnectionStatus?: ConnectionStatusEventConfiguration;
-}
-
-export namespace UpdateResourceEventConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateResourceEventConfigurationResponse {}
-
-export namespace UpdateResourceEventConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>ABP device object for LoRaWAN specification v1.0.x</p>
- */
-export interface UpdateAbpV1_0_x {
-  /**
-   * <p>The FCnt init value.</p>
-   */
-  FCntStart?: number;
-}
-
-export namespace UpdateAbpV1_0_x {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAbpV1_0_x): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>ABP device object for LoRaWAN specification v1.1</p>
- */
-export interface UpdateAbpV1_1 {
-  /**
-   * <p>The FCnt init value.</p>
-   */
-  FCntStart?: number;
-}
-
-export namespace UpdateAbpV1_1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAbpV1_1): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>LoRaWAN object for update functions.</p>
- */
-export interface LoRaWANUpdateDevice {
-  /**
-   * <p>The ID of the device profile for the wireless device.</p>
-   */
-  DeviceProfileId?: string;
-
-  /**
-   * <p>The ID of the service profile.</p>
-   */
-  ServiceProfileId?: string;
-
-  /**
-   * <p>ABP device object for update APIs for v1.1</p>
-   */
-  AbpV1_1?: UpdateAbpV1_1;
-
-  /**
-   * <p>ABP device object for update APIs for v1.0.x</p>
-   */
-  AbpV1_0_x?: UpdateAbpV1_0_x;
-}
-
-export namespace LoRaWANUpdateDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANUpdateDevice): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWirelessDeviceRequest {
-  /**
-   * <p>The ID of the resource to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the new destination for the device.</p>
-   */
-  DestinationName?: string;
-
-  /**
-   * <p>The new name of the resource.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A new description of the resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The updated wireless device's configuration.</p>
-   */
-  LoRaWAN?: LoRaWANUpdateDevice;
-}
-
-export namespace UpdateWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWirelessDeviceResponse {}
-
-export namespace UpdateWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWirelessGatewayRequest {
-  /**
-   * <p>The ID of the resource to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The new name of the resource.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A new description of the resource.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.</p>
-   */
-  JoinEuiFilters?: string[][];
-
-  /**
-   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink frames.</p>
-   */
-  NetIdFilters?: string[];
-}
-
-export namespace UpdateWirelessGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWirelessGatewayResponse {}
-
-export namespace UpdateWirelessGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayResponse): any => ({
     ...obj,
   });
 }
