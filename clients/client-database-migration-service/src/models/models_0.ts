@@ -10443,3 +10443,45 @@ export namespace TestConnectionResponse {
     ...obj,
   });
 }
+
+/**
+ * <p></p>
+ */
+export interface UpdateSubscriptionsToEventBridgeMessage {
+  /**
+   * <p>When set to true, this operation migrates DMS subscriptions for Amazon SNS
+   *          notifications no matter what your replication instance version is. If not set or set to
+   *          false, this operation runs only when all your replication instances are from DMS
+   *          version 3.4.6 or higher.
+   *       </p>
+   */
+  ForceMove?: boolean;
+}
+
+export namespace UpdateSubscriptionsToEventBridgeMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSubscriptionsToEventBridgeMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface UpdateSubscriptionsToEventBridgeResponse {
+  /**
+   * <p>A string that indicates how many event subscriptions were migrated and how many remain to be migrated.</p>
+   */
+  Result?: string;
+}
+
+export namespace UpdateSubscriptionsToEventBridgeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSubscriptionsToEventBridgeResponse): any => ({
+    ...obj,
+  });
+}

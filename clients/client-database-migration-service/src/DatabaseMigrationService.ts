@@ -321,6 +321,11 @@ import {
   TestConnectionCommandInput,
   TestConnectionCommandOutput,
 } from "./commands/TestConnectionCommand";
+import {
+  UpdateSubscriptionsToEventBridgeCommand,
+  UpdateSubscriptionsToEventBridgeCommandInput,
+  UpdateSubscriptionsToEventBridgeCommandOutput,
+} from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
 
 /**
@@ -2549,6 +2554,46 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: TestConnectionCommandOutput) => void
   ): Promise<TestConnectionCommandOutput> | void {
     const command = new TestConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules.
+   *          By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.6 or higher.
+   *          If any replication instances are from versions earlier than 3.4.6, the operation raises an error and tells you
+   *          to upgrade these instances to version 3.4.6 or higher. To enable migration regardless of version, set the <code>Force</code>
+   *          option to true. However, if you don't upgrade instances earlier than version 3.4.6, some types of events might not be
+   *          available when you use Amazon EventBridge.</p>
+   *          <p>To call this operation, make sure that you have certain permissions added to your user account.
+   *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge">Migrating event subscriptions to Amazon EventBridge</a>
+   *             in the <i>Amazon Web Services Database Migration Service User Guide</i>.</p>
+   */
+  public updateSubscriptionsToEventBridge(
+    args: UpdateSubscriptionsToEventBridgeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSubscriptionsToEventBridgeCommandOutput>;
+  public updateSubscriptionsToEventBridge(
+    args: UpdateSubscriptionsToEventBridgeCommandInput,
+    cb: (err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void
+  ): void;
+  public updateSubscriptionsToEventBridge(
+    args: UpdateSubscriptionsToEventBridgeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void
+  ): void;
+  public updateSubscriptionsToEventBridge(
+    args: UpdateSubscriptionsToEventBridgeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void
+  ): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> | void {
+    const command = new UpdateSubscriptionsToEventBridgeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

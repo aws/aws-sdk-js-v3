@@ -270,6 +270,10 @@ import {
   StopReplicationTaskCommandOutput,
 } from "./commands/StopReplicationTaskCommand";
 import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
+import {
+  UpdateSubscriptionsToEventBridgeCommandInput,
+  UpdateSubscriptionsToEventBridgeCommandOutput,
+} from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -336,7 +340,8 @@ export type ServiceInputTypes =
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
   | StopReplicationTaskCommandInput
-  | TestConnectionCommandInput;
+  | TestConnectionCommandInput
+  | UpdateSubscriptionsToEventBridgeCommandInput;
 
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
@@ -402,7 +407,8 @@ export type ServiceOutputTypes =
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
   | StopReplicationTaskCommandOutput
-  | TestConnectionCommandOutput;
+  | TestConnectionCommandOutput
+  | UpdateSubscriptionsToEventBridgeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

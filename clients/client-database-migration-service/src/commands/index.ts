@@ -63,3 +63,4 @@ export * from "./StartReplicationTaskAssessmentRunCommand";
 export * from "./StartReplicationTaskCommand";
 export * from "./StopReplicationTaskCommand";
 export * from "./TestConnectionCommand";
+export * from "./UpdateSubscriptionsToEventBridgeCommand";

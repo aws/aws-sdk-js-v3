@@ -235,6 +235,10 @@ import {
   StopReplicationTaskCommandOutput,
 } from "../commands/StopReplicationTaskCommand";
 import { TestConnectionCommandInput, TestConnectionCommandOutput } from "../commands/TestConnectionCommand";
+import {
+  UpdateSubscriptionsToEventBridgeCommandInput,
+  UpdateSubscriptionsToEventBridgeCommandOutput,
+} from "../commands/UpdateSubscriptionsToEventBridgeCommand";
 import { DatabaseMigrationServiceServiceException as __BaseException } from "../models/DatabaseMigrationServiceServiceException";
 import {
   AccessDeniedFault,
@@ -446,6 +450,8 @@ import {
   Tag,
   TestConnectionMessage,
   TestConnectionResponse,
+  UpdateSubscriptionsToEventBridgeMessage,
+  UpdateSubscriptionsToEventBridgeResponse,
   UpgradeDependencyFailureFault,
   VpcSecurityGroupMembership,
 } from "../models/models_0";
@@ -1278,6 +1284,19 @@ export const serializeAws_json1_1TestConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TestConnectionMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand = async (
+  input: UpdateSubscriptionsToEventBridgeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonDMSv20160101.UpdateSubscriptionsToEventBridge",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSubscriptionsToEventBridgeMessage(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4421,6 +4440,53 @@ const deserializeAws_json1_1TestConnectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSubscriptionsToEventBridgeResponse(data, context);
+  const response: UpdateSubscriptionsToEventBridgeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await deserializeAws_json1_1AccessDeniedFaultResponse(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await deserializeAws_json1_1InvalidResourceStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_json1_1AccessDeniedFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6460,6 +6526,15 @@ const serializeAws_json1_1TestConnectionMessage = (input: TestConnectionMessage,
     ...(input.EndpointArn !== undefined && input.EndpointArn !== null && { EndpointArn: input.EndpointArn }),
     ...(input.ReplicationInstanceArn !== undefined &&
       input.ReplicationInstanceArn !== null && { ReplicationInstanceArn: input.ReplicationInstanceArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateSubscriptionsToEventBridgeMessage = (
+  input: UpdateSubscriptionsToEventBridgeMessage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ForceMove !== undefined && input.ForceMove !== null && { ForceMove: input.ForceMove }),
   };
 };
 
@@ -8985,6 +9060,15 @@ const deserializeAws_json1_1TestConnectionResponse = (output: any, context: __Se
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_1Connection(output.Connection, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSubscriptionsToEventBridgeResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateSubscriptionsToEventBridgeResponse => {
+  return {
+    Result: __expectString(output.Result),
   } as any;
 };
 
