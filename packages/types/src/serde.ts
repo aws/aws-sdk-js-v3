@@ -52,3 +52,20 @@ export interface ResponseDeserializer<OutputType, ResponseType = any, Context = 
    */
   (output: ResponseType, context: Context): Promise<OutputType>;
 }
+
+/**
+ * The interface contains mix-in utility functions to transfer the runtime-specific
+ * stream implementation to specified format. Each stream can ONLY be transformed
+ * once.
+ */
+export interface SdkStreamMixin {
+  transformToByteArray: () => Promise<Uint8Array>;
+  transformToString: (encoding?: string) => Promise<string>;
+  transformToWebStream: () => ReadableStream;
+}
+
+/**
+ * The type describing a runtime-specific stream implementation with mix-in
+ * utility functions.
+ */
+export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
