@@ -13,6 +13,7 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { EventEmitter } from "events";
 
@@ -59,6 +60,8 @@ export class Upload extends EventEmitter {
   private isMultiPart = true;
   private singleUploadResult?: CompleteMultipartUploadCommandOutput;
 
+  private notificationTimeout = -1;
+
   constructor(options: Options) {
     super();
 
@@ -99,10 +102,41 @@ export class Upload extends EventEmitter {
   private async __uploadUsingPut(dataPart: RawDataPart): Promise<void> {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
+
+    const requestHandler = this.client.config.requestHandler;
+    const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+    const uploadEventListener = (event: ProgressEvent) => {
+      this.bytesUploadedSoFar = event.loaded;
+      this.totalBytes = event.total;
+      console.log(
+        "UPLOAD",
+        "EventEmitter-single",
+        (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
+        "of",
+        this.totalBytes,
+        dataPart.partNumber
+      );
+      this.__notifyProgress({
+        loaded: this.bytesUploadedSoFar,
+        total: this.totalBytes,
+        part: dataPart.partNumber,
+        Key: this.params.Key,
+        Bucket: this.params.Bucket,
+      });
+    };
+
+    if (eventEmitter !== null) {
+      eventEmitter.on("upload.progress", uploadEventListener);
+    }
+
     const [putResult, endpoint] = await Promise.all([
       this.client.send(new PutObjectCommand(params)),
       this.client.config.endpoint(),
     ]);
+
+    if (eventEmitter !== null) {
+      eventEmitter.off("upload.progress", uploadEventListener);
+    }
 
     const locationKey = this.params
       .Key!.split("/")
@@ -121,6 +155,15 @@ export class Upload extends EventEmitter {
       Location,
     };
     const totalSize = byteLength(dataPart.data);
+
+    console.log(
+      "UPLOAD",
+      "completion-single",
+      (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
+      "of",
+      this.totalBytes,
+      dataPart.partNumber
+    );
     this.__notifyProgress({
       loaded: totalSize,
       total: totalSize,
@@ -164,6 +207,57 @@ export class Upload extends EventEmitter {
           }
         }
 
+        const partSize: number = byteLength(dataPart.data) || 0;
+
+        const requestHandler = this.client.config.requestHandler;
+        const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+
+        let lastSeenBytes = 0;
+        const uploadEventListener = (event: ProgressEvent, request: HttpRequest) => {
+          const requestPartSize = Number(request.query["partNumber"]) || -1;
+
+          if (requestPartSize !== dataPart.partNumber) {
+            // ignored, because the emitted event is not for this part.
+            return;
+          }
+
+          if (event.total && partSize) {
+            this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
+            console.log(
+              "debug eventRatio" + dataPart.partNumber + "x",
+              event.loaded / event.total,
+              partSize,
+              "seen:" + lastSeenBytes,
+              "part:" + dataPart.partNumber,
+              "incr:" + (event.loaded - lastSeenBytes)
+            );
+            lastSeenBytes = event.loaded;
+          }
+
+          console.log(
+            "UPLOAD",
+            "EventEmitter-multi",
+            (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
+            "of",
+            this.totalBytes,
+            dataPart.partNumber
+          );
+
+          this.__notifyProgress({
+            loaded: this.bytesUploadedSoFar,
+            total: this.totalBytes,
+            part: dataPart.partNumber,
+            Key: this.params.Key,
+            Bucket: this.params.Bucket,
+          });
+        };
+
+        if (eventEmitter !== null) {
+          // This means the requestHandler may be the xhr-http-handler.
+          // We can listen for progress.
+          eventEmitter.on("upload.progress", uploadEventListener);
+        }
+
         const partResult = await this.client.send(
           new UploadPartCommand({
             ...this.params,
@@ -172,6 +266,10 @@ export class Upload extends EventEmitter {
             PartNumber: dataPart.partNumber,
           })
         );
+
+        if (eventEmitter !== null) {
+          eventEmitter.off("upload.progress", uploadEventListener);
+        }
 
         if (this.abortController.signal.aborted) {
           return;
@@ -186,7 +284,18 @@ export class Upload extends EventEmitter {
           ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
         });
 
-        this.bytesUploadedSoFar += byteLength(dataPart.data);
+        if (eventEmitter === null) {
+          this.bytesUploadedSoFar += partSize;
+        }
+
+        console.log(
+          "UPLOAD",
+          "completion-multi",
+          (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
+          "of",
+          this.totalBytes,
+          dataPart.partNumber
+        );
         this.__notifyProgress({
           loaded: this.bytesUploadedSoFar,
           total: this.totalBytes,
