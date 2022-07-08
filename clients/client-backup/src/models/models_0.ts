@@ -290,10 +290,9 @@ export namespace BackupJob {
  *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
  *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
  *          be changed after a backup has been transitioned to cold.</p>
- *          <p>Only resource types that support full Backup management can transition their
- *          backups to cold storage. Those resource types are listed in the "Full Backup
- *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
- *             availability by resource</a> table. Backup ignores this expression for
+ *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+ *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+ *             Feature availability by resource</a> table. Backup ignores this expression for
  *          other resource types.</p>
  */
 export interface Lifecycle {
@@ -330,10 +329,9 @@ export interface CopyAction {
    *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold.</p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -403,10 +401,9 @@ export interface BackupRule {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -525,10 +522,9 @@ export interface BackupRuleInput {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold.</p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -804,6 +800,9 @@ export namespace Condition {
 
 /**
  * <p>Used to specify a set of resources to a backup plan.</p>
+ *          <p>Specifying your desired <code>Conditions</code>, <code>ListOfTags</code>, <code>NotResources</code>,
+ *          and/or <code>Resources</code> is recommended. If none of these are specified, Backup will attempt to
+ *        select all supported and opted-in storage resources, which could have unintended cost implications.</p>
  */
 export interface BackupSelection {
   /**
@@ -829,7 +828,10 @@ export interface BackupSelection {
 
   /**
    * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals": {"Department": "accounting"</code>. Condition
+   *          tags. For example, <code>"StringEquals":  {
+   *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
+   *             "ConditionValue": "true"
+   *             },</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
    *             <code>ListOfTags</code> differs from <code>Conditions</code> as follows:</p>
@@ -860,7 +862,10 @@ export interface BackupSelection {
 
   /**
    * <p>A list of conditions that you define to assign resources to your backup plans using
-   *          tags. For example, <code>"StringEquals": {"Department": "accounting"</code>. Condition
+   *          tags. For example, <code>"StringEquals":  {
+   *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
+   *             "ConditionValue": "true"
+   *             },</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
    *             <code>Conditions</code> differs from <code>ListOfTags</code> as follows:</p>
@@ -1077,10 +1082,9 @@ export namespace BackupVaultListMember {
  *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
  *          cold after days” setting. The “transition to cold after days” setting cannot be changed
  *          after a backup has been transitioned to cold.</p>
- *          <p>Only resource types that support full Backup management can transition their
- *          backups to cold storage. Those resource types are listed in the "Full Backup
- *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
- *             availability by resource</a> table. Backup ignores this expression for
+ *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+ *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+ *             Feature availability by resource</a> table. Backup ignores this expression for
  *          other resource types.</p>
  */
 export interface CalculatedLifecycle {
@@ -2889,10 +2893,9 @@ export interface DescribeRecoveryPointOutput {
    *          minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -4750,10 +4753,9 @@ export interface RecoveryPointByBackupVault {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -5491,10 +5493,9 @@ export interface StartBackupJobInput {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold. </p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -5598,10 +5599,9 @@ export interface StartCopyJobInput {
    *          days. Therefore, on the console, the “retention” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold.</p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
@@ -5745,7 +5745,7 @@ export interface StartRestoreJobInput {
    *          the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    */
-  IamRoleArn: string | undefined;
+  IamRoleArn?: string;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -6105,10 +6105,9 @@ export interface UpdateRecoveryPointLifecycleOutput {
    *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
    *          cold after days” setting. The “transition to cold after days” setting cannot be changed
    *          after a backup has been transitioned to cold.</p>
-   *          <p>Only resource types that support full Backup management can transition their
-   *          backups to cold storage. Those resource types are listed in the "Full Backup
-   *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
-   *             availability by resource</a> table. Backup ignores this expression for
+   *          <p>Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage"
+   *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
+   *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
    */
   Lifecycle?: Lifecycle;
