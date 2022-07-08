@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.125.0...v3.126.0) (2022-07-08)
+
+
+### Features
+
+* **client-backup:** This release adds support for authentication using IAM user identity instead of passed IAM role, identified by excluding the IamRoleArn field in the StartRestoreJob API. This feature applies to only resource clients with a destructive restore nature (e.g. SAP HANA). ([2aea1bc](https://github.com/aws/aws-sdk-js-v3/commit/2aea1bc6939ac4d802b5d1366820311fcde141df))
+
+
+
+
+
 # [3.121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.120.0...v3.121.0) (2022-06-30)
 
 
