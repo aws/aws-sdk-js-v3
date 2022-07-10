@@ -116,9 +116,9 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.write("Hash.bind(null, \"sha1\")");
                     },
                     "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(AwsDependency.UTIL_STREAM_NODE);
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_NODE);
                         writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                AwsDependency.UTIL_STREAM_NODE.packageName);
+                                TypeScriptDependency.UTIL_STREAM_NODE.packageName);
                         writer.write("getAwsChunkedEncodingStream");
                     }
                 );
@@ -142,9 +142,9 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.write("Sha1");
                     },
                     "getAwsChunkedEncodingStream", writer -> {
-                        writer.addDependency(AwsDependency.UTIL_STREAM_BROWSER);
+                        writer.addDependency(TypeScriptDependency.UTIL_STREAM_BROWSER);
                         writer.addImport("getAwsChunkedEncodingStream", "getAwsChunkedEncodingStream",
-                                AwsDependency.UTIL_STREAM_BROWSER.packageName);
+                                TypeScriptDependency.UTIL_STREAM_BROWSER.packageName);
                         writer.write("getAwsChunkedEncodingStream");
                     }
                 );
