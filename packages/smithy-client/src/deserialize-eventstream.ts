@@ -69,10 +69,14 @@ export function parseEventStream(input: any, targetTypes: Record<string, ParseEv
     if (value != null && typeof value === "object" && value[isEventStream]) {
       switch (memberTargetType) {
         case "blob":
-        case "string":
           input[key] = value.body;
           break;
-        case "structure":
+        case "string": {
+          const _value = value as ParsedEventBody;
+          input[key] = Buffer.from(_value.body as Bufferable).toString();
+          break;
+        }
+        case "structure": {
           const _value = value as ParsedEventBody;
           try {
             input[key] = JSON.parse(Buffer.from(_value.body as Bufferable).toString());
@@ -80,6 +84,7 @@ export function parseEventStream(input: any, targetTypes: Record<string, ParseEv
             console.error("Error parsing event stream.", error);
           }
           break;
+        }
       }
     }
   }
