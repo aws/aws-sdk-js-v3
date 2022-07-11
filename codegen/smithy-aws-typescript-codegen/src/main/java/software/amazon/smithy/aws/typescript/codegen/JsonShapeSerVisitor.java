@@ -151,7 +151,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
-                    writer.write("...($1L !== undefined && $1L !== null && { $2S: $3L }),",
+                    writer.write("...($1L != undefined && { $2S: $3L }),",
                             inputLocation, locationName, valueProvider);
                 }
             });
