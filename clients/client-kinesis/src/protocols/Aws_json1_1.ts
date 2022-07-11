@@ -2274,27 +2274,11 @@ const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, c
 
 const serializeAws_json1_1CreateStreamInput = (input: CreateStreamInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.ShardCount != null && { ShardCount: input.ShardCount }),
     ...(input.StreamModeDetails != null && {
       StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
     }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-=======
-    ...(input.ShardCount !== undefined && input.ShardCount !== null && { ShardCount: input.ShardCount }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.StreamModeDetails !== undefined &&
-      input.StreamModeDetails !== null && {
-        StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
-      }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-<<<<<<< HEAD
-    ...(input.ShardCount !== undefined && input.ShardCount !== null && { ShardCount: input.ShardCount }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2303,39 +2287,15 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.RetentionPeriodHours !== undefined &&
-      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.RetentionPeriodHours !== undefined &&
-      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1DeleteStreamInput = (input: DeleteStreamInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.EnforceConsumerDeletion != null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.EnforceConsumerDeletion !== undefined &&
-      input.EnforceConsumerDeletion !== null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.EnforceConsumerDeletion !== undefined &&
-      input.EnforceConsumerDeletion !== null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2367,23 +2327,9 @@ const serializeAws_json1_1DescribeStreamConsumerInput = (
 
 const serializeAws_json1_1DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.ExclusiveStartShardId !== undefined &&
-      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.ExclusiveStartShardId !== undefined &&
-      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2422,39 +2368,18 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
 
 const serializeAws_json1_1GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
-=======
-    ...(input.ShardIterator !== undefined && input.ShardIterator !== null && { ShardIterator: input.ShardIterator }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.ShardIterator !== undefined && input.ShardIterator !== null && { ShardIterator: input.ShardIterator }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
     ...(input.ShardId != null && { ShardId: input.ShardId }),
     ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
     ...(input.StartingSequenceNumber != null && { StartingSequenceNumber: input.StartingSequenceNumber }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-=======
-    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType !== undefined &&
-      input.ShardIteratorType !== null && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StartingSequenceNumber !== undefined &&
-      input.StartingSequenceNumber !== null && { StartingSequenceNumber: input.StartingSequenceNumber }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
   };
 };
 
@@ -2463,27 +2388,13 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.RetentionPeriodHours !== undefined &&
-      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.RetentionPeriodHours !== undefined &&
-      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -2492,30 +2403,6 @@ const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamCreationTimestamp !== undefined &&
-      input.StreamCreationTimestamp !== null && {
-        StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-      }),
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.ExclusiveStartShardId !== undefined &&
-      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ShardFilter !== undefined &&
-      input.ShardFilter !== null && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
-<<<<<<< HEAD
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.StreamCreationTimestamp !== undefined &&
-      input.StreamCreationTimestamp !== null && {
-        StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-      }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2524,30 +2411,12 @@ const serializeAws_json1_1ListStreamConsumersInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamCreationTimestamp != null && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
-=======
-=======
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamCreationTimestamp !== undefined &&
-      input.StreamCreationTimestamp !== null && {
-        StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-      }),
-<<<<<<< HEAD
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2560,45 +2429,17 @@ const serializeAws_json1_1ListStreamsInput = (input: ListStreamsInput, context: 
 
 const serializeAws_json1_1ListTagsForStreamInput = (input: ListTagsForStreamInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.ExclusiveStartTagKey !== undefined &&
-      input.ExclusiveStartTagKey !== null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.ExclusiveStartTagKey !== undefined &&
-      input.ExclusiveStartTagKey !== null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1MergeShardsInput = (input: MergeShardsInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.AdjacentShardToMerge != null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
     ...(input.ShardToMerge != null && { ShardToMerge: input.ShardToMerge }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.AdjacentShardToMerge !== undefined &&
-      input.AdjacentShardToMerge !== null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
-    ...(input.ShardToMerge !== undefined && input.ShardToMerge !== null && { ShardToMerge: input.ShardToMerge }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.AdjacentShardToMerge !== undefined &&
-      input.AdjacentShardToMerge !== null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
-    ...(input.ShardToMerge !== undefined && input.ShardToMerge !== null && { ShardToMerge: input.ShardToMerge }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2615,72 +2456,26 @@ const serializeAws_json1_1MetricsNameList = (input: (MetricsName | string)[], co
 
 const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
     ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
     ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
     ...(input.SequenceNumberForOrdering != null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.SequenceNumberForOrdering !== undefined &&
-      input.SequenceNumberForOrdering !== null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.ExplicitHashKey !== undefined &&
-      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
-    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey !== undefined &&
-      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
-    ...(input.SequenceNumberForOrdering !== undefined &&
-      input.SequenceNumberForOrdering !== null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.Records != null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Records !== undefined &&
-      input.Records !== null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Records !== undefined &&
-      input.Records !== null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1PutRecordsRequestEntry = (input: PutRecordsRequestEntry, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
     ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
     ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
-=======
-    ...(input.ExplicitHashKey !== undefined &&
-      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
-    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey !== undefined &&
-      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2720,64 +2515,25 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
 
 const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
     ...(input.ShardId != null && { ShardId: input.ShardId }),
     ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Type != null && { Type: input.Type }),
-=======
-    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-<<<<<<< HEAD
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.NewStartingHashKey != null && { NewStartingHashKey: input.NewStartingHashKey }),
     ...(input.ShardToSplit != null && { ShardToSplit: input.ShardToSplit }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.NewStartingHashKey !== undefined &&
-      input.NewStartingHashKey !== null && { NewStartingHashKey: input.NewStartingHashKey }),
-    ...(input.ShardToSplit !== undefined && input.ShardToSplit !== null && { ShardToSplit: input.ShardToSplit }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.NewStartingHashKey !== undefined &&
-      input.NewStartingHashKey !== null && { NewStartingHashKey: input.NewStartingHashKey }),
-    ...(input.ShardToSplit !== undefined && input.ShardToSplit !== null && { ShardToSplit: input.ShardToSplit }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
     ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Type != null && { Type: input.Type }),
-=======
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.SequenceNumber !== undefined &&
-      input.SequenceNumber !== null && { SequenceNumber: input.SequenceNumber }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-<<<<<<< HEAD
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2786,19 +2542,9 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.EncryptionType !== undefined &&
-      input.EncryptionType !== null && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
-<<<<<<< HEAD
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2807,19 +2553,9 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
     ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
     ...(input.KeyId != null && { KeyId: input.KeyId }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
-=======
-    ...(input.EncryptionType !== undefined &&
-      input.EncryptionType !== null && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
-<<<<<<< HEAD
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2831,27 +2567,11 @@ const serializeAws_json1_1StreamModeDetails = (input: StreamModeDetails, context
 
 const serializeAws_json1_1SubscribeToShardInput = (input: SubscribeToShardInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
     ...(input.ShardId != null && { ShardId: input.ShardId }),
     ...(input.StartingPosition != null && {
       StartingPosition: serializeAws_json1_1StartingPosition(input.StartingPosition, context),
     }),
-=======
-=======
-    ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
-    ...(input.StartingPosition !== undefined &&
-      input.StartingPosition !== null && {
-        StartingPosition: serializeAws_json1_1StartingPosition(input.StartingPosition, context),
-      }),
-<<<<<<< HEAD
-    ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
@@ -2880,44 +2600,18 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
 
 const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
     ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
     ...(input.TargetShardCount != null && { TargetShardCount: input.TargetShardCount }),
-=======
-    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.TargetShardCount !== undefined &&
-      input.TargetShardCount !== null && { TargetShardCount: input.TargetShardCount }),
-<<<<<<< HEAD
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
 const serializeAws_json1_1UpdateStreamModeInput = (input: UpdateStreamModeInput, context: __SerdeContext): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamModeDetails != null && {
       StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
     }),
-=======
-=======
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
-    ...(input.StreamModeDetails !== undefined &&
-      input.StreamModeDetails !== null && {
-        StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
-      }),
-<<<<<<< HEAD
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 

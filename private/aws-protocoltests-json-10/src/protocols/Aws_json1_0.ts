@@ -650,22 +650,8 @@ const serializeAws_json1_0SimpleScalarPropertiesInput = (
   context: __SerdeContext
 ): any => {
   return {
-<<<<<<< HEAD
-<<<<<<< HEAD
     ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-=======
-    ...(input.floatValue !== undefined &&
-      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
-    ...(input.doubleValue !== undefined &&
-      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
->>>>>>> f484a16ac6 (fix(codegen): rpc eventstream)
-=======
-    ...(input.doubleValue !== undefined &&
-      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue !== undefined &&
-      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
->>>>>>> cf7638c1c3 (fix(codegen): run all clients for rpc eventstream)
   };
 };
 
