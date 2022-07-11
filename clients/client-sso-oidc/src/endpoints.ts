@@ -3,6 +3,15 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ap-east-1": {
+    variants: [
+      {
+        hostname: "oidc.ap-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "ap-east-1",
+  },
   "ap-northeast-1": {
     variants: [
       {
@@ -119,6 +128,15 @@ const regionHash: RegionHash = {
       },
     ],
     signingRegion: "eu-west-3",
+  },
+  "me-south-1": {
+    variants: [
+      {
+        hostname: "oidc.me-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "me-south-1",
   },
   "sa-east-1": {
     variants: [
