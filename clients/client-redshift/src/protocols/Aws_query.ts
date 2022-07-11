@@ -3090,6 +3090,9 @@ const deserializeAws_queryAuthorizeSnapshotAccessCommandError = async (
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context);
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -5383,6 +5386,9 @@ const deserializeAws_queryDescribeClusterSnapshotsCommandError = async (
     case "InvalidTagFault":
     case "com.amazonaws.redshift#InvalidTagFault":
       throw await deserializeAws_queryInvalidTagFaultResponse(parsedOutput, context);
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -6111,6 +6117,9 @@ const deserializeAws_queryDescribeNodeConfigurationOptionsCommandError = async (
     case "InvalidClusterSnapshotStateFault":
     case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidClusterSnapshotStateFaultResponse(parsedOutput, context);
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -8845,6 +8854,9 @@ const deserializeAws_queryRevokeSnapshotAccessCommandError = async (
     case "ClusterSnapshotNotFoundFault":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await deserializeAws_queryClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      throw await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -10706,6 +10718,9 @@ const serializeAws_queryAuthorizeSnapshotAccessMessage = (
   if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
+  if (input.SnapshotArn !== undefined && input.SnapshotArn !== null) {
+    entries["SnapshotArn"] = input.SnapshotArn;
+  }
   if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
@@ -11669,6 +11684,9 @@ const serializeAws_queryDescribeClusterSnapshotsMessage = (
   if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
+  if (input.SnapshotArn !== undefined && input.SnapshotArn !== null) {
+    entries["SnapshotArn"] = input.SnapshotArn;
+  }
   if (input.SnapshotType !== undefined && input.SnapshotType !== null) {
     entries["SnapshotType"] = input.SnapshotType;
   }
@@ -12059,6 +12077,9 @@ const serializeAws_queryDescribeNodeConfigurationOptionsMessage = (
   }
   if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
+  }
+  if (input.SnapshotArn !== undefined && input.SnapshotArn !== null) {
+    entries["SnapshotArn"] = input.SnapshotArn;
   }
   if (input.OwnerAccount !== undefined && input.OwnerAccount !== null) {
     entries["OwnerAccount"] = input.OwnerAccount;
@@ -13180,6 +13201,9 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
   }
+  if (input.SnapshotArn !== undefined && input.SnapshotArn !== null) {
+    entries["SnapshotArn"] = input.SnapshotArn;
+  }
   if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;
   }
@@ -13379,6 +13403,9 @@ const serializeAws_queryRevokeSnapshotAccessMessage = (
   const entries: any = {};
   if (input.SnapshotIdentifier !== undefined && input.SnapshotIdentifier !== null) {
     entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
+  }
+  if (input.SnapshotArn !== undefined && input.SnapshotArn !== null) {
+    entries["SnapshotArn"] = input.SnapshotArn;
   }
   if (input.SnapshotClusterIdentifier !== undefined && input.SnapshotClusterIdentifier !== null) {
     entries["SnapshotClusterIdentifier"] = input.SnapshotClusterIdentifier;

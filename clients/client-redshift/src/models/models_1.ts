@@ -273,6 +273,11 @@ export interface DescribeNodeConfigurationOptionsMessage {
   SnapshotIdentifier?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe node configuration.</p>
+   */
+  SnapshotArn?: string;
+
+  /**
    * <p>The Amazon Web Services account used to create or copy the snapshot.
    *             Required if you are restoring a snapshot you do not own,
    *             optional if you own the snapshot.</p>
@@ -3690,7 +3695,12 @@ export interface RestoreFromClusterSnapshotMessage {
    *         <p>Example: <code>my-snapshot-id</code>
    *         </p>
    */
-  SnapshotIdentifier: string | undefined;
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore from a cluster.</p>
+   */
+  SnapshotArn?: string;
 
   /**
    * <p>The name of the cluster the source snapshot was created from. This parameter is
@@ -3753,7 +3763,8 @@ export interface RestoreFromClusterSnapshotMessage {
   HsmConfigurationIdentifier?: string;
 
   /**
-   * <p>The elastic IP (EIP) address for the cluster.</p>
+   * <p>The elastic IP (EIP) address for the cluster. You don't have to specify the EIP for a
+   *             publicly accessible cluster with AvailabilityZoneRelocation turned on.</p>
    */
   ElasticIp?: string;
 
@@ -4160,7 +4171,12 @@ export interface RevokeSnapshotAccessMessage {
   /**
    * <p>The identifier of the snapshot that the account can no longer access.</p>
    */
-  SnapshotIdentifier: string | undefined;
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to revoke access.</p>
+   */
+  SnapshotArn?: string;
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is

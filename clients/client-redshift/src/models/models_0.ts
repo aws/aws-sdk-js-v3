@@ -1349,7 +1349,12 @@ export interface AuthorizeSnapshotAccessMessage {
   /**
    * <p>The identifier of the snapshot the account is authorized to restore.</p>
    */
-  SnapshotIdentifier: string | undefined;
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot to authorize access to.</p>
+   */
+  SnapshotArn?: string;
 
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
@@ -4605,7 +4610,8 @@ export interface CreateClusterMessage {
   HsmConfigurationIdentifier?: string;
 
   /**
-   * <p>The Elastic IP (EIP) address for the cluster.</p>
+   * <p>The Elastic IP (EIP) address for the cluster. You don't have to specify the EIP for a
+   *             publicly accessible cluster with AvailabilityZoneRelocation turned on.</p>
    *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
    *             through an Internet gateway. For more information about provisioning clusters in
    *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
@@ -8046,6 +8052,11 @@ export interface DescribeClusterSnapshotsMessage {
    *             information.</p>
    */
   SnapshotIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot associated with the message to describe cluster snapshots.</p>
+   */
+  SnapshotArn?: string;
 
   /**
    * <p>The type of snapshots for which you are requesting information. By default,
