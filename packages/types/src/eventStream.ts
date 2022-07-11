@@ -84,12 +84,12 @@ export interface Int64 {
  * Util functions for serializing or deserializing event stream
  */
 export interface EventStreamSerdeContext {
-  eventStreamMarshaller: EventStreamMarshaller;
+  eventStreamMarshaller: EventStreamMarshaller<unknown>;
 }
 
-export interface EventStreamMarshaller {
-  deserialize: (body: any, deserializer: (input: Record<string, Message>) => any) => AsyncIterable<any>;
-  serialize: (input: AsyncIterable<any>, serializer: (event: any) => Message) => any;
+export interface EventStreamMarshaller<T> {
+  deserialize: (body: any, deserializer: (input: Record<string, Message>) => Promise<T>) => AsyncIterable<T>;
+  serialize: (input: AsyncIterable<T>, serializer: (event: T) => Message) => any;
 }
 
 export interface EventStreamRequestSigner {
@@ -109,7 +109,7 @@ export interface EventStreamPayloadHandlerProvider {
 }
 
 export interface EventStreamSerdeProvider {
-  (options: any): EventStreamMarshaller;
+  (options: any): EventStreamMarshaller<unknown>;
 }
 
 export interface EventStreamSignerProvider {
