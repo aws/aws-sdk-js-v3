@@ -64,7 +64,11 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<ReadableStream | Blob
       if (isBlobInstance(stream)) {
         // ReadableStream is undefined in React Native
         return blobToWebStream(stream);
+<<<<<<< HEAD
       } else if (isReadableStreamInstance(stream)) {
+=======
+      } else if (isReadableStreamIntance(stream)) {
+>>>>>>> a214cc92ce (feat(types): add sdk stream mixin injector type)
         return stream;
       } else {
         throw new Error(`Cannot transform payload to web stream, got ${stream}`);
@@ -75,5 +79,9 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<ReadableStream | Blob
 
 const isBlobInstance = (stream: unknown): stream is Blob => typeof Blob === "function" && stream instanceof Blob;
 
+<<<<<<< HEAD
 const isReadableStreamInstance = (stream: unknown): stream is ReadableStream =>
+=======
+const isReadableStreamIntance = (stream: unknown): stream is ReadableStream =>
+>>>>>>> a214cc92ce (feat(types): add sdk stream mixin injector type)
   typeof ReadableStream === "function" && stream instanceof ReadableStream;
