@@ -4,15 +4,13 @@ import {
   ActiveInstance,
   AllocationState,
   AllowsMultipleInstanceTypes,
-  AlternatePathHint,
-  AnalysisAclRule,
   AnalysisComponent,
-  AnalysisRouteTableRoute,
-  AnalysisSecurityGroupRule,
   AssociationStatus,
   AttachmentStatus,
   AttributeValue,
   AutoPlacement,
+  ClientVpnAuthenticationType,
+  ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CurrencyCodeValues,
   CustomerGateway,
@@ -24,10 +22,8 @@ import {
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  PathComponent,
-  PortRange,
   Tag,
-  TransitGatewayRouteTableRoute,
+  TransportProtocol,
 } from "./models_0";
 import {
   BlockDeviceMapping,
@@ -60,13 +56,8 @@ import {
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
-  NetworkInsightsPath,
-  NetworkInterface,
-  NetworkInterfaceAttachment,
-  NetworkInterfacePermission,
   NetworkInterfaceStatus,
   Placement,
-  PlacementGroup,
   PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
@@ -74,6 +65,583 @@ import {
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+
+export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
+
+/**
+ * <p>Describes the status of a client connection.</p>
+ */
+export interface ClientVpnConnectionStatus {
+  /**
+   * <p>The state of the client connection.</p>
+   */
+  Code?: ClientVpnConnectionStatusCode | string;
+
+  /**
+   * <p>A message about the status of the client connection, if applicable.</p>
+   */
+  Message?: string;
+}
+
+export namespace ClientVpnConnectionStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnConnectionStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a client connection.</p>
+ */
+export interface ClientVpnConnection {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The current date and time.</p>
+   */
+  Timestamp?: string;
+
+  /**
+   * <p>The ID of the client connection.</p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>The username of the client who established the client connection. This information is only provided
+   * 			if Active Directory client authentication is used.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The date and time the client connection was established.</p>
+   */
+  ConnectionEstablishedTime?: string;
+
+  /**
+   * <p>The number of bytes sent by the client.</p>
+   */
+  IngressBytes?: string;
+
+  /**
+   * <p>The number of bytes received by the client.</p>
+   */
+  EgressBytes?: string;
+
+  /**
+   * <p>The number of packets sent by the client.</p>
+   */
+  IngressPackets?: string;
+
+  /**
+   * <p>The number of packets received by the client.</p>
+   */
+  EgressPackets?: string;
+
+  /**
+   * <p>The IP address of the client.</p>
+   */
+  ClientIp?: string;
+
+  /**
+   * <p>The common name associated with the client. This is either the name of the client certificate,
+   * 			or the Active Directory user name.</p>
+   */
+  CommonName?: string;
+
+  /**
+   * <p>The current state of the client connection.</p>
+   */
+  Status?: ClientVpnConnectionStatus;
+
+  /**
+   * <p>The date and time the client connection was terminated.</p>
+   */
+  ConnectionEndTime?: string;
+
+  /**
+   * <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
+   */
+  PostureComplianceStatuses?: string[];
+}
+
+export namespace ClientVpnConnection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnConnection): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnConnectionsResult {
+  /**
+   * <p>Information about the active and terminated client connections.</p>
+   */
+  Connections?: ClientVpnConnection[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeClientVpnConnectionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnEndpointsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transport-protocol</code> - The transport protocol (<code>tcp</code> |
+   *                     <code>udp</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeClientVpnEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsRequest): any => ({
+    ...obj,
+  });
+}
+
+export type AssociatedNetworkType = "vpc";
+
+/**
+ * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
+ */
+export interface AssociatedTargetNetwork {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  NetworkId?: string;
+
+  /**
+   * <p>The target network type.</p>
+   */
+  NetworkType?: AssociatedNetworkType | string;
+}
+
+export namespace AssociatedTargetNetwork {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an Active Directory.</p>
+ */
+export interface DirectoryServiceAuthentication {
+  /**
+   * <p>The ID of the Active Directory used for authentication.</p>
+   */
+  DirectoryId?: string;
+}
+
+export namespace DirectoryServiceAuthentication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DirectoryServiceAuthentication): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the IAM SAML identity providers used for federated authentication.</p>
+ */
+export interface FederatedAuthentication {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
+   */
+  SamlProviderArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+   */
+  SelfServiceSamlProviderArn?: string;
+}
+
+export namespace FederatedAuthentication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FederatedAuthentication): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the client certificate used for authentication.</p>
+ */
+export interface CertificateAuthentication {
+  /**
+   * <p>The ARN of the client certificate. </p>
+   */
+  ClientRootCertificateChain?: string;
+}
+
+export namespace CertificateAuthentication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CertificateAuthentication): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
+ */
+export interface ClientVpnAuthentication {
+  /**
+   * <p>The authentication type used.</p>
+   */
+  Type?: ClientVpnAuthenticationType | string;
+
+  /**
+   * <p>Information about the Active Directory, if applicable.</p>
+   */
+  ActiveDirectory?: DirectoryServiceAuthentication;
+
+  /**
+   * <p>Information about the authentication certificates, if applicable.</p>
+   */
+  MutualAuthentication?: CertificateAuthentication;
+
+  /**
+   * <p>Information about the IAM SAML identity provider, if applicable.</p>
+   */
+  FederatedAuthentication?: FederatedAuthentication;
+}
+
+export namespace ClientVpnAuthentication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnAuthentication): any => ({
+    ...obj,
+  });
+}
+
+export type ClientVpnEndpointAttributeStatusCode = "applied" | "applying";
+
+/**
+ * <p>Describes the status of the Client VPN endpoint attribute.</p>
+ */
+export interface ClientVpnEndpointAttributeStatus {
+  /**
+   * <p>The status code.</p>
+   */
+  Code?: ClientVpnEndpointAttributeStatusCode | string;
+
+  /**
+   * <p>The status message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ClientVpnEndpointAttributeStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnEndpointAttributeStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for managing connection authorization for new client connections.</p>
+ */
+export interface ClientConnectResponseOptions {
+  /**
+   * <p>Indicates whether client connect options are enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
+   */
+  LambdaFunctionArn?: string;
+
+  /**
+   * <p>The status of any updates to the client connect options.</p>
+   */
+  Status?: ClientVpnEndpointAttributeStatus;
+}
+
+export namespace ClientConnectResponseOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientConnectResponseOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Current state of options for customizable text banner that will be displayed on
+ * 			Amazon Web Services provided clients when a VPN session is established.</p>
+ */
+export interface ClientLoginBannerResponseOptions {
+  /**
+   * <p>Current state of text banner feature.</p>
+   * 		       <p>Valid values: <code>true | false</code>
+   *          </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
+   * 			clients when a VPN session is established. UTF-8 encoded
+   * 			characters only. Maximum of 1400 characters.</p>
+   */
+  BannerText?: string;
+}
+
+export namespace ClientLoginBannerResponseOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientLoginBannerResponseOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
+ */
+export interface ConnectionLogResponseOptions {
+  /**
+   * <p>Indicates whether client connection logging is enabled for the Client VPN endpoint.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log group to which connection logging data is published.</p>
+   */
+  CloudwatchLogGroup?: string;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.</p>
+   */
+  CloudwatchLogStream?: string;
+}
+
+export namespace ConnectionLogResponseOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionLogResponseOptions): any => ({
+    ...obj,
+  });
+}
+
+export type VpnProtocol = "openvpn";
+
+/**
+ * <p>Describes a Client VPN endpoint.</p>
+ */
+export interface ClientVpnEndpoint {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>A brief description of the endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The current state of the Client VPN endpoint.</p>
+   */
+  Status?: ClientVpnEndpointStatus;
+
+  /**
+   * <p>The date and time the Client VPN endpoint was created.</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time the Client VPN endpoint was deleted, if applicable.</p>
+   */
+  DeletionTime?: string;
+
+  /**
+   * <p>The DNS name to be used by clients when connecting to the Client VPN endpoint.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
+   */
+  ClientCidrBlock?: string;
+
+  /**
+   * <p>Information about the DNS servers to be used for DNS resolution. </p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * <p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p>
+   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel Client VPN endpoint</a>
+   * 			in the <i>Client VPN Administrator Guide</i>.</p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * <p>The protocol used by the VPN session.</p>
+   */
+  VpnProtocol?: VpnProtocol | string;
+
+  /**
+   * <p>The transport protocol used by the Client VPN endpoint.</p>
+   */
+  TransportProtocol?: TransportProtocol | string;
+
+  /**
+   * <p>The port number for the  Client VPN endpoint.</p>
+   */
+  VpnPort?: number;
+
+  /**
+   * @deprecated
+   *
+   * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
+   */
+  AssociatedTargetNetworks?: AssociatedTargetNetwork[];
+
+  /**
+   * <p>The ARN of the server certificate.</p>
+   */
+  ServerCertificateArn?: string;
+
+  /**
+   * <p>Information about the authentication method used by the Client VPN endpoint.</p>
+   */
+  AuthenticationOptions?: ClientVpnAuthentication[];
+
+  /**
+   * <p>Information about the client connection logging options for the Client VPN endpoint.</p>
+   */
+  ConnectionLogOptions?: ConnectionLogResponseOptions;
+
+  /**
+   * <p>Any tags assigned to the Client VPN endpoint.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The IDs of the security groups for the target network.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The URL of the self-service portal.</p>
+   */
+  SelfServicePortalUrl?: string;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   */
+  ClientConnectOptions?: ClientConnectResponseOptions;
+
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   * 		       <p>Default value: <code>24</code>
+   *          </p>
+   */
+  SessionTimeoutHours?: number;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is
+   * 			established.</p>
+   */
+  ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
+}
+
+export namespace ClientVpnEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnEndpoint): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnEndpointsResult {
+  /**
+   * <p>Information about the Client VPN endpoints.</p>
+   */
+  ClientVpnEndpoints?: ClientVpnEndpoint[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeClientVpnEndpointsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeClientVpnRoutesRequest {
   /**
@@ -11084,1101 +11652,6 @@ export namespace AnalysisLoadBalancerTarget {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnalysisLoadBalancerTarget): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
- */
-export interface Explanation {
-  /**
-   * <p>The network ACL.</p>
-   */
-  Acl?: AnalysisComponent;
-
-  /**
-   * <p>The network ACL rule.</p>
-   */
-  AclRule?: AnalysisAclRule;
-
-  /**
-   * <p>The IPv4 address, in CIDR notation.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The IPv4 addresses, in CIDR notation.</p>
-   */
-  Addresses?: string[];
-
-  /**
-   * <p>The resource to which the component is attached.</p>
-   */
-  AttachedTo?: AnalysisComponent;
-
-  /**
-   * <p>The Availability Zones.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The CIDR ranges.</p>
-   */
-  Cidrs?: string[];
-
-  /**
-   * <p>The component.</p>
-   */
-  Component?: AnalysisComponent;
-
-  /**
-   * <p>The customer gateway.</p>
-   */
-  CustomerGateway?: AnalysisComponent;
-
-  /**
-   * <p>The destination.</p>
-   */
-  Destination?: AnalysisComponent;
-
-  /**
-   * <p>The destination VPC.</p>
-   */
-  DestinationVpc?: AnalysisComponent;
-
-  /**
-   * <p>The direction. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>egress</p>
-   *             </li>
-   *             <li>
-   *                <p>ingress</p>
-   *             </li>
-   *          </ul>
-   */
-  Direction?: string;
-
-  /**
-   * <p>The explanation code.</p>
-   */
-  ExplanationCode?: string;
-
-  /**
-   * <p>The route table.</p>
-   */
-  IngressRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The internet gateway.</p>
-   */
-  InternetGateway?: AnalysisComponent;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
-   */
-  LoadBalancerArn?: string;
-
-  /**
-   * <p>The listener for a Classic Load Balancer.</p>
-   */
-  ClassicLoadBalancerListener?: AnalysisLoadBalancerListener;
-
-  /**
-   * <p>The listener port of the load balancer.</p>
-   */
-  LoadBalancerListenerPort?: number;
-
-  /**
-   * <p>The target.</p>
-   */
-  LoadBalancerTarget?: AnalysisLoadBalancerTarget;
-
-  /**
-   * <p>The target group.</p>
-   */
-  LoadBalancerTargetGroup?: AnalysisComponent;
-
-  /**
-   * <p>The target groups.</p>
-   */
-  LoadBalancerTargetGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The target port.</p>
-   */
-  LoadBalancerTargetPort?: number;
-
-  /**
-   * <p>The load balancer listener.</p>
-   */
-  ElasticLoadBalancerListener?: AnalysisComponent;
-
-  /**
-   * <p>The missing component.</p>
-   */
-  MissingComponent?: string;
-
-  /**
-   * <p>The NAT gateway.</p>
-   */
-  NatGateway?: AnalysisComponent;
-
-  /**
-   * <p>The network interface.</p>
-   */
-  NetworkInterface?: AnalysisComponent;
-
-  /**
-   * <p>The packet field.</p>
-   */
-  PacketField?: string;
-
-  /**
-   * <p>The VPC peering connection.</p>
-   */
-  VpcPeeringConnection?: AnalysisComponent;
-
-  /**
-   * <p>The port.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The port ranges.</p>
-   */
-  PortRanges?: PortRange[];
-
-  /**
-   * <p>The prefix list.</p>
-   */
-  PrefixList?: AnalysisComponent;
-
-  /**
-   * <p>The protocols.</p>
-   */
-  Protocols?: string[];
-
-  /**
-   * <p>The route table route.</p>
-   */
-  RouteTableRoute?: AnalysisRouteTableRoute;
-
-  /**
-   * <p>The route table.</p>
-   */
-  RouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The security group.</p>
-   */
-  SecurityGroup?: AnalysisComponent;
-
-  /**
-   * <p>The security group rule.</p>
-   */
-  SecurityGroupRule?: AnalysisSecurityGroupRule;
-
-  /**
-   * <p>The security groups.</p>
-   */
-  SecurityGroups?: AnalysisComponent[];
-
-  /**
-   * <p>The source VPC.</p>
-   */
-  SourceVpc?: AnalysisComponent;
-
-  /**
-   * <p>The state.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The subnet.</p>
-   */
-  Subnet?: AnalysisComponent;
-
-  /**
-   * <p>The route table for the subnet.</p>
-   */
-  SubnetRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The component VPC.</p>
-   */
-  Vpc?: AnalysisComponent;
-
-  /**
-   * <p>The VPC endpoint.</p>
-   */
-  VpcEndpoint?: AnalysisComponent;
-
-  /**
-   * <p>The VPN connection.</p>
-   */
-  VpnConnection?: AnalysisComponent;
-
-  /**
-   * <p>The VPN gateway.</p>
-   */
-  VpnGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway.</p>
-   */
-  TransitGateway?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table.</p>
-   */
-  TransitGatewayRouteTable?: AnalysisComponent;
-
-  /**
-   * <p>The transit gateway route table route.</p>
-   */
-  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
-
-  /**
-   * <p>The transit gateway attachment.</p>
-   */
-  TransitGatewayAttachment?: AnalysisComponent;
-}
-
-export namespace Explanation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Explanation): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a network insights analysis.</p>
- */
-export interface NetworkInsightsAnalysis {
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisArn?: string;
-
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId?: string;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
-   */
-  FilterInArns?: string[];
-
-  /**
-   * <p>The time the analysis started.</p>
-   */
-  StartDate?: Date;
-
-  /**
-   * <p>The status of the network insights analysis.</p>
-   */
-  Status?: AnalysisStatus | string;
-
-  /**
-   * <p>The status message, if the status is <code>failed</code>.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The warning message.</p>
-   */
-  WarningMessage?: string;
-
-  /**
-   * <p>Indicates whether the destination is reachable from the source.</p>
-   */
-  NetworkPathFound?: boolean;
-
-  /**
-   * <p>The components in the path from source to destination.</p>
-   */
-  ForwardPathComponents?: PathComponent[];
-
-  /**
-   * <p>The components in the path from destination to source.</p>
-   */
-  ReturnPathComponents?: PathComponent[];
-
-  /**
-   * <p>The explanations. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
-   */
-  Explanations?: Explanation[];
-
-  /**
-   * <p>Potential intermediate components.</p>
-   */
-  AlternatePathHints?: AlternatePathHint[];
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace NetworkInsightsAnalysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInsightsAnalysis): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsAnalysesResult {
-  /**
-   * <p>Information about the network insights analyses.</p>
-   */
-  NetworkInsightsAnalyses?: NetworkInsightsAnalysis[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsAnalysesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsAnalysesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsPathsRequest {
-  /**
-   * <p>The IDs of the paths.</p>
-   */
-  NetworkInsightsPathIds?: string[];
-
-  /**
-   * <p>The filters. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Destination - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>DestinationPort - The destination port.</p>
-   *             </li>
-   *             <li>
-   *                <p>Name - The path name.</p>
-   *             </li>
-   *             <li>
-   *                <p>Protocol - The protocol.</p>
-   *             </li>
-   *             <li>
-   *                <p>Source - The ID of the resource.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsPathsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsPathsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeNetworkInsightsPathsResult {
-  /**
-   * <p>Information about the paths.</p>
-   */
-  NetworkInsightsPaths?: NetworkInsightsPath[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInsightsPathsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInsightsPathsResult): any => ({
-    ...obj,
-  });
-}
-
-export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
- */
-export interface DescribeNetworkInterfaceAttributeRequest {
-  /**
-   * <p>The attribute of the network interface. This parameter is required.</p>
-   */
-  Attribute?: NetworkInterfaceAttribute | string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
-export namespace DescribeNetworkInterfaceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
- */
-export interface DescribeNetworkInterfaceAttributeResult {
-  /**
-   * <p>The attachment (if any) of the network interface.</p>
-   */
-  Attachment?: NetworkInterfaceAttachment;
-
-  /**
-   * <p>The description of the network interface.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The security groups associated with the network interface.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-}
-
-export namespace DescribeNetworkInterfaceAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
- */
-export interface DescribeNetworkInterfacePermissionsRequest {
-  /**
-   * <p>One or more network interface permission IDs.</p>
-   */
-  NetworkInterfacePermissionIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>network-interface-permission.network-interface-permission-id</code> - The ID of the
-   * 				permission.</p>
-   *             </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.network-interface-id</code> - The ID of
-   * 					the network interface.</p>
-   * 			         </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>network-interface-permission.aws-account-id</code> - The Amazon Web Services account ID.</p>
-   * 			         </li>
-   *             <li>
-   * 			            <p>
-   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Service.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.permission</code> - The type of
-   * 					permission (<code>INSTANCE-ATTACH</code> |
-   * 					<code>EIP-ASSOCIATE</code>).</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
-   * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeNetworkInterfacePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
- */
-export interface DescribeNetworkInterfacePermissionsResult {
-  /**
-   * <p>The network interface permissions.</p>
-   */
-  NetworkInterfacePermissions?: NetworkInterfacePermission[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInterfacePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeNetworkInterfaces.</p>
- */
-export interface DescribeNetworkInterfacesRequest {
-  /**
-   * <p>One or more filters.</p>
-   * 		       <ul>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
-   *                     associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.primary</code> - Whether the private IPv4 address is the primary
-   *                     IP address associated with the network interface. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.association.public-ip</code> - The association ID returned when
-   *                     the network interface was associated with the Elastic IP address
-   *                     (IPv4).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.association-id</code> - The association ID returned when the
-   *                     network interface was associated with an IPv4 address.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.allocation-id</code> - The allocation ID returned when you
-   *                     allocated the Elastic IP address (IPv4) for your network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.ip-owner-id</code> - The owner of the Elastic IP address
-   *                     (IPv4) associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>association.public-ip</code> - The address of the Elastic IP address
-   *                     (IPv4) bound to the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		 		          <p>
-   *                   <code>association.public-dns-name</code> - The public DNS name for the network
-   *                     interface (IPv4).</p>
-   * 		 	        </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.device-index</code> - The device index to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>description</code> - The description of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>group-id</code> - The ID of a security group associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>group-name</code> - The name of a security group associated with the network interface.</p>
-   * 		          </li>
-   *             <li>
-   *                   <p>
-   *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
-   *                     the network interface.</p>
-   *                </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
-   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>efa</code> |
-   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |
-   * 		               <code>interface</code> | <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> |
-   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> | <code>quicksight</code> |
-   * 		               <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>mac-address</code> - The MAC address of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>network-interface-id</code> - The ID of the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>private-ip-address</code> - The private IPv4 address or addresses of the
-   *                     network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>requester-id</code> - The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service
-   * 		               (for example, Amazon Web Services Management Console, Auto Scaling, and so on).</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking.
-   * 		            A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.
-   * 		            The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;
-   * 		            if a network interface is attached to an instance the status is <code>in-use</code>.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>subnet-id</code> - The ID of the subnet for the network interface.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   * 		          </li>
-   *             <li>
-   * 		             <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the network interface.</p>
-   * 		          </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more network interface IDs.</p>
-   * 		       <p>Default: Describes all your network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request. The request returns a token that you
-   *             can specify in a subsequent call to get the next set of results. You cannot specify this
-   *             parameter and the network interface IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeNetworkInterfacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeNetworkInterfaces.</p>
- */
-export interface DescribeNetworkInterfacesResult {
-  /**
-   * <p>Information about one or more network interfaces.</p>
-   */
-  NetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeNetworkInterfacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePlacementGroupsRequest {
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>group-name</code> - The name of the placement group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement
-   *                     group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>).
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>state</code> - The state of the placement group (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>strategy</code> - The strategy of the placement group
-   *                         (<code>cluster</code> | <code>spread</code> |
-   *                     <code>partition</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The names of the placement groups.</p>
-   *         <p>Default: Describes all your placement groups, or only those otherwise
-   *             specified.</p>
-   */
-  GroupNames?: string[];
-
-  /**
-   * <p>The IDs of the placement groups.</p>
-   */
-  GroupIds?: string[];
-}
-
-export namespace DescribePlacementGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePlacementGroupsResult {
-  /**
-   * <p>Information about the placement groups.</p>
-   */
-  PlacementGroups?: PlacementGroup[];
-}
-
-export namespace DescribePlacementGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePrefixListsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>prefix-list-id</code>: The ID of a prefix list.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>prefix-list-name</code>: The name of a prefix list.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more prefix list IDs.</p>
-   */
-  PrefixListIds?: string[];
-}
-
-export namespace DescribePrefixListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrefixListsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes prefixes for Amazon Web Services services.</p>
- */
-export interface PrefixList {
-  /**
-   * <p>The IP address range of the Amazon Web Service.</p>
-   */
-  Cidrs?: string[];
-
-  /**
-   * <p>The ID of the prefix.</p>
-   */
-  PrefixListId?: string;
-
-  /**
-   * <p>The name of the prefix.</p>
-   */
-  PrefixListName?: string;
-}
-
-export namespace PrefixList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefixList): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePrefixListsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>All available prefix lists.</p>
-   */
-  PrefixLists?: PrefixList[];
-}
-
-export namespace DescribePrefixListsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrefixListsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePrincipalIdFormatRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *             <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *             <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *             <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *             <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *             <code>network-acl</code> | <code>network-acl-association</code> |
-   *             <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *             <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *             <code>route-table-association</code> | <code>security-group</code> |
-   *             <code>snapshot</code> | <code>subnet</code> |
-   *             <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *             | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *             <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resources?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned NextToken value. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePrincipalIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrincipalIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>PrincipalIdFormat description</p>
- */
-export interface PrincipalIdFormat {
-  /**
-   * <p>PrincipalIdFormatARN description</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>PrincipalIdFormatStatuses description</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace PrincipalIdFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrincipalIdFormat): any => ({
     ...obj,
   });
 }

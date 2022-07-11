@@ -13,45 +13,46 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeClientVpnConnectionsRequest } from "../models/models_2";
-import { DescribeClientVpnConnectionsResult } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeClientVpnConnectionsCommand,
-  serializeAws_ec2DescribeClientVpnConnectionsCommand,
+  AssociateTransitGatewayPolicyTableRequest,
+  AssociateTransitGatewayPolicyTableResult,
+} from "../models/models_0";
+import {
+  deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand,
+  serializeAws_ec2AssociateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
-export interface DescribeClientVpnConnectionsCommandInput extends DescribeClientVpnConnectionsRequest {}
-export interface DescribeClientVpnConnectionsCommandOutput
-  extends DescribeClientVpnConnectionsResult,
+export interface AssociateTransitGatewayPolicyTableCommandInput extends AssociateTransitGatewayPolicyTableRequest {}
+export interface AssociateTransitGatewayPolicyTableCommandOutput
+  extends AssociateTransitGatewayPolicyTableResult,
     __MetadataBearer {}
 
 /**
- * <p>Describes active client connections and connections that have been terminated within the last 60
- * 			minutes for the specified Client VPN endpoint.</p>
+ * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeClientVpnConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeClientVpnConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, AssociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AssociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new DescribeClientVpnConnectionsCommand(input);
+ * const command = new AssociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeClientVpnConnectionsCommandInput} for command's `input` shape.
- * @see {@link DescribeClientVpnConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link AssociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
+ * @see {@link AssociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class DescribeClientVpnConnectionsCommand extends $Command<
-  DescribeClientVpnConnectionsCommandInput,
-  DescribeClientVpnConnectionsCommandOutput,
+export class AssociateTransitGatewayPolicyTableCommand extends $Command<
+  AssociateTransitGatewayPolicyTableCommandInput,
+  AssociateTransitGatewayPolicyTableCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeClientVpnConnectionsCommandInput) {
+  constructor(readonly input: AssociateTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +65,20 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeClientVpnConnectionsCommandInput, DescribeClientVpnConnectionsCommandOutput> {
+  ): Handler<AssociateTransitGatewayPolicyTableCommandInput, AssociateTransitGatewayPolicyTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "DescribeClientVpnConnectionsCommand";
+    const commandName = "AssociateTransitGatewayPolicyTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnConnectionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTransitGatewayPolicyTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTransitGatewayPolicyTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +88,18 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnConnectionsCommand(input, context);
+  private serialize(
+    input: AssociateTransitGatewayPolicyTableCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_ec2AssociateTransitGatewayPolicyTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeClientVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnConnectionsCommand(output, context);
+  ): Promise<AssociateTransitGatewayPolicyTableCommandOutput> {
+    return deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand(output, context);
   }
 
   // Start section: command_body_extra

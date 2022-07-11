@@ -130,6 +130,10 @@ import {
   AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/AssociateTransitGatewayMulticastDomainCommand";
 import {
+  AssociateTransitGatewayPolicyTableCommandInput,
+  AssociateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/AssociateTransitGatewayPolicyTableCommand";
+import {
   AssociateTransitGatewayRouteTableCommandInput,
   AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand";
@@ -377,6 +381,10 @@ import {
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
+  CreateTransitGatewayPolicyTableCommandInput,
+  CreateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/CreateTransitGatewayPolicyTableCommand";
+import {
   CreateTransitGatewayPrefixListReferenceCommandInput,
   CreateTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/CreateTransitGatewayPrefixListReferenceCommand";
@@ -384,6 +392,10 @@ import {
   CreateTransitGatewayRouteCommandInput,
   CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand";
+import {
+  CreateTransitGatewayRouteTableAnnouncementCommandInput,
+  CreateTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "./commands/CreateTransitGatewayRouteTableAnnouncementCommand";
 import {
   CreateTransitGatewayRouteTableCommandInput,
   CreateTransitGatewayRouteTableCommandOutput,
@@ -568,6 +580,10 @@ import {
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
+  DeleteTransitGatewayPolicyTableCommandInput,
+  DeleteTransitGatewayPolicyTableCommandOutput,
+} from "./commands/DeleteTransitGatewayPolicyTableCommand";
+import {
   DeleteTransitGatewayPrefixListReferenceCommandInput,
   DeleteTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/DeleteTransitGatewayPrefixListReferenceCommand";
@@ -575,6 +591,10 @@ import {
   DeleteTransitGatewayRouteCommandInput,
   DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand";
+import {
+  DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "./commands/DeleteTransitGatewayRouteTableAnnouncementCommand";
 import {
   DeleteTransitGatewayRouteTableCommandInput,
   DeleteTransitGatewayRouteTableCommandOutput,
@@ -1024,6 +1044,14 @@ import {
   DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand";
 import {
+  DescribeTransitGatewayPolicyTablesCommandInput,
+  DescribeTransitGatewayPolicyTablesCommandOutput,
+} from "./commands/DescribeTransitGatewayPolicyTablesCommand";
+import {
+  DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+  DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
+} from "./commands/DescribeTransitGatewayRouteTableAnnouncementsCommand";
+import {
   DescribeTransitGatewayRouteTablesCommandInput,
   DescribeTransitGatewayRouteTablesCommandOutput,
 } from "./commands/DescribeTransitGatewayRouteTablesCommand";
@@ -1184,6 +1212,10 @@ import {
   DisassociateTransitGatewayMulticastDomainCommandInput,
   DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DisassociateTransitGatewayMulticastDomainCommand";
+import {
+  DisassociateTransitGatewayPolicyTableCommandInput,
+  DisassociateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/DisassociateTransitGatewayPolicyTableCommand";
 import {
   DisassociateTransitGatewayRouteTableCommandInput,
   DisassociateTransitGatewayRouteTableCommandOutput,
@@ -1355,6 +1387,14 @@ import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableAssociationsCommandInput,
+  GetTransitGatewayPolicyTableAssociationsCommandOutput,
+} from "./commands/GetTransitGatewayPolicyTableAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableEntriesCommandInput,
+  GetTransitGatewayPolicyTableEntriesCommandOutput,
+} from "./commands/GetTransitGatewayPolicyTableEntriesCommand";
 import {
   GetTransitGatewayPrefixListReferencesCommandInput,
   GetTransitGatewayPrefixListReferencesCommandOutput,
@@ -1819,6 +1859,7 @@ export type ServiceInputTypes =
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
+  | AssociateTransitGatewayPolicyTableCommandInput
   | AssociateTransitGatewayRouteTableCommandInput
   | AssociateTrunkInterfaceCommandInput
   | AssociateVpcCidrBlockCommandInput
@@ -1901,8 +1942,10 @@ export type ServiceInputTypes =
   | CreateTransitGatewayConnectPeerCommandInput
   | CreateTransitGatewayMulticastDomainCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
+  | CreateTransitGatewayPolicyTableCommandInput
   | CreateTransitGatewayPrefixListReferenceCommandInput
   | CreateTransitGatewayRouteCommandInput
+  | CreateTransitGatewayRouteTableAnnouncementCommandInput
   | CreateTransitGatewayRouteTableCommandInput
   | CreateTransitGatewayVpcAttachmentCommandInput
   | CreateVolumeCommandInput
@@ -1963,8 +2006,10 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayConnectPeerCommandInput
   | DeleteTransitGatewayMulticastDomainCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
+  | DeleteTransitGatewayPolicyTableCommandInput
   | DeleteTransitGatewayPrefixListReferenceCommandInput
   | DeleteTransitGatewayRouteCommandInput
+  | DeleteTransitGatewayRouteTableAnnouncementCommandInput
   | DeleteTransitGatewayRouteTableCommandInput
   | DeleteTransitGatewayVpcAttachmentCommandInput
   | DeleteVolumeCommandInput
@@ -2095,6 +2140,8 @@ export type ServiceInputTypes =
   | DescribeTransitGatewayConnectsCommandInput
   | DescribeTransitGatewayMulticastDomainsCommandInput
   | DescribeTransitGatewayPeeringAttachmentsCommandInput
+  | DescribeTransitGatewayPolicyTablesCommandInput
+  | DescribeTransitGatewayRouteTableAnnouncementsCommandInput
   | DescribeTransitGatewayRouteTablesCommandInput
   | DescribeTransitGatewayVpcAttachmentsCommandInput
   | DescribeTransitGatewaysCommandInput
@@ -2139,6 +2186,7 @@ export type ServiceInputTypes =
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
+  | DisassociateTransitGatewayPolicyTableCommandInput
   | DisassociateTransitGatewayRouteTableCommandInput
   | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
@@ -2187,6 +2235,8 @@ export type ServiceInputTypes =
   | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
+  | GetTransitGatewayPolicyTableAssociationsCommandInput
+  | GetTransitGatewayPolicyTableEntriesCommandInput
   | GetTransitGatewayPrefixListReferencesCommandInput
   | GetTransitGatewayRouteTableAssociationsCommandInput
   | GetTransitGatewayRouteTablePropagationsCommandInput
@@ -2344,6 +2394,7 @@ export type ServiceOutputTypes =
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
+  | AssociateTransitGatewayPolicyTableCommandOutput
   | AssociateTransitGatewayRouteTableCommandOutput
   | AssociateTrunkInterfaceCommandOutput
   | AssociateVpcCidrBlockCommandOutput
@@ -2426,8 +2477,10 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayConnectPeerCommandOutput
   | CreateTransitGatewayMulticastDomainCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
+  | CreateTransitGatewayPolicyTableCommandOutput
   | CreateTransitGatewayPrefixListReferenceCommandOutput
   | CreateTransitGatewayRouteCommandOutput
+  | CreateTransitGatewayRouteTableAnnouncementCommandOutput
   | CreateTransitGatewayRouteTableCommandOutput
   | CreateTransitGatewayVpcAttachmentCommandOutput
   | CreateVolumeCommandOutput
@@ -2488,8 +2541,10 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayConnectPeerCommandOutput
   | DeleteTransitGatewayMulticastDomainCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
+  | DeleteTransitGatewayPolicyTableCommandOutput
   | DeleteTransitGatewayPrefixListReferenceCommandOutput
   | DeleteTransitGatewayRouteCommandOutput
+  | DeleteTransitGatewayRouteTableAnnouncementCommandOutput
   | DeleteTransitGatewayRouteTableCommandOutput
   | DeleteTransitGatewayVpcAttachmentCommandOutput
   | DeleteVolumeCommandOutput
@@ -2620,6 +2675,8 @@ export type ServiceOutputTypes =
   | DescribeTransitGatewayConnectsCommandOutput
   | DescribeTransitGatewayMulticastDomainsCommandOutput
   | DescribeTransitGatewayPeeringAttachmentsCommandOutput
+  | DescribeTransitGatewayPolicyTablesCommandOutput
+  | DescribeTransitGatewayRouteTableAnnouncementsCommandOutput
   | DescribeTransitGatewayRouteTablesCommandOutput
   | DescribeTransitGatewayVpcAttachmentsCommandOutput
   | DescribeTransitGatewaysCommandOutput
@@ -2664,6 +2721,7 @@ export type ServiceOutputTypes =
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
+  | DisassociateTransitGatewayPolicyTableCommandOutput
   | DisassociateTransitGatewayRouteTableCommandOutput
   | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
@@ -2712,6 +2770,8 @@ export type ServiceOutputTypes =
   | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
+  | GetTransitGatewayPolicyTableAssociationsCommandOutput
+  | GetTransitGatewayPolicyTableEntriesCommandOutput
   | GetTransitGatewayPrefixListReferencesCommandOutput
   | GetTransitGatewayRouteTableAssociationsCommandOutput
   | GetTransitGatewayRouteTablePropagationsCommandOutput

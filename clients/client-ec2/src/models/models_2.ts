@@ -11,11 +11,11 @@ import {
   CapacityReservation,
   CapacityReservationFleetState,
   CarrierGateway,
-  ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   DnsSupportValue,
+  DynamicRoutingValue,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
@@ -29,7 +29,6 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TransportProtocol,
   UnsuccessfulItem,
   VolumeAttachment,
   Vpc,
@@ -37,6 +36,9 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  AutoAcceptSharedAttachmentsValue,
+  DefaultRouteTableAssociationValue,
+  DefaultRouteTablePropagationValue,
   GroupIdentifier,
   Ipam,
   IpamPool,
@@ -45,11 +47,150 @@ import {
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  ProtocolValue,
+  MulticastSupportValue,
   SubnetCidrReservation,
-  TransitGateway,
   VolumeType,
+  VpnEcmpSupportValue,
 } from "./models_1";
+
+/**
+ * <p>Describes the options for a transit gateway.</p>
+ */
+export interface TransitGatewayOptions {
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
+   */
+  AmazonSideAsn?: number;
+
+  /**
+   * <p>The transit gateway CIDR blocks.</p>
+   */
+  TransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>Indicates whether attachment requests are automatically accepted.</p>
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+
+  /**
+   * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+
+  /**
+   * <p>The ID of the default association route table.</p>
+   */
+  AssociationDefaultRouteTableId?: string;
+
+  /**
+   * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+
+  /**
+   * <p>The ID of the default propagation route table.</p>
+   */
+  PropagationDefaultRouteTableId?: string;
+
+  /**
+   * <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+
+  /**
+   * <p>Indicates whether DNS support is enabled.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Indicates whether multicast is enabled on the transit gateway</p>
+   */
+  MulticastSupport?: MulticastSupportValue | string;
+}
+
+export namespace TransitGatewayOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayOptions): any => ({
+    ...obj,
+  });
+}
+
+export type TransitGatewayState = "available" | "deleted" | "deleting" | "modifying" | "pending";
+
+/**
+ * <p>Describes a transit gateway.</p>
+ */
+export interface TransitGateway {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
+   */
+  TransitGatewayArn?: string;
+
+  /**
+   * <p>The state of the transit gateway.</p>
+   */
+  State?: TransitGatewayState | string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The description of the transit gateway.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The transit gateway options.</p>
+   */
+  Options?: TransitGatewayOptions;
+
+  /**
+   * <p>The tags for the transit gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGateway {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGateway): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayResult {
+  /**
+   * <p>Information about the transit gateway.</p>
+   */
+  TransitGateway?: TransitGateway;
+}
+
+export namespace CreateTransitGatewayResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayResult): any => ({
+    ...obj,
+  });
+}
+
+export type ProtocolValue = "gre";
 
 /**
  * <p>The options for a Connect attachment.</p>
@@ -571,6 +712,19 @@ export namespace CreateTransitGatewayMulticastDomainResult {
   });
 }
 
+export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
+  DynamicRouting?: DynamicRoutingValue | string;
+}
+
+export namespace CreateTransitGatewayPeeringAttachmentRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentRequestOptions): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateTransitGatewayPeeringAttachmentRequest {
   /**
    * <p>The ID of the transit gateway.</p>
@@ -592,6 +746,7 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
    */
   PeerRegion: string | undefined;
 
+  Options?: CreateTransitGatewayPeeringAttachmentRequestOptions;
   /**
    * <p>The tags to apply to the transit gateway peering attachment.</p>
    */
@@ -626,6 +781,96 @@ export namespace CreateTransitGatewayPeeringAttachmentResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The ID of the transit gateway used for the policy table.</p>
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The tags specification for the transit gateway policy table created during the request.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayPolicyTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPolicyTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TransitGatewayPolicyTableState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
+
+/**
+ * <p>Describes a transit gateway policy table.</p>
+ */
+export interface TransitGatewayPolicyTable {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId?: string;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The state of the transit gateway policy table</p>
+   */
+  State?: TransitGatewayPolicyTableState | string;
+
+  /**
+   * <p>The timestamp when the transit gateway policy table was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>he key-value pairs associated with the transit gateway policy table.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayPolicyTable {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPolicyTable): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayPolicyTableResult {
+  /**
+   * <p>Describes the created transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
+}
+
+export namespace CreateTransitGatewayPolicyTableResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPolicyTableResult): any => ({
     ...obj,
   });
 }
@@ -845,6 +1090,7 @@ export interface TransitGatewayRoute {
    */
   PrefixListId?: string;
 
+  TransitGatewayRouteTableAnnouncementId?: string;
   /**
    * <p>The attachments.</p>
    */
@@ -977,6 +1223,130 @@ export namespace CreateTransitGatewayRouteTableResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayRouteTableAnnouncementRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the peering attachment.</p>
+   */
+  PeeringAttachmentId: string | undefined;
+
+  /**
+   * <p>The tags specifications applied to the transit gateway route table announcement.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayRouteTableAnnouncementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableAnnouncementRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum TransitGatewayRouteTableAnnouncementDirection {
+  incoming = "incoming",
+  outgoing = "outgoing",
+}
+
+export enum TransitGatewayRouteTableAnnouncementState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  failed = "failed",
+  failing = "failing",
+  pending = "pending",
+}
+
+/**
+ * <p>Describes a transit gateway route table announcement.</p>
+ */
+export interface TransitGatewayRouteTableAnnouncement {
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   */
+  TransitGatewayRouteTableAnnouncementId?: string;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  CoreNetworkId?: string;
+  /**
+   * <p>The ID of the peer transit gateway.</p>
+   */
+  PeerTransitGatewayId?: string;
+
+  PeerCoreNetworkId?: string;
+  /**
+   * <p>The ID of the peering attachment.</p>
+   */
+  PeeringAttachmentId?: string;
+
+  /**
+   * <p>The direction for the route table announcement.</p>
+   */
+  AnnouncementDirection?: TransitGatewayRouteTableAnnouncementDirection | string;
+
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId?: string;
+
+  /**
+   * <p>The state of the transit gateway announcement.</p>
+   */
+  State?: TransitGatewayRouteTableAnnouncementState | string;
+
+  /**
+   * <p>The timestamp when the transit gateway route table announcement was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The key-value pairs associated with the route table announcement.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayRouteTableAnnouncement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayRouteTableAnnouncement): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayRouteTableAnnouncementResult {
+  /**
+   * <p>Provides details about the transit gateway route table announcement.</p>
+   */
+  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
+}
+
+export namespace CreateTransitGatewayRouteTableAnnouncementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableAnnouncementResult): any => ({
     ...obj,
   });
 }
@@ -5548,6 +5918,45 @@ export namespace DeleteTransitGatewayPeeringAttachmentResult {
   });
 }
 
+export interface DeleteTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The transit gateway policy table to delete.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayPolicyTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPolicyTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayPolicyTableResult {
+  /**
+   * <p>Provides details about the deleted transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTable?: TransitGatewayPolicyTable;
+}
+
+export namespace DeleteTransitGatewayPolicyTableResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPolicyTableResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteTransitGatewayPrefixListReferenceRequest {
   /**
    * <p>The ID of the route table.</p>
@@ -5671,6 +6080,45 @@ export namespace DeleteTransitGatewayRouteTableResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
+  /**
+   * <p>The transit gateway route table ID that's being deleted. </p>
+   */
+  TransitGatewayRouteTableAnnouncementId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayRouteTableAnnouncementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableAnnouncementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayRouteTableAnnouncementResult {
+  /**
+   * <p>Provides details about a deleted transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
+}
+
+export namespace DeleteTransitGatewayRouteTableAnnouncementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteTableAnnouncementResult): any => ({
     ...obj,
   });
 }
@@ -7894,583 +8342,6 @@ export namespace DescribeClientVpnConnectionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminated" | "terminating";
-
-/**
- * <p>Describes the status of a client connection.</p>
- */
-export interface ClientVpnConnectionStatus {
-  /**
-   * <p>The state of the client connection.</p>
-   */
-  Code?: ClientVpnConnectionStatusCode | string;
-
-  /**
-   * <p>A message about the status of the client connection, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export namespace ClientVpnConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnConnectionStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a client connection.</p>
- */
-export interface ClientVpnConnection {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>The current date and time.</p>
-   */
-  Timestamp?: string;
-
-  /**
-   * <p>The ID of the client connection.</p>
-   */
-  ConnectionId?: string;
-
-  /**
-   * <p>The username of the client who established the client connection. This information is only provided
-   * 			if Active Directory client authentication is used.</p>
-   */
-  Username?: string;
-
-  /**
-   * <p>The date and time the client connection was established.</p>
-   */
-  ConnectionEstablishedTime?: string;
-
-  /**
-   * <p>The number of bytes sent by the client.</p>
-   */
-  IngressBytes?: string;
-
-  /**
-   * <p>The number of bytes received by the client.</p>
-   */
-  EgressBytes?: string;
-
-  /**
-   * <p>The number of packets sent by the client.</p>
-   */
-  IngressPackets?: string;
-
-  /**
-   * <p>The number of packets received by the client.</p>
-   */
-  EgressPackets?: string;
-
-  /**
-   * <p>The IP address of the client.</p>
-   */
-  ClientIp?: string;
-
-  /**
-   * <p>The common name associated with the client. This is either the name of the client certificate,
-   * 			or the Active Directory user name.</p>
-   */
-  CommonName?: string;
-
-  /**
-   * <p>The current state of the client connection.</p>
-   */
-  Status?: ClientVpnConnectionStatus;
-
-  /**
-   * <p>The date and time the client connection was terminated.</p>
-   */
-  ConnectionEndTime?: string;
-
-  /**
-   * <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
-   */
-  PostureComplianceStatuses?: string[];
-}
-
-export namespace ClientVpnConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnConnection): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnConnectionsResult {
-  /**
-   * <p>Information about the active and terminated client connections.</p>
-   */
-  Connections?: ClientVpnConnection[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnConnectionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnEndpointsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transport-protocol</code> - The transport protocol (<code>tcp</code> |
-   *                     <code>udp</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeClientVpnEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
-export type AssociatedNetworkType = "vpc";
-
-/**
- * <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
- */
-export interface AssociatedTargetNetwork {
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  NetworkId?: string;
-
-  /**
-   * <p>The target network type.</p>
-   */
-  NetworkType?: AssociatedNetworkType | string;
-}
-
-export namespace AssociatedTargetNetwork {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedTargetNetwork): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an Active Directory.</p>
- */
-export interface DirectoryServiceAuthentication {
-  /**
-   * <p>The ID of the Active Directory used for authentication.</p>
-   */
-  DirectoryId?: string;
-}
-
-export namespace DirectoryServiceAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryServiceAuthentication): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the IAM SAML identity providers used for federated authentication.</p>
- */
-export interface FederatedAuthentication {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
-   */
-  SamlProviderArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
-   */
-  SelfServiceSamlProviderArn?: string;
-}
-
-export namespace FederatedAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FederatedAuthentication): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the client certificate used for authentication.</p>
- */
-export interface CertificateAuthentication {
-  /**
-   * <p>The ARN of the client certificate. </p>
-   */
-  ClientRootCertificateChain?: string;
-}
-
-export namespace CertificateAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateAuthentication): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
- * 			in the <i>Client VPN Administrator Guide</i>.</p>
- */
-export interface ClientVpnAuthentication {
-  /**
-   * <p>The authentication type used.</p>
-   */
-  Type?: ClientVpnAuthenticationType | string;
-
-  /**
-   * <p>Information about the Active Directory, if applicable.</p>
-   */
-  ActiveDirectory?: DirectoryServiceAuthentication;
-
-  /**
-   * <p>Information about the authentication certificates, if applicable.</p>
-   */
-  MutualAuthentication?: CertificateAuthentication;
-
-  /**
-   * <p>Information about the IAM SAML identity provider, if applicable.</p>
-   */
-  FederatedAuthentication?: FederatedAuthentication;
-}
-
-export namespace ClientVpnAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnAuthentication): any => ({
-    ...obj,
-  });
-}
-
-export type ClientVpnEndpointAttributeStatusCode = "applied" | "applying";
-
-/**
- * <p>Describes the status of the Client VPN endpoint attribute.</p>
- */
-export interface ClientVpnEndpointAttributeStatus {
-  /**
-   * <p>The status code.</p>
-   */
-  Code?: ClientVpnEndpointAttributeStatusCode | string;
-
-  /**
-   * <p>The status message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ClientVpnEndpointAttributeStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnEndpointAttributeStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The options for managing connection authorization for new client connections.</p>
- */
-export interface ClientConnectResponseOptions {
-  /**
-   * <p>Indicates whether client connect options are enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
-   */
-  LambdaFunctionArn?: string;
-
-  /**
-   * <p>The status of any updates to the client connect options.</p>
-   */
-  Status?: ClientVpnEndpointAttributeStatus;
-}
-
-export namespace ClientConnectResponseOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientConnectResponseOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Current state of options for customizable text banner that will be displayed on
- * 			Amazon Web Services provided clients when a VPN session is established.</p>
- */
-export interface ClientLoginBannerResponseOptions {
-  /**
-   * <p>Current state of text banner feature.</p>
-   * 		       <p>Valid values: <code>true | false</code>
-   *          </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
-   * 			clients when a VPN session is established. UTF-8 encoded
-   * 			characters only. Maximum of 1400 characters.</p>
-   */
-  BannerText?: string;
-}
-
-export namespace ClientLoginBannerResponseOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientLoginBannerResponseOptions): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
- */
-export interface ConnectionLogResponseOptions {
-  /**
-   * <p>Indicates whether client connection logging is enabled for the Client VPN endpoint.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The name of the Amazon CloudWatch Logs log group to which connection logging data is published.</p>
-   */
-  CloudwatchLogGroup?: string;
-
-  /**
-   * <p>The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.</p>
-   */
-  CloudwatchLogStream?: string;
-}
-
-export namespace ConnectionLogResponseOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionLogResponseOptions): any => ({
-    ...obj,
-  });
-}
-
-export type VpnProtocol = "openvpn";
-
-/**
- * <p>Describes a Client VPN endpoint.</p>
- */
-export interface ClientVpnEndpoint {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId?: string;
-
-  /**
-   * <p>A brief description of the endpoint.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   */
-  Status?: ClientVpnEndpointStatus;
-
-  /**
-   * <p>The date and time the Client VPN endpoint was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>The date and time the Client VPN endpoint was deleted, if applicable.</p>
-   */
-  DeletionTime?: string;
-
-  /**
-   * <p>The DNS name to be used by clients when connecting to the Client VPN endpoint.</p>
-   */
-  DnsName?: string;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
-   */
-  ClientCidrBlock?: string;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. </p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled in the Client VPN endpoint.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel Client VPN endpoint</a>
-   * 			in the <i>Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
-
-  /**
-   * <p>The protocol used by the VPN session.</p>
-   */
-  VpnProtocol?: VpnProtocol | string;
-
-  /**
-   * <p>The transport protocol used by the Client VPN endpoint.</p>
-   */
-  TransportProtocol?: TransportProtocol | string;
-
-  /**
-   * <p>The port number for the  Client VPN endpoint.</p>
-   */
-  VpnPort?: number;
-
-  /**
-   * @deprecated
-   *
-   * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
-   */
-  AssociatedTargetNetworks?: AssociatedTargetNetwork[];
-
-  /**
-   * <p>The ARN of the server certificate.</p>
-   */
-  ServerCertificateArn?: string;
-
-  /**
-   * <p>Information about the authentication method used by the Client VPN endpoint.</p>
-   */
-  AuthenticationOptions?: ClientVpnAuthentication[];
-
-  /**
-   * <p>Information about the client connection logging options for the Client VPN endpoint.</p>
-   */
-  ConnectionLogOptions?: ConnectionLogResponseOptions;
-
-  /**
-   * <p>Any tags assigned to the Client VPN endpoint.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The IDs of the security groups for the target network.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The URL of the self-service portal.</p>
-   */
-  SelfServicePortalUrl?: string;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   */
-  ClientConnectOptions?: ClientConnectResponseOptions;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   * 		       <p>Default value: <code>24</code>
-   *          </p>
-   */
-  SessionTimeoutHours?: number;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is
-   * 			established.</p>
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
-}
-
-export namespace ClientVpnEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientVpnEndpoint): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeClientVpnEndpointsResult {
-  /**
-   * <p>Information about the Client VPN endpoints.</p>
-   */
-  ClientVpnEndpoints?: ClientVpnEndpoint[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeClientVpnEndpointsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientVpnEndpointsResult): any => ({
     ...obj,
   });
 }

@@ -112,6 +112,11 @@ import {
   AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/AssociateTransitGatewayMulticastDomainCommand";
 import {
+  AssociateTransitGatewayPolicyTableCommand,
+  AssociateTransitGatewayPolicyTableCommandInput,
+  AssociateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/AssociateTransitGatewayPolicyTableCommand";
+import {
   AssociateTransitGatewayRouteTableCommand,
   AssociateTransitGatewayRouteTableCommandInput,
   AssociateTransitGatewayRouteTableCommandOutput,
@@ -498,6 +503,11 @@ import {
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
+  CreateTransitGatewayPolicyTableCommand,
+  CreateTransitGatewayPolicyTableCommandInput,
+  CreateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/CreateTransitGatewayPolicyTableCommand";
+import {
   CreateTransitGatewayPrefixListReferenceCommand,
   CreateTransitGatewayPrefixListReferenceCommandInput,
   CreateTransitGatewayPrefixListReferenceCommandOutput,
@@ -507,6 +517,11 @@ import {
   CreateTransitGatewayRouteCommandInput,
   CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand";
+import {
+  CreateTransitGatewayRouteTableAnnouncementCommand,
+  CreateTransitGatewayRouteTableAnnouncementCommandInput,
+  CreateTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "./commands/CreateTransitGatewayRouteTableAnnouncementCommand";
 import {
   CreateTransitGatewayRouteTableCommand,
   CreateTransitGatewayRouteTableCommandInput,
@@ -792,6 +807,11 @@ import {
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
+  DeleteTransitGatewayPolicyTableCommand,
+  DeleteTransitGatewayPolicyTableCommandInput,
+  DeleteTransitGatewayPolicyTableCommandOutput,
+} from "./commands/DeleteTransitGatewayPolicyTableCommand";
+import {
   DeleteTransitGatewayPrefixListReferenceCommand,
   DeleteTransitGatewayPrefixListReferenceCommandInput,
   DeleteTransitGatewayPrefixListReferenceCommandOutput,
@@ -801,6 +821,11 @@ import {
   DeleteTransitGatewayRouteCommandInput,
   DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand";
+import {
+  DeleteTransitGatewayRouteTableAnnouncementCommand,
+  DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "./commands/DeleteTransitGatewayRouteTableAnnouncementCommand";
 import {
   DeleteTransitGatewayRouteTableCommand,
   DeleteTransitGatewayRouteTableCommandInput,
@@ -1448,6 +1473,16 @@ import {
   DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayPeeringAttachmentsCommand";
 import {
+  DescribeTransitGatewayPolicyTablesCommand,
+  DescribeTransitGatewayPolicyTablesCommandInput,
+  DescribeTransitGatewayPolicyTablesCommandOutput,
+} from "./commands/DescribeTransitGatewayPolicyTablesCommand";
+import {
+  DescribeTransitGatewayRouteTableAnnouncementsCommand,
+  DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+  DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
+} from "./commands/DescribeTransitGatewayRouteTableAnnouncementsCommand";
+import {
   DescribeTransitGatewayRouteTablesCommand,
   DescribeTransitGatewayRouteTablesCommandInput,
   DescribeTransitGatewayRouteTablesCommandOutput,
@@ -1667,6 +1702,11 @@ import {
   DisassociateTransitGatewayMulticastDomainCommandInput,
   DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "./commands/DisassociateTransitGatewayMulticastDomainCommand";
+import {
+  DisassociateTransitGatewayPolicyTableCommand,
+  DisassociateTransitGatewayPolicyTableCommandInput,
+  DisassociateTransitGatewayPolicyTableCommandOutput,
+} from "./commands/DisassociateTransitGatewayPolicyTableCommand";
 import {
   DisassociateTransitGatewayRouteTableCommand,
   DisassociateTransitGatewayRouteTableCommandInput,
@@ -1903,6 +1943,16 @@ import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableAssociationsCommand,
+  GetTransitGatewayPolicyTableAssociationsCommandInput,
+  GetTransitGatewayPolicyTableAssociationsCommandOutput,
+} from "./commands/GetTransitGatewayPolicyTableAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableEntriesCommand,
+  GetTransitGatewayPolicyTableEntriesCommandInput,
+  GetTransitGatewayPolicyTableEntriesCommandOutput,
+} from "./commands/GetTransitGatewayPolicyTableEntriesCommand";
 import {
   GetTransitGatewayPrefixListReferencesCommand,
   GetTransitGatewayPrefixListReferencesCommandInput,
@@ -3400,6 +3450,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new AssociateTransitGatewayMulticastDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+   */
+  public associateTransitGatewayPolicyTable(
+    args: AssociateTransitGatewayPolicyTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTransitGatewayPolicyTableCommandOutput>;
+  public associateTransitGatewayPolicyTable(
+    args: AssociateTransitGatewayPolicyTableCommandInput,
+    cb: (err: any, data?: AssociateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public associateTransitGatewayPolicyTable(
+    args: AssociateTransitGatewayPolicyTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public associateTransitGatewayPolicyTable(
+    args: AssociateTransitGatewayPolicyTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTransitGatewayPolicyTableCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayPolicyTableCommandOutput) => void
+  ): Promise<AssociateTransitGatewayPolicyTableCommandOutput> | void {
+    const command = new AssociateTransitGatewayPolicyTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6524,8 +6606,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Requests a transit gateway peering attachment between the specified transit gateway
-   *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
-   *             your account or a different Amazon Web Services account.</p>
+   *             (requester) and a peer transit gateway (accepter). The transit gateways must be in
+   *             different Regions. The peer transit gateway can be in your account or a different
+   *             Amazon Web Services account.</p>
    *         <p>After you create the peering attachment, the owner of the accepter transit gateway
    *             must accept the attachment request.</p>
    */
@@ -6550,6 +6633,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new CreateTransitGatewayPeeringAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a transit gateway policy table.</p>
+   */
+  public createTransitGatewayPolicyTable(
+    args: CreateTransitGatewayPolicyTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayPolicyTableCommandOutput>;
+  public createTransitGatewayPolicyTable(
+    args: CreateTransitGatewayPolicyTableCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public createTransitGatewayPolicyTable(
+    args: CreateTransitGatewayPolicyTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public createTransitGatewayPolicyTable(
+    args: CreateTransitGatewayPolicyTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayPolicyTableCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayPolicyTableCommandOutput) => void
+  ): Promise<CreateTransitGatewayPolicyTableCommandOutput> | void {
+    const command = new CreateTransitGatewayPolicyTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6648,6 +6763,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<CreateTransitGatewayRouteTableCommandOutput> | void {
     const command = new CreateTransitGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Advertises a new transit gateway route table.</p>
+   */
+  public createTransitGatewayRouteTableAnnouncement(
+    args: CreateTransitGatewayRouteTableAnnouncementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput>;
+  public createTransitGatewayRouteTableAnnouncement(
+    args: CreateTransitGatewayRouteTableAnnouncementCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): void;
+  public createTransitGatewayRouteTableAnnouncement(
+    args: CreateTransitGatewayRouteTableAnnouncementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): void;
+  public createTransitGatewayRouteTableAnnouncement(
+    args: CreateTransitGatewayRouteTableAnnouncementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTransitGatewayRouteTableAnnouncementCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> | void {
+    const command = new CreateTransitGatewayRouteTableAnnouncementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8688,6 +8837,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes the specified transit gateway policy table.</p>
+   */
+  public deleteTransitGatewayPolicyTable(
+    args: DeleteTransitGatewayPolicyTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayPolicyTableCommandOutput>;
+  public deleteTransitGatewayPolicyTable(
+    args: DeleteTransitGatewayPolicyTableCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayPolicyTable(
+    args: DeleteTransitGatewayPolicyTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayPolicyTable(
+    args: DeleteTransitGatewayPolicyTableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTransitGatewayPolicyTableCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayPolicyTableCommandOutput) => void
+  ): Promise<DeleteTransitGatewayPolicyTableCommandOutput> | void {
+    const command = new DeleteTransitGatewayPolicyTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
    */
   public deleteTransitGatewayPrefixListReference(
@@ -8776,6 +8957,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteTransitGatewayRouteTableCommandOutput) => void
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> | void {
     const command = new DeleteTransitGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
+   */
+  public deleteTransitGatewayRouteTableAnnouncement(
+    args: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput>;
+  public deleteTransitGatewayRouteTableAnnouncement(
+    args: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayRouteTableAnnouncement(
+    args: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayRouteTableAnnouncement(
+    args: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTransitGatewayRouteTableAnnouncementCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayRouteTableAnnouncementCommandOutput) => void
+  ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> | void {
+    const command = new DeleteTransitGatewayRouteTableAnnouncementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13378,6 +13593,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more transit gateway route policy tables.  </p>
+   */
+  public describeTransitGatewayPolicyTables(
+    args: DescribeTransitGatewayPolicyTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewayPolicyTablesCommandOutput>;
+  public describeTransitGatewayPolicyTables(
+    args: DescribeTransitGatewayPolicyTablesCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayPolicyTablesCommandOutput) => void
+  ): void;
+  public describeTransitGatewayPolicyTables(
+    args: DescribeTransitGatewayPolicyTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewayPolicyTablesCommandOutput) => void
+  ): void;
+  public describeTransitGatewayPolicyTables(
+    args: DescribeTransitGatewayPolicyTablesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransitGatewayPolicyTablesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayPolicyTablesCommandOutput) => void
+  ): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> | void {
+    const command = new DescribeTransitGatewayPolicyTablesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more transit gateway route table advertisements.</p>
+   */
+  public describeTransitGatewayRouteTableAnnouncements(
+    args: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput>;
+  public describeTransitGatewayRouteTableAnnouncements(
+    args: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+    cb: (err: any, data?: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput) => void
+  ): void;
+  public describeTransitGatewayRouteTableAnnouncements(
+    args: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput) => void
+  ): void;
+  public describeTransitGatewayRouteTableAnnouncements(
+    args: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput) => void
+  ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> | void {
+    const command = new DescribeTransitGatewayRouteTableAnnouncementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.
    *          Alternatively, you can filter the results.</p>
    */
@@ -14926,6 +15207,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new DisassociateTransitGatewayMulticastDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the association between an an attachment and a policy table.</p>
+   */
+  public disassociateTransitGatewayPolicyTable(
+    args: DisassociateTransitGatewayPolicyTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput>;
+  public disassociateTransitGatewayPolicyTable(
+    args: DisassociateTransitGatewayPolicyTableCommandInput,
+    cb: (err: any, data?: DisassociateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public disassociateTransitGatewayPolicyTable(
+    args: DisassociateTransitGatewayPolicyTableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+  public disassociateTransitGatewayPolicyTable(
+    args: DisassociateTransitGatewayPolicyTableCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateTransitGatewayPolicyTableCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayPolicyTableCommandOutput) => void
+  ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> | void {
+    const command = new DisassociateTransitGatewayPolicyTableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16628,6 +16943,72 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> | void {
     const command = new GetTransitGatewayMulticastDomainAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of the transit gateway policy table associations.</p>
+   */
+  public getTransitGatewayPolicyTableAssociations(
+    args: GetTransitGatewayPolicyTableAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput>;
+  public getTransitGatewayPolicyTableAssociations(
+    args: GetTransitGatewayPolicyTableAssociationsCommandInput,
+    cb: (err: any, data?: GetTransitGatewayPolicyTableAssociationsCommandOutput) => void
+  ): void;
+  public getTransitGatewayPolicyTableAssociations(
+    args: GetTransitGatewayPolicyTableAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayPolicyTableAssociationsCommandOutput) => void
+  ): void;
+  public getTransitGatewayPolicyTableAssociations(
+    args: GetTransitGatewayPolicyTableAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTransitGatewayPolicyTableAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayPolicyTableAssociationsCommandOutput) => void
+  ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> | void {
+    const command = new GetTransitGatewayPolicyTableAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of transit gateway policy table entries.</p>
+   */
+  public getTransitGatewayPolicyTableEntries(
+    args: GetTransitGatewayPolicyTableEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput>;
+  public getTransitGatewayPolicyTableEntries(
+    args: GetTransitGatewayPolicyTableEntriesCommandInput,
+    cb: (err: any, data?: GetTransitGatewayPolicyTableEntriesCommandOutput) => void
+  ): void;
+  public getTransitGatewayPolicyTableEntries(
+    args: GetTransitGatewayPolicyTableEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayPolicyTableEntriesCommandOutput) => void
+  ): void;
+  public getTransitGatewayPolicyTableEntries(
+    args: GetTransitGatewayPolicyTableEntriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTransitGatewayPolicyTableEntriesCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayPolicyTableEntriesCommandOutput) => void
+  ): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> | void {
+    const command = new GetTransitGatewayPolicyTableEntriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

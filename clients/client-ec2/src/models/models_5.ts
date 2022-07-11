@@ -12,6 +12,7 @@ import {
   AttributeValue,
   AutoPlacement,
   ByoipCidr,
+  CapacityReservationState,
   ClientConnectOptions,
   ClientLoginBannerOptions,
   ConnectionLogOptions,
@@ -21,13 +22,9 @@ import {
   FleetExcessCapacityTerminationPolicy,
   HostnameType,
   HostRecovery,
-  IamInstanceProfileAssociation,
-  IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamPoolAllocation,
   Ipv6SupportValue,
-  PortRange,
-  RouteTableAssociationState,
   SelfServicePortal,
   SubnetAssociation,
   Tag,
@@ -35,8 +32,7 @@ import {
   TargetConfigurationRequest,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
-  TransitGatewayMulticastDomainAssociations,
-  TransitGatewayPeeringAttachment,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
@@ -49,7 +45,6 @@ import {
   DefaultRouteTablePropagationValue,
   DiskImageFormat,
   FleetLaunchTemplateConfigRequest,
-  IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
   InstanceRequirementsRequest,
   Ipam,
@@ -63,7 +58,6 @@ import {
   PlatformValues,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
-  RuleAction,
   ShutdownBehavior,
   SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
@@ -75,7 +69,6 @@ import {
   TrafficMirrorPortRangeRequest,
   TrafficMirrorRuleAction,
   TrafficMirrorSession,
-  TransitGateway,
   VolumeType,
   VpnEcmpSupportValue,
 } from "./models_1";
@@ -83,7 +76,6 @@ import {
   DnsOptionsSpecification,
   Filter,
   IKEVersionsRequestListValue,
-  InstanceTagNotificationAttribute,
   IpAddressType,
   IpamPoolCidr,
   PayerResponsibility,
@@ -93,6 +85,7 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  TransitGateway,
   TransitGatewayPrefixListReference,
   VpnConnection,
 } from "./models_2";
@@ -103,6 +96,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ExportTaskS3Location,
   FpgaImageAttribute,
   FpgaImageAttributeName,
   HttpTokensState,
@@ -126,16 +120,812 @@ import {
 import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
-  InstanceFamilyCreditSpecification,
+  ExportTaskS3LocationRequest,
   LaunchTemplateConfig,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   ScheduledInstance,
   SnapshotAttributeName,
   TransitGatewayPropagationState,
-  UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_4";
+
+export interface ExportImageRequest {
+  /**
+   * <p>Token to enable idempotency for export image requests.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A description of the image being exported. The maximum length is 255 characters.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The disk image format.</p>
+   */
+  DiskImageFormat: DiskImageFormat | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the image.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE
+   *    and READ_ACP permissions to the Amazon Web Services account vm-import-export@amazon.com.</p>
+   */
+  S3ExportLocation: ExportTaskS3LocationRequest | undefined;
+
+  /**
+   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
+   *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>The tags to apply to the export image task during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace ExportImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportImageResult {
+  /**
+   * <p>A description of the image being exported.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The disk image format for the exported image.</p>
+   */
+  DiskImageFormat?: DiskImageFormat | string;
+
+  /**
+   * <p>The ID of the export image task.</p>
+   */
+  ExportImageTaskId?: string;
+
+  /**
+   * <p>The ID of the image.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
+   *    S3 bucket.</p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>The percent complete of the export image task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Information about the destination Amazon S3 bucket.</p>
+   */
+  S3ExportLocation?: ExportTaskS3Location;
+
+  /**
+   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
+   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The status message for the export image task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Any tags assigned to the export image task.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ExportImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportImageResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportTransitGatewayRoutesRequest {
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of route (<code>propagated</code> |
+   *                <code>static</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ExportTransitGatewayRoutesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ExportTransitGatewayRoutesResult {
+  /**
+   * <p>The URL of the exported file in Amazon S3. For example,
+   *          s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
+   */
+  S3Location?: string;
+}
+
+export namespace ExportTransitGatewayRoutesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportTransitGatewayRoutesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedEnclaveCertificateIamRolesRequest {
+  /**
+   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
+   * 			S3 object information.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetAssociatedEnclaveCertificateIamRolesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedEnclaveCertificateIamRolesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the associated IAM roles.</p>
+ */
+export interface AssociatedRole {
+  /**
+   * <p>The ARN of the associated IAM role.</p>
+   */
+  AssociatedRoleArn?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+   */
+  CertificateS3BucketName?: string;
+
+  /**
+   * <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle
+   * 			is stored. The object key is formated as follows:  <code>role_arn</code>/<code>certificate_arn</code>.
+   * 		</p>
+   */
+  CertificateS3ObjectKey?: string;
+
+  /**
+   * <p>The ID of the KMS customer master key (CMK) used to encrypt the private key.</p>
+   */
+  EncryptionKmsKeyId?: string;
+}
+
+export namespace AssociatedRole {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatedRole): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedEnclaveCertificateIamRolesResult {
+  /**
+   * <p>Information about the associated IAM roles.</p>
+   */
+  AssociatedRoles?: AssociatedRole[];
+}
+
+export namespace GetAssociatedEnclaveCertificateIamRolesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedEnclaveCertificateIamRolesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedIpv6PoolCidrsRequest {
+  /**
+   * <p>The ID of the IPv6 address pool.</p>
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetAssociatedIpv6PoolCidrsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an IPv6 CIDR block association.</p>
+ */
+export interface Ipv6CidrAssociation {
+  /**
+   * <p>The IPv6 CIDR block.</p>
+   */
+  Ipv6Cidr?: string;
+
+  /**
+   * <p>The resource that's associated with the IPv6 CIDR block.</p>
+   */
+  AssociatedResource?: string;
+}
+
+export namespace Ipv6CidrAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6CidrAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedIpv6PoolCidrsResult {
+  /**
+   * <p>Information about the IPv6 CIDR block associations.</p>
+   */
+  Ipv6CidrAssociations?: Ipv6CidrAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetAssociatedIpv6PoolCidrsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetAssociatedIpv6PoolCidrsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCapacityReservationUsageRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * 		       <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetCapacityReservationUsageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCapacityReservationUsageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Capacity Reservation usage.</p>
+ */
+export interface InstanceUsage {
+  /**
+   * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
+   */
+  UsedInstanceCount?: number;
+}
+
+export namespace InstanceUsage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceUsage): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCapacityReservationUsageResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   */
+  TotalInstanceCount?: number;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   */
+  AvailableInstanceCount?: number;
+
+  /**
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   * 			      <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
+   * 					in your request. The reserved capacity is no longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
+   * 					longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
+   * 					provisioning is still pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
+   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
+   * 					Failed requests are retained for 60 minutes.</p>
+   *             </li>
+   *          </ul>
+   */
+  State?: CapacityReservationState | string;
+
+  /**
+   * <p>Information about the Capacity Reservation usage.</p>
+   */
+  InstanceUsages?: InstanceUsage[];
+}
+
+export namespace GetCapacityReservationUsageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCapacityReservationUsageResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoipPoolUsageRequest {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetCoipPoolUsageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoipPoolUsageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes address usage for a customer-owned address pool.</p>
+ */
+export interface CoipAddressUsage {
+  /**
+   * <p>The allocation ID of the address.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services service.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * <p>The customer-owned IP address.</p>
+   */
+  CoIp?: string;
+}
+
+export namespace CoipAddressUsage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoipAddressUsage): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoipPoolUsageResult {
+  /**
+   * <p>The ID of the customer-owned address pool.</p>
+   */
+  CoipPoolId?: string;
+
+  /**
+   * <p>Information about the address usage.</p>
+   */
+  CoipAddressUsages?: CoipAddressUsage[];
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+}
+
+export namespace GetCoipPoolUsageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoipPoolUsageResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConsoleOutputRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>When enabled, retrieves the latest console output for the instance.</p>
+   *         <p>Default: disabled (<code>false</code>)</p>
+   */
+  Latest?: boolean;
+}
+
+export namespace GetConsoleOutputRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConsoleOutputRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConsoleOutputResult {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The console output, base64-encoded. If you are using a command line tool, the tool
+   *             decodes the output for you.</p>
+   */
+  Output?: string;
+
+  /**
+   * <p>The time at which the output was last updated.</p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace GetConsoleOutputResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConsoleOutputResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConsoleScreenshotRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
+   *             in standby or "sleep" mode.</p>
+   */
+  WakeUp?: boolean;
+}
+
+export namespace GetConsoleScreenshotRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConsoleScreenshotRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConsoleScreenshotResult {
+  /**
+   * <p>The data that comprises the image.</p>
+   */
+  ImageData?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+}
+
+export namespace GetConsoleScreenshotResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConsoleScreenshotResult): any => ({
+    ...obj,
+  });
+}
+
+export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a" | "t4g";
+
+export interface GetDefaultCreditSpecificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The instance family.</p>
+   */
+  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
+}
+
+export namespace GetDefaultCreditSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the default credit option for CPU usage of a burstable performance instance
+ *             family.</p>
+ */
+export interface InstanceFamilyCreditSpecification {
+  /**
+   * <p>The instance family.</p>
+   */
+  InstanceFamily?: UnlimitedSupportedInstanceFamily | string;
+
+  /**
+   * <p>The default credit option for CPU usage of the instance family. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   */
+  CpuCredits?: string;
+}
+
+export namespace InstanceFamilyCreditSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceFamilyCreditSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDefaultCreditSpecificationResult {
+  /**
+   * <p>The default credit option for CPU usage of the instance family.</p>
+   */
+  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
+}
+
+export namespace GetDefaultCreditSpecificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDefaultCreditSpecificationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEbsDefaultKmsKeyIdRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetEbsDefaultKmsKeyIdRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface GetEbsDefaultKmsKeyIdResult {
   /**
@@ -2044,10 +2834,12 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
    *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
    *             </li>
    *             <li>
+   *
    *                 <p>
    *                   <code>state</code> - The state of the subnet association. Valid values are
-   *                         <code>associated</code> | <code>associating</code> |
-   *                         <code>disassociated</code> | <code>disassociating</code>.</p>
+   *                         <code>associated</code> |
+   *                         <code>associating</code>
+   *                     | <code>disassociated</code> | <code>disassociating</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2145,6 +2937,218 @@ export namespace GetTransitGatewayMulticastDomainAssociationsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayPolicyTableAssociationsRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetTransitGatewayPolicyTableAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPolicyTableAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayPolicyTableAssociationsResult {
+  /**
+   * <p>Returns details about the transit gateway policy table association.</p>
+   */
+  Associations?: TransitGatewayPolicyTableAssociation[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetTransitGatewayPolicyTableAssociationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPolicyTableAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayPolicyTableEntriesRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The filters associated with the transit gateway policy table.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetTransitGatewayPolicyTableEntriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPolicyTableEntriesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ */
+export interface TransitGatewayPolicyRuleMetaData {
+  /**
+   * <p>The key name for the transit gateway policy rule meta data tag.</p>
+   */
+  MetaDataKey?: string;
+
+  /**
+   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+   */
+  MetaDataValue?: string;
+}
+
+export namespace TransitGatewayPolicyRuleMetaData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPolicyRuleMetaData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a rule associated with a transit gateway policy.</p>
+ */
+export interface TransitGatewayPolicyRule {
+  /**
+   * <p>The source CIDR block for the transit gateway policy rule.</p>
+   */
+  SourceCidrBlock?: string;
+
+  /**
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   */
+  SourcePortRange?: string;
+
+  /**
+   * <p>The destination CIDR block for the transit gateway policy rule.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   */
+  DestinationPortRange?: string;
+
+  /**
+   * <p>The protocol used by the transit gateway policy rule.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The meta data tags used for the transit gateway policy rule.</p>
+   */
+  MetaData?: TransitGatewayPolicyRuleMetaData;
+}
+
+export namespace TransitGatewayPolicyRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPolicyRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a transit gateway policy table entry</p>
+ */
+export interface TransitGatewayPolicyTableEntry {
+  /**
+   * <p>The rule number for the transit gateway policy table entry.</p>
+   */
+  PolicyRuleNumber?: string;
+
+  /**
+   * <p>The policy rule associated with the transit gateway policy table.</p>
+   */
+  PolicyRule?: TransitGatewayPolicyRule;
+
+  /**
+   * <p>The ID of the target route table.</p>
+   */
+  TargetRouteTableId?: string;
+}
+
+export namespace TransitGatewayPolicyTableEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPolicyTableEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayPolicyTableEntriesResult {
+  /**
+   * <p>The entries for the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[];
+}
+
+export namespace GetTransitGatewayPolicyTableEntriesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPolicyTableEntriesResult): any => ({
     ...obj,
   });
 }
@@ -2429,6 +3433,11 @@ export interface TransitGatewayRouteTablePropagation {
    * <p>The state of the resource.</p>
    */
   State?: TransitGatewayPropagationState | string;
+
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   */
+  TransitGatewayRouteTableAnnouncementId?: string;
 }
 
 export namespace TransitGatewayRouteTablePropagation {
@@ -6747,6 +7756,12 @@ export interface ModifyTransitGatewayOptions {
    * <p>The ID of the default propagation route table.</p>
    */
   PropagationDefaultRouteTableId?: string;
+
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
+   */
+  AmazonSideAsn?: number;
 }
 
 export namespace ModifyTransitGatewayOptions {
@@ -8835,865 +9850,6 @@ export namespace RegisterImageResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RegisterImageResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the tag keys to register for the current Region. You can either specify
- *       	individual tag keys or register all tag keys in the current Region. You must specify either
- *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
- */
-export interface RegisterInstanceTagAttributeRequest {
-  /**
-   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
-   *       	to register all tag keys.</p>
-   */
-  IncludeAllTagsOfInstance?: boolean;
-
-  /**
-   * <p>The tag keys to register.</p>
-   */
-  InstanceTagKeys?: string[];
-}
-
-export namespace RegisterInstanceTagAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceTagAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Information about the tag keys to register.</p>
-   */
-  InstanceTagAttribute?: RegisterInstanceTagAttributeRequest;
-}
-
-export namespace RegisterInstanceEventNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterInstanceEventNotificationAttributesResult {
-  /**
-   * <p>The resulting set of tag keys.</p>
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-export namespace RegisterInstanceEventNotificationAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the registered  transit gateway multicast group members.</p>
- */
-export interface TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the registered network interfaces.</p>
-   */
-  RegisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
-
-export namespace TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the registered  transit gateway multicast group members.</p>
-   */
-  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the members registered with the  transit gateway multicast group.</p>
- */
-export interface TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
-   */
-  RegisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
-
-export namespace TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * <p>Information about the  transit gateway multicast group sources.</p>
-   */
-  RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * <p>Describes the multicast domain associations.</p>
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations;
-}
-
-export namespace RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * <p>The ID of the transit gateway peering attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * <p>The transit gateway peering attachment.</p>
-   */
-  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
-}
-
-export namespace RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the attachment.</p>
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
-}
-
-export namespace RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectVpcEndpointConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>The IDs of one or more VPC endpoints.</p>
-   */
-  VpcEndpointIds: string[] | undefined;
-}
-
-export namespace RejectVpcEndpointConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectVpcEndpointConnectionsResult {
-  /**
-   * <p>Information about the endpoints that were not rejected, if applicable.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace RejectVpcEndpointConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-export namespace RejectVpcPeeringConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RejectVpcPeeringConnectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace RejectVpcPeeringConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleaseAddressRequest {
-  /**
-   * <p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>
-   */
-  AllocationId?: string;
-
-  /**
-   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
-   *       IP addresses.</p>
-   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
-   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you
-   *       receive an <code>InvalidParameterCombination</code> error.</p>
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ReleaseAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleaseHostsRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts to release.</p>
-   */
-  HostIds: string[] | undefined;
-}
-
-export namespace ReleaseHostsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleaseHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
-   */
-  Successful?: string[];
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
-   *             message.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace ReleaseHostsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleaseIpamPoolAllocationRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool which contains the allocation you want to release.</p>
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR of the allocation you want to release.</p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   */
-  IpamPoolAllocationId: string | undefined;
-}
-
-export namespace ReleaseIpamPoolAllocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReleaseIpamPoolAllocationResult {
-  /**
-   * <p>Indicates if the release was successful.</p>
-   */
-  Success?: boolean;
-}
-
-export namespace ReleaseIpamPoolAllocationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceIamInstanceProfileAssociationRequest {
-  /**
-   * <p>The IAM instance profile.</p>
-   */
-  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the existing IAM instance profile association.</p>
-   */
-  AssociationId: string | undefined;
-}
-
-export namespace ReplaceIamInstanceProfileAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceIamInstanceProfileAssociationResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
-}
-
-export namespace ReplaceIamInstanceProfileAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceNetworkAclAssociationRequest {
-  /**
-   * <p>The ID of the current association between the original network ACL and the subnet.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the new network ACL to associate with the subnet.</p>
-   */
-  NetworkAclId: string | undefined;
-}
-
-export namespace ReplaceNetworkAclAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceNetworkAclAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   */
-  NewAssociationId?: string;
-}
-
-export namespace ReplaceNetworkAclAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceNetworkAclEntryRequest {
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   *                 <code>172.16.0.0/24</code>).</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to replace the egress rule.</p>
-   * 		       <p>Default: If no value is specified, we replace the ingress rule.</p>
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   */
-  IcmpTypeCode?: IcmpTypeCode;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of the ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
-   */
-  PortRange?: PortRange;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
-   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
-   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
-   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
-   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
-   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
-   */
-  Protocol: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   */
-  RuleAction: RuleAction | string | undefined;
-
-  /**
-   * <p>The rule number of the entry to replace.</p>
-   */
-  RuleNumber: number | undefined;
-}
-
-export namespace ReplaceNetworkAclEntryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceRouteRequest {
-  /**
-   * <p>The IPv4 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   */
-  DestinationPrefixListId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
-   */
-  VpcEndpointId?: string;
-
-  /**
-   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The ID of an internet gateway or virtual private gateway.</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
-   */
-  LocalTarget?: boolean;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * <p>The ID of a network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   */
-  CoreNetworkArn?: string;
-}
-
-export namespace ReplaceRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceRouteTableAssociationRequest {
-  /**
-   * <p>The association ID.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the new route table to associate with the subnet.</p>
-   */
-  RouteTableId: string | undefined;
-}
-
-export namespace ReplaceRouteTableAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceRouteTableAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   */
-  NewAssociationId?: string;
-
-  /**
-   * <p>The state of the association.</p>
-   */
-  AssociationState?: RouteTableAssociationState;
-}
-
-export namespace ReplaceRouteTableAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
     ...obj,
   });
 }

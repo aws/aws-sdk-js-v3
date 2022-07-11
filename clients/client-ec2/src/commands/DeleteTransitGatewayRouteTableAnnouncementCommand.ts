@@ -14,46 +14,46 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
-  RejectTransitGatewayPeeringAttachmentRequest,
-  RejectTransitGatewayPeeringAttachmentResult,
-} from "../models/models_6";
+  DeleteTransitGatewayRouteTableAnnouncementRequest,
+  DeleteTransitGatewayRouteTableAnnouncementResult,
+} from "../models/models_2";
 import {
-  deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
-  serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
+  deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
+  serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
 } from "../protocols/Aws_ec2";
 
-export interface RejectTransitGatewayPeeringAttachmentCommandInput
-  extends RejectTransitGatewayPeeringAttachmentRequest {}
-export interface RejectTransitGatewayPeeringAttachmentCommandOutput
-  extends RejectTransitGatewayPeeringAttachmentResult,
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandInput
+  extends DeleteTransitGatewayRouteTableAnnouncementRequest {}
+export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
+  extends DeleteTransitGatewayRouteTableAnnouncementResult,
     __MetadataBearer {}
 
 /**
- * <p>Rejects a transit gateway peering attachment request.</p>
+ * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DeleteTransitGatewayRouteTableAnnouncementCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteTransitGatewayRouteTableAnnouncementCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new RejectTransitGatewayPeeringAttachmentCommand(input);
+ * const command = new DeleteTransitGatewayRouteTableAnnouncementCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link RejectTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
- * @see {@link RejectTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandInput} for command's `input` shape.
+ * @see {@link DeleteTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
-  RejectTransitGatewayPeeringAttachmentCommandInput,
-  RejectTransitGatewayPeeringAttachmentCommandOutput,
+export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
+  DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: RejectTransitGatewayPeeringAttachmentCommandInput) {
+  constructor(readonly input: DeleteTransitGatewayRouteTableAnnouncementCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -66,20 +66,23 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RejectTransitGatewayPeeringAttachmentCommandInput, RejectTransitGatewayPeeringAttachmentCommandOutput> {
+  ): Handler<
+    DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+    DeleteTransitGatewayRouteTableAnnouncementCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "RejectTransitGatewayPeeringAttachmentCommand";
+    const commandName = "DeleteTransitGatewayRouteTableAnnouncementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayRouteTableAnnouncementRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayRouteTableAnnouncementResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,17 +93,17 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   }
 
   private serialize(
-    input: RejectTransitGatewayPeeringAttachmentCommandInput,
+    input: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(input, context);
+    return serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(output, context);
+  ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> {
+    return deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand(output, context);
   }
 
   // Start section: command_body_extra

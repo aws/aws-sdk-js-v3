@@ -13,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePrincipalIdFormatRequest } from "../models/models_3";
-import { DescribePrincipalIdFormatResult } from "../models/models_4";
+import { DescribePrincipalIdFormatRequest, DescribePrincipalIdFormatResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribePrincipalIdFormatCommand,
   serializeAws_ec2DescribePrincipalIdFormatCommand,

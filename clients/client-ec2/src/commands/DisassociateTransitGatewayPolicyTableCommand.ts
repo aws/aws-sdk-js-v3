@@ -13,44 +13,47 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNetworkInsightsAnalysesRequest } from "../models/models_3";
-import { DescribeNetworkInsightsAnalysesResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInsightsAnalysesCommand,
-  serializeAws_ec2DescribeNetworkInsightsAnalysesCommand,
+  DisassociateTransitGatewayPolicyTableRequest,
+  DisassociateTransitGatewayPolicyTableResult,
+} from "../models/models_4";
+import {
+  deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommand,
+  serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
-export interface DescribeNetworkInsightsAnalysesCommandInput extends DescribeNetworkInsightsAnalysesRequest {}
-export interface DescribeNetworkInsightsAnalysesCommandOutput
-  extends DescribeNetworkInsightsAnalysesResult,
+export interface DisassociateTransitGatewayPolicyTableCommandInput
+  extends DisassociateTransitGatewayPolicyTableRequest {}
+export interface DisassociateTransitGatewayPolicyTableCommandOutput
+  extends DisassociateTransitGatewayPolicyTableResult,
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your network insights analyses.</p>
+ * <p>Removes the association between an an attachment and a policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, DescribeNetworkInsightsAnalysesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, DescribeNetworkInsightsAnalysesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, DisassociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DisassociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new DescribeNetworkInsightsAnalysesCommand(input);
+ * const command = new DisassociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeNetworkInsightsAnalysesCommandInput} for command's `input` shape.
- * @see {@link DescribeNetworkInsightsAnalysesCommandOutput} for command's `response` shape.
+ * @see {@link DisassociateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class DescribeNetworkInsightsAnalysesCommand extends $Command<
-  DescribeNetworkInsightsAnalysesCommandInput,
-  DescribeNetworkInsightsAnalysesCommandOutput,
+export class DisassociateTransitGatewayPolicyTableCommand extends $Command<
+  DisassociateTransitGatewayPolicyTableCommandInput,
+  DisassociateTransitGatewayPolicyTableCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeNetworkInsightsAnalysesCommandInput) {
+  constructor(readonly input: DisassociateTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -63,20 +66,20 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeNetworkInsightsAnalysesCommandInput, DescribeNetworkInsightsAnalysesCommandOutput> {
+  ): Handler<DisassociateTransitGatewayPolicyTableCommandInput, DisassociateTransitGatewayPolicyTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "DescribeNetworkInsightsAnalysesCommand";
+    const commandName = "DisassociateTransitGatewayPolicyTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInsightsAnalysesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInsightsAnalysesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTransitGatewayPolicyTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTransitGatewayPolicyTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,17 +90,17 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command<
   }
 
   private serialize(
-    input: DescribeNetworkInsightsAnalysesCommandInput,
+    input: DisassociateTransitGatewayPolicyTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsAnalysesCommand(input, context);
+    return serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeNetworkInsightsAnalysesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsAnalysesCommand(output, context);
+  ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> {
+    return deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommand(output, context);
   }
 
   // Start section: command_body_extra

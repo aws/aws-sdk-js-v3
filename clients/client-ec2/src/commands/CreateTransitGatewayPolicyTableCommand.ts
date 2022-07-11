@@ -13,41 +13,43 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
+import { CreateTransitGatewayPolicyTableRequest, CreateTransitGatewayPolicyTableResult } from "../models/models_2";
 import {
-  deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-  serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
+  deserializeAws_ec2CreateTransitGatewayPolicyTableCommand,
+  serializeAws_ec2CreateTransitGatewayPolicyTableCommand,
 } from "../protocols/Aws_ec2";
 
-export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv6PoolCidrsRequest {}
-export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
+export interface CreateTransitGatewayPolicyTableCommandInput extends CreateTransitGatewayPolicyTableRequest {}
+export interface CreateTransitGatewayPolicyTableCommandOutput
+  extends CreateTransitGatewayPolicyTableResult,
+    __MetadataBearer {}
 
 /**
- * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
+ * <p>Creates a transit gateway policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
- * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * import { EC2Client, CreateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
- * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
+ * const command = new CreateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
- * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
+ * @see {@link CreateTransitGatewayPolicyTableCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
-export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
-  GetAssociatedIpv6PoolCidrsCommandInput,
-  GetAssociatedIpv6PoolCidrsCommandOutput,
+export class CreateTransitGatewayPolicyTableCommand extends $Command<
+  CreateTransitGatewayPolicyTableCommandInput,
+  CreateTransitGatewayPolicyTableCommandOutput,
   EC2ClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetAssociatedIpv6PoolCidrsCommandInput) {
+  constructor(readonly input: CreateTransitGatewayPolicyTableCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +62,20 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAssociatedIpv6PoolCidrsCommandInput, GetAssociatedIpv6PoolCidrsCommandOutput> {
+  ): Handler<CreateTransitGatewayPolicyTableCommandInput, CreateTransitGatewayPolicyTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EC2Client";
-    const commandName = "GetAssociatedIpv6PoolCidrsCommand";
+    const commandName = "CreateTransitGatewayPolicyTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTransitGatewayPolicyTableRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateTransitGatewayPolicyTableResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +85,18 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetAssociatedIpv6PoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
+  private serialize(
+    input: CreateTransitGatewayPolicyTableCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_ec2CreateTransitGatewayPolicyTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
-    return deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(output, context);
+  ): Promise<CreateTransitGatewayPolicyTableCommandOutput> {
+    return deserializeAws_ec2CreateTransitGatewayPolicyTableCommand(output, context);
   }
 
   // Start section: command_body_extra

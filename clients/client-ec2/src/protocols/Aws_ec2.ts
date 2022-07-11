@@ -101,6 +101,10 @@ import {
   AssociateTransitGatewayMulticastDomainCommandOutput,
 } from "../commands/AssociateTransitGatewayMulticastDomainCommand";
 import {
+  AssociateTransitGatewayPolicyTableCommandInput,
+  AssociateTransitGatewayPolicyTableCommandOutput,
+} from "../commands/AssociateTransitGatewayPolicyTableCommand";
+import {
   AssociateTransitGatewayRouteTableCommandInput,
   AssociateTransitGatewayRouteTableCommandOutput,
 } from "../commands/AssociateTransitGatewayRouteTableCommand";
@@ -348,6 +352,10 @@ import {
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "../commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
+  CreateTransitGatewayPolicyTableCommandInput,
+  CreateTransitGatewayPolicyTableCommandOutput,
+} from "../commands/CreateTransitGatewayPolicyTableCommand";
+import {
   CreateTransitGatewayPrefixListReferenceCommandInput,
   CreateTransitGatewayPrefixListReferenceCommandOutput,
 } from "../commands/CreateTransitGatewayPrefixListReferenceCommand";
@@ -355,6 +363,10 @@ import {
   CreateTransitGatewayRouteCommandInput,
   CreateTransitGatewayRouteCommandOutput,
 } from "../commands/CreateTransitGatewayRouteCommand";
+import {
+  CreateTransitGatewayRouteTableAnnouncementCommandInput,
+  CreateTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "../commands/CreateTransitGatewayRouteTableAnnouncementCommand";
 import {
   CreateTransitGatewayRouteTableCommandInput,
   CreateTransitGatewayRouteTableCommandOutput,
@@ -539,6 +551,10 @@ import {
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "../commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
+  DeleteTransitGatewayPolicyTableCommandInput,
+  DeleteTransitGatewayPolicyTableCommandOutput,
+} from "../commands/DeleteTransitGatewayPolicyTableCommand";
+import {
   DeleteTransitGatewayPrefixListReferenceCommandInput,
   DeleteTransitGatewayPrefixListReferenceCommandOutput,
 } from "../commands/DeleteTransitGatewayPrefixListReferenceCommand";
@@ -546,6 +562,10 @@ import {
   DeleteTransitGatewayRouteCommandInput,
   DeleteTransitGatewayRouteCommandOutput,
 } from "../commands/DeleteTransitGatewayRouteCommand";
+import {
+  DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  DeleteTransitGatewayRouteTableAnnouncementCommandOutput,
+} from "../commands/DeleteTransitGatewayRouteTableAnnouncementCommand";
 import {
   DeleteTransitGatewayRouteTableCommandInput,
   DeleteTransitGatewayRouteTableCommandOutput,
@@ -995,6 +1015,14 @@ import {
   DescribeTransitGatewayPeeringAttachmentsCommandOutput,
 } from "../commands/DescribeTransitGatewayPeeringAttachmentsCommand";
 import {
+  DescribeTransitGatewayPolicyTablesCommandInput,
+  DescribeTransitGatewayPolicyTablesCommandOutput,
+} from "../commands/DescribeTransitGatewayPolicyTablesCommand";
+import {
+  DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+  DescribeTransitGatewayRouteTableAnnouncementsCommandOutput,
+} from "../commands/DescribeTransitGatewayRouteTableAnnouncementsCommand";
+import {
   DescribeTransitGatewayRouteTablesCommandInput,
   DescribeTransitGatewayRouteTablesCommandOutput,
 } from "../commands/DescribeTransitGatewayRouteTablesCommand";
@@ -1155,6 +1183,10 @@ import {
   DisassociateTransitGatewayMulticastDomainCommandInput,
   DisassociateTransitGatewayMulticastDomainCommandOutput,
 } from "../commands/DisassociateTransitGatewayMulticastDomainCommand";
+import {
+  DisassociateTransitGatewayPolicyTableCommandInput,
+  DisassociateTransitGatewayPolicyTableCommandOutput,
+} from "../commands/DisassociateTransitGatewayPolicyTableCommand";
 import {
   DisassociateTransitGatewayRouteTableCommandInput,
   DisassociateTransitGatewayRouteTableCommandOutput,
@@ -1326,6 +1358,14 @@ import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "../commands/GetTransitGatewayMulticastDomainAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableAssociationsCommandInput,
+  GetTransitGatewayPolicyTableAssociationsCommandOutput,
+} from "../commands/GetTransitGatewayPolicyTableAssociationsCommand";
+import {
+  GetTransitGatewayPolicyTableEntriesCommandInput,
+  GetTransitGatewayPolicyTableEntriesCommandOutput,
+} from "../commands/GetTransitGatewayPolicyTableEntriesCommand";
 import {
   GetTransitGatewayPrefixListReferencesCommandInput,
   GetTransitGatewayPrefixListReferencesCommandOutput,
@@ -1838,6 +1878,8 @@ import {
   AssociateSubnetCidrBlockResult,
   AssociateTransitGatewayMulticastDomainRequest,
   AssociateTransitGatewayMulticastDomainResult,
+  AssociateTransitGatewayPolicyTableRequest,
+  AssociateTransitGatewayPolicyTableResult,
   AssociateTransitGatewayRouteTableRequest,
   AssociateTransitGatewayRouteTableResult,
   AssociateTrunkInterfaceRequest,
@@ -1860,7 +1902,6 @@ import {
   AuthorizeSecurityGroupEgressResult,
   AuthorizeSecurityGroupIngressRequest,
   AuthorizeSecurityGroupIngressResult,
-  BaselineEbsBandwidthMbpsRequest,
   BundleInstanceRequest,
   BundleInstanceResult,
   BundleTask,
@@ -1907,7 +1948,6 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
-  CpuManufacturer,
   CreateCapacityReservationFleetRequest,
   CreateCapacityReservationFleetResult,
   CreateCapacityReservationRequest,
@@ -1936,7 +1976,6 @@ import {
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
   FleetCapacityReservation,
-  FleetLaunchTemplateSpecificationRequest,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
@@ -1987,6 +2026,8 @@ import {
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
+  TransitGatewayPeeringAttachmentOptions,
+  TransitGatewayPolicyTableAssociation,
   TransitGatewayRouteTableRoute,
   TransitGatewayVpcAttachment,
   TransitGatewayVpcAttachmentOptions,
@@ -2007,10 +2048,12 @@ import {
 } from "../models/models_0";
 import {
   BaselineEbsBandwidthMbps,
+  BaselineEbsBandwidthMbpsRequest,
   BlockDeviceMapping,
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  CpuManufacturer,
   CreateFleetError,
   CreateFleetInstance,
   CreateFleetRequest,
@@ -2094,7 +2137,6 @@ import {
   CreateTrafficMirrorTargetRequest,
   CreateTrafficMirrorTargetResult,
   CreateTransitGatewayRequest,
-  CreateTransitGatewayResult,
   CreditSpecification,
   CreditSpecificationRequest,
   DestinationOptionsRequest,
@@ -2108,6 +2150,7 @@ import {
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
   FleetLaunchTemplateSpecification,
+  FleetLaunchTemplateSpecificationRequest,
   FleetSpotCapacityRebalanceRequest,
   FleetSpotMaintenanceStrategiesRequest,
   GroupIdentifier,
@@ -2229,8 +2272,6 @@ import {
   TrafficMirrorPortRangeRequest,
   TrafficMirrorSession,
   TrafficMirrorTarget,
-  TransitGateway,
-  TransitGatewayOptions,
   TransitGatewayRequestOptions,
   ValidationError,
   ValidationWarning,
@@ -2238,21 +2279,11 @@ import {
   VCpuCountRangeRequest,
 } from "../models/models_1";
 import {
-  AssociatedTargetNetwork,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
   CapacityReservationFleet,
-  CertificateAuthentication,
   ClassicLinkInstance,
-  ClientConnectResponseOptions,
-  ClientLoginBannerResponseOptions,
-  ClientVpnAuthentication,
-  ClientVpnConnection,
-  ClientVpnConnectionStatus,
-  ClientVpnEndpoint,
-  ClientVpnEndpointAttributeStatus,
-  ConnectionLogResponseOptions,
   ConnectionNotification,
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
@@ -2263,11 +2294,17 @@ import {
   CreateTransitGatewayMulticastDomainRequestOptions,
   CreateTransitGatewayMulticastDomainResult,
   CreateTransitGatewayPeeringAttachmentRequest,
+  CreateTransitGatewayPeeringAttachmentRequestOptions,
   CreateTransitGatewayPeeringAttachmentResult,
+  CreateTransitGatewayPolicyTableRequest,
+  CreateTransitGatewayPolicyTableResult,
   CreateTransitGatewayPrefixListReferenceRequest,
   CreateTransitGatewayPrefixListReferenceResult,
+  CreateTransitGatewayResult,
   CreateTransitGatewayRouteRequest,
   CreateTransitGatewayRouteResult,
+  CreateTransitGatewayRouteTableAnnouncementRequest,
+  CreateTransitGatewayRouteTableAnnouncementResult,
   CreateTransitGatewayRouteTableRequest,
   CreateTransitGatewayRouteTableResult,
   CreateTransitGatewayVpcAttachmentRequest,
@@ -2376,12 +2413,16 @@ import {
   DeleteTransitGatewayMulticastDomainResult,
   DeleteTransitGatewayPeeringAttachmentRequest,
   DeleteTransitGatewayPeeringAttachmentResult,
+  DeleteTransitGatewayPolicyTableRequest,
+  DeleteTransitGatewayPolicyTableResult,
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
   DeleteTransitGatewayRequest,
   DeleteTransitGatewayResult,
   DeleteTransitGatewayRouteRequest,
   DeleteTransitGatewayRouteResult,
+  DeleteTransitGatewayRouteTableAnnouncementRequest,
+  DeleteTransitGatewayRouteTableAnnouncementResult,
   DeleteTransitGatewayRouteTableRequest,
   DeleteTransitGatewayRouteTableResult,
   DeleteTransitGatewayVpcAttachmentRequest,
@@ -2438,15 +2479,10 @@ import {
   DescribeClientVpnAuthorizationRulesRequest,
   DescribeClientVpnAuthorizationRulesResult,
   DescribeClientVpnConnectionsRequest,
-  DescribeClientVpnConnectionsResult,
-  DescribeClientVpnEndpointsRequest,
-  DescribeClientVpnEndpointsResult,
-  DirectoryServiceAuthentication,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
   FailedQueuedPurchaseDeletion,
-  FederatedAuthentication,
   Filter,
   IdFormat,
   IKEVersionsListValue,
@@ -2475,6 +2511,7 @@ import {
   ServiceConnectivityType,
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
+  TransitGateway,
   TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnect,
   TransitGatewayConnectOptions,
@@ -2485,11 +2522,14 @@ import {
   TransitGatewayMulticastDeregisteredGroupSources,
   TransitGatewayMulticastDomain,
   TransitGatewayMulticastDomainOptions,
+  TransitGatewayOptions,
+  TransitGatewayPolicyTable,
   TransitGatewayPrefixListAttachment,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteAttachment,
   TransitGatewayRouteTable,
+  TransitGatewayRouteTableAnnouncement,
   TunnelOption,
   VgwTelemetry,
   Volume,
@@ -2505,15 +2545,28 @@ import {
   AnalysisLoadBalancerListener,
   AnalysisLoadBalancerTarget,
   ArchitectureType,
+  AssociatedTargetNetwork,
   AttributeBooleanValue,
   AvailableCapacity,
   BootModeType,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
+  CertificateAuthentication,
+  ClientConnectResponseOptions,
+  ClientLoginBannerResponseOptions,
+  ClientVpnAuthentication,
+  ClientVpnConnection,
+  ClientVpnConnectionStatus,
+  ClientVpnEndpoint,
+  ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
   CoipPool,
+  ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DescribeClientVpnConnectionsResult,
+  DescribeClientVpnEndpointsRequest,
+  DescribeClientVpnEndpointsResult,
   DescribeClientVpnRoutesRequest,
   DescribeClientVpnRoutesResult,
   DescribeClientVpnTargetNetworksRequest,
@@ -2629,21 +2682,8 @@ import {
   DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesResult,
   DescribeNetworkInsightsAnalysesRequest,
-  DescribeNetworkInsightsAnalysesResult,
-  DescribeNetworkInsightsPathsRequest,
-  DescribeNetworkInsightsPathsResult,
-  DescribeNetworkInterfaceAttributeRequest,
-  DescribeNetworkInterfaceAttributeResult,
-  DescribeNetworkInterfacePermissionsRequest,
-  DescribeNetworkInterfacePermissionsResult,
-  DescribeNetworkInterfacesRequest,
-  DescribeNetworkInterfacesResult,
-  DescribePlacementGroupsRequest,
-  DescribePlacementGroupsResult,
-  DescribePrefixListsRequest,
-  DescribePrefixListsResult,
-  DescribePrincipalIdFormatRequest,
   DestinationOptionsResponse,
+  DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
   DiskInfo,
@@ -2657,11 +2697,11 @@ import {
   ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
-  Explanation,
   ExportImageTask,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
+  FederatedAuthentication,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -2730,14 +2770,11 @@ import {
   NetworkCardInfo,
   NetworkInfo,
   NetworkInsightsAccessScopeAnalysis,
-  NetworkInsightsAnalysis,
   OnDemandOptions,
   PciId,
   PlacementGroupInfo,
   PlacementGroupStrategy,
   PoolCidrBlock,
-  PrefixList,
-  PrincipalIdFormat,
   PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   ProductCode,
@@ -2755,13 +2792,25 @@ import {
   VirtualizationType,
 } from "../models/models_3";
 import {
-  AssociatedRole,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
-  CoipAddressUsage,
   CreateVolumePermission,
+  DescribeNetworkInsightsAnalysesResult,
+  DescribeNetworkInsightsPathsRequest,
+  DescribeNetworkInsightsPathsResult,
+  DescribeNetworkInterfaceAttributeRequest,
+  DescribeNetworkInterfaceAttributeResult,
+  DescribeNetworkInterfacePermissionsRequest,
+  DescribeNetworkInterfacePermissionsResult,
+  DescribeNetworkInterfacesRequest,
+  DescribeNetworkInterfacesResult,
+  DescribePlacementGroupsRequest,
+  DescribePlacementGroupsResult,
+  DescribePrefixListsRequest,
+  DescribePrefixListsResult,
+  DescribePrincipalIdFormatRequest,
   DescribePrincipalIdFormatResult,
   DescribePublicIpv4PoolsRequest,
   DescribePublicIpv4PoolsResult,
@@ -2831,6 +2880,10 @@ import {
   DescribeTransitGatewayMulticastDomainsResult,
   DescribeTransitGatewayPeeringAttachmentsRequest,
   DescribeTransitGatewayPeeringAttachmentsResult,
+  DescribeTransitGatewayPolicyTablesRequest,
+  DescribeTransitGatewayPolicyTablesResult,
+  DescribeTransitGatewayRouteTableAnnouncementsRequest,
+  DescribeTransitGatewayRouteTableAnnouncementsResult,
   DescribeTransitGatewayRouteTablesRequest,
   DescribeTransitGatewayRouteTablesResult,
   DescribeTransitGatewaysRequest,
@@ -2916,6 +2969,8 @@ import {
   DisassociateSubnetCidrBlockResult,
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
+  DisassociateTransitGatewayPolicyTableRequest,
+  DisassociateTransitGatewayPolicyTableResult,
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
   DisassociateTrunkInterfaceRequest,
@@ -2946,43 +3001,25 @@ import {
   EnableVpcClassicLinkDnsSupportResult,
   EnableVpcClassicLinkRequest,
   EnableVpcClassicLinkResult,
+  Explanation,
   ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
-  ExportImageRequest,
-  ExportImageResult,
   ExportTaskS3LocationRequest,
-  ExportTransitGatewayRoutesRequest,
-  ExportTransitGatewayRoutesResult,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
-  GetAssociatedEnclaveCertificateIamRolesRequest,
-  GetAssociatedEnclaveCertificateIamRolesResult,
-  GetAssociatedIpv6PoolCidrsRequest,
-  GetAssociatedIpv6PoolCidrsResult,
-  GetCapacityReservationUsageRequest,
-  GetCapacityReservationUsageResult,
-  GetCoipPoolUsageRequest,
-  GetCoipPoolUsageResult,
-  GetConsoleOutputRequest,
-  GetConsoleOutputResult,
-  GetConsoleScreenshotRequest,
-  GetConsoleScreenshotResult,
-  GetDefaultCreditSpecificationRequest,
-  GetDefaultCreditSpecificationResult,
-  GetEbsDefaultKmsKeyIdRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
-  InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
-  InstanceUsage,
-  Ipv6CidrAssociation,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  NetworkInsightsAnalysis,
+  PrefixList,
   PricingDetail,
+  PrincipalIdFormat,
   PrivateDnsDetails,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
@@ -3036,17 +3073,38 @@ import {
   VpcEndpointConnection,
 } from "../models/models_4";
 import {
+  AssociatedRole,
   AthenaIntegration,
   BlobAttributeValue,
   CapacityReservationGroup,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   ClientData,
+  CoipAddressUsage,
   CreateVolumePermissionModifications,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  ExportImageRequest,
+  ExportImageResult,
+  ExportTransitGatewayRoutesRequest,
+  ExportTransitGatewayRoutesResult,
+  GetAssociatedEnclaveCertificateIamRolesRequest,
+  GetAssociatedEnclaveCertificateIamRolesResult,
+  GetAssociatedIpv6PoolCidrsRequest,
+  GetAssociatedIpv6PoolCidrsResult,
+  GetCapacityReservationUsageRequest,
+  GetCapacityReservationUsageResult,
+  GetCoipPoolUsageRequest,
+  GetCoipPoolUsageResult,
+  GetConsoleOutputRequest,
+  GetConsoleOutputResult,
+  GetConsoleScreenshotRequest,
+  GetConsoleScreenshotResult,
+  GetDefaultCreditSpecificationRequest,
+  GetDefaultCreditSpecificationResult,
+  GetEbsDefaultKmsKeyIdRequest,
   GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
@@ -3092,6 +3150,10 @@ import {
   GetTransitGatewayAttachmentPropagationsResult,
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
+  GetTransitGatewayPolicyTableAssociationsRequest,
+  GetTransitGatewayPolicyTableAssociationsResult,
+  GetTransitGatewayPolicyTableEntriesRequest,
+  GetTransitGatewayPolicyTableEntriesResult,
   GetTransitGatewayPrefixListReferencesRequest,
   GetTransitGatewayPrefixListReferencesResult,
   GetTransitGatewayRouteTableAssociationsRequest,
@@ -3120,13 +3182,16 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
+  InstanceFamilyCreditSpecification,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
+  InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
   IpamCidrAuthorizationContext,
   IpamResourceCidr,
+  Ipv6CidrAssociation,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -3266,6 +3331,47 @@ import {
   RebootInstancesRequest,
   RegisterImageRequest,
   RegisterImageResult,
+  RemoveIpamOperatingRegion,
+  RemovePrefixListEntry,
+  ReservationValue,
+  ReservedInstanceLimitPrice,
+  ReservedInstanceReservationValue,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
+  SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
+  SpotPlacementScore,
+  SuccessfulInstanceCreditSpecificationItem,
+  TargetConfiguration,
+  TargetReservationValue,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorSessionField,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
+  TransitGatewayPolicyTableEntry,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+  VpnConnectionDeviceType,
+} from "../models/models_5";
+import {
+  CpuOptionsRequest,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceMaintenanceOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
+  PrivateDnsNameOptionsRequest,
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
@@ -3288,8 +3394,6 @@ import {
   ReleaseHostsResult,
   ReleaseIpamPoolAllocationRequest,
   ReleaseIpamPoolAllocationResult,
-  RemoveIpamOperatingRegion,
-  RemovePrefixListEntry,
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
   ReplaceNetworkAclAssociationRequest,
@@ -3298,44 +3402,6 @@ import {
   ReplaceRouteRequest,
   ReplaceRouteTableAssociationRequest,
   ReplaceRouteTableAssociationResult,
-  ReservationValue,
-  ReservedInstanceLimitPrice,
-  ReservedInstanceReservationValue,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
-  SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
-  SpotPlacementScore,
-  SuccessfulInstanceCreditSpecificationItem,
-  TargetConfiguration,
-  TargetReservationValue,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-  VpnConnectionDeviceType,
-} from "../models/models_5";
-import {
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceMaintenanceOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceStateChange,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
-  PrivateDnsNameOptionsRequest,
   ReplaceTransitGatewayRouteRequest,
   ReplaceTransitGatewayRouteResult,
   ReportInstanceReasonCodes,
@@ -3408,6 +3474,8 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupMembers,
+  TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -3768,6 +3836,22 @@ export const serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand = asy
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest(input, context),
     Action: "AssociateTransitGatewayMulticastDomain",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateTransitGatewayPolicyTableCommand = async (
+  input: AssociateTransitGatewayPolicyTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateTransitGatewayPolicyTableRequest(input, context),
+    Action: "AssociateTransitGatewayPolicyTable",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5085,6 +5169,22 @@ export const serializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateTransitGatewayPolicyTableCommand = async (
+  input: CreateTransitGatewayPolicyTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateTransitGatewayPolicyTableRequest(input, context),
+    Action: "CreateTransitGatewayPolicyTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand = async (
   input: CreateTransitGatewayPrefixListReferenceCommandInput,
   context: __SerdeContext
@@ -5128,6 +5228,22 @@ export const serializeAws_ec2CreateTransitGatewayRouteTableCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreateTransitGatewayRouteTableRequest(input, context),
     Action: "CreateTransitGatewayRouteTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommand = async (
+  input: CreateTransitGatewayRouteTableAnnouncementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateTransitGatewayRouteTableAnnouncementRequest(input, context),
+    Action: "CreateTransitGatewayRouteTableAnnouncement",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6077,6 +6193,22 @@ export const serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DeleteTransitGatewayPolicyTableCommand = async (
+  input: DeleteTransitGatewayPolicyTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteTransitGatewayPolicyTableRequest(input, context),
+    Action: "DeleteTransitGatewayPolicyTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand = async (
   input: DeleteTransitGatewayPrefixListReferenceCommandInput,
   context: __SerdeContext
@@ -6120,6 +6252,22 @@ export const serializeAws_ec2DeleteTransitGatewayRouteTableCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteTransitGatewayRouteTableRequest(input, context),
     Action: "DeleteTransitGatewayRouteTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand = async (
+  input: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementRequest(input, context),
+    Action: "DeleteTransitGatewayRouteTableAnnouncement",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8189,6 +8337,38 @@ export const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand = a
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeTransitGatewayPolicyTablesCommand = async (
+  input: DescribeTransitGatewayPolicyTablesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeTransitGatewayPolicyTablesRequest(input, context),
+    Action: "DescribeTransitGatewayPolicyTables",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
+  input: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsRequest(input, context),
+    Action: "DescribeTransitGatewayRouteTableAnnouncements",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeTransitGatewayRouteTablesCommand = async (
   input: DescribeTransitGatewayRouteTablesCommandInput,
   context: __SerdeContext
@@ -8888,6 +9068,22 @@ export const serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand = 
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest(input, context),
     Action: "DisassociateTransitGatewayMulticastDomain",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DisassociateTransitGatewayPolicyTableCommand = async (
+  input: DisassociateTransitGatewayPolicyTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateTransitGatewayPolicyTableRequest(input, context),
+    Action: "DisassociateTransitGatewayPolicyTable",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9656,6 +9852,38 @@ export const serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest(input, context),
     Action: "GetTransitGatewayMulticastDomainAssociations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand = async (
+  input: GetTransitGatewayPolicyTableAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetTransitGatewayPolicyTableAssociationsRequest(input, context),
+    Action: "GetTransitGatewayPolicyTableAssociations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetTransitGatewayPolicyTableEntriesCommand = async (
+  input: GetTransitGatewayPolicyTableEntriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetTransitGatewayPolicyTableEntriesRequest(input, context),
+    Action: "GetTransitGatewayPolicyTableEntries",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12668,6 +12896,47 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandError = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTransitGatewayPolicyTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateTransitGatewayPolicyTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateTransitGatewayPolicyTableResult(data, context);
+  const response: AssociateTransitGatewayPolicyTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateTransitGatewayPolicyTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -16035,6 +16304,47 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandError = asyn
   }
 };
 
+export const deserializeAws_ec2CreateTransitGatewayPolicyTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTransitGatewayPolicyTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateTransitGatewayPolicyTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateTransitGatewayPolicyTableResult(data, context);
+  const response: CreateTransitGatewayPolicyTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateTransitGatewayPolicyTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTransitGatewayPolicyTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
 export const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16138,6 +16448,47 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTransitGatewayRouteTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementResult(data, context);
+  const response: CreateTransitGatewayRouteTableAnnouncementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -18529,6 +18880,47 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandError = asyn
   }
 };
 
+export const deserializeAws_ec2DeleteTransitGatewayPolicyTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTransitGatewayPolicyTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteTransitGatewayPolicyTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteTransitGatewayPolicyTableResult(data, context);
+  const response: DeleteTransitGatewayPolicyTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteTransitGatewayPolicyTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTransitGatewayPolicyTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
 export const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -18632,6 +19024,47 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayRouteTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementResult(data, context);
+  const response: DeleteTransitGatewayRouteTableAnnouncementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -23926,6 +24359,88 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommandError = a
   }
 };
 
+export const deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeTransitGatewayPolicyTablesResult(data, context);
+  const response: DescribeTransitGatewayPolicyTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsResult(data, context);
+  const response: DescribeTransitGatewayRouteTableAnnouncementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
 export const deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -25692,6 +26207,47 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommandError = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateTransitGatewayPolicyTableResult(data, context);
+  const response: DisassociateTransitGatewayPolicyTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -27654,6 +28210,88 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsResult(data, context);
+  const response: GetTransitGatewayPolicyTableAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
+export const deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetTransitGatewayPolicyTableEntriesResult(data, context);
+  const response: GetTransitGatewayPolicyTableEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -33814,6 +34452,23 @@ const serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest = (
   return entries;
 };
 
+const serializeAws_ec2AssociateTransitGatewayPolicyTableRequest = (
+  input: AssociateTransitGatewayPolicyTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableId !== undefined && input.TransitGatewayPolicyTableId !== null) {
+    entries["TransitGatewayPolicyTableId"] = input.TransitGatewayPolicyTableId;
+  }
+  if (input.TransitGatewayAttachmentId !== undefined && input.TransitGatewayAttachmentId !== null) {
+    entries["TransitGatewayAttachmentId"] = input.TransitGatewayAttachmentId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AssociateTransitGatewayRouteTableRequest = (
   input: AssociateTransitGatewayRouteTableRequest,
   context: __SerdeContext
@@ -36831,10 +37486,49 @@ const serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest = (
   if (input.PeerRegion !== undefined && input.PeerRegion !== null) {
     entries["PeerRegion"] = input.PeerRegion;
   }
+  if (input.Options !== undefined && input.Options !== null) {
+    const memberEntries = serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequestOptions(input.Options, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Options.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequestOptions = (
+  input: CreateTransitGatewayPeeringAttachmentRequestOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DynamicRouting !== undefined && input.DynamicRouting !== null) {
+    entries["DynamicRouting"] = input.DynamicRouting;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateTransitGatewayPolicyTableRequest = (
+  input: CreateTransitGatewayPolicyTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayId !== undefined && input.TransitGatewayId !== null) {
+    entries["TransitGatewayId"] = input.TransitGatewayId;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -36911,6 +37605,30 @@ const serializeAws_ec2CreateTransitGatewayRouteRequest = (
   }
   if (input.Blackhole !== undefined && input.Blackhole !== null) {
     entries["Blackhole"] = input.Blackhole;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateTransitGatewayRouteTableAnnouncementRequest = (
+  input: CreateTransitGatewayRouteTableAnnouncementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayRouteTableId !== undefined && input.TransitGatewayRouteTableId !== null) {
+    entries["TransitGatewayRouteTableId"] = input.TransitGatewayRouteTableId;
+  }
+  if (input.PeeringAttachmentId !== undefined && input.PeeringAttachmentId !== null) {
+    entries["PeeringAttachmentId"] = input.PeeringAttachmentId;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -38141,6 +38859,20 @@ const serializeAws_ec2DeleteTransitGatewayPeeringAttachmentRequest = (
   return entries;
 };
 
+const serializeAws_ec2DeleteTransitGatewayPolicyTableRequest = (
+  input: DeleteTransitGatewayPolicyTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableId !== undefined && input.TransitGatewayPolicyTableId !== null) {
+    entries["TransitGatewayPolicyTableId"] = input.TransitGatewayPolicyTableId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DeleteTransitGatewayPrefixListReferenceRequest = (
   input: DeleteTransitGatewayPrefixListReferenceRequest,
   context: __SerdeContext
@@ -38182,6 +38914,23 @@ const serializeAws_ec2DeleteTransitGatewayRouteRequest = (
   }
   if (input.DestinationCidrBlock !== undefined && input.DestinationCidrBlock !== null) {
     entries["DestinationCidrBlock"] = input.DestinationCidrBlock;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementRequest = (
+  input: DeleteTransitGatewayRouteTableAnnouncementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (
+    input.TransitGatewayRouteTableAnnouncementId !== undefined &&
+    input.TransitGatewayRouteTableAnnouncementId !== null
+  ) {
+    entries["TransitGatewayRouteTableAnnouncementId"] = input.TransitGatewayRouteTableAnnouncementId;
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -41743,6 +42492,77 @@ const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeTransitGatewayPolicyTablesRequest = (
+  input: DescribeTransitGatewayPolicyTablesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableIds !== undefined && input.TransitGatewayPolicyTableIds !== null) {
+    const memberEntries = serializeAws_ec2TransitGatewayPolicyTableIdStringList(
+      input.TransitGatewayPolicyTableIds,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TransitGatewayPolicyTableIds.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsRequest = (
+  input: DescribeTransitGatewayRouteTableAnnouncementsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (
+    input.TransitGatewayRouteTableAnnouncementIds !== undefined &&
+    input.TransitGatewayRouteTableAnnouncementIds !== null
+  ) {
+    const memberEntries = serializeAws_ec2TransitGatewayRouteTableAnnouncementIdStringList(
+      input.TransitGatewayRouteTableAnnouncementIds,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TransitGatewayRouteTableAnnouncementIds.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeTransitGatewayRouteTablesRequest = (
   input: DescribeTransitGatewayRouteTablesRequest,
   context: __SerdeContext
@@ -42549,6 +43369,12 @@ const serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest = (
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (
+    input.TransitGatewayRouteTableAnnouncementId !== undefined &&
+    input.TransitGatewayRouteTableAnnouncementId !== null
+  ) {
+    entries["TransitGatewayRouteTableAnnouncementId"] = input.TransitGatewayRouteTableAnnouncementId;
+  }
   return entries;
 };
 
@@ -42719,6 +43545,23 @@ const serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest = (
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DisassociateTransitGatewayPolicyTableRequest = (
+  input: DisassociateTransitGatewayPolicyTableRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableId !== undefined && input.TransitGatewayPolicyTableId !== null) {
+    entries["TransitGatewayPolicyTableId"] = input.TransitGatewayPolicyTableId;
+  }
+  if (input.TransitGatewayAttachmentId !== undefined && input.TransitGatewayAttachmentId !== null) {
+    entries["TransitGatewayAttachmentId"] = input.TransitGatewayAttachmentId;
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -43122,6 +43965,12 @@ const serializeAws_ec2EnableTransitGatewayRouteTablePropagationRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (
+    input.TransitGatewayRouteTableAnnouncementId !== undefined &&
+    input.TransitGatewayRouteTableAnnouncementId !== null
+  ) {
+    entries["TransitGatewayRouteTableAnnouncementId"] = input.TransitGatewayRouteTableAnnouncementId;
   }
   return entries;
 };
@@ -44309,6 +45158,60 @@ const serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest = (
   const entries: any = {};
   if (input.TransitGatewayMulticastDomainId !== undefined && input.TransitGatewayMulticastDomainId !== null) {
     entries["TransitGatewayMulticastDomainId"] = input.TransitGatewayMulticastDomainId;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetTransitGatewayPolicyTableAssociationsRequest = (
+  input: GetTransitGatewayPolicyTableAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableId !== undefined && input.TransitGatewayPolicyTableId !== null) {
+    entries["TransitGatewayPolicyTableId"] = input.TransitGatewayPolicyTableId;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetTransitGatewayPolicyTableEntriesRequest = (
+  input: GetTransitGatewayPolicyTableEntriesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TransitGatewayPolicyTableId !== undefined && input.TransitGatewayPolicyTableId !== null) {
+    entries["TransitGatewayPolicyTableId"] = input.TransitGatewayPolicyTableId;
   }
   if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
@@ -48316,6 +49219,9 @@ const serializeAws_ec2ModifyTransitGatewayOptions = (
   }
   if (input.PropagationDefaultRouteTableId !== undefined && input.PropagationDefaultRouteTableId !== null) {
     entries["PropagationDefaultRouteTableId"] = input.PropagationDefaultRouteTableId;
+  }
+  if (input.AmazonSideAsn !== undefined && input.AmazonSideAsn !== null) {
+    entries["AmazonSideAsn"] = input.AmazonSideAsn;
   }
   return entries;
 };
@@ -53500,6 +54406,19 @@ const serializeAws_ec2TransitGatewayNetworkInterfaceIdList = (input: string[], c
   return entries;
 };
 
+const serializeAws_ec2TransitGatewayPolicyTableIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2TransitGatewayRequestOptions = (
   input: TransitGatewayRequestOptions,
   context: __SerdeContext
@@ -53532,6 +54451,22 @@ const serializeAws_ec2TransitGatewayRequestOptions = (
       const loc = `TransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_ec2TransitGatewayRouteTableAnnouncementIdStringList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -55338,6 +56273,19 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainResult = (
       output["associations"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AssociateTransitGatewayPolicyTableResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateTransitGatewayPolicyTableResult => {
+  const contents: any = {
+    Association: undefined,
+  };
+  if (output["association"] !== undefined) {
+    contents.Association = deserializeAws_ec2TransitGatewayPolicyTableAssociation(output["association"], context);
   }
   return contents;
 };
@@ -58224,6 +59172,22 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentResult = (
   return contents;
 };
 
+const deserializeAws_ec2CreateTransitGatewayPolicyTableResult = (
+  output: any,
+  context: __SerdeContext
+): CreateTransitGatewayPolicyTableResult => {
+  const contents: any = {
+    TransitGatewayPolicyTable: undefined,
+  };
+  if (output["transitGatewayPolicyTable"] !== undefined) {
+    contents.TransitGatewayPolicyTable = deserializeAws_ec2TransitGatewayPolicyTable(
+      output["transitGatewayPolicyTable"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
@@ -58262,6 +59226,22 @@ const deserializeAws_ec2CreateTransitGatewayRouteResult = (
   };
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementResult = (
+  output: any,
+  context: __SerdeContext
+): CreateTransitGatewayRouteTableAnnouncementResult => {
+  const contents: any = {
+    TransitGatewayRouteTableAnnouncement: undefined,
+  };
+  if (output["transitGatewayRouteTableAnnouncement"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncement = deserializeAws_ec2TransitGatewayRouteTableAnnouncement(
+      output["transitGatewayRouteTableAnnouncement"],
+      context
+    );
   }
   return contents;
 };
@@ -59147,6 +60127,22 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentResult = (
   return contents;
 };
 
+const deserializeAws_ec2DeleteTransitGatewayPolicyTableResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteTransitGatewayPolicyTableResult => {
+  const contents: any = {
+    TransitGatewayPolicyTable: undefined,
+  };
+  if (output["transitGatewayPolicyTable"] !== undefined) {
+    contents.TransitGatewayPolicyTable = deserializeAws_ec2TransitGatewayPolicyTable(
+      output["transitGatewayPolicyTable"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
@@ -59185,6 +60181,22 @@ const deserializeAws_ec2DeleteTransitGatewayRouteResult = (
   };
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteTransitGatewayRouteTableAnnouncementResult => {
+  const contents: any = {
+    TransitGatewayRouteTableAnnouncement: undefined,
+  };
+  if (output["transitGatewayRouteTableAnnouncement"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncement = deserializeAws_ec2TransitGatewayRouteTableAnnouncement(
+      output["transitGatewayRouteTableAnnouncement"],
+      context
+    );
   }
   return contents;
 };
@@ -61991,6 +63003,56 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
   return contents;
 };
 
+const deserializeAws_ec2DescribeTransitGatewayPolicyTablesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeTransitGatewayPolicyTablesResult => {
+  const contents: any = {
+    TransitGatewayPolicyTables: undefined,
+    NextToken: undefined,
+  };
+  if (output.transitGatewayPolicyTables === "") {
+    contents.TransitGatewayPolicyTables = [];
+  } else if (
+    output["transitGatewayPolicyTables"] !== undefined &&
+    output["transitGatewayPolicyTables"]["item"] !== undefined
+  ) {
+    contents.TransitGatewayPolicyTables = deserializeAws_ec2TransitGatewayPolicyTableList(
+      __getArrayIfSingleItem(output["transitGatewayPolicyTables"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeTransitGatewayRouteTableAnnouncementsResult => {
+  const contents: any = {
+    TransitGatewayRouteTableAnnouncements: undefined,
+    NextToken: undefined,
+  };
+  if (output.transitGatewayRouteTableAnnouncements === "") {
+    contents.TransitGatewayRouteTableAnnouncements = [];
+  } else if (
+    output["transitGatewayRouteTableAnnouncements"] !== undefined &&
+    output["transitGatewayRouteTableAnnouncements"]["item"] !== undefined
+  ) {
+    contents.TransitGatewayRouteTableAnnouncements = deserializeAws_ec2TransitGatewayRouteTableAnnouncementList(
+      __getArrayIfSingleItem(output["transitGatewayRouteTableAnnouncements"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
   output: any,
   context: __SerdeContext
@@ -62998,6 +64060,19 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainResult = (
       output["associations"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateTransitGatewayPolicyTableResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateTransitGatewayPolicyTableResult => {
+  const contents: any = {
+    Association: undefined,
+  };
+  if (output["association"] !== undefined) {
+    contents.Association = deserializeAws_ec2TransitGatewayPolicyTableAssociation(output["association"], context);
   }
   return contents;
 };
@@ -65749,6 +66824,49 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): GetTransitGatewayPolicyTableAssociationsResult => {
+  const contents: any = {
+    Associations: undefined,
+    NextToken: undefined,
+  };
+  if (output.associations === "") {
+    contents.Associations = [];
+  } else if (output["associations"] !== undefined && output["associations"]["item"] !== undefined) {
+    contents.Associations = deserializeAws_ec2TransitGatewayPolicyTableAssociationList(
+      __getArrayIfSingleItem(output["associations"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetTransitGatewayPolicyTableEntriesResult = (
+  output: any,
+  context: __SerdeContext
+): GetTransitGatewayPolicyTableEntriesResult => {
+  const contents: any = {
+    TransitGatewayPolicyTableEntries: undefined,
+  };
+  if (output.transitGatewayPolicyTableEntries === "") {
+    contents.TransitGatewayPolicyTableEntries = [];
+  } else if (
+    output["transitGatewayPolicyTableEntries"] !== undefined &&
+    output["transitGatewayPolicyTableEntries"]["item"] !== undefined
+  ) {
+    contents.TransitGatewayPolicyTableEntries = deserializeAws_ec2TransitGatewayPolicyTableEntryList(
+      __getArrayIfSingleItem(output["transitGatewayPolicyTableEntries"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -73494,11 +74612,15 @@ const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __Serd
 const deserializeAws_ec2PeeringTgwInfo = (output: any, context: __SerdeContext): PeeringTgwInfo => {
   const contents: any = {
     TransitGatewayId: undefined,
+    CoreNetworkId: undefined,
     OwnerId: undefined,
     Region: undefined,
   };
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
+  if (output["coreNetworkId"] !== undefined) {
+    contents.CoreNetworkId = __expectString(output["coreNetworkId"]);
   }
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
@@ -79836,8 +80958,10 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
 ): TransitGatewayPeeringAttachment => {
   const contents: any = {
     TransitGatewayAttachmentId: undefined,
+    AccepterTransitGatewayAttachmentId: undefined,
     RequesterTgwInfo: undefined,
     AccepterTgwInfo: undefined,
+    Options: undefined,
     Status: undefined,
     State: undefined,
     CreationTime: undefined,
@@ -79846,11 +80970,17 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
+  if (output["accepterTransitGatewayAttachmentId"] !== undefined) {
+    contents.AccepterTransitGatewayAttachmentId = __expectString(output["accepterTransitGatewayAttachmentId"]);
+  }
   if (output["requesterTgwInfo"] !== undefined) {
     contents.RequesterTgwInfo = deserializeAws_ec2PeeringTgwInfo(output["requesterTgwInfo"], context);
   }
   if (output["accepterTgwInfo"] !== undefined) {
     contents.AccepterTgwInfo = deserializeAws_ec2PeeringTgwInfo(output["accepterTgwInfo"], context);
+  }
+  if (output["options"] !== undefined) {
+    contents.Options = deserializeAws_ec2TransitGatewayPeeringAttachmentOptions(output["options"], context);
   }
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2PeeringAttachmentStatus(output["status"], context);
@@ -79880,6 +81010,189 @@ const deserializeAws_ec2TransitGatewayPeeringAttachmentList = (
         return null as any;
       }
       return deserializeAws_ec2TransitGatewayPeeringAttachment(entry, context);
+    });
+};
+
+const deserializeAws_ec2TransitGatewayPeeringAttachmentOptions = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPeeringAttachmentOptions => {
+  const contents: any = {
+    DynamicRouting: undefined,
+  };
+  if (output["dynamicRouting"] !== undefined) {
+    contents.DynamicRouting = __expectString(output["dynamicRouting"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyRule = (output: any, context: __SerdeContext): TransitGatewayPolicyRule => {
+  const contents: any = {
+    SourceCidrBlock: undefined,
+    SourcePortRange: undefined,
+    DestinationCidrBlock: undefined,
+    DestinationPortRange: undefined,
+    Protocol: undefined,
+    MetaData: undefined,
+  };
+  if (output["sourceCidrBlock"] !== undefined) {
+    contents.SourceCidrBlock = __expectString(output["sourceCidrBlock"]);
+  }
+  if (output["sourcePortRange"] !== undefined) {
+    contents.SourcePortRange = __expectString(output["sourcePortRange"]);
+  }
+  if (output["destinationCidrBlock"] !== undefined) {
+    contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
+  }
+  if (output["destinationPortRange"] !== undefined) {
+    contents.DestinationPortRange = __expectString(output["destinationPortRange"]);
+  }
+  if (output["protocol"] !== undefined) {
+    contents.Protocol = __expectString(output["protocol"]);
+  }
+  if (output["metaData"] !== undefined) {
+    contents.MetaData = deserializeAws_ec2TransitGatewayPolicyRuleMetaData(output["metaData"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyRuleMetaData = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyRuleMetaData => {
+  const contents: any = {
+    MetaDataKey: undefined,
+    MetaDataValue: undefined,
+  };
+  if (output["metaDataKey"] !== undefined) {
+    contents.MetaDataKey = __expectString(output["metaDataKey"]);
+  }
+  if (output["metaDataValue"] !== undefined) {
+    contents.MetaDataValue = __expectString(output["metaDataValue"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTable = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTable => {
+  const contents: any = {
+    TransitGatewayPolicyTableId: undefined,
+    TransitGatewayId: undefined,
+    State: undefined,
+    CreationTime: undefined,
+    Tags: undefined,
+  };
+  if (output["transitGatewayPolicyTableId"] !== undefined) {
+    contents.TransitGatewayPolicyTableId = __expectString(output["transitGatewayPolicyTableId"]);
+  }
+  if (output["transitGatewayId"] !== undefined) {
+    contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTableAssociation = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTableAssociation => {
+  const contents: any = {
+    TransitGatewayPolicyTableId: undefined,
+    TransitGatewayAttachmentId: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined,
+    State: undefined,
+  };
+  if (output["transitGatewayPolicyTableId"] !== undefined) {
+    contents.TransitGatewayPolicyTableId = __expectString(output["transitGatewayPolicyTableId"]);
+  }
+  if (output["transitGatewayAttachmentId"] !== undefined) {
+    contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTableAssociationList = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTableAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2TransitGatewayPolicyTableAssociation(entry, context);
+    });
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTableEntry = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTableEntry => {
+  const contents: any = {
+    PolicyRuleNumber: undefined,
+    PolicyRule: undefined,
+    TargetRouteTableId: undefined,
+  };
+  if (output["policyRuleNumber"] !== undefined) {
+    contents.PolicyRuleNumber = __expectString(output["policyRuleNumber"]);
+  }
+  if (output["policyRule"] !== undefined) {
+    contents.PolicyRule = deserializeAws_ec2TransitGatewayPolicyRule(output["policyRule"], context);
+  }
+  if (output["targetRouteTableId"] !== undefined) {
+    contents.TargetRouteTableId = __expectString(output["targetRouteTableId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTableEntryList = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTableEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2TransitGatewayPolicyTableEntry(entry, context);
+    });
+};
+
+const deserializeAws_ec2TransitGatewayPolicyTableList = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayPolicyTable[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2TransitGatewayPolicyTable(entry, context);
     });
 };
 
@@ -79964,6 +81277,7 @@ const deserializeAws_ec2TransitGatewayPropagation = (
     ResourceType: undefined,
     TransitGatewayRouteTableId: undefined,
     State: undefined,
+    TransitGatewayRouteTableAnnouncementId: undefined,
   };
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
@@ -79980,6 +81294,9 @@ const deserializeAws_ec2TransitGatewayPropagation = (
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
+  if (output["transitGatewayRouteTableAnnouncementId"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncementId = __expectString(output["transitGatewayRouteTableAnnouncementId"]);
+  }
   return contents;
 };
 
@@ -79987,6 +81304,7 @@ const deserializeAws_ec2TransitGatewayRoute = (output: any, context: __SerdeCont
   const contents: any = {
     DestinationCidrBlock: undefined,
     PrefixListId: undefined,
+    TransitGatewayRouteTableAnnouncementId: undefined,
     TransitGatewayAttachments: undefined,
     Type: undefined,
     State: undefined,
@@ -79996,6 +81314,9 @@ const deserializeAws_ec2TransitGatewayRoute = (output: any, context: __SerdeCont
   }
   if (output["prefixListId"] !== undefined) {
     contents.PrefixListId = __expectString(output["prefixListId"]);
+  }
+  if (output["transitGatewayRouteTableAnnouncementId"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncementId = __expectString(output["transitGatewayRouteTableAnnouncementId"]);
   }
   if (output.transitGatewayAttachments === "") {
     contents.TransitGatewayAttachments = [];
@@ -80099,6 +81420,75 @@ const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_ec2TransitGatewayRouteTableAnnouncement = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayRouteTableAnnouncement => {
+  const contents: any = {
+    TransitGatewayRouteTableAnnouncementId: undefined,
+    TransitGatewayId: undefined,
+    CoreNetworkId: undefined,
+    PeerTransitGatewayId: undefined,
+    PeerCoreNetworkId: undefined,
+    PeeringAttachmentId: undefined,
+    AnnouncementDirection: undefined,
+    TransitGatewayRouteTableId: undefined,
+    State: undefined,
+    CreationTime: undefined,
+    Tags: undefined,
+  };
+  if (output["transitGatewayRouteTableAnnouncementId"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncementId = __expectString(output["transitGatewayRouteTableAnnouncementId"]);
+  }
+  if (output["transitGatewayId"] !== undefined) {
+    contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
+  if (output["coreNetworkId"] !== undefined) {
+    contents.CoreNetworkId = __expectString(output["coreNetworkId"]);
+  }
+  if (output["peerTransitGatewayId"] !== undefined) {
+    contents.PeerTransitGatewayId = __expectString(output["peerTransitGatewayId"]);
+  }
+  if (output["peerCoreNetworkId"] !== undefined) {
+    contents.PeerCoreNetworkId = __expectString(output["peerCoreNetworkId"]);
+  }
+  if (output["peeringAttachmentId"] !== undefined) {
+    contents.PeeringAttachmentId = __expectString(output["peeringAttachmentId"]);
+  }
+  if (output["announcementDirection"] !== undefined) {
+    contents.AnnouncementDirection = __expectString(output["announcementDirection"]);
+  }
+  if (output["transitGatewayRouteTableId"] !== undefined) {
+    contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TransitGatewayRouteTableAnnouncementList = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayRouteTableAnnouncement[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2TransitGatewayRouteTableAnnouncement(entry, context);
+    });
+};
+
 const deserializeAws_ec2TransitGatewayRouteTableAssociation = (
   output: any,
   context: __SerdeContext
@@ -80161,6 +81551,7 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
     ResourceId: undefined,
     ResourceType: undefined,
     State: undefined,
+    TransitGatewayRouteTableAnnouncementId: undefined,
   };
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
@@ -80173,6 +81564,9 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
+  }
+  if (output["transitGatewayRouteTableAnnouncementId"] !== undefined) {
+    contents.TransitGatewayRouteTableAnnouncementId = __expectString(output["transitGatewayRouteTableAnnouncementId"]);
   }
   return contents;
 };

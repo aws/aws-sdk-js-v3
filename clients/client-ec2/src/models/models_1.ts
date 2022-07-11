@@ -16,14 +16,9 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  BareMetal,
-  BaselineEbsBandwidthMbpsRequest,
-  BurstablePerformance,
-  CpuManufacturer,
   CurrencyCodeValues,
   DnsSupportValue,
   FleetExcessCapacityTerminationPolicy,
-  FleetLaunchTemplateSpecificationRequest,
   HostnameType,
   InstanceEventWindow,
   InternetGatewayAttachment,
@@ -40,6 +35,86 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
+ *          an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+ *             an instance from a launch template</a> in the
+ *          <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface FleetLaunchTemplateSpecificationRequest {
+  /**
+   * <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p>
+   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
+   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
+   */
+  Version?: string;
+}
+
+export namespace FleetLaunchTemplateSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BareMetal {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface BaselineEbsBandwidthMbpsRequest {
+  /**
+   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
+   *          this parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
+   *          this parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace BaselineEbsBandwidthMbpsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BurstablePerformance {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+export enum CpuManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  INTEL = "intel",
+}
 
 export enum InstanceGeneration {
   CURRENT = "current",
@@ -10256,142 +10331,3 @@ export namespace CreateTransitGatewayRequest {
     ...obj,
   });
 }
-
-/**
- * <p>Describes the options for a transit gateway.</p>
- */
-export interface TransitGatewayOptions {
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-   *          The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
-   */
-  AmazonSideAsn?: number;
-
-  /**
-   * <p>The transit gateway CIDR blocks.</p>
-   */
-  TransitGatewayCidrBlocks?: string[];
-
-  /**
-   * <p>Indicates whether attachment requests are automatically accepted.</p>
-   */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
-
-  /**
-   * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
-   */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
-
-  /**
-   * <p>The ID of the default association route table.</p>
-   */
-  AssociationDefaultRouteTableId?: string;
-
-  /**
-   * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
-   */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
-
-  /**
-   * <p>The ID of the default propagation route table.</p>
-   */
-  PropagationDefaultRouteTableId?: string;
-
-  /**
-   * <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
-   */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
-
-  /**
-   * <p>Indicates whether DNS support is enabled.</p>
-   */
-  DnsSupport?: DnsSupportValue | string;
-
-  /**
-   * <p>Indicates whether multicast is enabled on the transit gateway</p>
-   */
-  MulticastSupport?: MulticastSupportValue | string;
-}
-
-export namespace TransitGatewayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayOptions): any => ({
-    ...obj,
-  });
-}
-
-export type TransitGatewayState = "available" | "deleted" | "deleting" | "modifying" | "pending";
-
-/**
- * <p>Describes a transit gateway.</p>
- */
-export interface TransitGateway {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
-   */
-  TransitGatewayArn?: string;
-
-  /**
-   * <p>The state of the transit gateway.</p>
-   */
-  State?: TransitGatewayState | string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The description of the transit gateway.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The transit gateway options.</p>
-   */
-  Options?: TransitGatewayOptions;
-
-  /**
-   * <p>The tags for the transit gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace TransitGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGateway): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransitGatewayResult {
-  /**
-   * <p>Information about the transit gateway.</p>
-   */
-  TransitGateway?: TransitGateway;
-}
-
-export namespace CreateTransitGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export type ProtocolValue = "gre";

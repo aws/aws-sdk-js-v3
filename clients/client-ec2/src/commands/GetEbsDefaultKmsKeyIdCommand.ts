@@ -13,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetEbsDefaultKmsKeyIdRequest } from "../models/models_4";
-import { GetEbsDefaultKmsKeyIdResult } from "../models/models_5";
+import { GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2GetEbsDefaultKmsKeyIdCommand,

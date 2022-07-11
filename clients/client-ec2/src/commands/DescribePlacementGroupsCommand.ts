@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_3";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribePlacementGroupsCommand,
   serializeAws_ec2DescribePlacementGroupsCommand,

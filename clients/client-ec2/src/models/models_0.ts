@@ -373,6 +373,7 @@ export interface PeeringTgwInfo {
    */
   TransitGatewayId?: string;
 
+  CoreNetworkId?: string;
   /**
    * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    */
@@ -389,6 +390,24 @@ export namespace PeeringTgwInfo {
    * @internal
    */
   export const filterSensitiveLog = (obj: PeeringTgwInfo): any => ({
+    ...obj,
+  });
+}
+
+export enum DynamicRoutingValue {
+  disable = "disable",
+  enable = "enable",
+}
+
+export interface TransitGatewayPeeringAttachmentOptions {
+  DynamicRouting?: DynamicRoutingValue | string;
+}
+
+export namespace TransitGatewayPeeringAttachmentOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPeeringAttachmentOptions): any => ({
     ...obj,
   });
 }
@@ -469,6 +488,11 @@ export interface TransitGatewayPeeringAttachment {
   TransitGatewayAttachmentId?: string;
 
   /**
+   * <p>The ID of the accepter transit gateway attachment.</p>
+   */
+  AccepterTransitGatewayAttachmentId?: string;
+
+  /**
    * <p>Information about the requester transit gateway.</p>
    */
   RequesterTgwInfo?: PeeringTgwInfo;
@@ -478,6 +502,7 @@ export interface TransitGatewayPeeringAttachment {
    */
   AccepterTgwInfo?: PeeringTgwInfo;
 
+  Options?: TransitGatewayPeeringAttachmentOptions;
   /**
    * <p>The status of the transit gateway peering attachment.</p>
    */
@@ -2191,7 +2216,9 @@ export type ResourceType =
   | "transit-gateway-attachment"
   | "transit-gateway-connect-peer"
   | "transit-gateway-multicast-domain"
+  | "transit-gateway-policy-table"
   | "transit-gateway-route-table"
+  | "transit-gateway-route-table-announcement"
   | "volume"
   | "vpc"
   | "vpc-endpoint"
@@ -3703,6 +3730,91 @@ export namespace AssociateTransitGatewayMulticastDomainResult {
   });
 }
 
+export interface AssociateTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway attachment to associate with the policy table.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace AssociateTransitGatewayPolicyTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayPolicyTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
+
+/**
+ * <p>Describes a transit gateway policy table association.</p>
+ */
+export interface TransitGatewayPolicyTableAssociation {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   */
+  TransitGatewayPolicyTableId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The resource ID of the transit gateway attachment.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource type for the transit gateway policy table association.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * <p>The state of the transit gateway policy table association.</p>
+   */
+  State?: TransitGatewayAssociationState | string;
+}
+
+export namespace TransitGatewayPolicyTableAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPolicyTableAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateTransitGatewayPolicyTableResult {
+  /**
+   * <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
+   */
+  Association?: TransitGatewayPolicyTableAssociation;
+}
+
+export namespace AssociateTransitGatewayPolicyTableResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateTransitGatewayPolicyTableResult): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateTransitGatewayRouteTableRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -3730,8 +3842,6 @@ export namespace AssociateTransitGatewayRouteTableRequest {
     ...obj,
   });
 }
-
-export type TransitGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating";
 
 /**
  * <p>Describes an association between a resource attachment and a transit gateway route table.</p>
@@ -8820,84 +8930,4 @@ export namespace CreateEgressOnlyInternetGatewayResult {
 export enum FleetExcessCapacityTerminationPolicy {
   NO_TERMINATION = "no-termination",
   TERMINATION = "termination",
-}
-
-/**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
- *          an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
- *             an instance from a launch template</a> in the
- *          <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface FleetLaunchTemplateSpecificationRequest {
-  /**
-   * <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p>
-   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p>
-   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
-   */
-  Version?: string;
-}
-
-export namespace FleetLaunchTemplateSpecificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateSpecificationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum BareMetal {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
-
-/**
- * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
- *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- */
-export interface BaselineEbsBandwidthMbpsRequest {
-  /**
-   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
-   *          this parameter.</p>
-   */
-  Min?: number;
-
-  /**
-   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
-   *          this parameter.</p>
-   */
-  Max?: number;
-}
-
-export namespace BaselineEbsBandwidthMbpsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum BurstablePerformance {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
-
-export enum CpuManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  INTEL = "intel",
 }

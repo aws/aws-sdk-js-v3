@@ -16,7 +16,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeNetworkInterfacePermissionsRequest,
   DescribeNetworkInterfacePermissionsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
   serializeAws_ec2DescribeNetworkInterfacePermissionsCommand,

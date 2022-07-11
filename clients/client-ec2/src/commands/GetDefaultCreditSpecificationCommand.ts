@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_4";
+import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetDefaultCreditSpecificationCommand,
   serializeAws_ec2GetDefaultCreditSpecificationCommand,
