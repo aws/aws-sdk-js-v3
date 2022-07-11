@@ -110,7 +110,7 @@ export const serializeAws_restJson1CreateAlertManagerDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+    ...(input.data != undefined && { data: context.base64Encoder(input.data) }),
   });
   return new __HttpRequest({
     protocol,
@@ -146,9 +146,9 @@ export const serializeAws_restJson1CreateRuleGroupsNamespaceCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.data != undefined && { data: context.base64Encoder(input.data) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,9 +172,9 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   let body: any;
   body = JSON.stringify({
-    ...(input.alias !== undefined && input.alias !== null && { alias: input.alias }),
+    ...(input.alias != undefined && { alias: input.alias }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -507,7 +507,7 @@ export const serializeAws_restJson1PutAlertManagerDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+    ...(input.data != undefined && { data: context.base64Encoder(input.data) }),
   });
   return new __HttpRequest({
     protocol,
@@ -552,7 +552,7 @@ export const serializeAws_restJson1PutRuleGroupsNamespaceCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+    ...(input.data != undefined && { data: context.base64Encoder(input.data) }),
   });
   return new __HttpRequest({
     protocol,
@@ -585,7 +585,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -651,7 +651,7 @@ export const serializeAws_restJson1UpdateWorkspaceAliasCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.alias !== undefined && input.alias !== null && { alias: input.alias }),
+    ...(input.alias != undefined && { alias: input.alias }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({
@@ -1874,16 +1874,16 @@ const deserializeAws_restJson1AlertManagerDefinitionDescription = (
 ): AlertManagerDefinitionDescription => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
-    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    data: output.data != undefined ? context.base64Decoder(output.data) : undefined,
     modifiedAt:
-      output.modifiedAt !== undefined && output.modifiedAt !== null
+      output.modifiedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
         : undefined,
     status:
-      output.status !== undefined && output.status !== null
+      output.status != undefined
         ? deserializeAws_restJson1AlertManagerDefinitionStatus(output.status, context)
         : undefined,
   } as any;
@@ -1906,23 +1906,20 @@ const deserializeAws_restJson1RuleGroupsNamespaceDescription = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
-    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    data: output.data != undefined ? context.base64Decoder(output.data) : undefined,
     modifiedAt:
-      output.modifiedAt !== undefined && output.modifiedAt !== null
+      output.modifiedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
         : undefined,
     name: __expectString(output.name),
     status:
-      output.status !== undefined && output.status !== null
+      output.status != undefined
         ? deserializeAws_restJson1RuleGroupsNamespaceStatus(output.status, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -1943,22 +1940,19 @@ const deserializeAws_restJson1RuleGroupsNamespaceSummary = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     modifiedAt:
-      output.modifiedAt !== undefined && output.modifiedAt !== null
+      output.modifiedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
         : undefined,
     name: __expectString(output.name),
     status:
-      output.status !== undefined && output.status !== null
+      output.status != undefined
         ? deserializeAws_restJson1RuleGroupsNamespaceStatus(output.status, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2019,18 +2013,12 @@ const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __Se
     alias: __expectString(output.alias),
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     prometheusEndpoint: __expectString(output.prometheusEndpoint),
-    status:
-      output.status !== undefined && output.status !== null
-        ? deserializeAws_restJson1WorkspaceStatus(output.status, context)
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    status: output.status != undefined ? deserializeAws_restJson1WorkspaceStatus(output.status, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     workspaceId: __expectString(output.workspaceId),
   } as any;
 };
@@ -2046,17 +2034,11 @@ const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeC
     alias: __expectString(output.alias),
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? deserializeAws_restJson1WorkspaceStatus(output.status, context)
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    status: output.status != undefined ? deserializeAws_restJson1WorkspaceStatus(output.status, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     workspaceId: __expectString(output.workspaceId),
   } as any;
 };

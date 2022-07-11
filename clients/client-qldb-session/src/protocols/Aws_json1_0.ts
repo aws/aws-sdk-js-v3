@@ -202,9 +202,8 @@ const serializeAws_json1_0CommitTransactionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CommitDigest !== undefined &&
-      input.CommitDigest !== null && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
-    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
+    ...(input.CommitDigest != undefined && { CommitDigest: context.base64Encoder(input.CommitDigest) }),
+    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
   };
 };
 
@@ -214,53 +213,49 @@ const serializeAws_json1_0EndSessionRequest = (input: EndSessionRequest, context
 
 const serializeAws_json1_0ExecuteStatementRequest = (input: ExecuteStatementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context) }),
-    ...(input.Statement !== undefined && input.Statement !== null && { Statement: input.Statement }),
-    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
+    ...(input.Parameters != undefined && {
+      Parameters: serializeAws_json1_0StatementParameters(input.Parameters, context),
+    }),
+    ...(input.Statement != undefined && { Statement: input.Statement }),
+    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_json1_0FetchPageRequest = (input: FetchPageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextPageToken !== undefined && input.NextPageToken !== null && { NextPageToken: input.NextPageToken }),
-    ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
+    ...(input.NextPageToken != undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_json1_0SendCommandRequest = (input: SendCommandRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AbortTransaction !== undefined &&
-      input.AbortTransaction !== null && {
-        AbortTransaction: serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context),
-      }),
-    ...(input.CommitTransaction !== undefined &&
-      input.CommitTransaction !== null && {
-        CommitTransaction: serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context),
-      }),
-    ...(input.EndSession !== undefined &&
-      input.EndSession !== null && { EndSession: serializeAws_json1_0EndSessionRequest(input.EndSession, context) }),
-    ...(input.ExecuteStatement !== undefined &&
-      input.ExecuteStatement !== null && {
-        ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
-      }),
-    ...(input.FetchPage !== undefined &&
-      input.FetchPage !== null && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
-    ...(input.SessionToken !== undefined && input.SessionToken !== null && { SessionToken: input.SessionToken }),
-    ...(input.StartSession !== undefined &&
-      input.StartSession !== null && {
-        StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
-      }),
-    ...(input.StartTransaction !== undefined &&
-      input.StartTransaction !== null && {
-        StartTransaction: serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context),
-      }),
+    ...(input.AbortTransaction != undefined && {
+      AbortTransaction: serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context),
+    }),
+    ...(input.CommitTransaction != undefined && {
+      CommitTransaction: serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context),
+    }),
+    ...(input.EndSession != undefined && {
+      EndSession: serializeAws_json1_0EndSessionRequest(input.EndSession, context),
+    }),
+    ...(input.ExecuteStatement != undefined && {
+      ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context),
+    }),
+    ...(input.FetchPage != undefined && { FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context) }),
+    ...(input.SessionToken != undefined && { SessionToken: input.SessionToken }),
+    ...(input.StartSession != undefined && {
+      StartSession: serializeAws_json1_0StartSessionRequest(input.StartSession, context),
+    }),
+    ...(input.StartTransaction != undefined && {
+      StartTransaction: serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context),
+    }),
   };
 };
 
 const serializeAws_json1_0StartSessionRequest = (input: StartSessionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LedgerName !== undefined && input.LedgerName !== null && { LedgerName: input.LedgerName }),
+    ...(input.LedgerName != undefined && { LedgerName: input.LedgerName }),
   };
 };
 
@@ -281,16 +276,15 @@ const serializeAws_json1_0StatementParameters = (input: ValueHolder[], context: 
 
 const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
-    ...(input.IonBinary !== undefined &&
-      input.IonBinary !== null && { IonBinary: context.base64Encoder(input.IonBinary) }),
-    ...(input.IonText !== undefined && input.IonText !== null && { IonText: input.IonText }),
+    ...(input.IonBinary != undefined && { IonBinary: context.base64Encoder(input.IonBinary) }),
+    ...(input.IonText != undefined && { IonText: input.IonText }),
   };
 };
 
 const deserializeAws_json1_0AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
   return {
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
@@ -317,16 +311,11 @@ const deserializeAws_json1_0CommitTransactionResult = (
   context: __SerdeContext
 ): CommitTransactionResult => {
   return {
-    CommitDigest:
-      output.CommitDigest !== undefined && output.CommitDigest !== null
-        ? context.base64Decoder(output.CommitDigest)
-        : undefined,
+    CommitDigest: output.CommitDigest != undefined ? context.base64Decoder(output.CommitDigest) : undefined,
     ConsumedIOs:
-      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
-        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
-        : undefined,
+      output.ConsumedIOs != undefined ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
     TransactionId: __expectString(output.TransactionId),
@@ -336,7 +325,7 @@ const deserializeAws_json1_0CommitTransactionResult = (
 const deserializeAws_json1_0EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
   return {
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
@@ -345,15 +334,10 @@ const deserializeAws_json1_0EndSessionResult = (output: any, context: __SerdeCon
 const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
   return {
     ConsumedIOs:
-      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
-        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
-        : undefined,
-    FirstPage:
-      output.FirstPage !== undefined && output.FirstPage !== null
-        ? deserializeAws_json1_0Page(output.FirstPage, context)
-        : undefined,
+      output.ConsumedIOs != undefined ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
+    FirstPage: output.FirstPage != undefined ? deserializeAws_json1_0Page(output.FirstPage, context) : undefined,
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
@@ -362,13 +346,10 @@ const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __Se
 const deserializeAws_json1_0FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
   return {
     ConsumedIOs:
-      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
-        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
-        : undefined,
-    Page:
-      output.Page !== undefined && output.Page !== null ? deserializeAws_json1_0Page(output.Page, context) : undefined,
+      output.ConsumedIOs != undefined ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context) : undefined,
+    Page: output.Page != undefined ? deserializeAws_json1_0Page(output.Page, context) : undefined,
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
@@ -406,10 +387,7 @@ const deserializeAws_json1_0OccConflictException = (output: any, context: __Serd
 const deserializeAws_json1_0Page = (output: any, context: __SerdeContext): Page => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_0ValueHolders(output.Values, context)
-        : undefined,
+    Values: output.Values != undefined ? deserializeAws_json1_0ValueHolders(output.Values, context) : undefined,
   } as any;
 };
 
@@ -422,31 +400,27 @@ const deserializeAws_json1_0RateExceededException = (output: any, context: __Ser
 const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeContext): SendCommandResult => {
   return {
     AbortTransaction:
-      output.AbortTransaction !== undefined && output.AbortTransaction !== null
+      output.AbortTransaction != undefined
         ? deserializeAws_json1_0AbortTransactionResult(output.AbortTransaction, context)
         : undefined,
     CommitTransaction:
-      output.CommitTransaction !== undefined && output.CommitTransaction !== null
+      output.CommitTransaction != undefined
         ? deserializeAws_json1_0CommitTransactionResult(output.CommitTransaction, context)
         : undefined,
     EndSession:
-      output.EndSession !== undefined && output.EndSession !== null
-        ? deserializeAws_json1_0EndSessionResult(output.EndSession, context)
-        : undefined,
+      output.EndSession != undefined ? deserializeAws_json1_0EndSessionResult(output.EndSession, context) : undefined,
     ExecuteStatement:
-      output.ExecuteStatement !== undefined && output.ExecuteStatement !== null
+      output.ExecuteStatement != undefined
         ? deserializeAws_json1_0ExecuteStatementResult(output.ExecuteStatement, context)
         : undefined,
     FetchPage:
-      output.FetchPage !== undefined && output.FetchPage !== null
-        ? deserializeAws_json1_0FetchPageResult(output.FetchPage, context)
-        : undefined,
+      output.FetchPage != undefined ? deserializeAws_json1_0FetchPageResult(output.FetchPage, context) : undefined,
     StartSession:
-      output.StartSession !== undefined && output.StartSession !== null
+      output.StartSession != undefined
         ? deserializeAws_json1_0StartSessionResult(output.StartSession, context)
         : undefined,
     StartTransaction:
-      output.StartTransaction !== undefined && output.StartTransaction !== null
+      output.StartTransaction != undefined
         ? deserializeAws_json1_0StartTransactionResult(output.StartTransaction, context)
         : undefined,
   } as any;
@@ -456,7 +430,7 @@ const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeC
   return {
     SessionToken: __expectString(output.SessionToken),
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
@@ -465,7 +439,7 @@ const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeC
 const deserializeAws_json1_0StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
   return {
     TimingInformation:
-      output.TimingInformation !== undefined && output.TimingInformation !== null
+      output.TimingInformation != undefined
         ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
     TransactionId: __expectString(output.TransactionId),
@@ -480,8 +454,7 @@ const deserializeAws_json1_0TimingInformation = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
   return {
-    IonBinary:
-      output.IonBinary !== undefined && output.IonBinary !== null ? context.base64Decoder(output.IonBinary) : undefined,
+    IonBinary: output.IonBinary != undefined ? context.base64Decoder(output.IonBinary) : undefined,
     IonText: __expectString(output.IonText),
   } as any;
 };

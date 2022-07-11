@@ -270,8 +270,7 @@ export const serializeAws_restJson1AssociateAssessmentReportEvidenceFolderComman
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.evidenceFolderId !== undefined &&
-      input.evidenceFolderId !== null && { evidenceFolderId: input.evidenceFolderId }),
+    ...(input.evidenceFolderId != undefined && { evidenceFolderId: input.evidenceFolderId }),
   });
   return new __HttpRequest({
     protocol,
@@ -306,10 +305,10 @@ export const serializeAws_restJson1BatchAssociateAssessmentReportEvidenceCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.evidenceFolderId !== undefined &&
-      input.evidenceFolderId !== null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds !== undefined &&
-      input.evidenceIds !== null && { evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context) }),
+    ...(input.evidenceFolderId != undefined && { evidenceFolderId: input.evidenceFolderId }),
+    ...(input.evidenceIds != undefined && {
+      evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -343,13 +342,9 @@ export const serializeAws_restJson1BatchCreateDelegationByAssessmentCommand = as
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.createDelegationRequests !== undefined &&
-      input.createDelegationRequests !== null && {
-        createDelegationRequests: serializeAws_restJson1CreateDelegationRequests(
-          input.createDelegationRequests,
-          context
-        ),
-      }),
+    ...(input.createDelegationRequests != undefined && {
+      createDelegationRequests: serializeAws_restJson1CreateDelegationRequests(input.createDelegationRequests, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -383,10 +378,9 @@ export const serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand = as
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.delegationIds !== undefined &&
-      input.delegationIds !== null && {
-        delegationIds: serializeAws_restJson1DelegationIds(input.delegationIds, context),
-      }),
+    ...(input.delegationIds != undefined && {
+      delegationIds: serializeAws_restJson1DelegationIds(input.delegationIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -421,10 +415,10 @@ export const serializeAws_restJson1BatchDisassociateAssessmentReportEvidenceComm
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.evidenceFolderId !== undefined &&
-      input.evidenceFolderId !== null && { evidenceFolderId: input.evidenceFolderId }),
-    ...(input.evidenceIds !== undefined &&
-      input.evidenceIds !== null && { evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context) }),
+    ...(input.evidenceFolderId != undefined && { evidenceFolderId: input.evidenceFolderId }),
+    ...(input.evidenceIds != undefined && {
+      evidenceIds: serializeAws_restJson1EvidenceIds(input.evidenceIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -477,10 +471,9 @@ export const serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.manualEvidence !== undefined &&
-      input.manualEvidence !== null && {
-        manualEvidence: serializeAws_restJson1ManualEvidenceList(input.manualEvidence, context),
-      }),
+    ...(input.manualEvidence != undefined && {
+      manualEvidence: serializeAws_restJson1ManualEvidenceList(input.manualEvidence, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -504,21 +497,18 @@ export const serializeAws_restJson1CreateAssessmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessments";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentReportsDestination !== undefined &&
-      input.assessmentReportsDestination !== null && {
-        assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
-          input.assessmentReportsDestination,
-          context
-        ),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.frameworkId !== undefined && input.frameworkId !== null && { frameworkId: input.frameworkId }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.roles !== undefined &&
-      input.roles !== null && { roles: serializeAws_restJson1Roles(input.roles, context) }),
-    ...(input.scope !== undefined &&
-      input.scope !== null && { scope: serializeAws_restJson1Scope(input.scope, context) }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.assessmentReportsDestination != undefined && {
+      assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
+        input.assessmentReportsDestination,
+        context
+      ),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.frameworkId != undefined && { frameworkId: input.frameworkId }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.roles != undefined && { roles: serializeAws_restJson1Roles(input.roles, context) }),
+    ...(input.scope != undefined && { scope: serializeAws_restJson1Scope(input.scope, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -542,15 +532,13 @@ export const serializeAws_restJson1CreateAssessmentFrameworkCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworks";
   let body: any;
   body = JSON.stringify({
-    ...(input.complianceType !== undefined &&
-      input.complianceType !== null && { complianceType: input.complianceType }),
-    ...(input.controlSets !== undefined &&
-      input.controlSets !== null && {
-        controlSets: serializeAws_restJson1CreateAssessmentFrameworkControlSets(input.controlSets, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.complianceType != undefined && { complianceType: input.complianceType }),
+    ...(input.controlSets != undefined && {
+      controlSets: serializeAws_restJson1CreateAssessmentFrameworkControlSets(input.controlSets, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -584,8 +572,8 @@ export const serializeAws_restJson1CreateAssessmentReportCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -609,19 +597,15 @@ export const serializeAws_restJson1CreateControlCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controls";
   let body: any;
   body = JSON.stringify({
-    ...(input.actionPlanInstructions !== undefined &&
-      input.actionPlanInstructions !== null && { actionPlanInstructions: input.actionPlanInstructions }),
-    ...(input.actionPlanTitle !== undefined &&
-      input.actionPlanTitle !== null && { actionPlanTitle: input.actionPlanTitle }),
-    ...(input.controlMappingSources !== undefined &&
-      input.controlMappingSources !== null && {
-        controlMappingSources: serializeAws_restJson1CreateControlMappingSources(input.controlMappingSources, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.testingInformation !== undefined &&
-      input.testingInformation !== null && { testingInformation: input.testingInformation }),
+    ...(input.actionPlanInstructions != undefined && { actionPlanInstructions: input.actionPlanInstructions }),
+    ...(input.actionPlanTitle != undefined && { actionPlanTitle: input.actionPlanTitle }),
+    ...(input.controlMappingSources != undefined && {
+      controlMappingSources: serializeAws_restJson1CreateControlMappingSources(input.controlMappingSources, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.testingInformation != undefined && { testingInformation: input.testingInformation }),
   });
   return new __HttpRequest({
     protocol,
@@ -829,8 +813,7 @@ export const serializeAws_restJson1DeregisterOrganizationAdminAccountCommand = a
     "/account/deregisterOrganizationAdminAccount";
   let body: any;
   body = JSON.stringify({
-    ...(input.adminAccountId !== undefined &&
-      input.adminAccountId !== null && { adminAccountId: input.adminAccountId }),
+    ...(input.adminAccountId != undefined && { adminAccountId: input.adminAccountId }),
   });
   return new __HttpRequest({
     protocol,
@@ -865,8 +848,7 @@ export const serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCom
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.evidenceFolderId !== undefined &&
-      input.evidenceFolderId !== null && { evidenceFolderId: input.evidenceFolderId }),
+    ...(input.evidenceFolderId != undefined && { evidenceFolderId: input.evidenceFolderId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1773,9 +1755,8 @@ export const serializeAws_restJson1RegisterAccountCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/registerAccount";
   let body: any;
   body = JSON.stringify({
-    ...(input.delegatedAdminAccount !== undefined &&
-      input.delegatedAdminAccount !== null && { delegatedAdminAccount: input.delegatedAdminAccount }),
-    ...(input.kmsKey !== undefined && input.kmsKey !== null && { kmsKey: input.kmsKey }),
+    ...(input.delegatedAdminAccount != undefined && { delegatedAdminAccount: input.delegatedAdminAccount }),
+    ...(input.kmsKey != undefined && { kmsKey: input.kmsKey }),
   });
   return new __HttpRequest({
     protocol,
@@ -1800,8 +1781,7 @@ export const serializeAws_restJson1RegisterOrganizationAdminAccountCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/registerOrganizationAdminAccount";
   let body: any;
   body = JSON.stringify({
-    ...(input.adminAccountId !== undefined &&
-      input.adminAccountId !== null && { adminAccountId: input.adminAccountId }),
+    ...(input.adminAccountId != undefined && { adminAccountId: input.adminAccountId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1836,11 +1816,9 @@ export const serializeAws_restJson1StartAssessmentFrameworkShareCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.comment !== undefined && input.comment !== null && { comment: input.comment }),
-    ...(input.destinationAccount !== undefined &&
-      input.destinationAccount !== null && { destinationAccount: input.destinationAccount }),
-    ...(input.destinationRegion !== undefined &&
-      input.destinationRegion !== null && { destinationRegion: input.destinationRegion }),
+    ...(input.comment != undefined && { comment: input.comment }),
+    ...(input.destinationAccount != undefined && { destinationAccount: input.destinationAccount }),
+    ...(input.destinationRegion != undefined && { destinationRegion: input.destinationRegion }),
   });
   return new __HttpRequest({
     protocol,
@@ -1873,7 +1851,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1939,21 +1917,16 @@ export const serializeAws_restJson1UpdateAssessmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentDescription !== undefined &&
-      input.assessmentDescription !== null && { assessmentDescription: input.assessmentDescription }),
-    ...(input.assessmentName !== undefined &&
-      input.assessmentName !== null && { assessmentName: input.assessmentName }),
-    ...(input.assessmentReportsDestination !== undefined &&
-      input.assessmentReportsDestination !== null && {
-        assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
-          input.assessmentReportsDestination,
-          context
-        ),
-      }),
-    ...(input.roles !== undefined &&
-      input.roles !== null && { roles: serializeAws_restJson1Roles(input.roles, context) }),
-    ...(input.scope !== undefined &&
-      input.scope !== null && { scope: serializeAws_restJson1Scope(input.scope, context) }),
+    ...(input.assessmentDescription != undefined && { assessmentDescription: input.assessmentDescription }),
+    ...(input.assessmentName != undefined && { assessmentName: input.assessmentName }),
+    ...(input.assessmentReportsDestination != undefined && {
+      assessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
+        input.assessmentReportsDestination,
+        context
+      ),
+    }),
+    ...(input.roles != undefined && { roles: serializeAws_restJson1Roles(input.roles, context) }),
+    ...(input.scope != undefined && { scope: serializeAws_restJson1Scope(input.scope, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2006,8 +1979,8 @@ export const serializeAws_restJson1UpdateAssessmentControlCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.commentBody !== undefined && input.commentBody !== null && { commentBody: input.commentBody }),
-    ...(input.controlStatus !== undefined && input.controlStatus !== null && { controlStatus: input.controlStatus }),
+    ...(input.commentBody != undefined && { commentBody: input.commentBody }),
+    ...(input.controlStatus != undefined && { controlStatus: input.controlStatus }),
   });
   return new __HttpRequest({
     protocol,
@@ -2051,8 +2024,8 @@ export const serializeAws_restJson1UpdateAssessmentControlSetStatusCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.comment !== undefined && input.comment !== null && { comment: input.comment }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.comment != undefined && { comment: input.comment }),
+    ...(input.status != undefined && { status: input.status }),
   });
   return new __HttpRequest({
     protocol,
@@ -2086,14 +2059,12 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.complianceType !== undefined &&
-      input.complianceType !== null && { complianceType: input.complianceType }),
-    ...(input.controlSets !== undefined &&
-      input.controlSets !== null && {
-        controlSets: serializeAws_restJson1UpdateAssessmentFrameworkControlSets(input.controlSets, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.complianceType != undefined && { complianceType: input.complianceType }),
+    ...(input.controlSets != undefined && {
+      controlSets: serializeAws_restJson1UpdateAssessmentFrameworkControlSets(input.controlSets, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -2128,8 +2099,8 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.action !== undefined && input.action !== null && { action: input.action }),
-    ...(input.requestType !== undefined && input.requestType !== null && { requestType: input.requestType }),
+    ...(input.action != undefined && { action: input.action }),
+    ...(input.requestType != undefined && { requestType: input.requestType }),
   });
   return new __HttpRequest({
     protocol,
@@ -2163,7 +2134,7 @@ export const serializeAws_restJson1UpdateAssessmentStatusCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != undefined && { status: input.status }),
   });
   return new __HttpRequest({
     protocol,
@@ -2196,18 +2167,14 @@ export const serializeAws_restJson1UpdateControlCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.actionPlanInstructions !== undefined &&
-      input.actionPlanInstructions !== null && { actionPlanInstructions: input.actionPlanInstructions }),
-    ...(input.actionPlanTitle !== undefined &&
-      input.actionPlanTitle !== null && { actionPlanTitle: input.actionPlanTitle }),
-    ...(input.controlMappingSources !== undefined &&
-      input.controlMappingSources !== null && {
-        controlMappingSources: serializeAws_restJson1ControlMappingSources(input.controlMappingSources, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.testingInformation !== undefined &&
-      input.testingInformation !== null && { testingInformation: input.testingInformation }),
+    ...(input.actionPlanInstructions != undefined && { actionPlanInstructions: input.actionPlanInstructions }),
+    ...(input.actionPlanTitle != undefined && { actionPlanTitle: input.actionPlanTitle }),
+    ...(input.controlMappingSources != undefined && {
+      controlMappingSources: serializeAws_restJson1ControlMappingSources(input.controlMappingSources, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.testingInformation != undefined && { testingInformation: input.testingInformation }),
   });
   return new __HttpRequest({
     protocol,
@@ -2231,19 +2198,17 @@ export const serializeAws_restJson1UpdateSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings";
   let body: any;
   body = JSON.stringify({
-    ...(input.defaultAssessmentReportsDestination !== undefined &&
-      input.defaultAssessmentReportsDestination !== null && {
-        defaultAssessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
-          input.defaultAssessmentReportsDestination,
-          context
-        ),
-      }),
-    ...(input.defaultProcessOwners !== undefined &&
-      input.defaultProcessOwners !== null && {
-        defaultProcessOwners: serializeAws_restJson1Roles(input.defaultProcessOwners, context),
-      }),
-    ...(input.kmsKey !== undefined && input.kmsKey !== null && { kmsKey: input.kmsKey }),
-    ...(input.snsTopic !== undefined && input.snsTopic !== null && { snsTopic: input.snsTopic }),
+    ...(input.defaultAssessmentReportsDestination != undefined && {
+      defaultAssessmentReportsDestination: serializeAws_restJson1AssessmentReportsDestination(
+        input.defaultAssessmentReportsDestination,
+        context
+      ),
+    }),
+    ...(input.defaultProcessOwners != undefined && {
+      defaultProcessOwners: serializeAws_restJson1Roles(input.defaultProcessOwners, context),
+    }),
+    ...(input.kmsKey != undefined && { kmsKey: input.kmsKey }),
+    ...(input.snsTopic != undefined && { snsTopic: input.snsTopic }),
   });
   return new __HttpRequest({
     protocol,
@@ -2268,8 +2233,7 @@ export const serializeAws_restJson1ValidateAssessmentReportIntegrityCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentReports/integrity";
   let body: any;
   body = JSON.stringify({
-    ...(input.s3RelativePath !== undefined &&
-      input.s3RelativePath !== null && { s3RelativePath: input.s3RelativePath }),
+    ...(input.s3RelativePath != undefined && { s3RelativePath: input.s3RelativePath }),
   });
   return new __HttpRequest({
     protocol,
@@ -5701,17 +5665,16 @@ const serializeAws_restJson1AssessmentReportsDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.destination !== undefined && input.destination !== null && { destination: input.destination }),
-    ...(input.destinationType !== undefined &&
-      input.destinationType !== null && { destinationType: input.destinationType }),
+    ...(input.destination != undefined && { destination: input.destination }),
+    ...(input.destinationType != undefined && { destinationType: input.destinationType }),
   };
 };
 
 const serializeAws_restJson1AWSAccount = (input: AWSAccount, context: __SerdeContext): any => {
   return {
-    ...(input.emailAddress !== undefined && input.emailAddress !== null && { emailAddress: input.emailAddress }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.emailAddress != undefined && { emailAddress: input.emailAddress }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -5728,7 +5691,7 @@ const serializeAws_restJson1AWSAccounts = (input: AWSAccount[], context: __Serde
 
 const serializeAws_restJson1AWSService = (input: AWSService, context: __SerdeContext): any => {
   return {
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.serviceName != undefined && { serviceName: input.serviceName }),
   };
 };
 
@@ -5745,21 +5708,16 @@ const serializeAws_restJson1AWSServices = (input: AWSService[], context: __Serde
 
 const serializeAws_restJson1ControlMappingSource = (input: ControlMappingSource, context: __SerdeContext): any => {
   return {
-    ...(input.sourceDescription !== undefined &&
-      input.sourceDescription !== null && { sourceDescription: input.sourceDescription }),
-    ...(input.sourceFrequency !== undefined &&
-      input.sourceFrequency !== null && { sourceFrequency: input.sourceFrequency }),
-    ...(input.sourceId !== undefined && input.sourceId !== null && { sourceId: input.sourceId }),
-    ...(input.sourceKeyword !== undefined &&
-      input.sourceKeyword !== null && {
-        sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
-      }),
-    ...(input.sourceName !== undefined && input.sourceName !== null && { sourceName: input.sourceName }),
-    ...(input.sourceSetUpOption !== undefined &&
-      input.sourceSetUpOption !== null && { sourceSetUpOption: input.sourceSetUpOption }),
-    ...(input.sourceType !== undefined && input.sourceType !== null && { sourceType: input.sourceType }),
-    ...(input.troubleshootingText !== undefined &&
-      input.troubleshootingText !== null && { troubleshootingText: input.troubleshootingText }),
+    ...(input.sourceDescription != undefined && { sourceDescription: input.sourceDescription }),
+    ...(input.sourceFrequency != undefined && { sourceFrequency: input.sourceFrequency }),
+    ...(input.sourceId != undefined && { sourceId: input.sourceId }),
+    ...(input.sourceKeyword != undefined && {
+      sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
+    }),
+    ...(input.sourceName != undefined && { sourceName: input.sourceName }),
+    ...(input.sourceSetUpOption != undefined && { sourceSetUpOption: input.sourceSetUpOption }),
+    ...(input.sourceType != undefined && { sourceType: input.sourceType }),
+    ...(input.troubleshootingText != undefined && { troubleshootingText: input.troubleshootingText }),
   };
 };
 
@@ -5779,7 +5737,7 @@ const serializeAws_restJson1CreateAssessmentFrameworkControl = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
@@ -5802,11 +5760,10 @@ const serializeAws_restJson1CreateAssessmentFrameworkControlSet = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.controls !== undefined &&
-      input.controls !== null && {
-        controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.controls != undefined && {
+      controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -5829,20 +5786,15 @@ const serializeAws_restJson1CreateControlMappingSource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.sourceDescription !== undefined &&
-      input.sourceDescription !== null && { sourceDescription: input.sourceDescription }),
-    ...(input.sourceFrequency !== undefined &&
-      input.sourceFrequency !== null && { sourceFrequency: input.sourceFrequency }),
-    ...(input.sourceKeyword !== undefined &&
-      input.sourceKeyword !== null && {
-        sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
-      }),
-    ...(input.sourceName !== undefined && input.sourceName !== null && { sourceName: input.sourceName }),
-    ...(input.sourceSetUpOption !== undefined &&
-      input.sourceSetUpOption !== null && { sourceSetUpOption: input.sourceSetUpOption }),
-    ...(input.sourceType !== undefined && input.sourceType !== null && { sourceType: input.sourceType }),
-    ...(input.troubleshootingText !== undefined &&
-      input.troubleshootingText !== null && { troubleshootingText: input.troubleshootingText }),
+    ...(input.sourceDescription != undefined && { sourceDescription: input.sourceDescription }),
+    ...(input.sourceFrequency != undefined && { sourceFrequency: input.sourceFrequency }),
+    ...(input.sourceKeyword != undefined && {
+      sourceKeyword: serializeAws_restJson1SourceKeyword(input.sourceKeyword, context),
+    }),
+    ...(input.sourceName != undefined && { sourceName: input.sourceName }),
+    ...(input.sourceSetUpOption != undefined && { sourceSetUpOption: input.sourceSetUpOption }),
+    ...(input.sourceType != undefined && { sourceType: input.sourceType }),
+    ...(input.troubleshootingText != undefined && { troubleshootingText: input.troubleshootingText }),
   };
 };
 
@@ -5865,10 +5817,10 @@ const serializeAws_restJson1CreateDelegationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.comment !== undefined && input.comment !== null && { comment: input.comment }),
-    ...(input.controlSetId !== undefined && input.controlSetId !== null && { controlSetId: input.controlSetId }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.roleType !== undefined && input.roleType !== null && { roleType: input.roleType }),
+    ...(input.comment != undefined && { comment: input.comment }),
+    ...(input.controlSetId != undefined && { controlSetId: input.controlSetId }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.roleType != undefined && { roleType: input.roleType }),
   };
 };
 
@@ -5910,8 +5862,7 @@ const serializeAws_restJson1EvidenceIds = (input: string[], context: __SerdeCont
 
 const serializeAws_restJson1ManualEvidence = (input: ManualEvidence, context: __SerdeContext): any => {
   return {
-    ...(input.s3ResourcePath !== undefined &&
-      input.s3ResourcePath !== null && { s3ResourcePath: input.s3ResourcePath }),
+    ...(input.s3ResourcePath != undefined && { s3ResourcePath: input.s3ResourcePath }),
   };
 };
 
@@ -5928,8 +5879,8 @@ const serializeAws_restJson1ManualEvidenceList = (input: ManualEvidence[], conte
 
 const serializeAws_restJson1Role = (input: Role, context: __SerdeContext): any => {
   return {
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.roleType !== undefined && input.roleType !== null && { roleType: input.roleType }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.roleType != undefined && { roleType: input.roleType }),
   };
 };
 
@@ -5946,18 +5897,19 @@ const serializeAws_restJson1Roles = (input: Role[], context: __SerdeContext): an
 
 const serializeAws_restJson1Scope = (input: Scope, context: __SerdeContext): any => {
   return {
-    ...(input.awsAccounts !== undefined &&
-      input.awsAccounts !== null && { awsAccounts: serializeAws_restJson1AWSAccounts(input.awsAccounts, context) }),
-    ...(input.awsServices !== undefined &&
-      input.awsServices !== null && { awsServices: serializeAws_restJson1AWSServices(input.awsServices, context) }),
+    ...(input.awsAccounts != undefined && {
+      awsAccounts: serializeAws_restJson1AWSAccounts(input.awsAccounts, context),
+    }),
+    ...(input.awsServices != undefined && {
+      awsServices: serializeAws_restJson1AWSServices(input.awsServices, context),
+    }),
   };
 };
 
 const serializeAws_restJson1SourceKeyword = (input: SourceKeyword, context: __SerdeContext): any => {
   return {
-    ...(input.keywordInputType !== undefined &&
-      input.keywordInputType !== null && { keywordInputType: input.keywordInputType }),
-    ...(input.keywordValue !== undefined && input.keywordValue !== null && { keywordValue: input.keywordValue }),
+    ...(input.keywordInputType != undefined && { keywordInputType: input.keywordInputType }),
+    ...(input.keywordValue != undefined && { keywordValue: input.keywordValue }),
   };
 };
 
@@ -5978,12 +5930,11 @@ const serializeAws_restJson1UpdateAssessmentFrameworkControlSet = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.controls !== undefined &&
-      input.controls !== null && {
-        controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
-      }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.controls != undefined && {
+      controls: serializeAws_restJson1CreateAssessmentFrameworkControls(input.controls, context),
+    }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -6005,21 +5956,14 @@ const deserializeAws_restJson1Assessment = (output: any, context: __SerdeContext
   return {
     arn: __expectString(output.arn),
     awsAccount:
-      output.awsAccount !== undefined && output.awsAccount !== null
-        ? deserializeAws_restJson1AWSAccount(output.awsAccount, context)
-        : undefined,
+      output.awsAccount != undefined ? deserializeAws_restJson1AWSAccount(output.awsAccount, context) : undefined,
     framework:
-      output.framework !== undefined && output.framework !== null
+      output.framework != undefined
         ? deserializeAws_restJson1AssessmentFramework(output.framework, context)
         : undefined,
     metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_restJson1AssessmentMetadata(output.metadata, context)
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+      output.metadata != undefined ? deserializeAws_restJson1AssessmentMetadata(output.metadata, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -6027,13 +5971,11 @@ const deserializeAws_restJson1AssessmentControl = (output: any, context: __Serde
   return {
     assessmentReportEvidenceCount: __expectInt32(output.assessmentReportEvidenceCount),
     comments:
-      output.comments !== undefined && output.comments !== null
-        ? deserializeAws_restJson1ControlComments(output.comments, context)
-        : undefined,
+      output.comments != undefined ? deserializeAws_restJson1ControlComments(output.comments, context) : undefined,
     description: __expectString(output.description),
     evidenceCount: __expectInt32(output.evidenceCount),
     evidenceSources:
-      output.evidenceSources !== undefined && output.evidenceSources !== null
+      output.evidenceSources != undefined
         ? deserializeAws_restJson1EvidenceSources(output.evidenceSources, context)
         : undefined,
     id: __expectString(output.id),
@@ -6058,20 +6000,13 @@ const deserializeAws_restJson1AssessmentControls = (output: any, context: __Serd
 const deserializeAws_restJson1AssessmentControlSet = (output: any, context: __SerdeContext): AssessmentControlSet => {
   return {
     controls:
-      output.controls !== undefined && output.controls !== null
-        ? deserializeAws_restJson1AssessmentControls(output.controls, context)
-        : undefined,
+      output.controls != undefined ? deserializeAws_restJson1AssessmentControls(output.controls, context) : undefined,
     delegations:
-      output.delegations !== undefined && output.delegations !== null
-        ? deserializeAws_restJson1Delegations(output.delegations, context)
-        : undefined,
+      output.delegations != undefined ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     manualEvidenceCount: __expectInt32(output.manualEvidenceCount),
-    roles:
-      output.roles !== undefined && output.roles !== null
-        ? deserializeAws_restJson1Roles(output.roles, context)
-        : undefined,
+    roles: output.roles != undefined ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
     status: __expectString(output.status),
     systemEvidenceCount: __expectInt32(output.systemEvidenceCount),
   } as any;
@@ -6104,10 +6039,7 @@ const deserializeAws_restJson1AssessmentEvidenceFolder = (
     controlName: __expectString(output.controlName),
     controlSetId: __expectString(output.controlSetId),
     dataSource: __expectString(output.dataSource),
-    date:
-      output.date !== undefined && output.date !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date)))
-        : undefined,
+    date: output.date != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date))) : undefined,
     evidenceAwsServiceSourceCount: __expectInt32(output.evidenceAwsServiceSourceCount),
     evidenceByTypeComplianceCheckCount: __expectInt32(output.evidenceByTypeComplianceCheckCount),
     evidenceByTypeComplianceCheckIssuesCount: __expectInt32(output.evidenceByTypeComplianceCheckIssuesCount),
@@ -6140,14 +6072,12 @@ const deserializeAws_restJson1AssessmentFramework = (output: any, context: __Ser
   return {
     arn: __expectString(output.arn),
     controlSets:
-      output.controlSets !== undefined && output.controlSets !== null
+      output.controlSets != undefined
         ? deserializeAws_restJson1AssessmentControlSets(output.controlSets, context)
         : undefined,
     id: __expectString(output.id),
     metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_restJson1FrameworkMetadata(output.metadata, context)
-        : undefined,
+      output.metadata != undefined ? deserializeAws_restJson1FrameworkMetadata(output.metadata, context) : undefined,
   } as any;
 };
 
@@ -6161,13 +6091,13 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
     controlSetsCount: __expectInt32(output.controlSetsCount),
     controlsCount: __expectInt32(output.controlsCount),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+      output.lastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     logo: __expectString(output.logo),
@@ -6184,14 +6114,14 @@ const deserializeAws_restJson1AssessmentFrameworkShareRequest = (
     comment: __expectString(output.comment),
     complianceType: __expectString(output.complianceType),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     customControlsCount: __expectInt32(output.customControlsCount),
     destinationAccount: __expectString(output.destinationAccount),
     destinationRegion: __expectString(output.destinationRegion),
     expirationTime:
-      output.expirationTime !== undefined && output.expirationTime !== null
+      output.expirationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationTime)))
         : undefined,
     frameworkDescription: __expectString(output.frameworkDescription),
@@ -6199,7 +6129,7 @@ const deserializeAws_restJson1AssessmentFrameworkShareRequest = (
     frameworkName: __expectString(output.frameworkName),
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     sourceAccount: __expectString(output.sourceAccount),
@@ -6226,33 +6156,25 @@ const deserializeAws_restJson1AssessmentFrameworkShareRequestList = (
 const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadata => {
   return {
     assessmentReportsDestination:
-      output.assessmentReportsDestination !== undefined && output.assessmentReportsDestination !== null
+      output.assessmentReportsDestination != undefined
         ? deserializeAws_restJson1AssessmentReportsDestination(output.assessmentReportsDestination, context)
         : undefined,
     complianceType: __expectString(output.complianceType),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     delegations:
-      output.delegations !== undefined && output.delegations !== null
-        ? deserializeAws_restJson1Delegations(output.delegations, context)
-        : undefined,
+      output.delegations != undefined ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
-    roles:
-      output.roles !== undefined && output.roles !== null
-        ? deserializeAws_restJson1Roles(output.roles, context)
-        : undefined,
-    scope:
-      output.scope !== undefined && output.scope !== null
-        ? deserializeAws_restJson1Scope(output.scope, context)
-        : undefined,
+    roles: output.roles != undefined ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
+    scope: output.scope != undefined ? deserializeAws_restJson1Scope(output.scope, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -6264,23 +6186,18 @@ const deserializeAws_restJson1AssessmentMetadataItem = (
   return {
     complianceType: __expectString(output.complianceType),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     delegations:
-      output.delegations !== undefined && output.delegations !== null
-        ? deserializeAws_restJson1Delegations(output.delegations, context)
-        : undefined,
+      output.delegations != undefined ? deserializeAws_restJson1Delegations(output.delegations, context) : undefined,
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
-    roles:
-      output.roles !== undefined && output.roles !== null
-        ? deserializeAws_restJson1Roles(output.roles, context)
-        : undefined,
+    roles: output.roles != undefined ? deserializeAws_restJson1Roles(output.roles, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -6292,7 +6209,7 @@ const deserializeAws_restJson1AssessmentReport = (output: any, context: __SerdeC
     author: __expectString(output.author),
     awsAccountId: __expectString(output.awsAccountId),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
@@ -6337,7 +6254,7 @@ const deserializeAws_restJson1AssessmentReportMetadata = (
     assessmentName: __expectString(output.assessmentName),
     author: __expectString(output.author),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
@@ -6416,7 +6333,7 @@ const deserializeAws_restJson1BatchCreateDelegationByAssessmentError = (
 ): BatchCreateDelegationByAssessmentError => {
   return {
     createDelegationRequest:
-      output.createDelegationRequest !== undefined && output.createDelegationRequest !== null
+      output.createDelegationRequest != undefined
         ? deserializeAws_restJson1CreateDelegationRequest(output.createDelegationRequest, context)
         : undefined,
     errorCode: __expectString(output.errorCode),
@@ -6473,7 +6390,7 @@ const deserializeAws_restJson1BatchImportEvidenceToAssessmentControlError = (
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
     manualEvidence:
-      output.manualEvidence !== undefined && output.manualEvidence !== null
+      output.manualEvidence != undefined
         ? deserializeAws_restJson1ManualEvidence(output.manualEvidence, context)
         : undefined,
   } as any;
@@ -6498,7 +6415,7 @@ const deserializeAws_restJson1ChangeLog = (output: any, context: __SerdeContext)
   return {
     action: __expectString(output.action),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
@@ -6525,27 +6442,24 @@ const deserializeAws_restJson1Control = (output: any, context: __SerdeContext): 
     actionPlanTitle: __expectString(output.actionPlanTitle),
     arn: __expectString(output.arn),
     controlMappingSources:
-      output.controlMappingSources !== undefined && output.controlMappingSources !== null
+      output.controlMappingSources != undefined
         ? deserializeAws_restJson1ControlMappingSources(output.controlMappingSources, context)
         : undefined,
     controlSources: __expectString(output.controlSources),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+      output.lastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     name: __expectString(output.name),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     testingInformation: __expectString(output.testingInformation),
     type: __expectString(output.type),
   } as any;
@@ -6556,7 +6470,7 @@ const deserializeAws_restJson1ControlComment = (output: any, context: __SerdeCon
     authorName: __expectString(output.authorName),
     commentBody: __expectString(output.commentBody),
     postedDate:
-      output.postedDate !== undefined && output.postedDate !== null
+      output.postedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.postedDate)))
         : undefined,
   } as any;
@@ -6578,12 +6492,12 @@ const deserializeAws_restJson1ControlDomainInsights = (output: any, context: __S
   return {
     controlsCountByNoncompliantEvidence: __expectInt32(output.controlsCountByNoncompliantEvidence),
     evidenceInsights:
-      output.evidenceInsights !== undefined && output.evidenceInsights !== null
+      output.evidenceInsights != undefined
         ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
         : undefined,
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
@@ -6643,12 +6557,12 @@ const deserializeAws_restJson1ControlInsightsMetadataByAssessmentItem = (
   return {
     controlSetName: __expectString(output.controlSetName),
     evidenceInsights:
-      output.evidenceInsights !== undefined && output.evidenceInsights !== null
+      output.evidenceInsights != undefined
         ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
         : undefined,
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
@@ -6661,12 +6575,12 @@ const deserializeAws_restJson1ControlInsightsMetadataItem = (
 ): ControlInsightsMetadataItem => {
   return {
     evidenceInsights:
-      output.evidenceInsights !== undefined && output.evidenceInsights !== null
+      output.evidenceInsights != undefined
         ? deserializeAws_restJson1EvidenceInsights(output.evidenceInsights, context)
         : undefined,
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     name: __expectString(output.name),
@@ -6679,7 +6593,7 @@ const deserializeAws_restJson1ControlMappingSource = (output: any, context: __Se
     sourceFrequency: __expectString(output.sourceFrequency),
     sourceId: __expectString(output.sourceId),
     sourceKeyword:
-      output.sourceKeyword !== undefined && output.sourceKeyword !== null
+      output.sourceKeyword != undefined
         ? deserializeAws_restJson1SourceKeyword(output.sourceKeyword, context)
         : undefined,
     sourceName: __expectString(output.sourceName),
@@ -6709,12 +6623,12 @@ const deserializeAws_restJson1ControlMetadata = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     controlSources: __expectString(output.controlSources),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     id: __expectString(output.id),
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+      output.lastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -6747,10 +6661,7 @@ const deserializeAws_restJson1Controls = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ControlSet = (output: any, context: __SerdeContext): ControlSet => {
   return {
-    controls:
-      output.controls !== undefined && output.controls !== null
-        ? deserializeAws_restJson1Controls(output.controls, context)
-        : undefined,
+    controls: output.controls != undefined ? deserializeAws_restJson1Controls(output.controls, context) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
   } as any;
@@ -6788,12 +6699,12 @@ const deserializeAws_restJson1Delegation = (output: any, context: __SerdeContext
     controlSetId: __expectString(output.controlSetId),
     createdBy: __expectString(output.createdBy),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     id: __expectString(output.id),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -6808,7 +6719,7 @@ const deserializeAws_restJson1DelegationMetadata = (output: any, context: __Serd
     assessmentName: __expectString(output.assessmentName),
     controlSetName: __expectString(output.controlSetName),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     id: __expectString(output.id),
@@ -6845,7 +6756,7 @@ const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext):
   return {
     assessmentReportSelection: __expectString(output.assessmentReportSelection),
     attributes:
-      output.attributes !== undefined && output.attributes !== null
+      output.attributes != undefined
         ? deserializeAws_restJson1EvidenceAttributes(output.attributes, context)
         : undefined,
     awsAccountId: __expectString(output.awsAccountId),
@@ -6860,13 +6771,10 @@ const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext):
     iamId: __expectString(output.iamId),
     id: __expectString(output.id),
     resourcesIncluded:
-      output.resourcesIncluded !== undefined && output.resourcesIncluded !== null
+      output.resourcesIncluded != undefined
         ? deserializeAws_restJson1Resources(output.resourcesIncluded, context)
         : undefined,
-    time:
-      output.time !== undefined && output.time !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time)))
-        : undefined,
+    time: output.time != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
   } as any;
 };
 
@@ -6931,28 +6839,23 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
     arn: __expectString(output.arn),
     complianceType: __expectString(output.complianceType),
     controlSets:
-      output.controlSets !== undefined && output.controlSets !== null
-        ? deserializeAws_restJson1ControlSets(output.controlSets, context)
-        : undefined,
+      output.controlSets != undefined ? deserializeAws_restJson1ControlSets(output.controlSets, context) : undefined,
     controlSources: __expectString(output.controlSources),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+      output.lastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
     logo: __expectString(output.logo),
     name: __expectString(output.name),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -6988,7 +6891,7 @@ const deserializeAws_restJson1Insights = (output: any, context: __SerdeContext):
     compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
     inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     noncompliantEvidenceCount: __expectInt32(output.noncompliantEvidenceCount),
@@ -7002,7 +6905,7 @@ const deserializeAws_restJson1InsightsByAssessment = (output: any, context: __Se
     compliantEvidenceCount: __expectInt32(output.compliantEvidenceCount),
     inconclusiveEvidenceCount: __expectInt32(output.inconclusiveEvidenceCount),
     lastUpdated:
-      output.lastUpdated !== undefined && output.lastUpdated !== null
+      output.lastUpdated != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
         : undefined,
     noncompliantEvidenceCount: __expectInt32(output.noncompliantEvidenceCount),
@@ -7051,7 +6954,7 @@ const deserializeAws_restJson1Notification = (output: any, context: __SerdeConte
     controlSetName: __expectString(output.controlSetName),
     description: __expectString(output.description),
     eventTime:
-      output.eventTime !== undefined && output.eventTime !== null
+      output.eventTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime)))
         : undefined,
     id: __expectString(output.id),
@@ -7112,13 +7015,9 @@ const deserializeAws_restJson1Roles = (output: any, context: __SerdeContext): Ro
 const deserializeAws_restJson1Scope = (output: any, context: __SerdeContext): Scope => {
   return {
     awsAccounts:
-      output.awsAccounts !== undefined && output.awsAccounts !== null
-        ? deserializeAws_restJson1AWSAccounts(output.awsAccounts, context)
-        : undefined,
+      output.awsAccounts != undefined ? deserializeAws_restJson1AWSAccounts(output.awsAccounts, context) : undefined,
     awsServices:
-      output.awsServices !== undefined && output.awsServices !== null
-        ? deserializeAws_restJson1AWSServices(output.awsServices, context)
-        : undefined,
+      output.awsServices != undefined ? deserializeAws_restJson1AWSServices(output.awsServices, context) : undefined,
   } as any;
 };
 
@@ -7146,11 +7045,11 @@ const deserializeAws_restJson1ServiceMetadataList = (output: any, context: __Ser
 const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     defaultAssessmentReportsDestination:
-      output.defaultAssessmentReportsDestination !== undefined && output.defaultAssessmentReportsDestination !== null
+      output.defaultAssessmentReportsDestination != undefined
         ? deserializeAws_restJson1AssessmentReportsDestination(output.defaultAssessmentReportsDestination, context)
         : undefined,
     defaultProcessOwners:
-      output.defaultProcessOwners !== undefined && output.defaultProcessOwners !== null
+      output.defaultProcessOwners != undefined
         ? deserializeAws_restJson1Roles(output.defaultProcessOwners, context)
         : undefined,
     isAwsOrgEnabled: __expectBoolean(output.isAwsOrgEnabled),

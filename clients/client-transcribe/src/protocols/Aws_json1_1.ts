@@ -2871,10 +2871,10 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 
 const serializeAws_json1_1AbsoluteTimeRange = (input: AbsoluteTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && input.EndTime !== null && { EndTime: input.EndTime }),
-    ...(input.First !== undefined && input.First !== null && { First: input.First }),
-    ...(input.Last !== undefined && input.Last !== null && { Last: input.Last }),
-    ...(input.StartTime !== undefined && input.StartTime !== null && { StartTime: input.StartTime }),
+    ...(input.EndTime != undefined && { EndTime: input.EndTime }),
+    ...(input.First != undefined && { First: input.First }),
+    ...(input.Last != undefined && { Last: input.Last }),
+    ...(input.StartTime != undefined && { StartTime: input.StartTime }),
   };
 };
 
@@ -2883,34 +2883,26 @@ const serializeAws_json1_1CallAnalyticsJobSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentRedaction !== undefined &&
-      input.ContentRedaction !== null && {
-        ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
-      }),
-    ...(input.LanguageIdSettings !== undefined &&
-      input.LanguageIdSettings !== null && {
-        LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
-      }),
-    ...(input.LanguageModelName !== undefined &&
-      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions !== undefined &&
-      input.LanguageOptions !== null && {
-        LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
-      }),
-    ...(input.VocabularyFilterMethod !== undefined &&
-      input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.ContentRedaction != undefined && {
+      ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
+    }),
+    ...(input.LanguageIdSettings != undefined && {
+      LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
+    }),
+    ...(input.LanguageModelName != undefined && { LanguageModelName: input.LanguageModelName }),
+    ...(input.LanguageOptions != undefined && {
+      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
+    }),
+    ...(input.VocabularyFilterMethod != undefined && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelId !== undefined && input.ChannelId !== null && { ChannelId: input.ChannelId }),
-    ...(input.ParticipantRole !== undefined &&
-      input.ParticipantRole !== null && { ParticipantRole: input.ParticipantRole }),
+    ...(input.ChannelId != undefined && { ChannelId: input.ChannelId }),
+    ...(input.ParticipantRole != undefined && { ParticipantRole: input.ParticipantRole }),
   };
 };
 
@@ -2927,13 +2919,11 @@ const serializeAws_json1_1ChannelDefinitions = (input: ChannelDefinition[], cont
 
 const serializeAws_json1_1ContentRedaction = (input: ContentRedaction, context: __SerdeContext): any => {
   return {
-    ...(input.PiiEntityTypes !== undefined &&
-      input.PiiEntityTypes !== null && {
-        PiiEntityTypes: serializeAws_json1_1PiiEntityTypes(input.PiiEntityTypes, context),
-      }),
-    ...(input.RedactionOutput !== undefined &&
-      input.RedactionOutput !== null && { RedactionOutput: input.RedactionOutput }),
-    ...(input.RedactionType !== undefined && input.RedactionType !== null && { RedactionType: input.RedactionType }),
+    ...(input.PiiEntityTypes != undefined && {
+      PiiEntityTypes: serializeAws_json1_1PiiEntityTypes(input.PiiEntityTypes, context),
+    }),
+    ...(input.RedactionOutput != undefined && { RedactionOutput: input.RedactionOutput }),
+    ...(input.RedactionType != undefined && { RedactionType: input.RedactionType }),
   };
 };
 
@@ -2942,9 +2932,8 @@ const serializeAws_json1_1CreateCallAnalyticsCategoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CategoryName !== undefined && input.CategoryName !== null && { CategoryName: input.CategoryName }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
+    ...(input.CategoryName != undefined && { CategoryName: input.CategoryName }),
+    ...(input.Rules != undefined && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
   };
 };
 
@@ -2953,14 +2942,13 @@ const serializeAws_json1_1CreateLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BaseModelName !== undefined && input.BaseModelName !== null && { BaseModelName: input.BaseModelName }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.BaseModelName != undefined && { BaseModelName: input.BaseModelName }),
+    ...(input.InputDataConfig != undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.ModelName != undefined && { ModelName: input.ModelName }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2969,12 +2957,10 @@ const serializeAws_json1_1CreateMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri !== undefined &&
-      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VocabularyFileUri != undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -2983,27 +2969,21 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFilterFileUri !== undefined &&
-      input.VocabularyFilterFileUri !== null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words !== undefined &&
-      input.Words !== null && { Words: serializeAws_json1_1Words(input.Words, context) }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VocabularyFilterFileUri != undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words != undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases !== undefined &&
-      input.Phrases !== null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VocabularyFileUri !== undefined &&
-      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases != undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VocabularyFileUri != undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3012,7 +2992,7 @@ const serializeAws_json1_1DeleteCallAnalyticsCategoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CategoryName !== undefined && input.CategoryName !== null && { CategoryName: input.CategoryName }),
+    ...(input.CategoryName != undefined && { CategoryName: input.CategoryName }),
   };
 };
 
@@ -3021,8 +3001,7 @@ const serializeAws_json1_1DeleteCallAnalyticsJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CallAnalyticsJobName !== undefined &&
-      input.CallAnalyticsJobName !== null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
+    ...(input.CallAnalyticsJobName != undefined && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
   };
 };
 
@@ -3031,7 +3010,7 @@ const serializeAws_json1_1DeleteLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ModelName != undefined && { ModelName: input.ModelName }),
   };
 };
 
@@ -3040,8 +3019,9 @@ const serializeAws_json1_1DeleteMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MedicalTranscriptionJobName !== undefined &&
-      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
+    ...(input.MedicalTranscriptionJobName != undefined && {
+      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
+    }),
   };
 };
 
@@ -3050,8 +3030,7 @@ const serializeAws_json1_1DeleteMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3060,8 +3039,7 @@ const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined &&
-      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.TranscriptionJobName != undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -3070,15 +3048,13 @@ const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3087,7 +3063,7 @@ const serializeAws_json1_1DescribeLanguageModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ModelName != undefined && { ModelName: input.ModelName }),
   };
 };
 
@@ -3096,7 +3072,7 @@ const serializeAws_json1_1GetCallAnalyticsCategoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CategoryName !== undefined && input.CategoryName !== null && { CategoryName: input.CategoryName }),
+    ...(input.CategoryName != undefined && { CategoryName: input.CategoryName }),
   };
 };
 
@@ -3105,8 +3081,7 @@ const serializeAws_json1_1GetCallAnalyticsJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CallAnalyticsJobName !== undefined &&
-      input.CallAnalyticsJobName !== null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
+    ...(input.CallAnalyticsJobName != undefined && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
   };
 };
 
@@ -3115,8 +3090,9 @@ const serializeAws_json1_1GetMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MedicalTranscriptionJobName !== undefined &&
-      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
+    ...(input.MedicalTranscriptionJobName != undefined && {
+      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
+    }),
   };
 };
 
@@ -3125,8 +3101,7 @@ const serializeAws_json1_1GetMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3135,8 +3110,7 @@ const serializeAws_json1_1GetTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TranscriptionJobName !== undefined &&
-      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.TranscriptionJobName != undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -3145,51 +3119,42 @@ const serializeAws_json1_1GetVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
   };
 };
 
 const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
-    ...(input.TuningDataS3Uri !== undefined &&
-      input.TuningDataS3Uri !== null && { TuningDataS3Uri: input.TuningDataS3Uri }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
+    ...(input.TuningDataS3Uri != undefined && { TuningDataS3Uri: input.TuningDataS3Uri }),
   };
 };
 
 const serializeAws_json1_1InterruptionFilter = (input: InterruptionFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTimeRange !== undefined &&
-      input.AbsoluteTimeRange !== null && {
-        AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-      }),
-    ...(input.Negate !== undefined && input.Negate !== null && { Negate: input.Negate }),
-    ...(input.ParticipantRole !== undefined &&
-      input.ParticipantRole !== null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange !== undefined &&
-      input.RelativeTimeRange !== null && {
-        RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-      }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.AbsoluteTimeRange != undefined && {
+      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
+    }),
+    ...(input.Negate != undefined && { Negate: input.Negate }),
+    ...(input.ParticipantRole != undefined && { ParticipantRole: input.ParticipantRole }),
+    ...(input.RelativeTimeRange != undefined && {
+      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
+    }),
+    ...(input.Threshold != undefined && { Threshold: input.Threshold }),
   };
 };
 
 const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AllowDeferredExecution !== undefined &&
-      input.AllowDeferredExecution !== null && { AllowDeferredExecution: input.AllowDeferredExecution }),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.AllowDeferredExecution != undefined && { AllowDeferredExecution: input.AllowDeferredExecution }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
   };
 };
 
@@ -3207,12 +3172,9 @@ const serializeAws_json1_1KMSEncryptionContextMap = (input: Record<string, strin
 
 const serializeAws_json1_1LanguageIdSettings = (input: LanguageIdSettings, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageModelName !== undefined &&
-      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageModelName != undefined && { LanguageModelName: input.LanguageModelName }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3247,8 +3209,8 @@ const serializeAws_json1_1ListCallAnalyticsCategoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -3257,11 +3219,10 @@ const serializeAws_json1_1ListCallAnalyticsJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined &&
-      input.JobNameContains !== null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.JobNameContains != undefined && { JobNameContains: input.JobNameContains }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Status != undefined && { Status: input.Status }),
   };
 };
 
@@ -3270,10 +3231,10 @@ const serializeAws_json1_1ListLanguageModelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StatusEquals !== undefined && input.StatusEquals !== null && { StatusEquals: input.StatusEquals }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StatusEquals != undefined && { StatusEquals: input.StatusEquals }),
   };
 };
 
@@ -3282,11 +3243,10 @@ const serializeAws_json1_1ListMedicalTranscriptionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined &&
-      input.JobNameContains !== null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.JobNameContains != undefined && { JobNameContains: input.JobNameContains }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Status != undefined && { Status: input.Status }),
   };
 };
 
@@ -3295,10 +3255,10 @@ const serializeAws_json1_1ListMedicalVocabulariesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StateEquals !== undefined && input.StateEquals !== null && { StateEquals: input.StateEquals }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StateEquals != undefined && { StateEquals: input.StateEquals }),
   };
 };
 
@@ -3307,7 +3267,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -3316,20 +3276,19 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobNameContains !== undefined &&
-      input.JobNameContains !== null && { JobNameContains: input.JobNameContains }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.JobNameContains != undefined && { JobNameContains: input.JobNameContains }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Status != undefined && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StateEquals !== undefined && input.StateEquals !== null && { StateEquals: input.StateEquals }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StateEquals != undefined && { StateEquals: input.StateEquals }),
   };
 };
 
@@ -3338,17 +3297,16 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NameContains !== undefined && input.NameContains !== null && { NameContains: input.NameContains }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1Media = (input: Media, context: __SerdeContext): any => {
   return {
-    ...(input.MediaFileUri !== undefined && input.MediaFileUri !== null && { MediaFileUri: input.MediaFileUri }),
-    ...(input.RedactedMediaFileUri !== undefined &&
-      input.RedactedMediaFileUri !== null && { RedactedMediaFileUri: input.RedactedMediaFileUri }),
+    ...(input.MediaFileUri != undefined && { MediaFileUri: input.MediaFileUri }),
+    ...(input.RedactedMediaFileUri != undefined && { RedactedMediaFileUri: input.RedactedMediaFileUri }),
   };
 };
 
@@ -3357,40 +3315,31 @@ const serializeAws_json1_1MedicalTranscriptionSetting = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChannelIdentification !== undefined &&
-      input.ChannelIdentification !== null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives !== undefined &&
-      input.MaxAlternatives !== null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels !== undefined &&
-      input.MaxSpeakerLabels !== null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives !== undefined &&
-      input.ShowAlternatives !== null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels !== undefined &&
-      input.ShowSpeakerLabels !== null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.ChannelIdentification != undefined && { ChannelIdentification: input.ChannelIdentification }),
+    ...(input.MaxAlternatives != undefined && { MaxAlternatives: input.MaxAlternatives }),
+    ...(input.MaxSpeakerLabels != undefined && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
+    ...(input.ShowAlternatives != undefined && { ShowAlternatives: input.ShowAlternatives }),
+    ...(input.ShowSpeakerLabels != undefined && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
 const serializeAws_json1_1ModelSettings = (input: ModelSettings, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageModelName !== undefined &&
-      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.LanguageModelName != undefined && { LanguageModelName: input.LanguageModelName }),
   };
 };
 
 const serializeAws_json1_1NonTalkTimeFilter = (input: NonTalkTimeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTimeRange !== undefined &&
-      input.AbsoluteTimeRange !== null && {
-        AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-      }),
-    ...(input.Negate !== undefined && input.Negate !== null && { Negate: input.Negate }),
-    ...(input.RelativeTimeRange !== undefined &&
-      input.RelativeTimeRange !== null && {
-        RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-      }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
+    ...(input.AbsoluteTimeRange != undefined && {
+      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
+    }),
+    ...(input.Negate != undefined && { Negate: input.Negate }),
+    ...(input.RelativeTimeRange != undefined && {
+      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
+    }),
+    ...(input.Threshold != undefined && { Threshold: input.Threshold }),
   };
 };
 
@@ -3418,11 +3367,10 @@ const serializeAws_json1_1PiiEntityTypes = (input: (PiiEntityType | string)[], c
 
 const serializeAws_json1_1RelativeTimeRange = (input: RelativeTimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndPercentage !== undefined && input.EndPercentage !== null && { EndPercentage: input.EndPercentage }),
-    ...(input.First !== undefined && input.First !== null && { First: input.First }),
-    ...(input.Last !== undefined && input.Last !== null && { Last: input.Last }),
-    ...(input.StartPercentage !== undefined &&
-      input.StartPercentage !== null && { StartPercentage: input.StartPercentage }),
+    ...(input.EndPercentage != undefined && { EndPercentage: input.EndPercentage }),
+    ...(input.First != undefined && { First: input.First }),
+    ...(input.Last != undefined && { Last: input.Last }),
+    ...(input.StartPercentage != undefined && { StartPercentage: input.StartPercentage }),
   };
 };
 
@@ -3449,19 +3397,17 @@ const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): a
 
 const serializeAws_json1_1SentimentFilter = (input: SentimentFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTimeRange !== undefined &&
-      input.AbsoluteTimeRange !== null && {
-        AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-      }),
-    ...(input.Negate !== undefined && input.Negate !== null && { Negate: input.Negate }),
-    ...(input.ParticipantRole !== undefined &&
-      input.ParticipantRole !== null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange !== undefined &&
-      input.RelativeTimeRange !== null && {
-        RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-      }),
-    ...(input.Sentiments !== undefined &&
-      input.Sentiments !== null && { Sentiments: serializeAws_json1_1SentimentValueList(input.Sentiments, context) }),
+    ...(input.AbsoluteTimeRange != undefined && {
+      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
+    }),
+    ...(input.Negate != undefined && { Negate: input.Negate }),
+    ...(input.ParticipantRole != undefined && { ParticipantRole: input.ParticipantRole }),
+    ...(input.RelativeTimeRange != undefined && {
+      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
+    }),
+    ...(input.Sentiments != undefined && {
+      Sentiments: serializeAws_json1_1SentimentValueList(input.Sentiments, context),
+    }),
   };
 };
 
@@ -3478,22 +3424,14 @@ const serializeAws_json1_1SentimentValueList = (input: (SentimentValue | string)
 
 const serializeAws_json1_1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelIdentification !== undefined &&
-      input.ChannelIdentification !== null && { ChannelIdentification: input.ChannelIdentification }),
-    ...(input.MaxAlternatives !== undefined &&
-      input.MaxAlternatives !== null && { MaxAlternatives: input.MaxAlternatives }),
-    ...(input.MaxSpeakerLabels !== undefined &&
-      input.MaxSpeakerLabels !== null && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
-    ...(input.ShowAlternatives !== undefined &&
-      input.ShowAlternatives !== null && { ShowAlternatives: input.ShowAlternatives }),
-    ...(input.ShowSpeakerLabels !== undefined &&
-      input.ShowSpeakerLabels !== null && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
-    ...(input.VocabularyFilterMethod !== undefined &&
-      input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.ChannelIdentification != undefined && { ChannelIdentification: input.ChannelIdentification }),
+    ...(input.MaxAlternatives != undefined && { MaxAlternatives: input.MaxAlternatives }),
+    ...(input.MaxSpeakerLabels != undefined && { MaxSpeakerLabels: input.MaxSpeakerLabels }),
+    ...(input.ShowAlternatives != undefined && { ShowAlternatives: input.ShowAlternatives }),
+    ...(input.ShowSpeakerLabels != undefined && { ShowSpeakerLabels: input.ShowSpeakerLabels }),
+    ...(input.VocabularyFilterMethod != undefined && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3502,22 +3440,17 @@ const serializeAws_json1_1StartCallAnalyticsJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CallAnalyticsJobName !== undefined &&
-      input.CallAnalyticsJobName !== null && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
-    ...(input.ChannelDefinitions !== undefined &&
-      input.ChannelDefinitions !== null && {
-        ChannelDefinitions: serializeAws_json1_1ChannelDefinitions(input.ChannelDefinitions, context),
-      }),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.Media !== undefined &&
-      input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined &&
-      input.OutputEncryptionKMSKeyId !== null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputLocation !== undefined &&
-      input.OutputLocation !== null && { OutputLocation: input.OutputLocation }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { Settings: serializeAws_json1_1CallAnalyticsJobSettings(input.Settings, context) }),
+    ...(input.CallAnalyticsJobName != undefined && { CallAnalyticsJobName: input.CallAnalyticsJobName }),
+    ...(input.ChannelDefinitions != undefined && {
+      ChannelDefinitions: serializeAws_json1_1ChannelDefinitions(input.ChannelDefinitions, context),
+    }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.Media != undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
+    ...(input.OutputEncryptionKMSKeyId != undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputLocation != undefined && { OutputLocation: input.OutputLocation }),
+    ...(input.Settings != undefined && {
+      Settings: serializeAws_json1_1CallAnalyticsJobSettings(input.Settings, context),
+    }),
   };
 };
 
@@ -3526,32 +3459,26 @@ const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentIdentificationType !== undefined &&
-      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.KMSEncryptionContext !== undefined &&
-      input.KMSEncryptionContext !== null && {
-        KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-      }),
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Media !== undefined &&
-      input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat !== undefined && input.MediaFormat !== null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz !== undefined &&
-      input.MediaSampleRateHertz !== null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.MedicalTranscriptionJobName !== undefined &&
-      input.MedicalTranscriptionJobName !== null && { MedicalTranscriptionJobName: input.MedicalTranscriptionJobName }),
-    ...(input.OutputBucketName !== undefined &&
-      input.OutputBucketName !== null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined &&
-      input.OutputEncryptionKMSKeyId !== null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey !== undefined && input.OutputKey !== null && { OutputKey: input.OutputKey }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && {
-        Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
-      }),
-    ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.ContentIdentificationType != undefined && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.KMSEncryptionContext != undefined && {
+      KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
+    }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Media != undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
+    ...(input.MediaFormat != undefined && { MediaFormat: input.MediaFormat }),
+    ...(input.MediaSampleRateHertz != undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.MedicalTranscriptionJobName != undefined && {
+      MedicalTranscriptionJobName: input.MedicalTranscriptionJobName,
+    }),
+    ...(input.OutputBucketName != undefined && { OutputBucketName: input.OutputBucketName }),
+    ...(input.OutputEncryptionKMSKeyId != undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey != undefined && { OutputKey: input.OutputKey }),
+    ...(input.Settings != undefined && {
+      Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
+    }),
+    ...(input.Specialty != undefined && { Specialty: input.Specialty }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
@@ -3560,52 +3487,37 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentRedaction !== undefined &&
-      input.ContentRedaction !== null && {
-        ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
-      }),
-    ...(input.IdentifyLanguage !== undefined &&
-      input.IdentifyLanguage !== null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.IdentifyMultipleLanguages !== undefined &&
-      input.IdentifyMultipleLanguages !== null && { IdentifyMultipleLanguages: input.IdentifyMultipleLanguages }),
-    ...(input.JobExecutionSettings !== undefined &&
-      input.JobExecutionSettings !== null && {
-        JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
-      }),
-    ...(input.KMSEncryptionContext !== undefined &&
-      input.KMSEncryptionContext !== null && {
-        KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
-      }),
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageIdSettings !== undefined &&
-      input.LanguageIdSettings !== null && {
-        LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
-      }),
-    ...(input.LanguageOptions !== undefined &&
-      input.LanguageOptions !== null && {
-        LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
-      }),
-    ...(input.Media !== undefined &&
-      input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
-    ...(input.MediaFormat !== undefined && input.MediaFormat !== null && { MediaFormat: input.MediaFormat }),
-    ...(input.MediaSampleRateHertz !== undefined &&
-      input.MediaSampleRateHertz !== null && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
-    ...(input.ModelSettings !== undefined &&
-      input.ModelSettings !== null && {
-        ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
-      }),
-    ...(input.OutputBucketName !== undefined &&
-      input.OutputBucketName !== null && { OutputBucketName: input.OutputBucketName }),
-    ...(input.OutputEncryptionKMSKeyId !== undefined &&
-      input.OutputEncryptionKMSKeyId !== null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
-    ...(input.OutputKey !== undefined && input.OutputKey !== null && { OutputKey: input.OutputKey }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
-    ...(input.Subtitles !== undefined &&
-      input.Subtitles !== null && { Subtitles: serializeAws_json1_1Subtitles(input.Subtitles, context) }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.TranscriptionJobName !== undefined &&
-      input.TranscriptionJobName !== null && { TranscriptionJobName: input.TranscriptionJobName }),
+    ...(input.ContentRedaction != undefined && {
+      ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
+    }),
+    ...(input.IdentifyLanguage != undefined && { IdentifyLanguage: input.IdentifyLanguage }),
+    ...(input.IdentifyMultipleLanguages != undefined && { IdentifyMultipleLanguages: input.IdentifyMultipleLanguages }),
+    ...(input.JobExecutionSettings != undefined && {
+      JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
+    }),
+    ...(input.KMSEncryptionContext != undefined && {
+      KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
+    }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageIdSettings != undefined && {
+      LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
+    }),
+    ...(input.LanguageOptions != undefined && {
+      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
+    }),
+    ...(input.Media != undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
+    ...(input.MediaFormat != undefined && { MediaFormat: input.MediaFormat }),
+    ...(input.MediaSampleRateHertz != undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.ModelSettings != undefined && {
+      ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
+    }),
+    ...(input.OutputBucketName != undefined && { OutputBucketName: input.OutputBucketName }),
+    ...(input.OutputEncryptionKMSKeyId != undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey != undefined && { OutputKey: input.OutputKey }),
+    ...(input.Settings != undefined && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
+    ...(input.Subtitles != undefined && { Subtitles: serializeAws_json1_1Subtitles(input.Subtitles, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TranscriptionJobName != undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
 };
 
@@ -3633,17 +3545,15 @@ const serializeAws_json1_1SubtitleFormats = (input: (SubtitleFormat | string)[],
 
 const serializeAws_json1_1Subtitles = (input: Subtitles, context: __SerdeContext): any => {
   return {
-    ...(input.Formats !== undefined &&
-      input.Formats !== null && { Formats: serializeAws_json1_1SubtitleFormats(input.Formats, context) }),
-    ...(input.OutputStartIndex !== undefined &&
-      input.OutputStartIndex !== null && { OutputStartIndex: input.OutputStartIndex }),
+    ...(input.Formats != undefined && { Formats: serializeAws_json1_1SubtitleFormats(input.Formats, context) }),
+    ...(input.OutputStartIndex != undefined && { OutputStartIndex: input.OutputStartIndex }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -3671,36 +3581,30 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TranscriptFilter = (input: TranscriptFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTimeRange !== undefined &&
-      input.AbsoluteTimeRange !== null && {
-        AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
-      }),
-    ...(input.Negate !== undefined && input.Negate !== null && { Negate: input.Negate }),
-    ...(input.ParticipantRole !== undefined &&
-      input.ParticipantRole !== null && { ParticipantRole: input.ParticipantRole }),
-    ...(input.RelativeTimeRange !== undefined &&
-      input.RelativeTimeRange !== null && {
-        RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
-      }),
-    ...(input.Targets !== undefined &&
-      input.Targets !== null && { Targets: serializeAws_json1_1StringTargetList(input.Targets, context) }),
-    ...(input.TranscriptFilterType !== undefined &&
-      input.TranscriptFilterType !== null && { TranscriptFilterType: input.TranscriptFilterType }),
+    ...(input.AbsoluteTimeRange != undefined && {
+      AbsoluteTimeRange: serializeAws_json1_1AbsoluteTimeRange(input.AbsoluteTimeRange, context),
+    }),
+    ...(input.Negate != undefined && { Negate: input.Negate }),
+    ...(input.ParticipantRole != undefined && { ParticipantRole: input.ParticipantRole }),
+    ...(input.RelativeTimeRange != undefined && {
+      RelativeTimeRange: serializeAws_json1_1RelativeTimeRange(input.RelativeTimeRange, context),
+    }),
+    ...(input.Targets != undefined && { Targets: serializeAws_json1_1StringTargetList(input.Targets, context) }),
+    ...(input.TranscriptFilterType != undefined && { TranscriptFilterType: input.TranscriptFilterType }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -3709,9 +3613,8 @@ const serializeAws_json1_1UpdateCallAnalyticsCategoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CategoryName !== undefined && input.CategoryName !== null && { CategoryName: input.CategoryName }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
+    ...(input.CategoryName != undefined && { CategoryName: input.CategoryName }),
+    ...(input.Rules != undefined && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
   };
 };
 
@@ -3720,11 +3623,9 @@ const serializeAws_json1_1UpdateMedicalVocabularyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.VocabularyFileUri !== undefined &&
-      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.VocabularyFileUri != undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3733,24 +3634,18 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VocabularyFilterFileUri !== undefined &&
-      input.VocabularyFilterFileUri !== null && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.Words !== undefined &&
-      input.Words !== null && { Words: serializeAws_json1_1Words(input.Words, context) }),
+    ...(input.VocabularyFilterFileUri != undefined && { VocabularyFilterFileUri: input.VocabularyFilterFileUri }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.Words != undefined && { Words: serializeAws_json1_1Words(input.Words, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Phrases !== undefined &&
-      input.Phrases !== null && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
-    ...(input.VocabularyFileUri !== undefined &&
-      input.VocabularyFileUri !== null && { VocabularyFileUri: input.VocabularyFileUri }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Phrases != undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
+    ...(input.VocabularyFileUri != undefined && { VocabularyFileUri: input.VocabularyFileUri }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -3785,39 +3680,34 @@ const deserializeAws_json1_1CallAnalyticsJob = (output: any, context: __SerdeCon
     CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
     CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
     ChannelDefinitions:
-      output.ChannelDefinitions !== undefined && output.ChannelDefinitions !== null
+      output.ChannelDefinitions != undefined
         ? deserializeAws_json1_1ChannelDefinitions(output.ChannelDefinitions, context)
         : undefined,
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     FailureReason: __expectString(output.FailureReason),
     IdentifiedLanguageScore: __limitedParseFloat32(output.IdentifiedLanguageScore),
     LanguageCode: __expectString(output.LanguageCode),
-    Media:
-      output.Media !== undefined && output.Media !== null
-        ? deserializeAws_json1_1Media(output.Media, context)
-        : undefined,
+    Media: output.Media != undefined ? deserializeAws_json1_1Media(output.Media, context) : undefined,
     MediaFormat: __expectString(output.MediaFormat),
     MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
     Settings:
-      output.Settings !== undefined && output.Settings !== null
+      output.Settings != undefined
         ? deserializeAws_json1_1CallAnalyticsJobSettings(output.Settings, context)
         : undefined,
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Transcript:
-      output.Transcript !== undefined && output.Transcript !== null
-        ? deserializeAws_json1_1Transcript(output.Transcript, context)
-        : undefined,
+      output.Transcript != undefined ? deserializeAws_json1_1Transcript(output.Transcript, context) : undefined,
   } as any;
 };
 
@@ -3827,16 +3717,16 @@ const deserializeAws_json1_1CallAnalyticsJobSettings = (
 ): CallAnalyticsJobSettings => {
   return {
     ContentRedaction:
-      output.ContentRedaction !== undefined && output.ContentRedaction !== null
+      output.ContentRedaction != undefined
         ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
         : undefined,
     LanguageIdSettings:
-      output.LanguageIdSettings !== undefined && output.LanguageIdSettings !== null
+      output.LanguageIdSettings != undefined
         ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
         : undefined,
     LanguageModelName: __expectString(output.LanguageModelName),
     LanguageOptions:
-      output.LanguageOptions !== undefined && output.LanguageOptions !== null
+      output.LanguageOptions != undefined
         ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)
         : undefined,
     VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
@@ -3868,17 +3758,17 @@ const deserializeAws_json1_1CallAnalyticsJobSummary = (
     CallAnalyticsJobName: __expectString(output.CallAnalyticsJobName),
     CallAnalyticsJobStatus: __expectString(output.CallAnalyticsJobStatus),
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
@@ -3888,17 +3778,14 @@ const deserializeAws_json1_1CategoryProperties = (output: any, context: __SerdeC
   return {
     CategoryName: __expectString(output.CategoryName),
     CreateTime:
-      output.CreateTime !== undefined && output.CreateTime !== null
+      output.CreateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     LastUpdateTime:
-      output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
+      output.LastUpdateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
         : undefined,
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_json1_1RuleList(output.Rules, context)
-        : undefined,
+    Rules: output.Rules != undefined ? deserializeAws_json1_1RuleList(output.Rules, context) : undefined,
   } as any;
 };
 
@@ -3942,7 +3829,7 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ContentRedaction = (output: any, context: __SerdeContext): ContentRedaction => {
   return {
     PiiEntityTypes:
-      output.PiiEntityTypes !== undefined && output.PiiEntityTypes !== null
+      output.PiiEntityTypes != undefined
         ? deserializeAws_json1_1PiiEntityTypes(output.PiiEntityTypes, context)
         : undefined,
     RedactionOutput: __expectString(output.RedactionOutput),
@@ -3956,7 +3843,7 @@ const deserializeAws_json1_1CreateCallAnalyticsCategoryResponse = (
 ): CreateCallAnalyticsCategoryResponse => {
   return {
     CategoryProperties:
-      output.CategoryProperties !== undefined && output.CategoryProperties !== null
+      output.CategoryProperties != undefined
         ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
         : undefined,
   } as any;
@@ -3969,7 +3856,7 @@ const deserializeAws_json1_1CreateLanguageModelResponse = (
   return {
     BaseModelName: __expectString(output.BaseModelName),
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != undefined
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
     LanguageCode: __expectString(output.LanguageCode),
@@ -3986,7 +3873,7 @@ const deserializeAws_json1_1CreateMedicalVocabularyResponse = (
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4001,7 +3888,7 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
@@ -4016,7 +3903,7 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4044,7 +3931,7 @@ const deserializeAws_json1_1DescribeLanguageModelResponse = (
 ): DescribeLanguageModelResponse => {
   return {
     LanguageModel:
-      output.LanguageModel !== undefined && output.LanguageModel !== null
+      output.LanguageModel != undefined
         ? deserializeAws_json1_1LanguageModel(output.LanguageModel, context)
         : undefined,
   } as any;
@@ -4056,7 +3943,7 @@ const deserializeAws_json1_1GetCallAnalyticsCategoryResponse = (
 ): GetCallAnalyticsCategoryResponse => {
   return {
     CategoryProperties:
-      output.CategoryProperties !== undefined && output.CategoryProperties !== null
+      output.CategoryProperties != undefined
         ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
         : undefined,
   } as any;
@@ -4068,7 +3955,7 @@ const deserializeAws_json1_1GetCallAnalyticsJobResponse = (
 ): GetCallAnalyticsJobResponse => {
   return {
     CallAnalyticsJob:
-      output.CallAnalyticsJob !== undefined && output.CallAnalyticsJob !== null
+      output.CallAnalyticsJob != undefined
         ? deserializeAws_json1_1CallAnalyticsJob(output.CallAnalyticsJob, context)
         : undefined,
   } as any;
@@ -4080,7 +3967,7 @@ const deserializeAws_json1_1GetMedicalTranscriptionJobResponse = (
 ): GetMedicalTranscriptionJobResponse => {
   return {
     MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob !== undefined && output.MedicalTranscriptionJob !== null
+      output.MedicalTranscriptionJob != undefined
         ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
         : undefined,
   } as any;
@@ -4095,7 +3982,7 @@ const deserializeAws_json1_1GetMedicalVocabularyResponse = (
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4109,7 +3996,7 @@ const deserializeAws_json1_1GetTranscriptionJobResponse = (
 ): GetTranscriptionJobResponse => {
   return {
     TranscriptionJob:
-      output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
+      output.TranscriptionJob != undefined
         ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
         : undefined,
   } as any;
@@ -4123,7 +4010,7 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
     DownloadUri: __expectString(output.DownloadUri),
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
@@ -4136,7 +4023,7 @@ const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __Ser
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4164,13 +4051,13 @@ const deserializeAws_json1_1InternalFailureException = (
 const deserializeAws_json1_1InterruptionFilter = (output: any, context: __SerdeContext): InterruptionFilter => {
   return {
     AbsoluteTimeRange:
-      output.AbsoluteTimeRange !== undefined && output.AbsoluteTimeRange !== null
+      output.AbsoluteTimeRange != undefined
         ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
         : undefined,
     Negate: __expectBoolean(output.Negate),
     ParticipantRole: __expectString(output.ParticipantRole),
     RelativeTimeRange:
-      output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
+      output.RelativeTimeRange != undefined
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
     Threshold: __expectLong(output.Threshold),
@@ -4233,17 +4120,17 @@ const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContex
   return {
     BaseModelName: __expectString(output.BaseModelName),
     CreateTime:
-      output.CreateTime !== undefined && output.CreateTime !== null
+      output.CreateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != undefined
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     ModelName: __expectString(output.ModelName),
@@ -4276,7 +4163,7 @@ const deserializeAws_json1_1ListCallAnalyticsCategoriesResponse = (
 ): ListCallAnalyticsCategoriesResponse => {
   return {
     Categories:
-      output.Categories !== undefined && output.Categories !== null
+      output.Categories != undefined
         ? deserializeAws_json1_1CategoryPropertiesList(output.Categories, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4289,7 +4176,7 @@ const deserializeAws_json1_1ListCallAnalyticsJobsResponse = (
 ): ListCallAnalyticsJobsResponse => {
   return {
     CallAnalyticsJobSummaries:
-      output.CallAnalyticsJobSummaries !== undefined && output.CallAnalyticsJobSummaries !== null
+      output.CallAnalyticsJobSummaries != undefined
         ? deserializeAws_json1_1CallAnalyticsJobSummaries(output.CallAnalyticsJobSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4302,10 +4189,7 @@ const deserializeAws_json1_1ListLanguageModelsResponse = (
   context: __SerdeContext
 ): ListLanguageModelsResponse => {
   return {
-    Models:
-      output.Models !== undefined && output.Models !== null
-        ? deserializeAws_json1_1Models(output.Models, context)
-        : undefined,
+    Models: output.Models != undefined ? deserializeAws_json1_1Models(output.Models, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -4316,7 +4200,7 @@ const deserializeAws_json1_1ListMedicalTranscriptionJobsResponse = (
 ): ListMedicalTranscriptionJobsResponse => {
   return {
     MedicalTranscriptionJobSummaries:
-      output.MedicalTranscriptionJobSummaries !== undefined && output.MedicalTranscriptionJobSummaries !== null
+      output.MedicalTranscriptionJobSummaries != undefined
         ? deserializeAws_json1_1MedicalTranscriptionJobSummaries(output.MedicalTranscriptionJobSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4332,9 +4216,7 @@ const deserializeAws_json1_1ListMedicalVocabulariesResponse = (
     NextToken: __expectString(output.NextToken),
     Status: __expectString(output.Status),
     Vocabularies:
-      output.Vocabularies !== undefined && output.Vocabularies !== null
-        ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context)
-        : undefined,
+      output.Vocabularies != undefined ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context) : undefined,
   } as any;
 };
 
@@ -4344,10 +4226,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     ResourceArn: __expectString(output.ResourceArn),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -4359,7 +4238,7 @@ const deserializeAws_json1_1ListTranscriptionJobsResponse = (
     NextToken: __expectString(output.NextToken),
     Status: __expectString(output.Status),
     TranscriptionJobSummaries:
-      output.TranscriptionJobSummaries !== undefined && output.TranscriptionJobSummaries !== null
+      output.TranscriptionJobSummaries != undefined
         ? deserializeAws_json1_1TranscriptionJobSummaries(output.TranscriptionJobSummaries, context)
         : undefined,
   } as any;
@@ -4373,9 +4252,7 @@ const deserializeAws_json1_1ListVocabulariesResponse = (
     NextToken: __expectString(output.NextToken),
     Status: __expectString(output.Status),
     Vocabularies:
-      output.Vocabularies !== undefined && output.Vocabularies !== null
-        ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context)
-        : undefined,
+      output.Vocabularies != undefined ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context) : undefined,
   } as any;
 };
 
@@ -4386,7 +4263,7 @@ const deserializeAws_json1_1ListVocabularyFiltersResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     VocabularyFilters:
-      output.VocabularyFilters !== undefined && output.VocabularyFilters !== null
+      output.VocabularyFilters != undefined
         ? deserializeAws_json1_1VocabularyFilters(output.VocabularyFilters, context)
         : undefined,
   } as any;
@@ -4411,40 +4288,32 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
 ): MedicalTranscriptionJob => {
   return {
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentIdentificationType: __expectString(output.ContentIdentificationType),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     LanguageCode: __expectString(output.LanguageCode),
-    Media:
-      output.Media !== undefined && output.Media !== null
-        ? deserializeAws_json1_1Media(output.Media, context)
-        : undefined,
+    Media: output.Media != undefined ? deserializeAws_json1_1Media(output.Media, context) : undefined,
     MediaFormat: __expectString(output.MediaFormat),
     MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
     MedicalTranscriptionJobName: __expectString(output.MedicalTranscriptionJobName),
     Settings:
-      output.Settings !== undefined && output.Settings !== null
+      output.Settings != undefined
         ? deserializeAws_json1_1MedicalTranscriptionSetting(output.Settings, context)
         : undefined,
     Specialty: __expectString(output.Specialty),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
     Transcript:
-      output.Transcript !== undefined && output.Transcript !== null
-        ? deserializeAws_json1_1MedicalTranscript(output.Transcript, context)
-        : undefined,
+      output.Transcript != undefined ? deserializeAws_json1_1MedicalTranscript(output.Transcript, context) : undefined,
     TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
     Type: __expectString(output.Type),
   } as any;
@@ -4471,12 +4340,12 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
 ): MedicalTranscriptionJobSummary => {
   return {
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentIdentificationType: __expectString(output.ContentIdentificationType),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
@@ -4485,7 +4354,7 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
     OutputLocationType: __expectString(output.OutputLocationType),
     Specialty: __expectString(output.Specialty),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
@@ -4528,12 +4397,12 @@ const deserializeAws_json1_1ModelSettings = (output: any, context: __SerdeContex
 const deserializeAws_json1_1NonTalkTimeFilter = (output: any, context: __SerdeContext): NonTalkTimeFilter => {
   return {
     AbsoluteTimeRange:
-      output.AbsoluteTimeRange !== undefined && output.AbsoluteTimeRange !== null
+      output.AbsoluteTimeRange != undefined
         ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
         : undefined,
     Negate: __expectBoolean(output.Negate),
     RelativeTimeRange:
-      output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
+      output.RelativeTimeRange != undefined
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
     Threshold: __expectLong(output.Threshold),
@@ -4606,19 +4475,17 @@ const deserializeAws_json1_1RuleList = (output: any, context: __SerdeContext): R
 const deserializeAws_json1_1SentimentFilter = (output: any, context: __SerdeContext): SentimentFilter => {
   return {
     AbsoluteTimeRange:
-      output.AbsoluteTimeRange !== undefined && output.AbsoluteTimeRange !== null
+      output.AbsoluteTimeRange != undefined
         ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
         : undefined,
     Negate: __expectBoolean(output.Negate),
     ParticipantRole: __expectString(output.ParticipantRole),
     RelativeTimeRange:
-      output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
+      output.RelativeTimeRange != undefined
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
     Sentiments:
-      output.Sentiments !== undefined && output.Sentiments !== null
-        ? deserializeAws_json1_1SentimentValueList(output.Sentiments, context)
-        : undefined,
+      output.Sentiments != undefined ? deserializeAws_json1_1SentimentValueList(output.Sentiments, context) : undefined,
   } as any;
 };
 
@@ -4656,7 +4523,7 @@ const deserializeAws_json1_1StartCallAnalyticsJobResponse = (
 ): StartCallAnalyticsJobResponse => {
   return {
     CallAnalyticsJob:
-      output.CallAnalyticsJob !== undefined && output.CallAnalyticsJob !== null
+      output.CallAnalyticsJob != undefined
         ? deserializeAws_json1_1CallAnalyticsJob(output.CallAnalyticsJob, context)
         : undefined,
   } as any;
@@ -4668,7 +4535,7 @@ const deserializeAws_json1_1StartMedicalTranscriptionJobResponse = (
 ): StartMedicalTranscriptionJobResponse => {
   return {
     MedicalTranscriptionJob:
-      output.MedicalTranscriptionJob !== undefined && output.MedicalTranscriptionJob !== null
+      output.MedicalTranscriptionJob != undefined
         ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
         : undefined,
   } as any;
@@ -4680,7 +4547,7 @@ const deserializeAws_json1_1StartTranscriptionJobResponse = (
 ): StartTranscriptionJobResponse => {
   return {
     TranscriptionJob:
-      output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
+      output.TranscriptionJob != undefined
         ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
         : undefined,
   } as any;
@@ -4724,13 +4591,10 @@ const deserializeAws_json1_1SubtitleFormats = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1SubtitlesOutput = (output: any, context: __SerdeContext): SubtitlesOutput => {
   return {
-    Formats:
-      output.Formats !== undefined && output.Formats !== null
-        ? deserializeAws_json1_1SubtitleFormats(output.Formats, context)
-        : undefined,
+    Formats: output.Formats != undefined ? deserializeAws_json1_1SubtitleFormats(output.Formats, context) : undefined,
     OutputStartIndex: __expectInt32(output.OutputStartIndex),
     SubtitleFileUris:
-      output.SubtitleFileUris !== undefined && output.SubtitleFileUris !== null
+      output.SubtitleFileUris != undefined
         ? deserializeAws_json1_1SubtitleFileUris(output.SubtitleFileUris, context)
         : undefined,
   } as any;
@@ -4769,19 +4633,16 @@ const deserializeAws_json1_1Transcript = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1TranscriptFilter = (output: any, context: __SerdeContext): TranscriptFilter => {
   return {
     AbsoluteTimeRange:
-      output.AbsoluteTimeRange !== undefined && output.AbsoluteTimeRange !== null
+      output.AbsoluteTimeRange != undefined
         ? deserializeAws_json1_1AbsoluteTimeRange(output.AbsoluteTimeRange, context)
         : undefined,
     Negate: __expectBoolean(output.Negate),
     ParticipantRole: __expectString(output.ParticipantRole),
     RelativeTimeRange:
-      output.RelativeTimeRange !== undefined && output.RelativeTimeRange !== null
+      output.RelativeTimeRange != undefined
         ? deserializeAws_json1_1RelativeTimeRange(output.RelativeTimeRange, context)
         : undefined,
-    Targets:
-      output.Targets !== undefined && output.Targets !== null
-        ? deserializeAws_json1_1StringTargetList(output.Targets, context)
-        : undefined,
+    Targets: output.Targets != undefined ? deserializeAws_json1_1StringTargetList(output.Targets, context) : undefined,
     TranscriptFilterType: __expectString(output.TranscriptFilterType),
   } as any;
 };
@@ -4789,15 +4650,15 @@ const deserializeAws_json1_1TranscriptFilter = (output: any, context: __SerdeCon
 const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
   return {
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentRedaction:
-      output.ContentRedaction !== undefined && output.ContentRedaction !== null
+      output.ContentRedaction != undefined
         ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
         : undefined,
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
@@ -4805,52 +4666,39 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
     IdentifyLanguage: __expectBoolean(output.IdentifyLanguage),
     IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
     JobExecutionSettings:
-      output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
+      output.JobExecutionSettings != undefined
         ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
         : undefined,
     LanguageCode: __expectString(output.LanguageCode),
     LanguageCodes:
-      output.LanguageCodes !== undefined && output.LanguageCodes !== null
+      output.LanguageCodes != undefined
         ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context)
         : undefined,
     LanguageIdSettings:
-      output.LanguageIdSettings !== undefined && output.LanguageIdSettings !== null
+      output.LanguageIdSettings != undefined
         ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
         : undefined,
     LanguageOptions:
-      output.LanguageOptions !== undefined && output.LanguageOptions !== null
+      output.LanguageOptions != undefined
         ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)
         : undefined,
-    Media:
-      output.Media !== undefined && output.Media !== null
-        ? deserializeAws_json1_1Media(output.Media, context)
-        : undefined,
+    Media: output.Media != undefined ? deserializeAws_json1_1Media(output.Media, context) : undefined,
     MediaFormat: __expectString(output.MediaFormat),
     MediaSampleRateHertz: __expectInt32(output.MediaSampleRateHertz),
     ModelSettings:
-      output.ModelSettings !== undefined && output.ModelSettings !== null
+      output.ModelSettings != undefined
         ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)
         : undefined,
-    Settings:
-      output.Settings !== undefined && output.Settings !== null
-        ? deserializeAws_json1_1Settings(output.Settings, context)
-        : undefined,
+    Settings: output.Settings != undefined ? deserializeAws_json1_1Settings(output.Settings, context) : undefined,
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     Subtitles:
-      output.Subtitles !== undefined && output.Subtitles !== null
-        ? deserializeAws_json1_1SubtitlesOutput(output.Subtitles, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+      output.Subtitles != undefined ? deserializeAws_json1_1SubtitlesOutput(output.Subtitles, context) : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
     Transcript:
-      output.Transcript !== undefined && output.Transcript !== null
-        ? deserializeAws_json1_1Transcript(output.Transcript, context)
-        : undefined,
+      output.Transcript != undefined ? deserializeAws_json1_1Transcript(output.Transcript, context) : undefined,
     TranscriptionJobName: __expectString(output.TranscriptionJobName),
     TranscriptionJobStatus: __expectString(output.TranscriptionJobStatus),
   } as any;
@@ -4877,15 +4725,15 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
 ): TranscriptionJobSummary => {
   return {
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     ContentRedaction:
-      output.ContentRedaction !== undefined && output.ContentRedaction !== null
+      output.ContentRedaction != undefined
         ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
         : undefined,
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
@@ -4894,16 +4742,16 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     IdentifyMultipleLanguages: __expectBoolean(output.IdentifyMultipleLanguages),
     LanguageCode: __expectString(output.LanguageCode),
     LanguageCodes:
-      output.LanguageCodes !== undefined && output.LanguageCodes !== null
+      output.LanguageCodes != undefined
         ? deserializeAws_json1_1LanguageCodeList(output.LanguageCodes, context)
         : undefined,
     ModelSettings:
-      output.ModelSettings !== undefined && output.ModelSettings !== null
+      output.ModelSettings != undefined
         ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)
         : undefined,
     OutputLocationType: __expectString(output.OutputLocationType),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     TranscriptionJobName: __expectString(output.TranscriptionJobName),
@@ -4921,7 +4769,7 @@ const deserializeAws_json1_1UpdateCallAnalyticsCategoryResponse = (
 ): UpdateCallAnalyticsCategoryResponse => {
   return {
     CategoryProperties:
-      output.CategoryProperties !== undefined && output.CategoryProperties !== null
+      output.CategoryProperties != undefined
         ? deserializeAws_json1_1CategoryProperties(output.CategoryProperties, context)
         : undefined,
   } as any;
@@ -4934,7 +4782,7 @@ const deserializeAws_json1_1UpdateMedicalVocabularyResponse = (
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4949,7 +4797,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
@@ -4963,7 +4811,7 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),
@@ -4987,7 +4835,7 @@ const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __Serd
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyFilterName: __expectString(output.VocabularyFilterName),
@@ -5010,7 +4858,7 @@ const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeConte
   return {
     LanguageCode: __expectString(output.LanguageCode),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     VocabularyName: __expectString(output.VocabularyName),

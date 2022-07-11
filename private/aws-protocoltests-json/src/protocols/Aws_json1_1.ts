@@ -827,91 +827,75 @@ const serializeAws_json1_1EmptyStruct = (input: EmptyStruct, context: __SerdeCon
 
 const serializeAws_json1_1HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
   return {
-    ...(input.label !== undefined && input.label !== null && { label: input.label }),
+    ...(input.label != undefined && { label: input.label }),
   };
 };
 
 const serializeAws_json1_1JsonEnumsInputOutput = (input: JsonEnumsInputOutput, context: __SerdeContext): any => {
   return {
-    ...(input.fooEnum1 !== undefined && input.fooEnum1 !== null && { fooEnum1: input.fooEnum1 }),
-    ...(input.fooEnum2 !== undefined && input.fooEnum2 !== null && { fooEnum2: input.fooEnum2 }),
-    ...(input.fooEnum3 !== undefined && input.fooEnum3 !== null && { fooEnum3: input.fooEnum3 }),
-    ...(input.fooEnumList !== undefined &&
-      input.fooEnumList !== null && { fooEnumList: serializeAws_json1_1FooEnumList(input.fooEnumList, context) }),
-    ...(input.fooEnumMap !== undefined &&
-      input.fooEnumMap !== null && { fooEnumMap: serializeAws_json1_1FooEnumMap(input.fooEnumMap, context) }),
-    ...(input.fooEnumSet !== undefined &&
-      input.fooEnumSet !== null && { fooEnumSet: serializeAws_json1_1FooEnumSet(input.fooEnumSet, context) }),
+    ...(input.fooEnum1 != undefined && { fooEnum1: input.fooEnum1 }),
+    ...(input.fooEnum2 != undefined && { fooEnum2: input.fooEnum2 }),
+    ...(input.fooEnum3 != undefined && { fooEnum3: input.fooEnum3 }),
+    ...(input.fooEnumList != undefined && { fooEnumList: serializeAws_json1_1FooEnumList(input.fooEnumList, context) }),
+    ...(input.fooEnumMap != undefined && { fooEnumMap: serializeAws_json1_1FooEnumMap(input.fooEnumMap, context) }),
+    ...(input.fooEnumSet != undefined && { fooEnumSet: serializeAws_json1_1FooEnumSet(input.fooEnumSet, context) }),
   };
 };
 
 const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
   return {
-    ...(input.Blob !== undefined && input.Blob !== null && { Blob: context.base64Encoder(input.Blob) }),
-    ...(input.Boolean !== undefined && input.Boolean !== null && { Boolean: input.Boolean }),
-    ...(input.Double !== undefined && input.Double !== null && { Double: __serializeFloat(input.Double) }),
-    ...(input.EmptyStruct !== undefined &&
-      input.EmptyStruct !== null && { EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context) }),
-    ...(input.Float !== undefined && input.Float !== null && { Float: __serializeFloat(input.Float) }),
-    ...(input.HttpdateTimestamp !== undefined &&
-      input.HttpdateTimestamp !== null && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
-    ...(input.Integer !== undefined && input.Integer !== null && { Integer: input.Integer }),
-    ...(input.Iso8601Timestamp !== undefined &&
-      input.Iso8601Timestamp !== null && {
-        Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
-      }),
-    ...(input.JsonValue !== undefined &&
-      input.JsonValue !== null && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
-    ...(input.ListOfLists !== undefined &&
-      input.ListOfLists !== null && {
-        ListOfLists: serializeAws_json1_1ListOfListOfStrings(input.ListOfLists, context),
-      }),
-    ...(input.ListOfMapsOfStrings !== undefined &&
-      input.ListOfMapsOfStrings !== null && {
-        ListOfMapsOfStrings: serializeAws_json1_1ListOfMapsOfStrings(input.ListOfMapsOfStrings, context),
-      }),
-    ...(input.ListOfStrings !== undefined &&
-      input.ListOfStrings !== null && {
-        ListOfStrings: serializeAws_json1_1ListOfStrings(input.ListOfStrings, context),
-      }),
-    ...(input.ListOfStructs !== undefined &&
-      input.ListOfStructs !== null && {
-        ListOfStructs: serializeAws_json1_1ListOfStructs(input.ListOfStructs, context),
-      }),
-    ...(input.Long !== undefined && input.Long !== null && { Long: input.Long }),
-    ...(input.MapOfListsOfStrings !== undefined &&
-      input.MapOfListsOfStrings !== null && {
-        MapOfListsOfStrings: serializeAws_json1_1MapOfListsOfStrings(input.MapOfListsOfStrings, context),
-      }),
-    ...(input.MapOfMaps !== undefined &&
-      input.MapOfMaps !== null && { MapOfMaps: serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context) }),
-    ...(input.MapOfStrings !== undefined &&
-      input.MapOfStrings !== null && { MapOfStrings: serializeAws_json1_1MapOfStrings(input.MapOfStrings, context) }),
-    ...(input.MapOfStructs !== undefined &&
-      input.MapOfStructs !== null && { MapOfStructs: serializeAws_json1_1MapOfStructs(input.MapOfStructs, context) }),
-    ...(input.RecursiveList !== undefined &&
-      input.RecursiveList !== null && {
-        RecursiveList: serializeAws_json1_1ListOfKitchenSinks(input.RecursiveList, context),
-      }),
-    ...(input.RecursiveMap !== undefined &&
-      input.RecursiveMap !== null && {
-        RecursiveMap: serializeAws_json1_1MapOfKitchenSinks(input.RecursiveMap, context),
-      }),
-    ...(input.RecursiveStruct !== undefined &&
-      input.RecursiveStruct !== null && {
-        RecursiveStruct: serializeAws_json1_1KitchenSink(input.RecursiveStruct, context),
-      }),
-    ...(input.SimpleStruct !== undefined &&
-      input.SimpleStruct !== null && { SimpleStruct: serializeAws_json1_1SimpleStruct(input.SimpleStruct, context) }),
-    ...(input.String !== undefined && input.String !== null && { String: input.String }),
-    ...(input.StructWithJsonName !== undefined &&
-      input.StructWithJsonName !== null && {
-        StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
-      }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UnixTimestamp !== undefined &&
-      input.UnixTimestamp !== null && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
+    ...(input.Blob != undefined && { Blob: context.base64Encoder(input.Blob) }),
+    ...(input.Boolean != undefined && { Boolean: input.Boolean }),
+    ...(input.Double != undefined && { Double: __serializeFloat(input.Double) }),
+    ...(input.EmptyStruct != undefined && { EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context) }),
+    ...(input.Float != undefined && { Float: __serializeFloat(input.Float) }),
+    ...(input.HttpdateTimestamp != undefined && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
+    ...(input.Integer != undefined && { Integer: input.Integer }),
+    ...(input.Iso8601Timestamp != undefined && {
+      Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z",
+    }),
+    ...(input.JsonValue != undefined && { JsonValue: __LazyJsonString.fromObject(input.JsonValue) }),
+    ...(input.ListOfLists != undefined && {
+      ListOfLists: serializeAws_json1_1ListOfListOfStrings(input.ListOfLists, context),
+    }),
+    ...(input.ListOfMapsOfStrings != undefined && {
+      ListOfMapsOfStrings: serializeAws_json1_1ListOfMapsOfStrings(input.ListOfMapsOfStrings, context),
+    }),
+    ...(input.ListOfStrings != undefined && {
+      ListOfStrings: serializeAws_json1_1ListOfStrings(input.ListOfStrings, context),
+    }),
+    ...(input.ListOfStructs != undefined && {
+      ListOfStructs: serializeAws_json1_1ListOfStructs(input.ListOfStructs, context),
+    }),
+    ...(input.Long != undefined && { Long: input.Long }),
+    ...(input.MapOfListsOfStrings != undefined && {
+      MapOfListsOfStrings: serializeAws_json1_1MapOfListsOfStrings(input.MapOfListsOfStrings, context),
+    }),
+    ...(input.MapOfMaps != undefined && { MapOfMaps: serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context) }),
+    ...(input.MapOfStrings != undefined && {
+      MapOfStrings: serializeAws_json1_1MapOfStrings(input.MapOfStrings, context),
+    }),
+    ...(input.MapOfStructs != undefined && {
+      MapOfStructs: serializeAws_json1_1MapOfStructs(input.MapOfStructs, context),
+    }),
+    ...(input.RecursiveList != undefined && {
+      RecursiveList: serializeAws_json1_1ListOfKitchenSinks(input.RecursiveList, context),
+    }),
+    ...(input.RecursiveMap != undefined && {
+      RecursiveMap: serializeAws_json1_1MapOfKitchenSinks(input.RecursiveMap, context),
+    }),
+    ...(input.RecursiveStruct != undefined && {
+      RecursiveStruct: serializeAws_json1_1KitchenSink(input.RecursiveStruct, context),
+    }),
+    ...(input.SimpleStruct != undefined && {
+      SimpleStruct: serializeAws_json1_1SimpleStruct(input.SimpleStruct, context),
+    }),
+    ...(input.String != undefined && { String: input.String }),
+    ...(input.StructWithJsonName != undefined && {
+      StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
+    }),
+    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UnixTimestamp != undefined && { UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -1053,15 +1037,13 @@ const serializeAws_json1_1NullOperationInputOutput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.sparseStringList !== undefined &&
-      input.sparseStringList !== null && {
-        sparseStringList: serializeAws_json1_1SparseStringList(input.sparseStringList, context),
-      }),
-    ...(input.sparseStringMap !== undefined &&
-      input.sparseStringMap !== null && {
-        sparseStringMap: serializeAws_json1_1SparseStringMap(input.sparseStringMap, context),
-      }),
-    ...(input.string !== undefined && input.string !== null && { string: input.string }),
+    ...(input.sparseStringList != undefined && {
+      sparseStringList: serializeAws_json1_1SparseStringList(input.sparseStringList, context),
+    }),
+    ...(input.sparseStringMap != undefined && {
+      sparseStringMap: serializeAws_json1_1SparseStringMap(input.sparseStringMap, context),
+    }),
+    ...(input.string != undefined && { string: input.string }),
   };
 };
 
@@ -1070,7 +1052,7 @@ const serializeAws_json1_1OperationWithOptionalInputOutputInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1079,8 +1061,9 @@ const serializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.inlineDocument !== undefined &&
-      input.inlineDocument !== null && { inlineDocument: serializeAws_json1_1Document(input.inlineDocument, context) }),
+    ...(input.inlineDocument != undefined && {
+      inlineDocument: serializeAws_json1_1Document(input.inlineDocument, context),
+    }),
   };
 };
 
@@ -1089,29 +1072,26 @@ const serializeAws_json1_1SimpleScalarPropertiesInputOutput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.doubleValue !== undefined &&
-      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue !== undefined &&
-      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
+    ...(input.doubleValue != undefined && { doubleValue: __serializeFloat(input.doubleValue) }),
+    ...(input.floatValue != undefined && { floatValue: __serializeFloat(input.floatValue) }),
   };
 };
 
 const serializeAws_json1_1SimpleStruct = (input: SimpleStruct, context: __SerdeContext): any => {
   return {
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1StructWithJsonName = (input: StructWithJsonName, context: __SerdeContext): any => {
   return {
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): any => {
   return {
-    ...(input.contents !== undefined &&
-      input.contents !== null && { contents: serializeAws_json1_1MyUnion(input.contents, context) }),
+    ...(input.contents != undefined && { contents: serializeAws_json1_1MyUnion(input.contents, context) }),
   };
 };
 
@@ -1151,7 +1131,7 @@ const serializeAws_json1_1FooEnumSet = (input: (FooEnum | string)[], context: __
 
 const serializeAws_json1_1GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   return {
-    ...(input.hi !== undefined && input.hi !== null && { hi: input.hi }),
+    ...(input.hi != undefined && { hi: input.hi }),
   };
 };
 
@@ -1202,9 +1182,7 @@ const serializeAws_json1_1StringMap = (input: Record<string, string>, context: _
 const deserializeAws_json1_1ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   return {
     Nested:
-      output.Nested !== undefined && output.Nested !== null
-        ? deserializeAws_json1_1ComplexNestedErrorData(output.Nested, context)
-        : undefined,
+      output.Nested != undefined ? deserializeAws_json1_1ComplexNestedErrorData(output.Nested, context) : undefined,
     TopLevel: __expectString(output.TopLevel),
   } as any;
 };
@@ -1227,18 +1205,11 @@ const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeCon
   return {
     Code: __expectString(output.Code),
     ComplexData:
-      output.ComplexData !== undefined && output.ComplexData !== null
-        ? deserializeAws_json1_1KitchenSink(output.ComplexData, context)
-        : undefined,
+      output.ComplexData != undefined ? deserializeAws_json1_1KitchenSink(output.ComplexData, context) : undefined,
     IntegerField: __expectInt32(output.IntegerField),
     ListField:
-      output.ListField !== undefined && output.ListField !== null
-        ? deserializeAws_json1_1ListOfStrings(output.ListField, context)
-        : undefined,
-    MapField:
-      output.MapField !== undefined && output.MapField !== null
-        ? deserializeAws_json1_1MapOfStrings(output.MapField, context)
-        : undefined,
+      output.ListField != undefined ? deserializeAws_json1_1ListOfStrings(output.ListField, context) : undefined,
+    MapField: output.MapField != undefined ? deserializeAws_json1_1MapOfStrings(output.MapField, context) : undefined,
     Message: __expectString(output.Message),
     StringField: __expectString(output.StringField),
   } as any;
@@ -1273,101 +1244,84 @@ const deserializeAws_json1_1JsonEnumsInputOutput = (output: any, context: __Serd
     fooEnum2: __expectString(output.fooEnum2),
     fooEnum3: __expectString(output.fooEnum3),
     fooEnumList:
-      output.fooEnumList !== undefined && output.fooEnumList !== null
-        ? deserializeAws_json1_1FooEnumList(output.fooEnumList, context)
-        : undefined,
+      output.fooEnumList != undefined ? deserializeAws_json1_1FooEnumList(output.fooEnumList, context) : undefined,
     fooEnumMap:
-      output.fooEnumMap !== undefined && output.fooEnumMap !== null
-        ? deserializeAws_json1_1FooEnumMap(output.fooEnumMap, context)
-        : undefined,
+      output.fooEnumMap != undefined ? deserializeAws_json1_1FooEnumMap(output.fooEnumMap, context) : undefined,
     fooEnumSet:
-      output.fooEnumSet !== undefined && output.fooEnumSet !== null
-        ? deserializeAws_json1_1FooEnumSet(output.fooEnumSet, context)
-        : undefined,
+      output.fooEnumSet != undefined ? deserializeAws_json1_1FooEnumSet(output.fooEnumSet, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
   return {
-    Blob: output.Blob !== undefined && output.Blob !== null ? context.base64Decoder(output.Blob) : undefined,
+    Blob: output.Blob != undefined ? context.base64Decoder(output.Blob) : undefined,
     Boolean: __expectBoolean(output.Boolean),
     Double: __limitedParseDouble(output.Double),
     EmptyStruct:
-      output.EmptyStruct !== undefined && output.EmptyStruct !== null
-        ? deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context)
-        : undefined,
+      output.EmptyStruct != undefined ? deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context) : undefined,
     Float: __limitedParseFloat32(output.Float),
     HttpdateTimestamp:
-      output.HttpdateTimestamp !== undefined && output.HttpdateTimestamp !== null
+      output.HttpdateTimestamp != undefined
         ? __expectNonNull(__parseRfc7231DateTime(output.HttpdateTimestamp))
         : undefined,
     Integer: __expectInt32(output.Integer),
     Iso8601Timestamp:
-      output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null
+      output.Iso8601Timestamp != undefined
         ? __expectNonNull(__parseRfc3339DateTime(output.Iso8601Timestamp))
         : undefined,
-    JsonValue:
-      output.JsonValue !== undefined && output.JsonValue !== null ? new __LazyJsonString(output.JsonValue) : undefined,
+    JsonValue: output.JsonValue != undefined ? new __LazyJsonString(output.JsonValue) : undefined,
     ListOfLists:
-      output.ListOfLists !== undefined && output.ListOfLists !== null
+      output.ListOfLists != undefined
         ? deserializeAws_json1_1ListOfListOfStrings(output.ListOfLists, context)
         : undefined,
     ListOfMapsOfStrings:
-      output.ListOfMapsOfStrings !== undefined && output.ListOfMapsOfStrings !== null
+      output.ListOfMapsOfStrings != undefined
         ? deserializeAws_json1_1ListOfMapsOfStrings(output.ListOfMapsOfStrings, context)
         : undefined,
     ListOfStrings:
-      output.ListOfStrings !== undefined && output.ListOfStrings !== null
+      output.ListOfStrings != undefined
         ? deserializeAws_json1_1ListOfStrings(output.ListOfStrings, context)
         : undefined,
     ListOfStructs:
-      output.ListOfStructs !== undefined && output.ListOfStructs !== null
+      output.ListOfStructs != undefined
         ? deserializeAws_json1_1ListOfStructs(output.ListOfStructs, context)
         : undefined,
     Long: __expectLong(output.Long),
     MapOfListsOfStrings:
-      output.MapOfListsOfStrings !== undefined && output.MapOfListsOfStrings !== null
+      output.MapOfListsOfStrings != undefined
         ? deserializeAws_json1_1MapOfListsOfStrings(output.MapOfListsOfStrings, context)
         : undefined,
     MapOfMaps:
-      output.MapOfMaps !== undefined && output.MapOfMaps !== null
-        ? deserializeAws_json1_1MapOfMapOfStrings(output.MapOfMaps, context)
-        : undefined,
+      output.MapOfMaps != undefined ? deserializeAws_json1_1MapOfMapOfStrings(output.MapOfMaps, context) : undefined,
     MapOfStrings:
-      output.MapOfStrings !== undefined && output.MapOfStrings !== null
-        ? deserializeAws_json1_1MapOfStrings(output.MapOfStrings, context)
-        : undefined,
+      output.MapOfStrings != undefined ? deserializeAws_json1_1MapOfStrings(output.MapOfStrings, context) : undefined,
     MapOfStructs:
-      output.MapOfStructs !== undefined && output.MapOfStructs !== null
-        ? deserializeAws_json1_1MapOfStructs(output.MapOfStructs, context)
-        : undefined,
+      output.MapOfStructs != undefined ? deserializeAws_json1_1MapOfStructs(output.MapOfStructs, context) : undefined,
     RecursiveList:
-      output.RecursiveList !== undefined && output.RecursiveList !== null
+      output.RecursiveList != undefined
         ? deserializeAws_json1_1ListOfKitchenSinks(output.RecursiveList, context)
         : undefined,
     RecursiveMap:
-      output.RecursiveMap !== undefined && output.RecursiveMap !== null
+      output.RecursiveMap != undefined
         ? deserializeAws_json1_1MapOfKitchenSinks(output.RecursiveMap, context)
         : undefined,
     RecursiveStruct:
-      output.RecursiveStruct !== undefined && output.RecursiveStruct !== null
+      output.RecursiveStruct != undefined
         ? deserializeAws_json1_1KitchenSink(output.RecursiveStruct, context)
         : undefined,
     SimpleStruct:
-      output.SimpleStruct !== undefined && output.SimpleStruct !== null
-        ? deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context)
-        : undefined,
+      output.SimpleStruct != undefined ? deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context) : undefined,
     String: __expectString(output.String),
     StructWithJsonName:
-      output.StructWithJsonName !== undefined && output.StructWithJsonName !== null
+      output.StructWithJsonName != undefined
         ? deserializeAws_json1_1StructWithJsonName(output.StructWithJsonName, context)
         : undefined,
     Timestamp:
-      output.Timestamp !== undefined && output.Timestamp !== null
+      output.Timestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
         : undefined,
     UnixTimestamp:
-      output.UnixTimestamp !== undefined && output.UnixTimestamp !== null
+      output.UnixTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UnixTimestamp)))
         : undefined,
   } as any;
@@ -1543,11 +1497,11 @@ const deserializeAws_json1_1NullOperationInputOutput = (
 ): NullOperationInputOutput => {
   return {
     sparseStringList:
-      output.sparseStringList !== undefined && output.sparseStringList !== null
+      output.sparseStringList != undefined
         ? deserializeAws_json1_1SparseStringList(output.sparseStringList, context)
         : undefined,
     sparseStringMap:
-      output.sparseStringMap !== undefined && output.sparseStringMap !== null
+      output.sparseStringMap != undefined
         ? deserializeAws_json1_1SparseStringMap(output.sparseStringMap, context)
         : undefined,
     string: __expectString(output.string),
@@ -1569,9 +1523,7 @@ const deserializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
 ): PutAndGetInlineDocumentsInputOutput => {
   return {
     inlineDocument:
-      output.inlineDocument !== undefined && output.inlineDocument !== null
-        ? deserializeAws_json1_1Document(output.inlineDocument, context)
-        : undefined,
+      output.inlineDocument != undefined ? deserializeAws_json1_1Document(output.inlineDocument, context) : undefined,
   } as any;
 };
 
@@ -1600,9 +1552,7 @@ const deserializeAws_json1_1StructWithJsonName = (output: any, context: __SerdeC
 const deserializeAws_json1_1UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOutput => {
   return {
     contents:
-      output.contents !== undefined && output.contents !== null
-        ? deserializeAws_json1_1MyUnion(__expectUnion(output.contents), context)
-        : undefined,
+      output.contents != undefined ? deserializeAws_json1_1MyUnion(__expectUnion(output.contents), context) : undefined,
   } as any;
 };
 

@@ -174,12 +174,11 @@ const serializeAws_json1_1Filters = (input: Record<string, string>, context: __S
 
 const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndDate !== undefined && input.EndDate !== null && { EndDate: input.EndDate }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StartDate !== undefined && input.StartDate !== null && { StartDate: input.StartDate }),
+    ...(input.EndDate != undefined && { EndDate: input.EndDate }),
+    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.ForecastArn != undefined && { ForecastArn: input.ForecastArn }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StartDate != undefined && { StartDate: input.StartDate }),
   };
 };
 
@@ -193,9 +192,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1Forecast = (output: any, context: __SerdeContext): Forecast => {
   return {
     Predictions:
-      output.Predictions !== undefined && output.Predictions !== null
-        ? deserializeAws_json1_1Predictions(output.Predictions, context)
-        : undefined,
+      output.Predictions != undefined ? deserializeAws_json1_1Predictions(output.Predictions, context) : undefined,
   } as any;
 };
 
@@ -234,10 +231,7 @@ const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
   return {
-    Forecast:
-      output.Forecast !== undefined && output.Forecast !== null
-        ? deserializeAws_json1_1Forecast(output.Forecast, context)
-        : undefined,
+    Forecast: output.Forecast != undefined ? deserializeAws_json1_1Forecast(output.Forecast, context) : undefined,
   } as any;
 };
 

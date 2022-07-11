@@ -73,14 +73,13 @@ export const serializeAws_restJson1CreateSuiteDefinitionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
   let body: any;
   body = JSON.stringify({
-    ...(input.suiteDefinitionConfiguration !== undefined &&
-      input.suiteDefinitionConfiguration !== null && {
-        suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
-          input.suiteDefinitionConfiguration,
-          context
-        ),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.suiteDefinitionConfiguration != undefined && {
+      suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
+        input.suiteDefinitionConfiguration,
+        context
+      ),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -357,13 +356,11 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.suiteDefinitionVersion !== undefined &&
-      input.suiteDefinitionVersion !== null && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
-    ...(input.suiteRunConfiguration !== undefined &&
-      input.suiteRunConfiguration !== null && {
-        suiteRunConfiguration: serializeAws_restJson1SuiteRunConfiguration(input.suiteRunConfiguration, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.suiteDefinitionVersion != undefined && { suiteDefinitionVersion: input.suiteDefinitionVersion }),
+    ...(input.suiteRunConfiguration != undefined && {
+      suiteRunConfiguration: serializeAws_restJson1SuiteRunConfiguration(input.suiteRunConfiguration, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -435,7 +432,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -501,13 +498,12 @@ export const serializeAws_restJson1UpdateSuiteDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.suiteDefinitionConfiguration !== undefined &&
-      input.suiteDefinitionConfiguration !== null && {
-        suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
-          input.suiteDefinitionConfiguration,
-          context
-        ),
-      }),
+    ...(input.suiteDefinitionConfiguration != undefined && {
+      suiteDefinitionConfiguration: serializeAws_restJson1SuiteDefinitionConfiguration(
+        input.suiteDefinitionConfiguration,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1391,9 +1387,8 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1DeviceUnderTest = (input: DeviceUnderTest, context: __SerdeContext): any => {
   return {
-    ...(input.certificateArn !== undefined &&
-      input.certificateArn !== null && { certificateArn: input.certificateArn }),
-    ...(input.thingArn !== undefined && input.thingArn !== null && { thingArn: input.thingArn }),
+    ...(input.certificateArn != undefined && { certificateArn: input.certificateArn }),
+    ...(input.thingArn != undefined && { thingArn: input.thingArn }),
   };
 };
 
@@ -1424,29 +1419,23 @@ const serializeAws_restJson1SuiteDefinitionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.devicePermissionRoleArn !== undefined &&
-      input.devicePermissionRoleArn !== null && { devicePermissionRoleArn: input.devicePermissionRoleArn }),
-    ...(input.devices !== undefined &&
-      input.devices !== null && { devices: serializeAws_restJson1DeviceUnderTestList(input.devices, context) }),
-    ...(input.intendedForQualification !== undefined &&
-      input.intendedForQualification !== null && { intendedForQualification: input.intendedForQualification }),
-    ...(input.rootGroup !== undefined && input.rootGroup !== null && { rootGroup: input.rootGroup }),
-    ...(input.suiteDefinitionName !== undefined &&
-      input.suiteDefinitionName !== null && { suiteDefinitionName: input.suiteDefinitionName }),
+    ...(input.devicePermissionRoleArn != undefined && { devicePermissionRoleArn: input.devicePermissionRoleArn }),
+    ...(input.devices != undefined && { devices: serializeAws_restJson1DeviceUnderTestList(input.devices, context) }),
+    ...(input.intendedForQualification != undefined && { intendedForQualification: input.intendedForQualification }),
+    ...(input.rootGroup != undefined && { rootGroup: input.rootGroup }),
+    ...(input.suiteDefinitionName != undefined && { suiteDefinitionName: input.suiteDefinitionName }),
   };
 };
 
 const serializeAws_restJson1SuiteRunConfiguration = (input: SuiteRunConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.parallelRun !== undefined && input.parallelRun !== null && { parallelRun: input.parallelRun }),
-    ...(input.primaryDevice !== undefined &&
-      input.primaryDevice !== null && {
-        primaryDevice: serializeAws_restJson1DeviceUnderTest(input.primaryDevice, context),
-      }),
-    ...(input.selectedTestList !== undefined &&
-      input.selectedTestList !== null && {
-        selectedTestList: serializeAws_restJson1SelectedTestList(input.selectedTestList, context),
-      }),
+    ...(input.parallelRun != undefined && { parallelRun: input.parallelRun }),
+    ...(input.primaryDevice != undefined && {
+      primaryDevice: serializeAws_restJson1DeviceUnderTest(input.primaryDevice, context),
+    }),
+    ...(input.selectedTestList != undefined && {
+      selectedTestList: serializeAws_restJson1SelectedTestList(input.selectedTestList, context),
+    }),
   };
 };
 
@@ -1485,10 +1474,7 @@ const deserializeAws_restJson1GroupResult = (output: any, context: __SerdeContex
   return {
     groupId: __expectString(output.groupId),
     groupName: __expectString(output.groupName),
-    tests:
-      output.tests !== undefined && output.tests !== null
-        ? deserializeAws_restJson1TestCaseRuns(output.tests, context)
-        : undefined,
+    tests: output.tests != undefined ? deserializeAws_restJson1TestCaseRuns(output.tests, context) : undefined,
   } as any;
 };
 
@@ -1523,9 +1509,7 @@ const deserializeAws_restJson1SuiteDefinitionConfiguration = (
   return {
     devicePermissionRoleArn: __expectString(output.devicePermissionRoleArn),
     devices:
-      output.devices !== undefined && output.devices !== null
-        ? deserializeAws_restJson1DeviceUnderTestList(output.devices, context)
-        : undefined,
+      output.devices != undefined ? deserializeAws_restJson1DeviceUnderTestList(output.devices, context) : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
     rootGroup: __expectString(output.rootGroup),
     suiteDefinitionName: __expectString(output.suiteDefinitionName),
@@ -1538,11 +1522,11 @@ const deserializeAws_restJson1SuiteDefinitionInformation = (
 ): SuiteDefinitionInformation => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     defaultDevices:
-      output.defaultDevices !== undefined && output.defaultDevices !== null
+      output.defaultDevices != undefined
         ? deserializeAws_restJson1DeviceUnderTestList(output.defaultDevices, context)
         : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
@@ -1570,11 +1554,11 @@ const deserializeAws_restJson1SuiteRunConfiguration = (output: any, context: __S
   return {
     parallelRun: __expectBoolean(output.parallelRun),
     primaryDevice:
-      output.primaryDevice !== undefined && output.primaryDevice !== null
+      output.primaryDevice != undefined
         ? deserializeAws_restJson1DeviceUnderTest(output.primaryDevice, context)
         : undefined,
     selectedTestList:
-      output.selectedTestList !== undefined && output.selectedTestList !== null
+      output.selectedTestList != undefined
         ? deserializeAws_restJson1SelectedTestList(output.selectedTestList, context)
         : undefined,
   } as any;
@@ -1583,17 +1567,14 @@ const deserializeAws_restJson1SuiteRunConfiguration = (output: any, context: __S
 const deserializeAws_restJson1SuiteRunInformation = (output: any, context: __SerdeContext): SuiteRunInformation => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
-    endAt:
-      output.endAt !== undefined && output.endAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endAt)))
-        : undefined,
+    endAt: output.endAt != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endAt))) : undefined,
     failed: __expectInt32(output.failed),
     passed: __expectInt32(output.passed),
     startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
+      output.startedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
         : undefined,
     status: __expectString(output.status),
@@ -1631,13 +1612,11 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
 const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
   return {
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     failure: __expectString(output.failure),
     logUrl: __expectString(output.logUrl),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
@@ -1662,10 +1641,7 @@ const deserializeAws_restJson1TestCaseRuns = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TestResult = (output: any, context: __SerdeContext): TestResult => {
   return {
-    groups:
-      output.groups !== undefined && output.groups !== null
-        ? deserializeAws_restJson1GroupResultList(output.groups, context)
-        : undefined,
+    groups: output.groups != undefined ? deserializeAws_restJson1GroupResultList(output.groups, context) : undefined,
   } as any;
 };
 

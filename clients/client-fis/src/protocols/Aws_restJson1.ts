@@ -115,32 +115,28 @@ export const serializeAws_restJson1CreateExperimentTemplateCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates";
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined &&
-      input.actions !== null && {
-        actions: serializeAws_restJson1CreateExperimentTemplateActionInputMap(input.actions, context),
-      }),
+    ...(input.actions != undefined && {
+      actions: serializeAws_restJson1CreateExperimentTemplateActionInputMap(input.actions, context),
+    }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.logConfiguration !== undefined &&
-      input.logConfiguration !== null && {
-        logConfiguration: serializeAws_restJson1CreateExperimentTemplateLogConfigurationInput(
-          input.logConfiguration,
-          context
-        ),
-      }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.stopConditions !== undefined &&
-      input.stopConditions !== null && {
-        stopConditions: serializeAws_restJson1CreateExperimentTemplateStopConditionInputList(
-          input.stopConditions,
-          context
-        ),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.targets !== undefined &&
-      input.targets !== null && {
-        targets: serializeAws_restJson1CreateExperimentTemplateTargetInputMap(input.targets, context),
-      }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.logConfiguration != undefined && {
+      logConfiguration: serializeAws_restJson1CreateExperimentTemplateLogConfigurationInput(
+        input.logConfiguration,
+        context
+      ),
+    }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.stopConditions != undefined && {
+      stopConditions: serializeAws_restJson1CreateExperimentTemplateStopConditionInputList(
+        input.stopConditions,
+        context
+      ),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.targets != undefined && {
+      targets: serializeAws_restJson1CreateExperimentTemplateTargetInputMap(input.targets, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -432,9 +428,8 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.experimentTemplateId !== undefined &&
-      input.experimentTemplateId !== null && { experimentTemplateId: input.experimentTemplateId }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.experimentTemplateId != undefined && { experimentTemplateId: input.experimentTemplateId }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -495,7 +490,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -561,30 +556,26 @@ export const serializeAws_restJson1UpdateExperimentTemplateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.actions !== undefined &&
-      input.actions !== null && {
-        actions: serializeAws_restJson1UpdateExperimentTemplateActionInputMap(input.actions, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.logConfiguration !== undefined &&
-      input.logConfiguration !== null && {
-        logConfiguration: serializeAws_restJson1UpdateExperimentTemplateLogConfigurationInput(
-          input.logConfiguration,
-          context
-        ),
-      }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.stopConditions !== undefined &&
-      input.stopConditions !== null && {
-        stopConditions: serializeAws_restJson1UpdateExperimentTemplateStopConditionInputList(
-          input.stopConditions,
-          context
-        ),
-      }),
-    ...(input.targets !== undefined &&
-      input.targets !== null && {
-        targets: serializeAws_restJson1UpdateExperimentTemplateTargetInputMap(input.targets, context),
-      }),
+    ...(input.actions != undefined && {
+      actions: serializeAws_restJson1UpdateExperimentTemplateActionInputMap(input.actions, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.logConfiguration != undefined && {
+      logConfiguration: serializeAws_restJson1UpdateExperimentTemplateLogConfigurationInput(
+        input.logConfiguration,
+        context
+      ),
+    }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.stopConditions != undefined && {
+      stopConditions: serializeAws_restJson1UpdateExperimentTemplateStopConditionInputList(
+        input.stopConditions,
+        context
+      ),
+    }),
+    ...(input.targets != undefined && {
+      targets: serializeAws_restJson1UpdateExperimentTemplateTargetInputMap(input.targets, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1433,20 +1424,17 @@ const serializeAws_restJson1CreateExperimentTemplateActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.actionId !== undefined && input.actionId !== null && { actionId: input.actionId }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1ExperimentTemplateActionParameterMap(input.parameters, context),
-      }),
-    ...(input.startAfter !== undefined &&
-      input.startAfter !== null && {
-        startAfter: serializeAws_restJson1ExperimentTemplateActionStartAfterList(input.startAfter, context),
-      }),
-    ...(input.targets !== undefined &&
-      input.targets !== null && {
-        targets: serializeAws_restJson1ExperimentTemplateActionTargetMap(input.targets, context),
-      }),
+    ...(input.actionId != undefined && { actionId: input.actionId }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.parameters != undefined && {
+      parameters: serializeAws_restJson1ExperimentTemplateActionParameterMap(input.parameters, context),
+    }),
+    ...(input.startAfter != undefined && {
+      startAfter: serializeAws_restJson1ExperimentTemplateActionStartAfterList(input.startAfter, context),
+    }),
+    ...(input.targets != undefined && {
+      targets: serializeAws_restJson1ExperimentTemplateActionTargetMap(input.targets, context),
+    }),
   };
 };
 
@@ -1470,22 +1458,16 @@ const serializeAws_restJson1CreateExperimentTemplateLogConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.cloudWatchLogsConfiguration !== undefined &&
-      input.cloudWatchLogsConfiguration !== null && {
-        cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
-          input.cloudWatchLogsConfiguration,
-          context
-        ),
-      }),
-    ...(input.logSchemaVersion !== undefined &&
-      input.logSchemaVersion !== null && { logSchemaVersion: input.logSchemaVersion }),
-    ...(input.s3Configuration !== undefined &&
-      input.s3Configuration !== null && {
-        s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(
-          input.s3Configuration,
-          context
-        ),
-      }),
+    ...(input.cloudWatchLogsConfiguration != undefined && {
+      cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
+        input.cloudWatchLogsConfiguration,
+        context
+      ),
+    }),
+    ...(input.logSchemaVersion != undefined && { logSchemaVersion: input.logSchemaVersion }),
+    ...(input.s3Configuration != undefined && {
+      s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(input.s3Configuration, context),
+    }),
   };
 };
 
@@ -1494,8 +1476,8 @@ const serializeAws_restJson1CreateExperimentTemplateStopConditionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.source !== undefined && input.source !== null && { source: input.source }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.source != undefined && { source: input.source }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -1518,22 +1500,18 @@ const serializeAws_restJson1CreateExperimentTemplateTargetInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined &&
-      input.filters !== null && {
-        filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
-      }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
-      }),
-    ...(input.resourceArns !== undefined &&
-      input.resourceArns !== null && {
-        resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
-      }),
-    ...(input.resourceTags !== undefined &&
-      input.resourceTags !== null && { resourceTags: serializeAws_restJson1TagMap(input.resourceTags, context) }),
-    ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
-    ...(input.selectionMode !== undefined && input.selectionMode !== null && { selectionMode: input.selectionMode }),
+    ...(input.filters != undefined && {
+      filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
+    }),
+    ...(input.parameters != undefined && {
+      parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
+    }),
+    ...(input.resourceArns != undefined && {
+      resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
+    }),
+    ...(input.resourceTags != undefined && { resourceTags: serializeAws_restJson1TagMap(input.resourceTags, context) }),
+    ...(input.resourceType != undefined && { resourceType: input.resourceType }),
+    ...(input.selectionMode != undefined && { selectionMode: input.selectionMode }),
   };
 };
 
@@ -1601,7 +1579,7 @@ const serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInpu
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupArn !== undefined && input.logGroupArn !== null && { logGroupArn: input.logGroupArn }),
+    ...(input.logGroupArn != undefined && { logGroupArn: input.logGroupArn }),
   };
 };
 
@@ -1610,8 +1588,8 @@ const serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
+    ...(input.prefix != undefined && { prefix: input.prefix }),
   };
 };
 
@@ -1645,11 +1623,10 @@ const serializeAws_restJson1ExperimentTemplateTargetInputFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.path !== undefined && input.path !== null && { path: input.path }),
-    ...(input.values !== undefined &&
-      input.values !== null && {
-        values: serializeAws_restJson1ExperimentTemplateTargetFilterValues(input.values, context),
-      }),
+    ...(input.path != undefined && { path: input.path }),
+    ...(input.values != undefined && {
+      values: serializeAws_restJson1ExperimentTemplateTargetFilterValues(input.values, context),
+    }),
   };
 };
 
@@ -1696,20 +1673,17 @@ const serializeAws_restJson1UpdateExperimentTemplateActionInputItem = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.actionId !== undefined && input.actionId !== null && { actionId: input.actionId }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1ExperimentTemplateActionParameterMap(input.parameters, context),
-      }),
-    ...(input.startAfter !== undefined &&
-      input.startAfter !== null && {
-        startAfter: serializeAws_restJson1ExperimentTemplateActionStartAfterList(input.startAfter, context),
-      }),
-    ...(input.targets !== undefined &&
-      input.targets !== null && {
-        targets: serializeAws_restJson1ExperimentTemplateActionTargetMap(input.targets, context),
-      }),
+    ...(input.actionId != undefined && { actionId: input.actionId }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.parameters != undefined && {
+      parameters: serializeAws_restJson1ExperimentTemplateActionParameterMap(input.parameters, context),
+    }),
+    ...(input.startAfter != undefined && {
+      startAfter: serializeAws_restJson1ExperimentTemplateActionStartAfterList(input.startAfter, context),
+    }),
+    ...(input.targets != undefined && {
+      targets: serializeAws_restJson1ExperimentTemplateActionTargetMap(input.targets, context),
+    }),
   };
 };
 
@@ -1733,22 +1707,16 @@ const serializeAws_restJson1UpdateExperimentTemplateLogConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.cloudWatchLogsConfiguration !== undefined &&
-      input.cloudWatchLogsConfiguration !== null && {
-        cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
-          input.cloudWatchLogsConfiguration,
-          context
-        ),
-      }),
-    ...(input.logSchemaVersion !== undefined &&
-      input.logSchemaVersion !== null && { logSchemaVersion: input.logSchemaVersion }),
-    ...(input.s3Configuration !== undefined &&
-      input.s3Configuration !== null && {
-        s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(
-          input.s3Configuration,
-          context
-        ),
-      }),
+    ...(input.cloudWatchLogsConfiguration != undefined && {
+      cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
+        input.cloudWatchLogsConfiguration,
+        context
+      ),
+    }),
+    ...(input.logSchemaVersion != undefined && { logSchemaVersion: input.logSchemaVersion }),
+    ...(input.s3Configuration != undefined && {
+      s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(input.s3Configuration, context),
+    }),
   };
 };
 
@@ -1757,8 +1725,8 @@ const serializeAws_restJson1UpdateExperimentTemplateStopConditionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.source !== undefined && input.source !== null && { source: input.source }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.source != undefined && { source: input.source }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -1781,22 +1749,18 @@ const serializeAws_restJson1UpdateExperimentTemplateTargetInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined &&
-      input.filters !== null && {
-        filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
-      }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
-      }),
-    ...(input.resourceArns !== undefined &&
-      input.resourceArns !== null && {
-        resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
-      }),
-    ...(input.resourceTags !== undefined &&
-      input.resourceTags !== null && { resourceTags: serializeAws_restJson1TagMap(input.resourceTags, context) }),
-    ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
-    ...(input.selectionMode !== undefined && input.selectionMode !== null && { selectionMode: input.selectionMode }),
+    ...(input.filters != undefined && {
+      filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
+    }),
+    ...(input.parameters != undefined && {
+      parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
+    }),
+    ...(input.resourceArns != undefined && {
+      resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
+    }),
+    ...(input.resourceTags != undefined && { resourceTags: serializeAws_restJson1TagMap(input.resourceTags, context) }),
+    ...(input.resourceType != undefined && { resourceType: input.resourceType }),
+    ...(input.selectionMode != undefined && { selectionMode: input.selectionMode }),
   };
 };
 
@@ -1820,17 +1784,11 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     description: __expectString(output.description),
     id: __expectString(output.id),
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ActionParameterMap(output.parameters, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-    targets:
-      output.targets !== undefined && output.targets !== null
-        ? deserializeAws_restJson1ActionTargetMap(output.targets, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    targets: output.targets != undefined ? deserializeAws_restJson1ActionTargetMap(output.targets, context) : undefined,
   } as any;
 };
 
@@ -1860,14 +1818,8 @@ const deserializeAws_restJson1ActionSummary = (output: any, context: __SerdeCont
   return {
     description: __expectString(output.description),
     id: __expectString(output.id),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-    targets:
-      output.targets !== undefined && output.targets !== null
-        ? deserializeAws_restJson1ActionTargetMap(output.targets, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    targets: output.targets != undefined ? deserializeAws_restJson1ActionTargetMap(output.targets, context) : undefined,
   } as any;
 };
 
@@ -1907,44 +1859,32 @@ const deserializeAws_restJson1ActionTargetMap = (
 const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext): Experiment => {
   return {
     actions:
-      output.actions !== undefined && output.actions !== null
-        ? deserializeAws_restJson1ExperimentActionMap(output.actions, context)
-        : undefined,
+      output.actions != undefined ? deserializeAws_restJson1ExperimentActionMap(output.actions, context) : undefined,
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     experimentTemplateId: __expectString(output.experimentTemplateId),
     id: __expectString(output.id),
     logConfiguration:
-      output.logConfiguration !== undefined && output.logConfiguration !== null
+      output.logConfiguration != undefined
         ? deserializeAws_restJson1ExperimentLogConfiguration(output.logConfiguration, context)
         : undefined,
     roleArn: __expectString(output.roleArn),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? deserializeAws_restJson1ExperimentState(output.state, context)
-        : undefined,
+    state: output.state != undefined ? deserializeAws_restJson1ExperimentState(output.state, context) : undefined,
     stopConditions:
-      output.stopConditions !== undefined && output.stopConditions !== null
+      output.stopConditions != undefined
         ? deserializeAws_restJson1ExperimentStopConditionList(output.stopConditions, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     targets:
-      output.targets !== undefined && output.targets !== null
-        ? deserializeAws_restJson1ExperimentTargetMap(output.targets, context)
-        : undefined,
+      output.targets != undefined ? deserializeAws_restJson1ExperimentTargetMap(output.targets, context) : undefined,
   } as any;
 };
 
@@ -1953,27 +1893,22 @@ const deserializeAws_restJson1ExperimentAction = (output: any, context: __SerdeC
     actionId: __expectString(output.actionId),
     description: __expectString(output.description),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ExperimentActionParameterMap(output.parameters, context)
         : undefined,
     startAfter:
-      output.startAfter !== undefined && output.startAfter !== null
+      output.startAfter != undefined
         ? deserializeAws_restJson1ExperimentActionStartAfterList(output.startAfter, context)
         : undefined,
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? deserializeAws_restJson1ExperimentActionState(output.state, context)
-        : undefined,
+    state: output.state != undefined ? deserializeAws_restJson1ExperimentActionState(output.state, context) : undefined,
     targets:
-      output.targets !== undefined && output.targets !== null
+      output.targets != undefined
         ? deserializeAws_restJson1ExperimentActionTargetMap(output.targets, context)
         : undefined,
   } as any;
@@ -2058,12 +1993,12 @@ const deserializeAws_restJson1ExperimentLogConfiguration = (
 ): ExperimentLogConfiguration => {
   return {
     cloudWatchLogsConfiguration:
-      output.cloudWatchLogsConfiguration !== undefined && output.cloudWatchLogsConfiguration !== null
+      output.cloudWatchLogsConfiguration != undefined
         ? deserializeAws_restJson1ExperimentCloudWatchLogsLogConfiguration(output.cloudWatchLogsConfiguration, context)
         : undefined,
     logSchemaVersion: __expectInt32(output.logSchemaVersion),
     s3Configuration:
-      output.s3Configuration !== undefined && output.s3Configuration !== null
+      output.s3Configuration != undefined
         ? deserializeAws_restJson1ExperimentS3LogConfiguration(output.s3Configuration, context)
         : undefined,
   } as any;
@@ -2114,19 +2049,13 @@ const deserializeAws_restJson1ExperimentStopConditionList = (
 const deserializeAws_restJson1ExperimentSummary = (output: any, context: __SerdeContext): ExperimentSummary => {
   return {
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     experimentTemplateId: __expectString(output.experimentTemplateId),
     id: __expectString(output.id),
-    state:
-      output.state !== undefined && output.state !== null
-        ? deserializeAws_restJson1ExperimentState(output.state, context)
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    state: output.state != undefined ? deserializeAws_restJson1ExperimentState(output.state, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2145,21 +2074,19 @@ const deserializeAws_restJson1ExperimentSummaryList = (output: any, context: __S
 const deserializeAws_restJson1ExperimentTarget = (output: any, context: __SerdeContext): ExperimentTarget => {
   return {
     filters:
-      output.filters !== undefined && output.filters !== null
+      output.filters != undefined
         ? deserializeAws_restJson1ExperimentTargetFilterList(output.filters, context)
         : undefined,
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ExperimentTargetParameterMap(output.parameters, context)
         : undefined,
     resourceArns:
-      output.resourceArns !== undefined && output.resourceArns !== null
+      output.resourceArns != undefined
         ? deserializeAws_restJson1ResourceArnList(output.resourceArns, context)
         : undefined,
     resourceTags:
-      output.resourceTags !== undefined && output.resourceTags !== null
-        ? deserializeAws_restJson1TagMap(output.resourceTags, context)
-        : undefined,
+      output.resourceTags != undefined ? deserializeAws_restJson1TagMap(output.resourceTags, context) : undefined,
     resourceType: __expectString(output.resourceType),
     selectionMode: __expectString(output.selectionMode),
   } as any;
@@ -2172,7 +2099,7 @@ const deserializeAws_restJson1ExperimentTargetFilter = (
   return {
     path: __expectString(output.path),
     values:
-      output.values !== undefined && output.values !== null
+      output.values != undefined
         ? deserializeAws_restJson1ExperimentTargetFilterValues(output.values, context)
         : undefined,
   } as any;
@@ -2238,34 +2165,31 @@ const deserializeAws_restJson1ExperimentTargetParameterMap = (
 const deserializeAws_restJson1ExperimentTemplate = (output: any, context: __SerdeContext): ExperimentTemplate => {
   return {
     actions:
-      output.actions !== undefined && output.actions !== null
+      output.actions != undefined
         ? deserializeAws_restJson1ExperimentTemplateActionMap(output.actions, context)
         : undefined,
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+      output.lastUpdateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     logConfiguration:
-      output.logConfiguration !== undefined && output.logConfiguration !== null
+      output.logConfiguration != undefined
         ? deserializeAws_restJson1ExperimentTemplateLogConfiguration(output.logConfiguration, context)
         : undefined,
     roleArn: __expectString(output.roleArn),
     stopConditions:
-      output.stopConditions !== undefined && output.stopConditions !== null
+      output.stopConditions != undefined
         ? deserializeAws_restJson1ExperimentTemplateStopConditionList(output.stopConditions, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     targets:
-      output.targets !== undefined && output.targets !== null
+      output.targets != undefined
         ? deserializeAws_restJson1ExperimentTemplateTargetMap(output.targets, context)
         : undefined,
   } as any;
@@ -2279,15 +2203,15 @@ const deserializeAws_restJson1ExperimentTemplateAction = (
     actionId: __expectString(output.actionId),
     description: __expectString(output.description),
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ExperimentTemplateActionParameterMap(output.parameters, context)
         : undefined,
     startAfter:
-      output.startAfter !== undefined && output.startAfter !== null
+      output.startAfter != undefined
         ? deserializeAws_restJson1ExperimentTemplateActionStartAfterList(output.startAfter, context)
         : undefined,
     targets:
-      output.targets !== undefined && output.targets !== null
+      output.targets != undefined
         ? deserializeAws_restJson1ExperimentTemplateActionTargetMap(output.targets, context)
         : undefined,
   } as any;
@@ -2368,7 +2292,7 @@ const deserializeAws_restJson1ExperimentTemplateLogConfiguration = (
 ): ExperimentTemplateLogConfiguration => {
   return {
     cloudWatchLogsConfiguration:
-      output.cloudWatchLogsConfiguration !== undefined && output.cloudWatchLogsConfiguration !== null
+      output.cloudWatchLogsConfiguration != undefined
         ? deserializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfiguration(
             output.cloudWatchLogsConfiguration,
             context
@@ -2376,7 +2300,7 @@ const deserializeAws_restJson1ExperimentTemplateLogConfiguration = (
         : undefined,
     logSchemaVersion: __expectInt32(output.logSchemaVersion),
     s3Configuration:
-      output.s3Configuration !== undefined && output.s3Configuration !== null
+      output.s3Configuration != undefined
         ? deserializeAws_restJson1ExperimentTemplateS3LogConfiguration(output.s3Configuration, context)
         : undefined,
   } as any;
@@ -2423,19 +2347,16 @@ const deserializeAws_restJson1ExperimentTemplateSummary = (
 ): ExperimentTemplateSummary => {
   return {
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+      output.lastUpdateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2460,21 +2381,19 @@ const deserializeAws_restJson1ExperimentTemplateTarget = (
 ): ExperimentTemplateTarget => {
   return {
     filters:
-      output.filters !== undefined && output.filters !== null
+      output.filters != undefined
         ? deserializeAws_restJson1ExperimentTemplateTargetFilterList(output.filters, context)
         : undefined,
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ExperimentTemplateTargetParameterMap(output.parameters, context)
         : undefined,
     resourceArns:
-      output.resourceArns !== undefined && output.resourceArns !== null
+      output.resourceArns != undefined
         ? deserializeAws_restJson1ResourceArnList(output.resourceArns, context)
         : undefined,
     resourceTags:
-      output.resourceTags !== undefined && output.resourceTags !== null
-        ? deserializeAws_restJson1TagMap(output.resourceTags, context)
-        : undefined,
+      output.resourceTags != undefined ? deserializeAws_restJson1TagMap(output.resourceTags, context) : undefined,
     resourceType: __expectString(output.resourceType),
     selectionMode: __expectString(output.selectionMode),
   } as any;
@@ -2487,7 +2406,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilter = (
   return {
     path: __expectString(output.path),
     values:
-      output.values !== undefined && output.values !== null
+      output.values != undefined
         ? deserializeAws_restJson1ExperimentTemplateTargetFilterValues(output.values, context)
         : undefined,
   } as any;
@@ -2581,7 +2500,7 @@ const deserializeAws_restJson1TargetResourceType = (output: any, context: __Serd
   return {
     description: __expectString(output.description),
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1TargetResourceTypeParameterMap(output.parameters, context)
         : undefined,
     resourceType: __expectString(output.resourceType),

@@ -2177,8 +2177,8 @@ const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.Password != undefined && { Password: input.Password }),
   };
 };
 
@@ -2187,7 +2187,7 @@ const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2196,8 +2196,8 @@ const serializeAws_json1_1CheckDomainAvailabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.IdnLangCode != undefined && { IdnLangCode: input.IdnLangCode }),
   };
 };
 
@@ -2206,35 +2206,35 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthCode !== undefined && input.AuthCode !== null && { AuthCode: input.AuthCode }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.AuthCode != undefined && { AuthCode: input.AuthCode }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1ContactDetail = (input: ContactDetail, context: __SerdeContext): any => {
   return {
-    ...(input.AddressLine1 !== undefined && input.AddressLine1 !== null && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 !== undefined && input.AddressLine2 !== null && { AddressLine2: input.AddressLine2 }),
-    ...(input.City !== undefined && input.City !== null && { City: input.City }),
-    ...(input.ContactType !== undefined && input.ContactType !== null && { ContactType: input.ContactType }),
-    ...(input.CountryCode !== undefined && input.CountryCode !== null && { CountryCode: input.CountryCode }),
-    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
-    ...(input.ExtraParams !== undefined &&
-      input.ExtraParams !== null && { ExtraParams: serializeAws_json1_1ExtraParamList(input.ExtraParams, context) }),
-    ...(input.Fax !== undefined && input.Fax !== null && { Fax: input.Fax }),
-    ...(input.FirstName !== undefined && input.FirstName !== null && { FirstName: input.FirstName }),
-    ...(input.LastName !== undefined && input.LastName !== null && { LastName: input.LastName }),
-    ...(input.OrganizationName !== undefined &&
-      input.OrganizationName !== null && { OrganizationName: input.OrganizationName }),
-    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
-    ...(input.ZipCode !== undefined && input.ZipCode !== null && { ZipCode: input.ZipCode }),
+    ...(input.AddressLine1 != undefined && { AddressLine1: input.AddressLine1 }),
+    ...(input.AddressLine2 != undefined && { AddressLine2: input.AddressLine2 }),
+    ...(input.City != undefined && { City: input.City }),
+    ...(input.ContactType != undefined && { ContactType: input.ContactType }),
+    ...(input.CountryCode != undefined && { CountryCode: input.CountryCode }),
+    ...(input.Email != undefined && { Email: input.Email }),
+    ...(input.ExtraParams != undefined && {
+      ExtraParams: serializeAws_json1_1ExtraParamList(input.ExtraParams, context),
+    }),
+    ...(input.Fax != undefined && { Fax: input.Fax }),
+    ...(input.FirstName != undefined && { FirstName: input.FirstName }),
+    ...(input.LastName != undefined && { LastName: input.LastName }),
+    ...(input.OrganizationName != undefined && { OrganizationName: input.OrganizationName }),
+    ...(input.PhoneNumber != undefined && { PhoneNumber: input.PhoneNumber }),
+    ...(input.State != undefined && { State: input.State }),
+    ...(input.ZipCode != undefined && { ZipCode: input.ZipCode }),
   };
 };
 
 const serializeAws_json1_1DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2243,9 +2243,10 @@ const serializeAws_json1_1DeleteTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.TagsToDelete !== undefined &&
-      input.TagsToDelete !== null && { TagsToDelete: serializeAws_json1_1TagKeyList(input.TagsToDelete, context) }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.TagsToDelete != undefined && {
+      TagsToDelete: serializeAws_json1_1TagKeyList(input.TagsToDelete, context),
+    }),
   };
 };
 
@@ -2254,7 +2255,7 @@ const serializeAws_json1_1DisableDomainAutoRenewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2263,7 +2264,7 @@ const serializeAws_json1_1DisableDomainTransferLockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2272,7 +2273,7 @@ const serializeAws_json1_1EnableDomainAutoRenewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2281,14 +2282,14 @@ const serializeAws_json1_1EnableDomainTransferLockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1ExtraParam = (input: ExtraParam, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -2305,10 +2306,9 @@ const serializeAws_json1_1ExtraParamList = (input: ExtraParam[], context: __Serd
 
 const serializeAws_json1_1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1Values(input.Values, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Operator != undefined && { Operator: input.Operator }),
+    ...(input.Values != undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
 
@@ -2328,13 +2328,13 @@ const serializeAws_json1_1GetContactReachabilityStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
+    ...(input.domainName != undefined && { domainName: input.domainName }),
   };
 };
 
 const serializeAws_json1_1GetDomainDetailRequest = (input: GetDomainDetailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2343,10 +2343,9 @@ const serializeAws_json1_1GetDomainSuggestionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.OnlyAvailable !== undefined && input.OnlyAvailable !== null && { OnlyAvailable: input.OnlyAvailable }),
-    ...(input.SuggestionCount !== undefined &&
-      input.SuggestionCount !== null && { SuggestionCount: input.SuggestionCount }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.OnlyAvailable != undefined && { OnlyAvailable: input.OnlyAvailable }),
+    ...(input.SuggestionCount != undefined && { SuggestionCount: input.SuggestionCount }),
   };
 };
 
@@ -2355,7 +2354,7 @@ const serializeAws_json1_1GetOperationDetailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OperationId !== undefined && input.OperationId !== null && { OperationId: input.OperationId }),
+    ...(input.OperationId != undefined && { OperationId: input.OperationId }),
   };
 };
 
@@ -2372,33 +2371,30 @@ const serializeAws_json1_1GlueIpList = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.FilterConditions !== undefined &&
-      input.FilterConditions !== null && {
-        FilterConditions: serializeAws_json1_1FilterConditions(input.FilterConditions, context),
-      }),
-    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
-    ...(input.SortCondition !== undefined &&
-      input.SortCondition !== null && {
-        SortCondition: serializeAws_json1_1SortCondition(input.SortCondition, context),
-      }),
+    ...(input.FilterConditions != undefined && {
+      FilterConditions: serializeAws_json1_1FilterConditions(input.FilterConditions, context),
+    }),
+    ...(input.Marker != undefined && { Marker: input.Marker }),
+    ...(input.MaxItems != undefined && { MaxItems: input.MaxItems }),
+    ...(input.SortCondition != undefined && {
+      SortCondition: serializeAws_json1_1SortCondition(input.SortCondition, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
-    ...(input.SubmittedSince !== undefined &&
-      input.SubmittedSince !== null && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
+    ...(input.Marker != undefined && { Marker: input.Marker }),
+    ...(input.MaxItems != undefined && { MaxItems: input.MaxItems }),
+    ...(input.SubmittedSince != undefined && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListPricesRequest = (input: ListPricesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
-    ...(input.Tld !== undefined && input.Tld !== null && { Tld: input.Tld }),
+    ...(input.Marker != undefined && { Marker: input.Marker }),
+    ...(input.MaxItems != undefined && { MaxItems: input.MaxItems }),
+    ...(input.Tld != undefined && { Tld: input.Tld }),
   };
 };
 
@@ -2407,15 +2403,14 @@ const serializeAws_json1_1ListTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1Nameserver = (input: Nameserver, context: __SerdeContext): any => {
   return {
-    ...(input.GlueIps !== undefined &&
-      input.GlueIps !== null && { GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.GlueIps != undefined && { GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
@@ -2432,27 +2427,26 @@ const serializeAws_json1_1NameserverList = (input: Nameserver[], context: __Serd
 
 const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AdminContact !== undefined &&
-      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
-    ...(input.AutoRenew !== undefined && input.AutoRenew !== null && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined &&
-      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
-    ...(input.PrivacyProtectAdminContact !== undefined &&
-      input.PrivacyProtectAdminContact !== null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
-    ...(input.PrivacyProtectRegistrantContact !== undefined &&
-      input.PrivacyProtectRegistrantContact !== null && {
-        PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-      }),
-    ...(input.PrivacyProtectTechContact !== undefined &&
-      input.PrivacyProtectTechContact !== null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
-    ...(input.RegistrantContact !== undefined &&
-      input.RegistrantContact !== null && {
-        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-      }),
-    ...(input.TechContact !== undefined &&
-      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
+    ...(input.AdminContact != undefined && {
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
+    }),
+    ...(input.AutoRenew != undefined && { AutoRenew: input.AutoRenew }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.DurationInYears != undefined && { DurationInYears: input.DurationInYears }),
+    ...(input.IdnLangCode != undefined && { IdnLangCode: input.IdnLangCode }),
+    ...(input.PrivacyProtectAdminContact != undefined && {
+      PrivacyProtectAdminContact: input.PrivacyProtectAdminContact,
+    }),
+    ...(input.PrivacyProtectRegistrantContact != undefined && {
+      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
+    }),
+    ...(input.PrivacyProtectTechContact != undefined && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
+    ...(input.RegistrantContact != undefined && {
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+    }),
+    ...(input.TechContact != undefined && {
+      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
+    }),
   };
 };
 
@@ -2461,17 +2455,15 @@ const serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CurrentExpiryYear !== undefined &&
-      input.CurrentExpiryYear !== null && { CurrentExpiryYear: input.CurrentExpiryYear }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined &&
-      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
+    ...(input.CurrentExpiryYear != undefined && { CurrentExpiryYear: input.CurrentExpiryYear }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.DurationInYears != undefined && { DurationInYears: input.DurationInYears }),
   };
 };
 
@@ -2480,7 +2472,7 @@ const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
+    ...(input.domainName != undefined && { domainName: input.domainName }),
   };
 };
 
@@ -2489,21 +2481,21 @@ const serializeAws_json1_1RetrieveDomainAuthCodeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
 const serializeAws_json1_1SortCondition = (input: SortCondition, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.SortOrder != undefined && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -2531,30 +2523,30 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TransferDomainRequest = (input: TransferDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AdminContact !== undefined &&
-      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
-    ...(input.AuthCode !== undefined && input.AuthCode !== null && { AuthCode: input.AuthCode }),
-    ...(input.AutoRenew !== undefined && input.AutoRenew !== null && { AutoRenew: input.AutoRenew }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.DurationInYears !== undefined &&
-      input.DurationInYears !== null && { DurationInYears: input.DurationInYears }),
-    ...(input.IdnLangCode !== undefined && input.IdnLangCode !== null && { IdnLangCode: input.IdnLangCode }),
-    ...(input.Nameservers !== undefined &&
-      input.Nameservers !== null && { Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context) }),
-    ...(input.PrivacyProtectAdminContact !== undefined &&
-      input.PrivacyProtectAdminContact !== null && { PrivacyProtectAdminContact: input.PrivacyProtectAdminContact }),
-    ...(input.PrivacyProtectRegistrantContact !== undefined &&
-      input.PrivacyProtectRegistrantContact !== null && {
-        PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
-      }),
-    ...(input.PrivacyProtectTechContact !== undefined &&
-      input.PrivacyProtectTechContact !== null && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
-    ...(input.RegistrantContact !== undefined &&
-      input.RegistrantContact !== null && {
-        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-      }),
-    ...(input.TechContact !== undefined &&
-      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
+    ...(input.AdminContact != undefined && {
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
+    }),
+    ...(input.AuthCode != undefined && { AuthCode: input.AuthCode }),
+    ...(input.AutoRenew != undefined && { AutoRenew: input.AutoRenew }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.DurationInYears != undefined && { DurationInYears: input.DurationInYears }),
+    ...(input.IdnLangCode != undefined && { IdnLangCode: input.IdnLangCode }),
+    ...(input.Nameservers != undefined && {
+      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context),
+    }),
+    ...(input.PrivacyProtectAdminContact != undefined && {
+      PrivacyProtectAdminContact: input.PrivacyProtectAdminContact,
+    }),
+    ...(input.PrivacyProtectRegistrantContact != undefined && {
+      PrivacyProtectRegistrantContact: input.PrivacyProtectRegistrantContact,
+    }),
+    ...(input.PrivacyProtectTechContact != undefined && { PrivacyProtectTechContact: input.PrivacyProtectTechContact }),
+    ...(input.RegistrantContact != undefined && {
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+    }),
+    ...(input.TechContact != undefined && {
+      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
+    }),
   };
 };
 
@@ -2563,8 +2555,8 @@ const serializeAws_json1_1TransferDomainToAnotherAwsAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
   };
 };
 
@@ -2573,11 +2565,10 @@ const serializeAws_json1_1UpdateDomainContactPrivacyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminPrivacy !== undefined && input.AdminPrivacy !== null && { AdminPrivacy: input.AdminPrivacy }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.RegistrantPrivacy !== undefined &&
-      input.RegistrantPrivacy !== null && { RegistrantPrivacy: input.RegistrantPrivacy }),
-    ...(input.TechPrivacy !== undefined && input.TechPrivacy !== null && { TechPrivacy: input.TechPrivacy }),
+    ...(input.AdminPrivacy != undefined && { AdminPrivacy: input.AdminPrivacy }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.RegistrantPrivacy != undefined && { RegistrantPrivacy: input.RegistrantPrivacy }),
+    ...(input.TechPrivacy != undefined && { TechPrivacy: input.TechPrivacy }),
   };
 };
 
@@ -2586,15 +2577,16 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminContact !== undefined &&
-      input.AdminContact !== null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.RegistrantContact !== undefined &&
-      input.RegistrantContact !== null && {
-        RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
-      }),
-    ...(input.TechContact !== undefined &&
-      input.TechContact !== null && { TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context) }),
+    ...(input.AdminContact != undefined && {
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context),
+    }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.RegistrantContact != undefined && {
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
+    }),
+    ...(input.TechContact != undefined && {
+      TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context),
+    }),
   };
 };
 
@@ -2603,10 +2595,11 @@ const serializeAws_json1_1UpdateDomainNameserversRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FIAuthKey !== undefined && input.FIAuthKey !== null && { FIAuthKey: input.FIAuthKey }),
-    ...(input.Nameservers !== undefined &&
-      input.Nameservers !== null && { Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context) }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FIAuthKey != undefined && { FIAuthKey: input.FIAuthKey }),
+    ...(input.Nameservers != undefined && {
+      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context),
+    }),
   };
 };
 
@@ -2615,9 +2608,8 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.TagsToUpdate !== undefined &&
-      input.TagsToUpdate !== null && { TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context) }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.TagsToUpdate != undefined && { TagsToUpdate: serializeAws_json1_1TagList(input.TagsToUpdate, context) }),
   };
 };
 
@@ -2634,10 +2626,10 @@ const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): a
 
 const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.End !== undefined && input.End !== null && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
-    ...(input.MaxItems !== undefined && input.MaxItems !== null && { MaxItems: input.MaxItems }),
-    ...(input.Start !== undefined && input.Start !== null && { Start: Math.round(input.Start.getTime() / 1000) }),
+    ...(input.End != undefined && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Marker != undefined && { Marker: input.Marker }),
+    ...(input.MaxItems != undefined && { MaxItems: input.MaxItems }),
+    ...(input.Start != undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 
@@ -2653,7 +2645,7 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse = 
 const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContext): BillingRecord => {
   return {
     BillDate:
-      output.BillDate !== undefined && output.BillDate !== null
+      output.BillDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.BillDate)))
         : undefined,
     DomainName: __expectString(output.DomainName),
@@ -2699,7 +2691,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
 ): CheckDomainTransferabilityResponse => {
   return {
     Transferability:
-      output.Transferability !== undefined && output.Transferability !== null
+      output.Transferability != undefined
         ? deserializeAws_json1_1DomainTransferability(output.Transferability, context)
         : undefined,
   } as any;
@@ -2714,9 +2706,7 @@ const deserializeAws_json1_1ContactDetail = (output: any, context: __SerdeContex
     CountryCode: __expectString(output.CountryCode),
     Email: __expectString(output.Email),
     ExtraParams:
-      output.ExtraParams !== undefined && output.ExtraParams !== null
-        ? deserializeAws_json1_1ExtraParamList(output.ExtraParams, context)
-        : undefined,
+      output.ExtraParams != undefined ? deserializeAws_json1_1ExtraParamList(output.ExtraParams, context) : undefined,
     Fax: __expectString(output.Fax),
     FirstName: __expectString(output.FirstName),
     LastName: __expectString(output.LastName),
@@ -2765,24 +2755,24 @@ const deserializeAws_json1_1DomainLimitExceeded = (output: any, context: __Serde
 const deserializeAws_json1_1DomainPrice = (output: any, context: __SerdeContext): DomainPrice => {
   return {
     ChangeOwnershipPrice:
-      output.ChangeOwnershipPrice !== undefined && output.ChangeOwnershipPrice !== null
+      output.ChangeOwnershipPrice != undefined
         ? deserializeAws_json1_1PriceWithCurrency(output.ChangeOwnershipPrice, context)
         : undefined,
     Name: __expectString(output.Name),
     RegistrationPrice:
-      output.RegistrationPrice !== undefined && output.RegistrationPrice !== null
+      output.RegistrationPrice != undefined
         ? deserializeAws_json1_1PriceWithCurrency(output.RegistrationPrice, context)
         : undefined,
     RenewalPrice:
-      output.RenewalPrice !== undefined && output.RenewalPrice !== null
+      output.RenewalPrice != undefined
         ? deserializeAws_json1_1PriceWithCurrency(output.RenewalPrice, context)
         : undefined,
     RestorationPrice:
-      output.RestorationPrice !== undefined && output.RestorationPrice !== null
+      output.RestorationPrice != undefined
         ? deserializeAws_json1_1PriceWithCurrency(output.RestorationPrice, context)
         : undefined,
     TransferPrice:
-      output.TransferPrice !== undefined && output.TransferPrice !== null
+      output.TransferPrice != undefined
         ? deserializeAws_json1_1PriceWithCurrency(output.TransferPrice, context)
         : undefined,
   } as any;
@@ -2836,9 +2826,7 @@ const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContex
     AutoRenew: __expectBoolean(output.AutoRenew),
     DomainName: __expectString(output.DomainName),
     Expiry:
-      output.Expiry !== undefined && output.Expiry !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiry)))
-        : undefined,
+      output.Expiry != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiry))) : undefined,
     TransferLock: __expectBoolean(output.TransferLock),
   } as any;
 };
@@ -2920,27 +2908,23 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     AbuseContactEmail: __expectString(output.AbuseContactEmail),
     AbuseContactPhone: __expectString(output.AbuseContactPhone),
     AdminContact:
-      output.AdminContact !== undefined && output.AdminContact !== null
-        ? deserializeAws_json1_1ContactDetail(output.AdminContact, context)
-        : undefined,
+      output.AdminContact != undefined ? deserializeAws_json1_1ContactDetail(output.AdminContact, context) : undefined,
     AdminPrivacy: __expectBoolean(output.AdminPrivacy),
     AutoRenew: __expectBoolean(output.AutoRenew),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DnsSec: __expectString(output.DnsSec),
     DomainName: __expectString(output.DomainName),
     ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+      output.ExpirationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     Nameservers:
-      output.Nameservers !== undefined && output.Nameservers !== null
-        ? deserializeAws_json1_1NameserverList(output.Nameservers, context)
-        : undefined,
+      output.Nameservers != undefined ? deserializeAws_json1_1NameserverList(output.Nameservers, context) : undefined,
     RegistrantContact:
-      output.RegistrantContact !== undefined && output.RegistrantContact !== null
+      output.RegistrantContact != undefined
         ? deserializeAws_json1_1ContactDetail(output.RegistrantContact, context)
         : undefined,
     RegistrantPrivacy: __expectBoolean(output.RegistrantPrivacy),
@@ -2949,16 +2933,12 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
     RegistryDomainId: __expectString(output.RegistryDomainId),
     Reseller: __expectString(output.Reseller),
     StatusList:
-      output.StatusList !== undefined && output.StatusList !== null
-        ? deserializeAws_json1_1DomainStatusList(output.StatusList, context)
-        : undefined,
+      output.StatusList != undefined ? deserializeAws_json1_1DomainStatusList(output.StatusList, context) : undefined,
     TechContact:
-      output.TechContact !== undefined && output.TechContact !== null
-        ? deserializeAws_json1_1ContactDetail(output.TechContact, context)
-        : undefined,
+      output.TechContact != undefined ? deserializeAws_json1_1ContactDetail(output.TechContact, context) : undefined,
     TechPrivacy: __expectBoolean(output.TechPrivacy),
     UpdatedDate:
-      output.UpdatedDate !== undefined && output.UpdatedDate !== null
+      output.UpdatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedDate)))
         : undefined,
     WhoIsServer: __expectString(output.WhoIsServer),
@@ -2971,7 +2951,7 @@ const deserializeAws_json1_1GetDomainSuggestionsResponse = (
 ): GetDomainSuggestionsResponse => {
   return {
     SuggestionsList:
-      output.SuggestionsList !== undefined && output.SuggestionsList !== null
+      output.SuggestionsList != undefined
         ? deserializeAws_json1_1DomainSuggestionsList(output.SuggestionsList, context)
         : undefined,
   } as any;
@@ -2987,7 +2967,7 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
     OperationId: __expectString(output.OperationId),
     Status: __expectString(output.Status),
     SubmittedDate:
-      output.SubmittedDate !== undefined && output.SubmittedDate !== null
+      output.SubmittedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
         : undefined,
     Type: __expectString(output.Type),
@@ -3014,10 +2994,7 @@ const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
   return {
-    Domains:
-      output.Domains !== undefined && output.Domains !== null
-        ? deserializeAws_json1_1DomainSummaryList(output.Domains, context)
-        : undefined,
+    Domains: output.Domains != undefined ? deserializeAws_json1_1DomainSummaryList(output.Domains, context) : undefined,
     NextPageMarker: __expectString(output.NextPageMarker),
   } as any;
 };
@@ -3026,7 +3003,7 @@ const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __Se
   return {
     NextPageMarker: __expectString(output.NextPageMarker),
     Operations:
-      output.Operations !== undefined && output.Operations !== null
+      output.Operations != undefined
         ? deserializeAws_json1_1OperationSummaryList(output.Operations, context)
         : undefined,
   } as any;
@@ -3035,10 +3012,7 @@ const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __Se
 const deserializeAws_json1_1ListPricesResponse = (output: any, context: __SerdeContext): ListPricesResponse => {
   return {
     NextPageMarker: __expectString(output.NextPageMarker),
-    Prices:
-      output.Prices !== undefined && output.Prices !== null
-        ? deserializeAws_json1_1DomainPriceList(output.Prices, context)
-        : undefined,
+    Prices: output.Prices != undefined ? deserializeAws_json1_1DomainPriceList(output.Prices, context) : undefined,
   } as any;
 };
 
@@ -3047,19 +3021,13 @@ const deserializeAws_json1_1ListTagsForDomainResponse = (
   context: __SerdeContext
 ): ListTagsForDomainResponse => {
   return {
-    TagList:
-      output.TagList !== undefined && output.TagList !== null
-        ? deserializeAws_json1_1TagList(output.TagList, context)
-        : undefined,
+    TagList: output.TagList != undefined ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext): Nameserver => {
   return {
-    GlueIps:
-      output.GlueIps !== undefined && output.GlueIps !== null
-        ? deserializeAws_json1_1GlueIpList(output.GlueIps, context)
-        : undefined,
+    GlueIps: output.GlueIps != undefined ? deserializeAws_json1_1GlueIpList(output.GlueIps, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
@@ -3087,7 +3055,7 @@ const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeCon
     OperationId: __expectString(output.OperationId),
     Status: __expectString(output.Status),
     SubmittedDate:
-      output.SubmittedDate !== undefined && output.SubmittedDate !== null
+      output.SubmittedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
         : undefined,
     Type: __expectString(output.Type),
@@ -3238,7 +3206,7 @@ const deserializeAws_json1_1UpdateTagsForDomainResponse = (
 const deserializeAws_json1_1ViewBillingResponse = (output: any, context: __SerdeContext): ViewBillingResponse => {
   return {
     BillingRecords:
-      output.BillingRecords !== undefined && output.BillingRecords !== null
+      output.BillingRecords != undefined
         ? deserializeAws_json1_1BillingRecords(output.BillingRecords, context)
         : undefined,
     NextPageMarker: __expectString(output.NextPageMarker),

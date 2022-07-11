@@ -1798,27 +1798,25 @@ const serializeAws_json1_1CancelRotateSecretRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddReplicaRegions !== undefined &&
-      input.AddReplicaRegions !== null && {
-        AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
-      }),
+    ...(input.AddReplicaRegions != undefined && {
+      AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+    }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ForceOverwriteReplicaSecret !== undefined &&
-      input.ForceOverwriteReplicaSecret !== null && { ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SecretBinary !== undefined &&
-      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.ForceOverwriteReplicaSecret != undefined && {
+      ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret,
+    }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.SecretBinary != undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretString != undefined && { SecretString: input.SecretString }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
@@ -1827,31 +1825,30 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1DeleteSecretRequest = (input: DeleteSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ForceDeleteWithoutRecovery !== undefined &&
-      input.ForceDeleteWithoutRecovery !== null && { ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery }),
-    ...(input.RecoveryWindowInDays !== undefined &&
-      input.RecoveryWindowInDays !== null && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.ForceDeleteWithoutRecovery != undefined && {
+      ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery,
+    }),
+    ...(input.RecoveryWindowInDays != undefined && { RecoveryWindowInDays: input.RecoveryWindowInDays }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1DescribeSecretRequest = (input: DescribeSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Values != undefined && { Values: serializeAws_json1_1FilterValuesStringList(input.Values, context) }),
   };
 };
 
@@ -1882,21 +1879,14 @@ const serializeAws_json1_1GetRandomPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExcludeCharacters !== undefined &&
-      input.ExcludeCharacters !== null && { ExcludeCharacters: input.ExcludeCharacters }),
-    ...(input.ExcludeLowercase !== undefined &&
-      input.ExcludeLowercase !== null && { ExcludeLowercase: input.ExcludeLowercase }),
-    ...(input.ExcludeNumbers !== undefined &&
-      input.ExcludeNumbers !== null && { ExcludeNumbers: input.ExcludeNumbers }),
-    ...(input.ExcludePunctuation !== undefined &&
-      input.ExcludePunctuation !== null && { ExcludePunctuation: input.ExcludePunctuation }),
-    ...(input.ExcludeUppercase !== undefined &&
-      input.ExcludeUppercase !== null && { ExcludeUppercase: input.ExcludeUppercase }),
-    ...(input.IncludeSpace !== undefined && input.IncludeSpace !== null && { IncludeSpace: input.IncludeSpace }),
-    ...(input.PasswordLength !== undefined &&
-      input.PasswordLength !== null && { PasswordLength: input.PasswordLength }),
-    ...(input.RequireEachIncludedType !== undefined &&
-      input.RequireEachIncludedType !== null && { RequireEachIncludedType: input.RequireEachIncludedType }),
+    ...(input.ExcludeCharacters != undefined && { ExcludeCharacters: input.ExcludeCharacters }),
+    ...(input.ExcludeLowercase != undefined && { ExcludeLowercase: input.ExcludeLowercase }),
+    ...(input.ExcludeNumbers != undefined && { ExcludeNumbers: input.ExcludeNumbers }),
+    ...(input.ExcludePunctuation != undefined && { ExcludePunctuation: input.ExcludePunctuation }),
+    ...(input.ExcludeUppercase != undefined && { ExcludeUppercase: input.ExcludeUppercase }),
+    ...(input.IncludeSpace != undefined && { IncludeSpace: input.IncludeSpace }),
+    ...(input.PasswordLength != undefined && { PasswordLength: input.PasswordLength }),
+    ...(input.RequireEachIncludedType != undefined && { RequireEachIncludedType: input.RequireEachIncludedType }),
   };
 };
 
@@ -1905,25 +1895,24 @@ const serializeAws_json1_1GetResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1GetSecretValueRequest = (input: GetSecretValueRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.VersionId !== undefined && input.VersionId !== null && { VersionId: input.VersionId }),
-    ...(input.VersionStage !== undefined && input.VersionStage !== null && { VersionStage: input.VersionStage }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.VersionId != undefined && { VersionId: input.VersionId }),
+    ...(input.VersionStage != undefined && { VersionStage: input.VersionStage }),
   };
 };
 
 const serializeAws_json1_1ListSecretsRequest = (input: ListSecretsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FiltersListType(input.Filters, context) }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.SortOrder != undefined && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -1932,11 +1921,10 @@ const serializeAws_json1_1ListSecretVersionIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IncludeDeprecated !== undefined &&
-      input.IncludeDeprecated !== null && { IncludeDeprecated: input.IncludeDeprecated }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.IncludeDeprecated != undefined && { IncludeDeprecated: input.IncludeDeprecated }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
@@ -1945,25 +1933,21 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BlockPublicPolicy !== undefined &&
-      input.BlockPublicPolicy !== null && { BlockPublicPolicy: input.BlockPublicPolicy }),
-    ...(input.ResourcePolicy !== undefined &&
-      input.ResourcePolicy !== null && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.BlockPublicPolicy != undefined && { BlockPublicPolicy: input.BlockPublicPolicy }),
+    ...(input.ResourcePolicy != undefined && { ResourcePolicy: input.ResourcePolicy }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SecretBinary !== undefined &&
-      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
-    ...(input.VersionStages !== undefined &&
-      input.VersionStages !== null && {
-        VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
-      }),
+    ...(input.SecretBinary != undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.SecretString != undefined && { SecretString: input.SecretString }),
+    ...(input.VersionStages != undefined && {
+      VersionStages: serializeAws_json1_1SecretVersionStagesType(input.VersionStages, context),
+    }),
   };
 };
 
@@ -1972,11 +1956,10 @@ const serializeAws_json1_1RemoveRegionsFromReplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RemoveReplicaRegions !== undefined &&
-      input.RemoveReplicaRegions !== null && {
-        RemoveReplicaRegions: serializeAws_json1_1RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
-      }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.RemoveReplicaRegions != undefined && {
+      RemoveReplicaRegions: serializeAws_json1_1RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
+    }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
@@ -1993,8 +1976,8 @@ const serializeAws_json1_1RemoveReplicaRegionListType = (input: string[], contex
 
 const serializeAws_json1_1ReplicaRegionType = (input: ReplicaRegionType, context: __SerdeContext): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Region != undefined && { Region: input.Region }),
   };
 };
 
@@ -2003,44 +1986,39 @@ const serializeAws_json1_1ReplicateSecretToRegionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AddReplicaRegions !== undefined &&
-      input.AddReplicaRegions !== null && {
-        AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
-      }),
-    ...(input.ForceOverwriteReplicaSecret !== undefined &&
-      input.ForceOverwriteReplicaSecret !== null && { ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.AddReplicaRegions != undefined && {
+      AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+    }),
+    ...(input.ForceOverwriteReplicaSecret != undefined && {
+      ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret,
+    }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.RotateImmediately !== undefined &&
-      input.RotateImmediately !== null && { RotateImmediately: input.RotateImmediately }),
-    ...(input.RotationLambdaARN !== undefined &&
-      input.RotationLambdaARN !== null && { RotationLambdaARN: input.RotationLambdaARN }),
-    ...(input.RotationRules !== undefined &&
-      input.RotationRules !== null && {
-        RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
-      }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.RotateImmediately != undefined && { RotateImmediately: input.RotateImmediately }),
+    ...(input.RotationLambdaARN != undefined && { RotationLambdaARN: input.RotationLambdaARN }),
+    ...(input.RotationRules != undefined && {
+      RotationRules: serializeAws_json1_1RotationRulesType(input.RotationRules, context),
+    }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context: __SerdeContext): any => {
   return {
-    ...(input.AutomaticallyAfterDays !== undefined &&
-      input.AutomaticallyAfterDays !== null && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
-    ...(input.Duration !== undefined && input.Duration !== null && { Duration: input.Duration }),
-    ...(input.ScheduleExpression !== undefined &&
-      input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.AutomaticallyAfterDays != undefined && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
+    ...(input.Duration != undefined && { Duration: input.Duration }),
+    ...(input.ScheduleExpression != undefined && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
@@ -2060,14 +2038,14 @@ const serializeAws_json1_1StopReplicationToReplicaRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -2095,29 +2073,26 @@ const serializeAws_json1_1TagListType = (input: Tag[], context: __SerdeContext):
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagListType(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateSecretRequest = (input: UpdateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.SecretBinary !== undefined &&
-      input.SecretBinary !== null && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.SecretString !== undefined && input.SecretString !== null && { SecretString: input.SecretString }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.SecretBinary != undefined && { SecretBinary: context.base64Encoder(input.SecretBinary) }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.SecretString != undefined && { SecretString: input.SecretString }),
   };
 };
 
@@ -2126,12 +2101,10 @@ const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MoveToVersionId !== undefined &&
-      input.MoveToVersionId !== null && { MoveToVersionId: input.MoveToVersionId }),
-    ...(input.RemoveFromVersionId !== undefined &&
-      input.RemoveFromVersionId !== null && { RemoveFromVersionId: input.RemoveFromVersionId }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
-    ...(input.VersionStage !== undefined && input.VersionStage !== null && { VersionStage: input.VersionStage }),
+    ...(input.MoveToVersionId != undefined && { MoveToVersionId: input.MoveToVersionId }),
+    ...(input.RemoveFromVersionId != undefined && { RemoveFromVersionId: input.RemoveFromVersionId }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
+    ...(input.VersionStage != undefined && { VersionStage: input.VersionStage }),
   };
 };
 
@@ -2140,9 +2113,8 @@ const serializeAws_json1_1ValidateResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourcePolicy !== undefined &&
-      input.ResourcePolicy !== null && { ResourcePolicy: input.ResourcePolicy }),
-    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+    ...(input.ResourcePolicy != undefined && { ResourcePolicy: input.ResourcePolicy }),
+    ...(input.SecretId != undefined && { SecretId: input.SecretId }),
   };
 };
 
@@ -2162,7 +2134,7 @@ const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __Serd
     ARN: __expectString(output.ARN),
     Name: __expectString(output.Name),
     ReplicationStatus:
-      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+      output.ReplicationStatus != undefined
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
     VersionId: __expectString(output.VersionId),
@@ -2189,7 +2161,7 @@ const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __Serd
   return {
     ARN: __expectString(output.ARN),
     DeletionDate:
-      output.DeletionDate !== undefined && output.DeletionDate !== null
+      output.DeletionDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     Name: __expectString(output.Name),
@@ -2200,46 +2172,43 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
-      output.CreatedDate !== undefined && output.CreatedDate !== null
+      output.CreatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     DeletedDate:
-      output.DeletedDate !== undefined && output.DeletedDate !== null
+      output.DeletedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
         : undefined,
     Description: __expectString(output.Description),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
-      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+      output.LastAccessedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     LastChangedDate:
-      output.LastChangedDate !== undefined && output.LastChangedDate !== null
+      output.LastChangedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
         : undefined,
     LastRotatedDate:
-      output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
+      output.LastRotatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
     OwningService: __expectString(output.OwningService),
     PrimaryRegion: __expectString(output.PrimaryRegion),
     ReplicationStatus:
-      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+      output.ReplicationStatus != undefined
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
     RotationEnabled: __expectBoolean(output.RotationEnabled),
     RotationLambdaARN: __expectString(output.RotationLambdaARN),
     RotationRules:
-      output.RotationRules !== undefined && output.RotationRules !== null
+      output.RotationRules != undefined
         ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagListType(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagListType(output.Tags, context) : undefined,
     VersionIdsToStages:
-      output.VersionIdsToStages !== undefined && output.VersionIdsToStages !== null
+      output.VersionIdsToStages != undefined
         ? deserializeAws_json1_1SecretVersionsToStagesMapType(output.VersionIdsToStages, context)
         : undefined,
   } as any;
@@ -2275,18 +2244,15 @@ const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __Se
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
-      output.CreatedDate !== undefined && output.CreatedDate !== null
+      output.CreatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     Name: __expectString(output.Name),
-    SecretBinary:
-      output.SecretBinary !== undefined && output.SecretBinary !== null
-        ? context.base64Decoder(output.SecretBinary)
-        : undefined,
+    SecretBinary: output.SecretBinary != undefined ? context.base64Decoder(output.SecretBinary) : undefined,
     SecretString: __expectString(output.SecretString),
     VersionId: __expectString(output.VersionId),
     VersionStages:
-      output.VersionStages !== undefined && output.VersionStages !== null
+      output.VersionStages != undefined
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
         : undefined,
   } as any;
@@ -2347,9 +2313,7 @@ const deserializeAws_json1_1ListSecretsResponse = (output: any, context: __Serde
   return {
     NextToken: __expectString(output.NextToken),
     SecretList:
-      output.SecretList !== undefined && output.SecretList !== null
-        ? deserializeAws_json1_1SecretListType(output.SecretList, context)
-        : undefined,
+      output.SecretList != undefined ? deserializeAws_json1_1SecretListType(output.SecretList, context) : undefined,
   } as any;
 };
 
@@ -2362,9 +2326,7 @@ const deserializeAws_json1_1ListSecretVersionIdsResponse = (
     Name: __expectString(output.Name),
     NextToken: __expectString(output.NextToken),
     Versions:
-      output.Versions !== undefined && output.Versions !== null
-        ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context)
-        : undefined,
+      output.Versions != undefined ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context) : undefined,
   } as any;
 };
 
@@ -2408,7 +2370,7 @@ const deserializeAws_json1_1PutSecretValueResponse = (output: any, context: __Se
     Name: __expectString(output.Name),
     VersionId: __expectString(output.VersionId),
     VersionStages:
-      output.VersionStages !== undefined && output.VersionStages !== null
+      output.VersionStages != undefined
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
         : undefined,
   } as any;
@@ -2421,7 +2383,7 @@ const deserializeAws_json1_1RemoveRegionsFromReplicationResponse = (
   return {
     ARN: __expectString(output.ARN),
     ReplicationStatus:
-      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+      output.ReplicationStatus != undefined
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
   } as any;
@@ -2434,7 +2396,7 @@ const deserializeAws_json1_1ReplicateSecretToRegionsResponse = (
   return {
     ARN: __expectString(output.ARN),
     ReplicationStatus:
-      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+      output.ReplicationStatus != undefined
         ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
         : undefined,
   } as any;
@@ -2459,7 +2421,7 @@ const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __Ser
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
-      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+      output.LastAccessedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     Region: __expectString(output.Region),
@@ -2513,25 +2475,25 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
   return {
     ARN: __expectString(output.ARN),
     CreatedDate:
-      output.CreatedDate !== undefined && output.CreatedDate !== null
+      output.CreatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     DeletedDate:
-      output.DeletedDate !== undefined && output.DeletedDate !== null
+      output.DeletedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedDate)))
         : undefined,
     Description: __expectString(output.Description),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastAccessedDate:
-      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+      output.LastAccessedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     LastChangedDate:
-      output.LastChangedDate !== undefined && output.LastChangedDate !== null
+      output.LastChangedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastChangedDate)))
         : undefined,
     LastRotatedDate:
-      output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
+      output.LastRotatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRotatedDate)))
         : undefined,
     Name: __expectString(output.Name),
@@ -2540,17 +2502,14 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
     RotationEnabled: __expectBoolean(output.RotationEnabled),
     RotationLambdaARN: __expectString(output.RotationLambdaARN),
     RotationRules:
-      output.RotationRules !== undefined && output.RotationRules !== null
+      output.RotationRules != undefined
         ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
         : undefined,
     SecretVersionsToStages:
-      output.SecretVersionsToStages !== undefined && output.SecretVersionsToStages !== null
+      output.SecretVersionsToStages != undefined
         ? deserializeAws_json1_1SecretVersionsToStagesMapType(output.SecretVersionsToStages, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagListType(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagListType(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2572,20 +2531,18 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
 ): SecretVersionsListEntry => {
   return {
     CreatedDate:
-      output.CreatedDate !== undefined && output.CreatedDate !== null
+      output.CreatedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     KmsKeyIds:
-      output.KmsKeyIds !== undefined && output.KmsKeyIds !== null
-        ? deserializeAws_json1_1KmsKeyIdListType(output.KmsKeyIds, context)
-        : undefined,
+      output.KmsKeyIds != undefined ? deserializeAws_json1_1KmsKeyIdListType(output.KmsKeyIds, context) : undefined,
     LastAccessedDate:
-      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+      output.LastAccessedDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedDate)))
         : undefined,
     VersionId: __expectString(output.VersionId),
     VersionStages:
-      output.VersionStages !== undefined && output.VersionStages !== null
+      output.VersionStages != undefined
         ? deserializeAws_json1_1SecretVersionStagesType(output.VersionStages, context)
         : undefined,
   } as any;
@@ -2686,7 +2643,7 @@ const deserializeAws_json1_1ValidateResourcePolicyResponse = (
   return {
     PolicyValidationPassed: __expectBoolean(output.PolicyValidationPassed),
     ValidationErrors:
-      output.ValidationErrors !== undefined && output.ValidationErrors !== null
+      output.ValidationErrors != undefined
         ? deserializeAws_json1_1ValidationErrorsType(output.ValidationErrors, context)
         : undefined,
   } as any;

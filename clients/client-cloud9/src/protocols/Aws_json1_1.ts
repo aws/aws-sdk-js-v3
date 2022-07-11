@@ -1160,20 +1160,17 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.automaticStopTimeMinutes !== undefined &&
-      input.automaticStopTimeMinutes !== null && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.connectionType !== undefined &&
-      input.connectionType !== null && { connectionType: input.connectionType }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.dryRun !== undefined && input.dryRun !== null && { dryRun: input.dryRun }),
-    ...(input.imageId !== undefined && input.imageId !== null && { imageId: input.imageId }),
-    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.ownerArn !== undefined && input.ownerArn !== null && { ownerArn: input.ownerArn }),
-    ...(input.subnetId !== undefined && input.subnetId !== null && { subnetId: input.subnetId }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.automaticStopTimeMinutes != undefined && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
+    ...(input.clientRequestToken != undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.connectionType != undefined && { connectionType: input.connectionType }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.dryRun != undefined && { dryRun: input.dryRun }),
+    ...(input.imageId != undefined && { imageId: input.imageId }),
+    ...(input.instanceType != undefined && { instanceType: input.instanceType }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.ownerArn != undefined && { ownerArn: input.ownerArn }),
+    ...(input.subnetId != undefined && { subnetId: input.subnetId }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -1182,9 +1179,9 @@ const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
-    ...(input.permissions !== undefined && input.permissions !== null && { permissions: input.permissions }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
+    ...(input.permissions != undefined && { permissions: input.permissions }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1193,8 +1190,8 @@ const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1203,7 +1200,7 @@ const serializeAws_json1_1DeleteEnvironmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
   };
 };
 
@@ -1212,12 +1209,13 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.permissions !== undefined &&
-      input.permissions !== null && { permissions: serializeAws_json1_1PermissionsList(input.permissions, context) }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.permissions != undefined && {
+      permissions: serializeAws_json1_1PermissionsList(input.permissions, context),
+    }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1226,10 +1224,9 @@ const serializeAws_json1_1DescribeEnvironmentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentIds !== undefined &&
-      input.environmentIds !== null && {
-        environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context),
-      }),
+    ...(input.environmentIds != undefined && {
+      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context),
+    }),
   };
 };
 
@@ -1238,14 +1235,14 @@ const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
   };
 };
 
 const serializeAws_json1_1ListEnvironmentsRequest = (input: ListEnvironmentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -1254,7 +1251,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -1271,8 +1268,8 @@ const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], co
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1300,16 +1297,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1318,9 +1314,9 @@ const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
-    ...(input.permissions !== undefined && input.permissions !== null && { permissions: input.permissions }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
+    ...(input.permissions != undefined && { permissions: input.permissions }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1329,11 +1325,10 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
-    ...(input.managedCredentialsAction !== undefined &&
-      input.managedCredentialsAction !== null && { managedCredentialsAction: input.managedCredentialsAction }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.environmentId != undefined && { environmentId: input.environmentId }),
+    ...(input.managedCredentialsAction != undefined && { managedCredentialsAction: input.managedCredentialsAction }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -1379,9 +1374,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipResult = (
 ): CreateEnvironmentMembershipResult => {
   return {
     membership:
-      output.membership !== undefined && output.membership !== null
-        ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
-        : undefined,
+      output.membership != undefined ? deserializeAws_json1_1EnvironmentMember(output.membership, context) : undefined,
   } as any;
 };
 
@@ -1405,7 +1398,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
 ): DescribeEnvironmentMembershipsResult => {
   return {
     memberships:
-      output.memberships !== undefined && output.memberships !== null
+      output.memberships != undefined
         ? deserializeAws_json1_1EnvironmentMembersList(output.memberships, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -1418,7 +1411,7 @@ const deserializeAws_json1_1DescribeEnvironmentsResult = (
 ): DescribeEnvironmentsResult => {
   return {
     environments:
-      output.environments !== undefined && output.environments !== null
+      output.environments != undefined
         ? deserializeAws_json1_1EnvironmentList(output.environments, context)
         : undefined,
   } as any;
@@ -1441,9 +1434,7 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
     description: __expectString(output.description),
     id: __expectString(output.id),
     lifecycle:
-      output.lifecycle !== undefined && output.lifecycle !== null
-        ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context)
-        : undefined,
+      output.lifecycle != undefined ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context) : undefined,
     managedCredentialsStatus: __expectString(output.managedCredentialsStatus),
     name: __expectString(output.name),
     ownerArn: __expectString(output.ownerArn),
@@ -1487,7 +1478,7 @@ const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeCo
   return {
     environmentId: __expectString(output.environmentId),
     lastAccess:
-      output.lastAccess !== undefined && output.lastAccess !== null
+      output.lastAccess != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAccess)))
         : undefined,
     permissions: __expectString(output.permissions),
@@ -1538,7 +1529,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1ListEnvironmentsResult = (output: any, context: __SerdeContext): ListEnvironmentsResult => {
   return {
     environmentIds:
-      output.environmentIds !== undefined && output.environmentIds !== null
+      output.environmentIds != undefined
         ? deserializeAws_json1_1EnvironmentIdList(output.environmentIds, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -1550,10 +1541,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1609,9 +1597,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
 ): UpdateEnvironmentMembershipResult => {
   return {
     membership:
-      output.membership !== undefined && output.membership !== null
-        ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
-        : undefined,
+      output.membership != undefined ? deserializeAws_json1_1EnvironmentMember(output.membership, context) : undefined,
   } as any;
 };
 

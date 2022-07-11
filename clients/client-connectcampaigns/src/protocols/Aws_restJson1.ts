@@ -110,16 +110,15 @@ export const serializeAws_restJson1CreateCampaignCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns";
   let body: any;
   body = JSON.stringify({
-    ...(input.connectInstanceId !== undefined &&
-      input.connectInstanceId !== null && { connectInstanceId: input.connectInstanceId }),
-    ...(input.dialerConfig !== undefined &&
-      input.dialerConfig !== null && { dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.outboundCallConfig !== undefined &&
-      input.outboundCallConfig !== null && {
-        outboundCallConfig: serializeAws_restJson1OutboundCallConfig(input.outboundCallConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.connectInstanceId != undefined && { connectInstanceId: input.connectInstanceId }),
+    ...(input.dialerConfig != undefined && {
+      dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.outboundCallConfig != undefined && {
+      outboundCallConfig: serializeAws_restJson1OutboundCallConfig(input.outboundCallConfig, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -287,8 +286,9 @@ export const serializeAws_restJson1GetCampaignStateBatchCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-state";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignIds !== undefined &&
-      input.campaignIds !== null && { campaignIds: serializeAws_restJson1CampaignIdList(input.campaignIds, context) }),
+    ...(input.campaignIds != undefined && {
+      campaignIds: serializeAws_restJson1CampaignIdList(input.campaignIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -372,10 +372,9 @@ export const serializeAws_restJson1ListCampaignsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-summary";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_restJson1CampaignFilters(input.filters, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.filters != undefined && { filters: serializeAws_restJson1CampaignFilters(input.filters, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -465,10 +464,9 @@ export const serializeAws_restJson1PutDialRequestBatchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.dialRequests !== undefined &&
-      input.dialRequests !== null && {
-        dialRequests: serializeAws_restJson1DialRequestList(input.dialRequests, context),
-      }),
+    ...(input.dialRequests != undefined && {
+      dialRequests: serializeAws_restJson1DialRequestList(input.dialRequests, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -559,10 +557,9 @@ export const serializeAws_restJson1StartInstanceOnboardingJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.encryptionConfig !== undefined &&
-      input.encryptionConfig !== null && {
-        encryptionConfig: serializeAws_restJson1EncryptionConfig(input.encryptionConfig, context),
-      }),
+    ...(input.encryptionConfig != undefined && {
+      encryptionConfig: serializeAws_restJson1EncryptionConfig(input.encryptionConfig, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -623,7 +620,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -689,8 +686,9 @@ export const serializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.dialerConfig !== undefined &&
-      input.dialerConfig !== null && { dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context) }),
+    ...(input.dialerConfig != undefined && {
+      dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -723,7 +721,7 @@ export const serializeAws_restJson1UpdateCampaignNameCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != undefined && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -757,17 +755,14 @@ export const serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.answerMachineDetectionConfig !== undefined &&
-      input.answerMachineDetectionConfig !== null && {
-        answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
-          input.answerMachineDetectionConfig,
-          context
-        ),
-      }),
-    ...(input.connectContactFlowId !== undefined &&
-      input.connectContactFlowId !== null && { connectContactFlowId: input.connectContactFlowId }),
-    ...(input.connectSourcePhoneNumber !== undefined &&
-      input.connectSourcePhoneNumber !== null && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
+    ...(input.answerMachineDetectionConfig != undefined && {
+      answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
+        input.answerMachineDetectionConfig,
+        context
+      ),
+    }),
+    ...(input.connectContactFlowId != undefined && { connectContactFlowId: input.connectContactFlowId }),
+    ...(input.connectSourcePhoneNumber != undefined && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
   });
   return new __HttpRequest({
     protocol,
@@ -2203,10 +2198,9 @@ const serializeAws_restJson1AnswerMachineDetectionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.enableAnswerMachineDetection !== undefined &&
-      input.enableAnswerMachineDetection !== null && {
-        enableAnswerMachineDetection: input.enableAnswerMachineDetection,
-      }),
+    ...(input.enableAnswerMachineDetection != undefined && {
+      enableAnswerMachineDetection: input.enableAnswerMachineDetection,
+    }),
   };
 };
 
@@ -2224,10 +2218,9 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
 
 const serializeAws_restJson1CampaignFilters = (input: CampaignFilters, context: __SerdeContext): any => {
   return {
-    ...(input.instanceIdFilter !== undefined &&
-      input.instanceIdFilter !== null && {
-        instanceIdFilter: serializeAws_restJson1InstanceIdFilter(input.instanceIdFilter, context),
-      }),
+    ...(input.instanceIdFilter != undefined && {
+      instanceIdFilter: serializeAws_restJson1InstanceIdFilter(input.instanceIdFilter, context),
+    }),
   };
 };
 
@@ -2256,12 +2249,12 @@ const serializeAws_restJson1DialerConfig = (input: DialerConfig, context: __Serd
 
 const serializeAws_restJson1DialRequest = (input: DialRequest, context: __SerdeContext): any => {
   return {
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && { attributes: serializeAws_restJson1Attributes(input.attributes, context) }),
-    ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
-    ...(input.expirationTime !== undefined &&
-      input.expirationTime !== null && { expirationTime: input.expirationTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.phoneNumber !== undefined && input.phoneNumber !== null && { phoneNumber: input.phoneNumber }),
+    ...(input.attributes != undefined && { attributes: serializeAws_restJson1Attributes(input.attributes, context) }),
+    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
+    ...(input.expirationTime != undefined && {
+      expirationTime: input.expirationTime.toISOString().split(".")[0] + "Z",
+    }),
+    ...(input.phoneNumber != undefined && { phoneNumber: input.phoneNumber }),
   };
 };
 
@@ -2278,42 +2271,36 @@ const serializeAws_restJson1DialRequestList = (input: DialRequest[], context: __
 
 const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
-    ...(input.encryptionType !== undefined &&
-      input.encryptionType !== null && { encryptionType: input.encryptionType }),
-    ...(input.keyArn !== undefined && input.keyArn !== null && { keyArn: input.keyArn }),
+    ...(input.enabled != undefined && { enabled: input.enabled }),
+    ...(input.encryptionType != undefined && { encryptionType: input.encryptionType }),
+    ...(input.keyArn != undefined && { keyArn: input.keyArn }),
   };
 };
 
 const serializeAws_restJson1InstanceIdFilter = (input: InstanceIdFilter, context: __SerdeContext): any => {
   return {
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
 const serializeAws_restJson1OutboundCallConfig = (input: OutboundCallConfig, context: __SerdeContext): any => {
   return {
-    ...(input.answerMachineDetectionConfig !== undefined &&
-      input.answerMachineDetectionConfig !== null && {
-        answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
-          input.answerMachineDetectionConfig,
-          context
-        ),
-      }),
-    ...(input.connectContactFlowId !== undefined &&
-      input.connectContactFlowId !== null && { connectContactFlowId: input.connectContactFlowId }),
-    ...(input.connectQueueId !== undefined &&
-      input.connectQueueId !== null && { connectQueueId: input.connectQueueId }),
-    ...(input.connectSourcePhoneNumber !== undefined &&
-      input.connectSourcePhoneNumber !== null && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
+    ...(input.answerMachineDetectionConfig != undefined && {
+      answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
+        input.answerMachineDetectionConfig,
+        context
+      ),
+    }),
+    ...(input.connectContactFlowId != undefined && { connectContactFlowId: input.connectContactFlowId }),
+    ...(input.connectQueueId != undefined && { connectQueueId: input.connectQueueId }),
+    ...(input.connectSourcePhoneNumber != undefined && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
   };
 };
 
 const serializeAws_restJson1PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
   return {
-    ...(input.bandwidthAllocation !== undefined &&
-      input.bandwidthAllocation !== null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
+    ...(input.bandwidthAllocation != undefined && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
   };
 };
 
@@ -2322,8 +2309,7 @@ const serializeAws_restJson1ProgressiveDialerConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bandwidthAllocation !== undefined &&
-      input.bandwidthAllocation !== null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
+    ...(input.bandwidthAllocation != undefined && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
   };
 };
 
@@ -2353,19 +2339,16 @@ const deserializeAws_restJson1Campaign = (output: any, context: __SerdeContext):
     arn: __expectString(output.arn),
     connectInstanceId: __expectString(output.connectInstanceId),
     dialerConfig:
-      output.dialerConfig !== undefined && output.dialerConfig !== null
+      output.dialerConfig != undefined
         ? deserializeAws_restJson1DialerConfig(__expectUnion(output.dialerConfig), context)
         : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     outboundCallConfig:
-      output.outboundCallConfig !== undefined && output.outboundCallConfig !== null
+      output.outboundCallConfig != undefined
         ? deserializeAws_restJson1OutboundCallConfig(output.outboundCallConfig, context)
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2461,7 +2444,7 @@ const deserializeAws_restJson1InstanceConfig = (output: any, context: __SerdeCon
   return {
     connectInstanceId: __expectString(output.connectInstanceId),
     encryptionConfig:
-      output.encryptionConfig !== undefined && output.encryptionConfig !== null
+      output.encryptionConfig != undefined
         ? deserializeAws_restJson1EncryptionConfig(output.encryptionConfig, context)
         : undefined,
     serviceLinkedRoleArn: __expectString(output.serviceLinkedRoleArn),
@@ -2482,7 +2465,7 @@ const deserializeAws_restJson1InstanceOnboardingJobStatus = (
 const deserializeAws_restJson1OutboundCallConfig = (output: any, context: __SerdeContext): OutboundCallConfig => {
   return {
     answerMachineDetectionConfig:
-      output.answerMachineDetectionConfig !== undefined && output.answerMachineDetectionConfig !== null
+      output.answerMachineDetectionConfig != undefined
         ? deserializeAws_restJson1AnswerMachineDetectionConfig(output.answerMachineDetectionConfig, context)
         : undefined,
     connectContactFlowId: __expectString(output.connectContactFlowId),

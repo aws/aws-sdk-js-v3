@@ -1384,68 +1384,65 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList !== undefined &&
-      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagList != undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateHapgRequest = (input: CreateHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
+    ...(input.Label != undefined && { Label: input.Label }),
   };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (input: CreateHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
-    ...(input.EniIp !== undefined && input.EniIp !== null && { EniIp: input.EniIp }),
-    ...(input.ExternalId !== undefined && input.ExternalId !== null && { ExternalId: input.ExternalId }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SshKey !== undefined && input.SshKey !== null && { SshKey: input.SshKey }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
-    ...(input.SubscriptionType !== undefined &&
-      input.SubscriptionType !== null && { SubscriptionType: input.SubscriptionType }),
-    ...(input.SyslogIp !== undefined && input.SyslogIp !== null && { SyslogIp: input.SyslogIp }),
+    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
+    ...(input.EniIp != undefined && { EniIp: input.EniIp }),
+    ...(input.ExternalId != undefined && { ExternalId: input.ExternalId }),
+    ...(input.IamRoleArn != undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SshKey != undefined && { SshKey: input.SshKey }),
+    ...(input.SubnetId != undefined && { SubnetId: input.SubnetId }),
+    ...(input.SubscriptionType != undefined && { SubscriptionType: input.SubscriptionType }),
+    ...(input.SyslogIp != undefined && { SyslogIp: input.SyslogIp }),
   };
 };
 
 const serializeAws_json1_1CreateLunaClientRequest = (input: CreateLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
-    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
+    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
+    ...(input.Label != undefined && { Label: input.Label }),
   };
 };
 
 const serializeAws_json1_1DeleteHapgRequest = (input: DeleteHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
+    ...(input.HapgArn != undefined && { HapgArn: input.HapgArn }),
   };
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (input: DeleteHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
+    ...(input.HsmArn != undefined && { HsmArn: input.HsmArn }),
   };
 };
 
 const serializeAws_json1_1DeleteLunaClientRequest = (input: DeleteLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
+    ...(input.ClientArn != undefined && { ClientArn: input.ClientArn }),
   };
 };
 
 const serializeAws_json1_1DescribeHapgRequest = (input: DescribeHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
+    ...(input.HapgArn != undefined && { HapgArn: input.HapgArn }),
   };
 };
 
 const serializeAws_json1_1DescribeHsmRequest = (input: DescribeHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
-    ...(input.HsmSerialNumber !== undefined &&
-      input.HsmSerialNumber !== null && { HsmSerialNumber: input.HsmSerialNumber }),
+    ...(input.HsmArn != undefined && { HsmArn: input.HsmArn }),
+    ...(input.HsmSerialNumber != undefined && { HsmSerialNumber: input.HsmSerialNumber }),
   };
 };
 
@@ -1454,18 +1451,16 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateFingerprint !== undefined &&
-      input.CertificateFingerprint !== null && { CertificateFingerprint: input.CertificateFingerprint }),
-    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
+    ...(input.CertificateFingerprint != undefined && { CertificateFingerprint: input.CertificateFingerprint }),
+    ...(input.ClientArn != undefined && { ClientArn: input.ClientArn }),
   };
 };
 
 const serializeAws_json1_1GetConfigRequest = (input: GetConfigRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
-    ...(input.ClientVersion !== undefined && input.ClientVersion !== null && { ClientVersion: input.ClientVersion }),
-    ...(input.HapgList !== undefined &&
-      input.HapgList !== null && { HapgList: serializeAws_json1_1HapgList(input.HapgList, context) }),
+    ...(input.ClientArn != undefined && { ClientArn: input.ClientArn }),
+    ...(input.ClientVersion != undefined && { ClientVersion: input.ClientVersion }),
+    ...(input.HapgList != undefined && { HapgList: serializeAws_json1_1HapgList(input.HapgList, context) }),
   };
 };
 
@@ -1489,19 +1484,19 @@ const serializeAws_json1_1ListAvailableZonesRequest = (
 
 const serializeAws_json1_1ListHapgsRequest = (input: ListHapgsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListHsmsRequest = (input: ListHsmsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListLunaClientsRequest = (input: ListLunaClientsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1510,36 +1505,35 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ModifyHapgRequest = (input: ModifyHapgRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HapgArn !== undefined && input.HapgArn !== null && { HapgArn: input.HapgArn }),
-    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
-    ...(input.PartitionSerialList !== undefined &&
-      input.PartitionSerialList !== null && {
-        PartitionSerialList: serializeAws_json1_1PartitionSerialList(input.PartitionSerialList, context),
-      }),
+    ...(input.HapgArn != undefined && { HapgArn: input.HapgArn }),
+    ...(input.Label != undefined && { Label: input.Label }),
+    ...(input.PartitionSerialList != undefined && {
+      PartitionSerialList: serializeAws_json1_1PartitionSerialList(input.PartitionSerialList, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ModifyHsmRequest = (input: ModifyHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EniIp !== undefined && input.EniIp !== null && { EniIp: input.EniIp }),
-    ...(input.ExternalId !== undefined && input.ExternalId !== null && { ExternalId: input.ExternalId }),
-    ...(input.HsmArn !== undefined && input.HsmArn !== null && { HsmArn: input.HsmArn }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
-    ...(input.SyslogIp !== undefined && input.SyslogIp !== null && { SyslogIp: input.SyslogIp }),
+    ...(input.EniIp != undefined && { EniIp: input.EniIp }),
+    ...(input.ExternalId != undefined && { ExternalId: input.ExternalId }),
+    ...(input.HsmArn != undefined && { HsmArn: input.HsmArn }),
+    ...(input.IamRoleArn != undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SubnetId != undefined && { SubnetId: input.SubnetId }),
+    ...(input.SyslogIp != undefined && { SyslogIp: input.SyslogIp }),
   };
 };
 
 const serializeAws_json1_1ModifyLunaClientRequest = (input: ModifyLunaClientRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
-    ...(input.ClientArn !== undefined && input.ClientArn !== null && { ClientArn: input.ClientArn }),
+    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
+    ...(input.ClientArn != undefined && { ClientArn: input.ClientArn }),
   };
 };
 
@@ -1559,16 +1553,15 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeyList != undefined && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1694,21 +1687,21 @@ const deserializeAws_json1_1DescribeHapgResponse = (output: any, context: __Serd
     HapgArn: __expectString(output.HapgArn),
     HapgSerial: __expectString(output.HapgSerial),
     HsmsLastActionFailed:
-      output.HsmsLastActionFailed !== undefined && output.HsmsLastActionFailed !== null
+      output.HsmsLastActionFailed != undefined
         ? deserializeAws_json1_1HsmList(output.HsmsLastActionFailed, context)
         : undefined,
     HsmsPendingDeletion:
-      output.HsmsPendingDeletion !== undefined && output.HsmsPendingDeletion !== null
+      output.HsmsPendingDeletion != undefined
         ? deserializeAws_json1_1HsmList(output.HsmsPendingDeletion, context)
         : undefined,
     HsmsPendingRegistration:
-      output.HsmsPendingRegistration !== undefined && output.HsmsPendingRegistration !== null
+      output.HsmsPendingRegistration != undefined
         ? deserializeAws_json1_1HsmList(output.HsmsPendingRegistration, context)
         : undefined,
     Label: __expectString(output.Label),
     LastModifiedTimestamp: __expectString(output.LastModifiedTimestamp),
     PartitionSerialList:
-      output.PartitionSerialList !== undefined && output.PartitionSerialList !== null
+      output.PartitionSerialList != undefined
         ? deserializeAws_json1_1PartitionSerialList(output.PartitionSerialList, context)
         : undefined,
     State: __expectString(output.State),
@@ -1724,9 +1717,7 @@ const deserializeAws_json1_1DescribeHsmResponse = (output: any, context: __Serde
     HsmType: __expectString(output.HsmType),
     IamRoleArn: __expectString(output.IamRoleArn),
     Partitions:
-      output.Partitions !== undefined && output.Partitions !== null
-        ? deserializeAws_json1_1PartitionList(output.Partitions, context)
-        : undefined,
+      output.Partitions != undefined ? deserializeAws_json1_1PartitionList(output.Partitions, context) : undefined,
     SerialNumber: __expectString(output.SerialNumber),
     ServerCertLastUpdated: __expectString(output.ServerCertLastUpdated),
     ServerCertUri: __expectString(output.ServerCertUri),
@@ -1804,29 +1795,20 @@ const deserializeAws_json1_1ListAvailableZonesResponse = (
   context: __SerdeContext
 ): ListAvailableZonesResponse => {
   return {
-    AZList:
-      output.AZList !== undefined && output.AZList !== null
-        ? deserializeAws_json1_1AZList(output.AZList, context)
-        : undefined,
+    AZList: output.AZList != undefined ? deserializeAws_json1_1AZList(output.AZList, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListHapgsResponse = (output: any, context: __SerdeContext): ListHapgsResponse => {
   return {
-    HapgList:
-      output.HapgList !== undefined && output.HapgList !== null
-        ? deserializeAws_json1_1HapgList(output.HapgList, context)
-        : undefined,
+    HapgList: output.HapgList != undefined ? deserializeAws_json1_1HapgList(output.HapgList, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListHsmsResponse = (output: any, context: __SerdeContext): ListHsmsResponse => {
   return {
-    HsmList:
-      output.HsmList !== undefined && output.HsmList !== null
-        ? deserializeAws_json1_1HsmList(output.HsmList, context)
-        : undefined,
+    HsmList: output.HsmList != undefined ? deserializeAws_json1_1HsmList(output.HsmList, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1837,9 +1819,7 @@ const deserializeAws_json1_1ListLunaClientsResponse = (
 ): ListLunaClientsResponse => {
   return {
     ClientList:
-      output.ClientList !== undefined && output.ClientList !== null
-        ? deserializeAws_json1_1ClientList(output.ClientList, context)
-        : undefined,
+      output.ClientList != undefined ? deserializeAws_json1_1ClientList(output.ClientList, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1849,10 +1829,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    TagList:
-      output.TagList !== undefined && output.TagList !== null
-        ? deserializeAws_json1_1TagList(output.TagList, context)
-        : undefined,
+    TagList: output.TagList != undefined ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
   } as any;
 };
 

@@ -134,8 +134,7 @@ export const serializeAws_restJson1FinalizeDeviceClaimCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags != undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -227,10 +226,10 @@ export const serializeAws_restJson1InvokeDeviceMethodCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceMethod !== undefined &&
-      input.DeviceMethod !== null && { deviceMethod: serializeAws_restJson1DeviceMethod(input.DeviceMethod, context) }),
-    ...(input.DeviceMethodParameters !== undefined &&
-      input.DeviceMethodParameters !== null && { deviceMethodParameters: input.DeviceMethodParameters }),
+    ...(input.DeviceMethod != undefined && {
+      deviceMethod: serializeAws_restJson1DeviceMethod(input.DeviceMethod, context),
+    }),
+    ...(input.DeviceMethodParameters != undefined && { deviceMethodParameters: input.DeviceMethodParameters }),
   });
   return new __HttpRequest({
     protocol,
@@ -356,8 +355,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags != undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -452,7 +450,7 @@ export const serializeAws_restJson1UpdateDeviceStateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+    ...(input.Enabled != undefined && { enabled: input.Enabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1293,8 +1291,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
 
 const serializeAws_restJson1DeviceMethod = (input: DeviceMethod, context: __SerdeContext): any => {
   return {
-    ...(input.DeviceType !== undefined && input.DeviceType !== null && { deviceType: input.DeviceType }),
-    ...(input.MethodName !== undefined && input.MethodName !== null && { methodName: input.MethodName }),
+    ...(input.DeviceType != undefined && { deviceType: input.DeviceType }),
+    ...(input.MethodName != undefined && { methodName: input.MethodName }),
   };
 };
 
@@ -1356,9 +1354,7 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
     Attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_restJson1Attributes(output.attributes, context)
-        : undefined,
+      output.attributes != undefined ? deserializeAws_restJson1Attributes(output.attributes, context) : undefined,
     DeviceId: __expectString(output.deviceId),
     Type: __expectString(output.type),
   } as any;
@@ -1380,26 +1376,18 @@ const deserializeAws_restJson1DeviceDescription = (output: any, context: __Serde
   return {
     Arn: __expectString(output.arn),
     Attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_restJson1DeviceAttributes(output.attributes, context)
-        : undefined,
+      output.attributes != undefined ? deserializeAws_restJson1DeviceAttributes(output.attributes, context) : undefined,
     DeviceId: __expectString(output.deviceId),
     Enabled: __expectBoolean(output.enabled),
     RemainingLife: __limitedParseDouble(output.remainingLife),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
+    Tags: output.tags != undefined ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
     Type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
   return {
-    Device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_restJson1Device(output.device, context)
-        : undefined,
+    Device: output.device != undefined ? deserializeAws_restJson1Device(output.device, context) : undefined,
     StdEvent: __expectString(output.stdEvent),
   } as any;
 };

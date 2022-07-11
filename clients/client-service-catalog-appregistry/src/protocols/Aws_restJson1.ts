@@ -192,9 +192,9 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -218,11 +218,11 @@ export const serializeAws_restJson1CreateAttributeGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attribute-groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined && input.attributes !== null && { attributes: input.attributes }),
+    ...(input.attributes != undefined && { attributes: input.attributes }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -724,7 +724,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -790,8 +790,8 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -825,9 +825,9 @@ export const serializeAws_restJson1UpdateAttributeGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined && input.attributes !== null && { attributes: input.attributes }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.attributes != undefined && { attributes: input.attributes }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -2181,20 +2181,13 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
-        : undefined,
+      output.creationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
-        : undefined,
+      output.lastUpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
     name: __expectString(output.name),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2214,15 +2207,11 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
-        : undefined,
+      output.creationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
-        : undefined,
+      output.lastUpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2231,20 +2220,13 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
-        : undefined,
+      output.creationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
-        : undefined,
+      output.lastUpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
     name: __expectString(output.name),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2302,15 +2284,11 @@ const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __S
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationTime))
-        : undefined,
+      output.creationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.creationTime)) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastUpdateTime:
-      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime))
-        : undefined,
+      output.lastUpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.lastUpdateTime)) : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -2318,7 +2296,7 @@ const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __S
 const deserializeAws_restJson1Integrations = (output: any, context: __SerdeContext): Integrations => {
   return {
     resourceGroup:
-      output.resourceGroup !== undefined && output.resourceGroup !== null
+      output.resourceGroup != undefined
         ? deserializeAws_restJson1ResourceGroup(output.resourceGroup, context)
         : undefined,
   } as any;
@@ -2328,11 +2306,9 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     associationTime:
-      output.associationTime !== undefined && output.associationTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.associationTime))
-        : undefined,
+      output.associationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.associationTime)) : undefined,
     integrations:
-      output.integrations !== undefined && output.integrations !== null
+      output.integrations != undefined
         ? deserializeAws_restJson1ResourceIntegrations(output.integrations, context)
         : undefined,
     name: __expectString(output.name),
@@ -2357,7 +2333,7 @@ const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeConte
 const deserializeAws_restJson1ResourceIntegrations = (output: any, context: __SerdeContext): ResourceIntegrations => {
   return {
     resourceGroup:
-      output.resourceGroup !== undefined && output.resourceGroup !== null
+      output.resourceGroup != undefined
         ? deserializeAws_restJson1ResourceGroup(output.resourceGroup, context)
         : undefined,
   } as any;

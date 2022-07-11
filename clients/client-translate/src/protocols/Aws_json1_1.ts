@@ -1306,16 +1306,14 @@ const serializeAws_json1_1CreateParallelDataRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.EncryptionKey !== undefined &&
-      input.EncryptionKey !== null && {
-        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParallelDataConfig !== undefined &&
-      input.ParallelDataConfig !== null && {
-        ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
-      }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.EncryptionKey != undefined && {
+      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+    }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParallelDataConfig != undefined && {
+      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+    }),
   };
 };
 
@@ -1324,7 +1322,7 @@ const serializeAws_json1_1DeleteParallelDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
@@ -1333,7 +1331,7 @@ const serializeAws_json1_1DeleteTerminologyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
@@ -1342,28 +1340,27 @@ const serializeAws_json1_1DescribeTextTranslationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1EncryptionKey = (input: EncryptionKey, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != undefined && { Id: input.Id }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1GetParallelDataRequest = (input: GetParallelDataRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1GetTerminologyRequest = (input: GetTerminologyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.TerminologyDataFormat !== undefined &&
-      input.TerminologyDataFormat !== null && { TerminologyDataFormat: input.TerminologyDataFormat }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.TerminologyDataFormat != undefined && { TerminologyDataFormat: input.TerminologyDataFormat }),
   };
 };
 
@@ -1372,40 +1369,37 @@ const serializeAws_json1_1ImportTerminologyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.EncryptionKey !== undefined &&
-      input.EncryptionKey !== null && {
-        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
-      }),
-    ...(input.MergeStrategy !== undefined && input.MergeStrategy !== null && { MergeStrategy: input.MergeStrategy }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.TerminologyData !== undefined &&
-      input.TerminologyData !== null && {
-        TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
-      }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.EncryptionKey != undefined && {
+      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+    }),
+    ...(input.MergeStrategy != undefined && { MergeStrategy: input.MergeStrategy }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.TerminologyData != undefined && {
+      TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
+    }),
   };
 };
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.ContentType != undefined && { ContentType: input.ContentType }),
+    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_1ListLanguagesRequest = (input: ListLanguagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DisplayLanguageCode !== undefined &&
-      input.DisplayLanguageCode !== null && { DisplayLanguageCode: input.DisplayLanguageCode }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DisplayLanguageCode != undefined && { DisplayLanguageCode: input.DisplayLanguageCode }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListParallelDataRequest = (input: ListParallelDataRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1414,8 +1408,8 @@ const serializeAws_json1_1ListTerminologiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1424,27 +1418,25 @@ const serializeAws_json1_1ListTextTranslationJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined &&
-      input.Filter !== null && { Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filter != undefined && { Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context) }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionKey !== undefined &&
-      input.EncryptionKey !== null && {
-        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
-      }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.EncryptionKey != undefined && {
+      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+    }),
+    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_1ParallelDataConfig = (input: ParallelDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.Format != undefined && { Format: input.Format }),
+    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
   };
 };
 
@@ -1465,33 +1457,25 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig !== undefined &&
-      input.OutputDataConfig !== null && {
-        OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
-      }),
-    ...(input.ParallelDataNames !== undefined &&
-      input.ParallelDataNames !== null && {
-        ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
-      }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
-    ...(input.SourceLanguageCode !== undefined &&
-      input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCodes !== undefined &&
-      input.TargetLanguageCodes !== null && {
-        TargetLanguageCodes: serializeAws_json1_1TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
-      }),
-    ...(input.TerminologyNames !== undefined &&
-      input.TerminologyNames !== null && {
-        TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
-      }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig != undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.OutputDataConfig != undefined && {
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+    }),
+    ...(input.ParallelDataNames != undefined && {
+      ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
+    }),
+    ...(input.Settings != undefined && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
+    ...(input.SourceLanguageCode != undefined && { SourceLanguageCode: input.SourceLanguageCode }),
+    ...(input.TargetLanguageCodes != undefined && {
+      TargetLanguageCodes: serializeAws_json1_1TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
+    }),
+    ...(input.TerminologyNames != undefined && {
+      TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
+    }),
   };
 };
 
@@ -1500,7 +1484,7 @@ const serializeAws_json1_1StopTextTranslationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
@@ -1517,10 +1501,9 @@ const serializeAws_json1_1TargetLanguageCodeStringList = (input: string[], conte
 
 const serializeAws_json1_1TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
   return {
-    ...(input.Directionality !== undefined &&
-      input.Directionality !== null && { Directionality: input.Directionality }),
-    ...(input.File !== undefined && input.File !== null && { File: context.base64Encoder(input.File) }),
-    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.Directionality != undefined && { Directionality: input.Directionality }),
+    ...(input.File != undefined && { File: context.base64Encoder(input.File) }),
+    ...(input.Format != undefined && { Format: input.Format }),
   };
 };
 
@@ -1529,39 +1512,33 @@ const serializeAws_json1_1TextTranslationJobFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
-    ...(input.SubmittedAfterTime !== undefined &&
-      input.SubmittedAfterTime !== null && {
-        SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
-      }),
-    ...(input.SubmittedBeforeTime !== undefined &&
-      input.SubmittedBeforeTime !== null && {
-        SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
-      }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.JobStatus != undefined && { JobStatus: input.JobStatus }),
+    ...(input.SubmittedAfterTime != undefined && {
+      SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
+    }),
+    ...(input.SubmittedBeforeTime != undefined && {
+      SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
+    }),
   };
 };
 
 const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
-    ...(input.SourceLanguageCode !== undefined &&
-      input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCode !== undefined &&
-      input.TargetLanguageCode !== null && { TargetLanguageCode: input.TargetLanguageCode }),
-    ...(input.TerminologyNames !== undefined &&
-      input.TerminologyNames !== null && {
-        TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
-      }),
-    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+    ...(input.Settings != undefined && { Settings: serializeAws_json1_1TranslationSettings(input.Settings, context) }),
+    ...(input.SourceLanguageCode != undefined && { SourceLanguageCode: input.SourceLanguageCode }),
+    ...(input.TargetLanguageCode != undefined && { TargetLanguageCode: input.TargetLanguageCode }),
+    ...(input.TerminologyNames != undefined && {
+      TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
+    }),
+    ...(input.Text != undefined && { Text: input.Text }),
   };
 };
 
 const serializeAws_json1_1TranslationSettings = (input: TranslationSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Formality !== undefined && input.Formality !== null && { Formality: input.Formality }),
-    ...(input.Profanity !== undefined && input.Profanity !== null && { Profanity: input.Profanity }),
+    ...(input.Formality != undefined && { Formality: input.Formality }),
+    ...(input.Profanity != undefined && { Profanity: input.Profanity }),
   };
 };
 
@@ -1571,22 +1548,18 @@ const serializeAws_json1_1UpdateParallelDataRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParallelDataConfig !== undefined &&
-      input.ParallelDataConfig !== null && {
-        ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
-      }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParallelDataConfig != undefined && {
+      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+    }),
   };
 };
 
 const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeContext): AppliedTerminology => {
   return {
     Name: __expectString(output.Name),
-    Terms:
-      output.Terms !== undefined && output.Terms !== null
-        ? deserializeAws_json1_1TermList(output.Terms, context)
-        : undefined,
+    Terms: output.Terms != undefined ? deserializeAws_json1_1TermList(output.Terms, context) : undefined,
   } as any;
 };
 
@@ -1643,7 +1616,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobResponse = (
 ): DescribeTextTranslationJobResponse => {
   return {
     TextTranslationJobProperties:
-      output.TextTranslationJobProperties !== undefined && output.TextTranslationJobProperties !== null
+      output.TextTranslationJobProperties != undefined
         ? deserializeAws_json1_1TextTranslationJobProperties(output.TextTranslationJobProperties, context)
         : undefined,
   } as any;
@@ -1672,20 +1645,19 @@ const deserializeAws_json1_1GetParallelDataResponse = (
 ): GetParallelDataResponse => {
   return {
     AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+      output.AuxiliaryDataLocation != undefined
         ? deserializeAws_json1_1ParallelDataDataLocation(output.AuxiliaryDataLocation, context)
         : undefined,
     DataLocation:
-      output.DataLocation !== undefined && output.DataLocation !== null
+      output.DataLocation != undefined
         ? deserializeAws_json1_1ParallelDataDataLocation(output.DataLocation, context)
         : undefined,
     LatestUpdateAttemptAuxiliaryDataLocation:
-      output.LatestUpdateAttemptAuxiliaryDataLocation !== undefined &&
-      output.LatestUpdateAttemptAuxiliaryDataLocation !== null
+      output.LatestUpdateAttemptAuxiliaryDataLocation != undefined
         ? deserializeAws_json1_1ParallelDataDataLocation(output.LatestUpdateAttemptAuxiliaryDataLocation, context)
         : undefined,
     ParallelDataProperties:
-      output.ParallelDataProperties !== undefined && output.ParallelDataProperties !== null
+      output.ParallelDataProperties != undefined
         ? deserializeAws_json1_1ParallelDataProperties(output.ParallelDataProperties, context)
         : undefined,
   } as any;
@@ -1694,15 +1666,15 @@ const deserializeAws_json1_1GetParallelDataResponse = (
 const deserializeAws_json1_1GetTerminologyResponse = (output: any, context: __SerdeContext): GetTerminologyResponse => {
   return {
     AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+      output.AuxiliaryDataLocation != undefined
         ? deserializeAws_json1_1TerminologyDataLocation(output.AuxiliaryDataLocation, context)
         : undefined,
     TerminologyDataLocation:
-      output.TerminologyDataLocation !== undefined && output.TerminologyDataLocation !== null
+      output.TerminologyDataLocation != undefined
         ? deserializeAws_json1_1TerminologyDataLocation(output.TerminologyDataLocation, context)
         : undefined,
     TerminologyProperties:
-      output.TerminologyProperties !== undefined && output.TerminologyProperties !== null
+      output.TerminologyProperties != undefined
         ? deserializeAws_json1_1TerminologyProperties(output.TerminologyProperties, context)
         : undefined,
   } as any;
@@ -1714,11 +1686,11 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
 ): ImportTerminologyResponse => {
   return {
     AuxiliaryDataLocation:
-      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+      output.AuxiliaryDataLocation != undefined
         ? deserializeAws_json1_1TerminologyDataLocation(output.AuxiliaryDataLocation, context)
         : undefined,
     TerminologyProperties:
-      output.TerminologyProperties !== undefined && output.TerminologyProperties !== null
+      output.TerminologyProperties != undefined
         ? deserializeAws_json1_1TerminologyProperties(output.TerminologyProperties, context)
         : undefined,
   } as any;
@@ -1813,9 +1785,7 @@ const deserializeAws_json1_1ListLanguagesResponse = (output: any, context: __Ser
   return {
     DisplayLanguageCode: __expectString(output.DisplayLanguageCode),
     Languages:
-      output.Languages !== undefined && output.Languages !== null
-        ? deserializeAws_json1_1LanguagesList(output.Languages, context)
-        : undefined,
+      output.Languages != undefined ? deserializeAws_json1_1LanguagesList(output.Languages, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1827,7 +1797,7 @@ const deserializeAws_json1_1ListParallelDataResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ParallelDataPropertiesList:
-      output.ParallelDataPropertiesList !== undefined && output.ParallelDataPropertiesList !== null
+      output.ParallelDataPropertiesList != undefined
         ? deserializeAws_json1_1ParallelDataPropertiesList(output.ParallelDataPropertiesList, context)
         : undefined,
   } as any;
@@ -1840,7 +1810,7 @@ const deserializeAws_json1_1ListTerminologiesResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     TerminologyPropertiesList:
-      output.TerminologyPropertiesList !== undefined && output.TerminologyPropertiesList !== null
+      output.TerminologyPropertiesList != undefined
         ? deserializeAws_json1_1TerminologyPropertiesList(output.TerminologyPropertiesList, context)
         : undefined,
   } as any;
@@ -1853,7 +1823,7 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     TextTranslationJobPropertiesList:
-      output.TextTranslationJobPropertiesList !== undefined && output.TextTranslationJobPropertiesList !== null
+      output.TextTranslationJobPropertiesList != undefined
         ? deserializeAws_json1_1TextTranslationJobPropertiesList(output.TextTranslationJobPropertiesList, context)
         : undefined,
   } as any;
@@ -1862,7 +1832,7 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
     EncryptionKey:
-      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+      output.EncryptionKey != undefined
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
     S3Uri: __expectString(output.S3Uri),
@@ -1890,37 +1860,37 @@ const deserializeAws_json1_1ParallelDataProperties = (output: any, context: __Se
   return {
     Arn: __expectString(output.Arn),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     EncryptionKey:
-      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+      output.EncryptionKey != undefined
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
     FailedRecordCount: __expectLong(output.FailedRecordCount),
     ImportedDataSize: __expectLong(output.ImportedDataSize),
     ImportedRecordCount: __expectLong(output.ImportedRecordCount),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LatestUpdateAttemptAt:
-      output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
+      output.LatestUpdateAttemptAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
         : undefined,
     LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     ParallelDataConfig:
-      output.ParallelDataConfig !== undefined && output.ParallelDataConfig !== null
+      output.ParallelDataConfig != undefined
         ? deserializeAws_json1_1ParallelDataConfig(output.ParallelDataConfig, context)
         : undefined,
     SkippedRecordCount: __expectLong(output.SkippedRecordCount),
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     Status: __expectString(output.Status),
     TargetLanguageCodes:
-      output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
+      output.TargetLanguageCodes != undefined
         ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
         : undefined,
   } as any;
@@ -2024,18 +1994,18 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
   return {
     Arn: __expectString(output.Arn),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
     Directionality: __expectString(output.Directionality),
     EncryptionKey:
-      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+      output.EncryptionKey != undefined
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
     Format: __expectString(output.Format),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     Message: __expectString(output.Message),
@@ -2044,7 +2014,7 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
     SkippedTermCount: __expectInt32(output.SkippedTermCount),
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     TargetLanguageCodes:
-      output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
+      output.TargetLanguageCodes != undefined
         ? deserializeAws_json1_1LanguageCodeStringList(output.TargetLanguageCodes, context)
         : undefined,
     TermCount: __expectInt32(output.TermCount),
@@ -2094,44 +2064,38 @@ const deserializeAws_json1_1TextTranslationJobProperties = (
   return {
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != undefined
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
     JobDetails:
-      output.JobDetails !== undefined && output.JobDetails !== null
-        ? deserializeAws_json1_1JobDetails(output.JobDetails, context)
-        : undefined,
+      output.JobDetails != undefined ? deserializeAws_json1_1JobDetails(output.JobDetails, context) : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),
     OutputDataConfig:
-      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+      output.OutputDataConfig != undefined
         ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
         : undefined,
     ParallelDataNames:
-      output.ParallelDataNames !== undefined && output.ParallelDataNames !== null
+      output.ParallelDataNames != undefined
         ? deserializeAws_json1_1ResourceNameList(output.ParallelDataNames, context)
         : undefined,
     Settings:
-      output.Settings !== undefined && output.Settings !== null
-        ? deserializeAws_json1_1TranslationSettings(output.Settings, context)
-        : undefined,
+      output.Settings != undefined ? deserializeAws_json1_1TranslationSettings(output.Settings, context) : undefined,
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     SubmittedTime:
-      output.SubmittedTime !== undefined && output.SubmittedTime !== null
+      output.SubmittedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedTime)))
         : undefined,
     TargetLanguageCodes:
-      output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null
+      output.TargetLanguageCodes != undefined
         ? deserializeAws_json1_1TargetLanguageCodeStringList(output.TargetLanguageCodes, context)
         : undefined,
     TerminologyNames:
-      output.TerminologyNames !== undefined && output.TerminologyNames !== null
+      output.TerminologyNames != undefined
         ? deserializeAws_json1_1ResourceNameList(output.TerminologyNames, context)
         : undefined,
   } as any;
@@ -2164,11 +2128,11 @@ const deserializeAws_json1_1TooManyRequestsException = (
 const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __SerdeContext): TranslateTextResponse => {
   return {
     AppliedSettings:
-      output.AppliedSettings !== undefined && output.AppliedSettings !== null
+      output.AppliedSettings != undefined
         ? deserializeAws_json1_1TranslationSettings(output.AppliedSettings, context)
         : undefined,
     AppliedTerminologies:
-      output.AppliedTerminologies !== undefined && output.AppliedTerminologies !== null
+      output.AppliedTerminologies != undefined
         ? deserializeAws_json1_1AppliedTerminologyList(output.AppliedTerminologies, context)
         : undefined,
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
@@ -2211,7 +2175,7 @@ const deserializeAws_json1_1UpdateParallelDataResponse = (
 ): UpdateParallelDataResponse => {
   return {
     LatestUpdateAttemptAt:
-      output.LatestUpdateAttemptAt !== undefined && output.LatestUpdateAttemptAt !== null
+      output.LatestUpdateAttemptAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestUpdateAttemptAt)))
         : undefined,
     LatestUpdateAttemptStatus: __expectString(output.LatestUpdateAttemptStatus),

@@ -36,11 +36,10 @@ export const serializeAws_restJson1PutEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
-    ...(input.eventList !== undefined &&
-      input.eventList !== null && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
-    ...(input.sessionId !== undefined && input.sessionId !== null && { sessionId: input.sessionId }),
-    ...(input.trackingId !== undefined && input.trackingId !== null && { trackingId: input.trackingId }),
-    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
+    ...(input.eventList != undefined && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
+    ...(input.sessionId != undefined && { sessionId: input.sessionId }),
+    ...(input.trackingId != undefined && { trackingId: input.trackingId }),
+    ...(input.userId != undefined && { userId: input.userId }),
   });
   return new __HttpRequest({
     protocol,
@@ -64,9 +63,8 @@ export const serializeAws_restJson1PutItemsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
   let body: any;
   body = JSON.stringify({
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.items !== undefined &&
-      input.items !== null && { items: serializeAws_restJson1ItemList(input.items, context) }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.items != undefined && { items: serializeAws_restJson1ItemList(input.items, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -90,9 +88,8 @@ export const serializeAws_restJson1PutUsersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
   let body: any;
   body = JSON.stringify({
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.users !== undefined &&
-      input.users !== null && { users: serializeAws_restJson1UserList(input.users, context) }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.users != undefined && { users: serializeAws_restJson1UserList(input.users, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -290,18 +287,14 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
-    ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
-    ...(input.eventValue !== undefined &&
-      input.eventValue !== null && { eventValue: __serializeFloat(input.eventValue) }),
-    ...(input.impression !== undefined &&
-      input.impression !== null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
-    ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
-    ...(input.properties !== undefined &&
-      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.recommendationId !== undefined &&
-      input.recommendationId !== null && { recommendationId: input.recommendationId }),
-    ...(input.sentAt !== undefined && input.sentAt !== null && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
+    ...(input.eventType != undefined && { eventType: input.eventType }),
+    ...(input.eventValue != undefined && { eventValue: __serializeFloat(input.eventValue) }),
+    ...(input.impression != undefined && { impression: serializeAws_restJson1Impression(input.impression, context) }),
+    ...(input.itemId != undefined && { itemId: input.itemId }),
+    ...(input.properties != undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.recommendationId != undefined && { recommendationId: input.recommendationId }),
+    ...(input.sentAt != undefined && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
   };
 };
 
@@ -329,9 +322,8 @@ const serializeAws_restJson1Impression = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1Item = (input: Item, context: __SerdeContext): any => {
   return {
-    ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
-    ...(input.properties !== undefined &&
-      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.itemId != undefined && { itemId: input.itemId }),
+    ...(input.properties != undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
   };
 };
 
@@ -348,9 +340,8 @@ const serializeAws_restJson1ItemList = (input: Item[], context: __SerdeContext):
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
   return {
-    ...(input.properties !== undefined &&
-      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
+    ...(input.properties != undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.userId != undefined && { userId: input.userId }),
   };
 };
 

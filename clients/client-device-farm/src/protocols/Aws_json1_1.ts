@@ -5657,12 +5657,11 @@ const serializeAws_json1_1AndroidPaths = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1CreateDevicePoolRequest = (input: CreateDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.rules !== undefined &&
-      input.rules !== null && { rules: serializeAws_json1_1Rules(input.rules, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.maxDevices != undefined && { maxDevices: input.maxDevices }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.rules != undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -5671,16 +5670,13 @@ const serializeAws_json1_1CreateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup !== undefined &&
-      input.excludeAppPackagesFromCleanup !== null && {
-        excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.packageCleanup !== undefined &&
-      input.packageCleanup !== null && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse !== undefined &&
-      input.rebootAfterUse !== null && { rebootAfterUse: input.rebootAfterUse }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.excludeAppPackagesFromCleanup != undefined && {
+      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.packageCleanup != undefined && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse != undefined && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -5689,33 +5685,25 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined &&
-      input.downlinkBandwidthBits !== null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs !== undefined &&
-      input.downlinkDelayMs !== null && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs !== undefined &&
-      input.downlinkJitterMs !== null && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent !== undefined &&
-      input.downlinkLossPercent !== null && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined &&
-      input.uplinkBandwidthBits !== null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs !== undefined && input.uplinkDelayMs !== null && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs !== undefined &&
-      input.uplinkJitterMs !== null && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent !== undefined &&
-      input.uplinkLossPercent !== null && { uplinkLossPercent: input.uplinkLossPercent }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.downlinkBandwidthBits != undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs != undefined && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs != undefined && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent != undefined && { downlinkLossPercent: input.downlinkLossPercent }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.type != undefined && { type: input.type }),
+    ...(input.uplinkBandwidthBits != undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs != undefined && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs != undefined && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent != undefined && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.defaultJobTimeoutMinutes !== undefined &&
-      input.defaultJobTimeoutMinutes !== null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.defaultJobTimeoutMinutes != undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -5724,11 +5712,10 @@ const serializeAws_json1_1CreateRemoteAccessSessionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.billingMethod !== undefined && input.billingMethod !== null && { billingMethod: input.billingMethod }),
-    ...(input.vpceConfigurationArns !== undefined &&
-      input.vpceConfigurationArns !== null && {
-        vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
-      }),
+    ...(input.billingMethod != undefined && { billingMethod: input.billingMethod }),
+    ...(input.vpceConfigurationArns != undefined && {
+      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
+    }),
   };
 };
 
@@ -5737,25 +5724,20 @@ const serializeAws_json1_1CreateRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
-    ...(input.configuration !== undefined &&
-      input.configuration !== null && {
-        configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(input.configuration, context),
-      }),
-    ...(input.deviceArn !== undefined && input.deviceArn !== null && { deviceArn: input.deviceArn }),
-    ...(input.instanceArn !== undefined && input.instanceArn !== null && { instanceArn: input.instanceArn }),
-    ...(input.interactionMode !== undefined &&
-      input.interactionMode !== null && { interactionMode: input.interactionMode }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.remoteDebugEnabled !== undefined &&
-      input.remoteDebugEnabled !== null && { remoteDebugEnabled: input.remoteDebugEnabled }),
-    ...(input.remoteRecordAppArn !== undefined &&
-      input.remoteRecordAppArn !== null && { remoteRecordAppArn: input.remoteRecordAppArn }),
-    ...(input.remoteRecordEnabled !== undefined &&
-      input.remoteRecordEnabled !== null && { remoteRecordEnabled: input.remoteRecordEnabled }),
-    ...(input.skipAppResign !== undefined && input.skipAppResign !== null && { skipAppResign: input.skipAppResign }),
-    ...(input.sshPublicKey !== undefined && input.sshPublicKey !== null && { sshPublicKey: input.sshPublicKey }),
+    ...(input.clientId != undefined && { clientId: input.clientId }),
+    ...(input.configuration != undefined && {
+      configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(input.configuration, context),
+    }),
+    ...(input.deviceArn != undefined && { deviceArn: input.deviceArn }),
+    ...(input.instanceArn != undefined && { instanceArn: input.instanceArn }),
+    ...(input.interactionMode != undefined && { interactionMode: input.interactionMode }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.remoteDebugEnabled != undefined && { remoteDebugEnabled: input.remoteDebugEnabled }),
+    ...(input.remoteRecordAppArn != undefined && { remoteRecordAppArn: input.remoteRecordAppArn }),
+    ...(input.remoteRecordEnabled != undefined && { remoteRecordEnabled: input.remoteRecordEnabled }),
+    ...(input.skipAppResign != undefined && { skipAppResign: input.skipAppResign }),
+    ...(input.sshPublicKey != undefined && { sshPublicKey: input.sshPublicKey }),
   };
 };
 
@@ -5764,10 +5746,9 @@ const serializeAws_json1_1CreateTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.vpcConfig !== undefined &&
-      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.vpcConfig != undefined && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -5776,18 +5757,17 @@ const serializeAws_json1_1CreateTestGridUrlRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.expiresInSeconds !== undefined &&
-      input.expiresInSeconds !== null && { expiresInSeconds: input.expiresInSeconds }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.expiresInSeconds != undefined && { expiresInSeconds: input.expiresInSeconds }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
   };
 };
 
 const serializeAws_json1_1CreateUploadRequest = (input: CreateUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -5796,35 +5776,30 @@ const serializeAws_json1_1CreateVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serviceDnsName !== undefined &&
-      input.serviceDnsName !== null && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription !== undefined &&
-      input.vpceConfigurationDescription !== null && {
-        vpceConfigurationDescription: input.vpceConfigurationDescription,
-      }),
-    ...(input.vpceConfigurationName !== undefined &&
-      input.vpceConfigurationName !== null && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName !== undefined &&
-      input.vpceServiceName !== null && { vpceServiceName: input.vpceServiceName }),
+    ...(input.serviceDnsName != undefined && { serviceDnsName: input.serviceDnsName }),
+    ...(input.vpceConfigurationDescription != undefined && {
+      vpceConfigurationDescription: input.vpceConfigurationDescription,
+    }),
+    ...(input.vpceConfigurationName != undefined && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName != undefined && { vpceServiceName: input.vpceServiceName }),
   };
 };
 
 const serializeAws_json1_1CustomerArtifactPaths = (input: CustomerArtifactPaths, context: __SerdeContext): any => {
   return {
-    ...(input.androidPaths !== undefined &&
-      input.androidPaths !== null && { androidPaths: serializeAws_json1_1AndroidPaths(input.androidPaths, context) }),
-    ...(input.deviceHostPaths !== undefined &&
-      input.deviceHostPaths !== null && {
-        deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context),
-      }),
-    ...(input.iosPaths !== undefined &&
-      input.iosPaths !== null && { iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context) }),
+    ...(input.androidPaths != undefined && {
+      androidPaths: serializeAws_json1_1AndroidPaths(input.androidPaths, context),
+    }),
+    ...(input.deviceHostPaths != undefined && {
+      deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context),
+    }),
+    ...(input.iosPaths != undefined && { iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteDevicePoolRequest = (input: DeleteDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5833,7 +5808,7 @@ const serializeAws_json1_1DeleteInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5842,13 +5817,13 @@ const serializeAws_json1_1DeleteNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5857,13 +5832,13 @@ const serializeAws_json1_1DeleteRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeleteRunRequest = (input: DeleteRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5872,13 +5847,13 @@ const serializeAws_json1_1DeleteTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
   };
 };
 
 const serializeAws_json1_1DeleteUploadRequest = (input: DeleteUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5887,16 +5862,15 @@ const serializeAws_json1_1DeleteVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeviceFilter = (input: DeviceFilter, context: __SerdeContext): any => {
   return {
-    ...(input.attribute !== undefined && input.attribute !== null && { attribute: input.attribute }),
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_json1_1DeviceFilterValues(input.values, context) }),
+    ...(input.attribute != undefined && { attribute: input.attribute }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.values != undefined && { values: serializeAws_json1_1DeviceFilterValues(input.values, context) }),
   };
 };
 
@@ -5938,22 +5912,18 @@ const serializeAws_json1_1DeviceSelectionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
-    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
+    ...(input.filters != undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
+    ...(input.maxDevices != undefined && { maxDevices: input.maxDevices }),
   };
 };
 
 const serializeAws_json1_1ExecutionConfiguration = (input: ExecutionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.accountsCleanup !== undefined &&
-      input.accountsCleanup !== null && { accountsCleanup: input.accountsCleanup }),
-    ...(input.appPackagesCleanup !== undefined &&
-      input.appPackagesCleanup !== null && { appPackagesCleanup: input.appPackagesCleanup }),
-    ...(input.jobTimeoutMinutes !== undefined &&
-      input.jobTimeoutMinutes !== null && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
-    ...(input.skipAppResign !== undefined && input.skipAppResign !== null && { skipAppResign: input.skipAppResign }),
-    ...(input.videoCapture !== undefined && input.videoCapture !== null && { videoCapture: input.videoCapture }),
+    ...(input.accountsCleanup != undefined && { accountsCleanup: input.accountsCleanup }),
+    ...(input.appPackagesCleanup != undefined && { appPackagesCleanup: input.appPackagesCleanup }),
+    ...(input.jobTimeoutMinutes != undefined && { jobTimeoutMinutes: input.jobTimeoutMinutes }),
+    ...(input.skipAppResign != undefined && { skipAppResign: input.skipAppResign }),
+    ...(input.videoCapture != undefined && { videoCapture: input.videoCapture }),
   };
 };
 
@@ -5969,7 +5939,7 @@ const serializeAws_json1_1GetDeviceInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -5978,27 +5948,25 @@ const serializeAws_json1_1GetDevicePoolCompatibilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.configuration !== undefined &&
-      input.configuration !== null && {
-        configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
-      }),
-    ...(input.devicePoolArn !== undefined && input.devicePoolArn !== null && { devicePoolArn: input.devicePoolArn }),
-    ...(input.test !== undefined &&
-      input.test !== null && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
-    ...(input.testType !== undefined && input.testType !== null && { testType: input.testType }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.configuration != undefined && {
+      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
+    }),
+    ...(input.devicePoolArn != undefined && { devicePoolArn: input.devicePoolArn }),
+    ...(input.test != undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
+    ...(input.testType != undefined && { testType: input.testType }),
   };
 };
 
 const serializeAws_json1_1GetDevicePoolRequest = (input: GetDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6007,13 +5975,13 @@ const serializeAws_json1_1GetInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetJobRequest = (input: GetJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6022,7 +5990,7 @@ const serializeAws_json1_1GetNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6031,13 +5999,13 @@ const serializeAws_json1_1GetOfferingStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetProjectRequest = (input: GetProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6046,19 +6014,19 @@ const serializeAws_json1_1GetRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetRunRequest = (input: GetRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetSuiteRequest = (input: GetSuiteRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6067,7 +6035,7 @@ const serializeAws_json1_1GetTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
   };
 };
 
@@ -6076,21 +6044,21 @@ const serializeAws_json1_1GetTestGridSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
-    ...(input.sessionId !== undefined && input.sessionId !== null && { sessionId: input.sessionId }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.sessionArn != undefined && { sessionArn: input.sessionArn }),
+    ...(input.sessionId != undefined && { sessionId: input.sessionId }),
   };
 };
 
 const serializeAws_json1_1GetTestRequest = (input: GetTestRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1GetUploadRequest = (input: GetUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6099,7 +6067,7 @@ const serializeAws_json1_1GetVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6108,9 +6076,8 @@ const serializeAws_json1_1InstallToRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.remoteAccessSessionArn !== undefined &&
-      input.remoteAccessSessionArn !== null && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.remoteAccessSessionArn != undefined && { remoteAccessSessionArn: input.remoteAccessSessionArn }),
   };
 };
 
@@ -6138,9 +6105,9 @@ const serializeAws_json1_1IosPaths = (input: string[], context: __SerdeContext):
 
 const serializeAws_json1_1ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -6149,25 +6116,24 @@ const serializeAws_json1_1ListDeviceInstancesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListDevicePoolsRequest = (input: ListDevicePoolsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.filters != undefined && { filters: serializeAws_json1_1DeviceFilters(input.filters, context) }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6176,15 +6142,15 @@ const serializeAws_json1_1ListInstanceProfilesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6193,9 +6159,9 @@ const serializeAws_json1_1ListNetworkProfilesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -6204,13 +6170,13 @@ const serializeAws_json1_1ListOfferingPromotionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListOfferingsRequest = (input: ListOfferingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6219,14 +6185,14 @@ const serializeAws_json1_1ListOfferingTransactionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6235,29 +6201,29 @@ const serializeAws_json1_1ListRemoteAccessSessionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListRunsRequest = (input: ListRunsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSamplesRequest = (input: ListSamplesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSuitesRequest = (input: ListSuitesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6266,7 +6232,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -6275,8 +6241,8 @@ const serializeAws_json1_1ListTestGridProjectsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResult != undefined && { maxResult: input.maxResult }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6285,9 +6251,9 @@ const serializeAws_json1_1ListTestGridSessionActionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
+    ...(input.maxResult != undefined && { maxResult: input.maxResult }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sessionArn != undefined && { sessionArn: input.sessionArn }),
   };
 };
 
@@ -6296,10 +6262,10 @@ const serializeAws_json1_1ListTestGridSessionArtifactsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sessionArn !== undefined && input.sessionArn !== null && { sessionArn: input.sessionArn }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.maxResult != undefined && { maxResult: input.maxResult }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sessionArn != undefined && { sessionArn: input.sessionArn }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -6308,27 +6274,25 @@ const serializeAws_json1_1ListTestGridSessionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.creationTimeAfter !== undefined &&
-      input.creationTimeAfter !== null && { creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000) }),
-    ...(input.creationTimeBefore !== undefined &&
-      input.creationTimeBefore !== null && {
-        creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
-      }),
-    ...(input.endTimeAfter !== undefined &&
-      input.endTimeAfter !== null && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
-    ...(input.endTimeBefore !== undefined &&
-      input.endTimeBefore !== null && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
-    ...(input.maxResult !== undefined && input.maxResult !== null && { maxResult: input.maxResult }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.creationTimeAfter != undefined && {
+      creationTimeAfter: Math.round(input.creationTimeAfter.getTime() / 1000),
+    }),
+    ...(input.creationTimeBefore != undefined && {
+      creationTimeBefore: Math.round(input.creationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.endTimeAfter != undefined && { endTimeAfter: Math.round(input.endTimeAfter.getTime() / 1000) }),
+    ...(input.endTimeBefore != undefined && { endTimeBefore: Math.round(input.endTimeBefore.getTime() / 1000) }),
+    ...(input.maxResult != undefined && { maxResult: input.maxResult }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1ListTestsRequest = (input: ListTestsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -6337,16 +6301,16 @@ const serializeAws_json1_1ListUniqueProblemsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListUploadsRequest = (input: ListUploadsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -6355,15 +6319,15 @@ const serializeAws_json1_1ListVPCEConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
-    ...(input.latitude !== undefined && input.latitude !== null && { latitude: __serializeFloat(input.latitude) }),
-    ...(input.longitude !== undefined && input.longitude !== null && { longitude: __serializeFloat(input.longitude) }),
+    ...(input.latitude != undefined && { latitude: __serializeFloat(input.latitude) }),
+    ...(input.longitude != undefined && { longitude: __serializeFloat(input.longitude) }),
   };
 };
 
@@ -6380,34 +6344,33 @@ const serializeAws_json1_1PackageIds = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1PurchaseOfferingRequest = (input: PurchaseOfferingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.offeringId !== undefined && input.offeringId !== null && { offeringId: input.offeringId }),
-    ...(input.offeringPromotionId !== undefined &&
-      input.offeringPromotionId !== null && { offeringPromotionId: input.offeringPromotionId }),
-    ...(input.quantity !== undefined && input.quantity !== null && { quantity: input.quantity }),
+    ...(input.offeringId != undefined && { offeringId: input.offeringId }),
+    ...(input.offeringPromotionId != undefined && { offeringPromotionId: input.offeringPromotionId }),
+    ...(input.quantity != undefined && { quantity: input.quantity }),
   };
 };
 
 const serializeAws_json1_1Radios = (input: Radios, context: __SerdeContext): any => {
   return {
-    ...(input.bluetooth !== undefined && input.bluetooth !== null && { bluetooth: input.bluetooth }),
-    ...(input.gps !== undefined && input.gps !== null && { gps: input.gps }),
-    ...(input.nfc !== undefined && input.nfc !== null && { nfc: input.nfc }),
-    ...(input.wifi !== undefined && input.wifi !== null && { wifi: input.wifi }),
+    ...(input.bluetooth != undefined && { bluetooth: input.bluetooth }),
+    ...(input.gps != undefined && { gps: input.gps }),
+    ...(input.nfc != undefined && { nfc: input.nfc }),
+    ...(input.wifi != undefined && { wifi: input.wifi }),
   };
 };
 
 const serializeAws_json1_1RenewOfferingRequest = (input: RenewOfferingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.offeringId !== undefined && input.offeringId !== null && { offeringId: input.offeringId }),
-    ...(input.quantity !== undefined && input.quantity !== null && { quantity: input.quantity }),
+    ...(input.offeringId != undefined && { offeringId: input.offeringId }),
+    ...(input.quantity != undefined && { quantity: input.quantity }),
   };
 };
 
 const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
-    ...(input.attribute !== undefined && input.attribute !== null && { attribute: input.attribute }),
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.attribute != undefined && { attribute: input.attribute }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -6427,66 +6390,53 @@ const serializeAws_json1_1ScheduleRunConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.auxiliaryApps !== undefined &&
-      input.auxiliaryApps !== null && {
-        auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context),
-      }),
-    ...(input.billingMethod !== undefined && input.billingMethod !== null && { billingMethod: input.billingMethod }),
-    ...(input.customerArtifactPaths !== undefined &&
-      input.customerArtifactPaths !== null && {
-        customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context),
-      }),
-    ...(input.extraDataPackageArn !== undefined &&
-      input.extraDataPackageArn !== null && { extraDataPackageArn: input.extraDataPackageArn }),
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
-    ...(input.location !== undefined &&
-      input.location !== null && { location: serializeAws_json1_1Location(input.location, context) }),
-    ...(input.networkProfileArn !== undefined &&
-      input.networkProfileArn !== null && { networkProfileArn: input.networkProfileArn }),
-    ...(input.radios !== undefined &&
-      input.radios !== null && { radios: serializeAws_json1_1Radios(input.radios, context) }),
-    ...(input.vpceConfigurationArns !== undefined &&
-      input.vpceConfigurationArns !== null && {
-        vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
-      }),
+    ...(input.auxiliaryApps != undefined && {
+      auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context),
+    }),
+    ...(input.billingMethod != undefined && { billingMethod: input.billingMethod }),
+    ...(input.customerArtifactPaths != undefined && {
+      customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context),
+    }),
+    ...(input.extraDataPackageArn != undefined && { extraDataPackageArn: input.extraDataPackageArn }),
+    ...(input.locale != undefined && { locale: input.locale }),
+    ...(input.location != undefined && { location: serializeAws_json1_1Location(input.location, context) }),
+    ...(input.networkProfileArn != undefined && { networkProfileArn: input.networkProfileArn }),
+    ...(input.radios != undefined && { radios: serializeAws_json1_1Radios(input.radios, context) }),
+    ...(input.vpceConfigurationArns != undefined && {
+      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ScheduleRunRequest = (input: ScheduleRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.configuration !== undefined &&
-      input.configuration !== null && {
-        configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
-      }),
-    ...(input.devicePoolArn !== undefined && input.devicePoolArn !== null && { devicePoolArn: input.devicePoolArn }),
-    ...(input.deviceSelectionConfiguration !== undefined &&
-      input.deviceSelectionConfiguration !== null && {
-        deviceSelectionConfiguration: serializeAws_json1_1DeviceSelectionConfiguration(
-          input.deviceSelectionConfiguration,
-          context
-        ),
-      }),
-    ...(input.executionConfiguration !== undefined &&
-      input.executionConfiguration !== null && {
-        executionConfiguration: serializeAws_json1_1ExecutionConfiguration(input.executionConfiguration, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.test !== undefined &&
-      input.test !== null && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.configuration != undefined && {
+      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context),
+    }),
+    ...(input.devicePoolArn != undefined && { devicePoolArn: input.devicePoolArn }),
+    ...(input.deviceSelectionConfiguration != undefined && {
+      deviceSelectionConfiguration: serializeAws_json1_1DeviceSelectionConfiguration(
+        input.deviceSelectionConfiguration,
+        context
+      ),
+    }),
+    ...(input.executionConfiguration != undefined && {
+      executionConfiguration: serializeAws_json1_1ExecutionConfiguration(input.executionConfiguration, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.test != undefined && { test: serializeAws_json1_1ScheduleRunTest(input.test, context) }),
   };
 };
 
 const serializeAws_json1_1ScheduleRunTest = (input: ScheduleRunTest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && { parameters: serializeAws_json1_1TestParameters(input.parameters, context) }),
-    ...(input.testPackageArn !== undefined &&
-      input.testPackageArn !== null && { testPackageArn: input.testPackageArn }),
-    ...(input.testSpecArn !== undefined && input.testSpecArn !== null && { testSpecArn: input.testSpecArn }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.filter != undefined && { filter: input.filter }),
+    ...(input.parameters != undefined && { parameters: serializeAws_json1_1TestParameters(input.parameters, context) }),
+    ...(input.testPackageArn != undefined && { testPackageArn: input.testPackageArn }),
+    ...(input.testSpecArn != undefined && { testSpecArn: input.testSpecArn }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -6503,7 +6453,7 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1StopJobRequest = (input: StopJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6512,13 +6462,13 @@ const serializeAws_json1_1StopRemoteAccessSessionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1StopRunRequest = (input: StopRunRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -6535,8 +6485,8 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -6564,20 +6514,18 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TestGridVpcConfig = (input: TestGridVpcConfig, context: __SerdeContext): any => {
   return {
-    ...(input.securityGroupIds !== undefined &&
-      input.securityGroupIds !== null && {
-        securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
-      }),
-    ...(input.subnetIds !== undefined &&
-      input.subnetIds !== null && { subnetIds: serializeAws_json1_1SubnetIds(input.subnetIds, context) }),
-    ...(input.vpcId !== undefined && input.vpcId !== null && { vpcId: input.vpcId }),
+    ...(input.securityGroupIds != undefined && {
+      securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
+    }),
+    ...(input.subnetIds != undefined && { subnetIds: serializeAws_json1_1SubnetIds(input.subnetIds, context) }),
+    ...(input.vpcId != undefined && { vpcId: input.vpcId }),
   };
 };
 
@@ -6595,9 +6543,8 @@ const serializeAws_json1_1TestParameters = (input: Record<string, string>, conte
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -6606,23 +6553,20 @@ const serializeAws_json1_1UpdateDeviceInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.labels !== undefined &&
-      input.labels !== null && { labels: serializeAws_json1_1InstanceLabels(input.labels, context) }),
-    ...(input.profileArn !== undefined && input.profileArn !== null && { profileArn: input.profileArn }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.labels != undefined && { labels: serializeAws_json1_1InstanceLabels(input.labels, context) }),
+    ...(input.profileArn != undefined && { profileArn: input.profileArn }),
   };
 };
 
 const serializeAws_json1_1UpdateDevicePoolRequest = (input: UpdateDevicePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.clearMaxDevices !== undefined &&
-      input.clearMaxDevices !== null && { clearMaxDevices: input.clearMaxDevices }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.maxDevices !== undefined && input.maxDevices !== null && { maxDevices: input.maxDevices }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.rules !== undefined &&
-      input.rules !== null && { rules: serializeAws_json1_1Rules(input.rules, context) }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.clearMaxDevices != undefined && { clearMaxDevices: input.clearMaxDevices }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.maxDevices != undefined && { maxDevices: input.maxDevices }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.rules != undefined && { rules: serializeAws_json1_1Rules(input.rules, context) }),
   };
 };
 
@@ -6631,17 +6575,14 @@ const serializeAws_json1_1UpdateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.excludeAppPackagesFromCleanup !== undefined &&
-      input.excludeAppPackagesFromCleanup !== null && {
-        excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.packageCleanup !== undefined &&
-      input.packageCleanup !== null && { packageCleanup: input.packageCleanup }),
-    ...(input.rebootAfterUse !== undefined &&
-      input.rebootAfterUse !== null && { rebootAfterUse: input.rebootAfterUse }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.excludeAppPackagesFromCleanup != undefined && {
+      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.packageCleanup != undefined && { packageCleanup: input.packageCleanup }),
+    ...(input.rebootAfterUse != undefined && { rebootAfterUse: input.rebootAfterUse }),
   };
 };
 
@@ -6650,34 +6591,26 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.downlinkBandwidthBits !== undefined &&
-      input.downlinkBandwidthBits !== null && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
-    ...(input.downlinkDelayMs !== undefined &&
-      input.downlinkDelayMs !== null && { downlinkDelayMs: input.downlinkDelayMs }),
-    ...(input.downlinkJitterMs !== undefined &&
-      input.downlinkJitterMs !== null && { downlinkJitterMs: input.downlinkJitterMs }),
-    ...(input.downlinkLossPercent !== undefined &&
-      input.downlinkLossPercent !== null && { downlinkLossPercent: input.downlinkLossPercent }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-    ...(input.uplinkBandwidthBits !== undefined &&
-      input.uplinkBandwidthBits !== null && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
-    ...(input.uplinkDelayMs !== undefined && input.uplinkDelayMs !== null && { uplinkDelayMs: input.uplinkDelayMs }),
-    ...(input.uplinkJitterMs !== undefined &&
-      input.uplinkJitterMs !== null && { uplinkJitterMs: input.uplinkJitterMs }),
-    ...(input.uplinkLossPercent !== undefined &&
-      input.uplinkLossPercent !== null && { uplinkLossPercent: input.uplinkLossPercent }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.downlinkBandwidthBits != undefined && { downlinkBandwidthBits: input.downlinkBandwidthBits }),
+    ...(input.downlinkDelayMs != undefined && { downlinkDelayMs: input.downlinkDelayMs }),
+    ...(input.downlinkJitterMs != undefined && { downlinkJitterMs: input.downlinkJitterMs }),
+    ...(input.downlinkLossPercent != undefined && { downlinkLossPercent: input.downlinkLossPercent }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.type != undefined && { type: input.type }),
+    ...(input.uplinkBandwidthBits != undefined && { uplinkBandwidthBits: input.uplinkBandwidthBits }),
+    ...(input.uplinkDelayMs != undefined && { uplinkDelayMs: input.uplinkDelayMs }),
+    ...(input.uplinkJitterMs != undefined && { uplinkJitterMs: input.uplinkJitterMs }),
+    ...(input.uplinkLossPercent != undefined && { uplinkLossPercent: input.uplinkLossPercent }),
   };
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.defaultJobTimeoutMinutes !== undefined &&
-      input.defaultJobTimeoutMinutes !== null && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.defaultJobTimeoutMinutes != undefined && { defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -6686,20 +6619,19 @@ const serializeAws_json1_1UpdateTestGridProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.vpcConfig !== undefined &&
-      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.vpcConfig != undefined && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateUploadRequest = (input: UpdateUploadRequest, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.editContent !== undefined && input.editContent !== null && { editContent: input.editContent }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
+    ...(input.editContent != undefined && { editContent: input.editContent }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -6708,17 +6640,13 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.serviceDnsName !== undefined &&
-      input.serviceDnsName !== null && { serviceDnsName: input.serviceDnsName }),
-    ...(input.vpceConfigurationDescription !== undefined &&
-      input.vpceConfigurationDescription !== null && {
-        vpceConfigurationDescription: input.vpceConfigurationDescription,
-      }),
-    ...(input.vpceConfigurationName !== undefined &&
-      input.vpceConfigurationName !== null && { vpceConfigurationName: input.vpceConfigurationName }),
-    ...(input.vpceServiceName !== undefined &&
-      input.vpceServiceName !== null && { vpceServiceName: input.vpceServiceName }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.serviceDnsName != undefined && { serviceDnsName: input.serviceDnsName }),
+    ...(input.vpceConfigurationDescription != undefined && {
+      vpceConfigurationDescription: input.vpceConfigurationDescription,
+    }),
+    ...(input.vpceConfigurationName != undefined && { vpceConfigurationName: input.vpceConfigurationName }),
+    ...(input.vpceServiceName != undefined && { vpceServiceName: input.vpceServiceName }),
   };
 };
 
@@ -6727,21 +6655,16 @@ const deserializeAws_json1_1AccountSettings = (output: any, context: __SerdeCont
     awsAccountNumber: __expectString(output.awsAccountNumber),
     defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
     maxJobTimeoutMinutes: __expectInt32(output.maxJobTimeoutMinutes),
-    maxSlots:
-      output.maxSlots !== undefined && output.maxSlots !== null
-        ? deserializeAws_json1_1MaxSlotMap(output.maxSlots, context)
-        : undefined,
+    maxSlots: output.maxSlots != undefined ? deserializeAws_json1_1MaxSlotMap(output.maxSlots, context) : undefined,
     skipAppResign: __expectBoolean(output.skipAppResign),
     trialMinutes:
-      output.trialMinutes !== undefined && output.trialMinutes !== null
-        ? deserializeAws_json1_1TrialMinutes(output.trialMinutes, context)
-        : undefined,
+      output.trialMinutes != undefined ? deserializeAws_json1_1TrialMinutes(output.trialMinutes, context) : undefined,
     unmeteredDevices:
-      output.unmeteredDevices !== undefined && output.unmeteredDevices !== null
+      output.unmeteredDevices != undefined
         ? deserializeAws_json1_1PurchasedDevicesMap(output.unmeteredDevices, context)
         : undefined,
     unmeteredRemoteAccessDevices:
-      output.unmeteredRemoteAccessDevices !== undefined && output.unmeteredRemoteAccessDevices !== null
+      output.unmeteredRemoteAccessDevices != undefined
         ? deserializeAws_json1_1PurchasedDevicesMap(output.unmeteredRemoteAccessDevices, context)
         : undefined,
   } as any;
@@ -6816,9 +6739,7 @@ const deserializeAws_json1_1CPU = (output: any, context: __SerdeContext): CPU =>
 const deserializeAws_json1_1CreateDevicePoolResult = (output: any, context: __SerdeContext): CreateDevicePoolResult => {
   return {
     devicePool:
-      output.devicePool !== undefined && output.devicePool !== null
-        ? deserializeAws_json1_1DevicePool(output.devicePool, context)
-        : undefined,
+      output.devicePool != undefined ? deserializeAws_json1_1DevicePool(output.devicePool, context) : undefined,
   } as any;
 };
 
@@ -6828,7 +6749,7 @@ const deserializeAws_json1_1CreateInstanceProfileResult = (
 ): CreateInstanceProfileResult => {
   return {
     instanceProfile:
-      output.instanceProfile !== undefined && output.instanceProfile !== null
+      output.instanceProfile != undefined
         ? deserializeAws_json1_1InstanceProfile(output.instanceProfile, context)
         : undefined,
   } as any;
@@ -6840,7 +6761,7 @@ const deserializeAws_json1_1CreateNetworkProfileResult = (
 ): CreateNetworkProfileResult => {
   return {
     networkProfile:
-      output.networkProfile !== undefined && output.networkProfile !== null
+      output.networkProfile != undefined
         ? deserializeAws_json1_1NetworkProfile(output.networkProfile, context)
         : undefined,
   } as any;
@@ -6848,10 +6769,7 @@ const deserializeAws_json1_1CreateNetworkProfileResult = (
 
 const deserializeAws_json1_1CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
   return {
-    project:
-      output.project !== undefined && output.project !== null
-        ? deserializeAws_json1_1Project(output.project, context)
-        : undefined,
+    project: output.project != undefined ? deserializeAws_json1_1Project(output.project, context) : undefined,
   } as any;
 };
 
@@ -6861,7 +6779,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionResult = (
 ): CreateRemoteAccessSessionResult => {
   return {
     remoteAccessSession:
-      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+      output.remoteAccessSession != undefined
         ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined,
   } as any;
@@ -6873,7 +6791,7 @@ const deserializeAws_json1_1CreateTestGridProjectResult = (
 ): CreateTestGridProjectResult => {
   return {
     testGridProject:
-      output.testGridProject !== undefined && output.testGridProject !== null
+      output.testGridProject != undefined
         ? deserializeAws_json1_1TestGridProject(output.testGridProject, context)
         : undefined,
   } as any;
@@ -6885,19 +6803,14 @@ const deserializeAws_json1_1CreateTestGridUrlResult = (
 ): CreateTestGridUrlResult => {
   return {
     expires:
-      output.expires !== undefined && output.expires !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expires)))
-        : undefined,
+      output.expires != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expires))) : undefined,
     url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_json1_1CreateUploadResult = (output: any, context: __SerdeContext): CreateUploadResult => {
   return {
-    upload:
-      output.upload !== undefined && output.upload !== null
-        ? deserializeAws_json1_1Upload(output.upload, context)
-        : undefined,
+    upload: output.upload != undefined ? deserializeAws_json1_1Upload(output.upload, context) : undefined,
   } as any;
 };
 
@@ -6907,7 +6820,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationResult = (
 ): CreateVPCEConfigurationResult => {
   return {
     vpceConfiguration:
-      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+      output.vpceConfiguration != undefined
         ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined,
   } as any;
@@ -6916,17 +6829,12 @@ const deserializeAws_json1_1CreateVPCEConfigurationResult = (
 const deserializeAws_json1_1CustomerArtifactPaths = (output: any, context: __SerdeContext): CustomerArtifactPaths => {
   return {
     androidPaths:
-      output.androidPaths !== undefined && output.androidPaths !== null
-        ? deserializeAws_json1_1AndroidPaths(output.androidPaths, context)
-        : undefined,
+      output.androidPaths != undefined ? deserializeAws_json1_1AndroidPaths(output.androidPaths, context) : undefined,
     deviceHostPaths:
-      output.deviceHostPaths !== undefined && output.deviceHostPaths !== null
+      output.deviceHostPaths != undefined
         ? deserializeAws_json1_1DeviceHostPaths(output.deviceHostPaths, context)
         : undefined,
-    iosPaths:
-      output.iosPaths !== undefined && output.iosPaths !== null
-        ? deserializeAws_json1_1IosPaths(output.iosPaths, context)
-        : undefined,
+    iosPaths: output.iosPaths != undefined ? deserializeAws_json1_1IosPaths(output.iosPaths, context) : undefined,
   } as any;
 };
 
@@ -6986,16 +6894,14 @@ const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Dev
     arn: __expectString(output.arn),
     availability: __expectString(output.availability),
     carrier: __expectString(output.carrier),
-    cpu: output.cpu !== undefined && output.cpu !== null ? deserializeAws_json1_1CPU(output.cpu, context) : undefined,
+    cpu: output.cpu != undefined ? deserializeAws_json1_1CPU(output.cpu, context) : undefined,
     fleetName: __expectString(output.fleetName),
     fleetType: __expectString(output.fleetType),
     formFactor: __expectString(output.formFactor),
     heapSize: __expectLong(output.heapSize),
     image: __expectString(output.image),
     instances:
-      output.instances !== undefined && output.instances !== null
-        ? deserializeAws_json1_1DeviceInstances(output.instances, context)
-        : undefined,
+      output.instances != undefined ? deserializeAws_json1_1DeviceInstances(output.instances, context) : undefined,
     manufacturer: __expectString(output.manufacturer),
     memory: __expectLong(output.memory),
     model: __expectString(output.model),
@@ -7007,9 +6913,7 @@ const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Dev
     remoteAccessEnabled: __expectBoolean(output.remoteAccessEnabled),
     remoteDebugEnabled: __expectBoolean(output.remoteDebugEnabled),
     resolution:
-      output.resolution !== undefined && output.resolution !== null
-        ? deserializeAws_json1_1Resolution(output.resolution, context)
-        : undefined,
+      output.resolution != undefined ? deserializeAws_json1_1Resolution(output.resolution, context) : undefined,
   } as any;
 };
 
@@ -7017,10 +6921,7 @@ const deserializeAws_json1_1DeviceFilter = (output: any, context: __SerdeContext
   return {
     attribute: __expectString(output.attribute),
     operator: __expectString(output.operator),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_json1_1DeviceFilterValues(output.values, context)
-        : undefined,
+    values: output.values != undefined ? deserializeAws_json1_1DeviceFilterValues(output.values, context) : undefined,
   } as any;
 };
 
@@ -7065,13 +6966,10 @@ const deserializeAws_json1_1DeviceInstance = (output: any, context: __SerdeConte
     arn: __expectString(output.arn),
     deviceArn: __expectString(output.deviceArn),
     instanceProfile:
-      output.instanceProfile !== undefined && output.instanceProfile !== null
+      output.instanceProfile != undefined
         ? deserializeAws_json1_1InstanceProfile(output.instanceProfile, context)
         : undefined,
-    labels:
-      output.labels !== undefined && output.labels !== null
-        ? deserializeAws_json1_1InstanceLabels(output.labels, context)
-        : undefined,
+    labels: output.labels != undefined ? deserializeAws_json1_1InstanceLabels(output.labels, context) : undefined,
     status: __expectString(output.status),
     udid: __expectString(output.udid),
   } as any;
@@ -7103,10 +7001,7 @@ const deserializeAws_json1_1DevicePool = (output: any, context: __SerdeContext):
     description: __expectString(output.description),
     maxDevices: __expectInt32(output.maxDevices),
     name: __expectString(output.name),
-    rules:
-      output.rules !== undefined && output.rules !== null
-        ? deserializeAws_json1_1Rules(output.rules, context)
-        : undefined,
+    rules: output.rules != undefined ? deserializeAws_json1_1Rules(output.rules, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -7117,12 +7012,9 @@ const deserializeAws_json1_1DevicePoolCompatibilityResult = (
 ): DevicePoolCompatibilityResult => {
   return {
     compatible: __expectBoolean(output.compatible),
-    device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_json1_1Device(output.device, context)
-        : undefined,
+    device: output.device != undefined ? deserializeAws_json1_1Device(output.device, context) : undefined,
     incompatibilityMessages:
-      output.incompatibilityMessages !== undefined && output.incompatibilityMessages !== null
+      output.incompatibilityMessages != undefined
         ? deserializeAws_json1_1IncompatibilityMessages(output.incompatibilityMessages, context)
         : undefined,
   } as any;
@@ -7169,10 +7061,7 @@ const deserializeAws_json1_1Devices = (output: any, context: __SerdeContext): De
 
 const deserializeAws_json1_1DeviceSelectionResult = (output: any, context: __SerdeContext): DeviceSelectionResult => {
   return {
-    filters:
-      output.filters !== undefined && output.filters !== null
-        ? deserializeAws_json1_1DeviceFilters(output.filters, context)
-        : undefined,
+    filters: output.filters != undefined ? deserializeAws_json1_1DeviceFilters(output.filters, context) : undefined,
     matchedDevicesCount: __expectInt32(output.matchedDevicesCount),
     maxDevices: __expectInt32(output.maxDevices),
   } as any;
@@ -7184,7 +7073,7 @@ const deserializeAws_json1_1GetAccountSettingsResult = (
 ): GetAccountSettingsResult => {
   return {
     accountSettings:
-      output.accountSettings !== undefined && output.accountSettings !== null
+      output.accountSettings != undefined
         ? deserializeAws_json1_1AccountSettings(output.accountSettings, context)
         : undefined,
   } as any;
@@ -7196,7 +7085,7 @@ const deserializeAws_json1_1GetDeviceInstanceResult = (
 ): GetDeviceInstanceResult => {
   return {
     deviceInstance:
-      output.deviceInstance !== undefined && output.deviceInstance !== null
+      output.deviceInstance != undefined
         ? deserializeAws_json1_1DeviceInstance(output.deviceInstance, context)
         : undefined,
   } as any;
@@ -7208,11 +7097,11 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityResult = (
 ): GetDevicePoolCompatibilityResult => {
   return {
     compatibleDevices:
-      output.compatibleDevices !== undefined && output.compatibleDevices !== null
+      output.compatibleDevices != undefined
         ? deserializeAws_json1_1DevicePoolCompatibilityResults(output.compatibleDevices, context)
         : undefined,
     incompatibleDevices:
-      output.incompatibleDevices !== undefined && output.incompatibleDevices !== null
+      output.incompatibleDevices != undefined
         ? deserializeAws_json1_1DevicePoolCompatibilityResults(output.incompatibleDevices, context)
         : undefined,
   } as any;
@@ -7221,18 +7110,13 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityResult = (
 const deserializeAws_json1_1GetDevicePoolResult = (output: any, context: __SerdeContext): GetDevicePoolResult => {
   return {
     devicePool:
-      output.devicePool !== undefined && output.devicePool !== null
-        ? deserializeAws_json1_1DevicePool(output.devicePool, context)
-        : undefined,
+      output.devicePool != undefined ? deserializeAws_json1_1DevicePool(output.devicePool, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetDeviceResult = (output: any, context: __SerdeContext): GetDeviceResult => {
   return {
-    device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_json1_1Device(output.device, context)
-        : undefined,
+    device: output.device != undefined ? deserializeAws_json1_1Device(output.device, context) : undefined,
   } as any;
 };
 
@@ -7242,7 +7126,7 @@ const deserializeAws_json1_1GetInstanceProfileResult = (
 ): GetInstanceProfileResult => {
   return {
     instanceProfile:
-      output.instanceProfile !== undefined && output.instanceProfile !== null
+      output.instanceProfile != undefined
         ? deserializeAws_json1_1InstanceProfile(output.instanceProfile, context)
         : undefined,
   } as any;
@@ -7250,7 +7134,7 @@ const deserializeAws_json1_1GetInstanceProfileResult = (
 
 const deserializeAws_json1_1GetJobResult = (output: any, context: __SerdeContext): GetJobResult => {
   return {
-    job: output.job !== undefined && output.job !== null ? deserializeAws_json1_1Job(output.job, context) : undefined,
+    job: output.job != undefined ? deserializeAws_json1_1Job(output.job, context) : undefined,
   } as any;
 };
 
@@ -7260,7 +7144,7 @@ const deserializeAws_json1_1GetNetworkProfileResult = (
 ): GetNetworkProfileResult => {
   return {
     networkProfile:
-      output.networkProfile !== undefined && output.networkProfile !== null
+      output.networkProfile != undefined
         ? deserializeAws_json1_1NetworkProfile(output.networkProfile, context)
         : undefined,
   } as any;
@@ -7271,24 +7155,16 @@ const deserializeAws_json1_1GetOfferingStatusResult = (
   context: __SerdeContext
 ): GetOfferingStatusResult => {
   return {
-    current:
-      output.current !== undefined && output.current !== null
-        ? deserializeAws_json1_1OfferingStatusMap(output.current, context)
-        : undefined,
+    current: output.current != undefined ? deserializeAws_json1_1OfferingStatusMap(output.current, context) : undefined,
     nextPeriod:
-      output.nextPeriod !== undefined && output.nextPeriod !== null
-        ? deserializeAws_json1_1OfferingStatusMap(output.nextPeriod, context)
-        : undefined,
+      output.nextPeriod != undefined ? deserializeAws_json1_1OfferingStatusMap(output.nextPeriod, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1GetProjectResult = (output: any, context: __SerdeContext): GetProjectResult => {
   return {
-    project:
-      output.project !== undefined && output.project !== null
-        ? deserializeAws_json1_1Project(output.project, context)
-        : undefined,
+    project: output.project != undefined ? deserializeAws_json1_1Project(output.project, context) : undefined,
   } as any;
 };
 
@@ -7298,7 +7174,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionResult = (
 ): GetRemoteAccessSessionResult => {
   return {
     remoteAccessSession:
-      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+      output.remoteAccessSession != undefined
         ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined,
   } as any;
@@ -7306,16 +7182,13 @@ const deserializeAws_json1_1GetRemoteAccessSessionResult = (
 
 const deserializeAws_json1_1GetRunResult = (output: any, context: __SerdeContext): GetRunResult => {
   return {
-    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined,
+    run: output.run != undefined ? deserializeAws_json1_1Run(output.run, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetSuiteResult = (output: any, context: __SerdeContext): GetSuiteResult => {
   return {
-    suite:
-      output.suite !== undefined && output.suite !== null
-        ? deserializeAws_json1_1Suite(output.suite, context)
-        : undefined,
+    suite: output.suite != undefined ? deserializeAws_json1_1Suite(output.suite, context) : undefined,
   } as any;
 };
 
@@ -7325,7 +7198,7 @@ const deserializeAws_json1_1GetTestGridProjectResult = (
 ): GetTestGridProjectResult => {
   return {
     testGridProject:
-      output.testGridProject !== undefined && output.testGridProject !== null
+      output.testGridProject != undefined
         ? deserializeAws_json1_1TestGridProject(output.testGridProject, context)
         : undefined,
   } as any;
@@ -7337,7 +7210,7 @@ const deserializeAws_json1_1GetTestGridSessionResult = (
 ): GetTestGridSessionResult => {
   return {
     testGridSession:
-      output.testGridSession !== undefined && output.testGridSession !== null
+      output.testGridSession != undefined
         ? deserializeAws_json1_1TestGridSession(output.testGridSession, context)
         : undefined,
   } as any;
@@ -7345,17 +7218,13 @@ const deserializeAws_json1_1GetTestGridSessionResult = (
 
 const deserializeAws_json1_1GetTestResult = (output: any, context: __SerdeContext): GetTestResult => {
   return {
-    test:
-      output.test !== undefined && output.test !== null ? deserializeAws_json1_1Test(output.test, context) : undefined,
+    test: output.test != undefined ? deserializeAws_json1_1Test(output.test, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetUploadResult = (output: any, context: __SerdeContext): GetUploadResult => {
   return {
-    upload:
-      output.upload !== undefined && output.upload !== null
-        ? deserializeAws_json1_1Upload(output.upload, context)
-        : undefined,
+    upload: output.upload != undefined ? deserializeAws_json1_1Upload(output.upload, context) : undefined,
   } as any;
 };
 
@@ -7365,7 +7234,7 @@ const deserializeAws_json1_1GetVPCEConfigurationResult = (
 ): GetVPCEConfigurationResult => {
   return {
     vpceConfiguration:
-      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+      output.vpceConfiguration != undefined
         ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined,
   } as any;
@@ -7404,10 +7273,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionResult = (
   context: __SerdeContext
 ): InstallToRemoteAccessSessionResult => {
   return {
-    appUpload:
-      output.appUpload !== undefined && output.appUpload !== null
-        ? deserializeAws_json1_1Upload(output.appUpload, context)
-        : undefined,
+    appUpload: output.appUpload != undefined ? deserializeAws_json1_1Upload(output.appUpload, context) : undefined,
   } as any;
 };
 
@@ -7428,7 +7294,7 @@ const deserializeAws_json1_1InstanceProfile = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     description: __expectString(output.description),
     excludeAppPackagesFromCleanup:
-      output.excludeAppPackagesFromCleanup !== undefined && output.excludeAppPackagesFromCleanup !== null
+      output.excludeAppPackagesFromCleanup != undefined
         ? deserializeAws_json1_1PackageIds(output.excludeAppPackagesFromCleanup, context)
         : undefined,
     name: __expectString(output.name),
@@ -7482,20 +7348,12 @@ const deserializeAws_json1_1IosPaths = (output: any, context: __SerdeContext): s
 const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     arn: __expectString(output.arn),
-    counters:
-      output.counters !== undefined && output.counters !== null
-        ? deserializeAws_json1_1Counters(output.counters, context)
-        : undefined,
+    counters: output.counters != undefined ? deserializeAws_json1_1Counters(output.counters, context) : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
-    device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_json1_1Device(output.device, context)
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+    device: output.device != undefined ? deserializeAws_json1_1Device(output.device, context) : undefined,
     deviceMinutes:
-      output.deviceMinutes !== undefined && output.deviceMinutes !== null
+      output.deviceMinutes != undefined
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     instanceArn: __expectString(output.instanceArn),
@@ -7503,14 +7361,10 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
-        : undefined,
+      output.stopped != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
     type: __expectString(output.type),
     videoCapture: __expectBoolean(output.videoCapture),
     videoEndpoint: __expectString(output.videoEndpoint),
@@ -7537,10 +7391,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 
 const deserializeAws_json1_1ListArtifactsResult = (output: any, context: __SerdeContext): ListArtifactsResult => {
   return {
-    artifacts:
-      output.artifacts !== undefined && output.artifacts !== null
-        ? deserializeAws_json1_1Artifacts(output.artifacts, context)
-        : undefined,
+    artifacts: output.artifacts != undefined ? deserializeAws_json1_1Artifacts(output.artifacts, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -7551,7 +7402,7 @@ const deserializeAws_json1_1ListDeviceInstancesResult = (
 ): ListDeviceInstancesResult => {
   return {
     deviceInstances:
-      output.deviceInstances !== undefined && output.deviceInstances !== null
+      output.deviceInstances != undefined
         ? deserializeAws_json1_1DeviceInstances(output.deviceInstances, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7561,19 +7412,14 @@ const deserializeAws_json1_1ListDeviceInstancesResult = (
 const deserializeAws_json1_1ListDevicePoolsResult = (output: any, context: __SerdeContext): ListDevicePoolsResult => {
   return {
     devicePools:
-      output.devicePools !== undefined && output.devicePools !== null
-        ? deserializeAws_json1_1DevicePools(output.devicePools, context)
-        : undefined,
+      output.devicePools != undefined ? deserializeAws_json1_1DevicePools(output.devicePools, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListDevicesResult = (output: any, context: __SerdeContext): ListDevicesResult => {
   return {
-    devices:
-      output.devices !== undefined && output.devices !== null
-        ? deserializeAws_json1_1Devices(output.devices, context)
-        : undefined,
+    devices: output.devices != undefined ? deserializeAws_json1_1Devices(output.devices, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -7584,7 +7430,7 @@ const deserializeAws_json1_1ListInstanceProfilesResult = (
 ): ListInstanceProfilesResult => {
   return {
     instanceProfiles:
-      output.instanceProfiles !== undefined && output.instanceProfiles !== null
+      output.instanceProfiles != undefined
         ? deserializeAws_json1_1InstanceProfiles(output.instanceProfiles, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7593,8 +7439,7 @@ const deserializeAws_json1_1ListInstanceProfilesResult = (
 
 const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeContext): ListJobsResult => {
   return {
-    jobs:
-      output.jobs !== undefined && output.jobs !== null ? deserializeAws_json1_1Jobs(output.jobs, context) : undefined,
+    jobs: output.jobs != undefined ? deserializeAws_json1_1Jobs(output.jobs, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -7605,7 +7450,7 @@ const deserializeAws_json1_1ListNetworkProfilesResult = (
 ): ListNetworkProfilesResult => {
   return {
     networkProfiles:
-      output.networkProfiles !== undefined && output.networkProfiles !== null
+      output.networkProfiles != undefined
         ? deserializeAws_json1_1NetworkProfiles(output.networkProfiles, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7619,7 +7464,7 @@ const deserializeAws_json1_1ListOfferingPromotionsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     offeringPromotions:
-      output.offeringPromotions !== undefined && output.offeringPromotions !== null
+      output.offeringPromotions != undefined
         ? deserializeAws_json1_1OfferingPromotions(output.offeringPromotions, context)
         : undefined,
   } as any;
@@ -7628,10 +7473,7 @@ const deserializeAws_json1_1ListOfferingPromotionsResult = (
 const deserializeAws_json1_1ListOfferingsResult = (output: any, context: __SerdeContext): ListOfferingsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    offerings:
-      output.offerings !== undefined && output.offerings !== null
-        ? deserializeAws_json1_1Offerings(output.offerings, context)
-        : undefined,
+    offerings: output.offerings != undefined ? deserializeAws_json1_1Offerings(output.offerings, context) : undefined,
   } as any;
 };
 
@@ -7642,7 +7484,7 @@ const deserializeAws_json1_1ListOfferingTransactionsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     offeringTransactions:
-      output.offeringTransactions !== undefined && output.offeringTransactions !== null
+      output.offeringTransactions != undefined
         ? deserializeAws_json1_1OfferingTransactions(output.offeringTransactions, context)
         : undefined,
   } as any;
@@ -7651,10 +7493,7 @@ const deserializeAws_json1_1ListOfferingTransactionsResult = (
 const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    projects:
-      output.projects !== undefined && output.projects !== null
-        ? deserializeAws_json1_1Projects(output.projects, context)
-        : undefined,
+    projects: output.projects != undefined ? deserializeAws_json1_1Projects(output.projects, context) : undefined,
   } as any;
 };
 
@@ -7665,7 +7504,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     remoteAccessSessions:
-      output.remoteAccessSessions !== undefined && output.remoteAccessSessions !== null
+      output.remoteAccessSessions != undefined
         ? deserializeAws_json1_1RemoteAccessSessions(output.remoteAccessSessions, context)
         : undefined,
   } as any;
@@ -7674,28 +7513,21 @@ const deserializeAws_json1_1ListRemoteAccessSessionsResult = (
 const deserializeAws_json1_1ListRunsResult = (output: any, context: __SerdeContext): ListRunsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    runs:
-      output.runs !== undefined && output.runs !== null ? deserializeAws_json1_1Runs(output.runs, context) : undefined,
+    runs: output.runs != undefined ? deserializeAws_json1_1Runs(output.runs, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListSamplesResult = (output: any, context: __SerdeContext): ListSamplesResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    samples:
-      output.samples !== undefined && output.samples !== null
-        ? deserializeAws_json1_1Samples(output.samples, context)
-        : undefined,
+    samples: output.samples != undefined ? deserializeAws_json1_1Samples(output.samples, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListSuitesResult = (output: any, context: __SerdeContext): ListSuitesResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    suites:
-      output.suites !== undefined && output.suites !== null
-        ? deserializeAws_json1_1Suites(output.suites, context)
-        : undefined,
+    suites: output.suites != undefined ? deserializeAws_json1_1Suites(output.suites, context) : undefined,
   } as any;
 };
 
@@ -7704,10 +7536,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -7718,7 +7547,7 @@ const deserializeAws_json1_1ListTestGridProjectsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     testGridProjects:
-      output.testGridProjects !== undefined && output.testGridProjects !== null
+      output.testGridProjects != undefined
         ? deserializeAws_json1_1TestGridProjects(output.testGridProjects, context)
         : undefined,
   } as any;
@@ -7730,9 +7559,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsResult = (
 ): ListTestGridSessionActionsResult => {
   return {
     actions:
-      output.actions !== undefined && output.actions !== null
-        ? deserializeAws_json1_1TestGridSessionActions(output.actions, context)
-        : undefined,
+      output.actions != undefined ? deserializeAws_json1_1TestGridSessionActions(output.actions, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -7743,7 +7570,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsResult = (
 ): ListTestGridSessionArtifactsResult => {
   return {
     artifacts:
-      output.artifacts !== undefined && output.artifacts !== null
+      output.artifacts != undefined
         ? deserializeAws_json1_1TestGridSessionArtifacts(output.artifacts, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7757,7 +7584,7 @@ const deserializeAws_json1_1ListTestGridSessionsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     testGridSessions:
-      output.testGridSessions !== undefined && output.testGridSessions !== null
+      output.testGridSessions != undefined
         ? deserializeAws_json1_1TestGridSessions(output.testGridSessions, context)
         : undefined,
   } as any;
@@ -7766,10 +7593,7 @@ const deserializeAws_json1_1ListTestGridSessionsResult = (
 const deserializeAws_json1_1ListTestsResult = (output: any, context: __SerdeContext): ListTestsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    tests:
-      output.tests !== undefined && output.tests !== null
-        ? deserializeAws_json1_1Tests(output.tests, context)
-        : undefined,
+    tests: output.tests != undefined ? deserializeAws_json1_1Tests(output.tests, context) : undefined,
   } as any;
 };
 
@@ -7780,7 +7604,7 @@ const deserializeAws_json1_1ListUniqueProblemsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     uniqueProblems:
-      output.uniqueProblems !== undefined && output.uniqueProblems !== null
+      output.uniqueProblems != undefined
         ? deserializeAws_json1_1UniqueProblemsByExecutionResultMap(output.uniqueProblems, context)
         : undefined,
   } as any;
@@ -7789,10 +7613,7 @@ const deserializeAws_json1_1ListUniqueProblemsResult = (
 const deserializeAws_json1_1ListUploadsResult = (output: any, context: __SerdeContext): ListUploadsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    uploads:
-      output.uploads !== undefined && output.uploads !== null
-        ? deserializeAws_json1_1Uploads(output.uploads, context)
-        : undefined,
+    uploads: output.uploads != undefined ? deserializeAws_json1_1Uploads(output.uploads, context) : undefined,
   } as any;
 };
 
@@ -7803,7 +7624,7 @@ const deserializeAws_json1_1ListVPCEConfigurationsResult = (
   return {
     nextToken: __expectString(output.nextToken),
     vpceConfigurations:
-      output.vpceConfigurations !== undefined && output.vpceConfigurations !== null
+      output.vpceConfigurations != undefined
         ? deserializeAws_json1_1VPCEConfigurations(output.vpceConfigurations, context)
         : undefined,
   } as any;
@@ -7882,7 +7703,7 @@ const deserializeAws_json1_1Offering = (output: any, context: __SerdeContext): O
     id: __expectString(output.id),
     platform: __expectString(output.platform),
     recurringCharges:
-      output.recurringCharges !== undefined && output.recurringCharges !== null
+      output.recurringCharges != undefined
         ? deserializeAws_json1_1RecurringCharges(output.recurringCharges, context)
         : undefined,
     type: __expectString(output.type),
@@ -7923,13 +7744,10 @@ const deserializeAws_json1_1Offerings = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeContext): OfferingStatus => {
   return {
     effectiveOn:
-      output.effectiveOn !== undefined && output.effectiveOn !== null
+      output.effectiveOn != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.effectiveOn)))
         : undefined,
-    offering:
-      output.offering !== undefined && output.offering !== null
-        ? deserializeAws_json1_1Offering(output.offering, context)
-        : undefined,
+    offering: output.offering != undefined ? deserializeAws_json1_1Offering(output.offering, context) : undefined,
     quantity: __expectInt32(output.quantity),
     type: __expectString(output.type),
   } as any;
@@ -7952,17 +7770,14 @@ const deserializeAws_json1_1OfferingStatusMap = (
 
 const deserializeAws_json1_1OfferingTransaction = (output: any, context: __SerdeContext): OfferingTransaction => {
   return {
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_json1_1MonetaryAmount(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_json1_1MonetaryAmount(output.cost, context) : undefined,
     createdOn:
-      output.createdOn !== undefined && output.createdOn !== null
+      output.createdOn != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdOn)))
         : undefined,
     offeringPromotionId: __expectString(output.offeringPromotionId),
     offeringStatus:
-      output.offeringStatus !== undefined && output.offeringStatus !== null
+      output.offeringStatus != undefined
         ? deserializeAws_json1_1OfferingStatus(output.offeringStatus, context)
         : undefined,
     transactionId: __expectString(output.transactionId),
@@ -7995,28 +7810,13 @@ const deserializeAws_json1_1PackageIds = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Problem => {
   return {
-    device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_json1_1Device(output.device, context)
-        : undefined,
-    job:
-      output.job !== undefined && output.job !== null
-        ? deserializeAws_json1_1ProblemDetail(output.job, context)
-        : undefined,
+    device: output.device != undefined ? deserializeAws_json1_1Device(output.device, context) : undefined,
+    job: output.job != undefined ? deserializeAws_json1_1ProblemDetail(output.job, context) : undefined,
     message: __expectString(output.message),
     result: __expectString(output.result),
-    run:
-      output.run !== undefined && output.run !== null
-        ? deserializeAws_json1_1ProblemDetail(output.run, context)
-        : undefined,
-    suite:
-      output.suite !== undefined && output.suite !== null
-        ? deserializeAws_json1_1ProblemDetail(output.suite, context)
-        : undefined,
-    test:
-      output.test !== undefined && output.test !== null
-        ? deserializeAws_json1_1ProblemDetail(output.test, context)
-        : undefined,
+    run: output.run != undefined ? deserializeAws_json1_1ProblemDetail(output.run, context) : undefined,
+    suite: output.suite != undefined ? deserializeAws_json1_1ProblemDetail(output.suite, context) : undefined,
+    test: output.test != undefined ? deserializeAws_json1_1ProblemDetail(output.test, context) : undefined,
   } as any;
 };
 
@@ -8043,9 +7843,7 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     defaultJobTimeoutMinutes: __expectInt32(output.defaultJobTimeoutMinutes),
     name: __expectString(output.name),
   } as any;
@@ -8078,7 +7876,7 @@ const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __Serde
 const deserializeAws_json1_1PurchaseOfferingResult = (output: any, context: __SerdeContext): PurchaseOfferingResult => {
   return {
     offeringTransaction:
-      output.offeringTransaction !== undefined && output.offeringTransaction !== null
+      output.offeringTransaction != undefined
         ? deserializeAws_json1_1OfferingTransaction(output.offeringTransaction, context)
         : undefined,
   } as any;
@@ -8095,10 +7893,7 @@ const deserializeAws_json1_1Radios = (output: any, context: __SerdeContext): Rad
 
 const deserializeAws_json1_1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_json1_1MonetaryAmount(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_json1_1MonetaryAmount(output.cost, context) : undefined,
     frequency: __expectString(output.frequency),
   } as any;
 };
@@ -8121,15 +7916,10 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
     billingMethod: __expectString(output.billingMethod),
     clientId: __expectString(output.clientId),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
-    device:
-      output.device !== undefined && output.device !== null
-        ? deserializeAws_json1_1Device(output.device, context)
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+    device: output.device != undefined ? deserializeAws_json1_1Device(output.device, context) : undefined,
     deviceMinutes:
-      output.deviceMinutes !== undefined && output.deviceMinutes !== null
+      output.deviceMinutes != undefined
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     deviceUdid: __expectString(output.deviceUdid),
@@ -8145,14 +7935,10 @@ const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __Serde
     result: __expectString(output.result),
     skipAppResign: __expectBoolean(output.skipAppResign),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
-        : undefined,
+      output.stopped != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
   } as any;
 };
 
@@ -8171,7 +7957,7 @@ const deserializeAws_json1_1RemoteAccessSessions = (output: any, context: __Serd
 const deserializeAws_json1_1RenewOfferingResult = (output: any, context: __SerdeContext): RenewOfferingResult => {
   return {
     offeringTransaction:
-      output.offeringTransaction !== undefined && output.offeringTransaction !== null
+      output.offeringTransaction != undefined
         ? deserializeAws_json1_1OfferingTransaction(output.offeringTransaction, context)
         : undefined,
   } as any;
@@ -8210,59 +7996,44 @@ const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run =>
     arn: __expectString(output.arn),
     billingMethod: __expectString(output.billingMethod),
     completedJobs: __expectInt32(output.completedJobs),
-    counters:
-      output.counters !== undefined && output.counters !== null
-        ? deserializeAws_json1_1Counters(output.counters, context)
-        : undefined,
+    counters: output.counters != undefined ? deserializeAws_json1_1Counters(output.counters, context) : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     customerArtifactPaths:
-      output.customerArtifactPaths !== undefined && output.customerArtifactPaths !== null
+      output.customerArtifactPaths != undefined
         ? deserializeAws_json1_1CustomerArtifactPaths(output.customerArtifactPaths, context)
         : undefined,
     deviceMinutes:
-      output.deviceMinutes !== undefined && output.deviceMinutes !== null
+      output.deviceMinutes != undefined
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     devicePoolArn: __expectString(output.devicePoolArn),
     deviceSelectionResult:
-      output.deviceSelectionResult !== undefined && output.deviceSelectionResult !== null
+      output.deviceSelectionResult != undefined
         ? deserializeAws_json1_1DeviceSelectionResult(output.deviceSelectionResult, context)
         : undefined,
     eventCount: __expectInt32(output.eventCount),
     jobTimeoutMinutes: __expectInt32(output.jobTimeoutMinutes),
     locale: __expectString(output.locale),
-    location:
-      output.location !== undefined && output.location !== null
-        ? deserializeAws_json1_1Location(output.location, context)
-        : undefined,
+    location: output.location != undefined ? deserializeAws_json1_1Location(output.location, context) : undefined,
     message: __expectString(output.message),
     name: __expectString(output.name),
     networkProfile:
-      output.networkProfile !== undefined && output.networkProfile !== null
+      output.networkProfile != undefined
         ? deserializeAws_json1_1NetworkProfile(output.networkProfile, context)
         : undefined,
     parsingResultUrl: __expectString(output.parsingResultUrl),
     platform: __expectString(output.platform),
-    radios:
-      output.radios !== undefined && output.radios !== null
-        ? deserializeAws_json1_1Radios(output.radios, context)
-        : undefined,
+    radios: output.radios != undefined ? deserializeAws_json1_1Radios(output.radios, context) : undefined,
     result: __expectString(output.result),
     resultCode: __expectString(output.resultCode),
     seed: __expectInt32(output.seed),
     skipAppResign: __expectBoolean(output.skipAppResign),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
-        : undefined,
+      output.stopped != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
     testSpecArn: __expectString(output.testSpecArn),
     totalJobs: __expectInt32(output.totalJobs),
     type: __expectString(output.type),
@@ -8304,7 +8075,7 @@ const deserializeAws_json1_1Samples = (output: any, context: __SerdeContext): Sa
 
 const deserializeAws_json1_1ScheduleRunResult = (output: any, context: __SerdeContext): ScheduleRunResult => {
   return {
-    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined,
+    run: output.run != undefined ? deserializeAws_json1_1Run(output.run, context) : undefined,
   } as any;
 };
 
@@ -8331,7 +8102,7 @@ const deserializeAws_json1_1ServiceAccountException = (
 
 const deserializeAws_json1_1StopJobResult = (output: any, context: __SerdeContext): StopJobResult => {
   return {
-    job: output.job !== undefined && output.job !== null ? deserializeAws_json1_1Job(output.job, context) : undefined,
+    job: output.job != undefined ? deserializeAws_json1_1Job(output.job, context) : undefined,
   } as any;
 };
 
@@ -8341,7 +8112,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionResult = (
 ): StopRemoteAccessSessionResult => {
   return {
     remoteAccessSession:
-      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+      output.remoteAccessSession != undefined
         ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined,
   } as any;
@@ -8349,7 +8120,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionResult = (
 
 const deserializeAws_json1_1StopRunResult = (output: any, context: __SerdeContext): StopRunResult => {
   return {
-    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined,
+    run: output.run != undefined ? deserializeAws_json1_1Run(output.run, context) : undefined,
   } as any;
 };
 
@@ -8368,30 +8139,21 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suite => {
   return {
     arn: __expectString(output.arn),
-    counters:
-      output.counters !== undefined && output.counters !== null
-        ? deserializeAws_json1_1Counters(output.counters, context)
-        : undefined,
+    counters: output.counters != undefined ? deserializeAws_json1_1Counters(output.counters, context) : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     deviceMinutes:
-      output.deviceMinutes !== undefined && output.deviceMinutes !== null
+      output.deviceMinutes != undefined
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     message: __expectString(output.message),
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
-        : undefined,
+      output.stopped != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -8448,30 +8210,21 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1Test = (output: any, context: __SerdeContext): Test => {
   return {
     arn: __expectString(output.arn),
-    counters:
-      output.counters !== undefined && output.counters !== null
-        ? deserializeAws_json1_1Counters(output.counters, context)
-        : undefined,
+    counters: output.counters != undefined ? deserializeAws_json1_1Counters(output.counters, context) : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     deviceMinutes:
-      output.deviceMinutes !== undefined && output.deviceMinutes !== null
+      output.deviceMinutes != undefined
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     message: __expectString(output.message),
     name: __expectString(output.name),
     result: __expectString(output.result),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     status: __expectString(output.status),
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped)))
-        : undefined,
+      output.stopped != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopped))) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -8480,15 +8233,11 @@ const deserializeAws_json1_1TestGridProject = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     description: __expectString(output.description),
     name: __expectString(output.name),
     vpcConfig:
-      output.vpcConfig !== undefined && output.vpcConfig !== null
-        ? deserializeAws_json1_1TestGridVpcConfig(output.vpcConfig, context)
-        : undefined,
+      output.vpcConfig != undefined ? deserializeAws_json1_1TestGridVpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -8509,13 +8258,8 @@ const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeCont
     arn: __expectString(output.arn),
     billingMinutes: __limitedParseDouble(output.billingMinutes),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
-    ended:
-      output.ended !== undefined && output.ended !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ended)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+    ended: output.ended != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ended))) : undefined,
     seleniumProperties: __expectString(output.seleniumProperties),
     status: __expectString(output.status),
   } as any;
@@ -8527,9 +8271,7 @@ const deserializeAws_json1_1TestGridSessionAction = (output: any, context: __Ser
     duration: __expectLong(output.duration),
     requestMethod: __expectString(output.requestMethod),
     started:
-      output.started !== undefined && output.started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started)))
-        : undefined,
+      output.started != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.started))) : undefined,
     statusCode: __expectString(output.statusCode),
   } as any;
 };
@@ -8590,13 +8332,10 @@ const deserializeAws_json1_1TestGridSessions = (output: any, context: __SerdeCon
 const deserializeAws_json1_1TestGridVpcConfig = (output: any, context: __SerdeContext): TestGridVpcConfig => {
   return {
     securityGroupIds:
-      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+      output.securityGroupIds != undefined
         ? deserializeAws_json1_1SecurityGroupIds(output.securityGroupIds, context)
         : undefined,
-    subnetIds:
-      output.subnetIds !== undefined && output.subnetIds !== null
-        ? deserializeAws_json1_1SubnetIds(output.subnetIds, context)
-        : undefined,
+    subnetIds: output.subnetIds != undefined ? deserializeAws_json1_1SubnetIds(output.subnetIds, context) : undefined,
     vpcId: __expectString(output.vpcId),
   } as any;
 };
@@ -8630,10 +8369,7 @@ const deserializeAws_json1_1TrialMinutes = (output: any, context: __SerdeContext
 const deserializeAws_json1_1UniqueProblem = (output: any, context: __SerdeContext): UniqueProblem => {
   return {
     message: __expectString(output.message),
-    problems:
-      output.problems !== undefined && output.problems !== null
-        ? deserializeAws_json1_1Problems(output.problems, context)
-        : undefined,
+    problems: output.problems != undefined ? deserializeAws_json1_1Problems(output.problems, context) : undefined,
   } as any;
 };
 
@@ -8677,7 +8413,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceResult = (
 ): UpdateDeviceInstanceResult => {
   return {
     deviceInstance:
-      output.deviceInstance !== undefined && output.deviceInstance !== null
+      output.deviceInstance != undefined
         ? deserializeAws_json1_1DeviceInstance(output.deviceInstance, context)
         : undefined,
   } as any;
@@ -8686,9 +8422,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceResult = (
 const deserializeAws_json1_1UpdateDevicePoolResult = (output: any, context: __SerdeContext): UpdateDevicePoolResult => {
   return {
     devicePool:
-      output.devicePool !== undefined && output.devicePool !== null
-        ? deserializeAws_json1_1DevicePool(output.devicePool, context)
-        : undefined,
+      output.devicePool != undefined ? deserializeAws_json1_1DevicePool(output.devicePool, context) : undefined,
   } as any;
 };
 
@@ -8698,7 +8432,7 @@ const deserializeAws_json1_1UpdateInstanceProfileResult = (
 ): UpdateInstanceProfileResult => {
   return {
     instanceProfile:
-      output.instanceProfile !== undefined && output.instanceProfile !== null
+      output.instanceProfile != undefined
         ? deserializeAws_json1_1InstanceProfile(output.instanceProfile, context)
         : undefined,
   } as any;
@@ -8710,7 +8444,7 @@ const deserializeAws_json1_1UpdateNetworkProfileResult = (
 ): UpdateNetworkProfileResult => {
   return {
     networkProfile:
-      output.networkProfile !== undefined && output.networkProfile !== null
+      output.networkProfile != undefined
         ? deserializeAws_json1_1NetworkProfile(output.networkProfile, context)
         : undefined,
   } as any;
@@ -8718,10 +8452,7 @@ const deserializeAws_json1_1UpdateNetworkProfileResult = (
 
 const deserializeAws_json1_1UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
   return {
-    project:
-      output.project !== undefined && output.project !== null
-        ? deserializeAws_json1_1Project(output.project, context)
-        : undefined,
+    project: output.project != undefined ? deserializeAws_json1_1Project(output.project, context) : undefined,
   } as any;
 };
 
@@ -8731,7 +8462,7 @@ const deserializeAws_json1_1UpdateTestGridProjectResult = (
 ): UpdateTestGridProjectResult => {
   return {
     testGridProject:
-      output.testGridProject !== undefined && output.testGridProject !== null
+      output.testGridProject != undefined
         ? deserializeAws_json1_1TestGridProject(output.testGridProject, context)
         : undefined,
   } as any;
@@ -8739,10 +8470,7 @@ const deserializeAws_json1_1UpdateTestGridProjectResult = (
 
 const deserializeAws_json1_1UpdateUploadResult = (output: any, context: __SerdeContext): UpdateUploadResult => {
   return {
-    upload:
-      output.upload !== undefined && output.upload !== null
-        ? deserializeAws_json1_1Upload(output.upload, context)
-        : undefined,
+    upload: output.upload != undefined ? deserializeAws_json1_1Upload(output.upload, context) : undefined,
   } as any;
 };
 
@@ -8752,7 +8480,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationResult = (
 ): UpdateVPCEConfigurationResult => {
   return {
     vpceConfiguration:
-      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+      output.vpceConfiguration != undefined
         ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined,
   } as any;
@@ -8764,9 +8492,7 @@ const deserializeAws_json1_1Upload = (output: any, context: __SerdeContext): Upl
     category: __expectString(output.category),
     contentType: __expectString(output.contentType),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     message: __expectString(output.message),
     metadata: __expectString(output.metadata),
     name: __expectString(output.name),

@@ -121,10 +121,9 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
   body = JSON.stringify({
-    ...(input.sourceS3Location !== undefined &&
-      input.sourceS3Location !== null && {
-        sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
-      }),
+    ...(input.sourceS3Location != undefined && {
+      sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,16 +171,13 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   let body: any;
   body = JSON.stringify({
-    ...(input.destinationS3Location !== undefined &&
-      input.destinationS3Location !== null && {
-        destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
-      }),
-    ...(input.format !== undefined && input.format !== null && { format: input.format }),
-    ...(input.reportDescription !== undefined &&
-      input.reportDescription !== null && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency !== undefined &&
-      input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
-    ...(input.reportId !== undefined && input.reportId !== null && { reportId: input.reportId }),
+    ...(input.destinationS3Location != undefined && {
+      destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
+    }),
+    ...(input.format != undefined && { format: input.format }),
+    ...(input.reportDescription != undefined && { reportDescription: input.reportDescription }),
+    ...(input.reportFrequency != undefined && { reportFrequency: input.reportFrequency }),
+    ...(input.reportId != undefined && { reportId: input.reportId }),
   });
   return new __HttpRequest({
     protocol,
@@ -215,15 +211,12 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.destinationS3Location !== undefined &&
-      input.destinationS3Location !== null && {
-        destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
-      }),
-    ...(input.format !== undefined && input.format !== null && { format: input.format }),
-    ...(input.reportDescription !== undefined &&
-      input.reportDescription !== null && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency !== undefined &&
-      input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
+    ...(input.destinationS3Location != undefined && {
+      destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
+    }),
+    ...(input.format != undefined && { format: input.format }),
+    ...(input.reportDescription != undefined && { reportDescription: input.reportDescription }),
+    ...(input.reportFrequency != undefined && { reportFrequency: input.reportFrequency }),
   });
   return new __HttpRequest({
     protocol,
@@ -673,32 +666,32 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+    ...(input.bucket != undefined && { bucket: input.bucket }),
+    ...(input.prefix != undefined && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_restJson1SourceS3Location = (input: SourceS3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.region !== undefined && input.region !== null && { region: input.region }),
+    ...(input.bucket != undefined && { bucket: input.bucket }),
+    ...(input.key != undefined && { key: input.key }),
+    ...(input.region != undefined && { region: input.region }),
   };
 };
 
 const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     destinationS3Location:
-      output.destinationS3Location !== undefined && output.destinationS3Location !== null
+      output.destinationS3Location != undefined
         ? deserializeAws_restJson1S3Location(output.destinationS3Location, context)
         : undefined,
     format: __expectString(output.format),
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+      output.lastUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     reportDescription: __expectString(output.reportDescription),

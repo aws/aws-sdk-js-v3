@@ -104,48 +104,37 @@ export const serializeAws_restJson1CreateBrokerCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/brokers";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthenticationStrategy !== undefined &&
-      input.AuthenticationStrategy !== null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.AutoMinorVersionUpgrade !== undefined &&
-      input.AutoMinorVersionUpgrade !== null && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
-    ...(input.BrokerName !== undefined && input.BrokerName !== null && { brokerName: input.BrokerName }),
-    ...(input.Configuration !== undefined &&
-      input.Configuration !== null && {
-        configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
-      }),
+    ...(input.AuthenticationStrategy != undefined && { authenticationStrategy: input.AuthenticationStrategy }),
+    ...(input.AutoMinorVersionUpgrade != undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
+    ...(input.BrokerName != undefined && { brokerName: input.BrokerName }),
+    ...(input.Configuration != undefined && {
+      configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
+    }),
     creatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.DeploymentMode !== undefined &&
-      input.DeploymentMode !== null && { deploymentMode: input.DeploymentMode }),
-    ...(input.EncryptionOptions !== undefined &&
-      input.EncryptionOptions !== null && {
-        encryptionOptions: serializeAws_restJson1EncryptionOptions(input.EncryptionOptions, context),
-      }),
-    ...(input.EngineType !== undefined && input.EngineType !== null && { engineType: input.EngineType }),
-    ...(input.EngineVersion !== undefined && input.EngineVersion !== null && { engineVersion: input.EngineVersion }),
-    ...(input.HostInstanceType !== undefined &&
-      input.HostInstanceType !== null && { hostInstanceType: input.HostInstanceType }),
-    ...(input.LdapServerMetadata !== undefined &&
-      input.LdapServerMetadata !== null && {
-        ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
-      }),
-    ...(input.Logs !== undefined && input.Logs !== null && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
-    ...(input.MaintenanceWindowStartTime !== undefined &&
-      input.MaintenanceWindowStartTime !== null && {
-        maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
-      }),
-    ...(input.PubliclyAccessible !== undefined &&
-      input.PubliclyAccessible !== null && { publiclyAccessible: input.PubliclyAccessible }),
-    ...(input.SecurityGroups !== undefined &&
-      input.SecurityGroups !== null && {
-        securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
-      }),
-    ...(input.StorageType !== undefined && input.StorageType !== null && { storageType: input.StorageType }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { subnetIds: serializeAws_restJson1__listOf__string(input.SubnetIds, context) }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-    ...(input.Users !== undefined &&
-      input.Users !== null && { users: serializeAws_restJson1__listOfUser(input.Users, context) }),
+    ...(input.DeploymentMode != undefined && { deploymentMode: input.DeploymentMode }),
+    ...(input.EncryptionOptions != undefined && {
+      encryptionOptions: serializeAws_restJson1EncryptionOptions(input.EncryptionOptions, context),
+    }),
+    ...(input.EngineType != undefined && { engineType: input.EngineType }),
+    ...(input.EngineVersion != undefined && { engineVersion: input.EngineVersion }),
+    ...(input.HostInstanceType != undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.LdapServerMetadata != undefined && {
+      ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
+    }),
+    ...(input.Logs != undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
+    ...(input.MaintenanceWindowStartTime != undefined && {
+      maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
+    }),
+    ...(input.PubliclyAccessible != undefined && { publiclyAccessible: input.PubliclyAccessible }),
+    ...(input.SecurityGroups != undefined && {
+      securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
+    }),
+    ...(input.StorageType != undefined && { storageType: input.StorageType }),
+    ...(input.SubnetIds != undefined && {
+      subnetIds: serializeAws_restJson1__listOf__string(input.SubnetIds, context),
+    }),
+    ...(input.Tags != undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Users != undefined && { users: serializeAws_restJson1__listOfUser(input.Users, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -169,13 +158,11 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthenticationStrategy !== undefined &&
-      input.AuthenticationStrategy !== null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.EngineType !== undefined && input.EngineType !== null && { engineType: input.EngineType }),
-    ...(input.EngineVersion !== undefined && input.EngineVersion !== null && { engineVersion: input.EngineVersion }),
-    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.AuthenticationStrategy != undefined && { authenticationStrategy: input.AuthenticationStrategy }),
+    ...(input.EngineType != undefined && { engineType: input.EngineType }),
+    ...(input.EngineVersion != undefined && { engineVersion: input.EngineVersion }),
+    ...(input.Name != undefined && { name: input.Name }),
+    ...(input.Tags != undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -208,8 +195,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags != undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -252,10 +238,9 @@ export const serializeAws_restJson1CreateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsoleAccess !== undefined && input.ConsoleAccess !== null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups !== undefined &&
-      input.Groups !== null && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
-    ...(input.Password !== undefined && input.Password !== null && { password: input.Password }),
+    ...(input.ConsoleAccess != undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups != undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
+    ...(input.Password != undefined && { password: input.Password }),
   });
   return new __HttpRequest({
     protocol,
@@ -748,30 +733,23 @@ export const serializeAws_restJson1UpdateBrokerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthenticationStrategy !== undefined &&
-      input.AuthenticationStrategy !== null && { authenticationStrategy: input.AuthenticationStrategy }),
-    ...(input.AutoMinorVersionUpgrade !== undefined &&
-      input.AutoMinorVersionUpgrade !== null && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
-    ...(input.Configuration !== undefined &&
-      input.Configuration !== null && {
-        configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
-      }),
-    ...(input.EngineVersion !== undefined && input.EngineVersion !== null && { engineVersion: input.EngineVersion }),
-    ...(input.HostInstanceType !== undefined &&
-      input.HostInstanceType !== null && { hostInstanceType: input.HostInstanceType }),
-    ...(input.LdapServerMetadata !== undefined &&
-      input.LdapServerMetadata !== null && {
-        ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
-      }),
-    ...(input.Logs !== undefined && input.Logs !== null && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
-    ...(input.MaintenanceWindowStartTime !== undefined &&
-      input.MaintenanceWindowStartTime !== null && {
-        maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
-      }),
-    ...(input.SecurityGroups !== undefined &&
-      input.SecurityGroups !== null && {
-        securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
-      }),
+    ...(input.AuthenticationStrategy != undefined && { authenticationStrategy: input.AuthenticationStrategy }),
+    ...(input.AutoMinorVersionUpgrade != undefined && { autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
+    ...(input.Configuration != undefined && {
+      configuration: serializeAws_restJson1ConfigurationId(input.Configuration, context),
+    }),
+    ...(input.EngineVersion != undefined && { engineVersion: input.EngineVersion }),
+    ...(input.HostInstanceType != undefined && { hostInstanceType: input.HostInstanceType }),
+    ...(input.LdapServerMetadata != undefined && {
+      ldapServerMetadata: serializeAws_restJson1LdapServerMetadataInput(input.LdapServerMetadata, context),
+    }),
+    ...(input.Logs != undefined && { logs: serializeAws_restJson1Logs(input.Logs, context) }),
+    ...(input.MaintenanceWindowStartTime != undefined && {
+      maintenanceWindowStartTime: serializeAws_restJson1WeeklyStartTime(input.MaintenanceWindowStartTime, context),
+    }),
+    ...(input.SecurityGroups != undefined && {
+      securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -805,8 +783,8 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Data !== undefined && input.Data !== null && { data: input.Data }),
-    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.Data != undefined && { data: input.Data }),
+    ...(input.Description != undefined && { description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -849,10 +827,9 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsoleAccess !== undefined && input.ConsoleAccess !== null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups !== undefined &&
-      input.Groups !== null && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
-    ...(input.Password !== undefined && input.Password !== null && { password: input.Password }),
+    ...(input.ConsoleAccess != undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups != undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
+    ...(input.Password != undefined && { password: input.Password }),
   });
   return new __HttpRequest({
     protocol,
@@ -2502,16 +2479,15 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
 
 const serializeAws_restJson1ConfigurationId = (input: ConfigurationId, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { id: input.Id }),
-    ...(input.Revision !== undefined && input.Revision !== null && { revision: input.Revision }),
+    ...(input.Id != undefined && { id: input.Id }),
+    ...(input.Revision != undefined && { revision: input.Revision }),
   };
 };
 
 const serializeAws_restJson1EncryptionOptions = (input: EncryptionOptions, context: __SerdeContext): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { kmsKeyId: input.KmsKeyId }),
-    ...(input.UseAwsOwnedKey !== undefined &&
-      input.UseAwsOwnedKey !== null && { useAwsOwnedKey: input.UseAwsOwnedKey }),
+    ...(input.KmsKeyId != undefined && { kmsKeyId: input.KmsKeyId }),
+    ...(input.UseAwsOwnedKey != undefined && { useAwsOwnedKey: input.UseAwsOwnedKey }),
   };
 };
 
@@ -2520,49 +2496,41 @@ const serializeAws_restJson1LdapServerMetadataInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Hosts !== undefined &&
-      input.Hosts !== null && { hosts: serializeAws_restJson1__listOf__string(input.Hosts, context) }),
-    ...(input.RoleBase !== undefined && input.RoleBase !== null && { roleBase: input.RoleBase }),
-    ...(input.RoleName !== undefined && input.RoleName !== null && { roleName: input.RoleName }),
-    ...(input.RoleSearchMatching !== undefined &&
-      input.RoleSearchMatching !== null && { roleSearchMatching: input.RoleSearchMatching }),
-    ...(input.RoleSearchSubtree !== undefined &&
-      input.RoleSearchSubtree !== null && { roleSearchSubtree: input.RoleSearchSubtree }),
-    ...(input.ServiceAccountPassword !== undefined &&
-      input.ServiceAccountPassword !== null && { serviceAccountPassword: input.ServiceAccountPassword }),
-    ...(input.ServiceAccountUsername !== undefined &&
-      input.ServiceAccountUsername !== null && { serviceAccountUsername: input.ServiceAccountUsername }),
-    ...(input.UserBase !== undefined && input.UserBase !== null && { userBase: input.UserBase }),
-    ...(input.UserRoleName !== undefined && input.UserRoleName !== null && { userRoleName: input.UserRoleName }),
-    ...(input.UserSearchMatching !== undefined &&
-      input.UserSearchMatching !== null && { userSearchMatching: input.UserSearchMatching }),
-    ...(input.UserSearchSubtree !== undefined &&
-      input.UserSearchSubtree !== null && { userSearchSubtree: input.UserSearchSubtree }),
+    ...(input.Hosts != undefined && { hosts: serializeAws_restJson1__listOf__string(input.Hosts, context) }),
+    ...(input.RoleBase != undefined && { roleBase: input.RoleBase }),
+    ...(input.RoleName != undefined && { roleName: input.RoleName }),
+    ...(input.RoleSearchMatching != undefined && { roleSearchMatching: input.RoleSearchMatching }),
+    ...(input.RoleSearchSubtree != undefined && { roleSearchSubtree: input.RoleSearchSubtree }),
+    ...(input.ServiceAccountPassword != undefined && { serviceAccountPassword: input.ServiceAccountPassword }),
+    ...(input.ServiceAccountUsername != undefined && { serviceAccountUsername: input.ServiceAccountUsername }),
+    ...(input.UserBase != undefined && { userBase: input.UserBase }),
+    ...(input.UserRoleName != undefined && { userRoleName: input.UserRoleName }),
+    ...(input.UserSearchMatching != undefined && { userSearchMatching: input.UserSearchMatching }),
+    ...(input.UserSearchSubtree != undefined && { userSearchSubtree: input.UserSearchSubtree }),
   };
 };
 
 const serializeAws_restJson1Logs = (input: Logs, context: __SerdeContext): any => {
   return {
-    ...(input.Audit !== undefined && input.Audit !== null && { audit: input.Audit }),
-    ...(input.General !== undefined && input.General !== null && { general: input.General }),
+    ...(input.Audit != undefined && { audit: input.Audit }),
+    ...(input.General != undefined && { general: input.General }),
   };
 };
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
   return {
-    ...(input.ConsoleAccess !== undefined && input.ConsoleAccess !== null && { consoleAccess: input.ConsoleAccess }),
-    ...(input.Groups !== undefined &&
-      input.Groups !== null && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
-    ...(input.Password !== undefined && input.Password !== null && { password: input.Password }),
-    ...(input.Username !== undefined && input.Username !== null && { username: input.Username }),
+    ...(input.ConsoleAccess != undefined && { consoleAccess: input.ConsoleAccess }),
+    ...(input.Groups != undefined && { groups: serializeAws_restJson1__listOf__string(input.Groups, context) }),
+    ...(input.Password != undefined && { password: input.Password }),
+    ...(input.Username != undefined && { username: input.Username }),
   };
 };
 
 const serializeAws_restJson1WeeklyStartTime = (input: WeeklyStartTime, context: __SerdeContext): any => {
   return {
-    ...(input.DayOfWeek !== undefined && input.DayOfWeek !== null && { dayOfWeek: input.DayOfWeek }),
-    ...(input.TimeOfDay !== undefined && input.TimeOfDay !== null && { timeOfDay: input.TimeOfDay }),
-    ...(input.TimeZone !== undefined && input.TimeZone !== null && { timeZone: input.TimeZone }),
+    ...(input.DayOfWeek != undefined && { dayOfWeek: input.DayOfWeek }),
+    ...(input.TimeOfDay != undefined && { timeOfDay: input.TimeOfDay }),
+    ...(input.TimeZone != undefined && { timeZone: input.TimeZone }),
   };
 };
 
@@ -2775,7 +2743,7 @@ const deserializeAws_restJson1BrokerEngineType = (output: any, context: __SerdeC
   return {
     EngineType: __expectString(output.engineType),
     EngineVersions:
-      output.engineVersions !== undefined && output.engineVersions !== null
+      output.engineVersions != undefined
         ? deserializeAws_restJson1__listOfEngineVersion(output.engineVersions, context)
         : undefined,
   } as any;
@@ -2785,9 +2753,7 @@ const deserializeAws_restJson1BrokerInstance = (output: any, context: __SerdeCon
   return {
     ConsoleURL: __expectString(output.consoleURL),
     Endpoints:
-      output.endpoints !== undefined && output.endpoints !== null
-        ? deserializeAws_restJson1__listOf__string(output.endpoints, context)
-        : undefined,
+      output.endpoints != undefined ? deserializeAws_restJson1__listOf__string(output.endpoints, context) : undefined,
     IpAddress: __expectString(output.ipAddress),
   } as any;
 };
@@ -2795,18 +2761,18 @@ const deserializeAws_restJson1BrokerInstance = (output: any, context: __SerdeCon
 const deserializeAws_restJson1BrokerInstanceOption = (output: any, context: __SerdeContext): BrokerInstanceOption => {
   return {
     AvailabilityZones:
-      output.availabilityZones !== undefined && output.availabilityZones !== null
+      output.availabilityZones != undefined
         ? deserializeAws_restJson1__listOfAvailabilityZone(output.availabilityZones, context)
         : undefined,
     EngineType: __expectString(output.engineType),
     HostInstanceType: __expectString(output.hostInstanceType),
     StorageType: __expectString(output.storageType),
     SupportedDeploymentModes:
-      output.supportedDeploymentModes !== undefined && output.supportedDeploymentModes !== null
+      output.supportedDeploymentModes != undefined
         ? deserializeAws_restJson1__listOfDeploymentMode(output.supportedDeploymentModes, context)
         : undefined,
     SupportedEngineVersions:
-      output.supportedEngineVersions !== undefined && output.supportedEngineVersions !== null
+      output.supportedEngineVersions != undefined
         ? deserializeAws_restJson1__listOf__string(output.supportedEngineVersions, context)
         : undefined,
   } as any;
@@ -2818,10 +2784,7 @@ const deserializeAws_restJson1BrokerSummary = (output: any, context: __SerdeCont
     BrokerId: __expectString(output.brokerId),
     BrokerName: __expectString(output.brokerName),
     BrokerState: __expectString(output.brokerState),
-    Created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.created))
-        : undefined,
+    Created: output.created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
     DeploymentMode: __expectString(output.deploymentMode),
     EngineType: __expectString(output.engineType),
     HostInstanceType: __expectString(output.hostInstanceType),
@@ -2832,23 +2795,17 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.arn),
     AuthenticationStrategy: __expectString(output.authenticationStrategy),
-    Created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.created))
-        : undefined,
+    Created: output.created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
     Description: __expectString(output.description),
     EngineType: __expectString(output.engineType),
     EngineVersion: __expectString(output.engineVersion),
     Id: __expectString(output.id),
     LatestRevision:
-      output.latestRevision !== undefined && output.latestRevision !== null
+      output.latestRevision != undefined
         ? deserializeAws_restJson1ConfigurationRevision(output.latestRevision, context)
         : undefined,
     Name: __expectString(output.name),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
+    Tags: output.tags != undefined ? deserializeAws_restJson1__mapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2861,10 +2818,7 @@ const deserializeAws_restJson1ConfigurationId = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    Created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.created))
-        : undefined,
+    Created: output.created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.created)) : undefined,
     Description: __expectString(output.description),
     Revision: __expectInt32(output.revision),
   } as any;
@@ -2872,18 +2826,12 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
 
 const deserializeAws_restJson1Configurations = (output: any, context: __SerdeContext): Configurations => {
   return {
-    Current:
-      output.current !== undefined && output.current !== null
-        ? deserializeAws_restJson1ConfigurationId(output.current, context)
-        : undefined,
+    Current: output.current != undefined ? deserializeAws_restJson1ConfigurationId(output.current, context) : undefined,
     History:
-      output.history !== undefined && output.history !== null
+      output.history != undefined
         ? deserializeAws_restJson1__listOfConfigurationId(output.history, context)
         : undefined,
-    Pending:
-      output.pending !== undefined && output.pending !== null
-        ? deserializeAws_restJson1ConfigurationId(output.pending, context)
-        : undefined,
+    Pending: output.pending != undefined ? deserializeAws_restJson1ConfigurationId(output.pending, context) : undefined,
   } as any;
 };
 
@@ -2905,10 +2853,7 @@ const deserializeAws_restJson1LdapServerMetadataOutput = (
   context: __SerdeContext
 ): LdapServerMetadataOutput => {
   return {
-    Hosts:
-      output.hosts !== undefined && output.hosts !== null
-        ? deserializeAws_restJson1__listOf__string(output.hosts, context)
-        : undefined,
+    Hosts: output.hosts != undefined ? deserializeAws_restJson1__listOf__string(output.hosts, context) : undefined,
     RoleBase: __expectString(output.roleBase),
     RoleName: __expectString(output.roleName),
     RoleSearchMatching: __expectString(output.roleSearchMatching),
@@ -2934,10 +2879,7 @@ const deserializeAws_restJson1LogsSummary = (output: any, context: __SerdeContex
     AuditLogGroup: __expectString(output.auditLogGroup),
     General: __expectBoolean(output.general),
     GeneralLogGroup: __expectString(output.generalLogGroup),
-    Pending:
-      output.pending !== undefined && output.pending !== null
-        ? deserializeAws_restJson1PendingLogs(output.pending, context)
-        : undefined,
+    Pending: output.pending != undefined ? deserializeAws_restJson1PendingLogs(output.pending, context) : undefined,
   } as any;
 };
 
@@ -2959,10 +2901,7 @@ const deserializeAws_restJson1SanitizationWarning = (output: any, context: __Ser
 const deserializeAws_restJson1UserPendingChanges = (output: any, context: __SerdeContext): UserPendingChanges => {
   return {
     ConsoleAccess: __expectBoolean(output.consoleAccess),
-    Groups:
-      output.groups !== undefined && output.groups !== null
-        ? deserializeAws_restJson1__listOf__string(output.groups, context)
-        : undefined,
+    Groups: output.groups != undefined ? deserializeAws_restJson1__listOf__string(output.groups, context) : undefined,
     PendingChange: __expectString(output.pendingChange),
   } as any;
 };

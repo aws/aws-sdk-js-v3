@@ -257,19 +257,16 @@ export const serializeAws_restJson1PostTextCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.activeContexts !== undefined &&
-      input.activeContexts !== null && {
-        activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-      }),
-    ...(input.inputText !== undefined && input.inputText !== null && { inputText: input.inputText }),
-    ...(input.requestAttributes !== undefined &&
-      input.requestAttributes !== null && {
-        requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-      }),
-    ...(input.sessionAttributes !== undefined &&
-      input.sessionAttributes !== null && {
-        sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-      }),
+    ...(input.activeContexts != undefined && {
+      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
+    }),
+    ...(input.inputText != undefined && { inputText: input.inputText }),
+    ...(input.requestAttributes != undefined && {
+      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
+    }),
+    ...(input.sessionAttributes != undefined && {
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -323,20 +320,18 @@ export const serializeAws_restJson1PutSessionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.activeContexts !== undefined &&
-      input.activeContexts !== null && {
-        activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-      }),
-    ...(input.dialogAction !== undefined &&
-      input.dialogAction !== null && { dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context) }),
-    ...(input.recentIntentSummaryView !== undefined &&
-      input.recentIntentSummaryView !== null && {
-        recentIntentSummaryView: serializeAws_restJson1IntentSummaryList(input.recentIntentSummaryView, context),
-      }),
-    ...(input.sessionAttributes !== undefined &&
-      input.sessionAttributes !== null && {
-        sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-      }),
+    ...(input.activeContexts != undefined && {
+      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
+    }),
+    ...(input.dialogAction != undefined && {
+      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
+    }),
+    ...(input.recentIntentSummaryView != undefined && {
+      recentIntentSummaryView: serializeAws_restJson1IntentSummaryList(input.recentIntentSummaryView, context),
+    }),
+    ...(input.sessionAttributes != undefined && {
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1052,15 +1047,13 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
 
 const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1ActiveContextParametersMap(input.parameters, context),
-      }),
-    ...(input.timeToLive !== undefined &&
-      input.timeToLive !== null && {
-        timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
-      }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.parameters != undefined && {
+      parameters: serializeAws_restJson1ActiveContextParametersMap(input.parameters, context),
+    }),
+    ...(input.timeToLive != undefined && {
+      timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
+    }),
   };
 };
 
@@ -1095,40 +1088,32 @@ const serializeAws_restJson1ActiveContextTimeToLive = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.timeToLiveInSeconds !== undefined &&
-      input.timeToLiveInSeconds !== null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive !== undefined && input.turnsToLive !== null && { turnsToLive: input.turnsToLive }),
+    ...(input.timeToLiveInSeconds != undefined && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
+    ...(input.turnsToLive != undefined && { turnsToLive: input.turnsToLive }),
   };
 };
 
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
-    ...(input.fulfillmentState !== undefined &&
-      input.fulfillmentState !== null && { fulfillmentState: input.fulfillmentState }),
-    ...(input.intentName !== undefined && input.intentName !== null && { intentName: input.intentName }),
-    ...(input.message !== undefined && input.message !== null && { message: input.message }),
-    ...(input.messageFormat !== undefined && input.messageFormat !== null && { messageFormat: input.messageFormat }),
-    ...(input.slotToElicit !== undefined && input.slotToElicit !== null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots !== undefined &&
-      input.slots !== null && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.fulfillmentState != undefined && { fulfillmentState: input.fulfillmentState }),
+    ...(input.intentName != undefined && { intentName: input.intentName }),
+    ...(input.message != undefined && { message: input.message }),
+    ...(input.messageFormat != undefined && { messageFormat: input.messageFormat }),
+    ...(input.slotToElicit != undefined && { slotToElicit: input.slotToElicit }),
+    ...(input.slots != undefined && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1IntentSummary = (input: IntentSummary, context: __SerdeContext): any => {
   return {
-    ...(input.checkpointLabel !== undefined &&
-      input.checkpointLabel !== null && { checkpointLabel: input.checkpointLabel }),
-    ...(input.confirmationStatus !== undefined &&
-      input.confirmationStatus !== null && { confirmationStatus: input.confirmationStatus }),
-    ...(input.dialogActionType !== undefined &&
-      input.dialogActionType !== null && { dialogActionType: input.dialogActionType }),
-    ...(input.fulfillmentState !== undefined &&
-      input.fulfillmentState !== null && { fulfillmentState: input.fulfillmentState }),
-    ...(input.intentName !== undefined && input.intentName !== null && { intentName: input.intentName }),
-    ...(input.slotToElicit !== undefined && input.slotToElicit !== null && { slotToElicit: input.slotToElicit }),
-    ...(input.slots !== undefined &&
-      input.slots !== null && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
+    ...(input.checkpointLabel != undefined && { checkpointLabel: input.checkpointLabel }),
+    ...(input.confirmationStatus != undefined && { confirmationStatus: input.confirmationStatus }),
+    ...(input.dialogActionType != undefined && { dialogActionType: input.dialogActionType }),
+    ...(input.fulfillmentState != undefined && { fulfillmentState: input.fulfillmentState }),
+    ...(input.intentName != undefined && { intentName: input.intentName }),
+    ...(input.slotToElicit != undefined && { slotToElicit: input.slotToElicit }),
+    ...(input.slots != undefined && { slots: serializeAws_restJson1StringMap(input.slots, context) }),
   };
 };
 
@@ -1159,11 +1144,11 @@ const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeCont
   return {
     name: __expectString(output.name),
     parameters:
-      output.parameters !== undefined && output.parameters !== null
+      output.parameters != undefined
         ? deserializeAws_restJson1ActiveContextParametersMap(output.parameters, context)
         : undefined,
     timeToLive:
-      output.timeToLive !== undefined && output.timeToLive !== null
+      output.timeToLive != undefined
         ? deserializeAws_restJson1ActiveContextTimeToLive(output.timeToLive, context)
         : undefined,
   } as any;
@@ -1220,10 +1205,7 @@ const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeConte
     message: __expectString(output.message),
     messageFormat: __expectString(output.messageFormat),
     slotToElicit: __expectString(output.slotToElicit),
-    slots:
-      output.slots !== undefined && output.slots !== null
-        ? deserializeAws_restJson1StringMap(output.slots, context)
-        : undefined,
+    slots: output.slots != undefined ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -1231,10 +1213,7 @@ const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeConte
 const deserializeAws_restJson1GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
   return {
     attachmentLinkUrl: __expectString(output.attachmentLinkUrl),
-    buttons:
-      output.buttons !== undefined && output.buttons !== null
-        ? deserializeAws_restJson1listOfButtons(output.buttons, context)
-        : undefined,
+    buttons: output.buttons != undefined ? deserializeAws_restJson1listOfButtons(output.buttons, context) : undefined,
     imageUrl: __expectString(output.imageUrl),
     subTitle: __expectString(output.subTitle),
     title: __expectString(output.title),
@@ -1279,10 +1258,7 @@ const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeCont
     fulfillmentState: __expectString(output.fulfillmentState),
     intentName: __expectString(output.intentName),
     slotToElicit: __expectString(output.slotToElicit),
-    slots:
-      output.slots !== undefined && output.slots !== null
-        ? deserializeAws_restJson1StringMap(output.slots, context)
-        : undefined,
+    slots: output.slots != undefined ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
   } as any;
 };
 
@@ -1314,13 +1290,10 @@ const deserializeAws_restJson1PredictedIntent = (output: any, context: __SerdeCo
   return {
     intentName: __expectString(output.intentName),
     nluIntentConfidence:
-      output.nluIntentConfidence !== undefined && output.nluIntentConfidence !== null
+      output.nluIntentConfidence != undefined
         ? deserializeAws_restJson1IntentConfidence(output.nluIntentConfidence, context)
         : undefined,
-    slots:
-      output.slots !== undefined && output.slots !== null
-        ? deserializeAws_restJson1StringMap(output.slots, context)
-        : undefined,
+    slots: output.slots != undefined ? deserializeAws_restJson1StringMap(output.slots, context) : undefined,
   } as any;
 };
 
@@ -1328,7 +1301,7 @@ const deserializeAws_restJson1ResponseCard = (output: any, context: __SerdeConte
   return {
     contentType: __expectString(output.contentType),
     genericAttachments:
-      output.genericAttachments !== undefined && output.genericAttachments !== null
+      output.genericAttachments != undefined
         ? deserializeAws_restJson1genericAttachmentList(output.genericAttachments, context)
         : undefined,
     version: __expectString(output.version),

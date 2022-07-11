@@ -136,17 +136,14 @@ export const serializeAws_restJson1StartHumanLoopCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
   let body: any;
   body = JSON.stringify({
-    ...(input.DataAttributes !== undefined &&
-      input.DataAttributes !== null && {
-        DataAttributes: serializeAws_restJson1HumanLoopDataAttributes(input.DataAttributes, context),
-      }),
-    ...(input.FlowDefinitionArn !== undefined &&
-      input.FlowDefinitionArn !== null && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopInput !== undefined &&
-      input.HumanLoopInput !== null && {
-        HumanLoopInput: serializeAws_restJson1HumanLoopInput(input.HumanLoopInput, context),
-      }),
-    ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
+    ...(input.DataAttributes != undefined && {
+      DataAttributes: serializeAws_restJson1HumanLoopDataAttributes(input.DataAttributes, context),
+    }),
+    ...(input.FlowDefinitionArn != undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
+    ...(input.HumanLoopInput != undefined && {
+      HumanLoopInput: serializeAws_restJson1HumanLoopInput(input.HumanLoopInput, context),
+    }),
+    ...(input.HumanLoopName != undefined && { HumanLoopName: input.HumanLoopName }),
   });
   return new __HttpRequest({
     protocol,
@@ -170,7 +167,7 @@ export const serializeAws_restJson1StopHumanLoopCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/stop";
   let body: any;
   body = JSON.stringify({
-    ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
+    ...(input.HumanLoopName != undefined && { HumanLoopName: input.HumanLoopName }),
   });
   return new __HttpRequest({
     protocol,
@@ -595,16 +592,15 @@ const serializeAws_restJson1HumanLoopDataAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentClassifiers !== undefined &&
-      input.ContentClassifiers !== null && {
-        ContentClassifiers: serializeAws_restJson1ContentClassifiers(input.ContentClassifiers, context),
-      }),
+    ...(input.ContentClassifiers != undefined && {
+      ContentClassifiers: serializeAws_restJson1ContentClassifiers(input.ContentClassifiers, context),
+    }),
   };
 };
 
 const serializeAws_restJson1HumanLoopInput = (input: HumanLoopInput, context: __SerdeContext): any => {
   return {
-    ...(input.InputContent !== undefined && input.InputContent !== null && { InputContent: input.InputContent }),
+    ...(input.InputContent != undefined && { InputContent: input.InputContent }),
   };
 };
 
@@ -629,7 +625,7 @@ const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __Serd
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
   return {
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),

@@ -153,8 +153,7 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TargetEnvironmentName !== undefined &&
-      input.TargetEnvironmentName !== null && { targetEnvironmentName: input.TargetEnvironmentName }),
+    ...(input.TargetEnvironmentName != undefined && { targetEnvironmentName: input.TargetEnvironmentName }),
   });
   return new __HttpRequest({
     protocol,
@@ -178,15 +177,13 @@ export const serializeAws_restJson1CreateBackendCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppId !== undefined && input.AppId !== null && { appId: input.AppId }),
-    ...(input.AppName !== undefined && input.AppName !== null && { appName: input.AppName }),
-    ...(input.BackendEnvironmentName !== undefined &&
-      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1ResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.AppId != undefined && { appId: input.AppId }),
+    ...(input.AppName != undefined && { appName: input.AppName }),
+    ...(input.BackendEnvironmentName != undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1ResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -219,13 +216,11 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined &&
-      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.BackendEnvironmentName != undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -258,13 +253,11 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined &&
-      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1CreateBackendAuthResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.BackendEnvironmentName != undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1CreateBackendAuthResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -297,8 +290,7 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendManagerAppId !== undefined &&
-      input.BackendManagerAppId !== null && { backendManagerAppId: input.BackendManagerAppId }),
+    ...(input.BackendManagerAppId != undefined && { backendManagerAppId: input.BackendManagerAppId }),
   });
   return new __HttpRequest({
     protocol,
@@ -331,13 +323,11 @@ export const serializeAws_restJson1CreateBackendStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined &&
-      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1CreateBackendStorageResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.BackendEnvironmentName != undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1CreateBackendStorageResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -449,11 +439,10 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -497,7 +486,7 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -541,8 +530,8 @@ export const serializeAws_restJson1DeleteBackendStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { serviceName: input.ServiceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
+    ...(input.ServiceName != undefined && { serviceName: input.ServiceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -625,7 +614,7 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -658,8 +647,7 @@ export const serializeAws_restJson1GetBackendCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackendEnvironmentName !== undefined &&
-      input.BackendEnvironmentName !== null && { backendEnvironmentName: input.BackendEnvironmentName }),
+    ...(input.BackendEnvironmentName != undefined && { backendEnvironmentName: input.BackendEnvironmentName }),
   });
   return new __HttpRequest({
     protocol,
@@ -703,11 +691,10 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -751,7 +738,7 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -795,7 +782,7 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -887,7 +874,7 @@ export const serializeAws_restJson1GetBackendStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -969,12 +956,10 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.IdentityPoolId !== undefined &&
-      input.IdentityPoolId !== null && { identityPoolId: input.IdentityPoolId }),
-    ...(input.NativeClientId !== undefined &&
-      input.NativeClientId !== null && { nativeClientId: input.NativeClientId }),
-    ...(input.UserPoolId !== undefined && input.UserPoolId !== null && { userPoolId: input.UserPoolId }),
-    ...(input.WebClientId !== undefined && input.WebClientId !== null && { webClientId: input.WebClientId }),
+    ...(input.IdentityPoolId != undefined && { identityPoolId: input.IdentityPoolId }),
+    ...(input.NativeClientId != undefined && { nativeClientId: input.NativeClientId }),
+    ...(input.UserPoolId != undefined && { userPoolId: input.UserPoolId }),
+    ...(input.WebClientId != undefined && { webClientId: input.WebClientId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1018,8 +1003,8 @@ export const serializeAws_restJson1ImportBackendStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BucketName !== undefined && input.BucketName !== null && { bucketName: input.BucketName }),
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { serviceName: input.ServiceName }),
+    ...(input.BucketName != undefined && { bucketName: input.BucketName }),
+    ...(input.ServiceName != undefined && { serviceName: input.ServiceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1063,11 +1048,11 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.JobId !== undefined && input.JobId !== null && { jobId: input.JobId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { maxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { nextToken: input.NextToken }),
-    ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
-    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
+    ...(input.JobId != undefined && { jobId: input.JobId }),
+    ...(input.MaxResults != undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { nextToken: input.NextToken }),
+    ...(input.Operation != undefined && { operation: input.Operation }),
+    ...(input.Status != undefined && { status: input.Status }),
   });
   return new __HttpRequest({
     protocol,
@@ -1091,7 +1076,7 @@ export const serializeAws_restJson1ListS3BucketsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/s3Buckets";
   let body: any;
   body = JSON.stringify({
-    ...(input.NextToken !== undefined && input.NextToken !== null && { nextToken: input.NextToken }),
+    ...(input.NextToken != undefined && { nextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1124,8 +1109,7 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CleanAmplifyApp !== undefined &&
-      input.CleanAmplifyApp !== null && { cleanAmplifyApp: input.CleanAmplifyApp }),
+    ...(input.CleanAmplifyApp != undefined && { cleanAmplifyApp: input.CleanAmplifyApp }),
   });
   return new __HttpRequest({
     protocol,
@@ -1198,11 +1182,10 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1246,11 +1229,10 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1284,10 +1266,9 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LoginAuthConfig !== undefined &&
-      input.LoginAuthConfig !== null && {
-        loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
-      }),
+    ...(input.LoginAuthConfig != undefined && {
+      loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1340,8 +1321,8 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Operation !== undefined && input.Operation !== null && { operation: input.Operation }),
-    ...(input.Status !== undefined && input.Status !== null && { status: input.Status }),
+    ...(input.Operation != undefined && { operation: input.Operation }),
+    ...(input.Status != undefined && { status: input.Status }),
   });
   return new __HttpRequest({
     protocol,
@@ -1385,11 +1366,10 @@ export const serializeAws_restJson1UpdateBackendStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceConfig !== undefined &&
-      input.ResourceConfig !== null && {
-        resourceConfig: serializeAws_restJson1UpdateBackendStorageResourceConfig(input.ResourceConfig, context),
-      }),
-    ...(input.ResourceName !== undefined && input.ResourceName !== null && { resourceName: input.ResourceName }),
+    ...(input.ResourceConfig != undefined && {
+      resourceConfig: serializeAws_restJson1UpdateBackendStorageResourceConfig(input.ResourceConfig, context),
+    }),
+    ...(input.ResourceName != undefined && { resourceName: input.ResourceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -3619,29 +3599,23 @@ const serializeAws_restJson1BackendAPIAppSyncAuthSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CognitoUserPoolId !== undefined &&
-      input.CognitoUserPoolId !== null && { cognitoUserPoolId: input.CognitoUserPoolId }),
-    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
-    ...(input.ExpirationTime !== undefined &&
-      input.ExpirationTime !== null && { expirationTime: __serializeFloat(input.ExpirationTime) }),
-    ...(input.OpenIDAuthTTL !== undefined && input.OpenIDAuthTTL !== null && { openIDAuthTTL: input.OpenIDAuthTTL }),
-    ...(input.OpenIDClientId !== undefined &&
-      input.OpenIDClientId !== null && { openIDClientId: input.OpenIDClientId }),
-    ...(input.OpenIDIatTTL !== undefined && input.OpenIDIatTTL !== null && { openIDIatTTL: input.OpenIDIatTTL }),
-    ...(input.OpenIDIssueURL !== undefined &&
-      input.OpenIDIssueURL !== null && { openIDIssueURL: input.OpenIDIssueURL }),
-    ...(input.OpenIDProviderName !== undefined &&
-      input.OpenIDProviderName !== null && { openIDProviderName: input.OpenIDProviderName }),
+    ...(input.CognitoUserPoolId != undefined && { cognitoUserPoolId: input.CognitoUserPoolId }),
+    ...(input.Description != undefined && { description: input.Description }),
+    ...(input.ExpirationTime != undefined && { expirationTime: __serializeFloat(input.ExpirationTime) }),
+    ...(input.OpenIDAuthTTL != undefined && { openIDAuthTTL: input.OpenIDAuthTTL }),
+    ...(input.OpenIDClientId != undefined && { openIDClientId: input.OpenIDClientId }),
+    ...(input.OpenIDIatTTL != undefined && { openIDIatTTL: input.OpenIDIatTTL }),
+    ...(input.OpenIDIssueURL != undefined && { openIDIssueURL: input.OpenIDIssueURL }),
+    ...(input.OpenIDProviderName != undefined && { openIDProviderName: input.OpenIDProviderName }),
   };
 };
 
 const serializeAws_restJson1BackendAPIAuthType = (input: BackendAPIAuthType, context: __SerdeContext): any => {
   return {
-    ...(input.Mode !== undefined && input.Mode !== null && { mode: input.Mode }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && {
-        settings: serializeAws_restJson1BackendAPIAppSyncAuthSettings(input.Settings, context),
-      }),
+    ...(input.Mode != undefined && { mode: input.Mode }),
+    ...(input.Settings != undefined && {
+      settings: serializeAws_restJson1BackendAPIAppSyncAuthSettings(input.Settings, context),
+    }),
   };
 };
 
@@ -3650,8 +3624,7 @@ const serializeAws_restJson1BackendAPIConflictResolution = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolutionStrategy !== undefined &&
-      input.ResolutionStrategy !== null && { resolutionStrategy: input.ResolutionStrategy }),
+    ...(input.ResolutionStrategy != undefined && { resolutionStrategy: input.ResolutionStrategy }),
   };
 };
 
@@ -3660,22 +3633,18 @@ const serializeAws_restJson1BackendAPIResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalAuthTypes !== undefined &&
-      input.AdditionalAuthTypes !== null && {
-        additionalAuthTypes: serializeAws_restJson1ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
-      }),
-    ...(input.ApiName !== undefined && input.ApiName !== null && { apiName: input.ApiName }),
-    ...(input.ConflictResolution !== undefined &&
-      input.ConflictResolution !== null && {
-        conflictResolution: serializeAws_restJson1BackendAPIConflictResolution(input.ConflictResolution, context),
-      }),
-    ...(input.DefaultAuthType !== undefined &&
-      input.DefaultAuthType !== null && {
-        defaultAuthType: serializeAws_restJson1BackendAPIAuthType(input.DefaultAuthType, context),
-      }),
-    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
-    ...(input.TransformSchema !== undefined &&
-      input.TransformSchema !== null && { transformSchema: input.TransformSchema }),
+    ...(input.AdditionalAuthTypes != undefined && {
+      additionalAuthTypes: serializeAws_restJson1ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
+    }),
+    ...(input.ApiName != undefined && { apiName: input.ApiName }),
+    ...(input.ConflictResolution != undefined && {
+      conflictResolution: serializeAws_restJson1BackendAPIConflictResolution(input.ConflictResolution, context),
+    }),
+    ...(input.DefaultAuthType != undefined && {
+      defaultAuthType: serializeAws_restJson1BackendAPIAuthType(input.DefaultAuthType, context),
+    }),
+    ...(input.Service != undefined && { service: input.Service }),
+    ...(input.TransformSchema != undefined && { transformSchema: input.TransformSchema }),
   };
 };
 
@@ -3684,10 +3653,10 @@ const serializeAws_restJson1BackendAuthAppleProviderConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientId !== undefined && input.ClientId !== null && { client_id: input.ClientId }),
-    ...(input.KeyId !== undefined && input.KeyId !== null && { key_id: input.KeyId }),
-    ...(input.PrivateKey !== undefined && input.PrivateKey !== null && { private_key: input.PrivateKey }),
-    ...(input.TeamId !== undefined && input.TeamId !== null && { team_id: input.TeamId }),
+    ...(input.ClientId != undefined && { client_id: input.ClientId }),
+    ...(input.KeyId != undefined && { key_id: input.KeyId }),
+    ...(input.PrivateKey != undefined && { private_key: input.PrivateKey }),
+    ...(input.TeamId != undefined && { team_id: input.TeamId }),
   };
 };
 
@@ -3696,8 +3665,8 @@ const serializeAws_restJson1BackendAuthSocialProviderConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientId !== undefined && input.ClientId !== null && { client_id: input.ClientId }),
-    ...(input.ClientSecret !== undefined && input.ClientSecret !== null && { client_secret: input.ClientSecret }),
+    ...(input.ClientId != undefined && { client_id: input.ClientId }),
+    ...(input.ClientSecret != undefined && { client_secret: input.ClientSecret }),
   };
 };
 
@@ -3706,14 +3675,12 @@ const serializeAws_restJson1BackendStoragePermissions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Authenticated !== undefined &&
-      input.Authenticated !== null && {
-        authenticated: serializeAws_restJson1ListOfAuthenticatedElement(input.Authenticated, context),
-      }),
-    ...(input.UnAuthenticated !== undefined &&
-      input.UnAuthenticated !== null && {
-        unAuthenticated: serializeAws_restJson1ListOfUnAuthenticatedElement(input.UnAuthenticated, context),
-      }),
+    ...(input.Authenticated != undefined && {
+      authenticated: serializeAws_restJson1ListOfAuthenticatedElement(input.Authenticated, context),
+    }),
+    ...(input.UnAuthenticated != undefined && {
+      unAuthenticated: serializeAws_restJson1ListOfUnAuthenticatedElement(input.UnAuthenticated, context),
+    }),
   };
 };
 
@@ -3722,14 +3689,13 @@ const serializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined &&
-      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined &&
-      input.EmailSettings !== null && {
-        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-      }),
-    ...(input.SmsSettings !== undefined &&
-      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
+    ...(input.DeliveryMethod != undefined && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings != undefined && {
+      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+    }),
+    ...(input.SmsSettings != undefined && {
+      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
+    }),
   };
 };
 
@@ -3738,10 +3704,8 @@ const serializeAws_restJson1CreateBackendAuthIdentityPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolName !== undefined &&
-      input.IdentityPoolName !== null && { identityPoolName: input.IdentityPoolName }),
-    ...(input.UnauthenticatedLogin !== undefined &&
-      input.UnauthenticatedLogin !== null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
+    ...(input.IdentityPoolName != undefined && { identityPoolName: input.IdentityPoolName }),
+    ...(input.UnauthenticatedLogin != undefined && { unauthenticatedLogin: input.UnauthenticatedLogin }),
   };
 };
 
@@ -3750,9 +3714,8 @@ const serializeAws_restJson1CreateBackendAuthMFAConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MFAMode !== undefined && input.MFAMode !== null && { MFAMode: input.MFAMode }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
+    ...(input.MFAMode != undefined && { MFAMode: input.MFAMode }),
+    ...(input.Settings != undefined && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
   };
 };
 
@@ -3761,25 +3724,20 @@ const serializeAws_restJson1CreateBackendAuthOAuthConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainPrefix !== undefined && input.DomainPrefix !== null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType !== undefined &&
-      input.OAuthGrantType !== null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes !== undefined &&
-      input.OAuthScopes !== null && {
-        oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-      }),
-    ...(input.RedirectSignInURIs !== undefined &&
-      input.RedirectSignInURIs !== null && {
-        redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-      }),
-    ...(input.RedirectSignOutURIs !== undefined &&
-      input.RedirectSignOutURIs !== null && {
-        redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-      }),
-    ...(input.SocialProviderSettings !== undefined &&
-      input.SocialProviderSettings !== null && {
-        socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-      }),
+    ...(input.DomainPrefix != undefined && { domainPrefix: input.DomainPrefix }),
+    ...(input.OAuthGrantType != undefined && { oAuthGrantType: input.OAuthGrantType }),
+    ...(input.OAuthScopes != undefined && {
+      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
+    }),
+    ...(input.RedirectSignInURIs != undefined && {
+      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
+    }),
+    ...(input.RedirectSignOutURIs != undefined && {
+      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
+    }),
+    ...(input.SocialProviderSettings != undefined && {
+      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
+    }),
   };
 };
 
@@ -3788,15 +3746,13 @@ const serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalConstraints !== undefined &&
-      input.AdditionalConstraints !== null && {
-        additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-          input.AdditionalConstraints,
-          context
-        ),
-      }),
-    ...(input.MinimumLength !== undefined &&
-      input.MinimumLength !== null && { minimumLength: __serializeFloat(input.MinimumLength) }),
+    ...(input.AdditionalConstraints != undefined && {
+      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
+        input.AdditionalConstraints,
+        context
+      ),
+    }),
+    ...(input.MinimumLength != undefined && { minimumLength: __serializeFloat(input.MinimumLength) }),
   };
 };
 
@@ -3805,19 +3761,17 @@ const serializeAws_restJson1CreateBackendAuthResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthResources !== undefined && input.AuthResources !== null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs !== undefined &&
-      input.IdentityPoolConfigs !== null && {
-        identityPoolConfigs: serializeAws_restJson1CreateBackendAuthIdentityPoolConfig(
-          input.IdentityPoolConfigs,
-          context
-        ),
-      }),
-    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
-    ...(input.UserPoolConfigs !== undefined &&
-      input.UserPoolConfigs !== null && {
-        userPoolConfigs: serializeAws_restJson1CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-      }),
+    ...(input.AuthResources != undefined && { authResources: input.AuthResources }),
+    ...(input.IdentityPoolConfigs != undefined && {
+      identityPoolConfigs: serializeAws_restJson1CreateBackendAuthIdentityPoolConfig(
+        input.IdentityPoolConfigs,
+        context
+      ),
+    }),
+    ...(input.Service != undefined && { service: input.Service }),
+    ...(input.UserPoolConfigs != undefined && {
+      userPoolConfigs: serializeAws_restJson1CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
+    }),
   };
 };
 
@@ -3826,34 +3780,30 @@ const serializeAws_restJson1CreateBackendAuthUserPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPassword !== undefined &&
-      input.ForgotPassword !== null && {
-        forgotPassword: serializeAws_restJson1CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-      }),
-    ...(input.Mfa !== undefined &&
-      input.Mfa !== null && { mfa: serializeAws_restJson1CreateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth !== undefined &&
-      input.OAuth !== null && { oAuth: serializeAws_restJson1CreateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy !== undefined &&
-      input.PasswordPolicy !== null && {
-        passwordPolicy: serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-      }),
-    ...(input.RequiredSignUpAttributes !== undefined &&
-      input.RequiredSignUpAttributes !== null && {
-        requiredSignUpAttributes: serializeAws_restJson1ListOfRequiredSignUpAttributesElement(
-          input.RequiredSignUpAttributes,
-          context
-        ),
-      }),
-    ...(input.SignInMethod !== undefined && input.SignInMethod !== null && { signInMethod: input.SignInMethod }),
-    ...(input.UserPoolName !== undefined && input.UserPoolName !== null && { userPoolName: input.UserPoolName }),
-    ...(input.VerificationMessage !== undefined &&
-      input.VerificationMessage !== null && {
-        verificationMessage: serializeAws_restJson1CreateBackendAuthVerificationMessageConfig(
-          input.VerificationMessage,
-          context
-        ),
-      }),
+    ...(input.ForgotPassword != undefined && {
+      forgotPassword: serializeAws_restJson1CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
+    }),
+    ...(input.Mfa != undefined && { mfa: serializeAws_restJson1CreateBackendAuthMFAConfig(input.Mfa, context) }),
+    ...(input.OAuth != undefined && {
+      oAuth: serializeAws_restJson1CreateBackendAuthOAuthConfig(input.OAuth, context),
+    }),
+    ...(input.PasswordPolicy != undefined && {
+      passwordPolicy: serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
+    }),
+    ...(input.RequiredSignUpAttributes != undefined && {
+      requiredSignUpAttributes: serializeAws_restJson1ListOfRequiredSignUpAttributesElement(
+        input.RequiredSignUpAttributes,
+        context
+      ),
+    }),
+    ...(input.SignInMethod != undefined && { signInMethod: input.SignInMethod }),
+    ...(input.UserPoolName != undefined && { userPoolName: input.UserPoolName }),
+    ...(input.VerificationMessage != undefined && {
+      verificationMessage: serializeAws_restJson1CreateBackendAuthVerificationMessageConfig(
+        input.VerificationMessage,
+        context
+      ),
+    }),
   };
 };
 
@@ -3862,14 +3812,13 @@ const serializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined &&
-      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined &&
-      input.EmailSettings !== null && {
-        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-      }),
-    ...(input.SmsSettings !== undefined &&
-      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
+    ...(input.DeliveryMethod != undefined && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings != undefined && {
+      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+    }),
+    ...(input.SmsSettings != undefined && {
+      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
+    }),
   };
 };
 
@@ -3878,19 +3827,18 @@ const serializeAws_restJson1CreateBackendStorageResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BucketName !== undefined && input.BucketName !== null && { bucketName: input.BucketName }),
-    ...(input.Permissions !== undefined &&
-      input.Permissions !== null && {
-        permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
-      }),
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { serviceName: input.ServiceName }),
+    ...(input.BucketName != undefined && { bucketName: input.BucketName }),
+    ...(input.Permissions != undefined && {
+      permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
+    }),
+    ...(input.ServiceName != undefined && { serviceName: input.ServiceName }),
   };
 };
 
 const serializeAws_restJson1EmailSettings = (input: EmailSettings, context: __SerdeContext): any => {
   return {
-    ...(input.EmailMessage !== undefined && input.EmailMessage !== null && { emailMessage: input.EmailMessage }),
-    ...(input.EmailSubject !== undefined && input.EmailSubject !== null && { emailSubject: input.EmailSubject }),
+    ...(input.EmailMessage != undefined && { emailMessage: input.EmailMessage }),
+    ...(input.EmailSubject != undefined && { emailSubject: input.EmailSubject }),
   };
 };
 
@@ -4002,14 +3950,12 @@ const serializeAws_restJson1ListOfUnAuthenticatedElement = (
 
 const serializeAws_restJson1LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __SerdeContext): any => {
   return {
-    ...(input.AwsCognitoIdentityPoolId !== undefined &&
-      input.AwsCognitoIdentityPoolId !== null && { aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId }),
-    ...(input.AwsCognitoRegion !== undefined &&
-      input.AwsCognitoRegion !== null && { aws_cognito_region: input.AwsCognitoRegion }),
-    ...(input.AwsUserPoolsId !== undefined &&
-      input.AwsUserPoolsId !== null && { aws_user_pools_id: input.AwsUserPoolsId }),
-    ...(input.AwsUserPoolsWebClientId !== undefined &&
-      input.AwsUserPoolsWebClientId !== null && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
+    ...(input.AwsCognitoIdentityPoolId != undefined && {
+      aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId,
+    }),
+    ...(input.AwsCognitoRegion != undefined && { aws_cognito_region: input.AwsCognitoRegion }),
+    ...(input.AwsUserPoolsId != undefined && { aws_user_pools_id: input.AwsUserPoolsId }),
+    ...(input.AwsUserPoolsWebClientId != undefined && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
   };
 };
 
@@ -4019,36 +3965,33 @@ const serializeAws_restJson1ResourceConfig = (input: ResourceConfig, context: __
 
 const serializeAws_restJson1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
-    ...(input.MfaTypes !== undefined &&
-      input.MfaTypes !== null && { mfaTypes: serializeAws_restJson1ListOfMfaTypesElement(input.MfaTypes, context) }),
-    ...(input.SmsMessage !== undefined && input.SmsMessage !== null && { smsMessage: input.SmsMessage }),
+    ...(input.MfaTypes != undefined && {
+      mfaTypes: serializeAws_restJson1ListOfMfaTypesElement(input.MfaTypes, context),
+    }),
+    ...(input.SmsMessage != undefined && { smsMessage: input.SmsMessage }),
   };
 };
 
 const serializeAws_restJson1SmsSettings = (input: SmsSettings, context: __SerdeContext): any => {
   return {
-    ...(input.SmsMessage !== undefined && input.SmsMessage !== null && { smsMessage: input.SmsMessage }),
+    ...(input.SmsMessage != undefined && { smsMessage: input.SmsMessage }),
   };
 };
 
 const serializeAws_restJson1SocialProviderSettings = (input: SocialProviderSettings, context: __SerdeContext): any => {
   return {
-    ...(input.Facebook !== undefined &&
-      input.Facebook !== null && {
-        Facebook: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Facebook, context),
-      }),
-    ...(input.Google !== undefined &&
-      input.Google !== null && {
-        Google: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Google, context),
-      }),
-    ...(input.LoginWithAmazon !== undefined &&
-      input.LoginWithAmazon !== null && {
-        LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
-      }),
-    ...(input.SignInWithApple !== undefined &&
-      input.SignInWithApple !== null && {
-        SignInWithApple: serializeAws_restJson1BackendAuthAppleProviderConfig(input.SignInWithApple, context),
-      }),
+    ...(input.Facebook != undefined && {
+      Facebook: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Facebook, context),
+    }),
+    ...(input.Google != undefined && {
+      Google: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Google, context),
+    }),
+    ...(input.LoginWithAmazon != undefined && {
+      LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
+    }),
+    ...(input.SignInWithApple != undefined && {
+      SignInWithApple: serializeAws_restJson1BackendAuthAppleProviderConfig(input.SignInWithApple, context),
+    }),
   };
 };
 
@@ -4057,14 +4000,13 @@ const serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined &&
-      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined &&
-      input.EmailSettings !== null && {
-        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-      }),
-    ...(input.SmsSettings !== undefined &&
-      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
+    ...(input.DeliveryMethod != undefined && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings != undefined && {
+      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+    }),
+    ...(input.SmsSettings != undefined && {
+      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
+    }),
   };
 };
 
@@ -4073,8 +4015,7 @@ const serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.UnauthenticatedLogin !== undefined &&
-      input.UnauthenticatedLogin !== null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
+    ...(input.UnauthenticatedLogin != undefined && { unauthenticatedLogin: input.UnauthenticatedLogin }),
   };
 };
 
@@ -4083,9 +4024,8 @@ const serializeAws_restJson1UpdateBackendAuthMFAConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MFAMode !== undefined && input.MFAMode !== null && { MFAMode: input.MFAMode }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
+    ...(input.MFAMode != undefined && { MFAMode: input.MFAMode }),
+    ...(input.Settings != undefined && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
   };
 };
 
@@ -4094,25 +4034,20 @@ const serializeAws_restJson1UpdateBackendAuthOAuthConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainPrefix !== undefined && input.DomainPrefix !== null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType !== undefined &&
-      input.OAuthGrantType !== null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes !== undefined &&
-      input.OAuthScopes !== null && {
-        oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-      }),
-    ...(input.RedirectSignInURIs !== undefined &&
-      input.RedirectSignInURIs !== null && {
-        redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-      }),
-    ...(input.RedirectSignOutURIs !== undefined &&
-      input.RedirectSignOutURIs !== null && {
-        redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-      }),
-    ...(input.SocialProviderSettings !== undefined &&
-      input.SocialProviderSettings !== null && {
-        socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-      }),
+    ...(input.DomainPrefix != undefined && { domainPrefix: input.DomainPrefix }),
+    ...(input.OAuthGrantType != undefined && { oAuthGrantType: input.OAuthGrantType }),
+    ...(input.OAuthScopes != undefined && {
+      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
+    }),
+    ...(input.RedirectSignInURIs != undefined && {
+      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
+    }),
+    ...(input.RedirectSignOutURIs != undefined && {
+      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
+    }),
+    ...(input.SocialProviderSettings != undefined && {
+      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
+    }),
   };
 };
 
@@ -4121,15 +4056,13 @@ const serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalConstraints !== undefined &&
-      input.AdditionalConstraints !== null && {
-        additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-          input.AdditionalConstraints,
-          context
-        ),
-      }),
-    ...(input.MinimumLength !== undefined &&
-      input.MinimumLength !== null && { minimumLength: __serializeFloat(input.MinimumLength) }),
+    ...(input.AdditionalConstraints != undefined && {
+      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
+        input.AdditionalConstraints,
+        context
+      ),
+    }),
+    ...(input.MinimumLength != undefined && { minimumLength: __serializeFloat(input.MinimumLength) }),
   };
 };
 
@@ -4138,19 +4071,17 @@ const serializeAws_restJson1UpdateBackendAuthResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuthResources !== undefined && input.AuthResources !== null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs !== undefined &&
-      input.IdentityPoolConfigs !== null && {
-        identityPoolConfigs: serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig(
-          input.IdentityPoolConfigs,
-          context
-        ),
-      }),
-    ...(input.Service !== undefined && input.Service !== null && { service: input.Service }),
-    ...(input.UserPoolConfigs !== undefined &&
-      input.UserPoolConfigs !== null && {
-        userPoolConfigs: serializeAws_restJson1UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-      }),
+    ...(input.AuthResources != undefined && { authResources: input.AuthResources }),
+    ...(input.IdentityPoolConfigs != undefined && {
+      identityPoolConfigs: serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig(
+        input.IdentityPoolConfigs,
+        context
+      ),
+    }),
+    ...(input.Service != undefined && { service: input.Service }),
+    ...(input.UserPoolConfigs != undefined && {
+      userPoolConfigs: serializeAws_restJson1UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
+    }),
   };
 };
 
@@ -4159,25 +4090,22 @@ const serializeAws_restJson1UpdateBackendAuthUserPoolConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPassword !== undefined &&
-      input.ForgotPassword !== null && {
-        forgotPassword: serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-      }),
-    ...(input.Mfa !== undefined &&
-      input.Mfa !== null && { mfa: serializeAws_restJson1UpdateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth !== undefined &&
-      input.OAuth !== null && { oAuth: serializeAws_restJson1UpdateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy !== undefined &&
-      input.PasswordPolicy !== null && {
-        passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-      }),
-    ...(input.VerificationMessage !== undefined &&
-      input.VerificationMessage !== null && {
-        verificationMessage: serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig(
-          input.VerificationMessage,
-          context
-        ),
-      }),
+    ...(input.ForgotPassword != undefined && {
+      forgotPassword: serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
+    }),
+    ...(input.Mfa != undefined && { mfa: serializeAws_restJson1UpdateBackendAuthMFAConfig(input.Mfa, context) }),
+    ...(input.OAuth != undefined && {
+      oAuth: serializeAws_restJson1UpdateBackendAuthOAuthConfig(input.OAuth, context),
+    }),
+    ...(input.PasswordPolicy != undefined && {
+      passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
+    }),
+    ...(input.VerificationMessage != undefined && {
+      verificationMessage: serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig(
+        input.VerificationMessage,
+        context
+      ),
+    }),
   };
 };
 
@@ -4186,14 +4114,13 @@ const serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryMethod !== undefined &&
-      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings !== undefined &&
-      input.EmailSettings !== null && {
-        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-      }),
-    ...(input.SmsSettings !== undefined &&
-      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
+    ...(input.DeliveryMethod != undefined && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings != undefined && {
+      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+    }),
+    ...(input.SmsSettings != undefined && {
+      smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context),
+    }),
   };
 };
 
@@ -4202,11 +4129,10 @@ const serializeAws_restJson1UpdateBackendStorageResourceConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Permissions !== undefined &&
-      input.Permissions !== null && {
-        permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
-      }),
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { serviceName: input.ServiceName }),
+    ...(input.Permissions != undefined && {
+      permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
+    }),
+    ...(input.ServiceName != undefined && { serviceName: input.ServiceName }),
   };
 };
 
@@ -4230,7 +4156,7 @@ const deserializeAws_restJson1BackendAPIAuthType = (output: any, context: __Serd
   return {
     Mode: __expectString(output.mode),
     Settings:
-      output.settings !== undefined && output.settings !== null
+      output.settings != undefined
         ? deserializeAws_restJson1BackendAPIAppSyncAuthSettings(output.settings, context)
         : undefined,
   } as any;
@@ -4251,16 +4177,16 @@ const deserializeAws_restJson1BackendAPIResourceConfig = (
 ): BackendAPIResourceConfig => {
   return {
     AdditionalAuthTypes:
-      output.additionalAuthTypes !== undefined && output.additionalAuthTypes !== null
+      output.additionalAuthTypes != undefined
         ? deserializeAws_restJson1ListOfBackendAPIAuthType(output.additionalAuthTypes, context)
         : undefined,
     ApiName: __expectString(output.apiName),
     ConflictResolution:
-      output.conflictResolution !== undefined && output.conflictResolution !== null
+      output.conflictResolution != undefined
         ? deserializeAws_restJson1BackendAPIConflictResolution(output.conflictResolution, context)
         : undefined,
     DefaultAuthType:
-      output.defaultAuthType !== undefined && output.defaultAuthType !== null
+      output.defaultAuthType != undefined
         ? deserializeAws_restJson1BackendAPIAuthType(output.defaultAuthType, context)
         : undefined,
     Service: __expectString(output.service),
@@ -4309,11 +4235,11 @@ const deserializeAws_restJson1BackendStoragePermissions = (
 ): BackendStoragePermissions => {
   return {
     Authenticated:
-      output.authenticated !== undefined && output.authenticated !== null
+      output.authenticated != undefined
         ? deserializeAws_restJson1ListOfAuthenticatedElement(output.authenticated, context)
         : undefined,
     UnAuthenticated:
-      output.unAuthenticated !== undefined && output.unAuthenticated !== null
+      output.unAuthenticated != undefined
         ? deserializeAws_restJson1ListOfUnAuthenticatedElement(output.unAuthenticated, context)
         : undefined,
   } as any;
@@ -4326,13 +4252,11 @@ const deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
   return {
     DeliveryMethod: __expectString(output.deliveryMethod),
     EmailSettings:
-      output.emailSettings !== undefined && output.emailSettings !== null
+      output.emailSettings != undefined
         ? deserializeAws_restJson1EmailSettings(output.emailSettings, context)
         : undefined,
     SmsSettings:
-      output.smsSettings !== undefined && output.smsSettings !== null
-        ? deserializeAws_restJson1SmsSettings(output.smsSettings, context)
-        : undefined,
+      output.smsSettings != undefined ? deserializeAws_restJson1SmsSettings(output.smsSettings, context) : undefined,
   } as any;
 };
 
@@ -4352,10 +4276,7 @@ const deserializeAws_restJson1CreateBackendAuthMFAConfig = (
 ): CreateBackendAuthMFAConfig => {
   return {
     MFAMode: __expectString(output.MFAMode),
-    Settings:
-      output.settings !== undefined && output.settings !== null
-        ? deserializeAws_restJson1Settings(output.settings, context)
-        : undefined,
+    Settings: output.settings != undefined ? deserializeAws_restJson1Settings(output.settings, context) : undefined,
   } as any;
 };
 
@@ -4367,19 +4288,19 @@ const deserializeAws_restJson1CreateBackendAuthOAuthConfig = (
     DomainPrefix: __expectString(output.domainPrefix),
     OAuthGrantType: __expectString(output.oAuthGrantType),
     OAuthScopes:
-      output.oAuthScopes !== undefined && output.oAuthScopes !== null
+      output.oAuthScopes != undefined
         ? deserializeAws_restJson1ListOfOAuthScopesElement(output.oAuthScopes, context)
         : undefined,
     RedirectSignInURIs:
-      output.redirectSignInURIs !== undefined && output.redirectSignInURIs !== null
+      output.redirectSignInURIs != undefined
         ? deserializeAws_restJson1ListOf__string(output.redirectSignInURIs, context)
         : undefined,
     RedirectSignOutURIs:
-      output.redirectSignOutURIs !== undefined && output.redirectSignOutURIs !== null
+      output.redirectSignOutURIs != undefined
         ? deserializeAws_restJson1ListOf__string(output.redirectSignOutURIs, context)
         : undefined,
     SocialProviderSettings:
-      output.socialProviderSettings !== undefined && output.socialProviderSettings !== null
+      output.socialProviderSettings != undefined
         ? deserializeAws_restJson1SocialProviderSettings(output.socialProviderSettings, context)
         : undefined,
   } as any;
@@ -4391,7 +4312,7 @@ const deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
 ): CreateBackendAuthPasswordPolicyConfig => {
   return {
     AdditionalConstraints:
-      output.additionalConstraints !== undefined && output.additionalConstraints !== null
+      output.additionalConstraints != undefined
         ? deserializeAws_restJson1ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
         : undefined,
     MinimumLength: __limitedParseDouble(output.minimumLength),
@@ -4405,12 +4326,12 @@ const deserializeAws_restJson1CreateBackendAuthResourceConfig = (
   return {
     AuthResources: __expectString(output.authResources),
     IdentityPoolConfigs:
-      output.identityPoolConfigs !== undefined && output.identityPoolConfigs !== null
+      output.identityPoolConfigs != undefined
         ? deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig(output.identityPoolConfigs, context)
         : undefined,
     Service: __expectString(output.service),
     UserPoolConfigs:
-      output.userPoolConfigs !== undefined && output.userPoolConfigs !== null
+      output.userPoolConfigs != undefined
         ? deserializeAws_restJson1CreateBackendAuthUserPoolConfig(output.userPoolConfigs, context)
         : undefined,
   } as any;
@@ -4422,29 +4343,26 @@ const deserializeAws_restJson1CreateBackendAuthUserPoolConfig = (
 ): CreateBackendAuthUserPoolConfig => {
   return {
     ForgotPassword:
-      output.forgotPassword !== undefined && output.forgotPassword !== null
+      output.forgotPassword != undefined
         ? deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig(output.forgotPassword, context)
         : undefined,
-    Mfa:
-      output.mfa !== undefined && output.mfa !== null
-        ? deserializeAws_restJson1CreateBackendAuthMFAConfig(output.mfa, context)
-        : undefined,
+    Mfa: output.mfa != undefined ? deserializeAws_restJson1CreateBackendAuthMFAConfig(output.mfa, context) : undefined,
     OAuth:
-      output.oAuth !== undefined && output.oAuth !== null
+      output.oAuth != undefined
         ? deserializeAws_restJson1CreateBackendAuthOAuthConfig(output.oAuth, context)
         : undefined,
     PasswordPolicy:
-      output.passwordPolicy !== undefined && output.passwordPolicy !== null
+      output.passwordPolicy != undefined
         ? deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(output.passwordPolicy, context)
         : undefined,
     RequiredSignUpAttributes:
-      output.requiredSignUpAttributes !== undefined && output.requiredSignUpAttributes !== null
+      output.requiredSignUpAttributes != undefined
         ? deserializeAws_restJson1ListOfRequiredSignUpAttributesElement(output.requiredSignUpAttributes, context)
         : undefined,
     SignInMethod: __expectString(output.signInMethod),
     UserPoolName: __expectString(output.userPoolName),
     VerificationMessage:
-      output.verificationMessage !== undefined && output.verificationMessage !== null
+      output.verificationMessage != undefined
         ? deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig(output.verificationMessage, context)
         : undefined,
   } as any;
@@ -4457,13 +4375,11 @@ const deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
   return {
     DeliveryMethod: __expectString(output.deliveryMethod),
     EmailSettings:
-      output.emailSettings !== undefined && output.emailSettings !== null
+      output.emailSettings != undefined
         ? deserializeAws_restJson1EmailSettings(output.emailSettings, context)
         : undefined,
     SmsSettings:
-      output.smsSettings !== undefined && output.smsSettings !== null
-        ? deserializeAws_restJson1SmsSettings(output.smsSettings, context)
-        : undefined,
+      output.smsSettings != undefined ? deserializeAws_restJson1SmsSettings(output.smsSettings, context) : undefined,
   } as any;
 };
 
@@ -4482,7 +4398,7 @@ const deserializeAws_restJson1GetBackendStorageResourceConfig = (
     BucketName: __expectString(output.bucketName),
     Imported: __expectBoolean(output.imported),
     Permissions:
-      output.permissions !== undefined && output.permissions !== null
+      output.permissions != undefined
         ? deserializeAws_restJson1BackendStoragePermissions(output.permissions, context)
         : undefined,
     ServiceName: __expectString(output.serviceName),
@@ -4649,7 +4565,7 @@ const deserializeAws_restJson1S3BucketInfo = (output: any, context: __SerdeConte
 const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     MfaTypes:
-      output.mfaTypes !== undefined && output.mfaTypes !== null
+      output.mfaTypes != undefined
         ? deserializeAws_restJson1ListOfMfaTypesElement(output.mfaTypes, context)
         : undefined,
     SmsMessage: __expectString(output.smsMessage),
@@ -4668,19 +4584,19 @@ const deserializeAws_restJson1SocialProviderSettings = (
 ): SocialProviderSettings => {
   return {
     Facebook:
-      output.Facebook !== undefined && output.Facebook !== null
+      output.Facebook != undefined
         ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.Facebook, context)
         : undefined,
     Google:
-      output.Google !== undefined && output.Google !== null
+      output.Google != undefined
         ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.Google, context)
         : undefined,
     LoginWithAmazon:
-      output.LoginWithAmazon !== undefined && output.LoginWithAmazon !== null
+      output.LoginWithAmazon != undefined
         ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.LoginWithAmazon, context)
         : undefined,
     SignInWithApple:
-      output.SignInWithApple !== undefined && output.SignInWithApple !== null
+      output.SignInWithApple != undefined
         ? deserializeAws_restJson1BackendAuthAppleProviderConfig(output.SignInWithApple, context)
         : undefined,
   } as any;

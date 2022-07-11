@@ -118,12 +118,11 @@ export const serializeAws_restJson1AddProfilePermissionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.action !== undefined && input.action !== null && { action: input.action }),
-    ...(input.principal !== undefined && input.principal !== null && { principal: input.principal }),
-    ...(input.profileVersion !== undefined &&
-      input.profileVersion !== null && { profileVersion: input.profileVersion }),
-    ...(input.revisionId !== undefined && input.revisionId !== null && { revisionId: input.revisionId }),
-    ...(input.statementId !== undefined && input.statementId !== null && { statementId: input.statementId }),
+    ...(input.action != undefined && { action: input.action }),
+    ...(input.principal != undefined && { principal: input.principal }),
+    ...(input.profileVersion != undefined && { profileVersion: input.profileVersion }),
+    ...(input.revisionId != undefined && { revisionId: input.revisionId }),
+    ...(input.statementId != undefined && { statementId: input.statementId }),
   });
   return new __HttpRequest({
     protocol,
@@ -427,24 +426,20 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.overrides !== undefined &&
-      input.overrides !== null && {
-        overrides: serializeAws_restJson1SigningPlatformOverrides(input.overrides, context),
-      }),
-    ...(input.platformId !== undefined && input.platformId !== null && { platformId: input.platformId }),
-    ...(input.signatureValidityPeriod !== undefined &&
-      input.signatureValidityPeriod !== null && {
-        signatureValidityPeriod: serializeAws_restJson1SignatureValidityPeriod(input.signatureValidityPeriod, context),
-      }),
-    ...(input.signingMaterial !== undefined &&
-      input.signingMaterial !== null && {
-        signingMaterial: serializeAws_restJson1SigningMaterial(input.signingMaterial, context),
-      }),
-    ...(input.signingParameters !== undefined &&
-      input.signingParameters !== null && {
-        signingParameters: serializeAws_restJson1SigningParameters(input.signingParameters, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.overrides != undefined && {
+      overrides: serializeAws_restJson1SigningPlatformOverrides(input.overrides, context),
+    }),
+    ...(input.platformId != undefined && { platformId: input.platformId }),
+    ...(input.signatureValidityPeriod != undefined && {
+      signatureValidityPeriod: serializeAws_restJson1SignatureValidityPeriod(input.signatureValidityPeriod, context),
+    }),
+    ...(input.signingMaterial != undefined && {
+      signingMaterial: serializeAws_restJson1SigningMaterial(input.signingMaterial, context),
+    }),
+    ...(input.signingParameters != undefined && {
+      signingParameters: serializeAws_restJson1SigningParameters(input.signingParameters, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -521,8 +516,8 @@ export const serializeAws_restJson1RevokeSignatureCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.jobOwner !== undefined && input.jobOwner !== null && { jobOwner: input.jobOwner }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
+    ...(input.jobOwner != undefined && { jobOwner: input.jobOwner }),
+    ...(input.reason != undefined && { reason: input.reason }),
   });
   return new __HttpRequest({
     protocol,
@@ -556,11 +551,9 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.effectiveTime !== undefined &&
-      input.effectiveTime !== null && { effectiveTime: Math.round(input.effectiveTime.getTime() / 1000) }),
-    ...(input.profileVersion !== undefined &&
-      input.profileVersion !== null && { profileVersion: input.profileVersion }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
+    ...(input.effectiveTime != undefined && { effectiveTime: Math.round(input.effectiveTime.getTime() / 1000) }),
+    ...(input.profileVersion != undefined && { profileVersion: input.profileVersion }),
+    ...(input.reason != undefined && { reason: input.reason }),
   });
   return new __HttpRequest({
     protocol,
@@ -585,12 +578,12 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.destination !== undefined &&
-      input.destination !== null && { destination: serializeAws_restJson1Destination(input.destination, context) }),
-    ...(input.profileName !== undefined && input.profileName !== null && { profileName: input.profileName }),
-    ...(input.profileOwner !== undefined && input.profileOwner !== null && { profileOwner: input.profileOwner }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_restJson1Source(input.source, context) }),
+    ...(input.destination != undefined && {
+      destination: serializeAws_restJson1Destination(input.destination, context),
+    }),
+    ...(input.profileName != undefined && { profileName: input.profileName }),
+    ...(input.profileOwner != undefined && { profileOwner: input.profileOwner }),
+    ...(input.source != undefined && { source: serializeAws_restJson1Source(input.source, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -623,7 +616,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1983,22 +1976,22 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_restJson1S3Destination(input.s3, context) }),
+    ...(input.s3 != undefined && { s3: serializeAws_restJson1S3Destination(input.s3, context) }),
   };
 };
 
 const serializeAws_restJson1S3Destination = (input: S3Destination, context: __SerdeContext): any => {
   return {
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
+    ...(input.prefix != undefined && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_restJson1S3Source = (input: S3Source, context: __SerdeContext): any => {
   return {
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
+    ...(input.key != undefined && { key: input.key }),
+    ...(input.version != undefined && { version: input.version }),
   };
 };
 
@@ -2007,8 +2000,8 @@ const serializeAws_restJson1SignatureValidityPeriod = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.type != undefined && { type: input.type }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -2017,16 +2010,14 @@ const serializeAws_restJson1SigningConfigurationOverrides = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.encryptionAlgorithm !== undefined &&
-      input.encryptionAlgorithm !== null && { encryptionAlgorithm: input.encryptionAlgorithm }),
-    ...(input.hashAlgorithm !== undefined && input.hashAlgorithm !== null && { hashAlgorithm: input.hashAlgorithm }),
+    ...(input.encryptionAlgorithm != undefined && { encryptionAlgorithm: input.encryptionAlgorithm }),
+    ...(input.hashAlgorithm != undefined && { hashAlgorithm: input.hashAlgorithm }),
   };
 };
 
 const serializeAws_restJson1SigningMaterial = (input: SigningMaterial, context: __SerdeContext): any => {
   return {
-    ...(input.certificateArn !== undefined &&
-      input.certificateArn !== null && { certificateArn: input.certificateArn }),
+    ...(input.certificateArn != undefined && { certificateArn: input.certificateArn }),
   };
 };
 
@@ -2047,18 +2038,16 @@ const serializeAws_restJson1SigningPlatformOverrides = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.signingConfiguration !== undefined &&
-      input.signingConfiguration !== null && {
-        signingConfiguration: serializeAws_restJson1SigningConfigurationOverrides(input.signingConfiguration, context),
-      }),
-    ...(input.signingImageFormat !== undefined &&
-      input.signingImageFormat !== null && { signingImageFormat: input.signingImageFormat }),
+    ...(input.signingConfiguration != undefined && {
+      signingConfiguration: serializeAws_restJson1SigningConfigurationOverrides(input.signingConfiguration, context),
+    }),
+    ...(input.signingImageFormat != undefined && { signingImageFormat: input.signingImageFormat }),
   };
 };
 
 const serializeAws_restJson1Source = (input: Source, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_restJson1S3Source(input.s3, context) }),
+    ...(input.s3 != undefined && { s3: serializeAws_restJson1S3Source(input.s3, context) }),
   };
 };
 
@@ -2080,7 +2069,7 @@ const deserializeAws_restJson1EncryptionAlgorithmOptions = (
 ): EncryptionAlgorithmOptions => {
   return {
     allowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null
+      output.allowedValues != undefined
         ? deserializeAws_restJson1EncryptionAlgorithms(output.allowedValues, context)
         : undefined,
     defaultValue: __expectString(output.defaultValue),
@@ -2105,7 +2094,7 @@ const deserializeAws_restJson1EncryptionAlgorithms = (
 const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __SerdeContext): HashAlgorithmOptions => {
   return {
     allowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null
+      output.allowedValues != undefined
         ? deserializeAws_restJson1HashAlgorithms(output.allowedValues, context)
         : undefined,
     defaultValue: __expectString(output.defaultValue),
@@ -2184,21 +2173,18 @@ const deserializeAws_restJson1SignatureValidityPeriod = (
 
 const deserializeAws_restJson1SignedObject = (output: any, context: __SerdeContext): SignedObject => {
   return {
-    s3:
-      output.s3 !== undefined && output.s3 !== null
-        ? deserializeAws_restJson1S3SignedObject(output.s3, context)
-        : undefined,
+    s3: output.s3 != undefined ? deserializeAws_restJson1S3SignedObject(output.s3, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SigningConfiguration = (output: any, context: __SerdeContext): SigningConfiguration => {
   return {
     encryptionAlgorithmOptions:
-      output.encryptionAlgorithmOptions !== undefined && output.encryptionAlgorithmOptions !== null
+      output.encryptionAlgorithmOptions != undefined
         ? deserializeAws_restJson1EncryptionAlgorithmOptions(output.encryptionAlgorithmOptions, context)
         : undefined,
     hashAlgorithmOptions:
-      output.hashAlgorithmOptions !== undefined && output.hashAlgorithmOptions !== null
+      output.hashAlgorithmOptions != undefined
         ? deserializeAws_restJson1HashAlgorithmOptions(output.hashAlgorithmOptions, context)
         : undefined,
   } as any;
@@ -2218,7 +2204,7 @@ const deserializeAws_restJson1SigningImageFormat = (output: any, context: __Serd
   return {
     defaultFormat: __expectString(output.defaultFormat),
     supportedFormats:
-      output.supportedFormats !== undefined && output.supportedFormats !== null
+      output.supportedFormats != undefined
         ? deserializeAws_restJson1ImageFormats(output.supportedFormats, context)
         : undefined,
   } as any;
@@ -2227,7 +2213,7 @@ const deserializeAws_restJson1SigningImageFormat = (output: any, context: __Serd
 const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext): SigningJob => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     isRevoked: __expectBoolean(output.isRevoked),
@@ -2239,21 +2225,16 @@ const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext
     profileName: __expectString(output.profileName),
     profileVersion: __expectString(output.profileVersion),
     signatureExpiresAt:
-      output.signatureExpiresAt !== undefined && output.signatureExpiresAt !== null
+      output.signatureExpiresAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.signatureExpiresAt)))
         : undefined,
     signedObject:
-      output.signedObject !== undefined && output.signedObject !== null
-        ? deserializeAws_restJson1SignedObject(output.signedObject, context)
-        : undefined,
+      output.signedObject != undefined ? deserializeAws_restJson1SignedObject(output.signedObject, context) : undefined,
     signingMaterial:
-      output.signingMaterial !== undefined && output.signingMaterial !== null
+      output.signingMaterial != undefined
         ? deserializeAws_restJson1SigningMaterial(output.signingMaterial, context)
         : undefined,
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_restJson1Source(output.source, context)
-        : undefined,
+    source: output.source != undefined ? deserializeAws_restJson1Source(output.source, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -2265,7 +2246,7 @@ const deserializeAws_restJson1SigningJobRevocationRecord = (
   return {
     reason: __expectString(output.reason),
     revokedAt:
-      output.revokedAt !== undefined && output.revokedAt !== null
+      output.revokedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     revokedBy: __expectString(output.revokedBy),
@@ -2311,11 +2292,11 @@ const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeCo
     platformId: __expectString(output.platformId),
     revocationSupported: __expectBoolean(output.revocationSupported),
     signingConfiguration:
-      output.signingConfiguration !== undefined && output.signingConfiguration !== null
+      output.signingConfiguration != undefined
         ? deserializeAws_restJson1SigningConfiguration(output.signingConfiguration, context)
         : undefined,
     signingImageFormat:
-      output.signingImageFormat !== undefined && output.signingImageFormat !== null
+      output.signingImageFormat != undefined
         ? deserializeAws_restJson1SigningImageFormat(output.signingImageFormat, context)
         : undefined,
     target: __expectString(output.target),
@@ -2328,7 +2309,7 @@ const deserializeAws_restJson1SigningPlatformOverrides = (
 ): SigningPlatformOverrides => {
   return {
     signingConfiguration:
-      output.signingConfiguration !== undefined && output.signingConfiguration !== null
+      output.signingConfiguration != undefined
         ? deserializeAws_restJson1SigningConfigurationOverrides(output.signingConfiguration, context)
         : undefined,
     signingImageFormat: __expectString(output.signingImageFormat),
@@ -2356,22 +2337,19 @@ const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeCon
     profileVersion: __expectString(output.profileVersion),
     profileVersionArn: __expectString(output.profileVersionArn),
     signatureValidityPeriod:
-      output.signatureValidityPeriod !== undefined && output.signatureValidityPeriod !== null
+      output.signatureValidityPeriod != undefined
         ? deserializeAws_restJson1SignatureValidityPeriod(output.signatureValidityPeriod, context)
         : undefined,
     signingMaterial:
-      output.signingMaterial !== undefined && output.signingMaterial !== null
+      output.signingMaterial != undefined
         ? deserializeAws_restJson1SigningMaterial(output.signingMaterial, context)
         : undefined,
     signingParameters:
-      output.signingParameters !== undefined && output.signingParameters !== null
+      output.signingParameters != undefined
         ? deserializeAws_restJson1SigningParameters(output.signingParameters, context)
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2381,11 +2359,11 @@ const deserializeAws_restJson1SigningProfileRevocationRecord = (
 ): SigningProfileRevocationRecord => {
   return {
     revocationEffectiveFrom:
-      output.revocationEffectiveFrom !== undefined && output.revocationEffectiveFrom !== null
+      output.revocationEffectiveFrom != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revocationEffectiveFrom)))
         : undefined,
     revokedAt:
-      output.revokedAt !== undefined && output.revokedAt !== null
+      output.revokedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
         : undefined,
     revokedBy: __expectString(output.revokedBy),
@@ -2406,8 +2384,7 @@ const deserializeAws_restJson1SigningProfiles = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    s3:
-      output.s3 !== undefined && output.s3 !== null ? deserializeAws_restJson1S3Source(output.s3, context) : undefined,
+    s3: output.s3 != undefined ? deserializeAws_restJson1S3Source(output.s3, context) : undefined,
   } as any;
 };
 

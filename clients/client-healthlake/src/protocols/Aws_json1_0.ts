@@ -1033,30 +1033,24 @@ const serializeAws_json1_0CreateFHIRDatastoreRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DatastoreName !== undefined && input.DatastoreName !== null && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreTypeVersion !== undefined &&
-      input.DatastoreTypeVersion !== null && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
-    ...(input.PreloadDataConfig !== undefined &&
-      input.PreloadDataConfig !== null && {
-        PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
-      }),
-    ...(input.SseConfiguration !== undefined &&
-      input.SseConfiguration !== null && {
-        SseConfiguration: serializeAws_json1_0SseConfiguration(input.SseConfiguration, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.DatastoreName != undefined && { DatastoreName: input.DatastoreName }),
+    ...(input.DatastoreTypeVersion != undefined && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
+    ...(input.PreloadDataConfig != undefined && {
+      PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
+    }),
+    ...(input.SseConfiguration != undefined && {
+      SseConfiguration: serializeAws_json1_0SseConfiguration(input.SseConfiguration, context),
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
   return {
-    ...(input.CreatedAfter !== undefined &&
-      input.CreatedAfter !== null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore !== undefined &&
-      input.CreatedBefore !== null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
-    ...(input.DatastoreName !== undefined && input.DatastoreName !== null && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreStatus !== undefined &&
-      input.DatastoreStatus !== null && { DatastoreStatus: input.DatastoreStatus }),
+    ...(input.CreatedAfter != undefined && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore != undefined && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.DatastoreName != undefined && { DatastoreName: input.DatastoreName }),
+    ...(input.DatastoreStatus != undefined && { DatastoreStatus: input.DatastoreStatus }),
   };
 };
 
@@ -1065,7 +1059,7 @@ const serializeAws_json1_0DeleteFHIRDatastoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
   };
 };
 
@@ -1074,7 +1068,7 @@ const serializeAws_json1_0DescribeFHIRDatastoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
   };
 };
 
@@ -1083,8 +1077,8 @@ const serializeAws_json1_0DescribeFHIRExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
@@ -1093,8 +1087,8 @@ const serializeAws_json1_0DescribeFHIRImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
@@ -1107,8 +1101,8 @@ const serializeAws_json1_0InputDataConfig = (input: InputDataConfig, context: __
 
 const serializeAws_json1_0KmsEncryptionConfig = (input: KmsEncryptionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.CmkType !== undefined && input.CmkType !== null && { CmkType: input.CmkType }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.CmkType != undefined && { CmkType: input.CmkType }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
@@ -1117,10 +1111,9 @@ const serializeAws_json1_0ListFHIRDatastoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined &&
-      input.Filter !== null && { Filter: serializeAws_json1_0DatastoreFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filter != undefined && { Filter: serializeAws_json1_0DatastoreFilter(input.Filter, context) }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1129,15 +1122,13 @@ const serializeAws_json1_0ListFHIRExportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter !== undefined &&
-      input.SubmittedAfter !== null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore !== undefined &&
-      input.SubmittedBefore !== null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.JobStatus != undefined && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.SubmittedAfter != undefined && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
+    ...(input.SubmittedBefore != undefined && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
   };
 };
 
@@ -1146,15 +1137,13 @@ const serializeAws_json1_0ListFHIRImportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SubmittedAfter !== undefined &&
-      input.SubmittedAfter !== null && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
-    ...(input.SubmittedBefore !== undefined &&
-      input.SubmittedBefore !== null && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.JobStatus != undefined && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.SubmittedAfter != undefined && { SubmittedAfter: Math.round(input.SubmittedAfter.getTime() / 1000) }),
+    ...(input.SubmittedBefore != undefined && { SubmittedBefore: Math.round(input.SubmittedBefore.getTime() / 1000) }),
   };
 };
 
@@ -1163,7 +1152,7 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -1176,24 +1165,22 @@ const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: 
 
 const serializeAws_json1_0PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.PreloadDataType !== undefined &&
-      input.PreloadDataType !== null && { PreloadDataType: input.PreloadDataType }),
+    ...(input.PreloadDataType != undefined && { PreloadDataType: input.PreloadDataType }),
   };
 };
 
 const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_0SseConfiguration = (input: SseConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.KmsEncryptionConfig !== undefined &&
-      input.KmsEncryptionConfig !== null && {
-        KmsEncryptionConfig: serializeAws_json1_0KmsEncryptionConfig(input.KmsEncryptionConfig, context),
-      }),
+    ...(input.KmsEncryptionConfig != undefined && {
+      KmsEncryptionConfig: serializeAws_json1_0KmsEncryptionConfig(input.KmsEncryptionConfig, context),
+    }),
   };
 };
 
@@ -1203,14 +1190,12 @@ const serializeAws_json1_0StartFHIRExportJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig !== undefined &&
-      input.OutputDataConfig !== null && {
-        OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-      }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.OutputDataConfig != undefined && {
+      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
+    }),
   };
 };
 
@@ -1220,25 +1205,22 @@ const serializeAws_json1_0StartFHIRImportJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.JobOutputDataConfig !== undefined &&
-      input.JobOutputDataConfig !== null && {
-        JobOutputDataConfig: serializeAws_json1_0OutputDataConfig(input.JobOutputDataConfig, context),
-      }),
+    ...(input.DataAccessRoleArn != undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DatastoreId != undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.InputDataConfig != undefined && {
+      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName != undefined && { JobName: input.JobName }),
+    ...(input.JobOutputDataConfig != undefined && {
+      JobOutputDataConfig: serializeAws_json1_0OutputDataConfig(input.JobOutputDataConfig, context),
+    }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1266,16 +1248,15 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1306,7 +1287,7 @@ const deserializeAws_json1_0CreateFHIRDatastoreResponse = (
 const deserializeAws_json1_0DatastoreProperties = (output: any, context: __SerdeContext): DatastoreProperties => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DatastoreArn: __expectString(output.DatastoreArn),
@@ -1316,11 +1297,11 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
     DatastoreStatus: __expectString(output.DatastoreStatus),
     DatastoreTypeVersion: __expectString(output.DatastoreTypeVersion),
     PreloadDataConfig:
-      output.PreloadDataConfig !== undefined && output.PreloadDataConfig !== null
+      output.PreloadDataConfig != undefined
         ? deserializeAws_json1_0PreloadDataConfig(output.PreloadDataConfig, context)
         : undefined,
     SseConfiguration:
-      output.SseConfiguration !== undefined && output.SseConfiguration !== null
+      output.SseConfiguration != undefined
         ? deserializeAws_json1_0SseConfiguration(output.SseConfiguration, context)
         : undefined,
   } as any;
@@ -1356,7 +1337,7 @@ const deserializeAws_json1_0DescribeFHIRDatastoreResponse = (
 ): DescribeFHIRDatastoreResponse => {
   return {
     DatastoreProperties:
-      output.DatastoreProperties !== undefined && output.DatastoreProperties !== null
+      output.DatastoreProperties != undefined
         ? deserializeAws_json1_0DatastoreProperties(output.DatastoreProperties, context)
         : undefined,
   } as any;
@@ -1368,7 +1349,7 @@ const deserializeAws_json1_0DescribeFHIRExportJobResponse = (
 ): DescribeFHIRExportJobResponse => {
   return {
     ExportJobProperties:
-      output.ExportJobProperties !== undefined && output.ExportJobProperties !== null
+      output.ExportJobProperties != undefined
         ? deserializeAws_json1_0ExportJobProperties(output.ExportJobProperties, context)
         : undefined,
   } as any;
@@ -1380,7 +1361,7 @@ const deserializeAws_json1_0DescribeFHIRImportJobResponse = (
 ): DescribeFHIRImportJobResponse => {
   return {
     ImportJobProperties:
-      output.ImportJobProperties !== undefined && output.ImportJobProperties !== null
+      output.ImportJobProperties != undefined
         ? deserializeAws_json1_0ImportJobProperties(output.ImportJobProperties, context)
         : undefined,
   } as any;
@@ -1391,19 +1372,17 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),
     OutputDataConfig:
-      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+      output.OutputDataConfig != undefined
         ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.OutputDataConfig), context)
         : undefined,
     SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
+      output.SubmitTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
@@ -1426,23 +1405,21 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DatastoreId: __expectString(output.DatastoreId),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != undefined
         ? deserializeAws_json1_0InputDataConfig(__expectUnion(output.InputDataConfig), context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobOutputDataConfig:
-      output.JobOutputDataConfig !== undefined && output.JobOutputDataConfig !== null
+      output.JobOutputDataConfig != undefined
         ? deserializeAws_json1_0OutputDataConfig(__expectUnion(output.JobOutputDataConfig), context)
         : undefined,
     JobStatus: __expectString(output.JobStatus),
     Message: __expectString(output.Message),
     SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
+      output.SubmitTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
         : undefined,
   } as any;
@@ -1489,7 +1466,7 @@ const deserializeAws_json1_0ListFHIRDatastoresResponse = (
 ): ListFHIRDatastoresResponse => {
   return {
     DatastorePropertiesList:
-      output.DatastorePropertiesList !== undefined && output.DatastorePropertiesList !== null
+      output.DatastorePropertiesList != undefined
         ? deserializeAws_json1_0DatastorePropertiesList(output.DatastorePropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -1502,7 +1479,7 @@ const deserializeAws_json1_0ListFHIRExportJobsResponse = (
 ): ListFHIRExportJobsResponse => {
   return {
     ExportJobPropertiesList:
-      output.ExportJobPropertiesList !== undefined && output.ExportJobPropertiesList !== null
+      output.ExportJobPropertiesList != undefined
         ? deserializeAws_json1_0ExportJobPropertiesList(output.ExportJobPropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -1515,7 +1492,7 @@ const deserializeAws_json1_0ListFHIRImportJobsResponse = (
 ): ListFHIRImportJobsResponse => {
   return {
     ImportJobPropertiesList:
-      output.ImportJobPropertiesList !== undefined && output.ImportJobPropertiesList !== null
+      output.ImportJobPropertiesList != undefined
         ? deserializeAws_json1_0ImportJobPropertiesList(output.ImportJobPropertiesList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -1527,10 +1504,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1568,7 +1542,7 @@ const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeCont
 const deserializeAws_json1_0SseConfiguration = (output: any, context: __SerdeContext): SseConfiguration => {
   return {
     KmsEncryptionConfig:
-      output.KmsEncryptionConfig !== undefined && output.KmsEncryptionConfig !== null
+      output.KmsEncryptionConfig != undefined
         ? deserializeAws_json1_0KmsEncryptionConfig(output.KmsEncryptionConfig, context)
         : undefined,
   } as any;

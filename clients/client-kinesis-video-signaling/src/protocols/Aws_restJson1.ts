@@ -41,10 +41,10 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/get-ice-server-config";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.ClientId !== undefined && input.ClientId !== null && { ClientId: input.ClientId }),
-    ...(input.Service !== undefined && input.Service !== null && { Service: input.Service }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.ClientId != undefined && { ClientId: input.ClientId }),
+    ...(input.Service != undefined && { Service: input.Service }),
+    ...(input.Username != undefined && { Username: input.Username }),
   });
   return new __HttpRequest({
     protocol,
@@ -69,11 +69,9 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/send-alexa-offer-to-master";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.MessagePayload !== undefined &&
-      input.MessagePayload !== null && { MessagePayload: input.MessagePayload }),
-    ...(input.SenderClientId !== undefined &&
-      input.SenderClientId !== null && { SenderClientId: input.SenderClientId }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.MessagePayload != undefined && { MessagePayload: input.MessagePayload }),
+    ...(input.SenderClientId != undefined && { SenderClientId: input.SenderClientId }),
   });
   return new __HttpRequest({
     protocol,
@@ -300,10 +298,7 @@ const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext)
   return {
     Password: __expectString(output.Password),
     Ttl: __expectInt32(output.Ttl),
-    Uris:
-      output.Uris !== undefined && output.Uris !== null
-        ? deserializeAws_restJson1Uris(output.Uris, context)
-        : undefined,
+    Uris: output.Uris != undefined ? deserializeAws_restJson1Uris(output.Uris, context) : undefined,
     Username: __expectString(output.Username),
   } as any;
 };

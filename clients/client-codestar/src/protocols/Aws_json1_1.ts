@@ -1443,22 +1443,20 @@ const serializeAws_json1_1AssociateTeamMemberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
-    ...(input.projectRole !== undefined && input.projectRole !== null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed !== undefined &&
-      input.remoteAccessAllowed !== null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.clientRequestToken != undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.projectId != undefined && { projectId: input.projectId }),
+    ...(input.projectRole != undefined && { projectRole: input.projectRole }),
+    ...(input.remoteAccessAllowed != undefined && { remoteAccessAllowed: input.remoteAccessAllowed }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
 const serializeAws_json1_1Code = (input: Code, context: __SerdeContext): any => {
   return {
-    ...(input.destination !== undefined &&
-      input.destination !== null && { destination: serializeAws_json1_1CodeDestination(input.destination, context) }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_1CodeSource(input.source, context) }),
+    ...(input.destination != undefined && {
+      destination: serializeAws_json1_1CodeDestination(input.destination, context),
+    }),
+    ...(input.source != undefined && { source: serializeAws_json1_1CodeSource(input.source, context) }),
   };
 };
 
@@ -1467,39 +1465,34 @@ const serializeAws_json1_1CodeCommitCodeDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1CodeDestination = (input: CodeDestination, context: __SerdeContext): any => {
   return {
-    ...(input.codeCommit !== undefined &&
-      input.codeCommit !== null && {
-        codeCommit: serializeAws_json1_1CodeCommitCodeDestination(input.codeCommit, context),
-      }),
-    ...(input.gitHub !== undefined &&
-      input.gitHub !== null && { gitHub: serializeAws_json1_1GitHubCodeDestination(input.gitHub, context) }),
+    ...(input.codeCommit != undefined && {
+      codeCommit: serializeAws_json1_1CodeCommitCodeDestination(input.codeCommit, context),
+    }),
+    ...(input.gitHub != undefined && { gitHub: serializeAws_json1_1GitHubCodeDestination(input.gitHub, context) }),
   };
 };
 
 const serializeAws_json1_1CodeSource = (input: CodeSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
+    ...(input.s3 != undefined && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
   };
 };
 
 const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.sourceCode !== undefined &&
-      input.sourceCode !== null && { sourceCode: serializeAws_json1_1SourceCode(input.sourceCode, context) }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
-    ...(input.toolchain !== undefined &&
-      input.toolchain !== null && { toolchain: serializeAws_json1_1Toolchain(input.toolchain, context) }),
+    ...(input.clientRequestToken != undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.sourceCode != undefined && { sourceCode: serializeAws_json1_1SourceCode(input.sourceCode, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.toolchain != undefined && { toolchain: serializeAws_json1_1Toolchain(input.toolchain, context) }),
   };
 };
 
@@ -1508,19 +1501,18 @@ const serializeAws_json1_1CreateUserProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.emailAddress !== undefined && input.emailAddress !== null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey !== undefined && input.sshPublicKey !== null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.displayName != undefined && { displayName: input.displayName }),
+    ...(input.emailAddress != undefined && { emailAddress: input.emailAddress }),
+    ...(input.sshPublicKey != undefined && { sshPublicKey: input.sshPublicKey }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
 const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.deleteStack !== undefined && input.deleteStack !== null && { deleteStack: input.deleteStack }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.clientRequestToken != undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.deleteStack != undefined && { deleteStack: input.deleteStack }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
@@ -1529,13 +1521,13 @@ const serializeAws_json1_1DeleteUserProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
 const serializeAws_json1_1DescribeProjectRequest = (input: DescribeProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
@@ -1544,7 +1536,7 @@ const serializeAws_json1_1DescribeUserProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1553,36 +1545,35 @@ const serializeAws_json1_1DisassociateTeamMemberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.projectId != undefined && { projectId: input.projectId }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
 const serializeAws_json1_1GitHubCodeDestination = (input: GitHubCodeDestination, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.issuesEnabled !== undefined && input.issuesEnabled !== null && { issuesEnabled: input.issuesEnabled }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
-    ...(input.privateRepository !== undefined &&
-      input.privateRepository !== null && { privateRepository: input.privateRepository }),
-    ...(input.token !== undefined && input.token !== null && { token: input.token }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.issuesEnabled != undefined && { issuesEnabled: input.issuesEnabled }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.owner != undefined && { owner: input.owner }),
+    ...(input.privateRepository != undefined && { privateRepository: input.privateRepository }),
+    ...(input.token != undefined && { token: input.token }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.projectId != undefined && { projectId: input.projectId }),
   };
 };
 
@@ -1591,31 +1582,31 @@ const serializeAws_json1_1ListTagsForProjectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListTeamMembersRequest = (input: ListTeamMembersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.projectId != undefined && { projectId: input.projectId }),
   };
 };
 
 const serializeAws_json1_1ListUserProfilesRequest = (input: ListUserProfilesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucketKey !== undefined && input.bucketKey !== null && { bucketKey: input.bucketKey }),
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.bucketKey != undefined && { bucketKey: input.bucketKey }),
+    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
   };
 };
 
@@ -1643,8 +1634,8 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagProjectRequest = (input: TagProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -1674,44 +1665,41 @@ const serializeAws_json1_1TemplateParameterMap = (input: Record<string, string>,
 
 const serializeAws_json1_1Toolchain = (input: Toolchain, context: __SerdeContext): any => {
   return {
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_1ToolchainSource(input.source, context) }),
-    ...(input.stackParameters !== undefined &&
-      input.stackParameters !== null && {
-        stackParameters: serializeAws_json1_1TemplateParameterMap(input.stackParameters, context),
-      }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.source != undefined && { source: serializeAws_json1_1ToolchainSource(input.source, context) }),
+    ...(input.stackParameters != undefined && {
+      stackParameters: serializeAws_json1_1TemplateParameterMap(input.stackParameters, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ToolchainSource = (input: ToolchainSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
+    ...(input.s3 != undefined && { s3: serializeAws_json1_1S3Location(input.s3, context) }),
   };
 };
 
 const serializeAws_json1_1UntagProjectRequest = (input: UntagProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagKeys(input.tags, context) }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagKeys(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1UpdateTeamMemberRequest = (input: UpdateTeamMemberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.projectId !== undefined && input.projectId !== null && { projectId: input.projectId }),
-    ...(input.projectRole !== undefined && input.projectRole !== null && { projectRole: input.projectRole }),
-    ...(input.remoteAccessAllowed !== undefined &&
-      input.remoteAccessAllowed !== null && { remoteAccessAllowed: input.remoteAccessAllowed }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.projectId != undefined && { projectId: input.projectId }),
+    ...(input.projectRole != undefined && { projectRole: input.projectRole }),
+    ...(input.remoteAccessAllowed != undefined && { remoteAccessAllowed: input.remoteAccessAllowed }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1720,10 +1708,10 @@ const serializeAws_json1_1UpdateUserProfileRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.emailAddress !== undefined && input.emailAddress !== null && { emailAddress: input.emailAddress }),
-    ...(input.sshPublicKey !== undefined && input.sshPublicKey !== null && { sshPublicKey: input.sshPublicKey }),
-    ...(input.userArn !== undefined && input.userArn !== null && { userArn: input.userArn }),
+    ...(input.displayName != undefined && { displayName: input.displayName }),
+    ...(input.emailAddress != undefined && { emailAddress: input.emailAddress }),
+    ...(input.sshPublicKey != undefined && { sshPublicKey: input.sshPublicKey }),
+    ...(input.userArn != undefined && { userArn: input.userArn }),
   };
 };
 
@@ -1760,13 +1748,13 @@ const deserializeAws_json1_1CreateUserProfileResult = (
 ): CreateUserProfileResult => {
   return {
     createdTimestamp:
-      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+      output.createdTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
-      output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
+      output.lastModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),
@@ -1795,7 +1783,7 @@ const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __Ser
     arn: __expectString(output.arn),
     clientRequestToken: __expectString(output.clientRequestToken),
     createdTimeStamp:
-      output.createdTimeStamp !== undefined && output.createdTimeStamp !== null
+      output.createdTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimeStamp)))
         : undefined,
     description: __expectString(output.description),
@@ -1803,10 +1791,7 @@ const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __Ser
     name: __expectString(output.name),
     projectTemplateId: __expectString(output.projectTemplateId),
     stackId: __expectString(output.stackId),
-    status:
-      output.status !== undefined && output.status !== null
-        ? deserializeAws_json1_1ProjectStatus(output.status, context)
-        : undefined,
+    status: output.status != undefined ? deserializeAws_json1_1ProjectStatus(output.status, context) : undefined,
   } as any;
 };
 
@@ -1816,13 +1801,13 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
 ): DescribeUserProfileResult => {
   return {
     createdTimestamp:
-      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+      output.createdTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
-      output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
+      output.lastModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),
@@ -1864,10 +1849,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    projects:
-      output.projects !== undefined && output.projects !== null
-        ? deserializeAws_json1_1ProjectsList(output.projects, context)
-        : undefined,
+    projects: output.projects != undefined ? deserializeAws_json1_1ProjectsList(output.projects, context) : undefined,
   } as any;
 };
 
@@ -1875,9 +1857,7 @@ const deserializeAws_json1_1ListResourcesResult = (output: any, context: __Serde
   return {
     nextToken: __expectString(output.nextToken),
     resources:
-      output.resources !== undefined && output.resources !== null
-        ? deserializeAws_json1_1ResourcesResult(output.resources, context)
-        : undefined,
+      output.resources != undefined ? deserializeAws_json1_1ResourcesResult(output.resources, context) : undefined,
   } as any;
 };
 
@@ -1887,8 +1867,7 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
 ): ListTagsForProjectResult => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags:
-      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -1896,9 +1875,7 @@ const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __Ser
   return {
     nextToken: __expectString(output.nextToken),
     teamMembers:
-      output.teamMembers !== undefined && output.teamMembers !== null
-        ? deserializeAws_json1_1TeamMemberResult(output.teamMembers, context)
-        : undefined,
+      output.teamMembers != undefined ? deserializeAws_json1_1TeamMemberResult(output.teamMembers, context) : undefined,
   } as any;
 };
 
@@ -1906,7 +1883,7 @@ const deserializeAws_json1_1ListUserProfilesResult = (output: any, context: __Se
   return {
     nextToken: __expectString(output.nextToken),
     userProfiles:
-      output.userProfiles !== undefined && output.userProfiles !== null
+      output.userProfiles != undefined
         ? deserializeAws_json1_1UserProfilesList(output.userProfiles, context)
         : undefined,
   } as any;
@@ -1994,8 +1971,7 @@ const deserializeAws_json1_1ResourcesResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1TagProjectResult = (output: any, context: __SerdeContext): TagProjectResult => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2071,13 +2047,13 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
 ): UpdateUserProfileResult => {
   return {
     createdTimestamp:
-      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+      output.createdTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTimestamp)))
         : undefined,
     displayName: __expectString(output.displayName),
     emailAddress: __expectString(output.emailAddress),
     lastModifiedTimestamp:
-      output.lastModifiedTimestamp !== undefined && output.lastModifiedTimestamp !== null
+      output.lastModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedTimestamp)))
         : undefined,
     sshPublicKey: __expectString(output.sshPublicKey),

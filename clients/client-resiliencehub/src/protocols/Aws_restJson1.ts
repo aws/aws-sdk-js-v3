@@ -196,11 +196,10 @@ export const serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand = a
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/add-draft-app-version-resource-mappings";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.resourceMappings !== undefined &&
-      input.resourceMappings !== null && {
-        resourceMappings: serializeAws_restJson1ResourceMappingList(input.resourceMappings, context),
-      }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.resourceMappings != undefined && {
+      resourceMappings: serializeAws_restJson1ResourceMappingList(input.resourceMappings, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -224,13 +223,12 @@ export const serializeAws_restJson1CreateAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentSchedule !== undefined &&
-      input.assessmentSchedule !== null && { assessmentSchedule: input.assessmentSchedule }),
+    ...(input.assessmentSchedule != undefined && { assessmentSchedule: input.assessmentSchedule }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.policyArn != undefined && { policyArn: input.policyArn }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -255,20 +253,18 @@ export const serializeAws_restJson1CreateRecommendationTemplateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-recommendation-template";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.format !== undefined && input.format !== null && { format: input.format }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.recommendationIds !== undefined &&
-      input.recommendationIds !== null && {
-        recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
-      }),
-    ...(input.recommendationTypes !== undefined &&
-      input.recommendationTypes !== null && {
-        recommendationTypes: serializeAws_restJson1RenderRecommendationTypeList(input.recommendationTypes, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.format != undefined && { format: input.format }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.recommendationIds != undefined && {
+      recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
+    }),
+    ...(input.recommendationTypes != undefined && {
+      recommendationTypes: serializeAws_restJson1RenderRecommendationTypeList(input.recommendationTypes, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -294,15 +290,12 @@ export const serializeAws_restJson1CreateResiliencyPolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.dataLocationConstraint !== undefined &&
-      input.dataLocationConstraint !== null && { dataLocationConstraint: input.dataLocationConstraint }),
-    ...(input.policy !== undefined &&
-      input.policy !== null && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
-    ...(input.policyDescription !== undefined &&
-      input.policyDescription !== null && { policyDescription: input.policyDescription }),
-    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.tier !== undefined && input.tier !== null && { tier: input.tier }),
+    ...(input.dataLocationConstraint != undefined && { dataLocationConstraint: input.dataLocationConstraint }),
+    ...(input.policy != undefined && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
+    ...(input.policyDescription != undefined && { policyDescription: input.policyDescription }),
+    ...(input.policyName != undefined && { policyName: input.policyName }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tier != undefined && { tier: input.tier }),
   });
   return new __HttpRequest({
     protocol,
@@ -326,9 +319,9 @@ export const serializeAws_restJson1DeleteAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.forceDelete !== undefined && input.forceDelete !== null && { forceDelete: input.forceDelete }),
+    ...(input.forceDelete != undefined && { forceDelete: input.forceDelete }),
   });
   return new __HttpRequest({
     protocol,
@@ -352,7 +345,7 @@ export const serializeAws_restJson1DeleteAppAssessmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-assessment";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({
@@ -379,8 +372,7 @@ export const serializeAws_restJson1DeleteRecommendationTemplateCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.recommendationTemplateArn !== undefined &&
-      input.recommendationTemplateArn !== null && { recommendationTemplateArn: input.recommendationTemplateArn }),
+    ...(input.recommendationTemplateArn != undefined && { recommendationTemplateArn: input.recommendationTemplateArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -406,7 +398,7 @@ export const serializeAws_restJson1DeleteResiliencyPolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+    ...(input.policyArn != undefined && { policyArn: input.policyArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -430,7 +422,7 @@ export const serializeAws_restJson1DescribeAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -455,7 +447,7 @@ export const serializeAws_restJson1DescribeAppAssessmentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-assessment";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -481,9 +473,9 @@ export const serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCo
     "/describe-app-version-resources-resolution-status";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
-    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
+    ...(input.resolutionId != undefined && { resolutionId: input.resolutionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -508,8 +500,8 @@ export const serializeAws_restJson1DescribeAppVersionTemplateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-template";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -535,7 +527,7 @@ export const serializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusC
     "/describe-draft-app-version-resources-import-status";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -560,7 +552,7 @@ export const serializeAws_restJson1DescribeResiliencyPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-resiliency-policy";
   let body: any;
   body = JSON.stringify({
-    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+    ...(input.policyArn != undefined && { policyArn: input.policyArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -585,13 +577,11 @@ export const serializeAws_restJson1ImportResourcesToDraftAppVersionCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import-resources-to-draft-app-version";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.sourceArns !== undefined &&
-      input.sourceArns !== null && { sourceArns: serializeAws_restJson1ArnList(input.sourceArns, context) }),
-    ...(input.terraformSources !== undefined &&
-      input.terraformSources !== null && {
-        terraformSources: serializeAws_restJson1TerraformSourceList(input.terraformSources, context),
-      }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.sourceArns != undefined && { sourceArns: serializeAws_restJson1ArnList(input.sourceArns, context) }),
+    ...(input.terraformSources != undefined && {
+      terraformSources: serializeAws_restJson1TerraformSourceList(input.terraformSources, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -616,9 +606,9 @@ export const serializeAws_restJson1ListAlarmRecommendationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-alarm-recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -675,9 +665,9 @@ export const serializeAws_restJson1ListAppComponentCompliancesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-compliances";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -702,9 +692,9 @@ export const serializeAws_restJson1ListAppComponentRecommendationsCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -755,10 +745,10 @@ export const serializeAws_restJson1ListAppVersionResourceMappingsCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resource-mappings";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -783,11 +773,11 @@ export const serializeAws_restJson1ListAppVersionResourcesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.resolutionId != undefined && { resolutionId: input.resolutionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -811,9 +801,9 @@ export const serializeAws_restJson1ListAppVersionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-versions";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -896,9 +886,9 @@ export const serializeAws_restJson1ListSopRecommendationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-sop-recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -976,9 +966,9 @@ export const serializeAws_restJson1ListTestRecommendationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-test-recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentArn != undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1003,11 +993,11 @@ export const serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand = a
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-unsupported-app-version-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.resolutionId != undefined && { resolutionId: input.resolutionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1031,7 +1021,7 @@ export const serializeAws_restJson1PublishAppVersionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/publish-app-version";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1056,9 +1046,8 @@ export const serializeAws_restJson1PutDraftAppVersionTemplateCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-draft-app-version-template";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appTemplateBody !== undefined &&
-      input.appTemplateBody !== null && { appTemplateBody: input.appTemplateBody }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appTemplateBody != undefined && { appTemplateBody: input.appTemplateBody }),
   });
   return new __HttpRequest({
     protocol,
@@ -1084,27 +1073,22 @@ export const serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand 
     "/remove-draft-app-version-resource-mappings";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appRegistryAppNames !== undefined &&
-      input.appRegistryAppNames !== null && {
-        appRegistryAppNames: serializeAws_restJson1EntityNameList(input.appRegistryAppNames, context),
-      }),
-    ...(input.logicalStackNames !== undefined &&
-      input.logicalStackNames !== null && {
-        logicalStackNames: serializeAws_restJson1String255List(input.logicalStackNames, context),
-      }),
-    ...(input.resourceGroupNames !== undefined &&
-      input.resourceGroupNames !== null && {
-        resourceGroupNames: serializeAws_restJson1EntityNameList(input.resourceGroupNames, context),
-      }),
-    ...(input.resourceNames !== undefined &&
-      input.resourceNames !== null && {
-        resourceNames: serializeAws_restJson1EntityNameList(input.resourceNames, context),
-      }),
-    ...(input.terraformSourceNames !== undefined &&
-      input.terraformSourceNames !== null && {
-        terraformSourceNames: serializeAws_restJson1String255List(input.terraformSourceNames, context),
-      }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appRegistryAppNames != undefined && {
+      appRegistryAppNames: serializeAws_restJson1EntityNameList(input.appRegistryAppNames, context),
+    }),
+    ...(input.logicalStackNames != undefined && {
+      logicalStackNames: serializeAws_restJson1String255List(input.logicalStackNames, context),
+    }),
+    ...(input.resourceGroupNames != undefined && {
+      resourceGroupNames: serializeAws_restJson1EntityNameList(input.resourceGroupNames, context),
+    }),
+    ...(input.resourceNames != undefined && {
+      resourceNames: serializeAws_restJson1EntityNameList(input.resourceNames, context),
+    }),
+    ...(input.terraformSourceNames != undefined && {
+      terraformSourceNames: serializeAws_restJson1String255List(input.terraformSourceNames, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1129,8 +1113,8 @@ export const serializeAws_restJson1ResolveAppVersionResourcesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resolve-app-version-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -1154,12 +1138,11 @@ export const serializeAws_restJson1StartAppAssessmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-app-assessment";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
-    ...(input.assessmentName !== undefined &&
-      input.assessmentName !== null && { assessmentName: input.assessmentName }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.appVersion != undefined && { appVersion: input.appVersion }),
+    ...(input.assessmentName != undefined && { assessmentName: input.assessmentName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1192,7 +1175,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1248,13 +1231,11 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app";
   let body: any;
   body = JSON.stringify({
-    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
-    ...(input.assessmentSchedule !== undefined &&
-      input.assessmentSchedule !== null && { assessmentSchedule: input.assessmentSchedule }),
-    ...(input.clearResiliencyPolicyArn !== undefined &&
-      input.clearResiliencyPolicyArn !== null && { clearResiliencyPolicyArn: input.clearResiliencyPolicyArn }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+    ...(input.appArn != undefined && { appArn: input.appArn }),
+    ...(input.assessmentSchedule != undefined && { assessmentSchedule: input.assessmentSchedule }),
+    ...(input.clearResiliencyPolicyArn != undefined && { clearResiliencyPolicyArn: input.clearResiliencyPolicyArn }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.policyArn != undefined && { policyArn: input.policyArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1279,15 +1260,12 @@ export const serializeAws_restJson1UpdateResiliencyPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-resiliency-policy";
   let body: any;
   body = JSON.stringify({
-    ...(input.dataLocationConstraint !== undefined &&
-      input.dataLocationConstraint !== null && { dataLocationConstraint: input.dataLocationConstraint }),
-    ...(input.policy !== undefined &&
-      input.policy !== null && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
-    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
-    ...(input.policyDescription !== undefined &&
-      input.policyDescription !== null && { policyDescription: input.policyDescription }),
-    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
-    ...(input.tier !== undefined && input.tier !== null && { tier: input.tier }),
+    ...(input.dataLocationConstraint != undefined && { dataLocationConstraint: input.dataLocationConstraint }),
+    ...(input.policy != undefined && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
+    ...(input.policyArn != undefined && { policyArn: input.policyArn }),
+    ...(input.policyDescription != undefined && { policyDescription: input.policyDescription }),
+    ...(input.policyName != undefined && { policyName: input.policyName }),
+    ...(input.tier != undefined && { tier: input.tier }),
   });
   return new __HttpRequest({
     protocol,
@@ -3901,17 +3879,17 @@ const serializeAws_restJson1EntityNameList = (input: string[], context: __SerdeC
 
 const serializeAws_restJson1FailurePolicy = (input: FailurePolicy, context: __SerdeContext): any => {
   return {
-    ...(input.rpoInSecs !== undefined && input.rpoInSecs !== null && { rpoInSecs: input.rpoInSecs }),
-    ...(input.rtoInSecs !== undefined && input.rtoInSecs !== null && { rtoInSecs: input.rtoInSecs }),
+    ...(input.rpoInSecs != undefined && { rpoInSecs: input.rpoInSecs }),
+    ...(input.rtoInSecs != undefined && { rtoInSecs: input.rtoInSecs }),
   };
 };
 
 const serializeAws_restJson1PhysicalResourceId = (input: PhysicalResourceId, context: __SerdeContext): any => {
   return {
-    ...(input.awsAccountId !== undefined && input.awsAccountId !== null && { awsAccountId: input.awsAccountId }),
-    ...(input.awsRegion !== undefined && input.awsRegion !== null && { awsRegion: input.awsRegion }),
-    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.awsAccountId != undefined && { awsAccountId: input.awsAccountId }),
+    ...(input.awsRegion != undefined && { awsRegion: input.awsRegion }),
+    ...(input.identifier != undefined && { identifier: input.identifier }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3942,20 +3920,15 @@ const serializeAws_restJson1RenderRecommendationTypeList = (
 
 const serializeAws_restJson1ResourceMapping = (input: ResourceMapping, context: __SerdeContext): any => {
   return {
-    ...(input.appRegistryAppName !== undefined &&
-      input.appRegistryAppName !== null && { appRegistryAppName: input.appRegistryAppName }),
-    ...(input.logicalStackName !== undefined &&
-      input.logicalStackName !== null && { logicalStackName: input.logicalStackName }),
-    ...(input.mappingType !== undefined && input.mappingType !== null && { mappingType: input.mappingType }),
-    ...(input.physicalResourceId !== undefined &&
-      input.physicalResourceId !== null && {
-        physicalResourceId: serializeAws_restJson1PhysicalResourceId(input.physicalResourceId, context),
-      }),
-    ...(input.resourceGroupName !== undefined &&
-      input.resourceGroupName !== null && { resourceGroupName: input.resourceGroupName }),
-    ...(input.resourceName !== undefined && input.resourceName !== null && { resourceName: input.resourceName }),
-    ...(input.terraformSourceName !== undefined &&
-      input.terraformSourceName !== null && { terraformSourceName: input.terraformSourceName }),
+    ...(input.appRegistryAppName != undefined && { appRegistryAppName: input.appRegistryAppName }),
+    ...(input.logicalStackName != undefined && { logicalStackName: input.logicalStackName }),
+    ...(input.mappingType != undefined && { mappingType: input.mappingType }),
+    ...(input.physicalResourceId != undefined && {
+      physicalResourceId: serializeAws_restJson1PhysicalResourceId(input.physicalResourceId, context),
+    }),
+    ...(input.resourceGroupName != undefined && { resourceGroupName: input.resourceGroupName }),
+    ...(input.resourceName != undefined && { resourceName: input.resourceName }),
+    ...(input.terraformSourceName != undefined && { terraformSourceName: input.terraformSourceName }),
   };
 };
 
@@ -3995,8 +3968,7 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1TerraformSource = (input: TerraformSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3StateFileUrl !== undefined &&
-      input.s3StateFileUrl !== null && { s3StateFileUrl: input.s3StateFileUrl }),
+    ...(input.s3StateFileUrl != undefined && { s3StateFileUrl: input.s3StateFileUrl }),
   };
 };
 
@@ -4016,9 +3988,7 @@ const deserializeAws_restJson1AlarmRecommendation = (output: any, context: __Ser
     appComponentName: __expectString(output.appComponentName),
     description: __expectString(output.description),
     items:
-      output.items !== undefined && output.items !== null
-        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
-        : undefined,
+      output.items != undefined ? deserializeAws_restJson1RecommendationItemList(output.items, context) : undefined,
     name: __expectString(output.name),
     prerequisite: __expectString(output.prerequisite),
     recommendationId: __expectString(output.recommendationId),
@@ -4060,26 +4030,23 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
     assessmentSchedule: __expectString(output.assessmentSchedule),
     complianceStatus: __expectString(output.complianceStatus),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
     lastAppComplianceEvaluationTime:
-      output.lastAppComplianceEvaluationTime !== undefined && output.lastAppComplianceEvaluationTime !== null
+      output.lastAppComplianceEvaluationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAppComplianceEvaluationTime)))
         : undefined,
     lastResiliencyScoreEvaluationTime:
-      output.lastResiliencyScoreEvaluationTime !== undefined && output.lastResiliencyScoreEvaluationTime !== null
+      output.lastResiliencyScoreEvaluationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastResiliencyScoreEvaluationTime)))
         : undefined,
     name: __expectString(output.name),
     policyArn: __expectString(output.policyArn),
     resiliencyScore: __limitedParseDouble(output.resiliencyScore),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4091,40 +4058,29 @@ const deserializeAws_restJson1AppAssessment = (output: any, context: __SerdeCont
     assessmentName: __expectString(output.assessmentName),
     assessmentStatus: __expectString(output.assessmentStatus),
     compliance:
-      output.compliance !== undefined && output.compliance !== null
+      output.compliance != undefined
         ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
         : undefined,
     complianceStatus: __expectString(output.complianceStatus),
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_restJson1Cost(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_restJson1Cost(output.cost, context) : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     invoker: __expectString(output.invoker),
     message: __expectString(output.message),
-    policy:
-      output.policy !== undefined && output.policy !== null
-        ? deserializeAws_restJson1ResiliencyPolicy(output.policy, context)
-        : undefined,
+    policy: output.policy != undefined ? deserializeAws_restJson1ResiliencyPolicy(output.policy, context) : undefined,
     resiliencyScore:
-      output.resiliencyScore !== undefined && output.resiliencyScore !== null
+      output.resiliencyScore != undefined
         ? deserializeAws_restJson1ResiliencyScore(output.resiliencyScore, context)
         : undefined,
     resourceErrorsDetails:
-      output.resourceErrorsDetails !== undefined && output.resourceErrorsDetails !== null
+      output.resourceErrorsDetails != undefined
         ? deserializeAws_restJson1ResourceErrorsDetails(output.resourceErrorsDetails, context)
         : undefined,
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4136,19 +4092,14 @@ const deserializeAws_restJson1AppAssessmentSummary = (output: any, context: __Se
     assessmentName: __expectString(output.assessmentName),
     assessmentStatus: __expectString(output.assessmentStatus),
     complianceStatus: __expectString(output.complianceStatus),
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_restJson1Cost(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_restJson1Cost(output.cost, context) : undefined,
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     invoker: __expectString(output.invoker),
     message: __expectString(output.message),
     resiliencyScore: __limitedParseDouble(output.resiliencyScore),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
@@ -4183,16 +4134,13 @@ const deserializeAws_restJson1AppComponentCompliance = (
   return {
     appComponentName: __expectString(output.appComponentName),
     compliance:
-      output.compliance !== undefined && output.compliance !== null
+      output.compliance != undefined
         ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
         : undefined,
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_restJson1Cost(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_restJson1Cost(output.cost, context) : undefined,
     message: __expectString(output.message),
     resiliencyScore:
-      output.resiliencyScore !== undefined && output.resiliencyScore !== null
+      output.resiliencyScore != undefined
         ? deserializeAws_restJson1ResiliencyScore(output.resiliencyScore, context)
         : undefined,
     status: __expectString(output.status),
@@ -4217,7 +4165,7 @@ const deserializeAws_restJson1AppSummary = (output: any, context: __SerdeContext
     assessmentSchedule: __expectString(output.assessmentSchedule),
     complianceStatus: __expectString(output.complianceStatus),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     description: __expectString(output.description),
@@ -4308,7 +4256,7 @@ const deserializeAws_restJson1ComponentRecommendation = (
   return {
     appComponentName: __expectString(output.appComponentName),
     configRecommendations:
-      output.configRecommendations !== undefined && output.configRecommendations !== null
+      output.configRecommendations != undefined
         ? deserializeAws_restJson1ConfigRecommendationList(output.configRecommendations, context)
         : undefined,
     recommendationStatus: __expectString(output.recommendationStatus),
@@ -4334,24 +4282,21 @@ const deserializeAws_restJson1ConfigRecommendation = (output: any, context: __Se
   return {
     appComponentName: __expectString(output.appComponentName),
     compliance:
-      output.compliance !== undefined && output.compliance !== null
+      output.compliance != undefined
         ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
         : undefined,
-    cost:
-      output.cost !== undefined && output.cost !== null
-        ? deserializeAws_restJson1Cost(output.cost, context)
-        : undefined,
+    cost: output.cost != undefined ? deserializeAws_restJson1Cost(output.cost, context) : undefined,
     description: __expectString(output.description),
     haArchitecture: __expectString(output.haArchitecture),
     name: __expectString(output.name),
     optimizationType: __expectString(output.optimizationType),
     recommendationCompliance:
-      output.recommendationCompliance !== undefined && output.recommendationCompliance !== null
+      output.recommendationCompliance != undefined
         ? deserializeAws_restJson1RecommendationCompliance(output.recommendationCompliance, context)
         : undefined,
     referenceId: __expectString(output.referenceId),
     suggestedChanges:
-      output.suggestedChanges !== undefined && output.suggestedChanges !== null
+      output.suggestedChanges != undefined
         ? deserializeAws_restJson1SuggestedChangesList(output.suggestedChanges, context)
         : undefined,
   } as any;
@@ -4447,15 +4392,15 @@ const deserializeAws_restJson1LogicalResourceId = (output: any, context: __Serde
 const deserializeAws_restJson1PhysicalResource = (output: any, context: __SerdeContext): PhysicalResource => {
   return {
     appComponents:
-      output.appComponents !== undefined && output.appComponents !== null
+      output.appComponents != undefined
         ? deserializeAws_restJson1AppComponentList(output.appComponents, context)
         : undefined,
     logicalResourceId:
-      output.logicalResourceId !== undefined && output.logicalResourceId !== null
+      output.logicalResourceId != undefined
         ? deserializeAws_restJson1LogicalResourceId(output.logicalResourceId, context)
         : undefined,
     physicalResourceId:
-      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+      output.physicalResourceId != undefined
         ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
         : undefined,
     resourceName: __expectString(output.resourceName),
@@ -4556,33 +4501,28 @@ const deserializeAws_restJson1RecommendationTemplate = (
     appArn: __expectString(output.appArn),
     assessmentArn: __expectString(output.assessmentArn),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     format: __expectString(output.format),
     message: __expectString(output.message),
     name: __expectString(output.name),
     needsReplacements: __expectBoolean(output.needsReplacements),
     recommendationIds:
-      output.recommendationIds !== undefined && output.recommendationIds !== null
+      output.recommendationIds != undefined
         ? deserializeAws_restJson1RecommendationIdList(output.recommendationIds, context)
         : undefined,
     recommendationTemplateArn: __expectString(output.recommendationTemplateArn),
     recommendationTypes:
-      output.recommendationTypes !== undefined && output.recommendationTypes !== null
+      output.recommendationTypes != undefined
         ? deserializeAws_restJson1RenderRecommendationTypeList(output.recommendationTypes, context)
         : undefined,
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     templatesLocation:
-      output.templatesLocation !== undefined && output.templatesLocation !== null
+      output.templatesLocation != undefined
         ? deserializeAws_restJson1S3Location(output.templatesLocation, context)
         : undefined,
   } as any;
@@ -4633,22 +4573,16 @@ const deserializeAws_restJson1ResiliencyPolicies = (output: any, context: __Serd
 const deserializeAws_restJson1ResiliencyPolicy = (output: any, context: __SerdeContext): ResiliencyPolicy => {
   return {
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     dataLocationConstraint: __expectString(output.dataLocationConstraint),
     estimatedCostTier: __expectString(output.estimatedCostTier),
-    policy:
-      output.policy !== undefined && output.policy !== null
-        ? deserializeAws_restJson1DisruptionPolicy(output.policy, context)
-        : undefined,
+    policy: output.policy != undefined ? deserializeAws_restJson1DisruptionPolicy(output.policy, context) : undefined,
     policyArn: __expectString(output.policyArn),
     policyDescription: __expectString(output.policyDescription),
     policyName: __expectString(output.policyName),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     tier: __expectString(output.tier),
   } as any;
 };
@@ -4656,7 +4590,7 @@ const deserializeAws_restJson1ResiliencyPolicy = (output: any, context: __SerdeC
 const deserializeAws_restJson1ResiliencyScore = (output: any, context: __SerdeContext): ResiliencyScore => {
   return {
     disruptionScore:
-      output.disruptionScore !== undefined && output.disruptionScore !== null
+      output.disruptionScore != undefined
         ? deserializeAws_restJson1DisruptionResiliencyScore(output.disruptionScore, context)
         : undefined,
     score: __limitedParseDouble(output.score),
@@ -4687,7 +4621,7 @@ const deserializeAws_restJson1ResourceErrorsDetails = (output: any, context: __S
   return {
     hasMoreErrors: __expectBoolean(output.hasMoreErrors),
     resourceErrors:
-      output.resourceErrors !== undefined && output.resourceErrors !== null
+      output.resourceErrors != undefined
         ? deserializeAws_restJson1ResourceErrorList(output.resourceErrors, context)
         : undefined,
   } as any;
@@ -4699,7 +4633,7 @@ const deserializeAws_restJson1ResourceMapping = (output: any, context: __SerdeCo
     logicalStackName: __expectString(output.logicalStackName),
     mappingType: __expectString(output.mappingType),
     physicalResourceId:
-      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+      output.physicalResourceId != undefined
         ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
         : undefined,
     resourceGroupName: __expectString(output.resourceGroupName),
@@ -4732,9 +4666,7 @@ const deserializeAws_restJson1SopRecommendation = (output: any, context: __Serde
     appComponentName: __expectString(output.appComponentName),
     description: __expectString(output.description),
     items:
-      output.items !== undefined && output.items !== null
-        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
-        : undefined,
+      output.items != undefined ? deserializeAws_restJson1RecommendationItemList(output.items, context) : undefined,
     name: __expectString(output.name),
     prerequisite: __expectString(output.prerequisite),
     recommendationId: __expectString(output.recommendationId),
@@ -4801,15 +4733,13 @@ const deserializeAws_restJson1TestRecommendation = (output: any, context: __Serd
   return {
     appComponentName: __expectString(output.appComponentName),
     dependsOnAlarms:
-      output.dependsOnAlarms !== undefined && output.dependsOnAlarms !== null
+      output.dependsOnAlarms != undefined
         ? deserializeAws_restJson1AlarmReferenceIdList(output.dependsOnAlarms, context)
         : undefined,
     description: __expectString(output.description),
     intent: __expectString(output.intent),
     items:
-      output.items !== undefined && output.items !== null
-        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
-        : undefined,
+      output.items != undefined ? deserializeAws_restJson1RecommendationItemList(output.items, context) : undefined,
     name: __expectString(output.name),
     prerequisite: __expectString(output.prerequisite),
     recommendationId: __expectString(output.recommendationId),
@@ -4834,11 +4764,11 @@ const deserializeAws_restJson1TestRecommendationList = (output: any, context: __
 const deserializeAws_restJson1UnsupportedResource = (output: any, context: __SerdeContext): UnsupportedResource => {
   return {
     logicalResourceId:
-      output.logicalResourceId !== undefined && output.logicalResourceId !== null
+      output.logicalResourceId != undefined
         ? deserializeAws_restJson1LogicalResourceId(output.logicalResourceId, context)
         : undefined,
     physicalResourceId:
-      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+      output.physicalResourceId != undefined
         ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
         : undefined,
     resourceType: __expectString(output.resourceType),

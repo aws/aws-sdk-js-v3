@@ -254,12 +254,12 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.NotificationOptions !== undefined &&
-      input.NotificationOptions !== null && {
-        NotificationOptions: serializeAws_restJson1NotificationOptions(input.NotificationOptions, context),
-      }),
-    ...(input.Principals !== undefined &&
-      input.Principals !== null && { Principals: serializeAws_restJson1SharePrincipalList(input.Principals, context) }),
+    ...(input.NotificationOptions != undefined && {
+      NotificationOptions: serializeAws_restJson1NotificationOptions(input.NotificationOptions, context),
+    }),
+    ...(input.Principals != undefined && {
+      Principals: serializeAws_restJson1SharePrincipalList(input.Principals, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -304,12 +304,11 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.NotifyCollaborators !== undefined &&
-      input.NotifyCollaborators !== null && { NotifyCollaborators: input.NotifyCollaborators }),
-    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
-    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
-    ...(input.ThreadId !== undefined && input.ThreadId !== null && { ThreadId: input.ThreadId }),
-    ...(input.Visibility !== undefined && input.Visibility !== null && { Visibility: input.Visibility }),
+    ...(input.NotifyCollaborators != undefined && { NotifyCollaborators: input.NotifyCollaborators }),
+    ...(input.ParentId != undefined && { ParentId: input.ParentId }),
+    ...(input.Text != undefined && { Text: input.Text }),
+    ...(input.ThreadId != undefined && { ThreadId: input.ThreadId }),
+    ...(input.Visibility != undefined && { Visibility: input.Visibility }),
   });
   return new __HttpRequest({
     protocol,
@@ -348,10 +347,9 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomMetadata !== undefined &&
-      input.CustomMetadata !== null && {
-        CustomMetadata: serializeAws_restJson1CustomMetadataMap(input.CustomMetadata, context),
-      }),
+    ...(input.CustomMetadata != undefined && {
+      CustomMetadata: serializeAws_restJson1CustomMetadataMap(input.CustomMetadata, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -377,9 +375,8 @@ export const serializeAws_restJson1CreateFolderCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders";
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined &&
-      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParentFolderId != undefined && { ParentFolderId: input.ParentFolderId }),
   });
   return new __HttpRequest({
     protocol,
@@ -414,8 +411,7 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Labels !== undefined &&
-      input.Labels !== null && { Labels: serializeAws_restJson1SharedLabels(input.Labels, context) }),
+    ...(input.Labels != undefined && { Labels: serializeAws_restJson1SharedLabels(input.Labels, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -450,10 +446,9 @@ export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Endpoint !== undefined && input.Endpoint !== null && { Endpoint: input.Endpoint }),
-    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
-    ...(input.SubscriptionType !== undefined &&
-      input.SubscriptionType !== null && { SubscriptionType: input.SubscriptionType }),
+    ...(input.Endpoint != undefined && { Endpoint: input.Endpoint }),
+    ...(input.Protocol != undefined && { Protocol: input.Protocol }),
+    ...(input.SubscriptionType != undefined && { SubscriptionType: input.SubscriptionType }),
   });
   return new __HttpRequest({
     protocol,
@@ -478,16 +473,16 @@ export const serializeAws_restJson1CreateUserCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
   let body: any;
   body = JSON.stringify({
-    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
-    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
-    ...(input.OrganizationId !== undefined &&
-      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.StorageRule !== undefined &&
-      input.StorageRule !== null && { StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context) }),
-    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
-    ...(input.TimeZoneId !== undefined && input.TimeZoneId !== null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.EmailAddress != undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.GivenName != undefined && { GivenName: input.GivenName }),
+    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Password != undefined && { Password: input.Password }),
+    ...(input.StorageRule != undefined && {
+      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
+    }),
+    ...(input.Surname != undefined && { Surname: input.Surname }),
+    ...(input.TimeZoneId != undefined && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Username != undefined && { Username: input.Username }),
   });
   return new __HttpRequest({
     protocol,
@@ -1387,21 +1382,17 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContentCreatedTimestamp !== undefined &&
-      input.ContentCreatedTimestamp !== null && {
-        ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
-      }),
-    ...(input.ContentModifiedTimestamp !== undefined &&
-      input.ContentModifiedTimestamp !== null && {
-        ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
-      }),
-    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
-    ...(input.DocumentSizeInBytes !== undefined &&
-      input.DocumentSizeInBytes !== null && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined &&
-      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ContentCreatedTimestamp != undefined && {
+      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
+    }),
+    ...(input.ContentModifiedTimestamp != undefined && {
+      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
+    }),
+    ...(input.ContentType != undefined && { ContentType: input.ContentType }),
+    ...(input.DocumentSizeInBytes != undefined && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
+    ...(input.Id != undefined && { Id: input.Id }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParentFolderId != undefined && { ParentFolderId: input.ParentFolderId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1513,10 +1504,9 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined &&
-      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState !== undefined && input.ResourceState !== null && { ResourceState: input.ResourceState }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParentFolderId != undefined && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ResourceState != undefined && { ResourceState: input.ResourceState }),
   });
   return new __HttpRequest({
     protocol,
@@ -1561,7 +1551,7 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.VersionStatus !== undefined && input.VersionStatus !== null && { VersionStatus: input.VersionStatus }),
+    ...(input.VersionStatus != undefined && { VersionStatus: input.VersionStatus }),
   });
   return new __HttpRequest({
     protocol,
@@ -1596,10 +1586,9 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined &&
-      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState !== undefined && input.ResourceState !== null && { ResourceState: input.ResourceState }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ParentFolderId != undefined && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ResourceState != undefined && { ResourceState: input.ResourceState }),
   });
   return new __HttpRequest({
     protocol,
@@ -1633,15 +1622,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
-    ...(input.GrantPoweruserPrivileges !== undefined &&
-      input.GrantPoweruserPrivileges !== null && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
-    ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
-    ...(input.StorageRule !== undefined &&
-      input.StorageRule !== null && { StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context) }),
-    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
-    ...(input.TimeZoneId !== undefined && input.TimeZoneId !== null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.GivenName != undefined && { GivenName: input.GivenName }),
+    ...(input.GrantPoweruserPrivileges != undefined && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
+    ...(input.Locale != undefined && { Locale: input.Locale }),
+    ...(input.StorageRule != undefined && {
+      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
+    }),
+    ...(input.Surname != undefined && { Surname: input.Surname }),
+    ...(input.TimeZoneId != undefined && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Type != undefined && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -4552,8 +4541,8 @@ const serializeAws_restJson1CustomMetadataMap = (input: Record<string, string>, 
 
 const serializeAws_restJson1NotificationOptions = (input: NotificationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.EmailMessage !== undefined && input.EmailMessage !== null && { EmailMessage: input.EmailMessage }),
-    ...(input.SendEmail !== undefined && input.SendEmail !== null && { SendEmail: input.SendEmail }),
+    ...(input.EmailMessage != undefined && { EmailMessage: input.EmailMessage }),
+    ...(input.SendEmail != undefined && { SendEmail: input.SendEmail }),
   };
 };
 
@@ -4570,9 +4559,9 @@ const serializeAws_restJson1SharedLabels = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1SharePrincipal = (input: SharePrincipal, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != undefined && { Id: input.Id }),
+    ...(input.Role != undefined && { Role: input.Role }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
@@ -4589,38 +4578,33 @@ const serializeAws_restJson1SharePrincipalList = (input: SharePrincipal[], conte
 
 const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: __SerdeContext): any => {
   return {
-    ...(input.StorageAllocatedInBytes !== undefined &&
-      input.StorageAllocatedInBytes !== null && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
-    ...(input.StorageType !== undefined && input.StorageType !== null && { StorageType: input.StorageType }),
+    ...(input.StorageAllocatedInBytes != undefined && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
+    ...(input.StorageType != undefined && { StorageType: input.StorageType }),
   };
 };
 
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
     CommentMetadata:
-      output.CommentMetadata !== undefined && output.CommentMetadata !== null
+      output.CommentMetadata != undefined
         ? deserializeAws_restJson1CommentMetadata(output.CommentMetadata, context)
         : undefined,
     Initiator:
-      output.Initiator !== undefined && output.Initiator !== null
-        ? deserializeAws_restJson1UserMetadata(output.Initiator, context)
-        : undefined,
+      output.Initiator != undefined ? deserializeAws_restJson1UserMetadata(output.Initiator, context) : undefined,
     IsIndirectActivity: __expectBoolean(output.IsIndirectActivity),
     OrganizationId: __expectString(output.OrganizationId),
     OriginalParent:
-      output.OriginalParent !== undefined && output.OriginalParent !== null
+      output.OriginalParent != undefined
         ? deserializeAws_restJson1ResourceMetadata(output.OriginalParent, context)
         : undefined,
     Participants:
-      output.Participants !== undefined && output.Participants !== null
-        ? deserializeAws_restJson1Participants(output.Participants, context)
-        : undefined,
+      output.Participants != undefined ? deserializeAws_restJson1Participants(output.Participants, context) : undefined,
     ResourceMetadata:
-      output.ResourceMetadata !== undefined && output.ResourceMetadata !== null
+      output.ResourceMetadata != undefined
         ? deserializeAws_restJson1ResourceMetadata(output.ResourceMetadata, context)
         : undefined,
     TimeStamp:
-      output.TimeStamp !== undefined && output.TimeStamp !== null
+      output.TimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp)))
         : undefined,
     Type: __expectString(output.Type),
@@ -4631,11 +4615,9 @@ const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): 
   return {
     CommentId: __expectString(output.CommentId),
     Contributor:
-      output.Contributor !== undefined && output.Contributor !== null
-        ? deserializeAws_restJson1User(output.Contributor, context)
-        : undefined,
+      output.Contributor != undefined ? deserializeAws_restJson1User(output.Contributor, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     ParentId: __expectString(output.ParentId),
@@ -4664,11 +4646,9 @@ const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeCo
     CommentId: __expectString(output.CommentId),
     CommentStatus: __expectString(output.CommentStatus),
     Contributor:
-      output.Contributor !== undefined && output.Contributor !== null
-        ? deserializeAws_restJson1User(output.Contributor, context)
-        : undefined,
+      output.Contributor != undefined ? deserializeAws_restJson1User(output.Contributor, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     RecipientId: __expectString(output.RecipientId),
@@ -4690,21 +4670,18 @@ const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __Serde
 const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
-    Labels:
-      output.Labels !== undefined && output.Labels !== null
-        ? deserializeAws_restJson1SharedLabels(output.Labels, context)
-        : undefined,
+    Labels: output.Labels != undefined ? deserializeAws_restJson1SharedLabels(output.Labels, context) : undefined,
     LatestVersionMetadata:
-      output.LatestVersionMetadata !== undefined && output.LatestVersionMetadata !== null
+      output.LatestVersionMetadata != undefined
         ? deserializeAws_restJson1DocumentVersionMetadata(output.LatestVersionMetadata, context)
         : undefined,
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     ParentFolderId: __expectString(output.ParentFolderId),
@@ -4763,34 +4740,32 @@ const deserializeAws_restJson1DocumentVersionMetadata = (
 ): DocumentVersionMetadata => {
   return {
     ContentCreatedTimestamp:
-      output.ContentCreatedTimestamp !== undefined && output.ContentCreatedTimestamp !== null
+      output.ContentCreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentCreatedTimestamp)))
         : undefined,
     ContentModifiedTimestamp:
-      output.ContentModifiedTimestamp !== undefined && output.ContentModifiedTimestamp !== null
+      output.ContentModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentModifiedTimestamp)))
         : undefined,
     ContentType: __expectString(output.ContentType),
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Signature: __expectString(output.Signature),
     Size: __expectLong(output.Size),
     Source:
-      output.Source !== undefined && output.Source !== null
-        ? deserializeAws_restJson1DocumentSourceUrlMap(output.Source, context)
-        : undefined,
+      output.Source != undefined ? deserializeAws_restJson1DocumentSourceUrlMap(output.Source, context) : undefined,
     Status: __expectString(output.Status),
     Thumbnail:
-      output.Thumbnail !== undefined && output.Thumbnail !== null
+      output.Thumbnail != undefined
         ? deserializeAws_restJson1DocumentThumbnailUrlMap(output.Thumbnail, context)
         : undefined,
   } as any;
@@ -4826,18 +4801,15 @@ const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeConte
 const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     CreatorId: __expectString(output.CreatorId),
     Id: __expectString(output.Id),
-    Labels:
-      output.Labels !== undefined && output.Labels !== null
-        ? deserializeAws_restJson1SharedLabels(output.Labels, context)
-        : undefined,
+    Labels: output.Labels != undefined ? deserializeAws_restJson1SharedLabels(output.Labels, context) : undefined,
     LatestVersionSize: __expectLong(output.LatestVersionSize),
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
@@ -4893,14 +4865,8 @@ const deserializeAws_restJson1OrganizationUserList = (output: any, context: __Se
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participants => {
   return {
-    Groups:
-      output.Groups !== undefined && output.Groups !== null
-        ? deserializeAws_restJson1GroupMetadataList(output.Groups, context)
-        : undefined,
-    Users:
-      output.Users !== undefined && output.Users !== null
-        ? deserializeAws_restJson1UserMetadataList(output.Users, context)
-        : undefined,
+    Groups: output.Groups != undefined ? deserializeAws_restJson1GroupMetadataList(output.Groups, context) : undefined,
+    Users: output.Users != undefined ? deserializeAws_restJson1UserMetadataList(output.Users, context) : undefined,
   } as any;
 };
 
@@ -4926,10 +4892,7 @@ const deserializeAws_restJson1PermissionInfoList = (output: any, context: __Serd
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
     Id: __expectString(output.Id),
-    Roles:
-      output.Roles !== undefined && output.Roles !== null
-        ? deserializeAws_restJson1PermissionInfoList(output.Roles, context)
-        : undefined,
+    Roles: output.Roles != undefined ? deserializeAws_restJson1PermissionInfoList(output.Roles, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4951,10 +4914,7 @@ const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeC
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     OriginalName: __expectString(output.OriginalName),
-    Owner:
-      output.Owner !== undefined && output.Owner !== null
-        ? deserializeAws_restJson1UserMetadata(output.Owner, context)
-        : undefined,
+    Owner: output.Owner != undefined ? deserializeAws_restJson1UserMetadata(output.Owner, context) : undefined,
     ParentId: __expectString(output.ParentId),
     Type: __expectString(output.Type),
     VersionId: __expectString(output.VersionId),
@@ -4964,7 +4924,7 @@ const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeC
 const deserializeAws_restJson1ResourcePath = (output: any, context: __SerdeContext): ResourcePath => {
   return {
     Components:
-      output.Components !== undefined && output.Components !== null
+      output.Components != undefined
         ? deserializeAws_restJson1ResourcePathComponentList(output.Components, context)
         : undefined,
   } as any;
@@ -5069,7 +5029,7 @@ const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeC
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
   return {
     SignedHeaders:
-      output.SignedHeaders !== undefined && output.SignedHeaders !== null
+      output.SignedHeaders != undefined
         ? deserializeAws_restJson1SignedHeaderMap(output.SignedHeaders, context)
         : undefined,
     UploadUrl: __expectString(output.UploadUrl),
@@ -5079,7 +5039,7 @@ const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeCon
 const deserializeAws_restJson1User = (output: any, context: __SerdeContext): User => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EmailAddress: __expectString(output.EmailAddress),
@@ -5087,7 +5047,7 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
     Id: __expectString(output.Id),
     Locale: __expectString(output.Locale),
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
         : undefined,
     OrganizationId: __expectString(output.OrganizationId),
@@ -5095,9 +5055,7 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
     RootFolderId: __expectString(output.RootFolderId),
     Status: __expectString(output.Status),
     Storage:
-      output.Storage !== undefined && output.Storage !== null
-        ? deserializeAws_restJson1UserStorageMetadata(output.Storage, context)
-        : undefined,
+      output.Storage != undefined ? deserializeAws_restJson1UserStorageMetadata(output.Storage, context) : undefined,
     Surname: __expectString(output.Surname),
     TimeZoneId: __expectString(output.TimeZoneId),
     Type: __expectString(output.Type),
@@ -5142,7 +5100,7 @@ const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeC
 const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {
   return {
     StorageRule:
-      output.StorageRule !== undefined && output.StorageRule !== null
+      output.StorageRule != undefined
         ? deserializeAws_restJson1StorageRuleType(output.StorageRule, context)
         : undefined,
     StorageUtilizedInBytes: __expectLong(output.StorageUtilizedInBytes),

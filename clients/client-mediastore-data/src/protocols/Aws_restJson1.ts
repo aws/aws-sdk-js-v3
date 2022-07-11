@@ -579,7 +579,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     ContentType: __expectString(output.ContentType),
     ETag: __expectString(output.ETag),
     LastModified:
-      output.LastModified !== undefined && output.LastModified !== null
+      output.LastModified != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     Name: __expectString(output.Name),

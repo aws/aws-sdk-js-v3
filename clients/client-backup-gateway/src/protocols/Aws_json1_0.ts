@@ -1319,30 +1319,29 @@ const serializeAws_json1_0AssociateGatewayToServerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
-    ...(input.ServerArn !== undefined && input.ServerArn !== null && { ServerArn: input.ServerArn }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
+    ...(input.ServerArn != undefined && { ServerArn: input.ServerArn }),
   };
 };
 
 const serializeAws_json1_0CreateGatewayInput = (input: CreateGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationKey !== undefined && input.ActivationKey !== null && { ActivationKey: input.ActivationKey }),
-    ...(input.GatewayDisplayName !== undefined &&
-      input.GatewayDisplayName !== null && { GatewayDisplayName: input.GatewayDisplayName }),
-    ...(input.GatewayType !== undefined && input.GatewayType !== null && { GatewayType: input.GatewayType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
+    ...(input.ActivationKey != undefined && { ActivationKey: input.ActivationKey }),
+    ...(input.GatewayDisplayName != undefined && { GatewayDisplayName: input.GatewayDisplayName }),
+    ...(input.GatewayType != undefined && { GatewayType: input.GatewayType }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
   };
 };
 
 const serializeAws_json1_0DeleteHypervisorInput = (input: DeleteHypervisorInput, context: __SerdeContext): any => {
   return {
-    ...(input.HypervisorArn !== undefined && input.HypervisorArn !== null && { HypervisorArn: input.HypervisorArn }),
+    ...(input.HypervisorArn != undefined && { HypervisorArn: input.HypervisorArn }),
   };
 };
 
@@ -1351,13 +1350,13 @@ const serializeAws_json1_0DisassociateGatewayFromServerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
   };
 };
 
 const serializeAws_json1_0GetGatewayInput = (input: GetGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
   };
 };
 
@@ -1366,26 +1365,26 @@ const serializeAws_json1_0ImportHypervisorConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
-    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.Host != undefined && { Host: input.Host }),
+    ...(input.KmsKeyArn != undefined && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Password != undefined && { Password: input.Password }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
+    ...(input.Username != undefined && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_0ListGatewaysInput = (input: ListGatewaysInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0ListHypervisorsInput = (input: ListHypervisorsInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1394,7 +1393,7 @@ const serializeAws_json1_0ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -1403,8 +1402,8 @@ const serializeAws_json1_0ListVirtualMachinesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1413,18 +1412,18 @@ const serializeAws_json1_0PutMaintenanceStartTimeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DayOfMonth !== undefined && input.DayOfMonth !== null && { DayOfMonth: input.DayOfMonth }),
-    ...(input.DayOfWeek !== undefined && input.DayOfWeek !== null && { DayOfWeek: input.DayOfWeek }),
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
-    ...(input.HourOfDay !== undefined && input.HourOfDay !== null && { HourOfDay: input.HourOfDay }),
-    ...(input.MinuteOfHour !== undefined && input.MinuteOfHour !== null && { MinuteOfHour: input.MinuteOfHour }),
+    ...(input.DayOfMonth != undefined && { DayOfMonth: input.DayOfMonth }),
+    ...(input.DayOfWeek != undefined && { DayOfWeek: input.DayOfWeek }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
+    ...(input.HourOfDay != undefined && { HourOfDay: input.HourOfDay }),
+    ...(input.MinuteOfHour != undefined && { MinuteOfHour: input.MinuteOfHour }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1441,8 +1440,8 @@ const serializeAws_json1_0TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0Tags(input.Tags, context) }),
   };
 };
 
@@ -1462,18 +1461,17 @@ const serializeAws_json1_0TestHypervisorConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
-    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
+    ...(input.Host != undefined && { Host: input.Host }),
+    ...(input.Password != undefined && { Password: input.Password }),
+    ...(input.Username != undefined && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -1482,9 +1480,8 @@ const serializeAws_json1_0UpdateGatewayInformationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
-    ...(input.GatewayDisplayName !== undefined &&
-      input.GatewayDisplayName !== null && { GatewayDisplayName: input.GatewayDisplayName }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
+    ...(input.GatewayDisplayName != undefined && { GatewayDisplayName: input.GatewayDisplayName }),
   };
 };
 
@@ -1493,17 +1490,17 @@ const serializeAws_json1_0UpdateGatewaySoftwareNowInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayArn !== undefined && input.GatewayArn !== null && { GatewayArn: input.GatewayArn }),
+    ...(input.GatewayArn != undefined && { GatewayArn: input.GatewayArn }),
   };
 };
 
 const serializeAws_json1_0UpdateHypervisorInput = (input: UpdateHypervisorInput, context: __SerdeContext): any => {
   return {
-    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
-    ...(input.HypervisorArn !== undefined && input.HypervisorArn !== null && { HypervisorArn: input.HypervisorArn }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.Host != undefined && { Host: input.Host }),
+    ...(input.HypervisorArn != undefined && { HypervisorArn: input.HypervisorArn }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Password != undefined && { Password: input.Password }),
+    ...(input.Username != undefined && { Username: input.Username }),
   };
 };
 
@@ -1564,7 +1561,7 @@ const deserializeAws_json1_0Gateway = (output: any, context: __SerdeContext): Ga
     GatewayType: __expectString(output.GatewayType),
     HypervisorId: __expectString(output.HypervisorId),
     LastSeenTime:
-      output.LastSeenTime !== undefined && output.LastSeenTime !== null
+      output.LastSeenTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
         : undefined,
   } as any;
@@ -1577,11 +1574,11 @@ const deserializeAws_json1_0GatewayDetails = (output: any, context: __SerdeConte
     GatewayType: __expectString(output.GatewayType),
     HypervisorId: __expectString(output.HypervisorId),
     LastSeenTime:
-      output.LastSeenTime !== undefined && output.LastSeenTime !== null
+      output.LastSeenTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenTime)))
         : undefined,
     NextUpdateAvailabilityTime:
-      output.NextUpdateAvailabilityTime !== undefined && output.NextUpdateAvailabilityTime !== null
+      output.NextUpdateAvailabilityTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextUpdateAvailabilityTime)))
         : undefined,
     VpcEndpoint: __expectString(output.VpcEndpoint),
@@ -1602,10 +1599,7 @@ const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): G
 
 const deserializeAws_json1_0GetGatewayOutput = (output: any, context: __SerdeContext): GetGatewayOutput => {
   return {
-    Gateway:
-      output.Gateway !== undefined && output.Gateway !== null
-        ? deserializeAws_json1_0GatewayDetails(output.Gateway, context)
-        : undefined,
+    Gateway: output.Gateway != undefined ? deserializeAws_json1_0GatewayDetails(output.Gateway, context) : undefined,
   } as any;
 };
 
@@ -1652,10 +1646,7 @@ const deserializeAws_json1_0InternalServerException = (
 
 const deserializeAws_json1_0ListGatewaysOutput = (output: any, context: __SerdeContext): ListGatewaysOutput => {
   return {
-    Gateways:
-      output.Gateways !== undefined && output.Gateways !== null
-        ? deserializeAws_json1_0Gateways(output.Gateways, context)
-        : undefined,
+    Gateways: output.Gateways != undefined ? deserializeAws_json1_0Gateways(output.Gateways, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1663,9 +1654,7 @@ const deserializeAws_json1_0ListGatewaysOutput = (output: any, context: __SerdeC
 const deserializeAws_json1_0ListHypervisorsOutput = (output: any, context: __SerdeContext): ListHypervisorsOutput => {
   return {
     Hypervisors:
-      output.Hypervisors !== undefined && output.Hypervisors !== null
-        ? deserializeAws_json1_0Hypervisors(output.Hypervisors, context)
-        : undefined,
+      output.Hypervisors != undefined ? deserializeAws_json1_0Hypervisors(output.Hypervisors, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1676,8 +1665,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   return {
     ResourceArn: __expectString(output.ResourceArn),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_0Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_0Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1688,7 +1676,7 @@ const deserializeAws_json1_0ListVirtualMachinesOutput = (
   return {
     NextToken: __expectString(output.NextToken),
     VirtualMachines:
-      output.VirtualMachines !== undefined && output.VirtualMachines !== null
+      output.VirtualMachines != undefined
         ? deserializeAws_json1_0VirtualMachines(output.VirtualMachines, context)
         : undefined,
   } as any;
@@ -1787,7 +1775,7 @@ const deserializeAws_json1_0VirtualMachine = (output: any, context: __SerdeConte
     HostName: __expectString(output.HostName),
     HypervisorId: __expectString(output.HypervisorId),
     LastBackupDate:
-      output.LastBackupDate !== undefined && output.LastBackupDate !== null
+      output.LastBackupDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupDate)))
         : undefined,
     Name: __expectString(output.Name),

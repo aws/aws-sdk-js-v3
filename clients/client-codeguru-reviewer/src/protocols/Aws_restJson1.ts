@@ -110,13 +110,11 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.KMSKeyDetails !== undefined &&
-      input.KMSKeyDetails !== null && {
-        KMSKeyDetails: serializeAws_restJson1KMSKeyDetails(input.KMSKeyDetails, context),
-      }),
-    ...(input.Repository !== undefined &&
-      input.Repository !== null && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.KMSKeyDetails != undefined && {
+      KMSKeyDetails: serializeAws_restJson1KMSKeyDetails(input.KMSKeyDetails, context),
+    }),
+    ...(input.Repository != undefined && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -141,11 +139,9 @@ export const serializeAws_restJson1CreateCodeReviewCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RepositoryAssociationArn !== undefined &&
-      input.RepositoryAssociationArn !== null && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
-    ...(input.Type !== undefined &&
-      input.Type !== null && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.RepositoryAssociationArn != undefined && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
+    ...(input.Type != undefined && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -454,11 +450,9 @@ export const serializeAws_restJson1PutRecommendationFeedbackCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
   let body: any;
   body = JSON.stringify({
-    ...(input.CodeReviewArn !== undefined && input.CodeReviewArn !== null && { CodeReviewArn: input.CodeReviewArn }),
-    ...(input.Reactions !== undefined &&
-      input.Reactions !== null && { Reactions: serializeAws_restJson1Reactions(input.Reactions, context) }),
-    ...(input.RecommendationId !== undefined &&
-      input.RecommendationId !== null && { RecommendationId: input.RecommendationId }),
+    ...(input.CodeReviewArn != undefined && { CodeReviewArn: input.CodeReviewArn }),
+    ...(input.Reactions != undefined && { Reactions: serializeAws_restJson1Reactions(input.Reactions, context) }),
+    ...(input.RecommendationId != undefined && { RecommendationId: input.RecommendationId }),
   });
   return new __HttpRequest({
     protocol,
@@ -491,7 +485,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1469,40 +1463,34 @@ const serializeAws_restJson1BranchDiffSourceCodeType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationBranchName !== undefined &&
-      input.DestinationBranchName !== null && { DestinationBranchName: input.DestinationBranchName }),
-    ...(input.SourceBranchName !== undefined &&
-      input.SourceBranchName !== null && { SourceBranchName: input.SourceBranchName }),
+    ...(input.DestinationBranchName != undefined && { DestinationBranchName: input.DestinationBranchName }),
+    ...(input.SourceBranchName != undefined && { SourceBranchName: input.SourceBranchName }),
   };
 };
 
 const serializeAws_restJson1CodeArtifacts = (input: CodeArtifacts, context: __SerdeContext): any => {
   return {
-    ...(input.BuildArtifactsObjectKey !== undefined &&
-      input.BuildArtifactsObjectKey !== null && { BuildArtifactsObjectKey: input.BuildArtifactsObjectKey }),
-    ...(input.SourceCodeArtifactsObjectKey !== undefined &&
-      input.SourceCodeArtifactsObjectKey !== null && {
-        SourceCodeArtifactsObjectKey: input.SourceCodeArtifactsObjectKey,
-      }),
+    ...(input.BuildArtifactsObjectKey != undefined && { BuildArtifactsObjectKey: input.BuildArtifactsObjectKey }),
+    ...(input.SourceCodeArtifactsObjectKey != undefined && {
+      SourceCodeArtifactsObjectKey: input.SourceCodeArtifactsObjectKey,
+    }),
   };
 };
 
 const serializeAws_restJson1CodeCommitRepository = (input: CodeCommitRepository, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1CodeReviewType = (input: CodeReviewType, context: __SerdeContext): any => {
   return {
-    ...(input.AnalysisTypes !== undefined &&
-      input.AnalysisTypes !== null && {
-        AnalysisTypes: serializeAws_restJson1AnalysisTypes(input.AnalysisTypes, context),
-      }),
-    ...(input.RepositoryAnalysis !== undefined &&
-      input.RepositoryAnalysis !== null && {
-        RepositoryAnalysis: serializeAws_restJson1RepositoryAnalysis(input.RepositoryAnalysis, context),
-      }),
+    ...(input.AnalysisTypes != undefined && {
+      AnalysisTypes: serializeAws_restJson1AnalysisTypes(input.AnalysisTypes, context),
+    }),
+    ...(input.RepositoryAnalysis != undefined && {
+      RepositoryAnalysis: serializeAws_restJson1RepositoryAnalysis(input.RepositoryAnalysis, context),
+    }),
   };
 };
 
@@ -1511,26 +1499,23 @@ const serializeAws_restJson1CommitDiffSourceCodeType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationCommit !== undefined &&
-      input.DestinationCommit !== null && { DestinationCommit: input.DestinationCommit }),
-    ...(input.MergeBaseCommit !== undefined &&
-      input.MergeBaseCommit !== null && { MergeBaseCommit: input.MergeBaseCommit }),
-    ...(input.SourceCommit !== undefined && input.SourceCommit !== null && { SourceCommit: input.SourceCommit }),
+    ...(input.DestinationCommit != undefined && { DestinationCommit: input.DestinationCommit }),
+    ...(input.MergeBaseCommit != undefined && { MergeBaseCommit: input.MergeBaseCommit }),
+    ...(input.SourceCommit != undefined && { SourceCommit: input.SourceCommit }),
   };
 };
 
 const serializeAws_restJson1EventInfo = (input: EventInfo, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.State != undefined && { State: input.State }),
   };
 };
 
 const serializeAws_restJson1KMSKeyDetails = (input: KMSKeyDetails, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionOption !== undefined &&
-      input.EncryptionOption !== null && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KMSKeyId !== undefined && input.KMSKeyId !== null && { KMSKeyId: input.KMSKeyId }),
+    ...(input.EncryptionOption != undefined && { EncryptionOption: input.EncryptionOption }),
+    ...(input.KMSKeyId != undefined && { KMSKeyId: input.KMSKeyId }),
   };
 };
 
@@ -1547,33 +1532,27 @@ const serializeAws_restJson1Reactions = (input: (Reaction | string)[], context: 
 
 const serializeAws_restJson1Repository = (input: Repository, context: __SerdeContext): any => {
   return {
-    ...(input.Bitbucket !== undefined &&
-      input.Bitbucket !== null && {
-        Bitbucket: serializeAws_restJson1ThirdPartySourceRepository(input.Bitbucket, context),
-      }),
-    ...(input.CodeCommit !== undefined &&
-      input.CodeCommit !== null && {
-        CodeCommit: serializeAws_restJson1CodeCommitRepository(input.CodeCommit, context),
-      }),
-    ...(input.GitHubEnterpriseServer !== undefined &&
-      input.GitHubEnterpriseServer !== null && {
-        GitHubEnterpriseServer: serializeAws_restJson1ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
-      }),
-    ...(input.S3Bucket !== undefined &&
-      input.S3Bucket !== null && { S3Bucket: serializeAws_restJson1S3Repository(input.S3Bucket, context) }),
+    ...(input.Bitbucket != undefined && {
+      Bitbucket: serializeAws_restJson1ThirdPartySourceRepository(input.Bitbucket, context),
+    }),
+    ...(input.CodeCommit != undefined && {
+      CodeCommit: serializeAws_restJson1CodeCommitRepository(input.CodeCommit, context),
+    }),
+    ...(input.GitHubEnterpriseServer != undefined && {
+      GitHubEnterpriseServer: serializeAws_restJson1ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
+    }),
+    ...(input.S3Bucket != undefined && { S3Bucket: serializeAws_restJson1S3Repository(input.S3Bucket, context) }),
   };
 };
 
 const serializeAws_restJson1RepositoryAnalysis = (input: RepositoryAnalysis, context: __SerdeContext): any => {
   return {
-    ...(input.RepositoryHead !== undefined &&
-      input.RepositoryHead !== null && {
-        RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
-      }),
-    ...(input.SourceCodeType !== undefined &&
-      input.SourceCodeType !== null && {
-        SourceCodeType: serializeAws_restJson1SourceCodeType(input.SourceCodeType, context),
-      }),
+    ...(input.RepositoryHead != undefined && {
+      RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
+    }),
+    ...(input.SourceCodeType != undefined && {
+      SourceCodeType: serializeAws_restJson1SourceCodeType(input.SourceCodeType, context),
+    }),
   };
 };
 
@@ -1582,67 +1561,59 @@ const serializeAws_restJson1RepositoryHeadSourceCodeType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BranchName !== undefined && input.BranchName !== null && { BranchName: input.BranchName }),
+    ...(input.BranchName != undefined && { BranchName: input.BranchName }),
   };
 };
 
 const serializeAws_restJson1RequestMetadata = (input: RequestMetadata, context: __SerdeContext): any => {
   return {
-    ...(input.EventInfo !== undefined &&
-      input.EventInfo !== null && { EventInfo: serializeAws_restJson1EventInfo(input.EventInfo, context) }),
-    ...(input.RequestId !== undefined && input.RequestId !== null && { RequestId: input.RequestId }),
-    ...(input.Requester !== undefined && input.Requester !== null && { Requester: input.Requester }),
-    ...(input.VendorName !== undefined && input.VendorName !== null && { VendorName: input.VendorName }),
+    ...(input.EventInfo != undefined && { EventInfo: serializeAws_restJson1EventInfo(input.EventInfo, context) }),
+    ...(input.RequestId != undefined && { RequestId: input.RequestId }),
+    ...(input.Requester != undefined && { Requester: input.Requester }),
+    ...(input.VendorName != undefined && { VendorName: input.VendorName }),
   };
 };
 
 const serializeAws_restJson1S3BucketRepository = (input: S3BucketRepository, context: __SerdeContext): any => {
   return {
-    ...(input.Details !== undefined &&
-      input.Details !== null && { Details: serializeAws_restJson1S3RepositoryDetails(input.Details, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Details != undefined && { Details: serializeAws_restJson1S3RepositoryDetails(input.Details, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1S3Repository = (input: S3Repository, context: __SerdeContext): any => {
   return {
-    ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.BucketName != undefined && { BucketName: input.BucketName }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1S3RepositoryDetails = (input: S3RepositoryDetails, context: __SerdeContext): any => {
   return {
-    ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
-    ...(input.CodeArtifacts !== undefined &&
-      input.CodeArtifacts !== null && {
-        CodeArtifacts: serializeAws_restJson1CodeArtifacts(input.CodeArtifacts, context),
-      }),
+    ...(input.BucketName != undefined && { BucketName: input.BucketName }),
+    ...(input.CodeArtifacts != undefined && {
+      CodeArtifacts: serializeAws_restJson1CodeArtifacts(input.CodeArtifacts, context),
+    }),
   };
 };
 
 const serializeAws_restJson1SourceCodeType = (input: SourceCodeType, context: __SerdeContext): any => {
   return {
-    ...(input.BranchDiff !== undefined &&
-      input.BranchDiff !== null && {
-        BranchDiff: serializeAws_restJson1BranchDiffSourceCodeType(input.BranchDiff, context),
-      }),
-    ...(input.CommitDiff !== undefined &&
-      input.CommitDiff !== null && {
-        CommitDiff: serializeAws_restJson1CommitDiffSourceCodeType(input.CommitDiff, context),
-      }),
-    ...(input.RepositoryHead !== undefined &&
-      input.RepositoryHead !== null && {
-        RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
-      }),
-    ...(input.RequestMetadata !== undefined &&
-      input.RequestMetadata !== null && {
-        RequestMetadata: serializeAws_restJson1RequestMetadata(input.RequestMetadata, context),
-      }),
-    ...(input.S3BucketRepository !== undefined &&
-      input.S3BucketRepository !== null && {
-        S3BucketRepository: serializeAws_restJson1S3BucketRepository(input.S3BucketRepository, context),
-      }),
+    ...(input.BranchDiff != undefined && {
+      BranchDiff: serializeAws_restJson1BranchDiffSourceCodeType(input.BranchDiff, context),
+    }),
+    ...(input.CommitDiff != undefined && {
+      CommitDiff: serializeAws_restJson1CommitDiffSourceCodeType(input.CommitDiff, context),
+    }),
+    ...(input.RepositoryHead != undefined && {
+      RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
+    }),
+    ...(input.RequestMetadata != undefined && {
+      RequestMetadata: serializeAws_restJson1RequestMetadata(input.RequestMetadata, context),
+    }),
+    ...(input.S3BucketRepository != undefined && {
+      S3BucketRepository: serializeAws_restJson1S3BucketRepository(input.S3BucketRepository, context),
+    }),
   };
 };
 
@@ -1663,9 +1634,9 @@ const serializeAws_restJson1ThirdPartySourceRepository = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
+    ...(input.ConnectionArn != undefined && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Owner != undefined && { Owner: input.Owner }),
   };
 };
 
@@ -1701,31 +1672,28 @@ const deserializeAws_restJson1CodeArtifacts = (output: any, context: __SerdeCont
 const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext): CodeReview => {
   return {
     AnalysisTypes:
-      output.AnalysisTypes !== undefined && output.AnalysisTypes !== null
+      output.AnalysisTypes != undefined
         ? deserializeAws_restJson1AnalysisTypes(output.AnalysisTypes, context)
         : undefined,
     AssociationArn: __expectString(output.AssociationArn),
     CodeReviewArn: __expectString(output.CodeReviewArn),
     ConfigFileState: __expectString(output.ConfigFileState),
     CreatedTimeStamp:
-      output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
+      output.CreatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
         : undefined,
     LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
+      output.LastUpdatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
         : undefined,
-    Metrics:
-      output.Metrics !== undefined && output.Metrics !== null
-        ? deserializeAws_restJson1Metrics(output.Metrics, context)
-        : undefined,
+    Metrics: output.Metrics != undefined ? deserializeAws_restJson1Metrics(output.Metrics, context) : undefined,
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
     ProviderType: __expectString(output.ProviderType),
     PullRequestId: __expectString(output.PullRequestId),
     RepositoryName: __expectString(output.RepositoryName),
     SourceCodeType:
-      output.SourceCodeType !== undefined && output.SourceCodeType !== null
+      output.SourceCodeType != undefined
         ? deserializeAws_restJson1SourceCodeType(output.SourceCodeType, context)
         : undefined,
     State: __expectString(output.State),
@@ -1750,15 +1718,15 @@ const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __Serde
   return {
     CodeReviewArn: __expectString(output.CodeReviewArn),
     CreatedTimeStamp:
-      output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
+      output.CreatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
         : undefined,
     LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
+      output.LastUpdatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
         : undefined,
     MetricsSummary:
-      output.MetricsSummary !== undefined && output.MetricsSummary !== null
+      output.MetricsSummary != undefined
         ? deserializeAws_restJson1MetricsSummary(output.MetricsSummary, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -1767,7 +1735,7 @@ const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __Serde
     PullRequestId: __expectString(output.PullRequestId),
     RepositoryName: __expectString(output.RepositoryName),
     SourceCodeType:
-      output.SourceCodeType !== undefined && output.SourceCodeType !== null
+      output.SourceCodeType != undefined
         ? deserializeAws_restJson1SourceCodeType(output.SourceCodeType, context)
         : undefined,
     State: __expectString(output.State),
@@ -1835,17 +1803,14 @@ const deserializeAws_restJson1RecommendationFeedback = (
   return {
     CodeReviewArn: __expectString(output.CodeReviewArn),
     CreatedTimeStamp:
-      output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
+      output.CreatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
         : undefined,
     LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
+      output.LastUpdatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
         : undefined,
-    Reactions:
-      output.Reactions !== undefined && output.Reactions !== null
-        ? deserializeAws_restJson1Reactions(output.Reactions, context)
-        : undefined,
+    Reactions: output.Reactions != undefined ? deserializeAws_restJson1Reactions(output.Reactions, context) : undefined,
     RecommendationId: __expectString(output.RecommendationId),
     UserId: __expectString(output.UserId),
   } as any;
@@ -1871,10 +1836,7 @@ const deserializeAws_restJson1RecommendationFeedbackSummary = (
   context: __SerdeContext
 ): RecommendationFeedbackSummary => {
   return {
-    Reactions:
-      output.Reactions !== undefined && output.Reactions !== null
-        ? deserializeAws_restJson1Reactions(output.Reactions, context)
-        : undefined,
+    Reactions: output.Reactions != undefined ? deserializeAws_restJson1Reactions(output.Reactions, context) : undefined,
     RecommendationId: __expectString(output.RecommendationId),
     UserId: __expectString(output.UserId),
   } as any;
@@ -1903,9 +1865,7 @@ const deserializeAws_restJson1RecommendationSummary = (output: any, context: __S
     RecommendationCategory: __expectString(output.RecommendationCategory),
     RecommendationId: __expectString(output.RecommendationId),
     RuleMetadata:
-      output.RuleMetadata !== undefined && output.RuleMetadata !== null
-        ? deserializeAws_restJson1RuleMetadata(output.RuleMetadata, context)
-        : undefined,
+      output.RuleMetadata != undefined ? deserializeAws_restJson1RuleMetadata(output.RuleMetadata, context) : undefined,
     Severity: __expectString(output.Severity),
     StartLine: __expectInt32(output.StartLine),
   } as any;
@@ -1917,22 +1877,22 @@ const deserializeAws_restJson1RepositoryAssociation = (output: any, context: __S
     AssociationId: __expectString(output.AssociationId),
     ConnectionArn: __expectString(output.ConnectionArn),
     CreatedTimeStamp:
-      output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
+      output.CreatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
         : undefined,
     KMSKeyDetails:
-      output.KMSKeyDetails !== undefined && output.KMSKeyDetails !== null
+      output.KMSKeyDetails != undefined
         ? deserializeAws_restJson1KMSKeyDetails(output.KMSKeyDetails, context)
         : undefined,
     LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
+      output.LastUpdatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
         : undefined,
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
     ProviderType: __expectString(output.ProviderType),
     S3RepositoryDetails:
-      output.S3RepositoryDetails !== undefined && output.S3RepositoryDetails !== null
+      output.S3RepositoryDetails != undefined
         ? deserializeAws_restJson1S3RepositoryDetails(output.S3RepositoryDetails, context)
         : undefined,
     State: __expectString(output.State),
@@ -1964,7 +1924,7 @@ const deserializeAws_restJson1RepositoryAssociationSummary = (
     AssociationId: __expectString(output.AssociationId),
     ConnectionArn: __expectString(output.ConnectionArn),
     LastUpdatedTimeStamp:
-      output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null
+      output.LastUpdatedTimeStamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimeStamp)))
         : undefined,
     Name: __expectString(output.Name),
@@ -1985,10 +1945,7 @@ const deserializeAws_restJson1RepositoryHeadSourceCodeType = (
 
 const deserializeAws_restJson1RequestMetadata = (output: any, context: __SerdeContext): RequestMetadata => {
   return {
-    EventInfo:
-      output.EventInfo !== undefined && output.EventInfo !== null
-        ? deserializeAws_restJson1EventInfo(output.EventInfo, context)
-        : undefined,
+    EventInfo: output.EventInfo != undefined ? deserializeAws_restJson1EventInfo(output.EventInfo, context) : undefined,
     RequestId: __expectString(output.RequestId),
     Requester: __expectString(output.Requester),
     VendorName: __expectString(output.VendorName),
@@ -2000,10 +1957,7 @@ const deserializeAws_restJson1RuleMetadata = (output: any, context: __SerdeConte
     LongDescription: __expectString(output.LongDescription),
     RuleId: __expectString(output.RuleId),
     RuleName: __expectString(output.RuleName),
-    RuleTags:
-      output.RuleTags !== undefined && output.RuleTags !== null
-        ? deserializeAws_restJson1RuleTags(output.RuleTags, context)
-        : undefined,
+    RuleTags: output.RuleTags != undefined ? deserializeAws_restJson1RuleTags(output.RuleTags, context) : undefined,
     ShortDescription: __expectString(output.ShortDescription),
   } as any;
 };
@@ -2023,9 +1977,7 @@ const deserializeAws_restJson1RuleTags = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1S3BucketRepository = (output: any, context: __SerdeContext): S3BucketRepository => {
   return {
     Details:
-      output.Details !== undefined && output.Details !== null
-        ? deserializeAws_restJson1S3RepositoryDetails(output.Details, context)
-        : undefined,
+      output.Details != undefined ? deserializeAws_restJson1S3RepositoryDetails(output.Details, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
@@ -2034,7 +1986,7 @@ const deserializeAws_restJson1S3RepositoryDetails = (output: any, context: __Ser
   return {
     BucketName: __expectString(output.BucketName),
     CodeArtifacts:
-      output.CodeArtifacts !== undefined && output.CodeArtifacts !== null
+      output.CodeArtifacts != undefined
         ? deserializeAws_restJson1CodeArtifacts(output.CodeArtifacts, context)
         : undefined,
   } as any;
@@ -2043,23 +1995,23 @@ const deserializeAws_restJson1S3RepositoryDetails = (output: any, context: __Ser
 const deserializeAws_restJson1SourceCodeType = (output: any, context: __SerdeContext): SourceCodeType => {
   return {
     BranchDiff:
-      output.BranchDiff !== undefined && output.BranchDiff !== null
+      output.BranchDiff != undefined
         ? deserializeAws_restJson1BranchDiffSourceCodeType(output.BranchDiff, context)
         : undefined,
     CommitDiff:
-      output.CommitDiff !== undefined && output.CommitDiff !== null
+      output.CommitDiff != undefined
         ? deserializeAws_restJson1CommitDiffSourceCodeType(output.CommitDiff, context)
         : undefined,
     RepositoryHead:
-      output.RepositoryHead !== undefined && output.RepositoryHead !== null
+      output.RepositoryHead != undefined
         ? deserializeAws_restJson1RepositoryHeadSourceCodeType(output.RepositoryHead, context)
         : undefined,
     RequestMetadata:
-      output.RequestMetadata !== undefined && output.RequestMetadata !== null
+      output.RequestMetadata != undefined
         ? deserializeAws_restJson1RequestMetadata(output.RequestMetadata, context)
         : undefined,
     S3BucketRepository:
-      output.S3BucketRepository !== undefined && output.S3BucketRepository !== null
+      output.S3BucketRepository != undefined
         ? deserializeAws_restJson1S3BucketRepository(output.S3BucketRepository, context)
         : undefined,
   } as any;

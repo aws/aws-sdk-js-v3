@@ -152,8 +152,9 @@ export const serializeAws_restJson1AssociateLensesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LensAliases !== undefined &&
-      input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
+    ...(input.LensAliases != undefined && {
+      LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -188,7 +189,7 @@ export const serializeAws_restJson1CreateLensShareCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SharedWith !== undefined && input.SharedWith !== null && { SharedWith: input.SharedWith }),
+    ...(input.SharedWith != undefined && { SharedWith: input.SharedWith }),
   });
   return new __HttpRequest({
     protocol,
@@ -223,9 +224,8 @@ export const serializeAws_restJson1CreateLensVersionCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.IsMajorVersion !== undefined &&
-      input.IsMajorVersion !== null && { IsMajorVersion: input.IsMajorVersion }),
-    ...(input.LensVersion !== undefined && input.LensVersion !== null && { LensVersion: input.LensVersion }),
+    ...(input.IsMajorVersion != undefined && { IsMajorVersion: input.IsMajorVersion }),
+    ...(input.LensVersion != undefined && { LensVersion: input.LensVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -260,7 +260,7 @@ export const serializeAws_restJson1CreateMilestoneCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
+    ...(input.MilestoneName != undefined && { MilestoneName: input.MilestoneName }),
   });
   return new __HttpRequest({
     protocol,
@@ -284,31 +284,29 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined &&
-      input.AccountIds !== null && { AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context) }),
-    ...(input.ArchitecturalDesign !== undefined &&
-      input.ArchitecturalDesign !== null && { ArchitecturalDesign: input.ArchitecturalDesign }),
-    ...(input.AwsRegions !== undefined &&
-      input.AwsRegions !== null && { AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context) }),
+    ...(input.AccountIds != undefined && {
+      AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context),
+    }),
+    ...(input.ArchitecturalDesign != undefined && { ArchitecturalDesign: input.ArchitecturalDesign }),
+    ...(input.AwsRegions != undefined && {
+      AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context),
+    }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Environment !== undefined && input.Environment !== null && { Environment: input.Environment }),
-    ...(input.Industry !== undefined && input.Industry !== null && { Industry: input.Industry }),
-    ...(input.IndustryType !== undefined && input.IndustryType !== null && { IndustryType: input.IndustryType }),
-    ...(input.Lenses !== undefined &&
-      input.Lenses !== null && { Lenses: serializeAws_restJson1WorkloadLenses(input.Lenses, context) }),
-    ...(input.NonAwsRegions !== undefined &&
-      input.NonAwsRegions !== null && {
-        NonAwsRegions: serializeAws_restJson1WorkloadNonAwsRegions(input.NonAwsRegions, context),
-      }),
-    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
-    ...(input.PillarPriorities !== undefined &&
-      input.PillarPriorities !== null && {
-        PillarPriorities: serializeAws_restJson1WorkloadPillarPriorities(input.PillarPriorities, context),
-      }),
-    ...(input.ReviewOwner !== undefined && input.ReviewOwner !== null && { ReviewOwner: input.ReviewOwner }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Environment != undefined && { Environment: input.Environment }),
+    ...(input.Industry != undefined && { Industry: input.Industry }),
+    ...(input.IndustryType != undefined && { IndustryType: input.IndustryType }),
+    ...(input.Lenses != undefined && { Lenses: serializeAws_restJson1WorkloadLenses(input.Lenses, context) }),
+    ...(input.NonAwsRegions != undefined && {
+      NonAwsRegions: serializeAws_restJson1WorkloadNonAwsRegions(input.NonAwsRegions, context),
+    }),
+    ...(input.Notes != undefined && { Notes: input.Notes }),
+    ...(input.PillarPriorities != undefined && {
+      PillarPriorities: serializeAws_restJson1WorkloadPillarPriorities(input.PillarPriorities, context),
+    }),
+    ...(input.ReviewOwner != undefined && { ReviewOwner: input.ReviewOwner }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.WorkloadName != undefined && { WorkloadName: input.WorkloadName }),
   });
   return new __HttpRequest({
     protocol,
@@ -343,9 +341,8 @@ export const serializeAws_restJson1CreateWorkloadShareCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.PermissionType !== undefined &&
-      input.PermissionType !== null && { PermissionType: input.PermissionType }),
-    ...(input.SharedWith !== undefined && input.SharedWith !== null && { SharedWith: input.SharedWith }),
+    ...(input.PermissionType != undefined && { PermissionType: input.PermissionType }),
+    ...(input.SharedWith != undefined && { SharedWith: input.SharedWith }),
   });
   return new __HttpRequest({
     protocol,
@@ -529,8 +526,9 @@ export const serializeAws_restJson1DisassociateLensesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LensAliases !== undefined &&
-      input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
+    ...(input.LensAliases != undefined && {
+      LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -859,9 +857,9 @@ export const serializeAws_restJson1ImportLensCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.JSONString !== undefined && input.JSONString !== null && { JSONString: input.JSONString }),
-    ...(input.LensAlias !== undefined && input.LensAlias !== null && { LensAlias: input.LensAlias }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.JSONString != undefined && { JSONString: input.JSONString }),
+    ...(input.LensAlias != undefined && { LensAlias: input.LensAlias }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1086,8 +1084,8 @@ export const serializeAws_restJson1ListMilestonesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1111,9 +1109,9 @@ export const serializeAws_restJson1ListNotificationsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/notifications";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.WorkloadId !== undefined && input.WorkloadId !== null && { WorkloadId: input.WorkloadId }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.WorkloadId != undefined && { WorkloadId: input.WorkloadId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1192,10 +1190,9 @@ export const serializeAws_restJson1ListWorkloadsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloadsSummaries";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.WorkloadNamePrefix !== undefined &&
-      input.WorkloadNamePrefix !== null && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.WorkloadNamePrefix != undefined && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
   });
   return new __HttpRequest({
     protocol,
@@ -1264,7 +1261,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1349,17 +1346,15 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ChoiceUpdates !== undefined &&
-      input.ChoiceUpdates !== null && {
-        ChoiceUpdates: serializeAws_restJson1ChoiceUpdates(input.ChoiceUpdates, context),
-      }),
-    ...(input.IsApplicable !== undefined && input.IsApplicable !== null && { IsApplicable: input.IsApplicable }),
-    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.SelectedChoices !== undefined &&
-      input.SelectedChoices !== null && {
-        SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
-      }),
+    ...(input.ChoiceUpdates != undefined && {
+      ChoiceUpdates: serializeAws_restJson1ChoiceUpdates(input.ChoiceUpdates, context),
+    }),
+    ...(input.IsApplicable != undefined && { IsApplicable: input.IsApplicable }),
+    ...(input.Notes != undefined && { Notes: input.Notes }),
+    ...(input.Reason != undefined && { Reason: input.Reason }),
+    ...(input.SelectedChoices != undefined && {
+      SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1383,8 +1378,7 @@ export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
   let body: any;
   body = JSON.stringify({
-    ...(input.OrganizationSharingStatus !== undefined &&
-      input.OrganizationSharingStatus !== null && { OrganizationSharingStatus: input.OrganizationSharingStatus }),
+    ...(input.OrganizationSharingStatus != undefined && { OrganizationSharingStatus: input.OrganizationSharingStatus }),
   });
   return new __HttpRequest({
     protocol,
@@ -1428,9 +1422,10 @@ export const serializeAws_restJson1UpdateLensReviewCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LensNotes !== undefined && input.LensNotes !== null && { LensNotes: input.LensNotes }),
-    ...(input.PillarNotes !== undefined &&
-      input.PillarNotes !== null && { PillarNotes: serializeAws_restJson1PillarNotes(input.PillarNotes, context) }),
+    ...(input.LensNotes != undefined && { LensNotes: input.LensNotes }),
+    ...(input.PillarNotes != undefined && {
+      PillarNotes: serializeAws_restJson1PillarNotes(input.PillarNotes, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1464,8 +1459,7 @@ export const serializeAws_restJson1UpdateShareInvitationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ShareInvitationAction !== undefined &&
-      input.ShareInvitationAction !== null && { ShareInvitationAction: input.ShareInvitationAction }),
+    ...(input.ShareInvitationAction != undefined && { ShareInvitationAction: input.ShareInvitationAction }),
   });
   return new __HttpRequest({
     protocol,
@@ -1498,33 +1492,30 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined &&
-      input.AccountIds !== null && { AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context) }),
-    ...(input.ArchitecturalDesign !== undefined &&
-      input.ArchitecturalDesign !== null && { ArchitecturalDesign: input.ArchitecturalDesign }),
-    ...(input.AwsRegions !== undefined &&
-      input.AwsRegions !== null && { AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context) }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Environment !== undefined && input.Environment !== null && { Environment: input.Environment }),
-    ...(input.ImprovementStatus !== undefined &&
-      input.ImprovementStatus !== null && { ImprovementStatus: input.ImprovementStatus }),
-    ...(input.Industry !== undefined && input.Industry !== null && { Industry: input.Industry }),
-    ...(input.IndustryType !== undefined && input.IndustryType !== null && { IndustryType: input.IndustryType }),
-    ...(input.IsReviewOwnerUpdateAcknowledged !== undefined &&
-      input.IsReviewOwnerUpdateAcknowledged !== null && {
-        IsReviewOwnerUpdateAcknowledged: input.IsReviewOwnerUpdateAcknowledged,
-      }),
-    ...(input.NonAwsRegions !== undefined &&
-      input.NonAwsRegions !== null && {
-        NonAwsRegions: serializeAws_restJson1WorkloadNonAwsRegions(input.NonAwsRegions, context),
-      }),
-    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
-    ...(input.PillarPriorities !== undefined &&
-      input.PillarPriorities !== null && {
-        PillarPriorities: serializeAws_restJson1WorkloadPillarPriorities(input.PillarPriorities, context),
-      }),
-    ...(input.ReviewOwner !== undefined && input.ReviewOwner !== null && { ReviewOwner: input.ReviewOwner }),
-    ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
+    ...(input.AccountIds != undefined && {
+      AccountIds: serializeAws_restJson1WorkloadAccountIds(input.AccountIds, context),
+    }),
+    ...(input.ArchitecturalDesign != undefined && { ArchitecturalDesign: input.ArchitecturalDesign }),
+    ...(input.AwsRegions != undefined && {
+      AwsRegions: serializeAws_restJson1WorkloadAwsRegions(input.AwsRegions, context),
+    }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Environment != undefined && { Environment: input.Environment }),
+    ...(input.ImprovementStatus != undefined && { ImprovementStatus: input.ImprovementStatus }),
+    ...(input.Industry != undefined && { Industry: input.Industry }),
+    ...(input.IndustryType != undefined && { IndustryType: input.IndustryType }),
+    ...(input.IsReviewOwnerUpdateAcknowledged != undefined && {
+      IsReviewOwnerUpdateAcknowledged: input.IsReviewOwnerUpdateAcknowledged,
+    }),
+    ...(input.NonAwsRegions != undefined && {
+      NonAwsRegions: serializeAws_restJson1WorkloadNonAwsRegions(input.NonAwsRegions, context),
+    }),
+    ...(input.Notes != undefined && { Notes: input.Notes }),
+    ...(input.PillarPriorities != undefined && {
+      PillarPriorities: serializeAws_restJson1WorkloadPillarPriorities(input.PillarPriorities, context),
+    }),
+    ...(input.ReviewOwner != undefined && { ReviewOwner: input.ReviewOwner }),
+    ...(input.WorkloadName != undefined && { WorkloadName: input.WorkloadName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1567,8 +1558,7 @@ export const serializeAws_restJson1UpdateWorkloadShareCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.PermissionType !== undefined &&
-      input.PermissionType !== null && { PermissionType: input.PermissionType }),
+    ...(input.PermissionType != undefined && { PermissionType: input.PermissionType }),
   });
   return new __HttpRequest({
     protocol,
@@ -1612,9 +1602,8 @@ export const serializeAws_restJson1UpgradeLensReviewCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ClientRequestToken !== undefined &&
-      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
+    ...(input.ClientRequestToken != undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.MilestoneName != undefined && { MilestoneName: input.MilestoneName }),
   });
   return new __HttpRequest({
     protocol,
@@ -4237,9 +4226,9 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ChoiceUpdate = (input: ChoiceUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Notes != undefined && { Notes: input.Notes }),
+    ...(input.Reason != undefined && { Reason: input.Reason }),
+    ...(input.Status != undefined && { Status: input.Status }),
   };
 };
 
@@ -4358,10 +4347,7 @@ const serializeAws_restJson1WorkloadPillarPriorities = (input: string[], context
 
 const deserializeAws_restJson1AdditionalResources = (output: any, context: __SerdeContext): AdditionalResources => {
   return {
-    Content:
-      output.Content !== undefined && output.Content !== null
-        ? deserializeAws_restJson1Urls(output.Content, context)
-        : undefined,
+    Content: output.Content != undefined ? deserializeAws_restJson1Urls(output.Content, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -4384,13 +4370,10 @@ const deserializeAws_restJson1AdditionalResourcesList = (
 const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): Answer => {
   return {
     ChoiceAnswers:
-      output.ChoiceAnswers !== undefined && output.ChoiceAnswers !== null
+      output.ChoiceAnswers != undefined
         ? deserializeAws_restJson1ChoiceAnswers(output.ChoiceAnswers, context)
         : undefined,
-    Choices:
-      output.Choices !== undefined && output.Choices !== null
-        ? deserializeAws_restJson1Choices(output.Choices, context)
-        : undefined,
+    Choices: output.Choices != undefined ? deserializeAws_restJson1Choices(output.Choices, context) : undefined,
     HelpfulResourceDisplayText: __expectString(output.HelpfulResourceDisplayText),
     HelpfulResourceUrl: __expectString(output.HelpfulResourceUrl),
     ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
@@ -4403,7 +4386,7 @@ const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): A
     Reason: __expectString(output.Reason),
     Risk: __expectString(output.Risk),
     SelectedChoices:
-      output.SelectedChoices !== undefined && output.SelectedChoices !== null
+      output.SelectedChoices != undefined
         ? deserializeAws_restJson1SelectedChoices(output.SelectedChoices, context)
         : undefined,
   } as any;
@@ -4424,13 +4407,10 @@ const deserializeAws_restJson1AnswerSummaries = (output: any, context: __SerdeCo
 const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeContext): AnswerSummary => {
   return {
     ChoiceAnswerSummaries:
-      output.ChoiceAnswerSummaries !== undefined && output.ChoiceAnswerSummaries !== null
+      output.ChoiceAnswerSummaries != undefined
         ? deserializeAws_restJson1ChoiceAnswerSummaries(output.ChoiceAnswerSummaries, context)
         : undefined,
-    Choices:
-      output.Choices !== undefined && output.Choices !== null
-        ? deserializeAws_restJson1Choices(output.Choices, context)
-        : undefined,
+    Choices: output.Choices != undefined ? deserializeAws_restJson1Choices(output.Choices, context) : undefined,
     IsApplicable: __expectBoolean(output.IsApplicable),
     PillarId: __expectString(output.PillarId),
     QuestionId: __expectString(output.QuestionId),
@@ -4438,7 +4418,7 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
     Reason: __expectString(output.Reason),
     Risk: __expectString(output.Risk),
     SelectedChoices:
-      output.SelectedChoices !== undefined && output.SelectedChoices !== null
+      output.SelectedChoices != undefined
         ? deserializeAws_restJson1SelectedChoices(output.SelectedChoices, context)
         : undefined,
   } as any;
@@ -4447,17 +4427,17 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Choice = (output: any, context: __SerdeContext): Choice => {
   return {
     AdditionalResources:
-      output.AdditionalResources !== undefined && output.AdditionalResources !== null
+      output.AdditionalResources != undefined
         ? deserializeAws_restJson1AdditionalResourcesList(output.AdditionalResources, context)
         : undefined,
     ChoiceId: __expectString(output.ChoiceId),
     Description: __expectString(output.Description),
     HelpfulResource:
-      output.HelpfulResource !== undefined && output.HelpfulResource !== null
+      output.HelpfulResource != undefined
         ? deserializeAws_restJson1ChoiceContent(output.HelpfulResource, context)
         : undefined,
     ImprovementPlan:
-      output.ImprovementPlan !== undefined && output.ImprovementPlan !== null
+      output.ImprovementPlan != undefined
         ? deserializeAws_restJson1ChoiceContent(output.ImprovementPlan, context)
         : undefined,
     Title: __expectString(output.Title),
@@ -4563,7 +4543,7 @@ const deserializeAws_restJson1ImprovementSummary = (output: any, context: __Serd
   return {
     ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
     ImprovementPlans:
-      output.ImprovementPlans !== undefined && output.ImprovementPlans !== null
+      output.ImprovementPlans != undefined
         ? deserializeAws_restJson1ChoiceImprovementPlans(output.ImprovementPlans, context)
         : undefined,
     PillarId: __expectString(output.PillarId),
@@ -4581,10 +4561,7 @@ const deserializeAws_restJson1Lens = (output: any, context: __SerdeContext): Len
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
     ShareInvitationId: __expectString(output.ShareInvitationId),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -4598,15 +4575,13 @@ const deserializeAws_restJson1LensReview = (output: any, context: __SerdeContext
     NextToken: __expectString(output.NextToken),
     Notes: __expectString(output.Notes),
     PillarReviewSummaries:
-      output.PillarReviewSummaries !== undefined && output.PillarReviewSummaries !== null
+      output.PillarReviewSummaries != undefined
         ? deserializeAws_restJson1PillarReviewSummaries(output.PillarReviewSummaries, context)
         : undefined,
     RiskCounts:
-      output.RiskCounts !== undefined && output.RiskCounts !== null
-        ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
-        : undefined,
+      output.RiskCounts != undefined ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -4640,11 +4615,9 @@ const deserializeAws_restJson1LensReviewSummary = (output: any, context: __Serde
     LensStatus: __expectString(output.LensStatus),
     LensVersion: __expectString(output.LensVersion),
     RiskCounts:
-      output.RiskCounts !== undefined && output.RiskCounts !== null
-        ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
-        : undefined,
+      output.RiskCounts != undefined ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -4686,7 +4659,7 @@ const deserializeAws_restJson1LensSummaries = (output: any, context: __SerdeCont
 const deserializeAws_restJson1LensSummary = (output: any, context: __SerdeContext): LensSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
@@ -4698,7 +4671,7 @@ const deserializeAws_restJson1LensSummary = (output: any, context: __SerdeContex
     LensVersion: __expectString(output.LensVersion),
     Owner: __expectString(output.Owner),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -4720,13 +4693,10 @@ const deserializeAws_restJson1Milestone = (output: any, context: __SerdeContext)
     MilestoneName: __expectString(output.MilestoneName),
     MilestoneNumber: __expectInt32(output.MilestoneNumber),
     RecordedAt:
-      output.RecordedAt !== undefined && output.RecordedAt !== null
+      output.RecordedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt)))
         : undefined,
-    Workload:
-      output.Workload !== undefined && output.Workload !== null
-        ? deserializeAws_restJson1Workload(output.Workload, context)
-        : undefined,
+    Workload: output.Workload != undefined ? deserializeAws_restJson1Workload(output.Workload, context) : undefined,
   } as any;
 };
 
@@ -4747,11 +4717,11 @@ const deserializeAws_restJson1MilestoneSummary = (output: any, context: __SerdeC
     MilestoneName: __expectString(output.MilestoneName),
     MilestoneNumber: __expectInt32(output.MilestoneNumber),
     RecordedAt:
-      output.RecordedAt !== undefined && output.RecordedAt !== null
+      output.RecordedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RecordedAt)))
         : undefined,
     WorkloadSummary:
-      output.WorkloadSummary !== undefined && output.WorkloadSummary !== null
+      output.WorkloadSummary != undefined
         ? deserializeAws_restJson1WorkloadSummary(output.WorkloadSummary, context)
         : undefined,
   } as any;
@@ -4772,7 +4742,7 @@ const deserializeAws_restJson1NotificationSummaries = (output: any, context: __S
 const deserializeAws_restJson1NotificationSummary = (output: any, context: __SerdeContext): NotificationSummary => {
   return {
     LensUpgradeSummary:
-      output.LensUpgradeSummary !== undefined && output.LensUpgradeSummary !== null
+      output.LensUpgradeSummary != undefined
         ? deserializeAws_restJson1LensUpgradeSummary(output.LensUpgradeSummary, context)
         : undefined,
     Type: __expectString(output.Type),
@@ -4785,7 +4755,7 @@ const deserializeAws_restJson1PillarDifference = (output: any, context: __SerdeC
     PillarId: __expectString(output.PillarId),
     PillarName: __expectString(output.PillarName),
     QuestionDifferences:
-      output.QuestionDifferences !== undefined && output.QuestionDifferences !== null
+      output.QuestionDifferences != undefined
         ? deserializeAws_restJson1QuestionDifferences(output.QuestionDifferences, context)
         : undefined,
   } as any;
@@ -4821,9 +4791,7 @@ const deserializeAws_restJson1PillarReviewSummary = (output: any, context: __Ser
     PillarId: __expectString(output.PillarId),
     PillarName: __expectString(output.PillarName),
     RiskCounts:
-      output.RiskCounts !== undefined && output.RiskCounts !== null
-        ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
-        : undefined,
+      output.RiskCounts != undefined ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context) : undefined,
   } as any;
 };
 
@@ -4965,7 +4933,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
 const deserializeAws_restJson1VersionDifferences = (output: any, context: __SerdeContext): VersionDifferences => {
   return {
     PillarDifferences:
-      output.PillarDifferences !== undefined && output.PillarDifferences !== null
+      output.PillarDifferences != undefined
         ? deserializeAws_restJson1PillarDifferences(output.PillarDifferences, context)
         : undefined,
   } as any;
@@ -4974,12 +4942,12 @@ const deserializeAws_restJson1VersionDifferences = (output: any, context: __Serd
 const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext): Workload => {
   return {
     AccountIds:
-      output.AccountIds !== undefined && output.AccountIds !== null
+      output.AccountIds != undefined
         ? deserializeAws_restJson1WorkloadAccountIds(output.AccountIds, context)
         : undefined,
     ArchitecturalDesign: __expectString(output.ArchitecturalDesign),
     AwsRegions:
-      output.AwsRegions !== undefined && output.AwsRegions !== null
+      output.AwsRegions != undefined
         ? deserializeAws_restJson1WorkloadAwsRegions(output.AwsRegions, context)
         : undefined,
     Description: __expectString(output.Description),
@@ -4988,36 +4956,28 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
     Industry: __expectString(output.Industry),
     IndustryType: __expectString(output.IndustryType),
     IsReviewOwnerUpdateAcknowledged: __expectBoolean(output.IsReviewOwnerUpdateAcknowledged),
-    Lenses:
-      output.Lenses !== undefined && output.Lenses !== null
-        ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context)
-        : undefined,
+    Lenses: output.Lenses != undefined ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context) : undefined,
     NonAwsRegions:
-      output.NonAwsRegions !== undefined && output.NonAwsRegions !== null
+      output.NonAwsRegions != undefined
         ? deserializeAws_restJson1WorkloadNonAwsRegions(output.NonAwsRegions, context)
         : undefined,
     Notes: __expectString(output.Notes),
     Owner: __expectString(output.Owner),
     PillarPriorities:
-      output.PillarPriorities !== undefined && output.PillarPriorities !== null
+      output.PillarPriorities != undefined
         ? deserializeAws_restJson1WorkloadPillarPriorities(output.PillarPriorities, context)
         : undefined,
     ReviewOwner: __expectString(output.ReviewOwner),
     ReviewRestrictionDate:
-      output.ReviewRestrictionDate !== undefined && output.ReviewRestrictionDate !== null
+      output.ReviewRestrictionDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReviewRestrictionDate)))
         : undefined,
     RiskCounts:
-      output.RiskCounts !== undefined && output.RiskCounts !== null
-        ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
-        : undefined,
+      output.RiskCounts != undefined ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context) : undefined,
     ShareInvitationId: __expectString(output.ShareInvitationId),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     WorkloadArn: __expectString(output.WorkloadArn),
@@ -5138,17 +5098,12 @@ const deserializeAws_restJson1WorkloadSummaries = (output: any, context: __Serde
 const deserializeAws_restJson1WorkloadSummary = (output: any, context: __SerdeContext): WorkloadSummary => {
   return {
     ImprovementStatus: __expectString(output.ImprovementStatus),
-    Lenses:
-      output.Lenses !== undefined && output.Lenses !== null
-        ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context)
-        : undefined,
+    Lenses: output.Lenses != undefined ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context) : undefined,
     Owner: __expectString(output.Owner),
     RiskCounts:
-      output.RiskCounts !== undefined && output.RiskCounts !== null
-        ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
-        : undefined,
+      output.RiskCounts != undefined ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     WorkloadArn: __expectString(output.WorkloadArn),

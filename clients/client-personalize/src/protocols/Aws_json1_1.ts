@@ -4206,59 +4206,56 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1AutoMLConfig = (input: AutoMLConfig, context: __SerdeContext): any => {
   return {
-    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
-    ...(input.recipeList !== undefined &&
-      input.recipeList !== null && { recipeList: serializeAws_json1_1ArnList(input.recipeList, context) }),
+    ...(input.metricName != undefined && { metricName: input.metricName }),
+    ...(input.recipeList != undefined && { recipeList: serializeAws_json1_1ArnList(input.recipeList, context) }),
   };
 };
 
 const serializeAws_json1_1BatchInferenceJobConfig = (input: BatchInferenceJobConfig, context: __SerdeContext): any => {
   return {
-    ...(input.itemExplorationConfig !== undefined &&
-      input.itemExplorationConfig !== null && {
-        itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
-      }),
+    ...(input.itemExplorationConfig != undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
+    }),
   };
 };
 
 const serializeAws_json1_1BatchInferenceJobInput = (input: BatchInferenceJobInput, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataSource !== undefined &&
-      input.s3DataSource !== null && { s3DataSource: serializeAws_json1_1S3DataConfig(input.s3DataSource, context) }),
+    ...(input.s3DataSource != undefined && {
+      s3DataSource: serializeAws_json1_1S3DataConfig(input.s3DataSource, context),
+    }),
   };
 };
 
 const serializeAws_json1_1BatchInferenceJobOutput = (input: BatchInferenceJobOutput, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataDestination !== undefined &&
-      input.s3DataDestination !== null && {
-        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
-      }),
+    ...(input.s3DataDestination != undefined && {
+      s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
   };
 };
 
 const serializeAws_json1_1BatchSegmentJobInput = (input: BatchSegmentJobInput, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataSource !== undefined &&
-      input.s3DataSource !== null && { s3DataSource: serializeAws_json1_1S3DataConfig(input.s3DataSource, context) }),
+    ...(input.s3DataSource != undefined && {
+      s3DataSource: serializeAws_json1_1S3DataConfig(input.s3DataSource, context),
+    }),
   };
 };
 
 const serializeAws_json1_1BatchSegmentJobOutput = (input: BatchSegmentJobOutput, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataDestination !== undefined &&
-      input.s3DataDestination !== null && {
-        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
-      }),
+    ...(input.s3DataDestination != undefined && {
+      s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
   };
 };
 
 const serializeAws_json1_1CampaignConfig = (input: CampaignConfig, context: __SerdeContext): any => {
   return {
-    ...(input.itemExplorationConfig !== undefined &&
-      input.itemExplorationConfig !== null && {
-        itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
-      }),
+    ...(input.itemExplorationConfig != undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
+    }),
   };
 };
 
@@ -4267,9 +4264,8 @@ const serializeAws_json1_1CategoricalHyperParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_json1_1CategoricalValues(input.values, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.values != undefined && { values: serializeAws_json1_1CategoricalValues(input.values, context) }),
   };
 };
 
@@ -4303,9 +4299,9 @@ const serializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: __serializeFloat(input.maxValue) }),
-    ...(input.minValue !== undefined && input.minValue !== null && { minValue: __serializeFloat(input.minValue) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.maxValue != undefined && { maxValue: __serializeFloat(input.maxValue) }),
+    ...(input.minValue != undefined && { minValue: __serializeFloat(input.minValue) }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -4328,21 +4324,21 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.batchInferenceJobConfig !== undefined &&
-      input.batchInferenceJobConfig !== null && {
-        batchInferenceJobConfig: serializeAws_json1_1BatchInferenceJobConfig(input.batchInferenceJobConfig, context),
-      }),
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
-    ...(input.jobInput !== undefined &&
-      input.jobInput !== null && { jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context) }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.jobOutput !== undefined &&
-      input.jobOutput !== null && { jobOutput: serializeAws_json1_1BatchInferenceJobOutput(input.jobOutput, context) }),
-    ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.batchInferenceJobConfig != undefined && {
+      batchInferenceJobConfig: serializeAws_json1_1BatchInferenceJobConfig(input.batchInferenceJobConfig, context),
+    }),
+    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
+    ...(input.jobInput != undefined && {
+      jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context),
+    }),
+    ...(input.jobName != undefined && { jobName: input.jobName }),
+    ...(input.jobOutput != undefined && {
+      jobOutput: serializeAws_json1_1BatchInferenceJobOutput(input.jobOutput, context),
+    }),
+    ...(input.numResults != undefined && { numResults: input.numResults }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4351,32 +4347,28 @@ const serializeAws_json1_1CreateBatchSegmentJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
-    ...(input.jobInput !== undefined &&
-      input.jobInput !== null && { jobInput: serializeAws_json1_1BatchSegmentJobInput(input.jobInput, context) }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.jobOutput !== undefined &&
-      input.jobOutput !== null && { jobOutput: serializeAws_json1_1BatchSegmentJobOutput(input.jobOutput, context) }),
-    ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
+    ...(input.jobInput != undefined && { jobInput: serializeAws_json1_1BatchSegmentJobInput(input.jobInput, context) }),
+    ...(input.jobName != undefined && { jobName: input.jobName }),
+    ...(input.jobOutput != undefined && {
+      jobOutput: serializeAws_json1_1BatchSegmentJobOutput(input.jobOutput, context),
+    }),
+    ...(input.numResults != undefined && { numResults: input.numResults }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.campaignConfig !== undefined &&
-      input.campaignConfig !== null && {
-        campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
-      }),
-    ...(input.minProvisionedTPS !== undefined &&
-      input.minProvisionedTPS !== null && { minProvisionedTPS: input.minProvisionedTPS }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.campaignConfig != undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
+    ...(input.minProvisionedTPS != undefined && { minProvisionedTPS: input.minProvisionedTPS }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4385,13 +4377,14 @@ const serializeAws_json1_1CreateDatasetExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.ingestionMode !== undefined && input.ingestionMode !== null && { ingestionMode: input.ingestionMode }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.jobOutput !== undefined &&
-      input.jobOutput !== null && { jobOutput: serializeAws_json1_1DatasetExportJobOutput(input.jobOutput, context) }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.ingestionMode != undefined && { ingestionMode: input.ingestionMode }),
+    ...(input.jobName != undefined && { jobName: input.jobName }),
+    ...(input.jobOutput != undefined && {
+      jobOutput: serializeAws_json1_1DatasetExportJobOutput(input.jobOutput, context),
+    }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4400,11 +4393,11 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.domain != undefined && { domain: input.domain }),
+    ...(input.kmsKeyArn != undefined && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4413,23 +4406,21 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.dataSource !== undefined &&
-      input.dataSource !== null && { dataSource: serializeAws_json1_1DataSource(input.dataSource, context) }),
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.dataSource != undefined && { dataSource: serializeAws_json1_1DataSource(input.dataSource, context) }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.jobName != undefined && { jobName: input.jobName }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.datasetType !== undefined && input.datasetType !== null && { datasetType: input.datasetType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.datasetType != undefined && { datasetType: input.datasetType }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.schemaArn != undefined && { schemaArn: input.schemaArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4438,21 +4429,18 @@ const serializeAws_json1_1CreateEventTrackerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateFilterRequest = (input: CreateFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.filterExpression !== undefined &&
-      input.filterExpression !== null && { filterExpression: input.filterExpression }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.filterExpression != undefined && { filterExpression: input.filterExpression }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4461,40 +4449,36 @@ const serializeAws_json1_1CreateRecommenderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.recipeArn !== undefined && input.recipeArn !== null && { recipeArn: input.recipeArn }),
-    ...(input.recommenderConfig !== undefined &&
-      input.recommenderConfig !== null && {
-        recommenderConfig: serializeAws_json1_1RecommenderConfig(input.recommenderConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.recipeArn != undefined && { recipeArn: input.recipeArn }),
+    ...(input.recommenderConfig != undefined && {
+      recommenderConfig: serializeAws_json1_1RecommenderConfig(input.recommenderConfig, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateSchemaRequest = (input: CreateSchemaRequest, context: __SerdeContext): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
+    ...(input.domain != undefined && { domain: input.domain }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.schema != undefined && { schema: input.schema }),
   };
 };
 
 const serializeAws_json1_1CreateSolutionRequest = (input: CreateSolutionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.performAutoML !== undefined && input.performAutoML !== null && { performAutoML: input.performAutoML }),
-    ...(input.performHPO !== undefined && input.performHPO !== null && { performHPO: input.performHPO }),
-    ...(input.recipeArn !== undefined && input.recipeArn !== null && { recipeArn: input.recipeArn }),
-    ...(input.solutionConfig !== undefined &&
-      input.solutionConfig !== null && {
-        solutionConfig: serializeAws_json1_1SolutionConfig(input.solutionConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.eventType != undefined && { eventType: input.eventType }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.performAutoML != undefined && { performAutoML: input.performAutoML }),
+    ...(input.performHPO != undefined && { performHPO: input.performHPO }),
+    ...(input.recipeArn != undefined && { recipeArn: input.recipeArn }),
+    ...(input.solutionConfig != undefined && {
+      solutionConfig: serializeAws_json1_1SolutionConfig(input.solutionConfig, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -4503,30 +4487,29 @@ const serializeAws_json1_1CreateSolutionVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
-    ...(input.trainingMode !== undefined && input.trainingMode !== null && { trainingMode: input.trainingMode }),
+    ...(input.solutionArn != undefined && { solutionArn: input.solutionArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.trainingMode != undefined && { trainingMode: input.trainingMode }),
   };
 };
 
 const serializeAws_json1_1DatasetExportJobOutput = (input: DatasetExportJobOutput, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataDestination !== undefined &&
-      input.s3DataDestination !== null && {
-        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
-      }),
+    ...(input.s3DataDestination != undefined && {
+      s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
   };
 };
 
 const serializeAws_json1_1DataSource = (input: DataSource, context: __SerdeContext): any => {
   return {
-    ...(input.dataLocation !== undefined && input.dataLocation !== null && { dataLocation: input.dataLocation }),
+    ...(input.dataLocation != undefined && { dataLocation: input.dataLocation }),
   };
 };
 
 const serializeAws_json1_1DeleteCampaignRequest = (input: DeleteCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
+    ...(input.campaignArn != undefined && { campaignArn: input.campaignArn }),
   };
 };
 
@@ -4535,14 +4518,13 @@ const serializeAws_json1_1DeleteDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
   };
 };
 
 const serializeAws_json1_1DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
   };
 };
 
@@ -4551,14 +4533,13 @@ const serializeAws_json1_1DeleteEventTrackerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.eventTrackerArn !== undefined &&
-      input.eventTrackerArn !== null && { eventTrackerArn: input.eventTrackerArn }),
+    ...(input.eventTrackerArn != undefined && { eventTrackerArn: input.eventTrackerArn }),
   };
 };
 
 const serializeAws_json1_1DeleteFilterRequest = (input: DeleteFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
+    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
   };
 };
 
@@ -4567,20 +4548,19 @@ const serializeAws_json1_1DeleteRecommenderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.recommenderArn !== undefined &&
-      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
   };
 };
 
 const serializeAws_json1_1DeleteSchemaRequest = (input: DeleteSchemaRequest, context: __SerdeContext): any => {
   return {
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
+    ...(input.schemaArn != undefined && { schemaArn: input.schemaArn }),
   };
 };
 
 const serializeAws_json1_1DeleteSolutionRequest = (input: DeleteSolutionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+    ...(input.solutionArn != undefined && { solutionArn: input.solutionArn }),
   };
 };
 
@@ -4589,7 +4569,7 @@ const serializeAws_json1_1DescribeAlgorithmRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.algorithmArn !== undefined && input.algorithmArn !== null && { algorithmArn: input.algorithmArn }),
+    ...(input.algorithmArn != undefined && { algorithmArn: input.algorithmArn }),
   };
 };
 
@@ -4598,8 +4578,7 @@ const serializeAws_json1_1DescribeBatchInferenceJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.batchInferenceJobArn !== undefined &&
-      input.batchInferenceJobArn !== null && { batchInferenceJobArn: input.batchInferenceJobArn }),
+    ...(input.batchInferenceJobArn != undefined && { batchInferenceJobArn: input.batchInferenceJobArn }),
   };
 };
 
@@ -4608,14 +4587,13 @@ const serializeAws_json1_1DescribeBatchSegmentJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.batchSegmentJobArn !== undefined &&
-      input.batchSegmentJobArn !== null && { batchSegmentJobArn: input.batchSegmentJobArn }),
+    ...(input.batchSegmentJobArn != undefined && { batchSegmentJobArn: input.batchSegmentJobArn }),
   };
 };
 
 const serializeAws_json1_1DescribeCampaignRequest = (input: DescribeCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
+    ...(input.campaignArn != undefined && { campaignArn: input.campaignArn }),
   };
 };
 
@@ -4624,8 +4602,7 @@ const serializeAws_json1_1DescribeDatasetExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetExportJobArn !== undefined &&
-      input.datasetExportJobArn !== null && { datasetExportJobArn: input.datasetExportJobArn }),
+    ...(input.datasetExportJobArn != undefined && { datasetExportJobArn: input.datasetExportJobArn }),
   };
 };
 
@@ -4634,8 +4611,7 @@ const serializeAws_json1_1DescribeDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
   };
 };
 
@@ -4644,14 +4620,13 @@ const serializeAws_json1_1DescribeDatasetImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetImportJobArn !== undefined &&
-      input.datasetImportJobArn !== null && { datasetImportJobArn: input.datasetImportJobArn }),
+    ...(input.datasetImportJobArn != undefined && { datasetImportJobArn: input.datasetImportJobArn }),
   };
 };
 
 const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
   };
 };
 
@@ -4660,8 +4635,7 @@ const serializeAws_json1_1DescribeEventTrackerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.eventTrackerArn !== undefined &&
-      input.eventTrackerArn !== null && { eventTrackerArn: input.eventTrackerArn }),
+    ...(input.eventTrackerArn != undefined && { eventTrackerArn: input.eventTrackerArn }),
   };
 };
 
@@ -4670,20 +4644,19 @@ const serializeAws_json1_1DescribeFeatureTransformationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.featureTransformationArn !== undefined &&
-      input.featureTransformationArn !== null && { featureTransformationArn: input.featureTransformationArn }),
+    ...(input.featureTransformationArn != undefined && { featureTransformationArn: input.featureTransformationArn }),
   };
 };
 
 const serializeAws_json1_1DescribeFilterRequest = (input: DescribeFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
+    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
   };
 };
 
 const serializeAws_json1_1DescribeRecipeRequest = (input: DescribeRecipeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.recipeArn !== undefined && input.recipeArn !== null && { recipeArn: input.recipeArn }),
+    ...(input.recipeArn != undefined && { recipeArn: input.recipeArn }),
   };
 };
 
@@ -4692,20 +4665,19 @@ const serializeAws_json1_1DescribeRecommenderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.recommenderArn !== undefined &&
-      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
   };
 };
 
 const serializeAws_json1_1DescribeSchemaRequest = (input: DescribeSchemaRequest, context: __SerdeContext): any => {
   return {
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
+    ...(input.schemaArn != undefined && { schemaArn: input.schemaArn }),
   };
 };
 
 const serializeAws_json1_1DescribeSolutionRequest = (input: DescribeSolutionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+    ...(input.solutionArn != undefined && { solutionArn: input.solutionArn }),
   };
 };
 
@@ -4714,8 +4686,7 @@ const serializeAws_json1_1DescribeSolutionVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
@@ -4739,69 +4710,62 @@ const serializeAws_json1_1GetSolutionMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
 const serializeAws_json1_1HPOConfig = (input: HPOConfig, context: __SerdeContext): any => {
   return {
-    ...(input.algorithmHyperParameterRanges !== undefined &&
-      input.algorithmHyperParameterRanges !== null && {
-        algorithmHyperParameterRanges: serializeAws_json1_1HyperParameterRanges(
-          input.algorithmHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.hpoObjective !== undefined &&
-      input.hpoObjective !== null && { hpoObjective: serializeAws_json1_1HPOObjective(input.hpoObjective, context) }),
-    ...(input.hpoResourceConfig !== undefined &&
-      input.hpoResourceConfig !== null && {
-        hpoResourceConfig: serializeAws_json1_1HPOResourceConfig(input.hpoResourceConfig, context),
-      }),
+    ...(input.algorithmHyperParameterRanges != undefined && {
+      algorithmHyperParameterRanges: serializeAws_json1_1HyperParameterRanges(
+        input.algorithmHyperParameterRanges,
+        context
+      ),
+    }),
+    ...(input.hpoObjective != undefined && {
+      hpoObjective: serializeAws_json1_1HPOObjective(input.hpoObjective, context),
+    }),
+    ...(input.hpoResourceConfig != undefined && {
+      hpoResourceConfig: serializeAws_json1_1HPOResourceConfig(input.hpoResourceConfig, context),
+    }),
   };
 };
 
 const serializeAws_json1_1HPOObjective = (input: HPOObjective, context: __SerdeContext): any => {
   return {
-    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
-    ...(input.metricRegex !== undefined && input.metricRegex !== null && { metricRegex: input.metricRegex }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.metricName != undefined && { metricName: input.metricName }),
+    ...(input.metricRegex != undefined && { metricRegex: input.metricRegex }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1HPOResourceConfig = (input: HPOResourceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.maxNumberOfTrainingJobs !== undefined &&
-      input.maxNumberOfTrainingJobs !== null && { maxNumberOfTrainingJobs: input.maxNumberOfTrainingJobs }),
-    ...(input.maxParallelTrainingJobs !== undefined &&
-      input.maxParallelTrainingJobs !== null && { maxParallelTrainingJobs: input.maxParallelTrainingJobs }),
+    ...(input.maxNumberOfTrainingJobs != undefined && { maxNumberOfTrainingJobs: input.maxNumberOfTrainingJobs }),
+    ...(input.maxParallelTrainingJobs != undefined && { maxParallelTrainingJobs: input.maxParallelTrainingJobs }),
   };
 };
 
 const serializeAws_json1_1HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeContext): any => {
   return {
-    ...(input.categoricalHyperParameterRanges !== undefined &&
-      input.categoricalHyperParameterRanges !== null && {
-        categoricalHyperParameterRanges: serializeAws_json1_1CategoricalHyperParameterRanges(
-          input.categoricalHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.continuousHyperParameterRanges !== undefined &&
-      input.continuousHyperParameterRanges !== null && {
-        continuousHyperParameterRanges: serializeAws_json1_1ContinuousHyperParameterRanges(
-          input.continuousHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.integerHyperParameterRanges !== undefined &&
-      input.integerHyperParameterRanges !== null && {
-        integerHyperParameterRanges: serializeAws_json1_1IntegerHyperParameterRanges(
-          input.integerHyperParameterRanges,
-          context
-        ),
-      }),
+    ...(input.categoricalHyperParameterRanges != undefined && {
+      categoricalHyperParameterRanges: serializeAws_json1_1CategoricalHyperParameterRanges(
+        input.categoricalHyperParameterRanges,
+        context
+      ),
+    }),
+    ...(input.continuousHyperParameterRanges != undefined && {
+      continuousHyperParameterRanges: serializeAws_json1_1ContinuousHyperParameterRanges(
+        input.continuousHyperParameterRanges,
+        context
+      ),
+    }),
+    ...(input.integerHyperParameterRanges != undefined && {
+      integerHyperParameterRanges: serializeAws_json1_1IntegerHyperParameterRanges(
+        input.integerHyperParameterRanges,
+        context
+      ),
+    }),
   };
 };
 
@@ -4822,9 +4786,9 @@ const serializeAws_json1_1IntegerHyperParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: input.maxValue }),
-    ...(input.minValue !== undefined && input.minValue !== null && { minValue: input.minValue }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.maxValue != undefined && { maxValue: input.maxValue }),
+    ...(input.minValue != undefined && { minValue: input.minValue }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -4847,10 +4811,9 @@ const serializeAws_json1_1ListBatchInferenceJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
@@ -4859,18 +4822,17 @@ const serializeAws_json1_1ListBatchSegmentJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
 const serializeAws_json1_1ListCampaignsRequest = (input: ListCampaignsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.solutionArn != undefined && { solutionArn: input.solutionArn }),
   };
 };
 
@@ -4879,9 +4841,9 @@ const serializeAws_json1_1ListDatasetExportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -4890,8 +4852,8 @@ const serializeAws_json1_1ListDatasetGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -4900,18 +4862,17 @@ const serializeAws_json1_1ListDatasetImportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetArn != undefined && { datasetArn: input.datasetArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -4920,54 +4881,49 @@ const serializeAws_json1_1ListEventTrackersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListFiltersRequest = (input: ListFiltersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListRecipesRequest = (input: ListRecipesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.recipeProvider !== undefined &&
-      input.recipeProvider !== null && { recipeProvider: input.recipeProvider }),
+    ...(input.domain != undefined && { domain: input.domain }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.recipeProvider != undefined && { recipeProvider: input.recipeProvider }),
   };
 };
 
 const serializeAws_json1_1ListRecommendersRequest = (input: ListRecommendersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListSolutionsRequest = (input: ListSolutionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.datasetGroupArn != undefined && { datasetGroupArn: input.datasetGroupArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -4976,9 +4932,9 @@ const serializeAws_json1_1ListSolutionVersionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.solutionArn != undefined && { solutionArn: input.solutionArn }),
   };
 };
 
@@ -4987,75 +4943,66 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1OptimizationObjective = (input: OptimizationObjective, context: __SerdeContext): any => {
   return {
-    ...(input.itemAttribute !== undefined && input.itemAttribute !== null && { itemAttribute: input.itemAttribute }),
-    ...(input.objectiveSensitivity !== undefined &&
-      input.objectiveSensitivity !== null && { objectiveSensitivity: input.objectiveSensitivity }),
+    ...(input.itemAttribute != undefined && { itemAttribute: input.itemAttribute }),
+    ...(input.objectiveSensitivity != undefined && { objectiveSensitivity: input.objectiveSensitivity }),
   };
 };
 
 const serializeAws_json1_1RecommenderConfig = (input: RecommenderConfig, context: __SerdeContext): any => {
   return {
-    ...(input.itemExplorationConfig !== undefined &&
-      input.itemExplorationConfig !== null && {
-        itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
-      }),
-    ...(input.minRecommendationRequestsPerSecond !== undefined &&
-      input.minRecommendationRequestsPerSecond !== null && {
-        minRecommendationRequestsPerSecond: input.minRecommendationRequestsPerSecond,
-      }),
+    ...(input.itemExplorationConfig != undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
+    }),
+    ...(input.minRecommendationRequestsPerSecond != undefined && {
+      minRecommendationRequestsPerSecond: input.minRecommendationRequestsPerSecond,
+    }),
   };
 };
 
 const serializeAws_json1_1S3DataConfig = (input: S3DataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.path !== undefined && input.path !== null && { path: input.path }),
+    ...(input.kmsKeyArn != undefined && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.path != undefined && { path: input.path }),
   };
 };
 
 const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.algorithmHyperParameters !== undefined &&
-      input.algorithmHyperParameters !== null && {
-        algorithmHyperParameters: serializeAws_json1_1HyperParameters(input.algorithmHyperParameters, context),
-      }),
-    ...(input.autoMLConfig !== undefined &&
-      input.autoMLConfig !== null && { autoMLConfig: serializeAws_json1_1AutoMLConfig(input.autoMLConfig, context) }),
-    ...(input.eventValueThreshold !== undefined &&
-      input.eventValueThreshold !== null && { eventValueThreshold: input.eventValueThreshold }),
-    ...(input.featureTransformationParameters !== undefined &&
-      input.featureTransformationParameters !== null && {
-        featureTransformationParameters: serializeAws_json1_1FeatureTransformationParameters(
-          input.featureTransformationParameters,
-          context
-        ),
-      }),
-    ...(input.hpoConfig !== undefined &&
-      input.hpoConfig !== null && { hpoConfig: serializeAws_json1_1HPOConfig(input.hpoConfig, context) }),
-    ...(input.optimizationObjective !== undefined &&
-      input.optimizationObjective !== null && {
-        optimizationObjective: serializeAws_json1_1OptimizationObjective(input.optimizationObjective, context),
-      }),
+    ...(input.algorithmHyperParameters != undefined && {
+      algorithmHyperParameters: serializeAws_json1_1HyperParameters(input.algorithmHyperParameters, context),
+    }),
+    ...(input.autoMLConfig != undefined && {
+      autoMLConfig: serializeAws_json1_1AutoMLConfig(input.autoMLConfig, context),
+    }),
+    ...(input.eventValueThreshold != undefined && { eventValueThreshold: input.eventValueThreshold }),
+    ...(input.featureTransformationParameters != undefined && {
+      featureTransformationParameters: serializeAws_json1_1FeatureTransformationParameters(
+        input.featureTransformationParameters,
+        context
+      ),
+    }),
+    ...(input.hpoConfig != undefined && { hpoConfig: serializeAws_json1_1HPOConfig(input.hpoConfig, context) }),
+    ...(input.optimizationObjective != undefined && {
+      optimizationObjective: serializeAws_json1_1OptimizationObjective(input.optimizationObjective, context),
+    }),
   };
 };
 
 const serializeAws_json1_1StartRecommenderRequest = (input: StartRecommenderRequest, context: __SerdeContext): any => {
   return {
-    ...(input.recommenderArn !== undefined &&
-      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
   };
 };
 
 const serializeAws_json1_1StopRecommenderRequest = (input: StopRecommenderRequest, context: __SerdeContext): any => {
   return {
-    ...(input.recommenderArn !== undefined &&
-      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
   };
 };
 
@@ -5064,15 +5011,14 @@ const serializeAws_json1_1StopSolutionVersionCreationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.tagKey !== undefined && input.tagKey !== null && { tagKey: input.tagKey }),
-    ...(input.tagValue !== undefined && input.tagValue !== null && { tagValue: input.tagValue }),
+    ...(input.tagKey != undefined && { tagKey: input.tagKey }),
+    ...(input.tagValue != undefined && { tagValue: input.tagValue }),
   };
 };
 
@@ -5089,8 +5035,8 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
@@ -5107,23 +5053,19 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeys(input.tagKeys, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != undefined && { tagKeys: serializeAws_json1_1TagKeys(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
-    ...(input.campaignConfig !== undefined &&
-      input.campaignConfig !== null && {
-        campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
-      }),
-    ...(input.minProvisionedTPS !== undefined &&
-      input.minProvisionedTPS !== null && { minProvisionedTPS: input.minProvisionedTPS }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
+    ...(input.campaignArn != undefined && { campaignArn: input.campaignArn }),
+    ...(input.campaignConfig != undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
+    ...(input.minProvisionedTPS != undefined && { minProvisionedTPS: input.minProvisionedTPS }),
+    ...(input.solutionVersionArn != undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
@@ -5132,12 +5074,10 @@ const serializeAws_json1_1UpdateRecommenderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.recommenderArn !== undefined &&
-      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
-    ...(input.recommenderConfig !== undefined &&
-      input.recommenderConfig !== null && {
-        recommenderConfig: serializeAws_json1_1RecommenderConfig(input.recommenderConfig, context),
-      }),
+    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
+    ...(input.recommenderConfig != undefined && {
+      recommenderConfig: serializeAws_json1_1RecommenderConfig(input.recommenderConfig, context),
+    }),
   };
 };
 
@@ -5145,27 +5085,27 @@ const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): 
   return {
     algorithmArn: __expectString(output.algorithmArn),
     algorithmImage:
-      output.algorithmImage !== undefined && output.algorithmImage !== null
+      output.algorithmImage != undefined
         ? deserializeAws_json1_1AlgorithmImage(output.algorithmImage, context)
         : undefined,
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     defaultHyperParameterRanges:
-      output.defaultHyperParameterRanges !== undefined && output.defaultHyperParameterRanges !== null
+      output.defaultHyperParameterRanges != undefined
         ? deserializeAws_json1_1DefaultHyperParameterRanges(output.defaultHyperParameterRanges, context)
         : undefined,
     defaultHyperParameters:
-      output.defaultHyperParameters !== undefined && output.defaultHyperParameters !== null
+      output.defaultHyperParameters != undefined
         ? deserializeAws_json1_1HyperParameters(output.defaultHyperParameters, context)
         : undefined,
     defaultResourceConfig:
-      output.defaultResourceConfig !== undefined && output.defaultResourceConfig !== null
+      output.defaultResourceConfig != undefined
         ? deserializeAws_json1_1ResourceConfig(output.defaultResourceConfig, context)
         : undefined,
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5196,10 +5136,7 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
 const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext): AutoMLConfig => {
   return {
     metricName: __expectString(output.metricName),
-    recipeList:
-      output.recipeList !== undefined && output.recipeList !== null
-        ? deserializeAws_json1_1ArnList(output.recipeList, context)
-        : undefined,
+    recipeList: output.recipeList != undefined ? deserializeAws_json1_1ArnList(output.recipeList, context) : undefined,
   } as any;
 };
 
@@ -5213,26 +5150,24 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
   return {
     batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
     batchInferenceJobConfig:
-      output.batchInferenceJobConfig !== undefined && output.batchInferenceJobConfig !== null
+      output.batchInferenceJobConfig != undefined
         ? deserializeAws_json1_1BatchInferenceJobConfig(output.batchInferenceJobConfig, context)
         : undefined,
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     filterArn: __expectString(output.filterArn),
     jobInput:
-      output.jobInput !== undefined && output.jobInput !== null
-        ? deserializeAws_json1_1BatchInferenceJobInput(output.jobInput, context)
-        : undefined,
+      output.jobInput != undefined ? deserializeAws_json1_1BatchInferenceJobInput(output.jobInput, context) : undefined,
     jobName: __expectString(output.jobName),
     jobOutput:
-      output.jobOutput !== undefined && output.jobOutput !== null
+      output.jobOutput != undefined
         ? deserializeAws_json1_1BatchInferenceJobOutput(output.jobOutput, context)
         : undefined,
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     numResults: __expectInt32(output.numResults),
@@ -5248,7 +5183,7 @@ const deserializeAws_json1_1BatchInferenceJobConfig = (
 ): BatchInferenceJobConfig => {
   return {
     itemExplorationConfig:
-      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+      output.itemExplorationConfig != undefined
         ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
         : undefined,
   } as any;
@@ -5257,9 +5192,7 @@ const deserializeAws_json1_1BatchInferenceJobConfig = (
 const deserializeAws_json1_1BatchInferenceJobInput = (output: any, context: __SerdeContext): BatchInferenceJobInput => {
   return {
     s3DataSource:
-      output.s3DataSource !== undefined && output.s3DataSource !== null
-        ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context)
-        : undefined,
+      output.s3DataSource != undefined ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context) : undefined,
   } as any;
 };
 
@@ -5269,7 +5202,7 @@ const deserializeAws_json1_1BatchInferenceJobOutput = (
 ): BatchInferenceJobOutput => {
   return {
     s3DataDestination:
-      output.s3DataDestination !== undefined && output.s3DataDestination !== null
+      output.s3DataDestination != undefined
         ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
         : undefined,
   } as any;
@@ -5294,13 +5227,13 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
   return {
     batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
@@ -5312,22 +5245,20 @@ const deserializeAws_json1_1BatchSegmentJob = (output: any, context: __SerdeCont
   return {
     batchSegmentJobArn: __expectString(output.batchSegmentJobArn),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     filterArn: __expectString(output.filterArn),
     jobInput:
-      output.jobInput !== undefined && output.jobInput !== null
-        ? deserializeAws_json1_1BatchSegmentJobInput(output.jobInput, context)
-        : undefined,
+      output.jobInput != undefined ? deserializeAws_json1_1BatchSegmentJobInput(output.jobInput, context) : undefined,
     jobName: __expectString(output.jobName),
     jobOutput:
-      output.jobOutput !== undefined && output.jobOutput !== null
+      output.jobOutput != undefined
         ? deserializeAws_json1_1BatchSegmentJobOutput(output.jobOutput, context)
         : undefined,
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     numResults: __expectInt32(output.numResults),
@@ -5340,16 +5271,14 @@ const deserializeAws_json1_1BatchSegmentJob = (output: any, context: __SerdeCont
 const deserializeAws_json1_1BatchSegmentJobInput = (output: any, context: __SerdeContext): BatchSegmentJobInput => {
   return {
     s3DataSource:
-      output.s3DataSource !== undefined && output.s3DataSource !== null
-        ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context)
-        : undefined,
+      output.s3DataSource != undefined ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BatchSegmentJobOutput = (output: any, context: __SerdeContext): BatchSegmentJobOutput => {
   return {
     s3DataDestination:
-      output.s3DataDestination !== undefined && output.s3DataDestination !== null
+      output.s3DataDestination != undefined
         ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
         : undefined,
   } as any;
@@ -5371,13 +5300,13 @@ const deserializeAws_json1_1BatchSegmentJobSummary = (output: any, context: __Se
   return {
     batchSegmentJobArn: __expectString(output.batchSegmentJobArn),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
@@ -5389,20 +5318,20 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
   return {
     campaignArn: __expectString(output.campaignArn),
     campaignConfig:
-      output.campaignConfig !== undefined && output.campaignConfig !== null
+      output.campaignConfig != undefined
         ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
         : undefined,
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestCampaignUpdate:
-      output.latestCampaignUpdate !== undefined && output.latestCampaignUpdate !== null
+      output.latestCampaignUpdate != undefined
         ? deserializeAws_json1_1CampaignUpdateSummary(output.latestCampaignUpdate, context)
         : undefined,
     minProvisionedTPS: __expectInt32(output.minProvisionedTPS),
@@ -5415,7 +5344,7 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
 const deserializeAws_json1_1CampaignConfig = (output: any, context: __SerdeContext): CampaignConfig => {
   return {
     itemExplorationConfig:
-      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+      output.itemExplorationConfig != undefined
         ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
         : undefined,
   } as any;
@@ -5437,12 +5366,12 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
   return {
     campaignArn: __expectString(output.campaignArn),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5453,16 +5382,16 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
 const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
   return {
     campaignConfig:
-      output.campaignConfig !== undefined && output.campaignConfig !== null
+      output.campaignConfig != undefined
         ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
         : undefined,
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     minProvisionedTPS: __expectInt32(output.minProvisionedTPS),
@@ -5477,10 +5406,7 @@ const deserializeAws_json1_1CategoricalHyperParameterRange = (
 ): CategoricalHyperParameterRange => {
   return {
     name: __expectString(output.name),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_json1_1CategoricalValues(output.values, context)
-        : undefined,
+    values: output.values != undefined ? deserializeAws_json1_1CategoricalValues(output.values, context) : undefined,
   } as any;
 };
 
@@ -5644,14 +5570,14 @@ const deserializeAws_json1_1CreateSolutionVersionResponse = (
 const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetGroupArn: __expectString(output.datasetGroupArn),
     datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5663,7 +5589,7 @@ const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Da
 const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeContext): DatasetExportJob => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
@@ -5672,11 +5598,11 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
     ingestionMode: __expectString(output.ingestionMode),
     jobName: __expectString(output.jobName),
     jobOutput:
-      output.jobOutput !== undefined && output.jobOutput !== null
+      output.jobOutput != undefined
         ? deserializeAws_json1_1DatasetExportJobOutput(output.jobOutput, context)
         : undefined,
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -5687,7 +5613,7 @@ const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeCon
 const deserializeAws_json1_1DatasetExportJobOutput = (output: any, context: __SerdeContext): DatasetExportJobOutput => {
   return {
     s3DataDestination:
-      output.s3DataDestination !== undefined && output.s3DataDestination !== null
+      output.s3DataDestination != undefined
         ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
         : undefined,
   } as any;
@@ -5711,14 +5637,14 @@ const deserializeAws_json1_1DatasetExportJobSummary = (
 ): DatasetExportJobSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetExportJobArn: __expectString(output.datasetExportJobArn),
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     status: __expectString(output.status),
@@ -5728,7 +5654,7 @@ const deserializeAws_json1_1DatasetExportJobSummary = (
 const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext): DatasetGroup => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
@@ -5736,7 +5662,7 @@ const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext
     failureReason: __expectString(output.failureReason),
     kmsKeyArn: __expectString(output.kmsKeyArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5760,14 +5686,14 @@ const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContex
 const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     domain: __expectString(output.domain),
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5778,19 +5704,17 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
 const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeContext): DatasetImportJob => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? deserializeAws_json1_1DataSource(output.dataSource, context)
-        : undefined,
+      output.dataSource != undefined ? deserializeAws_json1_1DataSource(output.dataSource, context) : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetImportJobArn: __expectString(output.datasetImportJobArn),
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -5816,14 +5740,14 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 ): DatasetImportJobSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetImportJobArn: __expectString(output.datasetImportJobArn),
     failureReason: __expectString(output.failureReason),
     jobName: __expectString(output.jobName),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     status: __expectString(output.status),
@@ -5845,12 +5769,12 @@ const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): D
 const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContext): DatasetSchema => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     domain: __expectString(output.domain),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5862,12 +5786,12 @@ const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContex
 const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __SerdeContext): DatasetSchemaSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     domain: __expectString(output.domain),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5878,13 +5802,13 @@ const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __Serd
 const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetArn: __expectString(output.datasetArn),
     datasetType: __expectString(output.datasetType),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -5905,10 +5829,7 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
   return {
     isTunable: __expectBoolean(output.isTunable),
     name: __expectString(output.name),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_json1_1CategoricalValues(output.values, context)
-        : undefined,
+    values: output.values != undefined ? deserializeAws_json1_1CategoricalValues(output.values, context) : undefined,
   } as any;
 };
 
@@ -5960,15 +5881,15 @@ const deserializeAws_json1_1DefaultHyperParameterRanges = (
 ): DefaultHyperParameterRanges => {
   return {
     categoricalHyperParameterRanges:
-      output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
+      output.categoricalHyperParameterRanges != undefined
         ? deserializeAws_json1_1DefaultCategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
         : undefined,
     continuousHyperParameterRanges:
-      output.continuousHyperParameterRanges !== undefined && output.continuousHyperParameterRanges !== null
+      output.continuousHyperParameterRanges != undefined
         ? deserializeAws_json1_1DefaultContinuousHyperParameterRanges(output.continuousHyperParameterRanges, context)
         : undefined,
     integerHyperParameterRanges:
-      output.integerHyperParameterRanges !== undefined && output.integerHyperParameterRanges !== null
+      output.integerHyperParameterRanges != undefined
         ? deserializeAws_json1_1DefaultIntegerHyperParameterRanges(output.integerHyperParameterRanges, context)
         : undefined,
   } as any;
@@ -6006,10 +5927,7 @@ const deserializeAws_json1_1DescribeAlgorithmResponse = (
   context: __SerdeContext
 ): DescribeAlgorithmResponse => {
   return {
-    algorithm:
-      output.algorithm !== undefined && output.algorithm !== null
-        ? deserializeAws_json1_1Algorithm(output.algorithm, context)
-        : undefined,
+    algorithm: output.algorithm != undefined ? deserializeAws_json1_1Algorithm(output.algorithm, context) : undefined,
   } as any;
 };
 
@@ -6019,7 +5937,7 @@ const deserializeAws_json1_1DescribeBatchInferenceJobResponse = (
 ): DescribeBatchInferenceJobResponse => {
   return {
     batchInferenceJob:
-      output.batchInferenceJob !== undefined && output.batchInferenceJob !== null
+      output.batchInferenceJob != undefined
         ? deserializeAws_json1_1BatchInferenceJob(output.batchInferenceJob, context)
         : undefined,
   } as any;
@@ -6031,7 +5949,7 @@ const deserializeAws_json1_1DescribeBatchSegmentJobResponse = (
 ): DescribeBatchSegmentJobResponse => {
   return {
     batchSegmentJob:
-      output.batchSegmentJob !== undefined && output.batchSegmentJob !== null
+      output.batchSegmentJob != undefined
         ? deserializeAws_json1_1BatchSegmentJob(output.batchSegmentJob, context)
         : undefined,
   } as any;
@@ -6042,10 +5960,7 @@ const deserializeAws_json1_1DescribeCampaignResponse = (
   context: __SerdeContext
 ): DescribeCampaignResponse => {
   return {
-    campaign:
-      output.campaign !== undefined && output.campaign !== null
-        ? deserializeAws_json1_1Campaign(output.campaign, context)
-        : undefined,
+    campaign: output.campaign != undefined ? deserializeAws_json1_1Campaign(output.campaign, context) : undefined,
   } as any;
 };
 
@@ -6055,7 +5970,7 @@ const deserializeAws_json1_1DescribeDatasetExportJobResponse = (
 ): DescribeDatasetExportJobResponse => {
   return {
     datasetExportJob:
-      output.datasetExportJob !== undefined && output.datasetExportJob !== null
+      output.datasetExportJob != undefined
         ? deserializeAws_json1_1DatasetExportJob(output.datasetExportJob, context)
         : undefined,
   } as any;
@@ -6067,9 +5982,7 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
 ): DescribeDatasetGroupResponse => {
   return {
     datasetGroup:
-      output.datasetGroup !== undefined && output.datasetGroup !== null
-        ? deserializeAws_json1_1DatasetGroup(output.datasetGroup, context)
-        : undefined,
+      output.datasetGroup != undefined ? deserializeAws_json1_1DatasetGroup(output.datasetGroup, context) : undefined,
   } as any;
 };
 
@@ -6079,7 +5992,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
 ): DescribeDatasetImportJobResponse => {
   return {
     datasetImportJob:
-      output.datasetImportJob !== undefined && output.datasetImportJob !== null
+      output.datasetImportJob != undefined
         ? deserializeAws_json1_1DatasetImportJob(output.datasetImportJob, context)
         : undefined,
   } as any;
@@ -6090,10 +6003,7 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
   context: __SerdeContext
 ): DescribeDatasetResponse => {
   return {
-    dataset:
-      output.dataset !== undefined && output.dataset !== null
-        ? deserializeAws_json1_1Dataset(output.dataset, context)
-        : undefined,
+    dataset: output.dataset != undefined ? deserializeAws_json1_1Dataset(output.dataset, context) : undefined,
   } as any;
 };
 
@@ -6103,9 +6013,7 @@ const deserializeAws_json1_1DescribeEventTrackerResponse = (
 ): DescribeEventTrackerResponse => {
   return {
     eventTracker:
-      output.eventTracker !== undefined && output.eventTracker !== null
-        ? deserializeAws_json1_1EventTracker(output.eventTracker, context)
-        : undefined,
+      output.eventTracker != undefined ? deserializeAws_json1_1EventTracker(output.eventTracker, context) : undefined,
   } as any;
 };
 
@@ -6115,7 +6023,7 @@ const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
 ): DescribeFeatureTransformationResponse => {
   return {
     featureTransformation:
-      output.featureTransformation !== undefined && output.featureTransformation !== null
+      output.featureTransformation != undefined
         ? deserializeAws_json1_1FeatureTransformation(output.featureTransformation, context)
         : undefined,
   } as any;
@@ -6123,19 +6031,13 @@ const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
 
 const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __SerdeContext): DescribeFilterResponse => {
   return {
-    filter:
-      output.filter !== undefined && output.filter !== null
-        ? deserializeAws_json1_1Filter(output.filter, context)
-        : undefined,
+    filter: output.filter != undefined ? deserializeAws_json1_1Filter(output.filter, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
   return {
-    recipe:
-      output.recipe !== undefined && output.recipe !== null
-        ? deserializeAws_json1_1Recipe(output.recipe, context)
-        : undefined,
+    recipe: output.recipe != undefined ? deserializeAws_json1_1Recipe(output.recipe, context) : undefined,
   } as any;
 };
 
@@ -6145,18 +6047,13 @@ const deserializeAws_json1_1DescribeRecommenderResponse = (
 ): DescribeRecommenderResponse => {
   return {
     recommender:
-      output.recommender !== undefined && output.recommender !== null
-        ? deserializeAws_json1_1Recommender(output.recommender, context)
-        : undefined,
+      output.recommender != undefined ? deserializeAws_json1_1Recommender(output.recommender, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeSchemaResponse = (output: any, context: __SerdeContext): DescribeSchemaResponse => {
   return {
-    schema:
-      output.schema !== undefined && output.schema !== null
-        ? deserializeAws_json1_1DatasetSchema(output.schema, context)
-        : undefined,
+    schema: output.schema != undefined ? deserializeAws_json1_1DatasetSchema(output.schema, context) : undefined,
   } as any;
 };
 
@@ -6165,10 +6062,7 @@ const deserializeAws_json1_1DescribeSolutionResponse = (
   context: __SerdeContext
 ): DescribeSolutionResponse => {
   return {
-    solution:
-      output.solution !== undefined && output.solution !== null
-        ? deserializeAws_json1_1Solution(output.solution, context)
-        : undefined,
+    solution: output.solution != undefined ? deserializeAws_json1_1Solution(output.solution, context) : undefined,
   } as any;
 };
 
@@ -6178,7 +6072,7 @@ const deserializeAws_json1_1DescribeSolutionVersionResponse = (
 ): DescribeSolutionVersionResponse => {
   return {
     solutionVersion:
-      output.solutionVersion !== undefined && output.solutionVersion !== null
+      output.solutionVersion != undefined
         ? deserializeAws_json1_1SolutionVersion(output.solutionVersion, context)
         : undefined,
   } as any;
@@ -6188,13 +6082,13 @@ const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext
   return {
     accountId: __expectString(output.accountId),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6218,12 +6112,12 @@ const deserializeAws_json1_1EventTrackers = (output: any, context: __SerdeContex
 const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __SerdeContext): EventTrackerSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     eventTrackerArn: __expectString(output.eventTrackerArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6234,16 +6128,16 @@ const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __Serde
 const deserializeAws_json1_1FeatureTransformation = (output: any, context: __SerdeContext): FeatureTransformation => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     defaultParameters:
-      output.defaultParameters !== undefined && output.defaultParameters !== null
+      output.defaultParameters != undefined
         ? deserializeAws_json1_1FeaturizationParameters(output.defaultParameters, context)
         : undefined,
     featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6284,7 +6178,7 @@ const deserializeAws_json1_1FeaturizationParameters = (
 const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Filter => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
@@ -6292,7 +6186,7 @@ const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Fil
     filterArn: __expectString(output.filterArn),
     filterExpression: __expectString(output.filterExpression),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6315,14 +6209,14 @@ const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): Fi
 const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
     filterArn: __expectString(output.filterArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6335,10 +6229,7 @@ const deserializeAws_json1_1GetSolutionMetricsResponse = (
   context: __SerdeContext
 ): GetSolutionMetricsResponse => {
   return {
-    metrics:
-      output.metrics !== undefined && output.metrics !== null
-        ? deserializeAws_json1_1Metrics(output.metrics, context)
-        : undefined,
+    metrics: output.metrics != undefined ? deserializeAws_json1_1Metrics(output.metrics, context) : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
   } as any;
 };
@@ -6346,15 +6237,13 @@ const deserializeAws_json1_1GetSolutionMetricsResponse = (
 const deserializeAws_json1_1HPOConfig = (output: any, context: __SerdeContext): HPOConfig => {
   return {
     algorithmHyperParameterRanges:
-      output.algorithmHyperParameterRanges !== undefined && output.algorithmHyperParameterRanges !== null
+      output.algorithmHyperParameterRanges != undefined
         ? deserializeAws_json1_1HyperParameterRanges(output.algorithmHyperParameterRanges, context)
         : undefined,
     hpoObjective:
-      output.hpoObjective !== undefined && output.hpoObjective !== null
-        ? deserializeAws_json1_1HPOObjective(output.hpoObjective, context)
-        : undefined,
+      output.hpoObjective != undefined ? deserializeAws_json1_1HPOObjective(output.hpoObjective, context) : undefined,
     hpoResourceConfig:
-      output.hpoResourceConfig !== undefined && output.hpoResourceConfig !== null
+      output.hpoResourceConfig != undefined
         ? deserializeAws_json1_1HPOResourceConfig(output.hpoResourceConfig, context)
         : undefined,
   } as any;
@@ -6378,15 +6267,15 @@ const deserializeAws_json1_1HPOResourceConfig = (output: any, context: __SerdeCo
 const deserializeAws_json1_1HyperParameterRanges = (output: any, context: __SerdeContext): HyperParameterRanges => {
   return {
     categoricalHyperParameterRanges:
-      output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
+      output.categoricalHyperParameterRanges != undefined
         ? deserializeAws_json1_1CategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
         : undefined,
     continuousHyperParameterRanges:
-      output.continuousHyperParameterRanges !== undefined && output.continuousHyperParameterRanges !== null
+      output.continuousHyperParameterRanges != undefined
         ? deserializeAws_json1_1ContinuousHyperParameterRanges(output.continuousHyperParameterRanges, context)
         : undefined,
     integerHyperParameterRanges:
-      output.integerHyperParameterRanges !== undefined && output.integerHyperParameterRanges !== null
+      output.integerHyperParameterRanges != undefined
         ? deserializeAws_json1_1IntegerHyperParameterRanges(output.integerHyperParameterRanges, context)
         : undefined,
   } as any;
@@ -6457,7 +6346,7 @@ const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
 ): ListBatchInferenceJobsResponse => {
   return {
     batchInferenceJobs:
-      output.batchInferenceJobs !== undefined && output.batchInferenceJobs !== null
+      output.batchInferenceJobs != undefined
         ? deserializeAws_json1_1BatchInferenceJobs(output.batchInferenceJobs, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6470,7 +6359,7 @@ const deserializeAws_json1_1ListBatchSegmentJobsResponse = (
 ): ListBatchSegmentJobsResponse => {
   return {
     batchSegmentJobs:
-      output.batchSegmentJobs !== undefined && output.batchSegmentJobs !== null
+      output.batchSegmentJobs != undefined
         ? deserializeAws_json1_1BatchSegmentJobs(output.batchSegmentJobs, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6479,10 +6368,7 @@ const deserializeAws_json1_1ListBatchSegmentJobsResponse = (
 
 const deserializeAws_json1_1ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
   return {
-    campaigns:
-      output.campaigns !== undefined && output.campaigns !== null
-        ? deserializeAws_json1_1Campaigns(output.campaigns, context)
-        : undefined,
+    campaigns: output.campaigns != undefined ? deserializeAws_json1_1Campaigns(output.campaigns, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -6493,7 +6379,7 @@ const deserializeAws_json1_1ListDatasetExportJobsResponse = (
 ): ListDatasetExportJobsResponse => {
   return {
     datasetExportJobs:
-      output.datasetExportJobs !== undefined && output.datasetExportJobs !== null
+      output.datasetExportJobs != undefined
         ? deserializeAws_json1_1DatasetExportJobs(output.datasetExportJobs, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6506,7 +6392,7 @@ const deserializeAws_json1_1ListDatasetGroupsResponse = (
 ): ListDatasetGroupsResponse => {
   return {
     datasetGroups:
-      output.datasetGroups !== undefined && output.datasetGroups !== null
+      output.datasetGroups != undefined
         ? deserializeAws_json1_1DatasetGroups(output.datasetGroups, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6519,7 +6405,7 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
 ): ListDatasetImportJobsResponse => {
   return {
     datasetImportJobs:
-      output.datasetImportJobs !== undefined && output.datasetImportJobs !== null
+      output.datasetImportJobs != undefined
         ? deserializeAws_json1_1DatasetImportJobs(output.datasetImportJobs, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6528,10 +6414,7 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
 
 const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
   return {
-    datasets:
-      output.datasets !== undefined && output.datasets !== null
-        ? deserializeAws_json1_1Datasets(output.datasets, context)
-        : undefined,
+    datasets: output.datasets != undefined ? deserializeAws_json1_1Datasets(output.datasets, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -6542,7 +6425,7 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
 ): ListEventTrackersResponse => {
   return {
     eventTrackers:
-      output.eventTrackers !== undefined && output.eventTrackers !== null
+      output.eventTrackers != undefined
         ? deserializeAws_json1_1EventTrackers(output.eventTrackers, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -6551,10 +6434,7 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
 
 const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __SerdeContext): ListFiltersResponse => {
   return {
-    Filters:
-      output.Filters !== undefined && output.Filters !== null
-        ? deserializeAws_json1_1Filters(output.Filters, context)
-        : undefined,
+    Filters: output.Filters != undefined ? deserializeAws_json1_1Filters(output.Filters, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -6562,10 +6442,7 @@ const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __Serde
 const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    recipes:
-      output.recipes !== undefined && output.recipes !== null
-        ? deserializeAws_json1_1Recipes(output.recipes, context)
-        : undefined,
+    recipes: output.recipes != undefined ? deserializeAws_json1_1Recipes(output.recipes, context) : undefined,
   } as any;
 };
 
@@ -6576,29 +6453,21 @@ const deserializeAws_json1_1ListRecommendersResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     recommenders:
-      output.recommenders !== undefined && output.recommenders !== null
-        ? deserializeAws_json1_1Recommenders(output.recommenders, context)
-        : undefined,
+      output.recommenders != undefined ? deserializeAws_json1_1Recommenders(output.recommenders, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    schemas:
-      output.schemas !== undefined && output.schemas !== null
-        ? deserializeAws_json1_1Schemas(output.schemas, context)
-        : undefined,
+    schemas: output.schemas != undefined ? deserializeAws_json1_1Schemas(output.schemas, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListSolutionsResponse = (output: any, context: __SerdeContext): ListSolutionsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    solutions:
-      output.solutions !== undefined && output.solutions !== null
-        ? deserializeAws_json1_1Solutions(output.solutions, context)
-        : undefined,
+    solutions: output.solutions != undefined ? deserializeAws_json1_1Solutions(output.solutions, context) : undefined,
   } as any;
 };
 
@@ -6609,7 +6478,7 @@ const deserializeAws_json1_1ListSolutionVersionsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     solutionVersions:
-      output.solutionVersions !== undefined && output.solutionVersions !== null
+      output.solutionVersions != undefined
         ? deserializeAws_json1_1SolutionVersions(output.solutionVersions, context)
         : undefined,
   } as any;
@@ -6620,8 +6489,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -6648,13 +6516,13 @@ const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Rec
   return {
     algorithmArn: __expectString(output.algorithmArn),
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     description: __expectString(output.description),
     featureTransformationArn: __expectString(output.featureTransformationArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6679,12 +6547,12 @@ const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): Re
 const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContext): RecipeSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     domain: __expectString(output.domain),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6696,28 +6564,26 @@ const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContex
 const deserializeAws_json1_1Recommender = (output: any, context: __SerdeContext): Recommender => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestRecommenderUpdate:
-      output.latestRecommenderUpdate !== undefined && output.latestRecommenderUpdate !== null
+      output.latestRecommenderUpdate != undefined
         ? deserializeAws_json1_1RecommenderUpdateSummary(output.latestRecommenderUpdate, context)
         : undefined,
     modelMetrics:
-      output.modelMetrics !== undefined && output.modelMetrics !== null
-        ? deserializeAws_json1_1Metrics(output.modelMetrics, context)
-        : undefined,
+      output.modelMetrics != undefined ? deserializeAws_json1_1Metrics(output.modelMetrics, context) : undefined,
     name: __expectString(output.name),
     recipeArn: __expectString(output.recipeArn),
     recommenderArn: __expectString(output.recommenderArn),
     recommenderConfig:
-      output.recommenderConfig !== undefined && output.recommenderConfig !== null
+      output.recommenderConfig != undefined
         ? deserializeAws_json1_1RecommenderConfig(output.recommenderConfig, context)
         : undefined,
     status: __expectString(output.status),
@@ -6727,7 +6593,7 @@ const deserializeAws_json1_1Recommender = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1RecommenderConfig = (output: any, context: __SerdeContext): RecommenderConfig => {
   return {
     itemExplorationConfig:
-      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+      output.itemExplorationConfig != undefined
         ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
         : undefined,
     minRecommendationRequestsPerSecond: __expectInt32(output.minRecommendationRequestsPerSecond),
@@ -6749,19 +6615,19 @@ const deserializeAws_json1_1Recommenders = (output: any, context: __SerdeContext
 const deserializeAws_json1_1RecommenderSummary = (output: any, context: __SerdeContext): RecommenderSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
     recipeArn: __expectString(output.recipeArn),
     recommenderArn: __expectString(output.recommenderArn),
     recommenderConfig:
-      output.recommenderConfig !== undefined && output.recommenderConfig !== null
+      output.recommenderConfig != undefined
         ? deserializeAws_json1_1RecommenderConfig(output.recommenderConfig, context)
         : undefined,
     status: __expectString(output.status),
@@ -6774,16 +6640,16 @@ const deserializeAws_json1_1RecommenderUpdateSummary = (
 ): RecommenderUpdateSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     recommenderConfig:
-      output.recommenderConfig !== undefined && output.recommenderConfig !== null
+      output.recommenderConfig != undefined
         ? deserializeAws_json1_1RecommenderConfig(output.recommenderConfig, context)
         : undefined,
     status: __expectString(output.status),
@@ -6848,21 +6714,19 @@ const deserializeAws_json1_1Schemas = (output: any, context: __SerdeContext): Da
 const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): Solution => {
   return {
     autoMLResult:
-      output.autoMLResult !== undefined && output.autoMLResult !== null
-        ? deserializeAws_json1_1AutoMLResult(output.autoMLResult, context)
-        : undefined,
+      output.autoMLResult != undefined ? deserializeAws_json1_1AutoMLResult(output.autoMLResult, context) : undefined,
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventType: __expectString(output.eventType),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     latestSolutionVersion:
-      output.latestSolutionVersion !== undefined && output.latestSolutionVersion !== null
+      output.latestSolutionVersion != undefined
         ? deserializeAws_json1_1SolutionVersionSummary(output.latestSolutionVersion, context)
         : undefined,
     name: __expectString(output.name),
@@ -6871,7 +6735,7 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
     recipeArn: __expectString(output.recipeArn),
     solutionArn: __expectString(output.solutionArn),
     solutionConfig:
-      output.solutionConfig !== undefined && output.solutionConfig !== null
+      output.solutionConfig != undefined
         ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
         : undefined,
     status: __expectString(output.status),
@@ -6881,24 +6745,19 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
 const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig => {
   return {
     algorithmHyperParameters:
-      output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
+      output.algorithmHyperParameters != undefined
         ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
         : undefined,
     autoMLConfig:
-      output.autoMLConfig !== undefined && output.autoMLConfig !== null
-        ? deserializeAws_json1_1AutoMLConfig(output.autoMLConfig, context)
-        : undefined,
+      output.autoMLConfig != undefined ? deserializeAws_json1_1AutoMLConfig(output.autoMLConfig, context) : undefined,
     eventValueThreshold: __expectString(output.eventValueThreshold),
     featureTransformationParameters:
-      output.featureTransformationParameters !== undefined && output.featureTransformationParameters !== null
+      output.featureTransformationParameters != undefined
         ? deserializeAws_json1_1FeatureTransformationParameters(output.featureTransformationParameters, context)
         : undefined,
-    hpoConfig:
-      output.hpoConfig !== undefined && output.hpoConfig !== null
-        ? deserializeAws_json1_1HPOConfig(output.hpoConfig, context)
-        : undefined,
+    hpoConfig: output.hpoConfig != undefined ? deserializeAws_json1_1HPOConfig(output.hpoConfig, context) : undefined,
     optimizationObjective:
-      output.optimizationObjective !== undefined && output.optimizationObjective !== null
+      output.optimizationObjective != undefined
         ? deserializeAws_json1_1OptimizationObjective(output.optimizationObjective, context)
         : undefined,
   } as any;
@@ -6919,11 +6778,11 @@ const deserializeAws_json1_1Solutions = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeContext): SolutionSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     name: __expectString(output.name),
@@ -6935,14 +6794,14 @@ const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeCont
 const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeContext): SolutionVersion => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     datasetGroupArn: __expectString(output.datasetGroupArn),
     eventType: __expectString(output.eventType),
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     performAutoML: __expectBoolean(output.performAutoML),
@@ -6950,7 +6809,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
     recipeArn: __expectString(output.recipeArn),
     solutionArn: __expectString(output.solutionArn),
     solutionConfig:
-      output.solutionConfig !== undefined && output.solutionConfig !== null
+      output.solutionConfig != undefined
         ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
@@ -6958,7 +6817,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
     trainingHours: __limitedParseDouble(output.trainingHours),
     trainingMode: __expectString(output.trainingMode),
     tunedHPOParams:
-      output.tunedHPOParams !== undefined && output.tunedHPOParams !== null
+      output.tunedHPOParams != undefined
         ? deserializeAws_json1_1TunedHPOParams(output.tunedHPOParams, context)
         : undefined,
   } as any;
@@ -6979,12 +6838,12 @@ const deserializeAws_json1_1SolutionVersions = (output: any, context: __SerdeCon
 const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __SerdeContext): SolutionVersionSummary => {
   return {
     creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
+      output.creationDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
         : undefined,
     failureReason: __expectString(output.failureReason),
     lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+      output.lastUpdatedDateTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
@@ -7051,7 +6910,7 @@ const deserializeAws_json1_1TooManyTagsException = (output: any, context: __Serd
 const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeContext): TunedHPOParams => {
   return {
     algorithmHyperParameters:
-      output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
+      output.algorithmHyperParameters != undefined
         ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
         : undefined,
   } as any;

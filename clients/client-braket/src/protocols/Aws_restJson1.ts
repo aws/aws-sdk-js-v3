@@ -138,41 +138,34 @@ export const serializeAws_restJson1CreateJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/job";
   let body: any;
   body = JSON.stringify({
-    ...(input.algorithmSpecification !== undefined &&
-      input.algorithmSpecification !== null && {
-        algorithmSpecification: serializeAws_restJson1AlgorithmSpecification(input.algorithmSpecification, context),
-      }),
-    ...(input.checkpointConfig !== undefined &&
-      input.checkpointConfig !== null && {
-        checkpointConfig: serializeAws_restJson1JobCheckpointConfig(input.checkpointConfig, context),
-      }),
+    ...(input.algorithmSpecification != undefined && {
+      algorithmSpecification: serializeAws_restJson1AlgorithmSpecification(input.algorithmSpecification, context),
+    }),
+    ...(input.checkpointConfig != undefined && {
+      checkpointConfig: serializeAws_restJson1JobCheckpointConfig(input.checkpointConfig, context),
+    }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.deviceConfig !== undefined &&
-      input.deviceConfig !== null && { deviceConfig: serializeAws_restJson1DeviceConfig(input.deviceConfig, context) }),
-    ...(input.hyperParameters !== undefined &&
-      input.hyperParameters !== null && {
-        hyperParameters: serializeAws_restJson1HyperParameters(input.hyperParameters, context),
-      }),
-    ...(input.inputDataConfig !== undefined &&
-      input.inputDataConfig !== null && {
-        inputDataConfig: serializeAws_restJson1InputConfigList(input.inputDataConfig, context),
-      }),
-    ...(input.instanceConfig !== undefined &&
-      input.instanceConfig !== null && {
-        instanceConfig: serializeAws_restJson1InstanceConfig(input.instanceConfig, context),
-      }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.outputDataConfig !== undefined &&
-      input.outputDataConfig !== null && {
-        outputDataConfig: serializeAws_restJson1JobOutputDataConfig(input.outputDataConfig, context),
-      }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.stoppingCondition !== undefined &&
-      input.stoppingCondition !== null && {
-        stoppingCondition: serializeAws_restJson1JobStoppingCondition(input.stoppingCondition, context),
-      }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.deviceConfig != undefined && {
+      deviceConfig: serializeAws_restJson1DeviceConfig(input.deviceConfig, context),
+    }),
+    ...(input.hyperParameters != undefined && {
+      hyperParameters: serializeAws_restJson1HyperParameters(input.hyperParameters, context),
+    }),
+    ...(input.inputDataConfig != undefined && {
+      inputDataConfig: serializeAws_restJson1InputConfigList(input.inputDataConfig, context),
+    }),
+    ...(input.instanceConfig != undefined && {
+      instanceConfig: serializeAws_restJson1InstanceConfig(input.instanceConfig, context),
+    }),
+    ...(input.jobName != undefined && { jobName: input.jobName }),
+    ...(input.outputDataConfig != undefined && {
+      outputDataConfig: serializeAws_restJson1JobOutputDataConfig(input.outputDataConfig, context),
+    }),
+    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
+    ...(input.stoppingCondition != undefined && {
+      stoppingCondition: serializeAws_restJson1JobStoppingCondition(input.stoppingCondition, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -196,19 +189,17 @@ export const serializeAws_restJson1CreateQuantumTaskCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-task";
   let body: any;
   body = JSON.stringify({
-    ...(input.action !== undefined && input.action !== null && { action: __LazyJsonString.fromObject(input.action) }),
+    ...(input.action != undefined && { action: __LazyJsonString.fromObject(input.action) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.deviceArn !== undefined && input.deviceArn !== null && { deviceArn: input.deviceArn }),
-    ...(input.deviceParameters !== undefined &&
-      input.deviceParameters !== null && { deviceParameters: __LazyJsonString.fromObject(input.deviceParameters) }),
-    ...(input.jobToken !== undefined && input.jobToken !== null && { jobToken: input.jobToken }),
-    ...(input.outputS3Bucket !== undefined &&
-      input.outputS3Bucket !== null && { outputS3Bucket: input.outputS3Bucket }),
-    ...(input.outputS3KeyPrefix !== undefined &&
-      input.outputS3KeyPrefix !== null && { outputS3KeyPrefix: input.outputS3KeyPrefix }),
-    ...(input.shots !== undefined && input.shots !== null && { shots: input.shots }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.deviceArn != undefined && { deviceArn: input.deviceArn }),
+    ...(input.deviceParameters != undefined && {
+      deviceParameters: __LazyJsonString.fromObject(input.deviceParameters),
+    }),
+    ...(input.jobToken != undefined && { jobToken: input.jobToken }),
+    ...(input.outputS3Bucket != undefined && { outputS3Bucket: input.outputS3Bucket }),
+    ...(input.outputS3KeyPrefix != undefined && { outputS3KeyPrefix: input.outputS3KeyPrefix }),
+    ...(input.shots != undefined && { shots: input.shots }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -345,10 +336,11 @@ export const serializeAws_restJson1SearchDevicesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_restJson1SearchDevicesFilterList(input.filters, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.filters != undefined && {
+      filters: serializeAws_restJson1SearchDevicesFilterList(input.filters, context),
+    }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -372,10 +364,9 @@ export const serializeAws_restJson1SearchJobsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_restJson1SearchJobsFilterList(input.filters, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.filters != undefined && { filters: serializeAws_restJson1SearchJobsFilterList(input.filters, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -399,12 +390,11 @@ export const serializeAws_restJson1SearchQuantumTasksCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-tasks";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters !== undefined &&
-      input.filters !== null && {
-        filters: serializeAws_restJson1SearchQuantumTasksFilterList(input.filters, context),
-      }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.filters != undefined && {
+      filters: serializeAws_restJson1SearchQuantumTasksFilterList(input.filters, context),
+    }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -437,8 +427,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1512,33 +1501,32 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AlgorithmSpecification = (input: AlgorithmSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.containerImage !== undefined &&
-      input.containerImage !== null && {
-        containerImage: serializeAws_restJson1ContainerImage(input.containerImage, context),
-      }),
-    ...(input.scriptModeConfig !== undefined &&
-      input.scriptModeConfig !== null && {
-        scriptModeConfig: serializeAws_restJson1ScriptModeConfig(input.scriptModeConfig, context),
-      }),
+    ...(input.containerImage != undefined && {
+      containerImage: serializeAws_restJson1ContainerImage(input.containerImage, context),
+    }),
+    ...(input.scriptModeConfig != undefined && {
+      scriptModeConfig: serializeAws_restJson1ScriptModeConfig(input.scriptModeConfig, context),
+    }),
   };
 };
 
 const serializeAws_restJson1ContainerImage = (input: ContainerImage, context: __SerdeContext): any => {
   return {
-    ...(input.uri !== undefined && input.uri !== null && { uri: input.uri }),
+    ...(input.uri != undefined && { uri: input.uri }),
   };
 };
 
 const serializeAws_restJson1DataSource = (input: DataSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3DataSource !== undefined &&
-      input.s3DataSource !== null && { s3DataSource: serializeAws_restJson1S3DataSource(input.s3DataSource, context) }),
+    ...(input.s3DataSource != undefined && {
+      s3DataSource: serializeAws_restJson1S3DataSource(input.s3DataSource, context),
+    }),
   };
 };
 
 const serializeAws_restJson1DeviceConfig = (input: DeviceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.device !== undefined && input.device !== null && { device: input.device }),
+    ...(input.device != undefined && { device: input.device }),
   };
 };
 
@@ -1567,63 +1555,58 @@ const serializeAws_restJson1InputConfigList = (input: InputFileConfig[], context
 
 const serializeAws_restJson1InputFileConfig = (input: InputFileConfig, context: __SerdeContext): any => {
   return {
-    ...(input.channelName !== undefined && input.channelName !== null && { channelName: input.channelName }),
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.dataSource !== undefined &&
-      input.dataSource !== null && { dataSource: serializeAws_restJson1DataSource(input.dataSource, context) }),
+    ...(input.channelName != undefined && { channelName: input.channelName }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
+    ...(input.dataSource != undefined && { dataSource: serializeAws_restJson1DataSource(input.dataSource, context) }),
   };
 };
 
 const serializeAws_restJson1InstanceConfig = (input: InstanceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.instanceCount !== undefined && input.instanceCount !== null && { instanceCount: input.instanceCount }),
-    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
-    ...(input.volumeSizeInGb !== undefined &&
-      input.volumeSizeInGb !== null && { volumeSizeInGb: input.volumeSizeInGb }),
+    ...(input.instanceCount != undefined && { instanceCount: input.instanceCount }),
+    ...(input.instanceType != undefined && { instanceType: input.instanceType }),
+    ...(input.volumeSizeInGb != undefined && { volumeSizeInGb: input.volumeSizeInGb }),
   };
 };
 
 const serializeAws_restJson1JobCheckpointConfig = (input: JobCheckpointConfig, context: __SerdeContext): any => {
   return {
-    ...(input.localPath !== undefined && input.localPath !== null && { localPath: input.localPath }),
-    ...(input.s3Uri !== undefined && input.s3Uri !== null && { s3Uri: input.s3Uri }),
+    ...(input.localPath != undefined && { localPath: input.localPath }),
+    ...(input.s3Uri != undefined && { s3Uri: input.s3Uri }),
   };
 };
 
 const serializeAws_restJson1JobOutputDataConfig = (input: JobOutputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.s3Path !== undefined && input.s3Path !== null && { s3Path: input.s3Path }),
+    ...(input.kmsKeyId != undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.s3Path != undefined && { s3Path: input.s3Path }),
   };
 };
 
 const serializeAws_restJson1JobStoppingCondition = (input: JobStoppingCondition, context: __SerdeContext): any => {
   return {
-    ...(input.maxRuntimeInSeconds !== undefined &&
-      input.maxRuntimeInSeconds !== null && { maxRuntimeInSeconds: input.maxRuntimeInSeconds }),
+    ...(input.maxRuntimeInSeconds != undefined && { maxRuntimeInSeconds: input.maxRuntimeInSeconds }),
   };
 };
 
 const serializeAws_restJson1S3DataSource = (input: S3DataSource, context: __SerdeContext): any => {
   return {
-    ...(input.s3Uri !== undefined && input.s3Uri !== null && { s3Uri: input.s3Uri }),
+    ...(input.s3Uri != undefined && { s3Uri: input.s3Uri }),
   };
 };
 
 const serializeAws_restJson1ScriptModeConfig = (input: ScriptModeConfig, context: __SerdeContext): any => {
   return {
-    ...(input.compressionType !== undefined &&
-      input.compressionType !== null && { compressionType: input.compressionType }),
-    ...(input.entryPoint !== undefined && input.entryPoint !== null && { entryPoint: input.entryPoint }),
-    ...(input.s3Uri !== undefined && input.s3Uri !== null && { s3Uri: input.s3Uri }),
+    ...(input.compressionType != undefined && { compressionType: input.compressionType }),
+    ...(input.entryPoint != undefined && { entryPoint: input.entryPoint }),
+    ...(input.s3Uri != undefined && { s3Uri: input.s3Uri }),
   };
 };
 
 const serializeAws_restJson1SearchDevicesFilter = (input: SearchDevicesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_restJson1String256List(input.values, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.values != undefined && { values: serializeAws_restJson1String256List(input.values, context) }),
   };
 };
 
@@ -1640,10 +1623,9 @@ const serializeAws_restJson1SearchDevicesFilterList = (input: SearchDevicesFilte
 
 const serializeAws_restJson1SearchJobsFilter = (input: SearchJobsFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_restJson1String256List(input.values, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.values != undefined && { values: serializeAws_restJson1String256List(input.values, context) }),
   };
 };
 
@@ -1663,10 +1645,9 @@ const serializeAws_restJson1SearchQuantumTasksFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_restJson1String256List(input.values, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.values != undefined && { values: serializeAws_restJson1String256List(input.values, context) }),
   };
 };
 
@@ -1713,11 +1694,11 @@ const deserializeAws_restJson1AlgorithmSpecification = (
 ): AlgorithmSpecification => {
   return {
     containerImage:
-      output.containerImage !== undefined && output.containerImage !== null
+      output.containerImage != undefined
         ? deserializeAws_restJson1ContainerImage(output.containerImage, context)
         : undefined,
     scriptModeConfig:
-      output.scriptModeConfig !== undefined && output.scriptModeConfig !== null
+      output.scriptModeConfig != undefined
         ? deserializeAws_restJson1ScriptModeConfig(output.scriptModeConfig, context)
         : undefined,
   } as any;
@@ -1732,9 +1713,7 @@ const deserializeAws_restJson1ContainerImage = (output: any, context: __SerdeCon
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     s3DataSource:
-      output.s3DataSource !== undefined && output.s3DataSource !== null
-        ? deserializeAws_restJson1S3DataSource(output.s3DataSource, context)
-        : undefined,
+      output.s3DataSource != undefined ? deserializeAws_restJson1S3DataSource(output.s3DataSource, context) : undefined,
   } as any;
 };
 
@@ -1795,9 +1774,7 @@ const deserializeAws_restJson1InputFileConfig = (output: any, context: __SerdeCo
     channelName: __expectString(output.channelName),
     contentType: __expectString(output.contentType),
     dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? deserializeAws_restJson1DataSource(output.dataSource, context)
-        : undefined,
+      output.dataSource != undefined ? deserializeAws_restJson1DataSource(output.dataSource, context) : undefined,
   } as any;
 };
 
@@ -1821,9 +1798,7 @@ const deserializeAws_restJson1JobEventDetails = (output: any, context: __SerdeCo
     eventType: __expectString(output.eventType),
     message: __expectString(output.message),
     timeOfEvent:
-      output.timeOfEvent !== undefined && output.timeOfEvent !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.timeOfEvent))
-        : undefined,
+      output.timeOfEvent != undefined ? __expectNonNull(__parseRfc3339DateTime(output.timeOfEvent)) : undefined,
   } as any;
 };
 
@@ -1854,26 +1829,14 @@ const deserializeAws_restJson1JobStoppingCondition = (output: any, context: __Se
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     device: __expectString(output.device),
-    endedAt:
-      output.endedAt !== undefined && output.endedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.endedAt))
-        : undefined,
+    endedAt: output.endedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
     jobArn: __expectString(output.jobArn),
     jobName: __expectString(output.jobName),
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.startedAt))
-        : undefined,
+    startedAt: output.startedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagsMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -1891,24 +1854,15 @@ const deserializeAws_restJson1JobSummaryList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __SerdeContext): QuantumTaskSummary => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     deviceArn: __expectString(output.deviceArn),
-    endedAt:
-      output.endedAt !== undefined && output.endedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.endedAt))
-        : undefined,
+    endedAt: output.endedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endedAt)) : undefined,
     outputS3Bucket: __expectString(output.outputS3Bucket),
     outputS3Directory: __expectString(output.outputS3Directory),
     quantumTaskArn: __expectString(output.quantumTaskArn),
     shots: __expectLong(output.shots),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagsMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
   } as any;
 };
 

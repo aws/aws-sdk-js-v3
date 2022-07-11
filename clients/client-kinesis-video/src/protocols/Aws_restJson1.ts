@@ -118,17 +118,15 @@ export const serializeAws_restJson1CreateSignalingChannelCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createSignalingChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelName !== undefined && input.ChannelName !== null && { ChannelName: input.ChannelName }),
-    ...(input.ChannelType !== undefined && input.ChannelType !== null && { ChannelType: input.ChannelType }),
-    ...(input.SingleMasterConfiguration !== undefined &&
-      input.SingleMasterConfiguration !== null && {
-        SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
-          input.SingleMasterConfiguration,
-          context
-        ),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagOnCreateList(input.Tags, context) }),
+    ...(input.ChannelName != undefined && { ChannelName: input.ChannelName }),
+    ...(input.ChannelType != undefined && { ChannelType: input.ChannelType }),
+    ...(input.SingleMasterConfiguration != undefined && {
+      SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
+        input.SingleMasterConfiguration,
+        context
+      ),
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagOnCreateList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -152,14 +150,12 @@ export const serializeAws_restJson1CreateStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.DataRetentionInHours !== undefined &&
-      input.DataRetentionInHours !== null && { DataRetentionInHours: input.DataRetentionInHours }),
-    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.MediaType !== undefined && input.MediaType !== null && { MediaType: input.MediaType }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
+    ...(input.DataRetentionInHours != undefined && { DataRetentionInHours: input.DataRetentionInHours }),
+    ...(input.DeviceName != undefined && { DeviceName: input.DeviceName }),
+    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.MediaType != undefined && { MediaType: input.MediaType }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -184,9 +180,8 @@ export const serializeAws_restJson1DeleteSignalingChannelCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteSignalingChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.CurrentVersion != undefined && { CurrentVersion: input.CurrentVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -210,9 +205,8 @@ export const serializeAws_restJson1DeleteStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.CurrentVersion != undefined && { CurrentVersion: input.CurrentVersion }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
   });
   return new __HttpRequest({
     protocol,
@@ -237,8 +231,8 @@ export const serializeAws_restJson1DescribeImageGenerationConfigurationCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeImageGenerationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -263,8 +257,8 @@ export const serializeAws_restJson1DescribeNotificationConfigurationCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeNotificationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -289,8 +283,8 @@ export const serializeAws_restJson1DescribeSignalingChannelCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeSignalingChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.ChannelName !== undefined && input.ChannelName !== null && { ChannelName: input.ChannelName }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.ChannelName != undefined && { ChannelName: input.ChannelName }),
   });
   return new __HttpRequest({
     protocol,
@@ -314,8 +308,8 @@ export const serializeAws_restJson1DescribeStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -339,9 +333,9 @@ export const serializeAws_restJson1GetDataEndpointCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDataEndpoint";
   let body: any;
   body = JSON.stringify({
-    ...(input.APIName !== undefined && input.APIName !== null && { APIName: input.APIName }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.APIName != undefined && { APIName: input.APIName }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -366,14 +360,13 @@ export const serializeAws_restJson1GetSignalingChannelEndpointCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getSignalingChannelEndpoint";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.SingleMasterChannelEndpointConfiguration !== undefined &&
-      input.SingleMasterChannelEndpointConfiguration !== null && {
-        SingleMasterChannelEndpointConfiguration: serializeAws_restJson1SingleMasterChannelEndpointConfiguration(
-          input.SingleMasterChannelEndpointConfiguration,
-          context
-        ),
-      }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.SingleMasterChannelEndpointConfiguration != undefined && {
+      SingleMasterChannelEndpointConfiguration: serializeAws_restJson1SingleMasterChannelEndpointConfiguration(
+        input.SingleMasterChannelEndpointConfiguration,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -397,12 +390,11 @@ export const serializeAws_restJson1ListSignalingChannelsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listSignalingChannels";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelNameCondition !== undefined &&
-      input.ChannelNameCondition !== null && {
-        ChannelNameCondition: serializeAws_restJson1ChannelNameCondition(input.ChannelNameCondition, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ChannelNameCondition != undefined && {
+      ChannelNameCondition: serializeAws_restJson1ChannelNameCondition(input.ChannelNameCondition, context),
+    }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -426,12 +418,11 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listStreams";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamNameCondition !== undefined &&
-      input.StreamNameCondition !== null && {
-        StreamNameCondition: serializeAws_restJson1StreamNameCondition(input.StreamNameCondition, context),
-      }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StreamNameCondition != undefined && {
+      StreamNameCondition: serializeAws_restJson1StreamNameCondition(input.StreamNameCondition, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -455,8 +446,8 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
   });
   return new __HttpRequest({
     protocol,
@@ -480,9 +471,9 @@ export const serializeAws_restJson1ListTagsForStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTagsForStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -506,9 +497,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -532,10 +522,9 @@ export const serializeAws_restJson1TagStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1ResourceTags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -559,9 +548,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeyList != undefined && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -585,10 +573,9 @@ export const serializeAws_restJson1UntagStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.TagKeyList != undefined && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -612,13 +599,13 @@ export const serializeAws_restJson1UpdateDataRetentionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDataRetention";
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DataRetentionChangeInHours !== undefined &&
-      input.DataRetentionChangeInHours !== null && { DataRetentionChangeInHours: input.DataRetentionChangeInHours }),
-    ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.CurrentVersion != undefined && { CurrentVersion: input.CurrentVersion }),
+    ...(input.DataRetentionChangeInHours != undefined && {
+      DataRetentionChangeInHours: input.DataRetentionChangeInHours,
+    }),
+    ...(input.Operation != undefined && { Operation: input.Operation }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -643,15 +630,14 @@ export const serializeAws_restJson1UpdateImageGenerationConfigurationCommand = a
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateImageGenerationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.ImageGenerationConfiguration !== undefined &&
-      input.ImageGenerationConfiguration !== null && {
-        ImageGenerationConfiguration: serializeAws_restJson1ImageGenerationConfiguration(
-          input.ImageGenerationConfiguration,
-          context
-        ),
-      }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.ImageGenerationConfiguration != undefined && {
+      ImageGenerationConfiguration: serializeAws_restJson1ImageGenerationConfiguration(
+        input.ImageGenerationConfiguration,
+        context
+      ),
+    }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -676,15 +662,14 @@ export const serializeAws_restJson1UpdateNotificationConfigurationCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateNotificationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.NotificationConfiguration !== undefined &&
-      input.NotificationConfiguration !== null && {
-        NotificationConfiguration: serializeAws_restJson1NotificationConfiguration(
-          input.NotificationConfiguration,
-          context
-        ),
-      }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.NotificationConfiguration != undefined && {
+      NotificationConfiguration: serializeAws_restJson1NotificationConfiguration(
+        input.NotificationConfiguration,
+        context
+      ),
+    }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -709,16 +694,14 @@ export const serializeAws_restJson1UpdateSignalingChannelCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateSignalingChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.SingleMasterConfiguration !== undefined &&
-      input.SingleMasterConfiguration !== null && {
-        SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
-          input.SingleMasterConfiguration,
-          context
-        ),
-      }),
+    ...(input.ChannelARN != undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.CurrentVersion != undefined && { CurrentVersion: input.CurrentVersion }),
+    ...(input.SingleMasterConfiguration != undefined && {
+      SingleMasterConfiguration: serializeAws_restJson1SingleMasterConfiguration(
+        input.SingleMasterConfiguration,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -742,12 +725,11 @@ export const serializeAws_restJson1UpdateStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined &&
-      input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
-    ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
-    ...(input.MediaType !== undefined && input.MediaType !== null && { MediaType: input.MediaType }),
-    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.CurrentVersion != undefined && { CurrentVersion: input.CurrentVersion }),
+    ...(input.DeviceName != undefined && { DeviceName: input.DeviceName }),
+    ...(input.MediaType != undefined && { MediaType: input.MediaType }),
+    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -2272,10 +2254,8 @@ const deserializeAws_restJson1VersionMismatchExceptionResponse = async (
 
 const serializeAws_restJson1ChannelNameCondition = (input: ChannelNameCondition, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined &&
-      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue !== undefined &&
-      input.ComparisonValue !== null && { ComparisonValue: input.ComparisonValue }),
+    ...(input.ComparisonOperator != undefined && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.ComparisonValue != undefined && { ComparisonValue: input.ComparisonValue }),
   };
 };
 
@@ -2296,20 +2276,18 @@ const serializeAws_restJson1ImageGenerationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationConfig !== undefined &&
-      input.DestinationConfig !== null && {
-        DestinationConfig: serializeAws_restJson1ImageGenerationDestinationConfig(input.DestinationConfig, context),
-      }),
-    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
-    ...(input.FormatConfig !== undefined &&
-      input.FormatConfig !== null && { FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context) }),
-    ...(input.HeightPixels !== undefined && input.HeightPixels !== null && { HeightPixels: input.HeightPixels }),
-    ...(input.ImageSelectorType !== undefined &&
-      input.ImageSelectorType !== null && { ImageSelectorType: input.ImageSelectorType }),
-    ...(input.SamplingInterval !== undefined &&
-      input.SamplingInterval !== null && { SamplingInterval: input.SamplingInterval }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
-    ...(input.WidthPixels !== undefined && input.WidthPixels !== null && { WidthPixels: input.WidthPixels }),
+    ...(input.DestinationConfig != undefined && {
+      DestinationConfig: serializeAws_restJson1ImageGenerationDestinationConfig(input.DestinationConfig, context),
+    }),
+    ...(input.Format != undefined && { Format: input.Format }),
+    ...(input.FormatConfig != undefined && {
+      FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context),
+    }),
+    ...(input.HeightPixels != undefined && { HeightPixels: input.HeightPixels }),
+    ...(input.ImageSelectorType != undefined && { ImageSelectorType: input.ImageSelectorType }),
+    ...(input.SamplingInterval != undefined && { SamplingInterval: input.SamplingInterval }),
+    ...(input.Status != undefined && { Status: input.Status }),
+    ...(input.WidthPixels != undefined && { WidthPixels: input.WidthPixels }),
   };
 };
 
@@ -2318,9 +2296,8 @@ const serializeAws_restJson1ImageGenerationDestinationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationRegion !== undefined &&
-      input.DestinationRegion !== null && { DestinationRegion: input.DestinationRegion }),
-    ...(input.Uri !== undefined && input.Uri !== null && { Uri: input.Uri }),
+    ...(input.DestinationRegion != undefined && { DestinationRegion: input.DestinationRegion }),
+    ...(input.Uri != undefined && { Uri: input.Uri }),
   };
 };
 
@@ -2340,11 +2317,10 @@ const serializeAws_restJson1NotificationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationConfig !== undefined &&
-      input.DestinationConfig !== null && {
-        DestinationConfig: serializeAws_restJson1NotificationDestinationConfig(input.DestinationConfig, context),
-      }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.DestinationConfig != undefined && {
+      DestinationConfig: serializeAws_restJson1NotificationDestinationConfig(input.DestinationConfig, context),
+    }),
+    ...(input.Status != undefined && { Status: input.Status }),
   };
 };
 
@@ -2353,7 +2329,7 @@ const serializeAws_restJson1NotificationDestinationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Uri !== undefined && input.Uri !== null && { Uri: input.Uri }),
+    ...(input.Uri != undefined && { Uri: input.Uri }),
   };
 };
 
@@ -2374,9 +2350,8 @@ const serializeAws_restJson1SingleMasterChannelEndpointConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Protocols !== undefined &&
-      input.Protocols !== null && { Protocols: serializeAws_restJson1ListOfProtocols(input.Protocols, context) }),
-    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
+    ...(input.Protocols != undefined && { Protocols: serializeAws_restJson1ListOfProtocols(input.Protocols, context) }),
+    ...(input.Role != undefined && { Role: input.Role }),
   };
 };
 
@@ -2385,24 +2360,21 @@ const serializeAws_restJson1SingleMasterConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MessageTtlSeconds !== undefined &&
-      input.MessageTtlSeconds !== null && { MessageTtlSeconds: input.MessageTtlSeconds }),
+    ...(input.MessageTtlSeconds != undefined && { MessageTtlSeconds: input.MessageTtlSeconds }),
   };
 };
 
 const serializeAws_restJson1StreamNameCondition = (input: StreamNameCondition, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined &&
-      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.ComparisonValue !== undefined &&
-      input.ComparisonValue !== null && { ComparisonValue: input.ComparisonValue }),
+    ...(input.ComparisonOperator != undefined && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.ComparisonValue != undefined && { ComparisonValue: input.ComparisonValue }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -2446,11 +2418,11 @@ const deserializeAws_restJson1ChannelInfo = (output: any, context: __SerdeContex
     ChannelStatus: __expectString(output.ChannelStatus),
     ChannelType: __expectString(output.ChannelType),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     SingleMasterConfiguration:
-      output.SingleMasterConfiguration !== undefined && output.SingleMasterConfiguration !== null
+      output.SingleMasterConfiguration != undefined
         ? deserializeAws_restJson1SingleMasterConfiguration(output.SingleMasterConfiguration, context)
         : undefined,
     Version: __expectString(output.Version),
@@ -2487,14 +2459,12 @@ const deserializeAws_restJson1ImageGenerationConfiguration = (
 ): ImageGenerationConfiguration => {
   return {
     DestinationConfig:
-      output.DestinationConfig !== undefined && output.DestinationConfig !== null
+      output.DestinationConfig != undefined
         ? deserializeAws_restJson1ImageGenerationDestinationConfig(output.DestinationConfig, context)
         : undefined,
     Format: __expectString(output.Format),
     FormatConfig:
-      output.FormatConfig !== undefined && output.FormatConfig !== null
-        ? deserializeAws_restJson1FormatConfig(output.FormatConfig, context)
-        : undefined,
+      output.FormatConfig != undefined ? deserializeAws_restJson1FormatConfig(output.FormatConfig, context) : undefined,
     HeightPixels: __expectInt32(output.HeightPixels),
     ImageSelectorType: __expectString(output.ImageSelectorType),
     SamplingInterval: __expectInt32(output.SamplingInterval),
@@ -2519,7 +2489,7 @@ const deserializeAws_restJson1NotificationConfiguration = (
 ): NotificationConfiguration => {
   return {
     DestinationConfig:
-      output.DestinationConfig !== undefined && output.DestinationConfig !== null
+      output.DestinationConfig != undefined
         ? deserializeAws_restJson1NotificationDestinationConfig(output.DestinationConfig, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -2584,7 +2554,7 @@ const deserializeAws_restJson1SingleMasterConfiguration = (
 const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
   return {
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataRetentionInHours: __expectInt32(output.DataRetentionInHours),

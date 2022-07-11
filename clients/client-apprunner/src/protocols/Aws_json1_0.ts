@@ -2151,10 +2151,9 @@ const serializeAws_json1_0AssociateCustomDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.EnableWWWSubdomain !== undefined &&
-      input.EnableWWWSubdomain !== null && { EnableWWWSubdomain: input.EnableWWWSubdomain }),
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.EnableWWWSubdomain != undefined && { EnableWWWSubdomain: input.EnableWWWSubdomain }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2163,49 +2162,44 @@ const serializeAws_json1_0AuthenticationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccessRoleArn !== undefined && input.AccessRoleArn !== null && { AccessRoleArn: input.AccessRoleArn }),
-    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.AccessRoleArn != undefined && { AccessRoleArn: input.AccessRoleArn }),
+    ...(input.ConnectionArn != undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0CodeConfiguration = (input: CodeConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.CodeConfigurationValues !== undefined &&
-      input.CodeConfigurationValues !== null && {
-        CodeConfigurationValues: serializeAws_json1_0CodeConfigurationValues(input.CodeConfigurationValues, context),
-      }),
-    ...(input.ConfigurationSource !== undefined &&
-      input.ConfigurationSource !== null && { ConfigurationSource: input.ConfigurationSource }),
+    ...(input.CodeConfigurationValues != undefined && {
+      CodeConfigurationValues: serializeAws_json1_0CodeConfigurationValues(input.CodeConfigurationValues, context),
+    }),
+    ...(input.ConfigurationSource != undefined && { ConfigurationSource: input.ConfigurationSource }),
   };
 };
 
 const serializeAws_json1_0CodeConfigurationValues = (input: CodeConfigurationValues, context: __SerdeContext): any => {
   return {
-    ...(input.BuildCommand !== undefined && input.BuildCommand !== null && { BuildCommand: input.BuildCommand }),
-    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
-    ...(input.Runtime !== undefined && input.Runtime !== null && { Runtime: input.Runtime }),
-    ...(input.RuntimeEnvironmentVariables !== undefined &&
-      input.RuntimeEnvironmentVariables !== null && {
-        RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
-          input.RuntimeEnvironmentVariables,
-          context
-        ),
-      }),
-    ...(input.StartCommand !== undefined && input.StartCommand !== null && { StartCommand: input.StartCommand }),
+    ...(input.BuildCommand != undefined && { BuildCommand: input.BuildCommand }),
+    ...(input.Port != undefined && { Port: input.Port }),
+    ...(input.Runtime != undefined && { Runtime: input.Runtime }),
+    ...(input.RuntimeEnvironmentVariables != undefined && {
+      RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
+        input.RuntimeEnvironmentVariables,
+        context
+      ),
+    }),
+    ...(input.StartCommand != undefined && { StartCommand: input.StartCommand }),
   };
 };
 
 const serializeAws_json1_0CodeRepository = (input: CodeRepository, context: __SerdeContext): any => {
   return {
-    ...(input.CodeConfiguration !== undefined &&
-      input.CodeConfiguration !== null && {
-        CodeConfiguration: serializeAws_json1_0CodeConfiguration(input.CodeConfiguration, context),
-      }),
-    ...(input.RepositoryUrl !== undefined && input.RepositoryUrl !== null && { RepositoryUrl: input.RepositoryUrl }),
-    ...(input.SourceCodeVersion !== undefined &&
-      input.SourceCodeVersion !== null && {
-        SourceCodeVersion: serializeAws_json1_0SourceCodeVersion(input.SourceCodeVersion, context),
-      }),
+    ...(input.CodeConfiguration != undefined && {
+      CodeConfiguration: serializeAws_json1_0CodeConfiguration(input.CodeConfiguration, context),
+    }),
+    ...(input.RepositoryUrl != undefined && { RepositoryUrl: input.RepositoryUrl }),
+    ...(input.SourceCodeVersion != undefined && {
+      SourceCodeVersion: serializeAws_json1_0SourceCodeVersion(input.SourceCodeVersion, context),
+    }),
   };
 };
 
@@ -2214,24 +2208,21 @@ const serializeAws_json1_0CreateAutoScalingConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoScalingConfigurationName !== undefined &&
-      input.AutoScalingConfigurationName !== null && {
-        AutoScalingConfigurationName: input.AutoScalingConfigurationName,
-      }),
-    ...(input.MaxConcurrency !== undefined &&
-      input.MaxConcurrency !== null && { MaxConcurrency: input.MaxConcurrency }),
-    ...(input.MaxSize !== undefined && input.MaxSize !== null && { MaxSize: input.MaxSize }),
-    ...(input.MinSize !== undefined && input.MinSize !== null && { MinSize: input.MinSize }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.AutoScalingConfigurationName != undefined && {
+      AutoScalingConfigurationName: input.AutoScalingConfigurationName,
+    }),
+    ...(input.MaxConcurrency != undefined && { MaxConcurrency: input.MaxConcurrency }),
+    ...(input.MaxSize != undefined && { MaxSize: input.MaxSize }),
+    ...(input.MinSize != undefined && { MinSize: input.MinSize }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateConnectionRequest = (input: CreateConnectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined &&
-      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
-    ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ConnectionName != undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.ProviderType != undefined && { ProviderType: input.ProviderType }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -2240,51 +2231,44 @@ const serializeAws_json1_0CreateObservabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ObservabilityConfigurationName !== undefined &&
-      input.ObservabilityConfigurationName !== null && {
-        ObservabilityConfigurationName: input.ObservabilityConfigurationName,
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.TraceConfiguration !== undefined &&
-      input.TraceConfiguration !== null && {
-        TraceConfiguration: serializeAws_json1_0TraceConfiguration(input.TraceConfiguration, context),
-      }),
+    ...(input.ObservabilityConfigurationName != undefined && {
+      ObservabilityConfigurationName: input.ObservabilityConfigurationName,
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.TraceConfiguration != undefined && {
+      TraceConfiguration: serializeAws_json1_0TraceConfiguration(input.TraceConfiguration, context),
+    }),
   };
 };
 
 const serializeAws_json1_0CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AutoScalingConfigurationArn !== undefined &&
-      input.AutoScalingConfigurationArn !== null && { AutoScalingConfigurationArn: input.AutoScalingConfigurationArn }),
-    ...(input.EncryptionConfiguration !== undefined &&
-      input.EncryptionConfiguration !== null && {
-        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-      }),
-    ...(input.HealthCheckConfiguration !== undefined &&
-      input.HealthCheckConfiguration !== null && {
-        HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
-      }),
-    ...(input.InstanceConfiguration !== undefined &&
-      input.InstanceConfiguration !== null && {
-        InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
-      }),
-    ...(input.NetworkConfiguration !== undefined &&
-      input.NetworkConfiguration !== null && {
-        NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
-      }),
-    ...(input.ObservabilityConfiguration !== undefined &&
-      input.ObservabilityConfiguration !== null && {
-        ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
-          input.ObservabilityConfiguration,
-          context
-        ),
-      }),
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { ServiceName: input.ServiceName }),
-    ...(input.SourceConfiguration !== undefined &&
-      input.SourceConfiguration !== null && {
-        SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.AutoScalingConfigurationArn != undefined && {
+      AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
+    }),
+    ...(input.EncryptionConfiguration != undefined && {
+      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+    }),
+    ...(input.HealthCheckConfiguration != undefined && {
+      HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
+    }),
+    ...(input.InstanceConfiguration != undefined && {
+      InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
+    }),
+    ...(input.NetworkConfiguration != undefined && {
+      NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+    }),
+    ...(input.ObservabilityConfiguration != undefined && {
+      ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
+        input.ObservabilityConfiguration,
+        context
+      ),
+    }),
+    ...(input.ServiceName != undefined && { ServiceName: input.ServiceName }),
+    ...(input.SourceConfiguration != undefined && {
+      SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -2293,15 +2277,12 @@ const serializeAws_json1_0CreateVpcConnectorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecurityGroups !== undefined &&
-      input.SecurityGroups !== null && {
-        SecurityGroups: serializeAws_json1_0StringList(input.SecurityGroups, context),
-      }),
-    ...(input.Subnets !== undefined &&
-      input.Subnets !== null && { Subnets: serializeAws_json1_0StringList(input.Subnets, context) }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.VpcConnectorName !== undefined &&
-      input.VpcConnectorName !== null && { VpcConnectorName: input.VpcConnectorName }),
+    ...(input.SecurityGroups != undefined && {
+      SecurityGroups: serializeAws_json1_0StringList(input.SecurityGroups, context),
+    }),
+    ...(input.Subnets != undefined && { Subnets: serializeAws_json1_0StringList(input.Subnets, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.VpcConnectorName != undefined && { VpcConnectorName: input.VpcConnectorName }),
   };
 };
 
@@ -2310,14 +2291,15 @@ const serializeAws_json1_0DeleteAutoScalingConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoScalingConfigurationArn !== undefined &&
-      input.AutoScalingConfigurationArn !== null && { AutoScalingConfigurationArn: input.AutoScalingConfigurationArn }),
+    ...(input.AutoScalingConfigurationArn != undefined && {
+      AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
+    }),
   };
 };
 
 const serializeAws_json1_0DeleteConnectionRequest = (input: DeleteConnectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.ConnectionArn != undefined && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
@@ -2326,16 +2308,15 @@ const serializeAws_json1_0DeleteObservabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ObservabilityConfigurationArn !== undefined &&
-      input.ObservabilityConfigurationArn !== null && {
-        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
-      }),
+    ...(input.ObservabilityConfigurationArn != undefined && {
+      ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+    }),
   };
 };
 
 const serializeAws_json1_0DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2344,8 +2325,7 @@ const serializeAws_json1_0DeleteVpcConnectorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VpcConnectorArn !== undefined &&
-      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
+    ...(input.VpcConnectorArn != undefined && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
@@ -2354,8 +2334,9 @@ const serializeAws_json1_0DescribeAutoScalingConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoScalingConfigurationArn !== undefined &&
-      input.AutoScalingConfigurationArn !== null && { AutoScalingConfigurationArn: input.AutoScalingConfigurationArn }),
+    ...(input.AutoScalingConfigurationArn != undefined && {
+      AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
+    }),
   };
 };
 
@@ -2364,9 +2345,9 @@ const serializeAws_json1_0DescribeCustomDomainsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2375,16 +2356,15 @@ const serializeAws_json1_0DescribeObservabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ObservabilityConfigurationArn !== undefined &&
-      input.ObservabilityConfigurationArn !== null && {
-        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
-      }),
+    ...(input.ObservabilityConfigurationArn != undefined && {
+      ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+    }),
   };
 };
 
 const serializeAws_json1_0DescribeServiceRequest = (input: DescribeServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2393,8 +2373,7 @@ const serializeAws_json1_0DescribeVpcConnectorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VpcConnectorArn !== undefined &&
-      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
+    ...(input.VpcConnectorArn != undefined && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
@@ -2403,22 +2382,21 @@ const serializeAws_json1_0DisassociateCustomDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
 const serializeAws_json1_0EgressConfiguration = (input: EgressConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EgressType !== undefined && input.EgressType !== null && { EgressType: input.EgressType }),
-    ...(input.VpcConnectorArn !== undefined &&
-      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
+    ...(input.EgressType != undefined && { EgressType: input.EgressType }),
+    ...(input.VpcConnectorArn != undefined && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
 const serializeAws_json1_0EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.KmsKey !== undefined && input.KmsKey !== null && { KmsKey: input.KmsKey }),
+    ...(input.KmsKey != undefined && { KmsKey: input.KmsKey }),
   };
 };
 
@@ -2427,50 +2405,43 @@ const serializeAws_json1_0HealthCheckConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HealthyThreshold !== undefined &&
-      input.HealthyThreshold !== null && { HealthyThreshold: input.HealthyThreshold }),
-    ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
-    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
-    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
-    ...(input.Timeout !== undefined && input.Timeout !== null && { Timeout: input.Timeout }),
-    ...(input.UnhealthyThreshold !== undefined &&
-      input.UnhealthyThreshold !== null && { UnhealthyThreshold: input.UnhealthyThreshold }),
+    ...(input.HealthyThreshold != undefined && { HealthyThreshold: input.HealthyThreshold }),
+    ...(input.Interval != undefined && { Interval: input.Interval }),
+    ...(input.Path != undefined && { Path: input.Path }),
+    ...(input.Protocol != undefined && { Protocol: input.Protocol }),
+    ...(input.Timeout != undefined && { Timeout: input.Timeout }),
+    ...(input.UnhealthyThreshold != undefined && { UnhealthyThreshold: input.UnhealthyThreshold }),
   };
 };
 
 const serializeAws_json1_0ImageConfiguration = (input: ImageConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
-    ...(input.RuntimeEnvironmentVariables !== undefined &&
-      input.RuntimeEnvironmentVariables !== null && {
-        RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
-          input.RuntimeEnvironmentVariables,
-          context
-        ),
-      }),
-    ...(input.StartCommand !== undefined && input.StartCommand !== null && { StartCommand: input.StartCommand }),
+    ...(input.Port != undefined && { Port: input.Port }),
+    ...(input.RuntimeEnvironmentVariables != undefined && {
+      RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
+        input.RuntimeEnvironmentVariables,
+        context
+      ),
+    }),
+    ...(input.StartCommand != undefined && { StartCommand: input.StartCommand }),
   };
 };
 
 const serializeAws_json1_0ImageRepository = (input: ImageRepository, context: __SerdeContext): any => {
   return {
-    ...(input.ImageConfiguration !== undefined &&
-      input.ImageConfiguration !== null && {
-        ImageConfiguration: serializeAws_json1_0ImageConfiguration(input.ImageConfiguration, context),
-      }),
-    ...(input.ImageIdentifier !== undefined &&
-      input.ImageIdentifier !== null && { ImageIdentifier: input.ImageIdentifier }),
-    ...(input.ImageRepositoryType !== undefined &&
-      input.ImageRepositoryType !== null && { ImageRepositoryType: input.ImageRepositoryType }),
+    ...(input.ImageConfiguration != undefined && {
+      ImageConfiguration: serializeAws_json1_0ImageConfiguration(input.ImageConfiguration, context),
+    }),
+    ...(input.ImageIdentifier != undefined && { ImageIdentifier: input.ImageIdentifier }),
+    ...(input.ImageRepositoryType != undefined && { ImageRepositoryType: input.ImageRepositoryType }),
   };
 };
 
 const serializeAws_json1_0InstanceConfiguration = (input: InstanceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Cpu !== undefined && input.Cpu !== null && { Cpu: input.Cpu }),
-    ...(input.InstanceRoleArn !== undefined &&
-      input.InstanceRoleArn !== null && { InstanceRoleArn: input.InstanceRoleArn }),
-    ...(input.Memory !== undefined && input.Memory !== null && { Memory: input.Memory }),
+    ...(input.Cpu != undefined && { Cpu: input.Cpu }),
+    ...(input.InstanceRoleArn != undefined && { InstanceRoleArn: input.InstanceRoleArn }),
+    ...(input.Memory != undefined && { Memory: input.Memory }),
   };
 };
 
@@ -2479,22 +2450,20 @@ const serializeAws_json1_0ListAutoScalingConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoScalingConfigurationName !== undefined &&
-      input.AutoScalingConfigurationName !== null && {
-        AutoScalingConfigurationName: input.AutoScalingConfigurationName,
-      }),
-    ...(input.LatestOnly !== undefined && input.LatestOnly !== null && { LatestOnly: input.LatestOnly }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AutoScalingConfigurationName != undefined && {
+      AutoScalingConfigurationName: input.AutoScalingConfigurationName,
+    }),
+    ...(input.LatestOnly != undefined && { LatestOnly: input.LatestOnly }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0ListConnectionsRequest = (input: ListConnectionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined &&
-      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ConnectionName != undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2503,28 +2472,27 @@ const serializeAws_json1_0ListObservabilityConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LatestOnly !== undefined && input.LatestOnly !== null && { LatestOnly: input.LatestOnly }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ObservabilityConfigurationName !== undefined &&
-      input.ObservabilityConfigurationName !== null && {
-        ObservabilityConfigurationName: input.ObservabilityConfigurationName,
-      }),
+    ...(input.LatestOnly != undefined && { LatestOnly: input.LatestOnly }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ObservabilityConfigurationName != undefined && {
+      ObservabilityConfigurationName: input.ObservabilityConfigurationName,
+    }),
   };
 };
 
 const serializeAws_json1_0ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
 const serializeAws_json1_0ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2533,7 +2501,7 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2542,29 +2510,28 @@ const serializeAws_json1_0ListVpcConnectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EgressConfiguration !== undefined &&
-      input.EgressConfiguration !== null && {
-        EgressConfiguration: serializeAws_json1_0EgressConfiguration(input.EgressConfiguration, context),
-      }),
+    ...(input.EgressConfiguration != undefined && {
+      EgressConfiguration: serializeAws_json1_0EgressConfiguration(input.EgressConfiguration, context),
+    }),
   };
 };
 
 const serializeAws_json1_0PauseServiceRequest = (input: PauseServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
 const serializeAws_json1_0ResumeServiceRequest = (input: ResumeServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2588,47 +2555,41 @@ const serializeAws_json1_0ServiceObservabilityConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ObservabilityConfigurationArn !== undefined &&
-      input.ObservabilityConfigurationArn !== null && {
-        ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
-      }),
-    ...(input.ObservabilityEnabled !== undefined &&
-      input.ObservabilityEnabled !== null && { ObservabilityEnabled: input.ObservabilityEnabled }),
+    ...(input.ObservabilityConfigurationArn != undefined && {
+      ObservabilityConfigurationArn: input.ObservabilityConfigurationArn,
+    }),
+    ...(input.ObservabilityEnabled != undefined && { ObservabilityEnabled: input.ObservabilityEnabled }),
   };
 };
 
 const serializeAws_json1_0SourceCodeVersion = (input: SourceCodeVersion, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_0SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationConfiguration !== undefined &&
-      input.AuthenticationConfiguration !== null && {
-        AuthenticationConfiguration: serializeAws_json1_0AuthenticationConfiguration(
-          input.AuthenticationConfiguration,
-          context
-        ),
-      }),
-    ...(input.AutoDeploymentsEnabled !== undefined &&
-      input.AutoDeploymentsEnabled !== null && { AutoDeploymentsEnabled: input.AutoDeploymentsEnabled }),
-    ...(input.CodeRepository !== undefined &&
-      input.CodeRepository !== null && {
-        CodeRepository: serializeAws_json1_0CodeRepository(input.CodeRepository, context),
-      }),
-    ...(input.ImageRepository !== undefined &&
-      input.ImageRepository !== null && {
-        ImageRepository: serializeAws_json1_0ImageRepository(input.ImageRepository, context),
-      }),
+    ...(input.AuthenticationConfiguration != undefined && {
+      AuthenticationConfiguration: serializeAws_json1_0AuthenticationConfiguration(
+        input.AuthenticationConfiguration,
+        context
+      ),
+    }),
+    ...(input.AutoDeploymentsEnabled != undefined && { AutoDeploymentsEnabled: input.AutoDeploymentsEnabled }),
+    ...(input.CodeRepository != undefined && {
+      CodeRepository: serializeAws_json1_0CodeRepository(input.CodeRepository, context),
+    }),
+    ...(input.ImageRepository != undefined && {
+      ImageRepository: serializeAws_json1_0ImageRepository(input.ImageRepository, context),
+    }),
   };
 };
 
 const serializeAws_json1_0StartDeploymentRequest = (input: StartDeploymentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
   };
 };
 
@@ -2645,8 +2606,8 @@ const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -2674,53 +2635,48 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0TraceConfiguration = (input: TraceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Vendor !== undefined && input.Vendor !== null && { Vendor: input.Vendor }),
+    ...(input.Vendor != undefined && { Vendor: input.Vendor }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AutoScalingConfigurationArn !== undefined &&
-      input.AutoScalingConfigurationArn !== null && { AutoScalingConfigurationArn: input.AutoScalingConfigurationArn }),
-    ...(input.HealthCheckConfiguration !== undefined &&
-      input.HealthCheckConfiguration !== null && {
-        HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
-      }),
-    ...(input.InstanceConfiguration !== undefined &&
-      input.InstanceConfiguration !== null && {
-        InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
-      }),
-    ...(input.NetworkConfiguration !== undefined &&
-      input.NetworkConfiguration !== null && {
-        NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
-      }),
-    ...(input.ObservabilityConfiguration !== undefined &&
-      input.ObservabilityConfiguration !== null && {
-        ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
-          input.ObservabilityConfiguration,
-          context
-        ),
-      }),
-    ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
-    ...(input.SourceConfiguration !== undefined &&
-      input.SourceConfiguration !== null && {
-        SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
-      }),
+    ...(input.AutoScalingConfigurationArn != undefined && {
+      AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
+    }),
+    ...(input.HealthCheckConfiguration != undefined && {
+      HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
+    }),
+    ...(input.InstanceConfiguration != undefined && {
+      InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
+    }),
+    ...(input.NetworkConfiguration != undefined && {
+      NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+    }),
+    ...(input.ObservabilityConfiguration != undefined && {
+      ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
+        input.ObservabilityConfiguration,
+        context
+      ),
+    }),
+    ...(input.ServiceArn != undefined && { ServiceArn: input.ServiceArn }),
+    ...(input.SourceConfiguration != undefined && {
+      SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
+    }),
   };
 };
 
@@ -2730,9 +2686,7 @@ const deserializeAws_json1_0AssociateCustomDomainResponse = (
 ): AssociateCustomDomainResponse => {
   return {
     CustomDomain:
-      output.CustomDomain !== undefined && output.CustomDomain !== null
-        ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context)
-        : undefined,
+      output.CustomDomain != undefined ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
   } as any;
@@ -2757,11 +2711,11 @@ const deserializeAws_json1_0AutoScalingConfiguration = (
     AutoScalingConfigurationName: __expectString(output.AutoScalingConfigurationName),
     AutoScalingConfigurationRevision: __expectInt32(output.AutoScalingConfigurationRevision),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
-      output.DeletedAt !== undefined && output.DeletedAt !== null
+      output.DeletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     Latest: __expectBoolean(output.Latest),
@@ -2828,7 +2782,7 @@ const deserializeAws_json1_0CertificateValidationRecordList = (
 const deserializeAws_json1_0CodeConfiguration = (output: any, context: __SerdeContext): CodeConfiguration => {
   return {
     CodeConfigurationValues:
-      output.CodeConfigurationValues !== undefined && output.CodeConfigurationValues !== null
+      output.CodeConfigurationValues != undefined
         ? deserializeAws_json1_0CodeConfigurationValues(output.CodeConfigurationValues, context)
         : undefined,
     ConfigurationSource: __expectString(output.ConfigurationSource),
@@ -2844,7 +2798,7 @@ const deserializeAws_json1_0CodeConfigurationValues = (
     Port: __expectString(output.Port),
     Runtime: __expectString(output.Runtime),
     RuntimeEnvironmentVariables:
-      output.RuntimeEnvironmentVariables !== undefined && output.RuntimeEnvironmentVariables !== null
+      output.RuntimeEnvironmentVariables != undefined
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
         : undefined,
     StartCommand: __expectString(output.StartCommand),
@@ -2854,12 +2808,12 @@ const deserializeAws_json1_0CodeConfigurationValues = (
 const deserializeAws_json1_0CodeRepository = (output: any, context: __SerdeContext): CodeRepository => {
   return {
     CodeConfiguration:
-      output.CodeConfiguration !== undefined && output.CodeConfiguration !== null
+      output.CodeConfiguration != undefined
         ? deserializeAws_json1_0CodeConfiguration(output.CodeConfiguration, context)
         : undefined,
     RepositoryUrl: __expectString(output.RepositoryUrl),
     SourceCodeVersion:
-      output.SourceCodeVersion !== undefined && output.SourceCodeVersion !== null
+      output.SourceCodeVersion != undefined
         ? deserializeAws_json1_0SourceCodeVersion(output.SourceCodeVersion, context)
         : undefined,
   } as any;
@@ -2870,7 +2824,7 @@ const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext):
     ConnectionArn: __expectString(output.ConnectionArn),
     ConnectionName: __expectString(output.ConnectionName),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ProviderType: __expectString(output.ProviderType),
@@ -2883,7 +2837,7 @@ const deserializeAws_json1_0ConnectionSummary = (output: any, context: __SerdeCo
     ConnectionArn: __expectString(output.ConnectionArn),
     ConnectionName: __expectString(output.ConnectionName),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ProviderType: __expectString(output.ProviderType),
@@ -2909,7 +2863,7 @@ const deserializeAws_json1_0CreateAutoScalingConfigurationResponse = (
 ): CreateAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
-      output.AutoScalingConfiguration !== undefined && output.AutoScalingConfiguration !== null
+      output.AutoScalingConfiguration != undefined
         ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
@@ -2921,9 +2875,7 @@ const deserializeAws_json1_0CreateConnectionResponse = (
 ): CreateConnectionResponse => {
   return {
     Connection:
-      output.Connection !== undefined && output.Connection !== null
-        ? deserializeAws_json1_0Connection(output.Connection, context)
-        : undefined,
+      output.Connection != undefined ? deserializeAws_json1_0Connection(output.Connection, context) : undefined,
   } as any;
 };
 
@@ -2933,7 +2885,7 @@ const deserializeAws_json1_0CreateObservabilityConfigurationResponse = (
 ): CreateObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
-      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+      output.ObservabilityConfiguration != undefined
         ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
@@ -2942,10 +2894,7 @@ const deserializeAws_json1_0CreateObservabilityConfigurationResponse = (
 const deserializeAws_json1_0CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
@@ -2955,16 +2904,14 @@ const deserializeAws_json1_0CreateVpcConnectorResponse = (
 ): CreateVpcConnectorResponse => {
   return {
     VpcConnector:
-      output.VpcConnector !== undefined && output.VpcConnector !== null
-        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
-        : undefined,
+      output.VpcConnector != undefined ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0CustomDomain = (output: any, context: __SerdeContext): CustomDomain => {
   return {
     CertificateValidationRecords:
-      output.CertificateValidationRecords !== undefined && output.CertificateValidationRecords !== null
+      output.CertificateValidationRecords != undefined
         ? deserializeAws_json1_0CertificateValidationRecordList(output.CertificateValidationRecords, context)
         : undefined,
     DomainName: __expectString(output.DomainName),
@@ -2991,7 +2938,7 @@ const deserializeAws_json1_0DeleteAutoScalingConfigurationResponse = (
 ): DeleteAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
-      output.AutoScalingConfiguration !== undefined && output.AutoScalingConfiguration !== null
+      output.AutoScalingConfiguration != undefined
         ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
@@ -3003,9 +2950,7 @@ const deserializeAws_json1_0DeleteConnectionResponse = (
 ): DeleteConnectionResponse => {
   return {
     Connection:
-      output.Connection !== undefined && output.Connection !== null
-        ? deserializeAws_json1_0Connection(output.Connection, context)
-        : undefined,
+      output.Connection != undefined ? deserializeAws_json1_0Connection(output.Connection, context) : undefined,
   } as any;
 };
 
@@ -3015,7 +2960,7 @@ const deserializeAws_json1_0DeleteObservabilityConfigurationResponse = (
 ): DeleteObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
-      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+      output.ObservabilityConfiguration != undefined
         ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
@@ -3024,10 +2969,7 @@ const deserializeAws_json1_0DeleteObservabilityConfigurationResponse = (
 const deserializeAws_json1_0DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
@@ -3037,9 +2979,7 @@ const deserializeAws_json1_0DeleteVpcConnectorResponse = (
 ): DeleteVpcConnectorResponse => {
   return {
     VpcConnector:
-      output.VpcConnector !== undefined && output.VpcConnector !== null
-        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
-        : undefined,
+      output.VpcConnector != undefined ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
@@ -3049,7 +2989,7 @@ const deserializeAws_json1_0DescribeAutoScalingConfigurationResponse = (
 ): DescribeAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
-      output.AutoScalingConfiguration !== undefined && output.AutoScalingConfiguration !== null
+      output.AutoScalingConfiguration != undefined
         ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
@@ -3061,7 +3001,7 @@ const deserializeAws_json1_0DescribeCustomDomainsResponse = (
 ): DescribeCustomDomainsResponse => {
   return {
     CustomDomains:
-      output.CustomDomains !== undefined && output.CustomDomains !== null
+      output.CustomDomains != undefined
         ? deserializeAws_json1_0CustomDomainList(output.CustomDomains, context)
         : undefined,
     DNSTarget: __expectString(output.DNSTarget),
@@ -3076,7 +3016,7 @@ const deserializeAws_json1_0DescribeObservabilityConfigurationResponse = (
 ): DescribeObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
-      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+      output.ObservabilityConfiguration != undefined
         ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
@@ -3087,10 +3027,7 @@ const deserializeAws_json1_0DescribeServiceResponse = (
   context: __SerdeContext
 ): DescribeServiceResponse => {
   return {
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
@@ -3100,9 +3037,7 @@ const deserializeAws_json1_0DescribeVpcConnectorResponse = (
 ): DescribeVpcConnectorResponse => {
   return {
     VpcConnector:
-      output.VpcConnector !== undefined && output.VpcConnector !== null
-        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
-        : undefined,
+      output.VpcConnector != undefined ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
@@ -3112,9 +3047,7 @@ const deserializeAws_json1_0DisassociateCustomDomainResponse = (
 ): DisassociateCustomDomainResponse => {
   return {
     CustomDomain:
-      output.CustomDomain !== undefined && output.CustomDomain !== null
-        ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context)
-        : undefined,
+      output.CustomDomain != undefined ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
   } as any;
@@ -3154,7 +3087,7 @@ const deserializeAws_json1_0ImageConfiguration = (output: any, context: __SerdeC
   return {
     Port: __expectString(output.Port),
     RuntimeEnvironmentVariables:
-      output.RuntimeEnvironmentVariables !== undefined && output.RuntimeEnvironmentVariables !== null
+      output.RuntimeEnvironmentVariables != undefined
         ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
         : undefined,
     StartCommand: __expectString(output.StartCommand),
@@ -3164,7 +3097,7 @@ const deserializeAws_json1_0ImageConfiguration = (output: any, context: __SerdeC
 const deserializeAws_json1_0ImageRepository = (output: any, context: __SerdeContext): ImageRepository => {
   return {
     ImageConfiguration:
-      output.ImageConfiguration !== undefined && output.ImageConfiguration !== null
+      output.ImageConfiguration != undefined
         ? deserializeAws_json1_0ImageConfiguration(output.ImageConfiguration, context)
         : undefined,
     ImageIdentifier: __expectString(output.ImageIdentifier),
@@ -3210,7 +3143,7 @@ const deserializeAws_json1_0ListAutoScalingConfigurationsResponse = (
 ): ListAutoScalingConfigurationsResponse => {
   return {
     AutoScalingConfigurationSummaryList:
-      output.AutoScalingConfigurationSummaryList !== undefined && output.AutoScalingConfigurationSummaryList !== null
+      output.AutoScalingConfigurationSummaryList != undefined
         ? deserializeAws_json1_0AutoScalingConfigurationSummaryList(output.AutoScalingConfigurationSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3223,7 +3156,7 @@ const deserializeAws_json1_0ListConnectionsResponse = (
 ): ListConnectionsResponse => {
   return {
     ConnectionSummaryList:
-      output.ConnectionSummaryList !== undefined && output.ConnectionSummaryList !== null
+      output.ConnectionSummaryList != undefined
         ? deserializeAws_json1_0ConnectionSummaryList(output.ConnectionSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3237,8 +3170,7 @@ const deserializeAws_json1_0ListObservabilityConfigurationsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ObservabilityConfigurationSummaryList:
-      output.ObservabilityConfigurationSummaryList !== undefined &&
-      output.ObservabilityConfigurationSummaryList !== null
+      output.ObservabilityConfigurationSummaryList != undefined
         ? deserializeAws_json1_0ObservabilityConfigurationSummaryList(
             output.ObservabilityConfigurationSummaryList,
             context
@@ -3251,7 +3183,7 @@ const deserializeAws_json1_0ListOperationsResponse = (output: any, context: __Se
   return {
     NextToken: __expectString(output.NextToken),
     OperationSummaryList:
-      output.OperationSummaryList !== undefined && output.OperationSummaryList !== null
+      output.OperationSummaryList != undefined
         ? deserializeAws_json1_0OperationSummaryList(output.OperationSummaryList, context)
         : undefined,
   } as any;
@@ -3261,7 +3193,7 @@ const deserializeAws_json1_0ListServicesResponse = (output: any, context: __Serd
   return {
     NextToken: __expectString(output.NextToken),
     ServiceSummaryList:
-      output.ServiceSummaryList !== undefined && output.ServiceSummaryList !== null
+      output.ServiceSummaryList != undefined
         ? deserializeAws_json1_0ServiceSummaryList(output.ServiceSummaryList, context)
         : undefined,
   } as any;
@@ -3272,10 +3204,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3286,7 +3215,7 @@ const deserializeAws_json1_0ListVpcConnectorsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     VpcConnectors:
-      output.VpcConnectors !== undefined && output.VpcConnectors !== null
+      output.VpcConnectors != undefined
         ? deserializeAws_json1_0VpcConnectors(output.VpcConnectors, context)
         : undefined,
   } as any;
@@ -3295,7 +3224,7 @@ const deserializeAws_json1_0ListVpcConnectorsResponse = (
 const deserializeAws_json1_0NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
   return {
     EgressConfiguration:
-      output.EgressConfiguration !== undefined && output.EgressConfiguration !== null
+      output.EgressConfiguration != undefined
         ? deserializeAws_json1_0EgressConfiguration(output.EgressConfiguration, context)
         : undefined,
   } as any;
@@ -3307,11 +3236,11 @@ const deserializeAws_json1_0ObservabilityConfiguration = (
 ): ObservabilityConfiguration => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
-      output.DeletedAt !== undefined && output.DeletedAt !== null
+      output.DeletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     Latest: __expectBoolean(output.Latest),
@@ -3320,7 +3249,7 @@ const deserializeAws_json1_0ObservabilityConfiguration = (
     ObservabilityConfigurationRevision: __expectInt32(output.ObservabilityConfigurationRevision),
     Status: __expectString(output.Status),
     TraceConfiguration:
-      output.TraceConfiguration !== undefined && output.TraceConfiguration !== null
+      output.TraceConfiguration != undefined
         ? deserializeAws_json1_0TraceConfiguration(output.TraceConfiguration, context)
         : undefined,
   } as any;
@@ -3355,19 +3284,17 @@ const deserializeAws_json1_0ObservabilityConfigurationSummaryList = (
 const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
-        : undefined,
+      output.EndedAt != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
     Id: __expectString(output.Id),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
+      output.StartedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
         : undefined,
     Status: __expectString(output.Status),
     TargetArn: __expectString(output.TargetArn),
     Type: __expectString(output.Type),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -3388,10 +3315,7 @@ const deserializeAws_json1_0OperationSummaryList = (output: any, context: __Serd
 const deserializeAws_json1_0PauseServiceResponse = (output: any, context: __SerdeContext): PauseServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
@@ -3407,10 +3331,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 const deserializeAws_json1_0ResumeServiceResponse = (output: any, context: __SerdeContext): ResumeServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
@@ -3432,35 +3353,35 @@ const deserializeAws_json1_0RuntimeEnvironmentVariables = (
 const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Service => {
   return {
     AutoScalingConfigurationSummary:
-      output.AutoScalingConfigurationSummary !== undefined && output.AutoScalingConfigurationSummary !== null
+      output.AutoScalingConfigurationSummary != undefined
         ? deserializeAws_json1_0AutoScalingConfigurationSummary(output.AutoScalingConfigurationSummary, context)
         : undefined,
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
-      output.DeletedAt !== undefined && output.DeletedAt !== null
+      output.DeletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     EncryptionConfiguration:
-      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+      output.EncryptionConfiguration != undefined
         ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
     HealthCheckConfiguration:
-      output.HealthCheckConfiguration !== undefined && output.HealthCheckConfiguration !== null
+      output.HealthCheckConfiguration != undefined
         ? deserializeAws_json1_0HealthCheckConfiguration(output.HealthCheckConfiguration, context)
         : undefined,
     InstanceConfiguration:
-      output.InstanceConfiguration !== undefined && output.InstanceConfiguration !== null
+      output.InstanceConfiguration != undefined
         ? deserializeAws_json1_0InstanceConfiguration(output.InstanceConfiguration, context)
         : undefined,
     NetworkConfiguration:
-      output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
+      output.NetworkConfiguration != undefined
         ? deserializeAws_json1_0NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
     ObservabilityConfiguration:
-      output.ObservabilityConfiguration !== undefined && output.ObservabilityConfiguration !== null
+      output.ObservabilityConfiguration != undefined
         ? deserializeAws_json1_0ServiceObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
     ServiceArn: __expectString(output.ServiceArn),
@@ -3468,12 +3389,12 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
     ServiceName: __expectString(output.ServiceName),
     ServiceUrl: __expectString(output.ServiceUrl),
     SourceConfiguration:
-      output.SourceConfiguration !== undefined && output.SourceConfiguration !== null
+      output.SourceConfiguration != undefined
         ? deserializeAws_json1_0SourceConfiguration(output.SourceConfiguration, context)
         : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -3501,7 +3422,7 @@ const deserializeAws_json1_0ServiceQuotaExceededException = (
 const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     ServiceArn: __expectString(output.ServiceArn),
@@ -3510,7 +3431,7 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
     ServiceUrl: __expectString(output.ServiceUrl),
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+      output.UpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
   } as any;
@@ -3538,16 +3459,16 @@ const deserializeAws_json1_0SourceCodeVersion = (output: any, context: __SerdeCo
 const deserializeAws_json1_0SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
   return {
     AuthenticationConfiguration:
-      output.AuthenticationConfiguration !== undefined && output.AuthenticationConfiguration !== null
+      output.AuthenticationConfiguration != undefined
         ? deserializeAws_json1_0AuthenticationConfiguration(output.AuthenticationConfiguration, context)
         : undefined,
     AutoDeploymentsEnabled: __expectBoolean(output.AutoDeploymentsEnabled),
     CodeRepository:
-      output.CodeRepository !== undefined && output.CodeRepository !== null
+      output.CodeRepository != undefined
         ? deserializeAws_json1_0CodeRepository(output.CodeRepository, context)
         : undefined,
     ImageRepository:
-      output.ImageRepository !== undefined && output.ImageRepository !== null
+      output.ImageRepository != undefined
         ? deserializeAws_json1_0ImageRepository(output.ImageRepository, context)
         : undefined,
   } as any;
@@ -3610,32 +3531,24 @@ const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __Ser
 const deserializeAws_json1_0UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service:
-      output.Service !== undefined && output.Service !== null
-        ? deserializeAws_json1_0Service(output.Service, context)
-        : undefined,
+    Service: output.Service != undefined ? deserializeAws_json1_0Service(output.Service, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0VpcConnector = (output: any, context: __SerdeContext): VpcConnector => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
+      output.CreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     DeletedAt:
-      output.DeletedAt !== undefined && output.DeletedAt !== null
+      output.DeletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
         : undefined,
     SecurityGroups:
-      output.SecurityGroups !== undefined && output.SecurityGroups !== null
-        ? deserializeAws_json1_0StringList(output.SecurityGroups, context)
-        : undefined,
+      output.SecurityGroups != undefined ? deserializeAws_json1_0StringList(output.SecurityGroups, context) : undefined,
     Status: __expectString(output.Status),
-    Subnets:
-      output.Subnets !== undefined && output.Subnets !== null
-        ? deserializeAws_json1_0StringList(output.Subnets, context)
-        : undefined,
+    Subnets: output.Subnets != undefined ? deserializeAws_json1_0StringList(output.Subnets, context) : undefined,
     VpcConnectorArn: __expectString(output.VpcConnectorArn),
     VpcConnectorName: __expectString(output.VpcConnectorName),
     VpcConnectorRevision: __expectInt32(output.VpcConnectorRevision),

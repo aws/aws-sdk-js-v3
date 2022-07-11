@@ -147,8 +147,9 @@ export const serializeAws_restJson1BatchEvaluateFeatureCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.requests !== undefined &&
-      input.requests !== null && { requests: serializeAws_restJson1EvaluationRequestsList(input.requests, context) }),
+    ...(input.requests != undefined && {
+      requests: serializeAws_restJson1EvaluationRequestsList(input.requests, context),
+    }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -189,24 +190,20 @@ export const serializeAws_restJson1CreateExperimentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.metricGoals !== undefined &&
-      input.metricGoals !== null && {
-        metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.onlineAbConfig !== undefined &&
-      input.onlineAbConfig !== null && {
-        onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.samplingRate !== undefined && input.samplingRate !== null && { samplingRate: input.samplingRate }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.treatments !== undefined &&
-      input.treatments !== null && {
-        treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
-      }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.metricGoals != undefined && {
+      metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.onlineAbConfig != undefined && {
+      onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
+    }),
+    ...(input.randomizationSalt != undefined && { randomizationSalt: input.randomizationSalt }),
+    ...(input.samplingRate != undefined && { samplingRate: input.samplingRate }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.treatments != undefined && {
+      treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -240,21 +237,17 @@ export const serializeAws_restJson1CreateFeatureCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.defaultVariation !== undefined &&
-      input.defaultVariation !== null && { defaultVariation: input.defaultVariation }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.entityOverrides !== undefined &&
-      input.entityOverrides !== null && {
-        entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
-      }),
-    ...(input.evaluationStrategy !== undefined &&
-      input.evaluationStrategy !== null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.variations !== undefined &&
-      input.variations !== null && {
-        variations: serializeAws_restJson1VariationConfigsList(input.variations, context),
-      }),
+    ...(input.defaultVariation != undefined && { defaultVariation: input.defaultVariation }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.entityOverrides != undefined && {
+      entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
+    }),
+    ...(input.evaluationStrategy != undefined && { evaluationStrategy: input.evaluationStrategy }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.variations != undefined && {
+      variations: serializeAws_restJson1VariationConfigsList(input.variations, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -288,21 +281,17 @@ export const serializeAws_restJson1CreateLaunchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.groups !== undefined &&
-      input.groups !== null && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors !== undefined &&
-      input.metricMonitors !== null && {
-        metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig !== undefined &&
-      input.scheduledSplitsConfig !== null && {
-        scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.groups != undefined && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
+    ...(input.metricMonitors != undefined && {
+      metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.randomizationSalt != undefined && { randomizationSalt: input.randomizationSalt }),
+    ...(input.scheduledSplitsConfig != undefined && {
+      scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -326,13 +315,12 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
   body = JSON.stringify({
-    ...(input.dataDelivery !== undefined &&
-      input.dataDelivery !== null && {
-        dataDelivery: serializeAws_restJson1ProjectDataDeliveryConfig(input.dataDelivery, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.dataDelivery != undefined && {
+      dataDelivery: serializeAws_restJson1ProjectDataDeliveryConfig(input.dataDelivery, context),
+    }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -518,9 +506,10 @@ export const serializeAws_restJson1EvaluateFeatureCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
-    ...(input.evaluationContext !== undefined &&
-      input.evaluationContext !== null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
+    ...(input.entityId != undefined && { entityId: input.entityId }),
+    ...(input.evaluationContext != undefined && {
+      evaluationContext: __LazyJsonString.fromObject(input.evaluationContext),
+    }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -610,26 +599,22 @@ export const serializeAws_restJson1GetExperimentResultsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.baseStat !== undefined && input.baseStat !== null && { baseStat: input.baseStat }),
-    ...(input.endTime !== undefined &&
-      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.metricNames !== undefined &&
-      input.metricNames !== null && { metricNames: serializeAws_restJson1MetricNameList(input.metricNames, context) }),
-    ...(input.period !== undefined && input.period !== null && { period: input.period }),
-    ...(input.reportNames !== undefined &&
-      input.reportNames !== null && {
-        reportNames: serializeAws_restJson1ExperimentReportNameList(input.reportNames, context),
-      }),
-    ...(input.resultStats !== undefined &&
-      input.resultStats !== null && {
-        resultStats: serializeAws_restJson1ExperimentResultRequestTypeList(input.resultStats, context),
-      }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.treatmentNames !== undefined &&
-      input.treatmentNames !== null && {
-        treatmentNames: serializeAws_restJson1TreatmentNameList(input.treatmentNames, context),
-      }),
+    ...(input.baseStat != undefined && { baseStat: input.baseStat }),
+    ...(input.endTime != undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.metricNames != undefined && {
+      metricNames: serializeAws_restJson1MetricNameList(input.metricNames, context),
+    }),
+    ...(input.period != undefined && { period: input.period }),
+    ...(input.reportNames != undefined && {
+      reportNames: serializeAws_restJson1ExperimentReportNameList(input.reportNames, context),
+    }),
+    ...(input.resultStats != undefined && {
+      resultStats: serializeAws_restJson1ExperimentResultRequestTypeList(input.resultStats, context),
+    }),
+    ...(input.startTime != undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.treatmentNames != undefined && {
+      treatmentNames: serializeAws_restJson1TreatmentNameList(input.treatmentNames, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -923,8 +908,7 @@ export const serializeAws_restJson1PutProjectEventsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.events !== undefined &&
-      input.events !== null && { events: serializeAws_restJson1EventList(input.events, context) }),
+    ...(input.events != undefined && { events: serializeAws_restJson1EventList(input.events, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -975,10 +959,9 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.analysisCompleteTime !== undefined &&
-      input.analysisCompleteTime !== null && {
-        analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000),
-      }),
+    ...(input.analysisCompleteTime != undefined && {
+      analysisCompleteTime: Math.round(input.analysisCompleteTime.getTime() / 1000),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1061,8 +1044,8 @@ export const serializeAws_restJson1StopExperimentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.desiredState !== undefined && input.desiredState !== null && { desiredState: input.desiredState }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
+    ...(input.desiredState != undefined && { desiredState: input.desiredState }),
+    ...(input.reason != undefined && { reason: input.reason }),
   });
   return new __HttpRequest({
     protocol,
@@ -1106,8 +1089,8 @@ export const serializeAws_restJson1StopLaunchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.desiredState !== undefined && input.desiredState !== null && { desiredState: input.desiredState }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
+    ...(input.desiredState != undefined && { desiredState: input.desiredState }),
+    ...(input.reason != undefined && { reason: input.reason }),
   });
   return new __HttpRequest({
     protocol,
@@ -1140,7 +1123,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1216,22 +1199,18 @@ export const serializeAws_restJson1UpdateExperimentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.metricGoals !== undefined &&
-      input.metricGoals !== null && {
-        metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
-      }),
-    ...(input.onlineAbConfig !== undefined &&
-      input.onlineAbConfig !== null && {
-        onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.samplingRate !== undefined && input.samplingRate !== null && { samplingRate: input.samplingRate }),
-    ...(input.treatments !== undefined &&
-      input.treatments !== null && {
-        treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
-      }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.metricGoals != undefined && {
+      metricGoals: serializeAws_restJson1MetricGoalConfigList(input.metricGoals, context),
+    }),
+    ...(input.onlineAbConfig != undefined && {
+      onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
+    }),
+    ...(input.randomizationSalt != undefined && { randomizationSalt: input.randomizationSalt }),
+    ...(input.samplingRate != undefined && { samplingRate: input.samplingRate }),
+    ...(input.treatments != undefined && {
+      treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1274,23 +1253,18 @@ export const serializeAws_restJson1UpdateFeatureCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.addOrUpdateVariations !== undefined &&
-      input.addOrUpdateVariations !== null && {
-        addOrUpdateVariations: serializeAws_restJson1VariationConfigsList(input.addOrUpdateVariations, context),
-      }),
-    ...(input.defaultVariation !== undefined &&
-      input.defaultVariation !== null && { defaultVariation: input.defaultVariation }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.entityOverrides !== undefined &&
-      input.entityOverrides !== null && {
-        entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
-      }),
-    ...(input.evaluationStrategy !== undefined &&
-      input.evaluationStrategy !== null && { evaluationStrategy: input.evaluationStrategy }),
-    ...(input.removeVariations !== undefined &&
-      input.removeVariations !== null && {
-        removeVariations: serializeAws_restJson1VariationNameList(input.removeVariations, context),
-      }),
+    ...(input.addOrUpdateVariations != undefined && {
+      addOrUpdateVariations: serializeAws_restJson1VariationConfigsList(input.addOrUpdateVariations, context),
+    }),
+    ...(input.defaultVariation != undefined && { defaultVariation: input.defaultVariation }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.entityOverrides != undefined && {
+      entityOverrides: serializeAws_restJson1EntityOverrideMap(input.entityOverrides, context),
+    }),
+    ...(input.evaluationStrategy != undefined && { evaluationStrategy: input.evaluationStrategy }),
+    ...(input.removeVariations != undefined && {
+      removeVariations: serializeAws_restJson1VariationNameList(input.removeVariations, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1333,19 +1307,15 @@ export const serializeAws_restJson1UpdateLaunchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.groups !== undefined &&
-      input.groups !== null && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
-    ...(input.metricMonitors !== undefined &&
-      input.metricMonitors !== null && {
-        metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
-      }),
-    ...(input.randomizationSalt !== undefined &&
-      input.randomizationSalt !== null && { randomizationSalt: input.randomizationSalt }),
-    ...(input.scheduledSplitsConfig !== undefined &&
-      input.scheduledSplitsConfig !== null && {
-        scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
-      }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.groups != undefined && { groups: serializeAws_restJson1LaunchGroupConfigList(input.groups, context) }),
+    ...(input.metricMonitors != undefined && {
+      metricMonitors: serializeAws_restJson1MetricMonitorConfigList(input.metricMonitors, context),
+    }),
+    ...(input.randomizationSalt != undefined && { randomizationSalt: input.randomizationSalt }),
+    ...(input.scheduledSplitsConfig != undefined && {
+      scheduledSplitsConfig: serializeAws_restJson1ScheduledSplitsLaunchConfig(input.scheduledSplitsConfig, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1378,7 +1348,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.description != undefined && { description: input.description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1412,14 +1382,12 @@ export const serializeAws_restJson1UpdateProjectDataDeliveryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.cloudWatchLogs !== undefined &&
-      input.cloudWatchLogs !== null && {
-        cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-      }),
-    ...(input.s3Destination !== undefined &&
-      input.s3Destination !== null && {
-        s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
-      }),
+    ...(input.cloudWatchLogs != undefined && {
+      cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
+    }),
+    ...(input.s3Destination != undefined && {
+      s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -3382,7 +3350,7 @@ const serializeAws_restJson1CloudWatchLogsDestinationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroup !== undefined && input.logGroup !== null && { logGroup: input.logGroup }),
+    ...(input.logGroup != undefined && { logGroup: input.logGroup }),
   };
 };
 
@@ -3400,10 +3368,11 @@ const serializeAws_restJson1EntityOverrideMap = (input: Record<string, string>, 
 
 const serializeAws_restJson1EvaluationRequest = (input: EvaluationRequest, context: __SerdeContext): any => {
   return {
-    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
-    ...(input.evaluationContext !== undefined &&
-      input.evaluationContext !== null && { evaluationContext: __LazyJsonString.fromObject(input.evaluationContext) }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
+    ...(input.entityId != undefined && { entityId: input.entityId }),
+    ...(input.evaluationContext != undefined && {
+      evaluationContext: __LazyJsonString.fromObject(input.evaluationContext),
+    }),
+    ...(input.feature != undefined && { feature: input.feature }),
   };
 };
 
@@ -3420,10 +3389,9 @@ const serializeAws_restJson1EvaluationRequestsList = (input: EvaluationRequest[]
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.data !== undefined && input.data !== null && { data: __LazyJsonString.fromObject(input.data) }),
-    ...(input.timestamp !== undefined &&
-      input.timestamp !== null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.data != undefined && { data: __LazyJsonString.fromObject(input.data) }),
+    ...(input.timestamp != undefined && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3480,10 +3448,10 @@ const serializeAws_restJson1GroupToWeightMap = (input: Record<string, number>, c
 
 const serializeAws_restJson1LaunchGroupConfig = (input: LaunchGroupConfig, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.variation !== undefined && input.variation !== null && { variation: input.variation }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.feature != undefined && { feature: input.feature }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.variation != undefined && { variation: input.variation }),
   };
 };
 
@@ -3500,22 +3468,20 @@ const serializeAws_restJson1LaunchGroupConfigList = (input: LaunchGroupConfig[],
 
 const serializeAws_restJson1MetricDefinitionConfig = (input: MetricDefinitionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.entityIdKey !== undefined && input.entityIdKey !== null && { entityIdKey: input.entityIdKey }),
-    ...(input.eventPattern !== undefined &&
-      input.eventPattern !== null && { eventPattern: __LazyJsonString.fromObject(input.eventPattern) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.unitLabel !== undefined && input.unitLabel !== null && { unitLabel: input.unitLabel }),
-    ...(input.valueKey !== undefined && input.valueKey !== null && { valueKey: input.valueKey }),
+    ...(input.entityIdKey != undefined && { entityIdKey: input.entityIdKey }),
+    ...(input.eventPattern != undefined && { eventPattern: __LazyJsonString.fromObject(input.eventPattern) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.unitLabel != undefined && { unitLabel: input.unitLabel }),
+    ...(input.valueKey != undefined && { valueKey: input.valueKey }),
   };
 };
 
 const serializeAws_restJson1MetricGoalConfig = (input: MetricGoalConfig, context: __SerdeContext): any => {
   return {
-    ...(input.desiredChange !== undefined && input.desiredChange !== null && { desiredChange: input.desiredChange }),
-    ...(input.metricDefinition !== undefined &&
-      input.metricDefinition !== null && {
-        metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
-      }),
+    ...(input.desiredChange != undefined && { desiredChange: input.desiredChange }),
+    ...(input.metricDefinition != undefined && {
+      metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
+    }),
   };
 };
 
@@ -3532,10 +3498,9 @@ const serializeAws_restJson1MetricGoalConfigList = (input: MetricGoalConfig[], c
 
 const serializeAws_restJson1MetricMonitorConfig = (input: MetricMonitorConfig, context: __SerdeContext): any => {
   return {
-    ...(input.metricDefinition !== undefined &&
-      input.metricDefinition !== null && {
-        metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
-      }),
+    ...(input.metricDefinition != undefined && {
+      metricDefinition: serializeAws_restJson1MetricDefinitionConfig(input.metricDefinition, context),
+    }),
   };
 };
 
@@ -3563,12 +3528,10 @@ const serializeAws_restJson1MetricNameList = (input: string[], context: __SerdeC
 
 const serializeAws_restJson1OnlineAbConfig = (input: OnlineAbConfig, context: __SerdeContext): any => {
   return {
-    ...(input.controlTreatmentName !== undefined &&
-      input.controlTreatmentName !== null && { controlTreatmentName: input.controlTreatmentName }),
-    ...(input.treatmentWeights !== undefined &&
-      input.treatmentWeights !== null && {
-        treatmentWeights: serializeAws_restJson1TreatmentToWeightMap(input.treatmentWeights, context),
-      }),
+    ...(input.controlTreatmentName != undefined && { controlTreatmentName: input.controlTreatmentName }),
+    ...(input.treatmentWeights != undefined && {
+      treatmentWeights: serializeAws_restJson1TreatmentToWeightMap(input.treatmentWeights, context),
+    }),
   };
 };
 
@@ -3577,32 +3540,28 @@ const serializeAws_restJson1ProjectDataDeliveryConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.cloudWatchLogs !== undefined &&
-      input.cloudWatchLogs !== null && {
-        cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
-      }),
-    ...(input.s3Destination !== undefined &&
-      input.s3Destination !== null && {
-        s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
-      }),
+    ...(input.cloudWatchLogs != undefined && {
+      cloudWatchLogs: serializeAws_restJson1CloudWatchLogsDestinationConfig(input.cloudWatchLogs, context),
+    }),
+    ...(input.s3Destination != undefined && {
+      s3Destination: serializeAws_restJson1S3DestinationConfig(input.s3Destination, context),
+    }),
   };
 };
 
 const serializeAws_restJson1S3DestinationConfig = (input: S3DestinationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+    ...(input.bucket != undefined && { bucket: input.bucket }),
+    ...(input.prefix != undefined && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_restJson1ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeContext): any => {
   return {
-    ...(input.groupWeights !== undefined &&
-      input.groupWeights !== null && {
-        groupWeights: serializeAws_restJson1GroupToWeightMap(input.groupWeights, context),
-      }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.groupWeights != undefined && {
+      groupWeights: serializeAws_restJson1GroupToWeightMap(input.groupWeights, context),
+    }),
+    ...(input.startTime != undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
@@ -3625,8 +3584,7 @@ const serializeAws_restJson1ScheduledSplitsLaunchConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.steps !== undefined &&
-      input.steps !== null && { steps: serializeAws_restJson1ScheduledSplitConfigList(input.steps, context) }),
+    ...(input.steps != undefined && { steps: serializeAws_restJson1ScheduledSplitConfigList(input.steps, context) }),
   };
 };
 
@@ -3644,10 +3602,10 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1TreatmentConfig = (input: TreatmentConfig, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.feature !== undefined && input.feature !== null && { feature: input.feature }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.variation !== undefined && input.variation !== null && { variation: input.variation }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.feature != undefined && { feature: input.feature }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.variation != undefined && { variation: input.variation }),
   };
 };
 
@@ -3697,9 +3655,8 @@ const serializeAws_restJson1VariableValue = (input: VariableValue, context: __Se
 
 const serializeAws_restJson1VariationConfig = (input: VariationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.value !== undefined &&
-      input.value !== null && { value: serializeAws_restJson1VariableValue(input.value, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.value != undefined && { value: serializeAws_restJson1VariableValue(input.value, context) }),
   };
 };
 
@@ -3760,13 +3717,13 @@ const deserializeAws_restJson1EntityOverrideMap = (output: any, context: __Serde
 
 const deserializeAws_restJson1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
-    details: output.details !== undefined && output.details !== null ? new __LazyJsonString(output.details) : undefined,
+    details: output.details != undefined ? new __LazyJsonString(output.details) : undefined,
     entityId: __expectString(output.entityId),
     feature: __expectString(output.feature),
     project: __expectString(output.project),
     reason: __expectString(output.reason),
     value:
-      output.value !== undefined && output.value !== null
+      output.value != undefined
         ? deserializeAws_restJson1VariableValue(__expectUnion(output.value), context)
         : undefined,
     variation: __expectString(output.variation),
@@ -3808,44 +3765,37 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
   return {
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     description: __expectString(output.description),
     execution:
-      output.execution !== undefined && output.execution !== null
+      output.execution != undefined
         ? deserializeAws_restJson1ExperimentExecution(output.execution, context)
         : undefined,
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     metricGoals:
-      output.metricGoals !== undefined && output.metricGoals !== null
+      output.metricGoals != undefined
         ? deserializeAws_restJson1MetricGoalsList(output.metricGoals, context)
         : undefined,
     name: __expectString(output.name),
     onlineAbDefinition:
-      output.onlineAbDefinition !== undefined && output.onlineAbDefinition !== null
+      output.onlineAbDefinition != undefined
         ? deserializeAws_restJson1OnlineAbDefinition(output.onlineAbDefinition, context)
         : undefined,
     project: __expectString(output.project),
     randomizationSalt: __expectString(output.randomizationSalt),
     samplingRate: __expectLong(output.samplingRate),
     schedule:
-      output.schedule !== undefined && output.schedule !== null
-        ? deserializeAws_restJson1ExperimentSchedule(output.schedule, context)
-        : undefined,
+      output.schedule != undefined ? deserializeAws_restJson1ExperimentSchedule(output.schedule, context) : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     treatments:
-      output.treatments !== undefined && output.treatments !== null
-        ? deserializeAws_restJson1TreatmentList(output.treatments, context)
-        : undefined,
+      output.treatments != undefined ? deserializeAws_restJson1TreatmentList(output.treatments, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -3853,11 +3803,11 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
 const deserializeAws_restJson1ExperimentExecution = (output: any, context: __SerdeContext): ExperimentExecution => {
   return {
     endedTime:
-      output.endedTime !== undefined && output.endedTime !== null
+      output.endedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime)))
         : undefined,
     startedTime:
-      output.startedTime !== undefined && output.startedTime !== null
+      output.startedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
         : undefined,
   } as any;
@@ -3877,7 +3827,7 @@ const deserializeAws_restJson1ExperimentList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ExperimentReport = (output: any, context: __SerdeContext): ExperimentReport => {
   return {
-    content: output.content !== undefined && output.content !== null ? new __LazyJsonString(output.content) : undefined,
+    content: output.content != undefined ? new __LazyJsonString(output.content) : undefined,
     metricName: __expectString(output.metricName),
     reportName: __expectString(output.reportName),
     treatmentName: __expectString(output.treatmentName),
@@ -3901,10 +3851,7 @@ const deserializeAws_restJson1ExperimentResultsData = (output: any, context: __S
     metricName: __expectString(output.metricName),
     resultStat: __expectString(output.resultStat),
     treatmentName: __expectString(output.treatmentName),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_restJson1DoubleValueList(output.values, context)
-        : undefined,
+    values: output.values != undefined ? deserializeAws_restJson1DoubleValueList(output.values, context) : undefined,
   } as any;
 };
 
@@ -3926,7 +3873,7 @@ const deserializeAws_restJson1ExperimentResultsDataList = (
 const deserializeAws_restJson1ExperimentSchedule = (output: any, context: __SerdeContext): ExperimentSchedule => {
   return {
     analysisCompleteTime:
-      output.analysisCompleteTime !== undefined && output.analysisCompleteTime !== null
+      output.analysisCompleteTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.analysisCompleteTime)))
         : undefined,
   } as any;
@@ -3936,36 +3883,31 @@ const deserializeAws_restJson1Feature = (output: any, context: __SerdeContext): 
   return {
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     defaultVariation: __expectString(output.defaultVariation),
     description: __expectString(output.description),
     entityOverrides:
-      output.entityOverrides !== undefined && output.entityOverrides !== null
+      output.entityOverrides != undefined
         ? deserializeAws_restJson1EntityOverrideMap(output.entityOverrides, context)
         : undefined,
     evaluationRules:
-      output.evaluationRules !== undefined && output.evaluationRules !== null
+      output.evaluationRules != undefined
         ? deserializeAws_restJson1EvaluationRulesList(output.evaluationRules, context)
         : undefined,
     evaluationStrategy: __expectString(output.evaluationStrategy),
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
     project: __expectString(output.project),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     valueType: __expectString(output.valueType),
     variations:
-      output.variations !== undefined && output.variations !== null
-        ? deserializeAws_restJson1VariationsList(output.variations, context)
-        : undefined,
+      output.variations != undefined ? deserializeAws_restJson1VariationsList(output.variations, context) : undefined,
   } as any;
 };
 
@@ -3985,26 +3927,23 @@ const deserializeAws_restJson1FeatureSummary = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     defaultVariation: __expectString(output.defaultVariation),
     evaluationRules:
-      output.evaluationRules !== undefined && output.evaluationRules !== null
+      output.evaluationRules != undefined
         ? deserializeAws_restJson1EvaluationRulesList(output.evaluationRules, context)
         : undefined,
     evaluationStrategy: __expectString(output.evaluationStrategy),
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
     project: __expectString(output.project),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4039,39 +3978,31 @@ const deserializeAws_restJson1Launch = (output: any, context: __SerdeContext): L
   return {
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     description: __expectString(output.description),
     execution:
-      output.execution !== undefined && output.execution !== null
-        ? deserializeAws_restJson1LaunchExecution(output.execution, context)
-        : undefined,
-    groups:
-      output.groups !== undefined && output.groups !== null
-        ? deserializeAws_restJson1LaunchGroupList(output.groups, context)
-        : undefined,
+      output.execution != undefined ? deserializeAws_restJson1LaunchExecution(output.execution, context) : undefined,
+    groups: output.groups != undefined ? deserializeAws_restJson1LaunchGroupList(output.groups, context) : undefined,
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     metricMonitors:
-      output.metricMonitors !== undefined && output.metricMonitors !== null
+      output.metricMonitors != undefined
         ? deserializeAws_restJson1MetricMonitorList(output.metricMonitors, context)
         : undefined,
     name: __expectString(output.name),
     project: __expectString(output.project),
     randomizationSalt: __expectString(output.randomizationSalt),
     scheduledSplitsDefinition:
-      output.scheduledSplitsDefinition !== undefined && output.scheduledSplitsDefinition !== null
+      output.scheduledSplitsDefinition != undefined
         ? deserializeAws_restJson1ScheduledSplitsLaunchDefinition(output.scheduledSplitsDefinition, context)
         : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -4091,11 +4022,11 @@ const deserializeAws_restJson1LaunchesList = (output: any, context: __SerdeConte
 const deserializeAws_restJson1LaunchExecution = (output: any, context: __SerdeContext): LaunchExecution => {
   return {
     endedTime:
-      output.endedTime !== undefined && output.endedTime !== null
+      output.endedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endedTime)))
         : undefined,
     startedTime:
-      output.startedTime !== undefined && output.startedTime !== null
+      output.startedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedTime)))
         : undefined,
   } as any;
@@ -4105,7 +4036,7 @@ const deserializeAws_restJson1LaunchGroup = (output: any, context: __SerdeContex
   return {
     description: __expectString(output.description),
     featureVariations:
-      output.featureVariations !== undefined && output.featureVariations !== null
+      output.featureVariations != undefined
         ? deserializeAws_restJson1FeatureToVariationMap(output.featureVariations, context)
         : undefined,
     name: __expectString(output.name),
@@ -4127,10 +4058,7 @@ const deserializeAws_restJson1LaunchGroupList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1MetricDefinition = (output: any, context: __SerdeContext): MetricDefinition => {
   return {
     entityIdKey: __expectString(output.entityIdKey),
-    eventPattern:
-      output.eventPattern !== undefined && output.eventPattern !== null
-        ? new __LazyJsonString(output.eventPattern)
-        : undefined,
+    eventPattern: output.eventPattern != undefined ? new __LazyJsonString(output.eventPattern) : undefined,
     name: __expectString(output.name),
     unitLabel: __expectString(output.unitLabel),
     valueKey: __expectString(output.valueKey),
@@ -4141,7 +4069,7 @@ const deserializeAws_restJson1MetricGoal = (output: any, context: __SerdeContext
   return {
     desiredChange: __expectString(output.desiredChange),
     metricDefinition:
-      output.metricDefinition !== undefined && output.metricDefinition !== null
+      output.metricDefinition != undefined
         ? deserializeAws_restJson1MetricDefinition(output.metricDefinition, context)
         : undefined,
   } as any;
@@ -4162,7 +4090,7 @@ const deserializeAws_restJson1MetricGoalsList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1MetricMonitor = (output: any, context: __SerdeContext): MetricMonitor => {
   return {
     metricDefinition:
-      output.metricDefinition !== undefined && output.metricDefinition !== null
+      output.metricDefinition != undefined
         ? deserializeAws_restJson1MetricDefinition(output.metricDefinition, context)
         : undefined,
   } as any;
@@ -4184,7 +4112,7 @@ const deserializeAws_restJson1OnlineAbDefinition = (output: any, context: __Serd
   return {
     controlTreatmentName: __expectString(output.controlTreatmentName),
     treatmentWeights:
-      output.treatmentWeights !== undefined && output.treatmentWeights !== null
+      output.treatmentWeights != undefined
         ? deserializeAws_restJson1TreatmentToWeightMap(output.treatmentWeights, context)
         : undefined,
   } as any;
@@ -4196,38 +4124,35 @@ const deserializeAws_restJson1Project = (output: any, context: __SerdeContext): 
     activeLaunchCount: __expectLong(output.activeLaunchCount),
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     dataDelivery:
-      output.dataDelivery !== undefined && output.dataDelivery !== null
+      output.dataDelivery != undefined
         ? deserializeAws_restJson1ProjectDataDelivery(output.dataDelivery, context)
         : undefined,
     description: __expectString(output.description),
     experimentCount: __expectLong(output.experimentCount),
     featureCount: __expectLong(output.featureCount),
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     launchCount: __expectLong(output.launchCount),
     name: __expectString(output.name),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ProjectDataDelivery = (output: any, context: __SerdeContext): ProjectDataDelivery => {
   return {
     cloudWatchLogs:
-      output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
+      output.cloudWatchLogs != undefined
         ? deserializeAws_restJson1CloudWatchLogsDestination(output.cloudWatchLogs, context)
         : undefined,
     s3Destination:
-      output.s3Destination !== undefined && output.s3Destination !== null
+      output.s3Destination != undefined
         ? deserializeAws_restJson1S3Destination(output.s3Destination, context)
         : undefined,
   } as any;
@@ -4251,23 +4176,20 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
     activeLaunchCount: __expectLong(output.activeLaunchCount),
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     description: __expectString(output.description),
     experimentCount: __expectLong(output.experimentCount),
     featureCount: __expectLong(output.featureCount),
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     launchCount: __expectLong(output.launchCount),
     name: __expectString(output.name),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4307,11 +4229,11 @@ const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ScheduledSplit = (output: any, context: __SerdeContext): ScheduledSplit => {
   return {
     groupWeights:
-      output.groupWeights !== undefined && output.groupWeights !== null
+      output.groupWeights != undefined
         ? deserializeAws_restJson1GroupToWeightMap(output.groupWeights, context)
         : undefined,
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
@@ -4322,10 +4244,7 @@ const deserializeAws_restJson1ScheduledSplitsLaunchDefinition = (
   context: __SerdeContext
 ): ScheduledSplitsLaunchDefinition => {
   return {
-    steps:
-      output.steps !== undefined && output.steps !== null
-        ? deserializeAws_restJson1ScheduledStepList(output.steps, context)
-        : undefined,
+    steps: output.steps != undefined ? deserializeAws_restJson1ScheduledStepList(output.steps, context) : undefined,
   } as any;
 };
 
@@ -4369,7 +4288,7 @@ const deserializeAws_restJson1Treatment = (output: any, context: __SerdeContext)
   return {
     description: __expectString(output.description),
     featureVariations:
-      output.featureVariations !== undefined && output.featureVariations !== null
+      output.featureVariations != undefined
         ? deserializeAws_restJson1FeatureToVariationMap(output.featureVariations, context)
         : undefined,
     name: __expectString(output.name),
@@ -4445,7 +4364,7 @@ const deserializeAws_restJson1Variation = (output: any, context: __SerdeContext)
   return {
     name: __expectString(output.name),
     value:
-      output.value !== undefined && output.value !== null
+      output.value != undefined
         ? deserializeAws_restJson1VariableValue(__expectUnion(output.value), context)
         : undefined,
   } as any;

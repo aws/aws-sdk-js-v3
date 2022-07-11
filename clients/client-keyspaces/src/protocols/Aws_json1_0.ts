@@ -1078,19 +1078,16 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 
 const serializeAws_json1_0CapacitySpecification = (input: CapacitySpecification, context: __SerdeContext): any => {
   return {
-    ...(input.readCapacityUnits !== undefined &&
-      input.readCapacityUnits !== null && { readCapacityUnits: input.readCapacityUnits }),
-    ...(input.throughputMode !== undefined &&
-      input.throughputMode !== null && { throughputMode: input.throughputMode }),
-    ...(input.writeCapacityUnits !== undefined &&
-      input.writeCapacityUnits !== null && { writeCapacityUnits: input.writeCapacityUnits }),
+    ...(input.readCapacityUnits != undefined && { readCapacityUnits: input.readCapacityUnits }),
+    ...(input.throughputMode != undefined && { throughputMode: input.throughputMode }),
+    ...(input.writeCapacityUnits != undefined && { writeCapacityUnits: input.writeCapacityUnits }),
   };
 };
 
 const serializeAws_json1_0ClusteringKey = (input: ClusteringKey, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.orderBy !== undefined && input.orderBy !== null && { orderBy: input.orderBy }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.orderBy != undefined && { orderBy: input.orderBy }),
   };
 };
 
@@ -1107,8 +1104,8 @@ const serializeAws_json1_0ClusteringKeyList = (input: ClusteringKey[], context: 
 
 const serializeAws_json1_0ColumnDefinition = (input: ColumnDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -1125,92 +1122,85 @@ const serializeAws_json1_0ColumnDefinitionList = (input: ColumnDefinition[], con
 
 const serializeAws_json1_0Comment = (input: Comment, context: __SerdeContext): any => {
   return {
-    ...(input.message !== undefined && input.message !== null && { message: input.message }),
+    ...(input.message != undefined && { message: input.message }),
   };
 };
 
 const serializeAws_json1_0CreateKeyspaceRequest = (input: CreateKeyspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.capacitySpecification !== undefined &&
-      input.capacitySpecification !== null && {
-        capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
-      }),
-    ...(input.comment !== undefined &&
-      input.comment !== null && { comment: serializeAws_json1_0Comment(input.comment, context) }),
-    ...(input.defaultTimeToLive !== undefined &&
-      input.defaultTimeToLive !== null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification !== undefined &&
-      input.encryptionSpecification !== null && {
-        encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
-      }),
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery !== undefined &&
-      input.pointInTimeRecovery !== null && {
-        pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
-      }),
-    ...(input.schemaDefinition !== undefined &&
-      input.schemaDefinition !== null && {
-        schemaDefinition: serializeAws_json1_0SchemaDefinition(input.schemaDefinition, context),
-      }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.ttl !== undefined && input.ttl !== null && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
+    ...(input.capacitySpecification != undefined && {
+      capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
+    }),
+    ...(input.comment != undefined && { comment: serializeAws_json1_0Comment(input.comment, context) }),
+    ...(input.defaultTimeToLive != undefined && { defaultTimeToLive: input.defaultTimeToLive }),
+    ...(input.encryptionSpecification != undefined && {
+      encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
+    }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.pointInTimeRecovery != undefined && {
+      pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
+    }),
+    ...(input.schemaDefinition != undefined && {
+      schemaDefinition: serializeAws_json1_0SchemaDefinition(input.schemaDefinition, context),
+    }),
+    ...(input.tableName != undefined && { tableName: input.tableName }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.ttl != undefined && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
   };
 };
 
 const serializeAws_json1_0DeleteKeyspaceRequest = (input: DeleteKeyspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
   };
 };
 
 const serializeAws_json1_0DeleteTableRequest = (input: DeleteTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.tableName != undefined && { tableName: input.tableName }),
   };
 };
 
 const serializeAws_json1_0EncryptionSpecification = (input: EncryptionSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.kmsKeyIdentifier !== undefined &&
-      input.kmsKeyIdentifier !== null && { kmsKeyIdentifier: input.kmsKeyIdentifier }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.kmsKeyIdentifier != undefined && { kmsKeyIdentifier: input.kmsKeyIdentifier }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_0GetKeyspaceRequest = (input: GetKeyspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
   };
 };
 
 const serializeAws_json1_0GetTableRequest = (input: GetTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.tableName != undefined && { tableName: input.tableName }),
   };
 };
 
 const serializeAws_json1_0ListKeyspacesRequest = (input: ListKeyspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_0ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -1219,15 +1209,15 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_0PartitionKey = (input: PartitionKey, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -1244,70 +1234,58 @@ const serializeAws_json1_0PartitionKeyList = (input: PartitionKey[], context: __
 
 const serializeAws_json1_0PointInTimeRecovery = (input: PointInTimeRecovery, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
 const serializeAws_json1_0RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.capacitySpecificationOverride !== undefined &&
-      input.capacitySpecificationOverride !== null && {
-        capacitySpecificationOverride: serializeAws_json1_0CapacitySpecification(
-          input.capacitySpecificationOverride,
-          context
-        ),
-      }),
-    ...(input.encryptionSpecificationOverride !== undefined &&
-      input.encryptionSpecificationOverride !== null && {
-        encryptionSpecificationOverride: serializeAws_json1_0EncryptionSpecification(
-          input.encryptionSpecificationOverride,
-          context
-        ),
-      }),
-    ...(input.pointInTimeRecoveryOverride !== undefined &&
-      input.pointInTimeRecoveryOverride !== null && {
-        pointInTimeRecoveryOverride: serializeAws_json1_0PointInTimeRecovery(
-          input.pointInTimeRecoveryOverride,
-          context
-        ),
-      }),
-    ...(input.restoreTimestamp !== undefined &&
-      input.restoreTimestamp !== null && { restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000) }),
-    ...(input.sourceKeyspaceName !== undefined &&
-      input.sourceKeyspaceName !== null && { sourceKeyspaceName: input.sourceKeyspaceName }),
-    ...(input.sourceTableName !== undefined &&
-      input.sourceTableName !== null && { sourceTableName: input.sourceTableName }),
-    ...(input.tagsOverride !== undefined &&
-      input.tagsOverride !== null && { tagsOverride: serializeAws_json1_0TagList(input.tagsOverride, context) }),
-    ...(input.targetKeyspaceName !== undefined &&
-      input.targetKeyspaceName !== null && { targetKeyspaceName: input.targetKeyspaceName }),
-    ...(input.targetTableName !== undefined &&
-      input.targetTableName !== null && { targetTableName: input.targetTableName }),
+    ...(input.capacitySpecificationOverride != undefined && {
+      capacitySpecificationOverride: serializeAws_json1_0CapacitySpecification(
+        input.capacitySpecificationOverride,
+        context
+      ),
+    }),
+    ...(input.encryptionSpecificationOverride != undefined && {
+      encryptionSpecificationOverride: serializeAws_json1_0EncryptionSpecification(
+        input.encryptionSpecificationOverride,
+        context
+      ),
+    }),
+    ...(input.pointInTimeRecoveryOverride != undefined && {
+      pointInTimeRecoveryOverride: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecoveryOverride, context),
+    }),
+    ...(input.restoreTimestamp != undefined && {
+      restoreTimestamp: Math.round(input.restoreTimestamp.getTime() / 1000),
+    }),
+    ...(input.sourceKeyspaceName != undefined && { sourceKeyspaceName: input.sourceKeyspaceName }),
+    ...(input.sourceTableName != undefined && { sourceTableName: input.sourceTableName }),
+    ...(input.tagsOverride != undefined && { tagsOverride: serializeAws_json1_0TagList(input.tagsOverride, context) }),
+    ...(input.targetKeyspaceName != undefined && { targetKeyspaceName: input.targetKeyspaceName }),
+    ...(input.targetTableName != undefined && { targetTableName: input.targetTableName }),
   };
 };
 
 const serializeAws_json1_0SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.allColumns !== undefined &&
-      input.allColumns !== null && { allColumns: serializeAws_json1_0ColumnDefinitionList(input.allColumns, context) }),
-    ...(input.clusteringKeys !== undefined &&
-      input.clusteringKeys !== null && {
-        clusteringKeys: serializeAws_json1_0ClusteringKeyList(input.clusteringKeys, context),
-      }),
-    ...(input.partitionKeys !== undefined &&
-      input.partitionKeys !== null && {
-        partitionKeys: serializeAws_json1_0PartitionKeyList(input.partitionKeys, context),
-      }),
-    ...(input.staticColumns !== undefined &&
-      input.staticColumns !== null && {
-        staticColumns: serializeAws_json1_0StaticColumnList(input.staticColumns, context),
-      }),
+    ...(input.allColumns != undefined && {
+      allColumns: serializeAws_json1_0ColumnDefinitionList(input.allColumns, context),
+    }),
+    ...(input.clusteringKeys != undefined && {
+      clusteringKeys: serializeAws_json1_0ClusteringKeyList(input.clusteringKeys, context),
+    }),
+    ...(input.partitionKeys != undefined && {
+      partitionKeys: serializeAws_json1_0PartitionKeyList(input.partitionKeys, context),
+    }),
+    ...(input.staticColumns != undefined && {
+      staticColumns: serializeAws_json1_0StaticColumnList(input.staticColumns, context),
+    }),
   };
 };
 
 const serializeAws_json1_0StaticColumn = (input: StaticColumn, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
@@ -1324,8 +1302,8 @@ const serializeAws_json1_0StaticColumnList = (input: StaticColumn[], context: __
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != undefined && { key: input.key }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -1342,45 +1320,42 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0TimeToLive = (input: TimeToLive, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.addColumns !== undefined &&
-      input.addColumns !== null && { addColumns: serializeAws_json1_0ColumnDefinitionList(input.addColumns, context) }),
-    ...(input.capacitySpecification !== undefined &&
-      input.capacitySpecification !== null && {
-        capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
-      }),
-    ...(input.defaultTimeToLive !== undefined &&
-      input.defaultTimeToLive !== null && { defaultTimeToLive: input.defaultTimeToLive }),
-    ...(input.encryptionSpecification !== undefined &&
-      input.encryptionSpecification !== null && {
-        encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
-      }),
-    ...(input.keyspaceName !== undefined && input.keyspaceName !== null && { keyspaceName: input.keyspaceName }),
-    ...(input.pointInTimeRecovery !== undefined &&
-      input.pointInTimeRecovery !== null && {
-        pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
-      }),
-    ...(input.tableName !== undefined && input.tableName !== null && { tableName: input.tableName }),
-    ...(input.ttl !== undefined && input.ttl !== null && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
+    ...(input.addColumns != undefined && {
+      addColumns: serializeAws_json1_0ColumnDefinitionList(input.addColumns, context),
+    }),
+    ...(input.capacitySpecification != undefined && {
+      capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
+    }),
+    ...(input.defaultTimeToLive != undefined && { defaultTimeToLive: input.defaultTimeToLive }),
+    ...(input.encryptionSpecification != undefined && {
+      encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
+    }),
+    ...(input.keyspaceName != undefined && { keyspaceName: input.keyspaceName }),
+    ...(input.pointInTimeRecovery != undefined && {
+      pointInTimeRecovery: serializeAws_json1_0PointInTimeRecovery(input.pointInTimeRecovery, context),
+    }),
+    ...(input.tableName != undefined && { tableName: input.tableName }),
+    ...(input.ttl != undefined && { ttl: serializeAws_json1_0TimeToLive(input.ttl, context) }),
   };
 };
 
@@ -1396,7 +1371,7 @@ const deserializeAws_json1_0CapacitySpecificationSummary = (
 ): CapacitySpecificationSummary => {
   return {
     lastUpdateToPayPerRequestTimestamp:
-      output.lastUpdateToPayPerRequestTimestamp !== undefined && output.lastUpdateToPayPerRequestTimestamp !== null
+      output.lastUpdateToPayPerRequestTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateToPayPerRequestTimestamp)))
         : undefined,
     readCapacityUnits: __expectLong(output.readCapacityUnits),
@@ -1495,38 +1470,32 @@ const deserializeAws_json1_0GetKeyspaceResponse = (output: any, context: __Serde
 const deserializeAws_json1_0GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
   return {
     capacitySpecification:
-      output.capacitySpecification !== undefined && output.capacitySpecification !== null
+      output.capacitySpecification != undefined
         ? deserializeAws_json1_0CapacitySpecificationSummary(output.capacitySpecification, context)
         : undefined,
-    comment:
-      output.comment !== undefined && output.comment !== null
-        ? deserializeAws_json1_0Comment(output.comment, context)
-        : undefined,
+    comment: output.comment != undefined ? deserializeAws_json1_0Comment(output.comment, context) : undefined,
     creationTimestamp:
-      output.creationTimestamp !== undefined && output.creationTimestamp !== null
+      output.creationTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTimestamp)))
         : undefined,
     defaultTimeToLive: __expectInt32(output.defaultTimeToLive),
     encryptionSpecification:
-      output.encryptionSpecification !== undefined && output.encryptionSpecification !== null
+      output.encryptionSpecification != undefined
         ? deserializeAws_json1_0EncryptionSpecification(output.encryptionSpecification, context)
         : undefined,
     keyspaceName: __expectString(output.keyspaceName),
     pointInTimeRecovery:
-      output.pointInTimeRecovery !== undefined && output.pointInTimeRecovery !== null
+      output.pointInTimeRecovery != undefined
         ? deserializeAws_json1_0PointInTimeRecoverySummary(output.pointInTimeRecovery, context)
         : undefined,
     resourceArn: __expectString(output.resourceArn),
     schemaDefinition:
-      output.schemaDefinition !== undefined && output.schemaDefinition !== null
+      output.schemaDefinition != undefined
         ? deserializeAws_json1_0SchemaDefinition(output.schemaDefinition, context)
         : undefined,
     status: __expectString(output.status),
     tableName: __expectString(output.tableName),
-    ttl:
-      output.ttl !== undefined && output.ttl !== null
-        ? deserializeAws_json1_0TimeToLive(output.ttl, context)
-        : undefined,
+    ttl: output.ttl != undefined ? deserializeAws_json1_0TimeToLive(output.ttl, context) : undefined,
   } as any;
 };
 
@@ -1561,9 +1530,7 @@ const deserializeAws_json1_0KeyspaceSummaryList = (output: any, context: __Serde
 const deserializeAws_json1_0ListKeyspacesResponse = (output: any, context: __SerdeContext): ListKeyspacesResponse => {
   return {
     keyspaces:
-      output.keyspaces !== undefined && output.keyspaces !== null
-        ? deserializeAws_json1_0KeyspaceSummaryList(output.keyspaces, context)
-        : undefined,
+      output.keyspaces != undefined ? deserializeAws_json1_0KeyspaceSummaryList(output.keyspaces, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -1571,10 +1538,7 @@ const deserializeAws_json1_0ListKeyspacesResponse = (output: any, context: __Ser
 const deserializeAws_json1_0ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    tables:
-      output.tables !== undefined && output.tables !== null
-        ? deserializeAws_json1_0TableSummaryList(output.tables, context)
-        : undefined,
+    tables: output.tables != undefined ? deserializeAws_json1_0TableSummaryList(output.tables, context) : undefined,
   } as any;
 };
 
@@ -1584,10 +1548,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_0TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_0TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -1615,7 +1576,7 @@ const deserializeAws_json1_0PointInTimeRecoverySummary = (
 ): PointInTimeRecoverySummary => {
   return {
     earliestRestorableTimestamp:
-      output.earliestRestorableTimestamp !== undefined && output.earliestRestorableTimestamp !== null
+      output.earliestRestorableTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.earliestRestorableTimestamp)))
         : undefined,
     status: __expectString(output.status),
@@ -1641,19 +1602,19 @@ const deserializeAws_json1_0RestoreTableResponse = (output: any, context: __Serd
 const deserializeAws_json1_0SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {
   return {
     allColumns:
-      output.allColumns !== undefined && output.allColumns !== null
+      output.allColumns != undefined
         ? deserializeAws_json1_0ColumnDefinitionList(output.allColumns, context)
         : undefined,
     clusteringKeys:
-      output.clusteringKeys !== undefined && output.clusteringKeys !== null
+      output.clusteringKeys != undefined
         ? deserializeAws_json1_0ClusteringKeyList(output.clusteringKeys, context)
         : undefined,
     partitionKeys:
-      output.partitionKeys !== undefined && output.partitionKeys !== null
+      output.partitionKeys != undefined
         ? deserializeAws_json1_0PartitionKeyList(output.partitionKeys, context)
         : undefined,
     staticColumns:
-      output.staticColumns !== undefined && output.staticColumns !== null
+      output.staticColumns != undefined
         ? deserializeAws_json1_0StaticColumnList(output.staticColumns, context)
         : undefined,
   } as any;

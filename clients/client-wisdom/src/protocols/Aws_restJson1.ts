@@ -132,17 +132,16 @@ export const serializeAws_restJson1CreateAssistantCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.serverSideEncryptionConfiguration !== undefined &&
-      input.serverSideEncryptionConfiguration !== null && {
-        serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
-          input.serverSideEncryptionConfiguration,
-          context
-        ),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.serverSideEncryptionConfiguration != undefined && {
+      serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
+        input.serverSideEncryptionConfiguration,
+        context
+      ),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.type != undefined && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -176,14 +175,12 @@ export const serializeAws_restJson1CreateAssistantAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.association !== undefined &&
-      input.association !== null && {
-        association: serializeAws_restJson1AssistantAssociationInputData(input.association, context),
-      }),
-    ...(input.associationType !== undefined &&
-      input.associationType !== null && { associationType: input.associationType }),
+    ...(input.association != undefined && {
+      association: serializeAws_restJson1AssistantAssociationInputData(input.association, context),
+    }),
+    ...(input.associationType != undefined && { associationType: input.associationType }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -219,14 +216,12 @@ export const serializeAws_restJson1CreateContentCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.metadata !== undefined &&
-      input.metadata !== null && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.overrideLinkOutUri !== undefined &&
-      input.overrideLinkOutUri !== null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.title !== undefined && input.title !== null && { title: input.title }),
-    ...(input.uploadId !== undefined && input.uploadId !== null && { uploadId: input.uploadId }),
+    ...(input.metadata != undefined && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.overrideLinkOutUri != undefined && { overrideLinkOutUri: input.overrideLinkOutUri }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.title != undefined && { title: input.title }),
+    ...(input.uploadId != undefined && { uploadId: input.uploadId }),
   });
   return new __HttpRequest({
     protocol,
@@ -251,26 +246,22 @@ export const serializeAws_restJson1CreateKnowledgeBaseCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.knowledgeBaseType !== undefined &&
-      input.knowledgeBaseType !== null && { knowledgeBaseType: input.knowledgeBaseType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.renderingConfiguration !== undefined &&
-      input.renderingConfiguration !== null && {
-        renderingConfiguration: serializeAws_restJson1RenderingConfiguration(input.renderingConfiguration, context),
-      }),
-    ...(input.serverSideEncryptionConfiguration !== undefined &&
-      input.serverSideEncryptionConfiguration !== null && {
-        serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
-          input.serverSideEncryptionConfiguration,
-          context
-        ),
-      }),
-    ...(input.sourceConfiguration !== undefined &&
-      input.sourceConfiguration !== null && {
-        sourceConfiguration: serializeAws_restJson1SourceConfiguration(input.sourceConfiguration, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.knowledgeBaseType != undefined && { knowledgeBaseType: input.knowledgeBaseType }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.renderingConfiguration != undefined && {
+      renderingConfiguration: serializeAws_restJson1RenderingConfiguration(input.renderingConfiguration, context),
+    }),
+    ...(input.serverSideEncryptionConfiguration != undefined && {
+      serverSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
+        input.serverSideEncryptionConfiguration,
+        context
+      ),
+    }),
+    ...(input.sourceConfiguration != undefined && {
+      sourceConfiguration: serializeAws_restJson1SourceConfiguration(input.sourceConfiguration, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -305,9 +296,9 @@ export const serializeAws_restJson1CreateSessionCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -890,10 +881,9 @@ export const serializeAws_restJson1NotifyRecommendationsReceivedCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.recommendationIds !== undefined &&
-      input.recommendationIds !== null && {
-        recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
-      }),
+    ...(input.recommendationIds != undefined && {
+      recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -927,9 +917,9 @@ export const serializeAws_restJson1QueryAssistantCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.queryText !== undefined && input.queryText !== null && { queryText: input.queryText }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.queryText != undefined && { queryText: input.queryText }),
   });
   return new __HttpRequest({
     protocol,
@@ -997,10 +987,9 @@ export const serializeAws_restJson1SearchContentCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.searchExpression !== undefined &&
-      input.searchExpression !== null && {
-        searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
-      }),
+    ...(input.searchExpression != undefined && {
+      searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1039,10 +1028,9 @@ export const serializeAws_restJson1SearchSessionsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.searchExpression !== undefined &&
-      input.searchExpression !== null && {
-        searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
-      }),
+    ...(input.searchExpression != undefined && {
+      searchExpression: serializeAws_restJson1SearchExpression(input.searchExpression, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1077,7 +1065,7 @@ export const serializeAws_restJson1StartContentUploadCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
   });
   return new __HttpRequest({
     protocol,
@@ -1110,7 +1098,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1186,15 +1174,12 @@ export const serializeAws_restJson1UpdateContentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.metadata !== undefined &&
-      input.metadata !== null && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
-    ...(input.overrideLinkOutUri !== undefined &&
-      input.overrideLinkOutUri !== null && { overrideLinkOutUri: input.overrideLinkOutUri }),
-    ...(input.removeOverrideLinkOutUri !== undefined &&
-      input.removeOverrideLinkOutUri !== null && { removeOverrideLinkOutUri: input.removeOverrideLinkOutUri }),
-    ...(input.revisionId !== undefined && input.revisionId !== null && { revisionId: input.revisionId }),
-    ...(input.title !== undefined && input.title !== null && { title: input.title }),
-    ...(input.uploadId !== undefined && input.uploadId !== null && { uploadId: input.uploadId }),
+    ...(input.metadata != undefined && { metadata: serializeAws_restJson1ContentMetadata(input.metadata, context) }),
+    ...(input.overrideLinkOutUri != undefined && { overrideLinkOutUri: input.overrideLinkOutUri }),
+    ...(input.removeOverrideLinkOutUri != undefined && { removeOverrideLinkOutUri: input.removeOverrideLinkOutUri }),
+    ...(input.revisionId != undefined && { revisionId: input.revisionId }),
+    ...(input.title != undefined && { title: input.title }),
+    ...(input.uploadId != undefined && { uploadId: input.uploadId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1229,7 +1214,7 @@ export const serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.templateUri !== undefined && input.templateUri !== null && { templateUri: input.templateUri }),
+    ...(input.templateUri != undefined && { templateUri: input.templateUri }),
   });
   return new __HttpRequest({
     protocol,
@@ -2978,12 +2963,10 @@ const serializeAws_restJson1AppIntegrationsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.appIntegrationArn !== undefined &&
-      input.appIntegrationArn !== null && { appIntegrationArn: input.appIntegrationArn }),
-    ...(input.objectFields !== undefined &&
-      input.objectFields !== null && {
-        objectFields: serializeAws_restJson1ObjectFieldsList(input.objectFields, context),
-      }),
+    ...(input.appIntegrationArn != undefined && { appIntegrationArn: input.appIntegrationArn }),
+    ...(input.objectFields != undefined && {
+      objectFields: serializeAws_restJson1ObjectFieldsList(input.objectFields, context),
+    }),
   };
 };
 
@@ -3011,9 +2994,9 @@ const serializeAws_restJson1ContentMetadata = (input: Record<string, string>, co
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.field !== undefined && input.field !== null && { field: input.field }),
-    ...(input.operator !== undefined && input.operator !== null && { operator: input.operator }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.field != undefined && { field: input.field }),
+    ...(input.operator != undefined && { operator: input.operator }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -3052,14 +3035,13 @@ const serializeAws_restJson1RecommendationIdList = (input: string[], context: __
 
 const serializeAws_restJson1RenderingConfiguration = (input: RenderingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.templateUri !== undefined && input.templateUri !== null && { templateUri: input.templateUri }),
+    ...(input.templateUri != undefined && { templateUri: input.templateUri }),
   };
 };
 
 const serializeAws_restJson1SearchExpression = (input: SearchExpression, context: __SerdeContext): any => {
   return {
-    ...(input.filters !== undefined &&
-      input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.filters != undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
   };
 };
 
@@ -3068,7 +3050,7 @@ const serializeAws_restJson1ServerSideEncryptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.kmsKeyId != undefined && { kmsKeyId: input.kmsKeyId }),
   };
 };
 
@@ -3100,7 +3082,7 @@ const deserializeAws_restJson1AppIntegrationsConfiguration = (
   return {
     appIntegrationArn: __expectString(output.appIntegrationArn),
     objectFields:
-      output.objectFields !== undefined && output.objectFields !== null
+      output.objectFields != undefined
         ? deserializeAws_restJson1ObjectFieldsList(output.objectFields, context)
         : undefined,
   } as any;
@@ -3116,14 +3098,11 @@ const deserializeAws_restJson1AssistantAssociationData = (
     assistantAssociationId: __expectString(output.assistantAssociationId),
     assistantId: __expectString(output.assistantId),
     associationData:
-      output.associationData !== undefined && output.associationData !== null
+      output.associationData != undefined
         ? deserializeAws_restJson1AssistantAssociationOutputData(__expectUnion(output.associationData), context)
         : undefined,
     associationType: __expectString(output.associationType),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3152,14 +3131,11 @@ const deserializeAws_restJson1AssistantAssociationSummary = (
     assistantAssociationId: __expectString(output.assistantAssociationId),
     assistantId: __expectString(output.assistantId),
     associationData:
-      output.associationData !== undefined && output.associationData !== null
+      output.associationData != undefined
         ? deserializeAws_restJson1AssistantAssociationOutputData(__expectUnion(output.associationData), context)
         : undefined,
     associationType: __expectString(output.associationType),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3185,14 +3161,11 @@ const deserializeAws_restJson1AssistantData = (output: any, context: __SerdeCont
     description: __expectString(output.description),
     name: __expectString(output.name),
     serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration !== undefined && output.serverSideEncryptionConfiguration !== null
+      output.serverSideEncryptionConfiguration != undefined
         ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -3216,14 +3189,11 @@ const deserializeAws_restJson1AssistantSummary = (output: any, context: __SerdeC
     description: __expectString(output.description),
     name: __expectString(output.name),
     serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration !== undefined && output.serverSideEncryptionConfiguration !== null
+      output.serverSideEncryptionConfiguration != undefined
         ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -3237,20 +3207,15 @@ const deserializeAws_restJson1ContentData = (output: any, context: __SerdeContex
     knowledgeBaseId: __expectString(output.knowledgeBaseId),
     linkOutUri: __expectString(output.linkOutUri),
     metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_restJson1ContentMetadata(output.metadata, context)
-        : undefined,
+      output.metadata != undefined ? deserializeAws_restJson1ContentMetadata(output.metadata, context) : undefined,
     name: __expectString(output.name),
     revisionId: __expectString(output.revisionId),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     title: __expectString(output.title),
     url: __expectString(output.url),
     urlExpiry:
-      output.urlExpiry !== undefined && output.urlExpiry !== null
+      output.urlExpiry != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.urlExpiry)))
         : undefined,
   } as any;
@@ -3285,16 +3250,11 @@ const deserializeAws_restJson1ContentSummary = (output: any, context: __SerdeCon
     knowledgeBaseArn: __expectString(output.knowledgeBaseArn),
     knowledgeBaseId: __expectString(output.knowledgeBaseId),
     metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_restJson1ContentMetadata(output.metadata, context)
-        : undefined,
+      output.metadata != undefined ? deserializeAws_restJson1ContentMetadata(output.metadata, context) : undefined,
     name: __expectString(output.name),
     revisionId: __expectString(output.revisionId),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     title: __expectString(output.title),
   } as any;
 };
@@ -3314,26 +3274,18 @@ const deserializeAws_restJson1ContentSummaryList = (output: any, context: __Serd
 const deserializeAws_restJson1Document = (output: any, context: __SerdeContext): Document => {
   return {
     contentReference:
-      output.contentReference !== undefined && output.contentReference !== null
+      output.contentReference != undefined
         ? deserializeAws_restJson1ContentReference(output.contentReference, context)
         : undefined,
-    excerpt:
-      output.excerpt !== undefined && output.excerpt !== null
-        ? deserializeAws_restJson1DocumentText(output.excerpt, context)
-        : undefined,
-    title:
-      output.title !== undefined && output.title !== null
-        ? deserializeAws_restJson1DocumentText(output.title, context)
-        : undefined,
+    excerpt: output.excerpt != undefined ? deserializeAws_restJson1DocumentText(output.excerpt, context) : undefined,
+    title: output.title != undefined ? deserializeAws_restJson1DocumentText(output.title, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1DocumentText = (output: any, context: __SerdeContext): DocumentText => {
   return {
     highlights:
-      output.highlights !== undefined && output.highlights !== null
-        ? deserializeAws_restJson1Highlights(output.highlights, context)
-        : undefined,
+      output.highlights != undefined ? deserializeAws_restJson1Highlights(output.highlights, context) : undefined,
     text: __expectString(output.text),
   } as any;
 };
@@ -3386,27 +3338,24 @@ const deserializeAws_restJson1KnowledgeBaseData = (output: any, context: __Serde
     knowledgeBaseId: __expectString(output.knowledgeBaseId),
     knowledgeBaseType: __expectString(output.knowledgeBaseType),
     lastContentModificationTime:
-      output.lastContentModificationTime !== undefined && output.lastContentModificationTime !== null
+      output.lastContentModificationTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastContentModificationTime)))
         : undefined,
     name: __expectString(output.name),
     renderingConfiguration:
-      output.renderingConfiguration !== undefined && output.renderingConfiguration !== null
+      output.renderingConfiguration != undefined
         ? deserializeAws_restJson1RenderingConfiguration(output.renderingConfiguration, context)
         : undefined,
     serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration !== undefined && output.serverSideEncryptionConfiguration !== null
+      output.serverSideEncryptionConfiguration != undefined
         ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
         : undefined,
     sourceConfiguration:
-      output.sourceConfiguration !== undefined && output.sourceConfiguration !== null
+      output.sourceConfiguration != undefined
         ? deserializeAws_restJson1SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3430,22 +3379,19 @@ const deserializeAws_restJson1KnowledgeBaseSummary = (output: any, context: __Se
     knowledgeBaseType: __expectString(output.knowledgeBaseType),
     name: __expectString(output.name),
     renderingConfiguration:
-      output.renderingConfiguration !== undefined && output.renderingConfiguration !== null
+      output.renderingConfiguration != undefined
         ? deserializeAws_restJson1RenderingConfiguration(output.renderingConfiguration, context)
         : undefined,
     serverSideEncryptionConfiguration:
-      output.serverSideEncryptionConfiguration !== undefined && output.serverSideEncryptionConfiguration !== null
+      output.serverSideEncryptionConfiguration != undefined
         ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.serverSideEncryptionConfiguration, context)
         : undefined,
     sourceConfiguration:
-      output.sourceConfiguration !== undefined && output.sourceConfiguration !== null
+      output.sourceConfiguration != undefined
         ? deserializeAws_restJson1SourceConfiguration(__expectUnion(output.sourceConfiguration), context)
         : undefined,
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3509,10 +3455,7 @@ const deserializeAws_restJson1QueryResultsList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1RecommendationData = (output: any, context: __SerdeContext): RecommendationData => {
   return {
-    document:
-      output.document !== undefined && output.document !== null
-        ? deserializeAws_restJson1Document(output.document, context)
-        : undefined,
+    document: output.document != undefined ? deserializeAws_restJson1Document(output.document, context) : undefined,
     recommendationId: __expectString(output.recommendationId),
     relevanceLevel: __expectString(output.relevanceLevel),
     relevanceScore: __limitedParseDouble(output.relevanceScore),
@@ -3547,12 +3490,12 @@ const deserializeAws_restJson1RecommendationList = (output: any, context: __Serd
 const deserializeAws_restJson1RecommendationTrigger = (output: any, context: __SerdeContext): RecommendationTrigger => {
   return {
     data:
-      output.data !== undefined && output.data !== null
+      output.data != undefined
         ? deserializeAws_restJson1RecommendationTriggerData(__expectUnion(output.data), context)
         : undefined,
     id: __expectString(output.id),
     recommendationIds:
-      output.recommendationIds !== undefined && output.recommendationIds !== null
+      output.recommendationIds != undefined
         ? deserializeAws_restJson1RecommendationIdList(output.recommendationIds, context)
         : undefined,
     source: __expectString(output.source),
@@ -3598,10 +3541,7 @@ const deserializeAws_restJson1RenderingConfiguration = (
 
 const deserializeAws_restJson1ResultData = (output: any, context: __SerdeContext): ResultData => {
   return {
-    document:
-      output.document !== undefined && output.document !== null
-        ? deserializeAws_restJson1Document(output.document, context)
-        : undefined,
+    document: output.document != undefined ? deserializeAws_restJson1Document(output.document, context) : undefined,
     relevanceScore: __limitedParseDouble(output.relevanceScore),
     resultId: __expectString(output.resultId),
   } as any;
@@ -3622,10 +3562,7 @@ const deserializeAws_restJson1SessionData = (output: any, context: __SerdeContex
     name: __expectString(output.name),
     sessionArn: __expectString(output.sessionArn),
     sessionId: __expectString(output.sessionId),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 

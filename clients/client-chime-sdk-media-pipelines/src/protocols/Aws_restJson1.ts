@@ -71,20 +71,18 @@ export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChimeSdkMeetingConfiguration !== undefined &&
-      input.ChimeSdkMeetingConfiguration !== null && {
-        ChimeSdkMeetingConfiguration: serializeAws_restJson1ChimeSdkMeetingConfiguration(
-          input.ChimeSdkMeetingConfiguration,
-          context
-        ),
-      }),
+    ...(input.ChimeSdkMeetingConfiguration != undefined && {
+      ChimeSdkMeetingConfiguration: serializeAws_restJson1ChimeSdkMeetingConfiguration(
+        input.ChimeSdkMeetingConfiguration,
+        context
+      ),
+    }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SinkArn !== undefined && input.SinkArn !== null && { SinkArn: input.SinkArn }),
-    ...(input.SinkType !== undefined && input.SinkType !== null && { SinkType: input.SinkType }),
-    ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
-    ...(input.SourceType !== undefined && input.SourceType !== null && { SourceType: input.SourceType }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.SinkArn != undefined && { SinkArn: input.SinkArn }),
+    ...(input.SinkType != undefined && { SinkType: input.SinkType }),
+    ...(input.SourceArn != undefined && { SourceArn: input.SourceArn }),
+    ...(input.SourceType != undefined && { SourceType: input.SourceType }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -219,9 +217,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -249,9 +246,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -879,14 +875,11 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
 
 const serializeAws_restJson1ArtifactsConfiguration = (input: ArtifactsConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Audio !== undefined &&
-      input.Audio !== null && { Audio: serializeAws_restJson1AudioArtifactsConfiguration(input.Audio, context) }),
-    ...(input.Content !== undefined &&
-      input.Content !== null && {
-        Content: serializeAws_restJson1ContentArtifactsConfiguration(input.Content, context),
-      }),
-    ...(input.Video !== undefined &&
-      input.Video !== null && { Video: serializeAws_restJson1VideoArtifactsConfiguration(input.Video, context) }),
+    ...(input.Audio != undefined && { Audio: serializeAws_restJson1AudioArtifactsConfiguration(input.Audio, context) }),
+    ...(input.Content != undefined && {
+      Content: serializeAws_restJson1ContentArtifactsConfiguration(input.Content, context),
+    }),
+    ...(input.Video != undefined && { Video: serializeAws_restJson1VideoArtifactsConfiguration(input.Video, context) }),
   };
 };
 
@@ -906,7 +899,7 @@ const serializeAws_restJson1AudioArtifactsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
+    ...(input.MuxType != undefined && { MuxType: input.MuxType }),
   };
 };
 
@@ -915,14 +908,12 @@ const serializeAws_restJson1ChimeSdkMeetingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ArtifactsConfiguration !== undefined &&
-      input.ArtifactsConfiguration !== null && {
-        ArtifactsConfiguration: serializeAws_restJson1ArtifactsConfiguration(input.ArtifactsConfiguration, context),
-      }),
-    ...(input.SourceConfiguration !== undefined &&
-      input.SourceConfiguration !== null && {
-        SourceConfiguration: serializeAws_restJson1SourceConfiguration(input.SourceConfiguration, context),
-      }),
+    ...(input.ArtifactsConfiguration != undefined && {
+      ArtifactsConfiguration: serializeAws_restJson1ArtifactsConfiguration(input.ArtifactsConfiguration, context),
+    }),
+    ...(input.SourceConfiguration != undefined && {
+      SourceConfiguration: serializeAws_restJson1SourceConfiguration(input.SourceConfiguration, context),
+    }),
   };
 };
 
@@ -931,8 +922,8 @@ const serializeAws_restJson1ContentArtifactsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.MuxType != undefined && { MuxType: input.MuxType }),
+    ...(input.State != undefined && { State: input.State }),
   };
 };
 
@@ -949,28 +940,27 @@ const serializeAws_restJson1ExternalUserIdList = (input: string[], context: __Se
 
 const serializeAws_restJson1SelectedVideoStreams = (input: SelectedVideoStreams, context: __SerdeContext): any => {
   return {
-    ...(input.AttendeeIds !== undefined &&
-      input.AttendeeIds !== null && { AttendeeIds: serializeAws_restJson1AttendeeIdList(input.AttendeeIds, context) }),
-    ...(input.ExternalUserIds !== undefined &&
-      input.ExternalUserIds !== null && {
-        ExternalUserIds: serializeAws_restJson1ExternalUserIdList(input.ExternalUserIds, context),
-      }),
+    ...(input.AttendeeIds != undefined && {
+      AttendeeIds: serializeAws_restJson1AttendeeIdList(input.AttendeeIds, context),
+    }),
+    ...(input.ExternalUserIds != undefined && {
+      ExternalUserIds: serializeAws_restJson1ExternalUserIdList(input.ExternalUserIds, context),
+    }),
   };
 };
 
 const serializeAws_restJson1SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SelectedVideoStreams !== undefined &&
-      input.SelectedVideoStreams !== null && {
-        SelectedVideoStreams: serializeAws_restJson1SelectedVideoStreams(input.SelectedVideoStreams, context),
-      }),
+    ...(input.SelectedVideoStreams != undefined && {
+      SelectedVideoStreams: serializeAws_restJson1SelectedVideoStreams(input.SelectedVideoStreams, context),
+    }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -1001,8 +991,8 @@ const serializeAws_restJson1VideoArtifactsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.MuxType != undefined && { MuxType: input.MuxType }),
+    ...(input.State != undefined && { State: input.State }),
   };
 };
 
@@ -1012,15 +1002,15 @@ const deserializeAws_restJson1ArtifactsConfiguration = (
 ): ArtifactsConfiguration => {
   return {
     Audio:
-      output.Audio !== undefined && output.Audio !== null
+      output.Audio != undefined
         ? deserializeAws_restJson1AudioArtifactsConfiguration(output.Audio, context)
         : undefined,
     Content:
-      output.Content !== undefined && output.Content !== null
+      output.Content != undefined
         ? deserializeAws_restJson1ContentArtifactsConfiguration(output.Content, context)
         : undefined,
     Video:
-      output.Video !== undefined && output.Video !== null
+      output.Video != undefined
         ? deserializeAws_restJson1VideoArtifactsConfiguration(output.Video, context)
         : undefined,
   } as any;
@@ -1053,11 +1043,11 @@ const deserializeAws_restJson1ChimeSdkMeetingConfiguration = (
 ): ChimeSdkMeetingConfiguration => {
   return {
     ArtifactsConfiguration:
-      output.ArtifactsConfiguration !== undefined && output.ArtifactsConfiguration !== null
+      output.ArtifactsConfiguration != undefined
         ? deserializeAws_restJson1ArtifactsConfiguration(output.ArtifactsConfiguration, context)
         : undefined,
     SourceConfiguration:
-      output.SourceConfiguration !== undefined && output.SourceConfiguration !== null
+      output.SourceConfiguration != undefined
         ? deserializeAws_restJson1SourceConfiguration(output.SourceConfiguration, context)
         : undefined,
   } as any;
@@ -1088,11 +1078,11 @@ const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __Serd
 const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
   return {
     ChimeSdkMeetingConfiguration:
-      output.ChimeSdkMeetingConfiguration !== undefined && output.ChimeSdkMeetingConfiguration !== null
+      output.ChimeSdkMeetingConfiguration != undefined
         ? deserializeAws_restJson1ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp))
         : undefined,
     MediaPipelineArn: __expectString(output.MediaPipelineArn),
@@ -1103,7 +1093,7 @@ const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __Se
     SourceType: __expectString(output.SourceType),
     Status: __expectString(output.Status),
     UpdatedTimestamp:
-      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+      output.UpdatedTimestamp != undefined
         ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp))
         : undefined,
   } as any;
@@ -1137,11 +1127,9 @@ const deserializeAws_restJson1MediaCapturePipelineSummaryList = (
 const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __SerdeContext): SelectedVideoStreams => {
   return {
     AttendeeIds:
-      output.AttendeeIds !== undefined && output.AttendeeIds !== null
-        ? deserializeAws_restJson1AttendeeIdList(output.AttendeeIds, context)
-        : undefined,
+      output.AttendeeIds != undefined ? deserializeAws_restJson1AttendeeIdList(output.AttendeeIds, context) : undefined,
     ExternalUserIds:
-      output.ExternalUserIds !== undefined && output.ExternalUserIds !== null
+      output.ExternalUserIds != undefined
         ? deserializeAws_restJson1ExternalUserIdList(output.ExternalUserIds, context)
         : undefined,
   } as any;
@@ -1150,7 +1138,7 @@ const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __Se
 const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
   return {
     SelectedVideoStreams:
-      output.SelectedVideoStreams !== undefined && output.SelectedVideoStreams !== null
+      output.SelectedVideoStreams != undefined
         ? deserializeAws_restJson1SelectedVideoStreams(output.SelectedVideoStreams, context)
         : undefined,
   } as any;

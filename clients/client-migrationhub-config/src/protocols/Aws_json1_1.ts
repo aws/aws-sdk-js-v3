@@ -335,10 +335,9 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
-    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
-    ...(input.Target !== undefined &&
-      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
+    ...(input.DryRun != undefined && { DryRun: input.DryRun }),
+    ...(input.HomeRegion != undefined && { HomeRegion: input.HomeRegion }),
+    ...(input.Target != undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 
@@ -347,12 +346,11 @@ const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ControlId !== undefined && input.ControlId !== null && { ControlId: input.ControlId }),
-    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Target !== undefined &&
-      input.Target !== null && { Target: serializeAws_json1_1Target(input.Target, context) }),
+    ...(input.ControlId != undefined && { ControlId: input.ControlId }),
+    ...(input.HomeRegion != undefined && { HomeRegion: input.HomeRegion }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Target != undefined && { Target: serializeAws_json1_1Target(input.Target, context) }),
   };
 };
 
@@ -362,8 +360,8 @@ const serializeAws_json1_1GetHomeRegionRequest = (input: GetHomeRegionRequest, c
 
 const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != undefined && { Id: input.Id }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
@@ -379,7 +377,7 @@ const deserializeAws_json1_1CreateHomeRegionControlResult = (
 ): CreateHomeRegionControlResult => {
   return {
     HomeRegionControl:
-      output.HomeRegionControl !== undefined && output.HomeRegionControl !== null
+      output.HomeRegionControl != undefined
         ? deserializeAws_json1_1HomeRegionControl(output.HomeRegionControl, context)
         : undefined,
   } as any;
@@ -391,7 +389,7 @@ const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
 ): DescribeHomeRegionControlsResult => {
   return {
     HomeRegionControls:
-      output.HomeRegionControls !== undefined && output.HomeRegionControls !== null
+      output.HomeRegionControls != undefined
         ? deserializeAws_json1_1HomeRegionControls(output.HomeRegionControls, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -415,13 +413,10 @@ const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeCo
     ControlId: __expectString(output.ControlId),
     HomeRegion: __expectString(output.HomeRegion),
     RequestedTime:
-      output.RequestedTime !== undefined && output.RequestedTime !== null
+      output.RequestedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTime)))
         : undefined,
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? deserializeAws_json1_1Target(output.Target, context)
-        : undefined,
+    Target: output.Target != undefined ? deserializeAws_json1_1Target(output.Target, context) : undefined,
   } as any;
 };
 

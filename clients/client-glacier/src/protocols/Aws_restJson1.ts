@@ -251,7 +251,7 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1291,8 +1291,7 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1327,8 +1326,7 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy !== undefined &&
-      input.Policy !== null && { Policy: serializeAws_restJson1DataRetrievalPolicy(input.Policy, context) }),
+    ...(input.Policy != undefined && { Policy: serializeAws_restJson1DataRetrievalPolicy(input.Policy, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3668,45 +3666,35 @@ const serializeAws_restJson1AccessControlPolicyList = (input: Grant[], context: 
 
 const serializeAws_restJson1CSVInput = (input: CSVInput, context: __SerdeContext): any => {
   return {
-    ...(input.Comments !== undefined && input.Comments !== null && { Comments: input.Comments }),
-    ...(input.FieldDelimiter !== undefined &&
-      input.FieldDelimiter !== null && { FieldDelimiter: input.FieldDelimiter }),
-    ...(input.FileHeaderInfo !== undefined &&
-      input.FileHeaderInfo !== null && { FileHeaderInfo: input.FileHeaderInfo }),
-    ...(input.QuoteCharacter !== undefined &&
-      input.QuoteCharacter !== null && { QuoteCharacter: input.QuoteCharacter }),
-    ...(input.QuoteEscapeCharacter !== undefined &&
-      input.QuoteEscapeCharacter !== null && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
-    ...(input.RecordDelimiter !== undefined &&
-      input.RecordDelimiter !== null && { RecordDelimiter: input.RecordDelimiter }),
+    ...(input.Comments != undefined && { Comments: input.Comments }),
+    ...(input.FieldDelimiter != undefined && { FieldDelimiter: input.FieldDelimiter }),
+    ...(input.FileHeaderInfo != undefined && { FileHeaderInfo: input.FileHeaderInfo }),
+    ...(input.QuoteCharacter != undefined && { QuoteCharacter: input.QuoteCharacter }),
+    ...(input.QuoteEscapeCharacter != undefined && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
+    ...(input.RecordDelimiter != undefined && { RecordDelimiter: input.RecordDelimiter }),
   };
 };
 
 const serializeAws_restJson1CSVOutput = (input: CSVOutput, context: __SerdeContext): any => {
   return {
-    ...(input.FieldDelimiter !== undefined &&
-      input.FieldDelimiter !== null && { FieldDelimiter: input.FieldDelimiter }),
-    ...(input.QuoteCharacter !== undefined &&
-      input.QuoteCharacter !== null && { QuoteCharacter: input.QuoteCharacter }),
-    ...(input.QuoteEscapeCharacter !== undefined &&
-      input.QuoteEscapeCharacter !== null && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
-    ...(input.QuoteFields !== undefined && input.QuoteFields !== null && { QuoteFields: input.QuoteFields }),
-    ...(input.RecordDelimiter !== undefined &&
-      input.RecordDelimiter !== null && { RecordDelimiter: input.RecordDelimiter }),
+    ...(input.FieldDelimiter != undefined && { FieldDelimiter: input.FieldDelimiter }),
+    ...(input.QuoteCharacter != undefined && { QuoteCharacter: input.QuoteCharacter }),
+    ...(input.QuoteEscapeCharacter != undefined && { QuoteEscapeCharacter: input.QuoteEscapeCharacter }),
+    ...(input.QuoteFields != undefined && { QuoteFields: input.QuoteFields }),
+    ...(input.RecordDelimiter != undefined && { RecordDelimiter: input.RecordDelimiter }),
   };
 };
 
 const serializeAws_restJson1DataRetrievalPolicy = (input: DataRetrievalPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_restJson1DataRetrievalRulesList(input.Rules, context) }),
+    ...(input.Rules != undefined && { Rules: serializeAws_restJson1DataRetrievalRulesList(input.Rules, context) }),
   };
 };
 
 const serializeAws_restJson1DataRetrievalRule = (input: DataRetrievalRule, context: __SerdeContext): any => {
   return {
-    ...(input.BytesPerHour !== undefined && input.BytesPerHour !== null && { BytesPerHour: input.BytesPerHour }),
-    ...(input.Strategy !== undefined && input.Strategy !== null && { Strategy: input.Strategy }),
+    ...(input.BytesPerHour != undefined && { BytesPerHour: input.BytesPerHour }),
+    ...(input.Strategy != undefined && { Strategy: input.Strategy }),
   };
 };
 
@@ -3723,28 +3711,26 @@ const serializeAws_restJson1DataRetrievalRulesList = (input: DataRetrievalRule[]
 
 const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionType !== undefined &&
-      input.EncryptionType !== null && { EncryptionType: input.EncryptionType }),
-    ...(input.KMSContext !== undefined && input.KMSContext !== null && { KMSContext: input.KMSContext }),
-    ...(input.KMSKeyId !== undefined && input.KMSKeyId !== null && { KMSKeyId: input.KMSKeyId }),
+    ...(input.EncryptionType != undefined && { EncryptionType: input.EncryptionType }),
+    ...(input.KMSContext != undefined && { KMSContext: input.KMSContext }),
+    ...(input.KMSKeyId != undefined && { KMSKeyId: input.KMSKeyId }),
   };
 };
 
 const serializeAws_restJson1Grant = (input: Grant, context: __SerdeContext): any => {
   return {
-    ...(input.Grantee !== undefined &&
-      input.Grantee !== null && { Grantee: serializeAws_restJson1Grantee(input.Grantee, context) }),
-    ...(input.Permission !== undefined && input.Permission !== null && { Permission: input.Permission }),
+    ...(input.Grantee != undefined && { Grantee: serializeAws_restJson1Grantee(input.Grantee, context) }),
+    ...(input.Permission != undefined && { Permission: input.Permission }),
   };
 };
 
 const serializeAws_restJson1Grantee = (input: Grantee, context: __SerdeContext): any => {
   return {
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
-    ...(input.ID !== undefined && input.ID !== null && { ID: input.ID }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.URI !== undefined && input.URI !== null && { URI: input.URI }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.EmailAddress != undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.ID != undefined && { ID: input.ID }),
+    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.URI != undefined && { URI: input.URI }),
   };
 };
 
@@ -3762,7 +3748,7 @@ const serializeAws_restJson1hashmap = (input: Record<string, string>, context: _
 
 const serializeAws_restJson1InputSerialization = (input: InputSerialization, context: __SerdeContext): any => {
   return {
-    ...(input.csv !== undefined && input.csv !== null && { csv: serializeAws_restJson1CSVInput(input.csv, context) }),
+    ...(input.csv != undefined && { csv: serializeAws_restJson1CSVInput(input.csv, context) }),
   };
 };
 
@@ -3771,38 +3757,34 @@ const serializeAws_restJson1InventoryRetrievalJobInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndDate !== undefined && input.EndDate !== null && { EndDate: input.EndDate }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
-    ...(input.StartDate !== undefined && input.StartDate !== null && { StartDate: input.StartDate }),
+    ...(input.EndDate != undefined && { EndDate: input.EndDate }),
+    ...(input.Limit != undefined && { Limit: input.Limit }),
+    ...(input.Marker != undefined && { Marker: input.Marker }),
+    ...(input.StartDate != undefined && { StartDate: input.StartDate }),
   };
 };
 
 const serializeAws_restJson1JobParameters = (input: JobParameters, context: __SerdeContext): any => {
   return {
-    ...(input.ArchiveId !== undefined && input.ArchiveId !== null && { ArchiveId: input.ArchiveId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
-    ...(input.InventoryRetrievalParameters !== undefined &&
-      input.InventoryRetrievalParameters !== null && {
-        InventoryRetrievalParameters: serializeAws_restJson1InventoryRetrievalJobInput(
-          input.InventoryRetrievalParameters,
-          context
-        ),
-      }),
-    ...(input.OutputLocation !== undefined &&
-      input.OutputLocation !== null && {
-        OutputLocation: serializeAws_restJson1OutputLocation(input.OutputLocation, context),
-      }),
-    ...(input.RetrievalByteRange !== undefined &&
-      input.RetrievalByteRange !== null && { RetrievalByteRange: input.RetrievalByteRange }),
-    ...(input.SNSTopic !== undefined && input.SNSTopic !== null && { SNSTopic: input.SNSTopic }),
-    ...(input.SelectParameters !== undefined &&
-      input.SelectParameters !== null && {
-        SelectParameters: serializeAws_restJson1SelectParameters(input.SelectParameters, context),
-      }),
-    ...(input.Tier !== undefined && input.Tier !== null && { Tier: input.Tier }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.ArchiveId != undefined && { ArchiveId: input.ArchiveId }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Format != undefined && { Format: input.Format }),
+    ...(input.InventoryRetrievalParameters != undefined && {
+      InventoryRetrievalParameters: serializeAws_restJson1InventoryRetrievalJobInput(
+        input.InventoryRetrievalParameters,
+        context
+      ),
+    }),
+    ...(input.OutputLocation != undefined && {
+      OutputLocation: serializeAws_restJson1OutputLocation(input.OutputLocation, context),
+    }),
+    ...(input.RetrievalByteRange != undefined && { RetrievalByteRange: input.RetrievalByteRange }),
+    ...(input.SNSTopic != undefined && { SNSTopic: input.SNSTopic }),
+    ...(input.SelectParameters != undefined && {
+      SelectParameters: serializeAws_restJson1SelectParameters(input.SelectParameters, context),
+    }),
+    ...(input.Tier != undefined && { Tier: input.Tier }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
@@ -3819,48 +3801,43 @@ const serializeAws_restJson1NotificationEventList = (input: string[], context: _
 
 const serializeAws_restJson1OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
   return {
-    ...(input.S3 !== undefined && input.S3 !== null && { S3: serializeAws_restJson1S3Location(input.S3, context) }),
+    ...(input.S3 != undefined && { S3: serializeAws_restJson1S3Location(input.S3, context) }),
   };
 };
 
 const serializeAws_restJson1OutputSerialization = (input: OutputSerialization, context: __SerdeContext): any => {
   return {
-    ...(input.csv !== undefined && input.csv !== null && { csv: serializeAws_restJson1CSVOutput(input.csv, context) }),
+    ...(input.csv != undefined && { csv: serializeAws_restJson1CSVOutput(input.csv, context) }),
   };
 };
 
 const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.AccessControlList !== undefined &&
-      input.AccessControlList !== null && {
-        AccessControlList: serializeAws_restJson1AccessControlPolicyList(input.AccessControlList, context),
-      }),
-    ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
-    ...(input.CannedACL !== undefined && input.CannedACL !== null && { CannedACL: input.CannedACL }),
-    ...(input.Encryption !== undefined &&
-      input.Encryption !== null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
-    ...(input.StorageClass !== undefined && input.StorageClass !== null && { StorageClass: input.StorageClass }),
-    ...(input.Tagging !== undefined &&
-      input.Tagging !== null && { Tagging: serializeAws_restJson1hashmap(input.Tagging, context) }),
-    ...(input.UserMetadata !== undefined &&
-      input.UserMetadata !== null && { UserMetadata: serializeAws_restJson1hashmap(input.UserMetadata, context) }),
+    ...(input.AccessControlList != undefined && {
+      AccessControlList: serializeAws_restJson1AccessControlPolicyList(input.AccessControlList, context),
+    }),
+    ...(input.BucketName != undefined && { BucketName: input.BucketName }),
+    ...(input.CannedACL != undefined && { CannedACL: input.CannedACL }),
+    ...(input.Encryption != undefined && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Prefix != undefined && { Prefix: input.Prefix }),
+    ...(input.StorageClass != undefined && { StorageClass: input.StorageClass }),
+    ...(input.Tagging != undefined && { Tagging: serializeAws_restJson1hashmap(input.Tagging, context) }),
+    ...(input.UserMetadata != undefined && {
+      UserMetadata: serializeAws_restJson1hashmap(input.UserMetadata, context),
+    }),
   };
 };
 
 const serializeAws_restJson1SelectParameters = (input: SelectParameters, context: __SerdeContext): any => {
   return {
-    ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
-    ...(input.ExpressionType !== undefined &&
-      input.ExpressionType !== null && { ExpressionType: input.ExpressionType }),
-    ...(input.InputSerialization !== undefined &&
-      input.InputSerialization !== null && {
-        InputSerialization: serializeAws_restJson1InputSerialization(input.InputSerialization, context),
-      }),
-    ...(input.OutputSerialization !== undefined &&
-      input.OutputSerialization !== null && {
-        OutputSerialization: serializeAws_restJson1OutputSerialization(input.OutputSerialization, context),
-      }),
+    ...(input.Expression != undefined && { Expression: input.Expression }),
+    ...(input.ExpressionType != undefined && { ExpressionType: input.ExpressionType }),
+    ...(input.InputSerialization != undefined && {
+      InputSerialization: serializeAws_restJson1InputSerialization(input.InputSerialization, context),
+    }),
+    ...(input.OutputSerialization != undefined && {
+      OutputSerialization: serializeAws_restJson1OutputSerialization(input.OutputSerialization, context),
+    }),
   };
 };
 
@@ -3889,13 +3866,13 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1VaultAccessPolicy = (input: VaultAccessPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.Policy != undefined && { Policy: input.Policy }),
   };
 };
 
 const serializeAws_restJson1VaultLockPolicy = (input: VaultLockPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.Policy != undefined && { Policy: input.Policy }),
   };
 };
 
@@ -3904,9 +3881,8 @@ const serializeAws_restJson1VaultNotificationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Events !== undefined &&
-      input.Events !== null && { Events: serializeAws_restJson1NotificationEventList(input.Events, context) }),
-    ...(input.SNSTopic !== undefined && input.SNSTopic !== null && { SNSTopic: input.SNSTopic }),
+    ...(input.Events != undefined && { Events: serializeAws_restJson1NotificationEventList(input.Events, context) }),
+    ...(input.SNSTopic != undefined && { SNSTopic: input.SNSTopic }),
   };
 };
 
@@ -3946,9 +3922,7 @@ const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __SerdeContext): DataRetrievalPolicy => {
   return {
     Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_restJson1DataRetrievalRulesList(output.Rules, context)
-        : undefined,
+      output.Rules != undefined ? deserializeAws_restJson1DataRetrievalRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
@@ -4000,7 +3974,7 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
     InventoryRetrievalParameters:
-      output.InventoryRetrievalParameters !== undefined && output.InventoryRetrievalParameters !== null
+      output.InventoryRetrievalParameters != undefined
         ? deserializeAws_restJson1InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
         : undefined,
     InventorySizeInBytes: __expectLong(output.InventorySizeInBytes),
@@ -4008,14 +3982,14 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
     JobId: __expectString(output.JobId),
     JobOutputPath: __expectString(output.JobOutputPath),
     OutputLocation:
-      output.OutputLocation !== undefined && output.OutputLocation !== null
+      output.OutputLocation != undefined
         ? deserializeAws_restJson1OutputLocation(output.OutputLocation, context)
         : undefined,
     RetrievalByteRange: __expectString(output.RetrievalByteRange),
     SHA256TreeHash: __expectString(output.SHA256TreeHash),
     SNSTopic: __expectString(output.SNSTopic),
     SelectParameters:
-      output.SelectParameters !== undefined && output.SelectParameters !== null
+      output.SelectParameters != undefined
         ? deserializeAws_restJson1SelectParameters(output.SelectParameters, context)
         : undefined,
     StatusCode: __expectString(output.StatusCode),
@@ -4027,10 +4001,7 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
 
 const deserializeAws_restJson1Grant = (output: any, context: __SerdeContext): Grant => {
   return {
-    Grantee:
-      output.Grantee !== undefined && output.Grantee !== null
-        ? deserializeAws_restJson1Grantee(output.Grantee, context)
-        : undefined,
+    Grantee: output.Grantee != undefined ? deserializeAws_restJson1Grantee(output.Grantee, context) : undefined,
     Permission: __expectString(output.Permission),
   } as any;
 };
@@ -4059,10 +4030,7 @@ const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1InputSerialization = (output: any, context: __SerdeContext): InputSerialization => {
   return {
-    csv:
-      output.csv !== undefined && output.csv !== null
-        ? deserializeAws_restJson1CSVInput(output.csv, context)
-        : undefined,
+    csv: output.csv != undefined ? deserializeAws_restJson1CSVInput(output.csv, context) : undefined,
   } as any;
 };
 
@@ -4105,19 +4073,13 @@ const deserializeAws_restJson1NotificationEventList = (output: any, context: __S
 
 const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
   return {
-    S3:
-      output.S3 !== undefined && output.S3 !== null
-        ? deserializeAws_restJson1S3Location(output.S3, context)
-        : undefined,
+    S3: output.S3 != undefined ? deserializeAws_restJson1S3Location(output.S3, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1OutputSerialization = (output: any, context: __SerdeContext): OutputSerialization => {
   return {
-    csv:
-      output.csv !== undefined && output.csv !== null
-        ? deserializeAws_restJson1CSVOutput(output.csv, context)
-        : undefined,
+    csv: output.csv != undefined ? deserializeAws_restJson1CSVOutput(output.csv, context) : undefined,
   } as any;
 };
 
@@ -4169,25 +4131,18 @@ const deserializeAws_restJson1ProvisionedCapacityList = (
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     AccessControlList:
-      output.AccessControlList !== undefined && output.AccessControlList !== null
+      output.AccessControlList != undefined
         ? deserializeAws_restJson1AccessControlPolicyList(output.AccessControlList, context)
         : undefined,
     BucketName: __expectString(output.BucketName),
     CannedACL: __expectString(output.CannedACL),
     Encryption:
-      output.Encryption !== undefined && output.Encryption !== null
-        ? deserializeAws_restJson1Encryption(output.Encryption, context)
-        : undefined,
+      output.Encryption != undefined ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
     Prefix: __expectString(output.Prefix),
     StorageClass: __expectString(output.StorageClass),
-    Tagging:
-      output.Tagging !== undefined && output.Tagging !== null
-        ? deserializeAws_restJson1hashmap(output.Tagging, context)
-        : undefined,
+    Tagging: output.Tagging != undefined ? deserializeAws_restJson1hashmap(output.Tagging, context) : undefined,
     UserMetadata:
-      output.UserMetadata !== undefined && output.UserMetadata !== null
-        ? deserializeAws_restJson1hashmap(output.UserMetadata, context)
-        : undefined,
+      output.UserMetadata != undefined ? deserializeAws_restJson1hashmap(output.UserMetadata, context) : undefined,
   } as any;
 };
 
@@ -4196,11 +4151,11 @@ const deserializeAws_restJson1SelectParameters = (output: any, context: __SerdeC
     Expression: __expectString(output.Expression),
     ExpressionType: __expectString(output.ExpressionType),
     InputSerialization:
-      output.InputSerialization !== undefined && output.InputSerialization !== null
+      output.InputSerialization != undefined
         ? deserializeAws_restJson1InputSerialization(output.InputSerialization, context)
         : undefined,
     OutputSerialization:
-      output.OutputSerialization !== undefined && output.OutputSerialization !== null
+      output.OutputSerialization != undefined
         ? deserializeAws_restJson1OutputSerialization(output.OutputSerialization, context)
         : undefined,
   } as any;
@@ -4264,9 +4219,7 @@ const deserializeAws_restJson1VaultNotificationConfig = (
 ): VaultNotificationConfig => {
   return {
     Events:
-      output.Events !== undefined && output.Events !== null
-        ? deserializeAws_restJson1NotificationEventList(output.Events, context)
-        : undefined,
+      output.Events != undefined ? deserializeAws_restJson1NotificationEventList(output.Events, context) : undefined,
     SNSTopic: __expectString(output.SNSTopic),
   } as any;
 };

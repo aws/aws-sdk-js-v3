@@ -2784,13 +2784,13 @@ const serializeAws_json1_1AssociateDRTLogBucketRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LogBucket !== undefined && input.LogBucket !== null && { LogBucket: input.LogBucket }),
+    ...(input.LogBucket != undefined && { LogBucket: input.LogBucket }),
   };
 };
 
 const serializeAws_json1_1AssociateDRTRoleRequest = (input: AssociateDRTRoleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -2799,9 +2799,8 @@ const serializeAws_json1_1AssociateHealthCheckRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HealthCheckArn !== undefined &&
-      input.HealthCheckArn !== null && { HealthCheckArn: input.HealthCheckArn }),
-    ...(input.ProtectionId !== undefined && input.ProtectionId !== null && { ProtectionId: input.ProtectionId }),
+    ...(input.HealthCheckArn != undefined && { HealthCheckArn: input.HealthCheckArn }),
+    ...(input.ProtectionId != undefined && { ProtectionId: input.ProtectionId }),
   };
 };
 
@@ -2810,10 +2809,9 @@ const serializeAws_json1_1AssociateProactiveEngagementDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EmergencyContactList !== undefined &&
-      input.EmergencyContactList !== null && {
-        EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
-      }),
+    ...(input.EmergencyContactList != undefined && {
+      EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
+    }),
   };
 };
 
@@ -2830,22 +2828,20 @@ const serializeAws_json1_1CreateProtectionGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Aggregation !== undefined && input.Aggregation !== null && { Aggregation: input.Aggregation }),
-    ...(input.Members !== undefined &&
-      input.Members !== null && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
-    ...(input.Pattern !== undefined && input.Pattern !== null && { Pattern: input.Pattern }),
-    ...(input.ProtectionGroupId !== undefined &&
-      input.ProtectionGroupId !== null && { ProtectionGroupId: input.ProtectionGroupId }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Aggregation != undefined && { Aggregation: input.Aggregation }),
+    ...(input.Members != undefined && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
+    ...(input.Pattern != undefined && { Pattern: input.Pattern }),
+    ...(input.ProtectionGroupId != undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateProtectionRequest = (input: CreateProtectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2861,14 +2857,13 @@ const serializeAws_json1_1DeleteProtectionGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProtectionGroupId !== undefined &&
-      input.ProtectionGroupId !== null && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ProtectionGroupId != undefined && { ProtectionGroupId: input.ProtectionGroupId }),
   };
 };
 
 const serializeAws_json1_1DeleteProtectionRequest = (input: DeleteProtectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProtectionId !== undefined && input.ProtectionId !== null && { ProtectionId: input.ProtectionId }),
+    ...(input.ProtectionId != undefined && { ProtectionId: input.ProtectionId }),
   };
 };
 
@@ -2881,7 +2876,7 @@ const serializeAws_json1_1DeleteSubscriptionRequest = (
 
 const serializeAws_json1_1DescribeAttackRequest = (input: DescribeAttackRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AttackId !== undefined && input.AttackId !== null && { AttackId: input.AttackId }),
+    ...(input.AttackId != undefined && { AttackId: input.AttackId }),
   };
 };
 
@@ -2911,8 +2906,7 @@ const serializeAws_json1_1DescribeProtectionGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProtectionGroupId !== undefined &&
-      input.ProtectionGroupId !== null && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ProtectionGroupId != undefined && { ProtectionGroupId: input.ProtectionGroupId }),
   };
 };
 
@@ -2921,8 +2915,8 @@ const serializeAws_json1_1DescribeProtectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProtectionId !== undefined && input.ProtectionId !== null && { ProtectionId: input.ProtectionId }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ProtectionId != undefined && { ProtectionId: input.ProtectionId }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2938,7 +2932,7 @@ const serializeAws_json1_1DisableApplicationLayerAutomaticResponseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2954,7 +2948,7 @@ const serializeAws_json1_1DisassociateDRTLogBucketRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LogBucket !== undefined && input.LogBucket !== null && { LogBucket: input.LogBucket }),
+    ...(input.LogBucket != undefined && { LogBucket: input.LogBucket }),
   };
 };
 
@@ -2970,17 +2964,16 @@ const serializeAws_json1_1DisassociateHealthCheckRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HealthCheckArn !== undefined &&
-      input.HealthCheckArn !== null && { HealthCheckArn: input.HealthCheckArn }),
-    ...(input.ProtectionId !== undefined && input.ProtectionId !== null && { ProtectionId: input.ProtectionId }),
+    ...(input.HealthCheckArn != undefined && { HealthCheckArn: input.HealthCheckArn }),
+    ...(input.ProtectionId != undefined && { ProtectionId: input.ProtectionId }),
   };
 };
 
 const serializeAws_json1_1EmergencyContact = (input: EmergencyContact, context: __SerdeContext): any => {
   return {
-    ...(input.ContactNotes !== undefined && input.ContactNotes !== null && { ContactNotes: input.ContactNotes }),
-    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
-    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.ContactNotes != undefined && { ContactNotes: input.ContactNotes }),
+    ...(input.EmailAddress != undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.PhoneNumber != undefined && { PhoneNumber: input.PhoneNumber }),
   };
 };
 
@@ -3000,9 +2993,8 @@ const serializeAws_json1_1EnableApplicationLayerAutomaticResponseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action !== undefined &&
-      input.Action !== null && { Action: serializeAws_json1_1ResponseAction(input.Action, context) }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Action != undefined && { Action: serializeAws_json1_1ResponseAction(input.Action, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -3022,16 +3014,13 @@ const serializeAws_json1_1GetSubscriptionStateRequest = (
 
 const serializeAws_json1_1ListAttacksRequest = (input: ListAttacksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined &&
-      input.EndTime !== null && { EndTime: serializeAws_json1_1TimeRange(input.EndTime, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceArns !== undefined &&
-      input.ResourceArns !== null && {
-        ResourceArns: serializeAws_json1_1ResourceArnFilterList(input.ResourceArns, context),
-      }),
-    ...(input.StartTime !== undefined &&
-      input.StartTime !== null && { StartTime: serializeAws_json1_1TimeRange(input.StartTime, context) }),
+    ...(input.EndTime != undefined && { EndTime: serializeAws_json1_1TimeRange(input.EndTime, context) }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceArns != undefined && {
+      ResourceArns: serializeAws_json1_1ResourceArnFilterList(input.ResourceArns, context),
+    }),
+    ...(input.StartTime != undefined && { StartTime: serializeAws_json1_1TimeRange(input.StartTime, context) }),
   };
 };
 
@@ -3040,15 +3029,15 @@ const serializeAws_json1_1ListProtectionGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListProtectionsRequest = (input: ListProtectionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -3057,10 +3046,9 @@ const serializeAws_json1_1ListResourcesInProtectionGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ProtectionGroupId !== undefined &&
-      input.ProtectionGroupId !== null && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ProtectionGroupId != undefined && { ProtectionGroupId: input.ProtectionGroupId }),
   };
 };
 
@@ -3069,7 +3057,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -3097,17 +3085,15 @@ const serializeAws_json1_1ResourceArnFilterList = (input: string[], context: __S
 
 const serializeAws_json1_1ResponseAction = (input: ResponseAction, context: __SerdeContext): any => {
   return {
-    ...(input.Block !== undefined &&
-      input.Block !== null && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
-    ...(input.Count !== undefined &&
-      input.Count !== null && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
+    ...(input.Block != undefined && { Block: serializeAws_json1_1BlockAction(input.Block, context) }),
+    ...(input.Count != undefined && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -3135,25 +3121,22 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromInclusive !== undefined &&
-      input.FromInclusive !== null && { FromInclusive: Math.round(input.FromInclusive.getTime() / 1000) }),
-    ...(input.ToExclusive !== undefined &&
-      input.ToExclusive !== null && { ToExclusive: Math.round(input.ToExclusive.getTime() / 1000) }),
+    ...(input.FromInclusive != undefined && { FromInclusive: Math.round(input.FromInclusive.getTime() / 1000) }),
+    ...(input.ToExclusive != undefined && { ToExclusive: Math.round(input.ToExclusive.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -3162,9 +3145,8 @@ const serializeAws_json1_1UpdateApplicationLayerAutomaticResponseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action !== undefined &&
-      input.Action !== null && { Action: serializeAws_json1_1ResponseAction(input.Action, context) }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Action != undefined && { Action: serializeAws_json1_1ResponseAction(input.Action, context) }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -3173,10 +3155,9 @@ const serializeAws_json1_1UpdateEmergencyContactSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EmergencyContactList !== undefined &&
-      input.EmergencyContactList !== null && {
-        EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
-      }),
+    ...(input.EmergencyContactList != undefined && {
+      EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
+    }),
   };
 };
 
@@ -3185,13 +3166,11 @@ const serializeAws_json1_1UpdateProtectionGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Aggregation !== undefined && input.Aggregation !== null && { Aggregation: input.Aggregation }),
-    ...(input.Members !== undefined &&
-      input.Members !== null && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
-    ...(input.Pattern !== undefined && input.Pattern !== null && { Pattern: input.Pattern }),
-    ...(input.ProtectionGroupId !== undefined &&
-      input.ProtectionGroupId !== null && { ProtectionGroupId: input.ProtectionGroupId }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.Aggregation != undefined && { Aggregation: input.Aggregation }),
+    ...(input.Members != undefined && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
+    ...(input.Pattern != undefined && { Pattern: input.Pattern }),
+    ...(input.ProtectionGroupId != undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -3200,7 +3179,7 @@ const serializeAws_json1_1UpdateSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoRenew !== undefined && input.AutoRenew !== null && { AutoRenew: input.AutoRenew }),
+    ...(input.AutoRenew != undefined && { AutoRenew: input.AutoRenew }),
   };
 };
 
@@ -3224,10 +3203,7 @@ const deserializeAws_json1_1ApplicationLayerAutomaticResponseConfiguration = (
   context: __SerdeContext
 ): ApplicationLayerAutomaticResponseConfiguration => {
   return {
-    Action:
-      output.Action !== undefined && output.Action !== null
-        ? deserializeAws_json1_1ResponseAction(output.Action, context)
-        : undefined,
+    Action: output.Action != undefined ? deserializeAws_json1_1ResponseAction(output.Action, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -3263,29 +3239,25 @@ const deserializeAws_json1_1AssociateProactiveEngagementDetailsResponse = (
 const deserializeAws_json1_1AttackDetail = (output: any, context: __SerdeContext): AttackDetail => {
   return {
     AttackCounters:
-      output.AttackCounters !== undefined && output.AttackCounters !== null
+      output.AttackCounters != undefined
         ? deserializeAws_json1_1SummarizedCounterList(output.AttackCounters, context)
         : undefined,
     AttackId: __expectString(output.AttackId),
     AttackProperties:
-      output.AttackProperties !== undefined && output.AttackProperties !== null
+      output.AttackProperties != undefined
         ? deserializeAws_json1_1AttackProperties(output.AttackProperties, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     Mitigations:
-      output.Mitigations !== undefined && output.Mitigations !== null
-        ? deserializeAws_json1_1MitigationList(output.Mitigations, context)
-        : undefined,
+      output.Mitigations != undefined ? deserializeAws_json1_1MitigationList(output.Mitigations, context) : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     SubResources:
-      output.SubResources !== undefined && output.SubResources !== null
+      output.SubResources != undefined
         ? deserializeAws_json1_1SubResourceSummaryList(output.SubResources, context)
         : undefined,
   } as any;
@@ -3308,7 +3280,7 @@ const deserializeAws_json1_1AttackProperty = (output: any, context: __SerdeConte
     AttackLayer: __expectString(output.AttackLayer),
     AttackPropertyIdentifier: __expectString(output.AttackPropertyIdentifier),
     TopContributors:
-      output.TopContributors !== undefined && output.TopContributors !== null
+      output.TopContributors != undefined
         ? deserializeAws_json1_1TopContributors(output.TopContributors, context)
         : undefined,
     Total: __expectLong(output.Total),
@@ -3323,9 +3295,7 @@ const deserializeAws_json1_1AttackStatisticsDataItem = (
   return {
     AttackCount: __expectLong(output.AttackCount),
     AttackVolume:
-      output.AttackVolume !== undefined && output.AttackVolume !== null
-        ? deserializeAws_json1_1AttackVolume(output.AttackVolume, context)
-        : undefined,
+      output.AttackVolume != undefined ? deserializeAws_json1_1AttackVolume(output.AttackVolume, context) : undefined,
   } as any;
 };
 
@@ -3360,16 +3330,14 @@ const deserializeAws_json1_1AttackSummary = (output: any, context: __SerdeContex
   return {
     AttackId: __expectString(output.AttackId),
     AttackVectors:
-      output.AttackVectors !== undefined && output.AttackVectors !== null
+      output.AttackVectors != undefined
         ? deserializeAws_json1_1AttackVectorDescriptionList(output.AttackVectors, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
   } as any;
@@ -3402,15 +3370,15 @@ const deserializeAws_json1_1AttackVectorDescriptionList = (
 const deserializeAws_json1_1AttackVolume = (output: any, context: __SerdeContext): AttackVolume => {
   return {
     BitsPerSecond:
-      output.BitsPerSecond !== undefined && output.BitsPerSecond !== null
+      output.BitsPerSecond != undefined
         ? deserializeAws_json1_1AttackVolumeStatistics(output.BitsPerSecond, context)
         : undefined,
     PacketsPerSecond:
-      output.PacketsPerSecond !== undefined && output.PacketsPerSecond !== null
+      output.PacketsPerSecond != undefined
         ? deserializeAws_json1_1AttackVolumeStatistics(output.PacketsPerSecond, context)
         : undefined,
     RequestsPerSecond:
-      output.RequestsPerSecond !== undefined && output.RequestsPerSecond !== null
+      output.RequestsPerSecond != undefined
         ? deserializeAws_json1_1AttackVolumeStatistics(output.RequestsPerSecond, context)
         : undefined,
   } as any;
@@ -3483,10 +3451,7 @@ const deserializeAws_json1_1DeleteSubscriptionResponse = (
 
 const deserializeAws_json1_1DescribeAttackResponse = (output: any, context: __SerdeContext): DescribeAttackResponse => {
   return {
-    Attack:
-      output.Attack !== undefined && output.Attack !== null
-        ? deserializeAws_json1_1AttackDetail(output.Attack, context)
-        : undefined,
+    Attack: output.Attack != undefined ? deserializeAws_json1_1AttackDetail(output.Attack, context) : undefined,
   } as any;
 };
 
@@ -3496,13 +3461,10 @@ const deserializeAws_json1_1DescribeAttackStatisticsResponse = (
 ): DescribeAttackStatisticsResponse => {
   return {
     DataItems:
-      output.DataItems !== undefined && output.DataItems !== null
+      output.DataItems != undefined
         ? deserializeAws_json1_1AttackStatisticsDataList(output.DataItems, context)
         : undefined,
-    TimeRange:
-      output.TimeRange !== undefined && output.TimeRange !== null
-        ? deserializeAws_json1_1TimeRange(output.TimeRange, context)
-        : undefined,
+    TimeRange: output.TimeRange != undefined ? deserializeAws_json1_1TimeRange(output.TimeRange, context) : undefined,
   } as any;
 };
 
@@ -3512,7 +3474,7 @@ const deserializeAws_json1_1DescribeDRTAccessResponse = (
 ): DescribeDRTAccessResponse => {
   return {
     LogBucketList:
-      output.LogBucketList !== undefined && output.LogBucketList !== null
+      output.LogBucketList != undefined
         ? deserializeAws_json1_1LogBucketList(output.LogBucketList, context)
         : undefined,
     RoleArn: __expectString(output.RoleArn),
@@ -3525,7 +3487,7 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsResponse = (
 ): DescribeEmergencyContactSettingsResponse => {
   return {
     EmergencyContactList:
-      output.EmergencyContactList !== undefined && output.EmergencyContactList !== null
+      output.EmergencyContactList != undefined
         ? deserializeAws_json1_1EmergencyContactList(output.EmergencyContactList, context)
         : undefined,
   } as any;
@@ -3537,7 +3499,7 @@ const deserializeAws_json1_1DescribeProtectionGroupResponse = (
 ): DescribeProtectionGroupResponse => {
   return {
     ProtectionGroup:
-      output.ProtectionGroup !== undefined && output.ProtectionGroup !== null
+      output.ProtectionGroup != undefined
         ? deserializeAws_json1_1ProtectionGroup(output.ProtectionGroup, context)
         : undefined,
   } as any;
@@ -3549,9 +3511,7 @@ const deserializeAws_json1_1DescribeProtectionResponse = (
 ): DescribeProtectionResponse => {
   return {
     Protection:
-      output.Protection !== undefined && output.Protection !== null
-        ? deserializeAws_json1_1Protection(output.Protection, context)
-        : undefined,
+      output.Protection != undefined ? deserializeAws_json1_1Protection(output.Protection, context) : undefined,
   } as any;
 };
 
@@ -3561,9 +3521,7 @@ const deserializeAws_json1_1DescribeSubscriptionResponse = (
 ): DescribeSubscriptionResponse => {
   return {
     Subscription:
-      output.Subscription !== undefined && output.Subscription !== null
-        ? deserializeAws_json1_1Subscription(output.Subscription, context)
-        : undefined,
+      output.Subscription != undefined ? deserializeAws_json1_1Subscription(output.Subscription, context) : undefined,
   } as any;
 };
 
@@ -3687,7 +3645,7 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   return {
     fields:
-      output.fields !== undefined && output.fields !== null
+      output.fields != undefined
         ? deserializeAws_json1_1ValidationExceptionFieldList(output.fields, context)
         : undefined,
     message: __expectString(output.message),
@@ -3737,7 +3695,7 @@ const deserializeAws_json1_1LimitsExceededException = (
 const deserializeAws_json1_1ListAttacksResponse = (output: any, context: __SerdeContext): ListAttacksResponse => {
   return {
     AttackSummaries:
-      output.AttackSummaries !== undefined && output.AttackSummaries !== null
+      output.AttackSummaries != undefined
         ? deserializeAws_json1_1AttackSummaries(output.AttackSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3751,7 +3709,7 @@ const deserializeAws_json1_1ListProtectionGroupsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ProtectionGroups:
-      output.ProtectionGroups !== undefined && output.ProtectionGroups !== null
+      output.ProtectionGroups != undefined
         ? deserializeAws_json1_1ProtectionGroups(output.ProtectionGroups, context)
         : undefined,
   } as any;
@@ -3764,9 +3722,7 @@ const deserializeAws_json1_1ListProtectionsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Protections:
-      output.Protections !== undefined && output.Protections !== null
-        ? deserializeAws_json1_1Protections(output.Protections, context)
-        : undefined,
+      output.Protections != undefined ? deserializeAws_json1_1Protections(output.Protections, context) : undefined,
   } as any;
 };
 
@@ -3777,7 +3733,7 @@ const deserializeAws_json1_1ListResourcesInProtectionGroupResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResourceArns:
-      output.ResourceArns !== undefined && output.ResourceArns !== null
+      output.ResourceArns != undefined
         ? deserializeAws_json1_1ResourceArnList(output.ResourceArns, context)
         : undefined,
   } as any;
@@ -3788,10 +3744,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3855,15 +3808,14 @@ const deserializeAws_json1_1OptimisticLockException = (
 const deserializeAws_json1_1Protection = (output: any, context: __SerdeContext): Protection => {
   return {
     ApplicationLayerAutomaticResponseConfiguration:
-      output.ApplicationLayerAutomaticResponseConfiguration !== undefined &&
-      output.ApplicationLayerAutomaticResponseConfiguration !== null
+      output.ApplicationLayerAutomaticResponseConfiguration != undefined
         ? deserializeAws_json1_1ApplicationLayerAutomaticResponseConfiguration(
             output.ApplicationLayerAutomaticResponseConfiguration,
             context
           )
         : undefined,
     HealthCheckIds:
-      output.HealthCheckIds !== undefined && output.HealthCheckIds !== null
+      output.HealthCheckIds != undefined
         ? deserializeAws_json1_1HealthCheckIds(output.HealthCheckIds, context)
         : undefined,
     Id: __expectString(output.Id),
@@ -3877,9 +3829,7 @@ const deserializeAws_json1_1ProtectionGroup = (output: any, context: __SerdeCont
   return {
     Aggregation: __expectString(output.Aggregation),
     Members:
-      output.Members !== undefined && output.Members !== null
-        ? deserializeAws_json1_1ProtectionGroupMembers(output.Members, context)
-        : undefined,
+      output.Members != undefined ? deserializeAws_json1_1ProtectionGroupMembers(output.Members, context) : undefined,
     Pattern: __expectString(output.Pattern),
     ProtectionGroupArn: __expectString(output.ProtectionGroupArn),
     ProtectionGroupId: __expectString(output.ProtectionGroupId),
@@ -3900,7 +3850,7 @@ const deserializeAws_json1_1ProtectionGroupLimits = (output: any, context: __Ser
   return {
     MaxProtectionGroups: __expectLong(output.MaxProtectionGroups),
     PatternTypeLimits:
-      output.PatternTypeLimits !== undefined && output.PatternTypeLimits !== null
+      output.PatternTypeLimits != undefined
         ? deserializeAws_json1_1ProtectionGroupPatternTypeLimits(output.PatternTypeLimits, context)
         : undefined,
   } as any;
@@ -3924,7 +3874,7 @@ const deserializeAws_json1_1ProtectionGroupPatternTypeLimits = (
 ): ProtectionGroupPatternTypeLimits => {
   return {
     ArbitraryPatternLimits:
-      output.ArbitraryPatternLimits !== undefined && output.ArbitraryPatternLimits !== null
+      output.ArbitraryPatternLimits != undefined
         ? deserializeAws_json1_1ProtectionGroupArbitraryPatternLimits(output.ArbitraryPatternLimits, context)
         : undefined,
   } as any;
@@ -3945,7 +3895,7 @@ const deserializeAws_json1_1ProtectionGroups = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ProtectionLimits = (output: any, context: __SerdeContext): ProtectionLimits => {
   return {
     ProtectedResourceTypeLimits:
-      output.ProtectedResourceTypeLimits !== undefined && output.ProtectedResourceTypeLimits !== null
+      output.ProtectedResourceTypeLimits != undefined
         ? deserializeAws_json1_1Limits(output.ProtectedResourceTypeLimits, context)
         : undefined,
   } as any;
@@ -3997,27 +3947,19 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 
 const deserializeAws_json1_1ResponseAction = (output: any, context: __SerdeContext): ResponseAction => {
   return {
-    Block:
-      output.Block !== undefined && output.Block !== null
-        ? deserializeAws_json1_1BlockAction(output.Block, context)
-        : undefined,
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? deserializeAws_json1_1CountAction(output.Count, context)
-        : undefined,
+    Block: output.Block != undefined ? deserializeAws_json1_1BlockAction(output.Block, context) : undefined,
+    Count: output.Count != undefined ? deserializeAws_json1_1CountAction(output.Count, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SubResourceSummary = (output: any, context: __SerdeContext): SubResourceSummary => {
   return {
     AttackVectors:
-      output.AttackVectors !== undefined && output.AttackVectors !== null
+      output.AttackVectors != undefined
         ? deserializeAws_json1_1SummarizedAttackVectorList(output.AttackVectors, context)
         : undefined,
     Counters:
-      output.Counters !== undefined && output.Counters !== null
-        ? deserializeAws_json1_1SummarizedCounterList(output.Counters, context)
-        : undefined,
+      output.Counters != undefined ? deserializeAws_json1_1SummarizedCounterList(output.Counters, context) : undefined,
     Id: __expectString(output.Id),
     Type: __expectString(output.Type),
   } as any;
@@ -4039,21 +3981,16 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
   return {
     AutoRenew: __expectString(output.AutoRenew),
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
-    Limits:
-      output.Limits !== undefined && output.Limits !== null
-        ? deserializeAws_json1_1Limits(output.Limits, context)
-        : undefined,
+      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    Limits: output.Limits != undefined ? deserializeAws_json1_1Limits(output.Limits, context) : undefined,
     ProactiveEngagementStatus: __expectString(output.ProactiveEngagementStatus),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
+      output.StartTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
         : undefined,
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionLimits:
-      output.SubscriptionLimits !== undefined && output.SubscriptionLimits !== null
+      output.SubscriptionLimits != undefined
         ? deserializeAws_json1_1SubscriptionLimits(output.SubscriptionLimits, context)
         : undefined,
     TimeCommitmentInSeconds: __expectLong(output.TimeCommitmentInSeconds),
@@ -4063,11 +4000,11 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
 const deserializeAws_json1_1SubscriptionLimits = (output: any, context: __SerdeContext): SubscriptionLimits => {
   return {
     ProtectionGroupLimits:
-      output.ProtectionGroupLimits !== undefined && output.ProtectionGroupLimits !== null
+      output.ProtectionGroupLimits != undefined
         ? deserializeAws_json1_1ProtectionGroupLimits(output.ProtectionGroupLimits, context)
         : undefined,
     ProtectionLimits:
-      output.ProtectionLimits !== undefined && output.ProtectionLimits !== null
+      output.ProtectionLimits != undefined
         ? deserializeAws_json1_1ProtectionLimits(output.ProtectionLimits, context)
         : undefined,
   } as any;
@@ -4076,7 +4013,7 @@ const deserializeAws_json1_1SubscriptionLimits = (output: any, context: __SerdeC
 const deserializeAws_json1_1SummarizedAttackVector = (output: any, context: __SerdeContext): SummarizedAttackVector => {
   return {
     VectorCounters:
-      output.VectorCounters !== undefined && output.VectorCounters !== null
+      output.VectorCounters != undefined
         ? deserializeAws_json1_1SummarizedCounterList(output.VectorCounters, context)
         : undefined,
     VectorType: __expectString(output.VectorType),
@@ -4147,11 +4084,11 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_1TimeRange = (output: any, context: __SerdeContext): TimeRange => {
   return {
     FromInclusive:
-      output.FromInclusive !== undefined && output.FromInclusive !== null
+      output.FromInclusive != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FromInclusive)))
         : undefined,
     ToExclusive:
-      output.ToExclusive !== undefined && output.ToExclusive !== null
+      output.ToExclusive != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ToExclusive)))
         : undefined,
   } as any;

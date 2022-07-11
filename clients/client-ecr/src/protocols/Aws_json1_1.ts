@@ -3481,23 +3481,19 @@ const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.layerDigests !== undefined &&
-      input.layerDigests !== null && {
-        layerDigests: serializeAws_json1_1BatchedOperationLayerDigestList(input.layerDigests, context),
-      }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.layerDigests != undefined && {
+      layerDigests: serializeAws_json1_1BatchedOperationLayerDigestList(input.layerDigests, context),
+    }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1BatchDeleteImageRequest = (input: BatchDeleteImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageIds !== undefined &&
-      input.imageIds !== null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageIds != undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3514,15 +3510,12 @@ const serializeAws_json1_1BatchedOperationLayerDigestList = (input: string[], co
 
 const serializeAws_json1_1BatchGetImageRequest = (input: BatchGetImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.acceptedMediaTypes !== undefined &&
-      input.acceptedMediaTypes !== null && {
-        acceptedMediaTypes: serializeAws_json1_1MediaTypeList(input.acceptedMediaTypes, context),
-      }),
-    ...(input.imageIds !== undefined &&
-      input.imageIds !== null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.acceptedMediaTypes != undefined && {
+      acceptedMediaTypes: serializeAws_json1_1MediaTypeList(input.acceptedMediaTypes, context),
+    }),
+    ...(input.imageIds != undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3531,10 +3524,9 @@ const serializeAws_json1_1BatchGetRepositoryScanningConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.repositoryNames !== undefined &&
-      input.repositoryNames !== null && {
-        repositoryNames: serializeAws_json1_1ScanningConfigurationRepositoryNameList(input.repositoryNames, context),
-      }),
+    ...(input.repositoryNames != undefined && {
+      repositoryNames: serializeAws_json1_1ScanningConfigurationRepositoryNameList(input.repositoryNames, context),
+    }),
   };
 };
 
@@ -3543,14 +3535,12 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.layerDigests !== undefined &&
-      input.layerDigests !== null && {
-        layerDigests: serializeAws_json1_1LayerDigestList(input.layerDigests, context),
-      }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId !== undefined && input.uploadId !== null && { uploadId: input.uploadId }),
+    ...(input.layerDigests != undefined && {
+      layerDigests: serializeAws_json1_1LayerDigestList(input.layerDigests, context),
+    }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
+    ...(input.uploadId != undefined && { uploadId: input.uploadId }),
   };
 };
 
@@ -3559,33 +3549,27 @@ const serializeAws_json1_1CreatePullThroughCacheRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ecrRepositoryPrefix !== undefined &&
-      input.ecrRepositoryPrefix !== null && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.upstreamRegistryUrl !== undefined &&
-      input.upstreamRegistryUrl !== null && { upstreamRegistryUrl: input.upstreamRegistryUrl }),
+    ...(input.ecrRepositoryPrefix != undefined && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.upstreamRegistryUrl != undefined && { upstreamRegistryUrl: input.upstreamRegistryUrl }),
   };
 };
 
 const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.encryptionConfiguration !== undefined &&
-      input.encryptionConfiguration !== null && {
-        encryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.encryptionConfiguration, context),
-      }),
-    ...(input.imageScanningConfiguration !== undefined &&
-      input.imageScanningConfiguration !== null && {
-        imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
-          input.imageScanningConfiguration,
-          context
-        ),
-      }),
-    ...(input.imageTagMutability !== undefined &&
-      input.imageTagMutability !== null && { imageTagMutability: input.imageTagMutability }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.encryptionConfiguration != undefined && {
+      encryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.encryptionConfiguration, context),
+    }),
+    ...(input.imageScanningConfiguration != undefined && {
+      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      ),
+    }),
+    ...(input.imageTagMutability != undefined && { imageTagMutability: input.imageTagMutability }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -3594,9 +3578,8 @@ const serializeAws_json1_1DeleteLifecyclePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3605,9 +3588,8 @@ const serializeAws_json1_1DeletePullThroughCacheRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ecrRepositoryPrefix !== undefined &&
-      input.ecrRepositoryPrefix !== null && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
+    ...(input.ecrRepositoryPrefix != undefined && { ecrRepositoryPrefix: input.ecrRepositoryPrefix }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
   };
 };
 
@@ -3623,18 +3605,16 @@ const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1DeleteRepositoryRequest = (input: DeleteRepositoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.force !== undefined && input.force !== null && { force: input.force }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.force != undefined && { force: input.force }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3643,11 +3623,9 @@ const serializeAws_json1_1DescribeImageReplicationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageId !== undefined &&
-      input.imageId !== null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageId != undefined && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3656,33 +3634,28 @@ const serializeAws_json1_1DescribeImageScanFindingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageId !== undefined &&
-      input.imageId !== null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageId != undefined && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1DescribeImagesFilter = (input: DescribeImagesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.tagStatus !== undefined && input.tagStatus !== null && { tagStatus: input.tagStatus }),
+    ...(input.tagStatus != undefined && { tagStatus: input.tagStatus }),
   };
 };
 
 const serializeAws_json1_1DescribeImagesRequest = (input: DescribeImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context) }),
-    ...(input.imageIds !== undefined &&
-      input.imageIds !== null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context) }),
+    ...(input.imageIds != undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3691,16 +3664,15 @@ const serializeAws_json1_1DescribePullThroughCacheRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ecrRepositoryPrefixes !== undefined &&
-      input.ecrRepositoryPrefixes !== null && {
-        ecrRepositoryPrefixes: serializeAws_json1_1PullThroughCacheRuleRepositoryPrefixList(
-          input.ecrRepositoryPrefixes,
-          context
-        ),
-      }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
+    ...(input.ecrRepositoryPrefixes != undefined && {
+      ecrRepositoryPrefixes: serializeAws_json1_1PullThroughCacheRuleRepositoryPrefixList(
+        input.ecrRepositoryPrefixes,
+        context
+      ),
+    }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
   };
 };
 
@@ -3713,21 +3685,19 @@ const serializeAws_json1_1DescribeRepositoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryNames !== undefined &&
-      input.repositoryNames !== null && {
-        repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
-      }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryNames != undefined && {
+      repositoryNames: serializeAws_json1_1RepositoryNameList(input.repositoryNames, context),
+    }),
   };
 };
 
 const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.encryptionType !== undefined &&
-      input.encryptionType !== null && { encryptionType: input.encryptionType }),
-    ...(input.kmsKey !== undefined && input.kmsKey !== null && { kmsKey: input.kmsKey }),
+    ...(input.encryptionType != undefined && { encryptionType: input.encryptionType }),
+    ...(input.kmsKey != undefined && { kmsKey: input.kmsKey }),
   };
 };
 
@@ -3747,10 +3717,9 @@ const serializeAws_json1_1GetAuthorizationTokenRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryIds !== undefined &&
-      input.registryIds !== null && {
-        registryIds: serializeAws_json1_1GetAuthorizationTokenRegistryIdList(input.registryIds, context),
-      }),
+    ...(input.registryIds != undefined && {
+      registryIds: serializeAws_json1_1GetAuthorizationTokenRegistryIdList(input.registryIds, context),
+    }),
   };
 };
 
@@ -3759,10 +3728,9 @@ const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.layerDigest !== undefined && input.layerDigest !== null && { layerDigest: input.layerDigest }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.layerDigest != undefined && { layerDigest: input.layerDigest }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3771,15 +3739,14 @@ const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1LifecyclePolicyPreviewFilter(input.filter, context) }),
-    ...(input.imageIds !== undefined &&
-      input.imageIds !== null && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.filter != undefined && {
+      filter: serializeAws_json1_1LifecyclePolicyPreviewFilter(input.filter, context),
+    }),
+    ...(input.imageIds != undefined && { imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3788,9 +3755,8 @@ const serializeAws_json1_1GetLifecyclePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3813,16 +3779,15 @@ const serializeAws_json1_1GetRepositoryPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1ImageIdentifier = (input: ImageIdentifier, context: __SerdeContext): any => {
   return {
-    ...(input.imageDigest !== undefined && input.imageDigest !== null && { imageDigest: input.imageDigest }),
-    ...(input.imageTag !== undefined && input.imageTag !== null && { imageTag: input.imageTag }),
+    ...(input.imageDigest != undefined && { imageDigest: input.imageDigest }),
+    ...(input.imageTag != undefined && { imageTag: input.imageTag }),
   };
 };
 
@@ -3842,7 +3807,7 @@ const serializeAws_json1_1ImageScanningConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.scanOnPush !== undefined && input.scanOnPush !== null && { scanOnPush: input.scanOnPush }),
+    ...(input.scanOnPush != undefined && { scanOnPush: input.scanOnPush }),
   };
 };
 
@@ -3851,9 +3816,8 @@ const serializeAws_json1_1InitiateLayerUploadRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3873,25 +3837,23 @@ const serializeAws_json1_1LifecyclePolicyPreviewFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.tagStatus !== undefined && input.tagStatus !== null && { tagStatus: input.tagStatus }),
+    ...(input.tagStatus != undefined && { tagStatus: input.tagStatus }),
   };
 };
 
 const serializeAws_json1_1ListImagesFilter = (input: ListImagesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.tagStatus !== undefined && input.tagStatus !== null && { tagStatus: input.tagStatus }),
+    ...(input.tagStatus != undefined && { tagStatus: input.tagStatus }),
   };
 };
 
 const serializeAws_json1_1ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1ListImagesFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1ListImagesFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3900,7 +3862,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
@@ -3931,14 +3893,12 @@ const serializeAws_json1_1PullThroughCacheRuleRepositoryPrefixList = (
 
 const serializeAws_json1_1PutImageRequest = (input: PutImageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageDigest !== undefined && input.imageDigest !== null && { imageDigest: input.imageDigest }),
-    ...(input.imageManifest !== undefined && input.imageManifest !== null && { imageManifest: input.imageManifest }),
-    ...(input.imageManifestMediaType !== undefined &&
-      input.imageManifestMediaType !== null && { imageManifestMediaType: input.imageManifestMediaType }),
-    ...(input.imageTag !== undefined && input.imageTag !== null && { imageTag: input.imageTag }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageDigest != undefined && { imageDigest: input.imageDigest }),
+    ...(input.imageManifest != undefined && { imageManifest: input.imageManifest }),
+    ...(input.imageManifestMediaType != undefined && { imageManifestMediaType: input.imageManifestMediaType }),
+    ...(input.imageTag != undefined && { imageTag: input.imageTag }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3947,16 +3907,14 @@ const serializeAws_json1_1PutImageScanningConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageScanningConfiguration !== undefined &&
-      input.imageScanningConfiguration !== null && {
-        imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
-          input.imageScanningConfiguration,
-          context
-        ),
-      }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageScanningConfiguration != undefined && {
+      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      ),
+    }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3965,11 +3923,9 @@ const serializeAws_json1_1PutImageTagMutabilityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.imageTagMutability !== undefined &&
-      input.imageTagMutability !== null && { imageTagMutability: input.imageTagMutability }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageTagMutability != undefined && { imageTagMutability: input.imageTagMutability }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3978,11 +3934,9 @@ const serializeAws_json1_1PutLifecyclePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lifecyclePolicyText !== undefined &&
-      input.lifecyclePolicyText !== null && { lifecyclePolicyText: input.lifecyclePolicyText }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.lifecyclePolicyText != undefined && { lifecyclePolicyText: input.lifecyclePolicyText }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3991,7 +3945,7 @@ const serializeAws_json1_1PutRegistryPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.policyText !== undefined && input.policyText !== null && { policyText: input.policyText }),
+    ...(input.policyText != undefined && { policyText: input.policyText }),
   };
 };
 
@@ -4000,9 +3954,8 @@ const serializeAws_json1_1PutRegistryScanningConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.rules !== undefined &&
-      input.rules !== null && { rules: serializeAws_json1_1RegistryScanningRuleList(input.rules, context) }),
-    ...(input.scanType !== undefined && input.scanType !== null && { scanType: input.scanType }),
+    ...(input.rules != undefined && { rules: serializeAws_json1_1RegistryScanningRuleList(input.rules, context) }),
+    ...(input.scanType != undefined && { scanType: input.scanType }),
   };
 };
 
@@ -4011,20 +3964,18 @@ const serializeAws_json1_1PutReplicationConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.replicationConfiguration !== undefined &&
-      input.replicationConfiguration !== null && {
-        replicationConfiguration: serializeAws_json1_1ReplicationConfiguration(input.replicationConfiguration, context),
-      }),
+    ...(input.replicationConfiguration != undefined && {
+      replicationConfiguration: serializeAws_json1_1ReplicationConfiguration(input.replicationConfiguration, context),
+    }),
   };
 };
 
 const serializeAws_json1_1RegistryScanningRule = (input: RegistryScanningRule, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryFilters !== undefined &&
-      input.repositoryFilters !== null && {
-        repositoryFilters: serializeAws_json1_1ScanningRepositoryFilterList(input.repositoryFilters, context),
-      }),
-    ...(input.scanFrequency !== undefined && input.scanFrequency !== null && { scanFrequency: input.scanFrequency }),
+    ...(input.repositoryFilters != undefined && {
+      repositoryFilters: serializeAws_json1_1ScanningRepositoryFilterList(input.repositoryFilters, context),
+    }),
+    ...(input.scanFrequency != undefined && { scanFrequency: input.scanFrequency }),
   };
 };
 
@@ -4044,15 +3995,14 @@ const serializeAws_json1_1ReplicationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.rules !== undefined &&
-      input.rules !== null && { rules: serializeAws_json1_1ReplicationRuleList(input.rules, context) }),
+    ...(input.rules != undefined && { rules: serializeAws_json1_1ReplicationRuleList(input.rules, context) }),
   };
 };
 
 const serializeAws_json1_1ReplicationDestination = (input: ReplicationDestination, context: __SerdeContext): any => {
   return {
-    ...(input.region !== undefined && input.region !== null && { region: input.region }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
+    ...(input.region != undefined && { region: input.region }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
   };
 };
 
@@ -4072,14 +4022,12 @@ const serializeAws_json1_1ReplicationDestinationList = (
 
 const serializeAws_json1_1ReplicationRule = (input: ReplicationRule, context: __SerdeContext): any => {
   return {
-    ...(input.destinations !== undefined &&
-      input.destinations !== null && {
-        destinations: serializeAws_json1_1ReplicationDestinationList(input.destinations, context),
-      }),
-    ...(input.repositoryFilters !== undefined &&
-      input.repositoryFilters !== null && {
-        repositoryFilters: serializeAws_json1_1RepositoryFilterList(input.repositoryFilters, context),
-      }),
+    ...(input.destinations != undefined && {
+      destinations: serializeAws_json1_1ReplicationDestinationList(input.destinations, context),
+    }),
+    ...(input.repositoryFilters != undefined && {
+      repositoryFilters: serializeAws_json1_1RepositoryFilterList(input.repositoryFilters, context),
+    }),
   };
 };
 
@@ -4096,8 +4044,8 @@ const serializeAws_json1_1ReplicationRuleList = (input: ReplicationRule[], conte
 
 const serializeAws_json1_1RepositoryFilter = (input: RepositoryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
-    ...(input.filterType !== undefined && input.filterType !== null && { filterType: input.filterType }),
+    ...(input.filter != undefined && { filter: input.filter }),
+    ...(input.filterType != undefined && { filterType: input.filterType }),
   };
 };
 
@@ -4139,8 +4087,8 @@ const serializeAws_json1_1ScanningRepositoryFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
-    ...(input.filterType !== undefined && input.filterType !== null && { filterType: input.filterType }),
+    ...(input.filter != undefined && { filter: input.filter }),
+    ...(input.filterType != undefined && { filterType: input.filterType }),
   };
 };
 
@@ -4163,21 +4111,18 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.force !== undefined && input.force !== null && { force: input.force }),
-    ...(input.policyText !== undefined && input.policyText !== null && { policyText: input.policyText }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.force != undefined && { force: input.force }),
+    ...(input.policyText != undefined && { policyText: input.policyText }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1StartImageScanRequest = (input: StartImageScanRequest, context: __SerdeContext): any => {
   return {
-    ...(input.imageId !== undefined &&
-      input.imageId !== null && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.imageId != undefined && { imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context) }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -4186,18 +4131,16 @@ const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lifecyclePolicyText !== undefined &&
-      input.lifecyclePolicyText !== null && { lifecyclePolicyText: input.lifecyclePolicyText }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.lifecyclePolicyText != undefined && { lifecyclePolicyText: input.lifecyclePolicyText }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -4225,29 +4168,26 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UploadLayerPartRequest = (input: UploadLayerPartRequest, context: __SerdeContext): any => {
   return {
-    ...(input.layerPartBlob !== undefined &&
-      input.layerPartBlob !== null && { layerPartBlob: context.base64Encoder(input.layerPartBlob) }),
-    ...(input.partFirstByte !== undefined && input.partFirstByte !== null && { partFirstByte: input.partFirstByte }),
-    ...(input.partLastByte !== undefined && input.partLastByte !== null && { partLastByte: input.partLastByte }),
-    ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.uploadId !== undefined && input.uploadId !== null && { uploadId: input.uploadId }),
+    ...(input.layerPartBlob != undefined && { layerPartBlob: context.base64Encoder(input.layerPartBlob) }),
+    ...(input.partFirstByte != undefined && { partFirstByte: input.partFirstByte }),
+    ...(input.partLastByte != undefined && { partLastByte: input.partLastByte }),
+    ...(input.registryId != undefined && { registryId: input.registryId }),
+    ...(input.repositoryName != undefined && { repositoryName: input.repositoryName }),
+    ...(input.uploadId != undefined && { uploadId: input.uploadId }),
   };
 };
 
@@ -4274,7 +4214,7 @@ const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeCo
   return {
     authorizationToken: __expectString(output.authorizationToken),
     expiresAt:
-      output.expiresAt !== undefined && output.expiresAt !== null
+      output.expiresAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiresAt)))
         : undefined,
     proxyEndpoint: __expectString(output.proxyEndpoint),
@@ -4302,12 +4242,10 @@ const deserializeAws_json1_1AwsEcrContainerImageDetails = (
     author: __expectString(output.author),
     imageHash: __expectString(output.imageHash),
     imageTags:
-      output.imageTags !== undefined && output.imageTags !== null
-        ? deserializeAws_json1_1ImageTagsList(output.imageTags, context)
-        : undefined,
+      output.imageTags != undefined ? deserializeAws_json1_1ImageTagsList(output.imageTags, context) : undefined,
     platform: __expectString(output.platform),
     pushedAt:
-      output.pushedAt !== undefined && output.pushedAt !== null
+      output.pushedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.pushedAt)))
         : undefined,
     registry: __expectString(output.registry),
@@ -4321,13 +4259,8 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityResponse = (
 ): BatchCheckLayerAvailabilityResponse => {
   return {
     failures:
-      output.failures !== undefined && output.failures !== null
-        ? deserializeAws_json1_1LayerFailureList(output.failures, context)
-        : undefined,
-    layers:
-      output.layers !== undefined && output.layers !== null
-        ? deserializeAws_json1_1LayerList(output.layers, context)
-        : undefined,
+      output.failures != undefined ? deserializeAws_json1_1LayerFailureList(output.failures, context) : undefined,
+    layers: output.layers != undefined ? deserializeAws_json1_1LayerList(output.layers, context) : undefined,
   } as any;
 };
 
@@ -4337,26 +4270,17 @@ const deserializeAws_json1_1BatchDeleteImageResponse = (
 ): BatchDeleteImageResponse => {
   return {
     failures:
-      output.failures !== undefined && output.failures !== null
-        ? deserializeAws_json1_1ImageFailureList(output.failures, context)
-        : undefined,
+      output.failures != undefined ? deserializeAws_json1_1ImageFailureList(output.failures, context) : undefined,
     imageIds:
-      output.imageIds !== undefined && output.imageIds !== null
-        ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context)
-        : undefined,
+      output.imageIds != undefined ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BatchGetImageResponse = (output: any, context: __SerdeContext): BatchGetImageResponse => {
   return {
     failures:
-      output.failures !== undefined && output.failures !== null
-        ? deserializeAws_json1_1ImageFailureList(output.failures, context)
-        : undefined,
-    images:
-      output.images !== undefined && output.images !== null
-        ? deserializeAws_json1_1ImageList(output.images, context)
-        : undefined,
+      output.failures != undefined ? deserializeAws_json1_1ImageFailureList(output.failures, context) : undefined,
+    images: output.images != undefined ? deserializeAws_json1_1ImageList(output.images, context) : undefined,
   } as any;
 };
 
@@ -4366,11 +4290,11 @@ const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationResponse = (
 ): BatchGetRepositoryScanningConfigurationResponse => {
   return {
     failures:
-      output.failures !== undefined && output.failures !== null
+      output.failures != undefined
         ? deserializeAws_json1_1RepositoryScanningConfigurationFailureList(output.failures, context)
         : undefined,
     scanningConfigurations:
-      output.scanningConfigurations !== undefined && output.scanningConfigurations !== null
+      output.scanningConfigurations != undefined
         ? deserializeAws_json1_1RepositoryScanningConfigurationList(output.scanningConfigurations, context)
         : undefined,
   } as any;
@@ -4394,7 +4318,7 @@ const deserializeAws_json1_1CreatePullThroughCacheRuleResponse = (
 ): CreatePullThroughCacheRuleResponse => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
@@ -4409,9 +4333,7 @@ const deserializeAws_json1_1CreateRepositoryResponse = (
 ): CreateRepositoryResponse => {
   return {
     repository:
-      output.repository !== undefined && output.repository !== null
-        ? deserializeAws_json1_1Repository(output.repository, context)
-        : undefined,
+      output.repository != undefined ? deserializeAws_json1_1Repository(output.repository, context) : undefined,
   } as any;
 };
 
@@ -4446,7 +4368,7 @@ const deserializeAws_json1_1CvssScoreAdjustmentList = (output: any, context: __S
 const deserializeAws_json1_1CvssScoreDetails = (output: any, context: __SerdeContext): CvssScoreDetails => {
   return {
     adjustments:
-      output.adjustments !== undefined && output.adjustments !== null
+      output.adjustments != undefined
         ? deserializeAws_json1_1CvssScoreAdjustmentList(output.adjustments, context)
         : undefined,
     score: __limitedParseDouble(output.score),
@@ -4474,7 +4396,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
 ): DeleteLifecyclePolicyResponse => {
   return {
     lastEvaluatedAt:
-      output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
+      output.lastEvaluatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
         : undefined,
     lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
@@ -4489,7 +4411,7 @@ const deserializeAws_json1_1DeletePullThroughCacheRuleResponse = (
 ): DeletePullThroughCacheRuleResponse => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
@@ -4525,9 +4447,7 @@ const deserializeAws_json1_1DeleteRepositoryResponse = (
 ): DeleteRepositoryResponse => {
   return {
     repository:
-      output.repository !== undefined && output.repository !== null
-        ? deserializeAws_json1_1Repository(output.repository, context)
-        : undefined,
+      output.repository != undefined ? deserializeAws_json1_1Repository(output.repository, context) : undefined,
   } as any;
 };
 
@@ -4536,12 +4456,9 @@ const deserializeAws_json1_1DescribeImageReplicationStatusResponse = (
   context: __SerdeContext
 ): DescribeImageReplicationStatusResponse => {
   return {
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
-        : undefined,
+    imageId: output.imageId != undefined ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
     replicationStatuses:
-      output.replicationStatuses !== undefined && output.replicationStatuses !== null
+      output.replicationStatuses != undefined
         ? deserializeAws_json1_1ImageReplicationStatusList(output.replicationStatuses, context)
         : undefined,
     repositoryName: __expectString(output.repositoryName),
@@ -4553,16 +4470,13 @@ const deserializeAws_json1_1DescribeImageScanFindingsResponse = (
   context: __SerdeContext
 ): DescribeImageScanFindingsResponse => {
   return {
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
-        : undefined,
+    imageId: output.imageId != undefined ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
     imageScanFindings:
-      output.imageScanFindings !== undefined && output.imageScanFindings !== null
+      output.imageScanFindings != undefined
         ? deserializeAws_json1_1ImageScanFindings(output.imageScanFindings, context)
         : undefined,
     imageScanStatus:
-      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+      output.imageScanStatus != undefined
         ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4574,7 +4488,7 @@ const deserializeAws_json1_1DescribeImageScanFindingsResponse = (
 const deserializeAws_json1_1DescribeImagesResponse = (output: any, context: __SerdeContext): DescribeImagesResponse => {
   return {
     imageDetails:
-      output.imageDetails !== undefined && output.imageDetails !== null
+      output.imageDetails != undefined
         ? deserializeAws_json1_1ImageDetailList(output.imageDetails, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4588,7 +4502,7 @@ const deserializeAws_json1_1DescribePullThroughCacheRulesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     pullThroughCacheRules:
-      output.pullThroughCacheRules !== undefined && output.pullThroughCacheRules !== null
+      output.pullThroughCacheRules != undefined
         ? deserializeAws_json1_1PullThroughCacheRuleList(output.pullThroughCacheRules, context)
         : undefined,
   } as any;
@@ -4601,7 +4515,7 @@ const deserializeAws_json1_1DescribeRegistryResponse = (
   return {
     registryId: __expectString(output.registryId),
     replicationConfiguration:
-      output.replicationConfiguration !== undefined && output.replicationConfiguration !== null
+      output.replicationConfiguration != undefined
         ? deserializeAws_json1_1ReplicationConfiguration(output.replicationConfiguration, context)
         : undefined,
   } as any;
@@ -4614,9 +4528,7 @@ const deserializeAws_json1_1DescribeRepositoriesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     repositories:
-      output.repositories !== undefined && output.repositories !== null
-        ? deserializeAws_json1_1RepositoryList(output.repositories, context)
-        : undefined,
+      output.repositories != undefined ? deserializeAws_json1_1RepositoryList(output.repositories, context) : undefined,
   } as any;
 };
 
@@ -4645,36 +4557,30 @@ const deserializeAws_json1_1EnhancedImageScanFinding = (
     description: __expectString(output.description),
     findingArn: __expectString(output.findingArn),
     firstObservedAt:
-      output.firstObservedAt !== undefined && output.firstObservedAt !== null
+      output.firstObservedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstObservedAt)))
         : undefined,
     lastObservedAt:
-      output.lastObservedAt !== undefined && output.lastObservedAt !== null
+      output.lastObservedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastObservedAt)))
         : undefined,
     packageVulnerabilityDetails:
-      output.packageVulnerabilityDetails !== undefined && output.packageVulnerabilityDetails !== null
+      output.packageVulnerabilityDetails != undefined
         ? deserializeAws_json1_1PackageVulnerabilityDetails(output.packageVulnerabilityDetails, context)
         : undefined,
     remediation:
-      output.remediation !== undefined && output.remediation !== null
-        ? deserializeAws_json1_1Remediation(output.remediation, context)
-        : undefined,
+      output.remediation != undefined ? deserializeAws_json1_1Remediation(output.remediation, context) : undefined,
     resources:
-      output.resources !== undefined && output.resources !== null
-        ? deserializeAws_json1_1ResourceList(output.resources, context)
-        : undefined,
+      output.resources != undefined ? deserializeAws_json1_1ResourceList(output.resources, context) : undefined,
     score: __limitedParseDouble(output.score),
     scoreDetails:
-      output.scoreDetails !== undefined && output.scoreDetails !== null
-        ? deserializeAws_json1_1ScoreDetails(output.scoreDetails, context)
-        : undefined,
+      output.scoreDetails != undefined ? deserializeAws_json1_1ScoreDetails(output.scoreDetails, context) : undefined,
     severity: __expectString(output.severity),
     status: __expectString(output.status),
     title: __expectString(output.title),
     type: __expectString(output.type),
     updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
+      output.updatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
         : undefined,
   } as any;
@@ -4713,7 +4619,7 @@ const deserializeAws_json1_1GetAuthorizationTokenResponse = (
 ): GetAuthorizationTokenResponse => {
   return {
     authorizationData:
-      output.authorizationData !== undefined && output.authorizationData !== null
+      output.authorizationData != undefined
         ? deserializeAws_json1_1AuthorizationDataList(output.authorizationData, context)
         : undefined,
   } as any;
@@ -4737,14 +4643,14 @@ const deserializeAws_json1_1GetLifecyclePolicyPreviewResponse = (
     lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
     nextToken: __expectString(output.nextToken),
     previewResults:
-      output.previewResults !== undefined && output.previewResults !== null
+      output.previewResults != undefined
         ? deserializeAws_json1_1LifecyclePolicyPreviewResultList(output.previewResults, context)
         : undefined,
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
     status: __expectString(output.status),
     summary:
-      output.summary !== undefined && output.summary !== null
+      output.summary != undefined
         ? deserializeAws_json1_1LifecyclePolicyPreviewSummary(output.summary, context)
         : undefined,
   } as any;
@@ -4756,7 +4662,7 @@ const deserializeAws_json1_1GetLifecyclePolicyResponse = (
 ): GetLifecyclePolicyResponse => {
   return {
     lastEvaluatedAt:
-      output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
+      output.lastEvaluatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastEvaluatedAt)))
         : undefined,
     lifecyclePolicyText: __expectString(output.lifecyclePolicyText),
@@ -4782,7 +4688,7 @@ const deserializeAws_json1_1GetRegistryScanningConfigurationResponse = (
   return {
     registryId: __expectString(output.registryId),
     scanningConfiguration:
-      output.scanningConfiguration !== undefined && output.scanningConfiguration !== null
+      output.scanningConfiguration != undefined
         ? deserializeAws_json1_1RegistryScanningConfiguration(output.scanningConfiguration, context)
         : undefined,
   } as any;
@@ -4801,10 +4707,7 @@ const deserializeAws_json1_1GetRepositoryPolicyResponse = (
 
 const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
   return {
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
-        : undefined,
+    imageId: output.imageId != undefined ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
     imageManifest: __expectString(output.imageManifest),
     imageManifestMediaType: __expectString(output.imageManifestMediaType),
     registryId: __expectString(output.registryId),
@@ -4827,24 +4730,22 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
     imageDigest: __expectString(output.imageDigest),
     imageManifestMediaType: __expectString(output.imageManifestMediaType),
     imagePushedAt:
-      output.imagePushedAt !== undefined && output.imagePushedAt !== null
+      output.imagePushedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
         : undefined,
     imageScanFindingsSummary:
-      output.imageScanFindingsSummary !== undefined && output.imageScanFindingsSummary !== null
+      output.imageScanFindingsSummary != undefined
         ? deserializeAws_json1_1ImageScanFindingsSummary(output.imageScanFindingsSummary, context)
         : undefined,
     imageScanStatus:
-      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+      output.imageScanStatus != undefined
         ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
         : undefined,
     imageSizeInBytes: __expectLong(output.imageSizeInBytes),
     imageTags:
-      output.imageTags !== undefined && output.imageTags !== null
-        ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
-        : undefined,
+      output.imageTags != undefined ? deserializeAws_json1_1ImageTagList(output.imageTags, context) : undefined,
     lastRecordedPullTime:
-      output.lastRecordedPullTime !== undefined && output.lastRecordedPullTime !== null
+      output.lastRecordedPullTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRecordedPullTime)))
         : undefined,
     registryId: __expectString(output.registryId),
@@ -4877,10 +4778,7 @@ const deserializeAws_json1_1ImageFailure = (output: any, context: __SerdeContext
   return {
     failureCode: __expectString(output.failureCode),
     failureReason: __expectString(output.failureReason),
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
-        : undefined,
+    imageId: output.imageId != undefined ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
   } as any;
 };
 
@@ -4960,9 +4858,7 @@ const deserializeAws_json1_1ImageReplicationStatusList = (
 const deserializeAws_json1_1ImageScanFinding = (output: any, context: __SerdeContext): ImageScanFinding => {
   return {
     attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_json1_1AttributeList(output.attributes, context)
-        : undefined,
+      output.attributes != undefined ? deserializeAws_json1_1AttributeList(output.attributes, context) : undefined,
     description: __expectString(output.description),
     name: __expectString(output.name),
     severity: __expectString(output.severity),
@@ -4985,23 +4881,21 @@ const deserializeAws_json1_1ImageScanFindingList = (output: any, context: __Serd
 const deserializeAws_json1_1ImageScanFindings = (output: any, context: __SerdeContext): ImageScanFindings => {
   return {
     enhancedFindings:
-      output.enhancedFindings !== undefined && output.enhancedFindings !== null
+      output.enhancedFindings != undefined
         ? deserializeAws_json1_1EnhancedImageScanFindingList(output.enhancedFindings, context)
         : undefined,
     findingSeverityCounts:
-      output.findingSeverityCounts !== undefined && output.findingSeverityCounts !== null
+      output.findingSeverityCounts != undefined
         ? deserializeAws_json1_1FindingSeverityCounts(output.findingSeverityCounts, context)
         : undefined,
     findings:
-      output.findings !== undefined && output.findings !== null
-        ? deserializeAws_json1_1ImageScanFindingList(output.findings, context)
-        : undefined,
+      output.findings != undefined ? deserializeAws_json1_1ImageScanFindingList(output.findings, context) : undefined,
     imageScanCompletedAt:
-      output.imageScanCompletedAt !== undefined && output.imageScanCompletedAt !== null
+      output.imageScanCompletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
         : undefined,
     vulnerabilitySourceUpdatedAt:
-      output.vulnerabilitySourceUpdatedAt !== undefined && output.vulnerabilitySourceUpdatedAt !== null
+      output.vulnerabilitySourceUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
         : undefined,
   } as any;
@@ -5013,15 +4907,15 @@ const deserializeAws_json1_1ImageScanFindingsSummary = (
 ): ImageScanFindingsSummary => {
   return {
     findingSeverityCounts:
-      output.findingSeverityCounts !== undefined && output.findingSeverityCounts !== null
+      output.findingSeverityCounts != undefined
         ? deserializeAws_json1_1FindingSeverityCounts(output.findingSeverityCounts, context)
         : undefined,
     imageScanCompletedAt:
-      output.imageScanCompletedAt !== undefined && output.imageScanCompletedAt !== null
+      output.imageScanCompletedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imageScanCompletedAt)))
         : undefined,
     vulnerabilitySourceUpdatedAt:
-      output.vulnerabilitySourceUpdatedAt !== undefined && output.vulnerabilitySourceUpdatedAt !== null
+      output.vulnerabilitySourceUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vulnerabilitySourceUpdatedAt)))
         : undefined,
   } as any;
@@ -5240,19 +5134,15 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
 ): LifecyclePolicyPreviewResult => {
   return {
     action:
-      output.action !== undefined && output.action !== null
-        ? deserializeAws_json1_1LifecyclePolicyRuleAction(output.action, context)
-        : undefined,
+      output.action != undefined ? deserializeAws_json1_1LifecyclePolicyRuleAction(output.action, context) : undefined,
     appliedRulePriority: __expectInt32(output.appliedRulePriority),
     imageDigest: __expectString(output.imageDigest),
     imagePushedAt:
-      output.imagePushedAt !== undefined && output.imagePushedAt !== null
+      output.imagePushedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.imagePushedAt)))
         : undefined,
     imageTags:
-      output.imageTags !== undefined && output.imageTags !== null
-        ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
-        : undefined,
+      output.imageTags != undefined ? deserializeAws_json1_1ImageTagList(output.imageTags, context) : undefined,
   } as any;
 };
 
@@ -5298,9 +5188,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1ListImagesResponse = (output: any, context: __SerdeContext): ListImagesResponse => {
   return {
     imageIds:
-      output.imageIds !== undefined && output.imageIds !== null
-        ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context)
-        : undefined,
+      output.imageIds != undefined ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -5310,10 +5198,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -5322,32 +5207,29 @@ const deserializeAws_json1_1PackageVulnerabilityDetails = (
   context: __SerdeContext
 ): PackageVulnerabilityDetails => {
   return {
-    cvss:
-      output.cvss !== undefined && output.cvss !== null
-        ? deserializeAws_json1_1CvssScoreList(output.cvss, context)
-        : undefined,
+    cvss: output.cvss != undefined ? deserializeAws_json1_1CvssScoreList(output.cvss, context) : undefined,
     referenceUrls:
-      output.referenceUrls !== undefined && output.referenceUrls !== null
+      output.referenceUrls != undefined
         ? deserializeAws_json1_1ReferenceUrlsList(output.referenceUrls, context)
         : undefined,
     relatedVulnerabilities:
-      output.relatedVulnerabilities !== undefined && output.relatedVulnerabilities !== null
+      output.relatedVulnerabilities != undefined
         ? deserializeAws_json1_1RelatedVulnerabilitiesList(output.relatedVulnerabilities, context)
         : undefined,
     source: __expectString(output.source),
     sourceUrl: __expectString(output.sourceUrl),
     vendorCreatedAt:
-      output.vendorCreatedAt !== undefined && output.vendorCreatedAt !== null
+      output.vendorCreatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorCreatedAt)))
         : undefined,
     vendorSeverity: __expectString(output.vendorSeverity),
     vendorUpdatedAt:
-      output.vendorUpdatedAt !== undefined && output.vendorUpdatedAt !== null
+      output.vendorUpdatedAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.vendorUpdatedAt)))
         : undefined,
     vulnerabilityId: __expectString(output.vulnerabilityId),
     vulnerablePackages:
-      output.vulnerablePackages !== undefined && output.vulnerablePackages !== null
+      output.vulnerablePackages != undefined
         ? deserializeAws_json1_1VulnerablePackagesList(output.vulnerablePackages, context)
         : undefined,
   } as any;
@@ -5356,7 +5238,7 @@ const deserializeAws_json1_1PackageVulnerabilityDetails = (
 const deserializeAws_json1_1PullThroughCacheRule = (output: any, context: __SerdeContext): PullThroughCacheRule => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     ecrRepositoryPrefix: __expectString(output.ecrRepositoryPrefix),
@@ -5400,10 +5282,7 @@ const deserializeAws_json1_1PullThroughCacheRuleNotFoundException = (
 
 const deserializeAws_json1_1PutImageResponse = (output: any, context: __SerdeContext): PutImageResponse => {
   return {
-    image:
-      output.image !== undefined && output.image !== null
-        ? deserializeAws_json1_1Image(output.image, context)
-        : undefined,
+    image: output.image != undefined ? deserializeAws_json1_1Image(output.image, context) : undefined,
   } as any;
 };
 
@@ -5413,7 +5292,7 @@ const deserializeAws_json1_1PutImageScanningConfigurationResponse = (
 ): PutImageScanningConfigurationResponse => {
   return {
     imageScanningConfiguration:
-      output.imageScanningConfiguration !== undefined && output.imageScanningConfiguration !== null
+      output.imageScanningConfiguration != undefined
         ? deserializeAws_json1_1ImageScanningConfiguration(output.imageScanningConfiguration, context)
         : undefined,
     registryId: __expectString(output.registryId),
@@ -5459,7 +5338,7 @@ const deserializeAws_json1_1PutRegistryScanningConfigurationResponse = (
 ): PutRegistryScanningConfigurationResponse => {
   return {
     registryScanningConfiguration:
-      output.registryScanningConfiguration !== undefined && output.registryScanningConfiguration !== null
+      output.registryScanningConfiguration != undefined
         ? deserializeAws_json1_1RegistryScanningConfiguration(output.registryScanningConfiguration, context)
         : undefined,
   } as any;
@@ -5471,7 +5350,7 @@ const deserializeAws_json1_1PutReplicationConfigurationResponse = (
 ): PutReplicationConfigurationResponse => {
   return {
     replicationConfiguration:
-      output.replicationConfiguration !== undefined && output.replicationConfiguration !== null
+      output.replicationConfiguration != undefined
         ? deserializeAws_json1_1ReplicationConfiguration(output.replicationConfiguration, context)
         : undefined,
   } as any;
@@ -5520,9 +5399,7 @@ const deserializeAws_json1_1RegistryScanningConfiguration = (
 ): RegistryScanningConfiguration => {
   return {
     rules:
-      output.rules !== undefined && output.rules !== null
-        ? deserializeAws_json1_1RegistryScanningRuleList(output.rules, context)
-        : undefined,
+      output.rules != undefined ? deserializeAws_json1_1RegistryScanningRuleList(output.rules, context) : undefined,
     scanType: __expectString(output.scanType),
   } as any;
 };
@@ -5530,7 +5407,7 @@ const deserializeAws_json1_1RegistryScanningConfiguration = (
 const deserializeAws_json1_1RegistryScanningRule = (output: any, context: __SerdeContext): RegistryScanningRule => {
   return {
     repositoryFilters:
-      output.repositoryFilters !== undefined && output.repositoryFilters !== null
+      output.repositoryFilters != undefined
         ? deserializeAws_json1_1ScanningRepositoryFilterList(output.repositoryFilters, context)
         : undefined,
     scanFrequency: __expectString(output.scanFrequency),
@@ -5567,7 +5444,7 @@ const deserializeAws_json1_1RelatedVulnerabilitiesList = (output: any, context: 
 const deserializeAws_json1_1Remediation = (output: any, context: __SerdeContext): Remediation => {
   return {
     recommendation:
-      output.recommendation !== undefined && output.recommendation !== null
+      output.recommendation != undefined
         ? deserializeAws_json1_1Recommendation(output.recommendation, context)
         : undefined,
   } as any;
@@ -5578,10 +5455,7 @@ const deserializeAws_json1_1ReplicationConfiguration = (
   context: __SerdeContext
 ): ReplicationConfiguration => {
   return {
-    rules:
-      output.rules !== undefined && output.rules !== null
-        ? deserializeAws_json1_1ReplicationRuleList(output.rules, context)
-        : undefined,
+    rules: output.rules != undefined ? deserializeAws_json1_1ReplicationRuleList(output.rules, context) : undefined,
   } as any;
 };
 
@@ -5610,11 +5484,11 @@ const deserializeAws_json1_1ReplicationDestinationList = (
 const deserializeAws_json1_1ReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
   return {
     destinations:
-      output.destinations !== undefined && output.destinations !== null
+      output.destinations != undefined
         ? deserializeAws_json1_1ReplicationDestinationList(output.destinations, context)
         : undefined,
     repositoryFilters:
-      output.repositoryFilters !== undefined && output.repositoryFilters !== null
+      output.repositoryFilters != undefined
         ? deserializeAws_json1_1RepositoryFilterList(output.repositoryFilters, context)
         : undefined,
   } as any;
@@ -5635,15 +5509,15 @@ const deserializeAws_json1_1ReplicationRuleList = (output: any, context: __Serde
 const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext): Repository => {
   return {
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
+      output.createdAt != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
     encryptionConfiguration:
-      output.encryptionConfiguration !== undefined && output.encryptionConfiguration !== null
+      output.encryptionConfiguration != undefined
         ? deserializeAws_json1_1EncryptionConfiguration(output.encryptionConfiguration, context)
         : undefined,
     imageScanningConfiguration:
-      output.imageScanningConfiguration !== undefined && output.imageScanningConfiguration !== null
+      output.imageScanningConfiguration != undefined
         ? deserializeAws_json1_1ImageScanningConfiguration(output.imageScanningConfiguration, context)
         : undefined,
     imageTagMutability: __expectString(output.imageTagMutability),
@@ -5727,7 +5601,7 @@ const deserializeAws_json1_1RepositoryScanningConfiguration = (
 ): RepositoryScanningConfiguration => {
   return {
     appliedScanFilters:
-      output.appliedScanFilters !== undefined && output.appliedScanFilters !== null
+      output.appliedScanFilters != undefined
         ? deserializeAws_json1_1ScanningRepositoryFilterList(output.appliedScanFilters, context)
         : undefined,
     repositoryArn: __expectString(output.repositoryArn),
@@ -5780,13 +5654,9 @@ const deserializeAws_json1_1RepositoryScanningConfigurationList = (
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    details:
-      output.details !== undefined && output.details !== null
-        ? deserializeAws_json1_1ResourceDetails(output.details, context)
-        : undefined,
+    details: output.details != undefined ? deserializeAws_json1_1ResourceDetails(output.details, context) : undefined,
     id: __expectString(output.id),
-    tags:
-      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -5794,7 +5664,7 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return {
     awsEcrContainerImage:
-      output.awsEcrContainerImage !== undefined && output.awsEcrContainerImage !== null
+      output.awsEcrContainerImage != undefined
         ? deserializeAws_json1_1AwsEcrContainerImageDetails(output.awsEcrContainerImage, context)
         : undefined,
   } as any;
@@ -5845,10 +5715,7 @@ const deserializeAws_json1_1ScanNotFoundException = (output: any, context: __Ser
 
 const deserializeAws_json1_1ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => {
   return {
-    cvss:
-      output.cvss !== undefined && output.cvss !== null
-        ? deserializeAws_json1_1CvssScoreDetails(output.cvss, context)
-        : undefined,
+    cvss: output.cvss != undefined ? deserializeAws_json1_1CvssScoreDetails(output.cvss, context) : undefined,
   } as any;
 };
 
@@ -5871,12 +5738,9 @@ const deserializeAws_json1_1SetRepositoryPolicyResponse = (
 
 const deserializeAws_json1_1StartImageScanResponse = (output: any, context: __SerdeContext): StartImageScanResponse => {
   return {
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
-        : undefined,
+    imageId: output.imageId != undefined ? deserializeAws_json1_1ImageIdentifier(output.imageId, context) : undefined,
     imageScanStatus:
-      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+      output.imageScanStatus != undefined
         ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
         : undefined,
     registryId: __expectString(output.registryId),

@@ -1077,10 +1077,8 @@ const serializeAws_json1_1AddAttachmentsToSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.attachments !== undefined &&
-      input.attachments !== null && { attachments: serializeAws_json1_1Attachments(input.attachments, context) }),
+    ...(input.attachmentSetId != undefined && { attachmentSetId: input.attachmentSetId }),
+    ...(input.attachments != undefined && { attachments: serializeAws_json1_1Attachments(input.attachments, context) }),
   };
 };
 
@@ -1089,22 +1087,19 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
-    ...(input.ccEmailAddresses !== undefined &&
-      input.ccEmailAddresses !== null && {
-        ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
-      }),
-    ...(input.communicationBody !== undefined &&
-      input.communicationBody !== null && { communicationBody: input.communicationBody }),
+    ...(input.attachmentSetId != undefined && { attachmentSetId: input.attachmentSetId }),
+    ...(input.caseId != undefined && { caseId: input.caseId }),
+    ...(input.ccEmailAddresses != undefined && {
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
+    }),
+    ...(input.communicationBody != undefined && { communicationBody: input.communicationBody }),
   };
 };
 
 const serializeAws_json1_1Attachment = (input: Attachment, context: __SerdeContext): any => {
   return {
-    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
-    ...(input.fileName !== undefined && input.fileName !== null && { fileName: input.fileName }),
+    ...(input.data != undefined && { data: context.base64Encoder(input.data) }),
+    ...(input.fileName != undefined && { fileName: input.fileName }),
   };
 };
 
@@ -1143,20 +1138,17 @@ const serializeAws_json1_1CcEmailAddressList = (input: string[], context: __Serd
 
 const serializeAws_json1_1CreateCaseRequest = (input: CreateCaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.attachmentSetId !== undefined &&
-      input.attachmentSetId !== null && { attachmentSetId: input.attachmentSetId }),
-    ...(input.categoryCode !== undefined && input.categoryCode !== null && { categoryCode: input.categoryCode }),
-    ...(input.ccEmailAddresses !== undefined &&
-      input.ccEmailAddresses !== null && {
-        ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
-      }),
-    ...(input.communicationBody !== undefined &&
-      input.communicationBody !== null && { communicationBody: input.communicationBody }),
-    ...(input.issueType !== undefined && input.issueType !== null && { issueType: input.issueType }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.serviceCode !== undefined && input.serviceCode !== null && { serviceCode: input.serviceCode }),
-    ...(input.severityCode !== undefined && input.severityCode !== null && { severityCode: input.severityCode }),
-    ...(input.subject !== undefined && input.subject !== null && { subject: input.subject }),
+    ...(input.attachmentSetId != undefined && { attachmentSetId: input.attachmentSetId }),
+    ...(input.categoryCode != undefined && { categoryCode: input.categoryCode }),
+    ...(input.ccEmailAddresses != undefined && {
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context),
+    }),
+    ...(input.communicationBody != undefined && { communicationBody: input.communicationBody }),
+    ...(input.issueType != undefined && { issueType: input.issueType }),
+    ...(input.language != undefined && { language: input.language }),
+    ...(input.serviceCode != undefined && { serviceCode: input.serviceCode }),
+    ...(input.severityCode != undefined && { severityCode: input.severityCode }),
+    ...(input.subject != undefined && { subject: input.subject }),
   };
 };
 
@@ -1165,24 +1157,21 @@ const serializeAws_json1_1DescribeAttachmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attachmentId !== undefined && input.attachmentId !== null && { attachmentId: input.attachmentId }),
+    ...(input.attachmentId != undefined && { attachmentId: input.attachmentId }),
   };
 };
 
 const serializeAws_json1_1DescribeCasesRequest = (input: DescribeCasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.afterTime !== undefined && input.afterTime !== null && { afterTime: input.afterTime }),
-    ...(input.beforeTime !== undefined && input.beforeTime !== null && { beforeTime: input.beforeTime }),
-    ...(input.caseIdList !== undefined &&
-      input.caseIdList !== null && { caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context) }),
-    ...(input.displayId !== undefined && input.displayId !== null && { displayId: input.displayId }),
-    ...(input.includeCommunications !== undefined &&
-      input.includeCommunications !== null && { includeCommunications: input.includeCommunications }),
-    ...(input.includeResolvedCases !== undefined &&
-      input.includeResolvedCases !== null && { includeResolvedCases: input.includeResolvedCases }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.afterTime != undefined && { afterTime: input.afterTime }),
+    ...(input.beforeTime != undefined && { beforeTime: input.beforeTime }),
+    ...(input.caseIdList != undefined && { caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context) }),
+    ...(input.displayId != undefined && { displayId: input.displayId }),
+    ...(input.includeCommunications != undefined && { includeCommunications: input.includeCommunications }),
+    ...(input.includeResolvedCases != undefined && { includeResolvedCases: input.includeResolvedCases }),
+    ...(input.language != undefined && { language: input.language }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
@@ -1191,21 +1180,20 @@ const serializeAws_json1_1DescribeCommunicationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.afterTime !== undefined && input.afterTime !== null && { afterTime: input.afterTime }),
-    ...(input.beforeTime !== undefined && input.beforeTime !== null && { beforeTime: input.beforeTime }),
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.afterTime != undefined && { afterTime: input.afterTime }),
+    ...(input.beforeTime != undefined && { beforeTime: input.beforeTime }),
+    ...(input.caseId != undefined && { caseId: input.caseId }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
-    ...(input.serviceCodeList !== undefined &&
-      input.serviceCodeList !== null && {
-        serviceCodeList: serializeAws_json1_1ServiceCodeList(input.serviceCodeList, context),
-      }),
+    ...(input.language != undefined && { language: input.language }),
+    ...(input.serviceCodeList != undefined && {
+      serviceCodeList: serializeAws_json1_1ServiceCodeList(input.serviceCodeList, context),
+    }),
   };
 };
 
@@ -1214,7 +1202,7 @@ const serializeAws_json1_1DescribeSeverityLevelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.language != undefined && { language: input.language }),
   };
 };
 
@@ -1223,8 +1211,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkIds !== undefined &&
-      input.checkIds !== null && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
+    ...(input.checkIds != undefined && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
   };
 };
 
@@ -1233,8 +1220,8 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkId !== undefined && input.checkId !== null && { checkId: input.checkId }),
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.checkId != undefined && { checkId: input.checkId }),
+    ...(input.language != undefined && { language: input.language }),
   };
 };
 
@@ -1243,7 +1230,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorChecksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.language != undefined && { language: input.language }),
   };
 };
 
@@ -1252,8 +1239,7 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkIds !== undefined &&
-      input.checkIds !== null && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
+    ...(input.checkIds != undefined && { checkIds: serializeAws_json1_1StringList(input.checkIds, context) }),
   };
 };
 
@@ -1262,13 +1248,13 @@ const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.checkId !== undefined && input.checkId !== null && { checkId: input.checkId }),
+    ...(input.checkId != undefined && { checkId: input.checkId }),
   };
 };
 
 const serializeAws_json1_1ResolveCaseRequest = (input: ResolveCaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.caseId !== undefined && input.caseId !== null && { caseId: input.caseId }),
+    ...(input.caseId != undefined && { caseId: input.caseId }),
   };
 };
 
@@ -1315,7 +1301,7 @@ const deserializeAws_json1_1AddCommunicationToCaseResponse = (
 
 const deserializeAws_json1_1Attachment = (output: any, context: __SerdeContext): Attachment => {
   return {
-    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    data: output.data != undefined ? context.base64Decoder(output.data) : undefined,
     fileName: __expectString(output.fileName),
   } as any;
 };
@@ -1392,13 +1378,13 @@ const deserializeAws_json1_1CaseDetails = (output: any, context: __SerdeContext)
     caseId: __expectString(output.caseId),
     categoryCode: __expectString(output.categoryCode),
     ccEmailAddresses:
-      output.ccEmailAddresses !== undefined && output.ccEmailAddresses !== null
+      output.ccEmailAddresses != undefined
         ? deserializeAws_json1_1CcEmailAddressList(output.ccEmailAddresses, context)
         : undefined,
     displayId: __expectString(output.displayId),
     language: __expectString(output.language),
     recentCommunications:
-      output.recentCommunications !== undefined && output.recentCommunications !== null
+      output.recentCommunications != undefined
         ? deserializeAws_json1_1RecentCaseCommunications(output.recentCommunications, context)
         : undefined,
     serviceCode: __expectString(output.serviceCode),
@@ -1462,7 +1448,7 @@ const deserializeAws_json1_1CcEmailAddressList = (output: any, context: __SerdeC
 const deserializeAws_json1_1Communication = (output: any, context: __SerdeContext): Communication => {
   return {
     attachmentSet:
-      output.attachmentSet !== undefined && output.attachmentSet !== null
+      output.attachmentSet != undefined
         ? deserializeAws_json1_1AttachmentSet(output.attachmentSet, context)
         : undefined,
     body: __expectString(output.body),
@@ -1505,18 +1491,13 @@ const deserializeAws_json1_1DescribeAttachmentResponse = (
 ): DescribeAttachmentResponse => {
   return {
     attachment:
-      output.attachment !== undefined && output.attachment !== null
-        ? deserializeAws_json1_1Attachment(output.attachment, context)
-        : undefined,
+      output.attachment != undefined ? deserializeAws_json1_1Attachment(output.attachment, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeCasesResponse = (output: any, context: __SerdeContext): DescribeCasesResponse => {
   return {
-    cases:
-      output.cases !== undefined && output.cases !== null
-        ? deserializeAws_json1_1CaseList(output.cases, context)
-        : undefined,
+    cases: output.cases != undefined ? deserializeAws_json1_1CaseList(output.cases, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -1527,7 +1508,7 @@ const deserializeAws_json1_1DescribeCommunicationsResponse = (
 ): DescribeCommunicationsResponse => {
   return {
     communications:
-      output.communications !== undefined && output.communications !== null
+      output.communications != undefined
         ? deserializeAws_json1_1CommunicationList(output.communications, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -1539,10 +1520,7 @@ const deserializeAws_json1_1DescribeServicesResponse = (
   context: __SerdeContext
 ): DescribeServicesResponse => {
   return {
-    services:
-      output.services !== undefined && output.services !== null
-        ? deserializeAws_json1_1ServiceList(output.services, context)
-        : undefined,
+    services: output.services != undefined ? deserializeAws_json1_1ServiceList(output.services, context) : undefined,
   } as any;
 };
 
@@ -1552,7 +1530,7 @@ const deserializeAws_json1_1DescribeSeverityLevelsResponse = (
 ): DescribeSeverityLevelsResponse => {
   return {
     severityLevels:
-      output.severityLevels !== undefined && output.severityLevels !== null
+      output.severityLevels != undefined
         ? deserializeAws_json1_1SeverityLevelsList(output.severityLevels, context)
         : undefined,
   } as any;
@@ -1564,7 +1542,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse =
 ): DescribeTrustedAdvisorCheckRefreshStatusesResponse => {
   return {
     statuses:
-      output.statuses !== undefined && output.statuses !== null
+      output.statuses != undefined
         ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList(output.statuses, context)
         : undefined,
   } as any;
@@ -1576,9 +1554,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse = (
 ): DescribeTrustedAdvisorCheckResultResponse => {
   return {
     result:
-      output.result !== undefined && output.result !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckResult(output.result, context)
-        : undefined,
+      output.result != undefined ? deserializeAws_json1_1TrustedAdvisorCheckResult(output.result, context) : undefined,
   } as any;
 };
 
@@ -1588,9 +1564,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse = (
 ): DescribeTrustedAdvisorChecksResponse => {
   return {
     checks:
-      output.checks !== undefined && output.checks !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckList(output.checks, context)
-        : undefined,
+      output.checks != undefined ? deserializeAws_json1_1TrustedAdvisorCheckList(output.checks, context) : undefined,
   } as any;
 };
 
@@ -1600,7 +1574,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse = (
 ): DescribeTrustedAdvisorCheckSummariesResponse => {
   return {
     summaries:
-      output.summaries !== undefined && output.summaries !== null
+      output.summaries != undefined
         ? deserializeAws_json1_1TrustedAdvisorCheckSummaryList(output.summaries, context)
         : undefined,
   } as any;
@@ -1618,7 +1592,7 @@ const deserializeAws_json1_1RecentCaseCommunications = (
 ): RecentCaseCommunications => {
   return {
     communications:
-      output.communications !== undefined && output.communications !== null
+      output.communications != undefined
         ? deserializeAws_json1_1CommunicationList(output.communications, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -1631,7 +1605,7 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse = (
 ): RefreshTrustedAdvisorCheckResponse => {
   return {
     status:
-      output.status !== undefined && output.status !== null
+      output.status != undefined
         ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(output.status, context)
         : undefined,
   } as any;
@@ -1647,9 +1621,7 @@ const deserializeAws_json1_1ResolveCaseResponse = (output: any, context: __Serde
 const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
     categories:
-      output.categories !== undefined && output.categories !== null
-        ? deserializeAws_json1_1CategoryList(output.categories, context)
-        : undefined,
+      output.categories != undefined ? deserializeAws_json1_1CategoryList(output.categories, context) : undefined,
     code: __expectString(output.code),
     name: __expectString(output.name),
   } as any;
@@ -1704,7 +1676,7 @@ const deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary = (
 ): TrustedAdvisorCategorySpecificSummary => {
   return {
     costOptimizing:
-      output.costOptimizing !== undefined && output.costOptimizing !== null
+      output.costOptimizing != undefined
         ? deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary(output.costOptimizing, context)
         : undefined,
   } as any;
@@ -1718,10 +1690,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckDescription = (
     category: __expectString(output.category),
     description: __expectString(output.description),
     id: __expectString(output.id),
-    metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_json1_1StringList(output.metadata, context)
-        : undefined,
+    metadata: output.metadata != undefined ? deserializeAws_json1_1StringList(output.metadata, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -1773,16 +1742,16 @@ const deserializeAws_json1_1TrustedAdvisorCheckResult = (
 ): TrustedAdvisorCheckResult => {
   return {
     categorySpecificSummary:
-      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
+      output.categorySpecificSummary != undefined
         ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
         : undefined,
     checkId: __expectString(output.checkId),
     flaggedResources:
-      output.flaggedResources !== undefined && output.flaggedResources !== null
+      output.flaggedResources != undefined
         ? deserializeAws_json1_1TrustedAdvisorResourceDetailList(output.flaggedResources, context)
         : undefined,
     resourcesSummary:
-      output.resourcesSummary !== undefined && output.resourcesSummary !== null
+      output.resourcesSummary != undefined
         ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
         : undefined,
     status: __expectString(output.status),
@@ -1796,13 +1765,13 @@ const deserializeAws_json1_1TrustedAdvisorCheckSummary = (
 ): TrustedAdvisorCheckSummary => {
   return {
     categorySpecificSummary:
-      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
+      output.categorySpecificSummary != undefined
         ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
         : undefined,
     checkId: __expectString(output.checkId),
     hasFlaggedResources: __expectBoolean(output.hasFlaggedResources),
     resourcesSummary:
-      output.resourcesSummary !== undefined && output.resourcesSummary !== null
+      output.resourcesSummary != undefined
         ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
         : undefined,
     status: __expectString(output.status),
@@ -1841,10 +1810,7 @@ const deserializeAws_json1_1TrustedAdvisorResourceDetail = (
 ): TrustedAdvisorResourceDetail => {
   return {
     isSuppressed: __expectBoolean(output.isSuppressed),
-    metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_json1_1StringList(output.metadata, context)
-        : undefined,
+    metadata: output.metadata != undefined ? deserializeAws_json1_1StringList(output.metadata, context) : undefined,
     region: __expectString(output.region),
     resourceId: __expectString(output.resourceId),
     status: __expectString(output.status),

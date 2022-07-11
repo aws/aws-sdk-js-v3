@@ -135,11 +135,10 @@ export const serializeAws_restJson1AssociateDomainCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateDomain";
   let body: any;
   body = JSON.stringify({
-    ...(input.AcmCertificateArn !== undefined &&
-      input.AcmCertificateArn !== null && { AcmCertificateArn: input.AcmCertificateArn }),
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.AcmCertificateArn != undefined && { AcmCertificateArn: input.AcmCertificateArn }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -164,10 +163,9 @@ export const serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteAuthorizationProvider";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthorizationProviderType !== undefined &&
-      input.AuthorizationProviderType !== null && { AuthorizationProviderType: input.AuthorizationProviderType }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.AuthorizationProviderType != undefined && { AuthorizationProviderType: input.AuthorizationProviderType }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -192,9 +190,9 @@ export const serializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
-    ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -218,11 +216,12 @@ export const serializeAws_restJson1CreateFleetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createFleet";
   let body: any;
   body = JSON.stringify({
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.FleetName !== undefined && input.FleetName !== null && { FleetName: input.FleetName }),
-    ...(input.OptimizeForEndUserLocation !== undefined &&
-      input.OptimizeForEndUserLocation !== null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetName != undefined && { FleetName: input.FleetName }),
+    ...(input.OptimizeForEndUserLocation != undefined && {
+      OptimizeForEndUserLocation: input.OptimizeForEndUserLocation,
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -246,7 +245,7 @@ export const serializeAws_restJson1DeleteFleetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteFleet";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -271,7 +270,7 @@ export const serializeAws_restJson1DescribeAuditStreamConfigurationCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeAuditStreamConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -296,7 +295,7 @@ export const serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeCompanyNetworkConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -320,8 +319,8 @@ export const serializeAws_restJson1DescribeDeviceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevice";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -346,7 +345,7 @@ export const serializeAws_restJson1DescribeDevicePolicyConfigurationCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevicePolicyConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -370,8 +369,8 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDomain";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -395,7 +394,7 @@ export const serializeAws_restJson1DescribeFleetMetadataCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeFleetMetadata";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -420,7 +419,7 @@ export const serializeAws_restJson1DescribeIdentityProviderConfigurationCommand 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeIdentityProviderConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -445,8 +444,8 @@ export const serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.WebsiteCaId !== undefined && input.WebsiteCaId !== null && { WebsiteCaId: input.WebsiteCaId }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.WebsiteCaId != undefined && { WebsiteCaId: input.WebsiteCaId }),
   });
   return new __HttpRequest({
     protocol,
@@ -470,8 +469,8 @@ export const serializeAws_restJson1DisassociateDomainCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateDomain";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -496,9 +495,8 @@ export const serializeAws_restJson1DisassociateWebsiteAuthorizationProviderComma
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteAuthorizationProvider";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuthorizationProviderId !== undefined &&
-      input.AuthorizationProviderId !== null && { AuthorizationProviderId: input.AuthorizationProviderId }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.AuthorizationProviderId != undefined && { AuthorizationProviderId: input.AuthorizationProviderId }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -523,8 +521,8 @@ export const serializeAws_restJson1DisassociateWebsiteCertificateAuthorityComman
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.WebsiteCaId !== undefined && input.WebsiteCaId !== null && { WebsiteCaId: input.WebsiteCaId }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.WebsiteCaId != undefined && { WebsiteCaId: input.WebsiteCaId }),
   });
   return new __HttpRequest({
     protocol,
@@ -548,9 +546,9 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDevices";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -574,9 +572,9 @@ export const serializeAws_restJson1ListDomainsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDomains";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -600,8 +598,8 @@ export const serializeAws_restJson1ListFleetsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFleets";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -654,9 +652,9 @@ export const serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteAuthorizationProviders";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -681,9 +679,9 @@ export const serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteCertificateAuthorities";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -707,8 +705,8 @@ export const serializeAws_restJson1RestoreDomainAccessCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restoreDomainAccess";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -732,8 +730,8 @@ export const serializeAws_restJson1RevokeDomainAccessCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revokeDomainAccess";
   let body: any;
   body = JSON.stringify({
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -757,8 +755,8 @@ export const serializeAws_restJson1SignOutUserCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signOutUser";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.Username != undefined && { Username: input.Username }),
   });
   return new __HttpRequest({
     protocol,
@@ -791,7 +789,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -848,9 +846,8 @@ export const serializeAws_restJson1UpdateAuditStreamConfigurationCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateAuditStreamConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuditStreamArn !== undefined &&
-      input.AuditStreamArn !== null && { AuditStreamArn: input.AuditStreamArn }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.AuditStreamArn != undefined && { AuditStreamArn: input.AuditStreamArn }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -875,14 +872,12 @@ export const serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateCompanyNetworkConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.SecurityGroupIds !== undefined &&
-      input.SecurityGroupIds !== null && {
-        SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
-      }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.SecurityGroupIds != undefined && {
+      SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetIds != undefined && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcId != undefined && { VpcId: input.VpcId }),
   });
   return new __HttpRequest({
     protocol,
@@ -907,9 +902,8 @@ export const serializeAws_restJson1UpdateDevicePolicyConfigurationCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDevicePolicyConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceCaCertificate !== undefined &&
-      input.DeviceCaCertificate !== null && { DeviceCaCertificate: input.DeviceCaCertificate }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DeviceCaCertificate != undefined && { DeviceCaCertificate: input.DeviceCaCertificate }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -933,9 +927,9 @@ export const serializeAws_restJson1UpdateDomainMetadataCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDomainMetadata";
   let body: any;
   body = JSON.stringify({
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -959,10 +953,11 @@ export const serializeAws_restJson1UpdateFleetMetadataCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateFleetMetadata";
   let body: any;
   body = JSON.stringify({
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.OptimizeForEndUserLocation !== undefined &&
-      input.OptimizeForEndUserLocation !== null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
+    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.OptimizeForEndUserLocation != undefined && {
+      OptimizeForEndUserLocation: input.OptimizeForEndUserLocation,
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -987,13 +982,11 @@ export const serializeAws_restJson1UpdateIdentityProviderConfigurationCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateIdentityProviderConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
-    ...(input.IdentityProviderSamlMetadata !== undefined &&
-      input.IdentityProviderSamlMetadata !== null && {
-        IdentityProviderSamlMetadata: input.IdentityProviderSamlMetadata,
-      }),
-    ...(input.IdentityProviderType !== undefined &&
-      input.IdentityProviderType !== null && { IdentityProviderType: input.IdentityProviderType }),
+    ...(input.FleetArn != undefined && { FleetArn: input.FleetArn }),
+    ...(input.IdentityProviderSamlMetadata != undefined && {
+      IdentityProviderSamlMetadata: input.IdentityProviderSamlMetadata,
+    }),
+    ...(input.IdentityProviderType != undefined && { IdentityProviderType: input.IdentityProviderType }),
   });
   return new __HttpRequest({
     protocol,
@@ -3074,7 +3067,7 @@ const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __Serde
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
@@ -3099,7 +3092,7 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
   return {
     CompanyCode: __expectString(output.CompanyCode),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
@@ -3107,13 +3100,10 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
     FleetName: __expectString(output.FleetName),
     FleetStatus: __expectString(output.FleetStatus),
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3188,7 +3178,7 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
     AuthorizationProviderId: __expectString(output.AuthorizationProviderId),
     AuthorizationProviderType: __expectString(output.AuthorizationProviderType),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DomainName: __expectString(output.DomainName),
@@ -3198,7 +3188,7 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
 const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeContext): WebsiteCaSummary => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),

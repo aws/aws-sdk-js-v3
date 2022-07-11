@@ -230,14 +230,13 @@ export const serializeAws_restJson1PutSessionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.messages !== undefined &&
-      input.messages !== null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
-    ...(input.requestAttributes !== undefined &&
-      input.requestAttributes !== null && {
-        requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-      }),
-    ...(input.sessionState !== undefined &&
-      input.sessionState !== null && { sessionState: serializeAws_restJson1SessionState(input.sessionState, context) }),
+    ...(input.messages != undefined && { messages: serializeAws_restJson1Messages(input.messages, context) }),
+    ...(input.requestAttributes != undefined && {
+      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
+    }),
+    ...(input.sessionState != undefined && {
+      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -299,13 +298,13 @@ export const serializeAws_restJson1RecognizeTextCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.requestAttributes !== undefined &&
-      input.requestAttributes !== null && {
-        requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-      }),
-    ...(input.sessionState !== undefined &&
-      input.sessionState !== null && { sessionState: serializeAws_restJson1SessionState(input.sessionState, context) }),
-    ...(input.text !== undefined && input.text !== null && { text: input.text }),
+    ...(input.requestAttributes != undefined && {
+      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
+    }),
+    ...(input.sessionState != undefined && {
+      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
+    }),
+    ...(input.text != undefined && { text: input.text }),
   });
   return new __HttpRequest({
     protocol,
@@ -1407,15 +1406,13 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
   return {
-    ...(input.contextAttributes !== undefined &&
-      input.contextAttributes !== null && {
-        contextAttributes: serializeAws_restJson1ActiveContextParametersMap(input.contextAttributes, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.timeToLive !== undefined &&
-      input.timeToLive !== null && {
-        timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
-      }),
+    ...(input.contextAttributes != undefined && {
+      contextAttributes: serializeAws_restJson1ActiveContextParametersMap(input.contextAttributes, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.timeToLive != undefined && {
+      timeToLive: serializeAws_restJson1ActiveContextTimeToLive(input.timeToLive, context),
+    }),
   };
 };
 
@@ -1450,27 +1447,24 @@ const serializeAws_restJson1ActiveContextTimeToLive = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.timeToLiveInSeconds !== undefined &&
-      input.timeToLiveInSeconds !== null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive !== undefined && input.turnsToLive !== null && { turnsToLive: input.turnsToLive }),
+    ...(input.timeToLiveInSeconds != undefined && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
+    ...(input.turnsToLive != undefined && { turnsToLive: input.turnsToLive }),
   };
 };
 
 const serializeAws_restJson1AudioInputEvent = (input: AudioInputEvent, context: __SerdeContext): any => {
   return {
-    ...(input.audioChunk !== undefined &&
-      input.audioChunk !== null && { audioChunk: context.base64Encoder(input.audioChunk) }),
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.audioChunk != undefined && { audioChunk: context.base64Encoder(input.audioChunk) }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
   };
 };
 
 const serializeAws_restJson1Button = (input: Button, context: __SerdeContext): any => {
   return {
-    ...(input.text !== undefined && input.text !== null && { text: input.text }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.text != undefined && { text: input.text }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -1487,82 +1481,70 @@ const serializeAws_restJson1ButtonsList = (input: Button[], context: __SerdeCont
 
 const serializeAws_restJson1ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContext): any => {
   return {
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.disablePlayback !== undefined &&
-      input.disablePlayback !== null && { disablePlayback: input.disablePlayback }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
-    ...(input.requestAttributes !== undefined &&
-      input.requestAttributes !== null && {
-        requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
-      }),
-    ...(input.responseContentType !== undefined &&
-      input.responseContentType !== null && { responseContentType: input.responseContentType }),
-    ...(input.sessionState !== undefined &&
-      input.sessionState !== null && { sessionState: serializeAws_restJson1SessionState(input.sessionState, context) }),
-    ...(input.welcomeMessages !== undefined &&
-      input.welcomeMessages !== null && {
-        welcomeMessages: serializeAws_restJson1Messages(input.welcomeMessages, context),
-      }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.disablePlayback != undefined && { disablePlayback: input.disablePlayback }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
+    ...(input.requestAttributes != undefined && {
+      requestAttributes: serializeAws_restJson1StringMap(input.requestAttributes, context),
+    }),
+    ...(input.responseContentType != undefined && { responseContentType: input.responseContentType }),
+    ...(input.sessionState != undefined && {
+      sessionState: serializeAws_restJson1SessionState(input.sessionState, context),
+    }),
+    ...(input.welcomeMessages != undefined && {
+      welcomeMessages: serializeAws_restJson1Messages(input.welcomeMessages, context),
+    }),
   };
 };
 
 const serializeAws_restJson1DialogAction = (input: DialogAction, context: __SerdeContext): any => {
   return {
-    ...(input.slotElicitationStyle !== undefined &&
-      input.slotElicitationStyle !== null && { slotElicitationStyle: input.slotElicitationStyle }),
-    ...(input.slotToElicit !== undefined && input.slotToElicit !== null && { slotToElicit: input.slotToElicit }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.slotElicitationStyle != undefined && { slotElicitationStyle: input.slotElicitationStyle }),
+    ...(input.slotToElicit != undefined && { slotToElicit: input.slotToElicit }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1DisconnectionEvent = (input: DisconnectionEvent, context: __SerdeContext): any => {
   return {
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
   };
 };
 
 const serializeAws_restJson1DTMFInputEvent = (input: DTMFInputEvent, context: __SerdeContext): any => {
   return {
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
-    ...(input.inputCharacter !== undefined &&
-      input.inputCharacter !== null && { inputCharacter: input.inputCharacter }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
+    ...(input.inputCharacter != undefined && { inputCharacter: input.inputCharacter }),
   };
 };
 
 const serializeAws_restJson1ImageResponseCard = (input: ImageResponseCard, context: __SerdeContext): any => {
   return {
-    ...(input.buttons !== undefined &&
-      input.buttons !== null && { buttons: serializeAws_restJson1ButtonsList(input.buttons, context) }),
-    ...(input.imageUrl !== undefined && input.imageUrl !== null && { imageUrl: input.imageUrl }),
-    ...(input.subtitle !== undefined && input.subtitle !== null && { subtitle: input.subtitle }),
-    ...(input.title !== undefined && input.title !== null && { title: input.title }),
+    ...(input.buttons != undefined && { buttons: serializeAws_restJson1ButtonsList(input.buttons, context) }),
+    ...(input.imageUrl != undefined && { imageUrl: input.imageUrl }),
+    ...(input.subtitle != undefined && { subtitle: input.subtitle }),
+    ...(input.title != undefined && { title: input.title }),
   };
 };
 
 const serializeAws_restJson1Intent = (input: Intent, context: __SerdeContext): any => {
   return {
-    ...(input.confirmationState !== undefined &&
-      input.confirmationState !== null && { confirmationState: input.confirmationState }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.slots !== undefined &&
-      input.slots !== null && { slots: serializeAws_restJson1Slots(input.slots, context) }),
-    ...(input.state !== undefined && input.state !== null && { state: input.state }),
+    ...(input.confirmationState != undefined && { confirmationState: input.confirmationState }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.slots != undefined && { slots: serializeAws_restJson1Slots(input.slots, context) }),
+    ...(input.state != undefined && { state: input.state }),
   };
 };
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
-    ...(input.content !== undefined && input.content !== null && { content: input.content }),
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.imageResponseCard !== undefined &&
-      input.imageResponseCard !== null && {
-        imageResponseCard: serializeAws_restJson1ImageResponseCard(input.imageResponseCard, context),
-      }),
+    ...(input.content != undefined && { content: input.content }),
+    ...(input.contentType != undefined && { contentType: input.contentType }),
+    ...(input.imageResponseCard != undefined && {
+      imageResponseCard: serializeAws_restJson1ImageResponseCard(input.imageResponseCard, context),
+    }),
   };
 };
 
@@ -1582,31 +1564,30 @@ const serializeAws_restJson1PlaybackCompletionEvent = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
   };
 };
 
 const serializeAws_restJson1RuntimeHintDetails = (input: RuntimeHintDetails, context: __SerdeContext): any => {
   return {
-    ...(input.runtimeHintValues !== undefined &&
-      input.runtimeHintValues !== null && {
-        runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
-      }),
+    ...(input.runtimeHintValues != undefined && {
+      runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
+    }),
   };
 };
 
 const serializeAws_restJson1RuntimeHints = (input: RuntimeHints, context: __SerdeContext): any => {
   return {
-    ...(input.slotHints !== undefined &&
-      input.slotHints !== null && { slotHints: serializeAws_restJson1SlotHintsIntentMap(input.slotHints, context) }),
+    ...(input.slotHints != undefined && {
+      slotHints: serializeAws_restJson1SlotHintsIntentMap(input.slotHints, context),
+    }),
   };
 };
 
 const serializeAws_restJson1RuntimeHintValue = (input: RuntimeHintValue, context: __SerdeContext): any => {
   return {
-    ...(input.phrase !== undefined && input.phrase !== null && { phrase: input.phrase }),
+    ...(input.phrase != undefined && { phrase: input.phrase }),
   };
 };
 
@@ -1623,32 +1604,28 @@ const serializeAws_restJson1RuntimeHintValuesList = (input: RuntimeHintValue[], 
 
 const serializeAws_restJson1SessionState = (input: SessionState, context: __SerdeContext): any => {
   return {
-    ...(input.activeContexts !== undefined &&
-      input.activeContexts !== null && {
-        activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
-      }),
-    ...(input.dialogAction !== undefined &&
-      input.dialogAction !== null && { dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context) }),
-    ...(input.intent !== undefined &&
-      input.intent !== null && { intent: serializeAws_restJson1Intent(input.intent, context) }),
-    ...(input.originatingRequestId !== undefined &&
-      input.originatingRequestId !== null && { originatingRequestId: input.originatingRequestId }),
-    ...(input.runtimeHints !== undefined &&
-      input.runtimeHints !== null && { runtimeHints: serializeAws_restJson1RuntimeHints(input.runtimeHints, context) }),
-    ...(input.sessionAttributes !== undefined &&
-      input.sessionAttributes !== null && {
-        sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
-      }),
+    ...(input.activeContexts != undefined && {
+      activeContexts: serializeAws_restJson1ActiveContextsList(input.activeContexts, context),
+    }),
+    ...(input.dialogAction != undefined && {
+      dialogAction: serializeAws_restJson1DialogAction(input.dialogAction, context),
+    }),
+    ...(input.intent != undefined && { intent: serializeAws_restJson1Intent(input.intent, context) }),
+    ...(input.originatingRequestId != undefined && { originatingRequestId: input.originatingRequestId }),
+    ...(input.runtimeHints != undefined && {
+      runtimeHints: serializeAws_restJson1RuntimeHints(input.runtimeHints, context),
+    }),
+    ...(input.sessionAttributes != undefined && {
+      sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
+    }),
   };
 };
 
 const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
   return {
-    ...(input.shape !== undefined && input.shape !== null && { shape: input.shape }),
-    ...(input.value !== undefined &&
-      input.value !== null && { value: serializeAws_restJson1Value(input.value, context) }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_restJson1Values(input.values, context) }),
+    ...(input.shape != undefined && { shape: input.shape }),
+    ...(input.value != undefined && { value: serializeAws_restJson1Value(input.value, context) }),
+    ...(input.values != undefined && { values: serializeAws_restJson1Values(input.values, context) }),
   };
 };
 
@@ -1736,22 +1713,19 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
 
 const serializeAws_restJson1TextInputEvent = (input: TextInputEvent, context: __SerdeContext): any => {
   return {
-    ...(input.clientTimestampMillis !== undefined &&
-      input.clientTimestampMillis !== null && { clientTimestampMillis: input.clientTimestampMillis }),
-    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
-    ...(input.text !== undefined && input.text !== null && { text: input.text }),
+    ...(input.clientTimestampMillis != undefined && { clientTimestampMillis: input.clientTimestampMillis }),
+    ...(input.eventId != undefined && { eventId: input.eventId }),
+    ...(input.text != undefined && { text: input.text }),
   };
 };
 
 const serializeAws_restJson1Value = (input: Value, context: __SerdeContext): any => {
   return {
-    ...(input.interpretedValue !== undefined &&
-      input.interpretedValue !== null && { interpretedValue: input.interpretedValue }),
-    ...(input.originalValue !== undefined && input.originalValue !== null && { originalValue: input.originalValue }),
-    ...(input.resolvedValues !== undefined &&
-      input.resolvedValues !== null && {
-        resolvedValues: serializeAws_restJson1StringList(input.resolvedValues, context),
-      }),
+    ...(input.interpretedValue != undefined && { interpretedValue: input.interpretedValue }),
+    ...(input.originalValue != undefined && { originalValue: input.originalValue }),
+    ...(input.resolvedValues != undefined && {
+      resolvedValues: serializeAws_restJson1StringList(input.resolvedValues, context),
+    }),
   };
 };
 
@@ -1775,12 +1749,12 @@ const deserializeAws_restJson1AccessDeniedException = (output: any, context: __S
 const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
   return {
     contextAttributes:
-      output.contextAttributes !== undefined && output.contextAttributes !== null
+      output.contextAttributes != undefined
         ? deserializeAws_restJson1ActiveContextParametersMap(output.contextAttributes, context)
         : undefined,
     name: __expectString(output.name),
     timeToLive:
-      output.timeToLive !== undefined && output.timeToLive !== null
+      output.timeToLive != undefined
         ? deserializeAws_restJson1ActiveContextTimeToLive(output.timeToLive, context)
         : undefined,
   } as any;
@@ -1825,10 +1799,7 @@ const deserializeAws_restJson1ActiveContextTimeToLive = (
 
 const deserializeAws_restJson1AudioResponseEvent = (output: any, context: __SerdeContext): AudioResponseEvent => {
   return {
-    audioChunk:
-      output.audioChunk !== undefined && output.audioChunk !== null
-        ? context.base64Decoder(output.audioChunk)
-        : undefined,
+    audioChunk: output.audioChunk != undefined ? context.base64Decoder(output.audioChunk) : undefined,
     contentType: __expectString(output.contentType),
     eventId: __expectString(output.eventId),
   } as any;
@@ -1896,10 +1867,7 @@ const deserializeAws_restJson1HeartbeatEvent = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ImageResponseCard = (output: any, context: __SerdeContext): ImageResponseCard => {
   return {
-    buttons:
-      output.buttons !== undefined && output.buttons !== null
-        ? deserializeAws_restJson1ButtonsList(output.buttons, context)
-        : undefined,
+    buttons: output.buttons != undefined ? deserializeAws_restJson1ButtonsList(output.buttons, context) : undefined,
     imageUrl: __expectString(output.imageUrl),
     subtitle: __expectString(output.subtitle),
     title: __expectString(output.title),
@@ -1910,10 +1878,7 @@ const deserializeAws_restJson1Intent = (output: any, context: __SerdeContext): I
   return {
     confirmationState: __expectString(output.confirmationState),
     name: __expectString(output.name),
-    slots:
-      output.slots !== undefined && output.slots !== null
-        ? deserializeAws_restJson1Slots(output.slots, context)
-        : undefined,
+    slots: output.slots != undefined ? deserializeAws_restJson1Slots(output.slots, context) : undefined,
     state: __expectString(output.state),
   } as any;
 };
@@ -1923,18 +1888,16 @@ const deserializeAws_restJson1IntentResultEvent = (output: any, context: __Serde
     eventId: __expectString(output.eventId),
     inputMode: __expectString(output.inputMode),
     interpretations:
-      output.interpretations !== undefined && output.interpretations !== null
+      output.interpretations != undefined
         ? deserializeAws_restJson1Interpretations(output.interpretations, context)
         : undefined,
     requestAttributes:
-      output.requestAttributes !== undefined && output.requestAttributes !== null
+      output.requestAttributes != undefined
         ? deserializeAws_restJson1StringMap(output.requestAttributes, context)
         : undefined,
     sessionId: __expectString(output.sessionId),
     sessionState:
-      output.sessionState !== undefined && output.sessionState !== null
-        ? deserializeAws_restJson1SessionState(output.sessionState, context)
-        : undefined,
+      output.sessionState != undefined ? deserializeAws_restJson1SessionState(output.sessionState, context) : undefined,
   } as any;
 };
 
@@ -1949,16 +1912,13 @@ const deserializeAws_restJson1InternalServerException = (
 
 const deserializeAws_restJson1Interpretation = (output: any, context: __SerdeContext): Interpretation => {
   return {
-    intent:
-      output.intent !== undefined && output.intent !== null
-        ? deserializeAws_restJson1Intent(output.intent, context)
-        : undefined,
+    intent: output.intent != undefined ? deserializeAws_restJson1Intent(output.intent, context) : undefined,
     nluConfidence:
-      output.nluConfidence !== undefined && output.nluConfidence !== null
+      output.nluConfidence != undefined
         ? deserializeAws_restJson1ConfidenceScore(output.nluConfidence, context)
         : undefined,
     sentimentResponse:
-      output.sentimentResponse !== undefined && output.sentimentResponse !== null
+      output.sentimentResponse != undefined
         ? deserializeAws_restJson1SentimentResponse(output.sentimentResponse, context)
         : undefined,
   } as any;
@@ -1981,7 +1941,7 @@ const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): 
     content: __expectString(output.content),
     contentType: __expectString(output.contentType),
     imageResponseCard:
-      output.imageResponseCard !== undefined && output.imageResponseCard !== null
+      output.imageResponseCard != undefined
         ? deserializeAws_restJson1ImageResponseCard(output.imageResponseCard, context)
         : undefined,
   } as any;
@@ -2022,7 +1982,7 @@ const deserializeAws_restJson1ResourceNotFoundException = (
 const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
   return {
     runtimeHintValues:
-      output.runtimeHintValues !== undefined && output.runtimeHintValues !== null
+      output.runtimeHintValues != undefined
         ? deserializeAws_restJson1RuntimeHintValuesList(output.runtimeHintValues, context)
         : undefined,
   } as any;
@@ -2031,9 +1991,7 @@ const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __Serd
 const deserializeAws_restJson1RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => {
   return {
     slotHints:
-      output.slotHints !== undefined && output.slotHints !== null
-        ? deserializeAws_restJson1SlotHintsIntentMap(output.slotHints, context)
-        : undefined,
+      output.slotHints != undefined ? deserializeAws_restJson1SlotHintsIntentMap(output.slotHints, context) : undefined,
   } as any;
 };
 
@@ -2059,7 +2017,7 @@ const deserializeAws_restJson1SentimentResponse = (output: any, context: __Serde
   return {
     sentiment: __expectString(output.sentiment),
     sentimentScore:
-      output.sentimentScore !== undefined && output.sentimentScore !== null
+      output.sentimentScore != undefined
         ? deserializeAws_restJson1SentimentScore(output.sentimentScore, context)
         : undefined,
   } as any;
@@ -2077,24 +2035,17 @@ const deserializeAws_restJson1SentimentScore = (output: any, context: __SerdeCon
 const deserializeAws_restJson1SessionState = (output: any, context: __SerdeContext): SessionState => {
   return {
     activeContexts:
-      output.activeContexts !== undefined && output.activeContexts !== null
+      output.activeContexts != undefined
         ? deserializeAws_restJson1ActiveContextsList(output.activeContexts, context)
         : undefined,
     dialogAction:
-      output.dialogAction !== undefined && output.dialogAction !== null
-        ? deserializeAws_restJson1DialogAction(output.dialogAction, context)
-        : undefined,
-    intent:
-      output.intent !== undefined && output.intent !== null
-        ? deserializeAws_restJson1Intent(output.intent, context)
-        : undefined,
+      output.dialogAction != undefined ? deserializeAws_restJson1DialogAction(output.dialogAction, context) : undefined,
+    intent: output.intent != undefined ? deserializeAws_restJson1Intent(output.intent, context) : undefined,
     originatingRequestId: __expectString(output.originatingRequestId),
     runtimeHints:
-      output.runtimeHints !== undefined && output.runtimeHints !== null
-        ? deserializeAws_restJson1RuntimeHints(output.runtimeHints, context)
-        : undefined,
+      output.runtimeHints != undefined ? deserializeAws_restJson1RuntimeHints(output.runtimeHints, context) : undefined,
     sessionAttributes:
-      output.sessionAttributes !== undefined && output.sessionAttributes !== null
+      output.sessionAttributes != undefined
         ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
         : undefined,
   } as any;
@@ -2103,14 +2054,8 @@ const deserializeAws_restJson1SessionState = (output: any, context: __SerdeConte
 const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
     shape: __expectString(output.shape),
-    value:
-      output.value !== undefined && output.value !== null
-        ? deserializeAws_restJson1Value(output.value, context)
-        : undefined,
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_restJson1Values(output.values, context)
-        : undefined,
+    value: output.value != undefined ? deserializeAws_restJson1Value(output.value, context) : undefined,
+    values: output.values != undefined ? deserializeAws_restJson1Values(output.values, context) : undefined,
   } as any;
 };
 
@@ -2272,10 +2217,7 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1TextResponseEvent = (output: any, context: __SerdeContext): TextResponseEvent => {
   return {
     eventId: __expectString(output.eventId),
-    messages:
-      output.messages !== undefined && output.messages !== null
-        ? deserializeAws_restJson1Messages(output.messages, context)
-        : undefined,
+    messages: output.messages != undefined ? deserializeAws_restJson1Messages(output.messages, context) : undefined,
   } as any;
 };
 
@@ -2303,7 +2245,7 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
     interpretedValue: __expectString(output.interpretedValue),
     originalValue: __expectString(output.originalValue),
     resolvedValues:
-      output.resolvedValues !== undefined && output.resolvedValues !== null
+      output.resolvedValues != undefined
         ? deserializeAws_restJson1StringList(output.resolvedValues, context)
         : undefined,
   } as any;

@@ -214,8 +214,7 @@ export const serializeAws_restJson1AssociateChannelFlowCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelFlowArn !== undefined &&
-      input.ChannelFlowArn !== null && { ChannelFlowArn: input.ChannelFlowArn }),
+    ...(input.ChannelFlowArn != undefined && { ChannelFlowArn: input.ChannelFlowArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -253,9 +252,8 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArns !== undefined &&
-      input.MemberArns !== null && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.MemberArns != undefined && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
+    ...(input.Type != undefined && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -293,12 +291,10 @@ export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
   let body: any;
   body = JSON.stringify({
     CallbackId: input.CallbackId ?? generateIdempotencyToken(),
-    ...(input.ChannelMessage !== undefined &&
-      input.ChannelMessage !== null && {
-        ChannelMessage: serializeAws_restJson1ChannelMessageCallback(input.ChannelMessage, context),
-      }),
-    ...(input.DeleteResource !== undefined &&
-      input.DeleteResource !== null && { DeleteResource: input.DeleteResource }),
+    ...(input.ChannelMessage != undefined && {
+      ChannelMessage: serializeAws_restJson1ChannelMessageCallback(input.ChannelMessage, context),
+    }),
+    ...(input.DeleteResource != undefined && { DeleteResource: input.DeleteResource }),
   });
   return new __HttpRequest({
     protocol,
@@ -324,22 +320,20 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceArn !== undefined &&
-      input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.ChannelId !== undefined && input.ChannelId !== null && { ChannelId: input.ChannelId }),
+    ...(input.AppInstanceArn != undefined && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.ChannelId != undefined && { ChannelId: input.ChannelId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.MemberArns !== undefined &&
-      input.MemberArns !== null && { MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context) }),
-    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
-    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
-    ...(input.ModeratorArns !== undefined &&
-      input.ModeratorArns !== null && {
-        ModeratorArns: serializeAws_restJson1ChannelModeratorArns(input.ModeratorArns, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Privacy !== undefined && input.Privacy !== null && { Privacy: input.Privacy }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.MemberArns != undefined && {
+      MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context),
+    }),
+    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
+    ...(input.Mode != undefined && { Mode: input.Mode }),
+    ...(input.ModeratorArns != undefined && {
+      ModeratorArns: serializeAws_restJson1ChannelModeratorArns(input.ModeratorArns, context),
+    }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Privacy != undefined && { Privacy: input.Privacy }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -374,7 +368,7 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArn !== undefined && input.MemberArn !== null && { MemberArn: input.MemberArn }),
+    ...(input.MemberArn != undefined && { MemberArn: input.MemberArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -398,15 +392,13 @@ export const serializeAws_restJson1CreateChannelFlowCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppInstanceArn !== undefined &&
-      input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
-    ...(input.ClientRequestToken !== undefined &&
-      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Processors !== undefined &&
-      input.Processors !== null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.AppInstanceArn != undefined && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.ClientRequestToken != undefined && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Processors != undefined && {
+      Processors: serializeAws_restJson1ProcessorList(input.Processors, context),
+    }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -441,8 +433,8 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MemberArn !== undefined && input.MemberArn !== null && { MemberArn: input.MemberArn }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.MemberArn != undefined && { MemberArn: input.MemberArn }),
+    ...(input.Type != undefined && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -477,8 +469,7 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelModeratorArn !== undefined &&
-      input.ChannelModeratorArn !== null && { ChannelModeratorArn: input.ChannelModeratorArn }),
+    ...(input.ChannelModeratorArn != undefined && { ChannelModeratorArn: input.ChannelModeratorArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1495,10 +1486,9 @@ export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Preferences !== undefined &&
-      input.Preferences !== null && {
-        Preferences: serializeAws_restJson1ChannelMembershipPreferences(input.Preferences, context),
-      }),
+    ...(input.Preferences != undefined && {
+      Preferences: serializeAws_restJson1ChannelMembershipPreferences(input.Preferences, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1573,8 +1563,7 @@ export const serializeAws_restJson1SearchChannelsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Fields !== undefined &&
-      input.Fields !== null && { Fields: serializeAws_restJson1SearchFields(input.Fields, context) }),
+    ...(input.Fields != undefined && { Fields: serializeAws_restJson1SearchFields(input.Fields, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1611,18 +1600,16 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.MessageAttributes !== undefined &&
-      input.MessageAttributes !== null && {
-        MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
-      }),
-    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
-    ...(input.Persistence !== undefined && input.Persistence !== null && { Persistence: input.Persistence }),
-    ...(input.PushNotification !== undefined &&
-      input.PushNotification !== null && {
-        PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
-      }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.MessageAttributes != undefined && {
+      MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
+    }),
+    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
+    ...(input.Persistence != undefined && { Persistence: input.Persistence }),
+    ...(input.PushNotification != undefined && {
+      PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
+    }),
+    ...(input.Type != undefined && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -1649,9 +1636,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1679,9 +1665,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1716,9 +1701,9 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
-    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
+    ...(input.Mode != undefined && { Mode: input.Mode }),
+    ...(input.Name != undefined && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -1752,9 +1737,10 @@ export const serializeAws_restJson1UpdateChannelFlowCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Processors !== undefined &&
-      input.Processors !== null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Processors != undefined && {
+      Processors: serializeAws_restJson1ProcessorList(input.Processors, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1799,8 +1785,8 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
   });
   return new __HttpRequest({
     protocol,
@@ -4959,26 +4945,23 @@ const serializeAws_restJson1ChannelMembershipPreferences = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PushNotifications !== undefined &&
-      input.PushNotifications !== null && {
-        PushNotifications: serializeAws_restJson1PushNotificationPreferences(input.PushNotifications, context),
-      }),
+    ...(input.PushNotifications != undefined && {
+      PushNotifications: serializeAws_restJson1PushNotificationPreferences(input.PushNotifications, context),
+    }),
   };
 };
 
 const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
   return {
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.MessageAttributes !== undefined &&
-      input.MessageAttributes !== null && {
-        MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
-      }),
-    ...(input.MessageId !== undefined && input.MessageId !== null && { MessageId: input.MessageId }),
-    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
-    ...(input.PushNotification !== undefined &&
-      input.PushNotification !== null && {
-        PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
-      }),
+    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.MessageAttributes != undefined && {
+      MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
+    }),
+    ...(input.MessageId != undefined && { MessageId: input.MessageId }),
+    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
+    ...(input.PushNotification != undefined && {
+      PushNotification: serializeAws_restJson1PushNotificationConfiguration(input.PushNotification, context),
+    }),
   };
 };
 
@@ -4995,9 +4978,8 @@ const serializeAws_restJson1ChannelModeratorArns = (input: string[], context: __
 
 const serializeAws_restJson1LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.InvocationType !== undefined &&
-      input.InvocationType !== null && { InvocationType: input.InvocationType }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.InvocationType != undefined && { InvocationType: input.InvocationType }),
+    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -5040,31 +5022,26 @@ const serializeAws_restJson1MessageAttributeStringValues = (input: string[], con
 
 const serializeAws_restJson1MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   return {
-    ...(input.StringValues !== undefined &&
-      input.StringValues !== null && {
-        StringValues: serializeAws_restJson1MessageAttributeStringValues(input.StringValues, context),
-      }),
+    ...(input.StringValues != undefined && {
+      StringValues: serializeAws_restJson1MessageAttributeStringValues(input.StringValues, context),
+    }),
   };
 };
 
 const serializeAws_restJson1Processor = (input: Processor, context: __SerdeContext): any => {
   return {
-    ...(input.Configuration !== undefined &&
-      input.Configuration !== null && {
-        Configuration: serializeAws_restJson1ProcessorConfiguration(input.Configuration, context),
-      }),
-    ...(input.ExecutionOrder !== undefined &&
-      input.ExecutionOrder !== null && { ExecutionOrder: input.ExecutionOrder }),
-    ...(input.FallbackAction !== undefined &&
-      input.FallbackAction !== null && { FallbackAction: input.FallbackAction }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Configuration != undefined && {
+      Configuration: serializeAws_restJson1ProcessorConfiguration(input.Configuration, context),
+    }),
+    ...(input.ExecutionOrder != undefined && { ExecutionOrder: input.ExecutionOrder }),
+    ...(input.FallbackAction != undefined && { FallbackAction: input.FallbackAction }),
+    ...(input.Name != undefined && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1ProcessorConfiguration = (input: ProcessorConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Lambda !== undefined &&
-      input.Lambda !== null && { Lambda: serializeAws_restJson1LambdaConfiguration(input.Lambda, context) }),
+    ...(input.Lambda != undefined && { Lambda: serializeAws_restJson1LambdaConfiguration(input.Lambda, context) }),
   };
 };
 
@@ -5084,9 +5061,9 @@ const serializeAws_restJson1PushNotificationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Body !== undefined && input.Body !== null && { Body: input.Body }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Body != undefined && { Body: input.Body }),
+    ...(input.Title != undefined && { Title: input.Title }),
+    ...(input.Type != undefined && { Type: input.Type }),
   };
 };
 
@@ -5095,18 +5072,16 @@ const serializeAws_restJson1PushNotificationPreferences = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowNotifications !== undefined &&
-      input.AllowNotifications !== null && { AllowNotifications: input.AllowNotifications }),
-    ...(input.FilterRule !== undefined && input.FilterRule !== null && { FilterRule: input.FilterRule }),
+    ...(input.AllowNotifications != undefined && { AllowNotifications: input.AllowNotifications }),
+    ...(input.FilterRule != undefined && { FilterRule: input.FilterRule }),
   };
 };
 
 const serializeAws_restJson1SearchField = (input: SearchField, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_restJson1SearchFieldValues(input.Values, context) }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Operator != undefined && { Operator: input.Operator }),
+    ...(input.Values != undefined && { Values: serializeAws_restJson1SearchFieldValues(input.Values, context) }),
   };
 };
 
@@ -5134,8 +5109,8 @@ const serializeAws_restJson1SearchFieldValues = (input: string[], context: __Ser
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != undefined && { Key: input.Key }),
+    ...(input.Value != undefined && { Value: input.Value }),
   };
 };
 
@@ -5167,7 +5142,7 @@ const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
 ): AppInstanceUserMembershipSummary => {
   return {
     ReadMarkerTimestamp:
-      output.ReadMarkerTimestamp !== undefined && output.ReadMarkerTimestamp !== null
+      output.ReadMarkerTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadMarkerTimestamp)))
         : undefined,
     Type: __expectString(output.Type),
@@ -5180,14 +5155,8 @@ const deserializeAws_restJson1BatchChannelMemberships = (
 ): BatchChannelMemberships => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    InvitedBy:
-      output.InvitedBy !== undefined && output.InvitedBy !== null
-        ? deserializeAws_restJson1Identity(output.InvitedBy, context)
-        : undefined,
-    Members:
-      output.Members !== undefined && output.Members !== null
-        ? deserializeAws_restJson1Members(output.Members, context)
-        : undefined,
+    InvitedBy: output.InvitedBy != undefined ? deserializeAws_restJson1Identity(output.InvitedBy, context) : undefined,
+    Members: output.Members != undefined ? deserializeAws_restJson1Members(output.Members, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -5222,20 +5191,17 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
   return {
     ChannelArn: __expectString(output.ChannelArn),
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1Identity(output.CreatedBy, context)
-        : undefined,
+    CreatedBy: output.CreatedBy != undefined ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastMessageTimestamp:
-      output.LastMessageTimestamp !== undefined && output.LastMessageTimestamp !== null
+      output.LastMessageTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
@@ -5276,27 +5242,18 @@ const deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList = (
 const deserializeAws_restJson1ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1Identity(output.CreatedBy, context)
-        : undefined,
+    CreatedBy: output.CreatedBy != undefined ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Member:
-      output.Member !== undefined && output.Member !== null
-        ? deserializeAws_restJson1Identity(output.Member, context)
-        : undefined,
+    Member: output.Member != undefined ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ChannelBanSummary = (output: any, context: __SerdeContext): ChannelBanSummary => {
   return {
-    Member:
-      output.Member !== undefined && output.Member !== null
-        ? deserializeAws_restJson1Identity(output.Member, context)
-        : undefined,
+    Member: output.Member != undefined ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
   } as any;
 };
 
@@ -5316,18 +5273,16 @@ const deserializeAws_restJson1ChannelFlow = (output: any, context: __SerdeContex
   return {
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
     Processors:
-      output.Processors !== undefined && output.Processors !== null
-        ? deserializeAws_restJson1ProcessorList(output.Processors, context)
-        : undefined,
+      output.Processors != undefined ? deserializeAws_restJson1ProcessorList(output.Processors, context) : undefined,
   } as any;
 };
 
@@ -5336,9 +5291,7 @@ const deserializeAws_restJson1ChannelFlowSummary = (output: any, context: __Serd
     ChannelFlowArn: __expectString(output.ChannelFlowArn),
     Name: __expectString(output.Name),
     Processors:
-      output.Processors !== undefined && output.Processors !== null
-        ? deserializeAws_restJson1ProcessorList(output.Processors, context)
-        : undefined,
+      output.Processors != undefined ? deserializeAws_restJson1ProcessorList(output.Processors, context) : undefined,
   } as any;
 };
 
@@ -5358,21 +5311,15 @@ const deserializeAws_restJson1ChannelMembership = (output: any, context: __Serde
   return {
     ChannelArn: __expectString(output.ChannelArn),
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    InvitedBy:
-      output.InvitedBy !== undefined && output.InvitedBy !== null
-        ? deserializeAws_restJson1Identity(output.InvitedBy, context)
-        : undefined,
+    InvitedBy: output.InvitedBy != undefined ? deserializeAws_restJson1Identity(output.InvitedBy, context) : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
-    Member:
-      output.Member !== undefined && output.Member !== null
-        ? deserializeAws_restJson1Identity(output.Member, context)
-        : undefined,
+    Member: output.Member != undefined ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -5383,11 +5330,11 @@ const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary = (
 ): ChannelMembershipForAppInstanceUserSummary => {
   return {
     AppInstanceUserMembershipSummary:
-      output.AppInstanceUserMembershipSummary !== undefined && output.AppInstanceUserMembershipSummary !== null
+      output.AppInstanceUserMembershipSummary != undefined
         ? deserializeAws_restJson1AppInstanceUserMembershipSummary(output.AppInstanceUserMembershipSummary, context)
         : undefined,
     ChannelSummary:
-      output.ChannelSummary !== undefined && output.ChannelSummary !== null
+      output.ChannelSummary != undefined
         ? deserializeAws_restJson1ChannelSummary(output.ChannelSummary, context)
         : undefined,
   } as any;
@@ -5414,7 +5361,7 @@ const deserializeAws_restJson1ChannelMembershipPreferences = (
 ): ChannelMembershipPreferences => {
   return {
     PushNotifications:
-      output.PushNotifications !== undefined && output.PushNotifications !== null
+      output.PushNotifications != undefined
         ? deserializeAws_restJson1PushNotificationPreferences(output.PushNotifications, context)
         : undefined,
   } as any;
@@ -5425,10 +5372,7 @@ const deserializeAws_restJson1ChannelMembershipSummary = (
   context: __SerdeContext
 ): ChannelMembershipSummary => {
   return {
-    Member:
-      output.Member !== undefined && output.Member !== null
-        ? deserializeAws_restJson1Identity(output.Member, context)
-        : undefined,
+    Member: output.Member != undefined ? deserializeAws_restJson1Identity(output.Member, context) : undefined,
   } as any;
 };
 
@@ -5452,31 +5396,28 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
     ChannelArn: __expectString(output.ChannelArn),
     Content: __expectString(output.Content),
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastEditedTimestamp:
-      output.LastEditedTimestamp !== undefined && output.LastEditedTimestamp !== null
+      output.LastEditedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageAttributes:
-      output.MessageAttributes !== undefined && output.MessageAttributes !== null
+      output.MessageAttributes != undefined
         ? deserializeAws_restJson1MessageAttributeMap(output.MessageAttributes, context)
         : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
     Persistence: __expectString(output.Persistence),
     Redacted: __expectBoolean(output.Redacted),
-    Sender:
-      output.Sender !== undefined && output.Sender !== null
-        ? deserializeAws_restJson1Identity(output.Sender, context)
-        : undefined,
+    Sender: output.Sender != undefined ? deserializeAws_restJson1Identity(output.Sender, context) : undefined,
     Status:
-      output.Status !== undefined && output.Status !== null
+      output.Status != undefined
         ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context)
         : undefined,
     Type: __expectString(output.Type),
@@ -5497,30 +5438,27 @@ const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __S
   return {
     Content: __expectString(output.Content),
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     LastEditedTimestamp:
-      output.LastEditedTimestamp !== undefined && output.LastEditedTimestamp !== null
+      output.LastEditedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastEditedTimestamp)))
         : undefined,
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     MessageAttributes:
-      output.MessageAttributes !== undefined && output.MessageAttributes !== null
+      output.MessageAttributes != undefined
         ? deserializeAws_restJson1MessageAttributeMap(output.MessageAttributes, context)
         : undefined,
     MessageId: __expectString(output.MessageId),
     Metadata: __expectString(output.Metadata),
     Redacted: __expectBoolean(output.Redacted),
-    Sender:
-      output.Sender !== undefined && output.Sender !== null
-        ? deserializeAws_restJson1Identity(output.Sender, context)
-        : undefined,
+    Sender: output.Sender != undefined ? deserializeAws_restJson1Identity(output.Sender, context) : undefined,
     Status:
-      output.Status !== undefined && output.Status !== null
+      output.Status != undefined
         ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context)
         : undefined,
     Type: __expectString(output.Type),
@@ -5548,7 +5486,7 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary = (
 ): ChannelModeratedByAppInstanceUserSummary => {
   return {
     ChannelSummary:
-      output.ChannelSummary !== undefined && output.ChannelSummary !== null
+      output.ChannelSummary != undefined
         ? deserializeAws_restJson1ChannelSummary(output.ChannelSummary, context)
         : undefined,
   } as any;
@@ -5572,18 +5510,12 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
 const deserializeAws_restJson1ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1Identity(output.CreatedBy, context)
-        : undefined,
+    CreatedBy: output.CreatedBy != undefined ? deserializeAws_restJson1Identity(output.CreatedBy, context) : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+      output.CreatedTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Moderator:
-      output.Moderator !== undefined && output.Moderator !== null
-        ? deserializeAws_restJson1Identity(output.Moderator, context)
-        : undefined,
+    Moderator: output.Moderator != undefined ? deserializeAws_restJson1Identity(output.Moderator, context) : undefined,
   } as any;
 };
 
@@ -5592,10 +5524,7 @@ const deserializeAws_restJson1ChannelModeratorSummary = (
   context: __SerdeContext
 ): ChannelModeratorSummary => {
   return {
-    Moderator:
-      output.Moderator !== undefined && output.Moderator !== null
-        ? deserializeAws_restJson1Identity(output.Moderator, context)
-        : undefined,
+    Moderator: output.Moderator != undefined ? deserializeAws_restJson1Identity(output.Moderator, context) : undefined,
   } as any;
 };
 
@@ -5618,7 +5547,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
   return {
     ChannelArn: __expectString(output.ChannelArn),
     LastMessageTimestamp:
-      output.LastMessageTimestamp !== undefined && output.LastMessageTimestamp !== null
+      output.LastMessageTimestamp != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
         : undefined,
     Metadata: __expectString(output.Metadata),
@@ -5696,7 +5625,7 @@ const deserializeAws_restJson1MessageAttributeStringValues = (output: any, conte
 const deserializeAws_restJson1MessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
   return {
     StringValues:
-      output.StringValues !== undefined && output.StringValues !== null
+      output.StringValues != undefined
         ? deserializeAws_restJson1MessageAttributeStringValues(output.StringValues, context)
         : undefined,
   } as any;
@@ -5714,7 +5643,7 @@ const deserializeAws_restJson1MessagingSessionEndpoint = (
 const deserializeAws_restJson1Processor = (output: any, context: __SerdeContext): Processor => {
   return {
     Configuration:
-      output.Configuration !== undefined && output.Configuration !== null
+      output.Configuration != undefined
         ? deserializeAws_restJson1ProcessorConfiguration(output.Configuration, context)
         : undefined,
     ExecutionOrder: __expectInt32(output.ExecutionOrder),
@@ -5729,9 +5658,7 @@ const deserializeAws_restJson1ProcessorConfiguration = (
 ): ProcessorConfiguration => {
   return {
     Lambda:
-      output.Lambda !== undefined && output.Lambda !== null
-        ? deserializeAws_restJson1LambdaConfiguration(output.Lambda, context)
-        : undefined,
+      output.Lambda != undefined ? deserializeAws_restJson1LambdaConfiguration(output.Lambda, context) : undefined,
   } as any;
 };
 

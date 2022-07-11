@@ -96,10 +96,9 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Attendees !== undefined &&
-      input.Attendees !== null && {
-        Attendees: serializeAws_restJson1CreateAttendeeRequestItemList(input.Attendees, context),
-      }),
+    ...(input.Attendees != undefined && {
+      Attendees: serializeAws_restJson1CreateAttendeeRequestItemList(input.Attendees, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -138,14 +137,12 @@ export const serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand 
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined &&
-      input.Capabilities !== null && {
-        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-      }),
-    ...(input.ExcludedAttendeeIds !== undefined &&
-      input.ExcludedAttendeeIds !== null && {
-        ExcludedAttendeeIds: serializeAws_restJson1AttendeeIdsList(input.ExcludedAttendeeIds, context),
-      }),
+    ...(input.Capabilities != undefined && {
+      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+    }),
+    ...(input.ExcludedAttendeeIds != undefined && {
+      ExcludedAttendeeIds: serializeAws_restJson1AttendeeIdsList(input.ExcludedAttendeeIds, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -180,12 +177,10 @@ export const serializeAws_restJson1CreateAttendeeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined &&
-      input.Capabilities !== null && {
-        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-      }),
-    ...(input.ExternalUserId !== undefined &&
-      input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Capabilities != undefined && {
+      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+    }),
+    ...(input.ExternalUserId != undefined && { ExternalUserId: input.ExternalUserId }),
   });
   return new __HttpRequest({
     protocol,
@@ -210,25 +205,20 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId !== undefined &&
-      input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures !== undefined &&
-      input.MeetingFeatures !== null && {
-        MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-      }),
-    ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration !== undefined &&
-      input.NotificationsConfiguration !== null && {
-        NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
-          input.NotificationsConfiguration,
-          context
-        ),
-      }),
-    ...(input.PrimaryMeetingId !== undefined &&
-      input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.TenantIds !== undefined &&
-      input.TenantIds !== null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
+    ...(input.ExternalMeetingId != undefined && { ExternalMeetingId: input.ExternalMeetingId }),
+    ...(input.MediaRegion != undefined && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingFeatures != undefined && {
+      MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
+    }),
+    ...(input.MeetingHostId != undefined && { MeetingHostId: input.MeetingHostId }),
+    ...(input.NotificationsConfiguration != undefined && {
+      NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
+        input.NotificationsConfiguration,
+        context
+      ),
+    }),
+    ...(input.PrimaryMeetingId != undefined && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.TenantIds != undefined && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -255,30 +245,24 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Attendees !== undefined &&
-      input.Attendees !== null && {
-        Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
-      }),
+    ...(input.Attendees != undefined && {
+      Attendees: serializeAws_restJson1CreateMeetingWithAttendeesRequestItemList(input.Attendees, context),
+    }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ExternalMeetingId !== undefined &&
-      input.ExternalMeetingId !== null && { ExternalMeetingId: input.ExternalMeetingId }),
-    ...(input.MediaRegion !== undefined && input.MediaRegion !== null && { MediaRegion: input.MediaRegion }),
-    ...(input.MeetingFeatures !== undefined &&
-      input.MeetingFeatures !== null && {
-        MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
-      }),
-    ...(input.MeetingHostId !== undefined && input.MeetingHostId !== null && { MeetingHostId: input.MeetingHostId }),
-    ...(input.NotificationsConfiguration !== undefined &&
-      input.NotificationsConfiguration !== null && {
-        NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
-          input.NotificationsConfiguration,
-          context
-        ),
-      }),
-    ...(input.PrimaryMeetingId !== undefined &&
-      input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
-    ...(input.TenantIds !== undefined &&
-      input.TenantIds !== null && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
+    ...(input.ExternalMeetingId != undefined && { ExternalMeetingId: input.ExternalMeetingId }),
+    ...(input.MediaRegion != undefined && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingFeatures != undefined && {
+      MeetingFeatures: serializeAws_restJson1MeetingFeaturesConfiguration(input.MeetingFeatures, context),
+    }),
+    ...(input.MeetingHostId != undefined && { MeetingHostId: input.MeetingHostId }),
+    ...(input.NotificationsConfiguration != undefined && {
+      NotificationsConfiguration: serializeAws_restJson1NotificationsConfiguration(
+        input.NotificationsConfiguration,
+        context
+      ),
+    }),
+    ...(input.PrimaryMeetingId != undefined && { PrimaryMeetingId: input.PrimaryMeetingId }),
+    ...(input.TenantIds != undefined && { TenantIds: serializeAws_restJson1TenantIdList(input.TenantIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -484,13 +468,12 @@ export const serializeAws_restJson1StartMeetingTranscriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.TranscriptionConfiguration !== undefined &&
-      input.TranscriptionConfiguration !== null && {
-        TranscriptionConfiguration: serializeAws_restJson1TranscriptionConfiguration(
-          input.TranscriptionConfiguration,
-          context
-        ),
-      }),
+    ...(input.TranscriptionConfiguration != undefined && {
+      TranscriptionConfiguration: serializeAws_restJson1TranscriptionConfiguration(
+        input.TranscriptionConfiguration,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -568,10 +551,9 @@ export const serializeAws_restJson1UpdateAttendeeCapabilitiesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined &&
-      input.Capabilities !== null && {
-        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-      }),
+    ...(input.Capabilities != undefined && {
+      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1639,15 +1621,15 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
 
 const serializeAws_restJson1AttendeeCapabilities = (input: AttendeeCapabilities, context: __SerdeContext): any => {
   return {
-    ...(input.Audio !== undefined && input.Audio !== null && { Audio: input.Audio }),
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.Video !== undefined && input.Video !== null && { Video: input.Video }),
+    ...(input.Audio != undefined && { Audio: input.Audio }),
+    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.Video != undefined && { Video: input.Video }),
   };
 };
 
 const serializeAws_restJson1AttendeeIdItem = (input: AttendeeIdItem, context: __SerdeContext): any => {
   return {
-    ...(input.AttendeeId !== undefined && input.AttendeeId !== null && { AttendeeId: input.AttendeeId }),
+    ...(input.AttendeeId != undefined && { AttendeeId: input.AttendeeId }),
   };
 };
 
@@ -1664,7 +1646,7 @@ const serializeAws_restJson1AttendeeIdsList = (input: AttendeeIdItem[], context:
 
 const serializeAws_restJson1AudioFeatures = (input: AudioFeatures, context: __SerdeContext): any => {
   return {
-    ...(input.EchoReduction !== undefined && input.EchoReduction !== null && { EchoReduction: input.EchoReduction }),
+    ...(input.EchoReduction != undefined && { EchoReduction: input.EchoReduction }),
   };
 };
 
@@ -1673,12 +1655,10 @@ const serializeAws_restJson1CreateAttendeeRequestItem = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Capabilities !== undefined &&
-      input.Capabilities !== null && {
-        Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
-      }),
-    ...(input.ExternalUserId !== undefined &&
-      input.ExternalUserId !== null && { ExternalUserId: input.ExternalUserId }),
+    ...(input.Capabilities != undefined && {
+      Capabilities: serializeAws_restJson1AttendeeCapabilities(input.Capabilities, context),
+    }),
+    ...(input.ExternalUserId != undefined && { ExternalUserId: input.ExternalUserId }),
   };
 };
 
@@ -1715,14 +1695,12 @@ const serializeAws_restJson1EngineTranscribeMedicalSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentIdentificationType !== undefined &&
-      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
-    ...(input.Specialty !== undefined && input.Specialty !== null && { Specialty: input.Specialty }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.ContentIdentificationType != undefined && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.Region != undefined && { Region: input.Region }),
+    ...(input.Specialty != undefined && { Specialty: input.Specialty }),
+    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -1731,34 +1709,22 @@ const serializeAws_restJson1EngineTranscribeSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentIdentificationType !== undefined &&
-      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
-    ...(input.ContentRedactionType !== undefined &&
-      input.ContentRedactionType !== null && { ContentRedactionType: input.ContentRedactionType }),
-    ...(input.EnablePartialResultsStabilization !== undefined &&
-      input.EnablePartialResultsStabilization !== null && {
-        EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
-      }),
-    ...(input.IdentifyLanguage !== undefined &&
-      input.IdentifyLanguage !== null && { IdentifyLanguage: input.IdentifyLanguage }),
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.LanguageModelName !== undefined &&
-      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
-    ...(input.LanguageOptions !== undefined &&
-      input.LanguageOptions !== null && { LanguageOptions: input.LanguageOptions }),
-    ...(input.PartialResultsStability !== undefined &&
-      input.PartialResultsStability !== null && { PartialResultsStability: input.PartialResultsStability }),
-    ...(input.PiiEntityTypes !== undefined &&
-      input.PiiEntityTypes !== null && { PiiEntityTypes: input.PiiEntityTypes }),
-    ...(input.PreferredLanguage !== undefined &&
-      input.PreferredLanguage !== null && { PreferredLanguage: input.PreferredLanguage }),
-    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
-    ...(input.VocabularyFilterMethod !== undefined &&
-      input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
-    ...(input.VocabularyFilterName !== undefined &&
-      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
-    ...(input.VocabularyName !== undefined &&
-      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+    ...(input.ContentIdentificationType != undefined && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.ContentRedactionType != undefined && { ContentRedactionType: input.ContentRedactionType }),
+    ...(input.EnablePartialResultsStabilization != undefined && {
+      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
+    }),
+    ...(input.IdentifyLanguage != undefined && { IdentifyLanguage: input.IdentifyLanguage }),
+    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageModelName != undefined && { LanguageModelName: input.LanguageModelName }),
+    ...(input.LanguageOptions != undefined && { LanguageOptions: input.LanguageOptions }),
+    ...(input.PartialResultsStability != undefined && { PartialResultsStability: input.PartialResultsStability }),
+    ...(input.PiiEntityTypes != undefined && { PiiEntityTypes: input.PiiEntityTypes }),
+    ...(input.PreferredLanguage != undefined && { PreferredLanguage: input.PreferredLanguage }),
+    ...(input.Region != undefined && { Region: input.Region }),
+    ...(input.VocabularyFilterMethod != undefined && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName != undefined && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != undefined && { VocabularyName: input.VocabularyName }),
   };
 };
 
@@ -1767,8 +1733,7 @@ const serializeAws_restJson1MeetingFeaturesConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Audio !== undefined &&
-      input.Audio !== null && { Audio: serializeAws_restJson1AudioFeatures(input.Audio, context) }),
+    ...(input.Audio != undefined && { Audio: serializeAws_restJson1AudioFeatures(input.Audio, context) }),
   };
 };
 
@@ -1777,10 +1742,9 @@ const serializeAws_restJson1NotificationsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LambdaFunctionArn !== undefined &&
-      input.LambdaFunctionArn !== null && { LambdaFunctionArn: input.LambdaFunctionArn }),
-    ...(input.SnsTopicArn !== undefined && input.SnsTopicArn !== null && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SqsQueueArn !== undefined && input.SqsQueueArn !== null && { SqsQueueArn: input.SqsQueueArn }),
+    ...(input.LambdaFunctionArn != undefined && { LambdaFunctionArn: input.LambdaFunctionArn }),
+    ...(input.SnsTopicArn != undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SqsQueueArn != undefined && { SqsQueueArn: input.SqsQueueArn }),
   };
 };
 
@@ -1800,20 +1764,15 @@ const serializeAws_restJson1TranscriptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EngineTranscribeMedicalSettings !== undefined &&
-      input.EngineTranscribeMedicalSettings !== null && {
-        EngineTranscribeMedicalSettings: serializeAws_restJson1EngineTranscribeMedicalSettings(
-          input.EngineTranscribeMedicalSettings,
-          context
-        ),
-      }),
-    ...(input.EngineTranscribeSettings !== undefined &&
-      input.EngineTranscribeSettings !== null && {
-        EngineTranscribeSettings: serializeAws_restJson1EngineTranscribeSettings(
-          input.EngineTranscribeSettings,
-          context
-        ),
-      }),
+    ...(input.EngineTranscribeMedicalSettings != undefined && {
+      EngineTranscribeMedicalSettings: serializeAws_restJson1EngineTranscribeMedicalSettings(
+        input.EngineTranscribeMedicalSettings,
+        context
+      ),
+    }),
+    ...(input.EngineTranscribeSettings != undefined && {
+      EngineTranscribeSettings: serializeAws_restJson1EngineTranscribeSettings(input.EngineTranscribeSettings, context),
+    }),
   };
 };
 
@@ -1821,7 +1780,7 @@ const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext):
   return {
     AttendeeId: __expectString(output.AttendeeId),
     Capabilities:
-      output.Capabilities !== undefined && output.Capabilities !== null
+      output.Capabilities != undefined
         ? deserializeAws_restJson1AttendeeCapabilities(output.Capabilities, context)
         : undefined,
     ExternalUserId: __expectString(output.ExternalUserId),
@@ -1895,21 +1854,19 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
   return {
     ExternalMeetingId: __expectString(output.ExternalMeetingId),
     MediaPlacement:
-      output.MediaPlacement !== undefined && output.MediaPlacement !== null
+      output.MediaPlacement != undefined
         ? deserializeAws_restJson1MediaPlacement(output.MediaPlacement, context)
         : undefined,
     MediaRegion: __expectString(output.MediaRegion),
     MeetingFeatures:
-      output.MeetingFeatures !== undefined && output.MeetingFeatures !== null
+      output.MeetingFeatures != undefined
         ? deserializeAws_restJson1MeetingFeaturesConfiguration(output.MeetingFeatures, context)
         : undefined,
     MeetingHostId: __expectString(output.MeetingHostId),
     MeetingId: __expectString(output.MeetingId),
     PrimaryMeetingId: __expectString(output.PrimaryMeetingId),
     TenantIds:
-      output.TenantIds !== undefined && output.TenantIds !== null
-        ? deserializeAws_restJson1TenantIdList(output.TenantIds, context)
-        : undefined,
+      output.TenantIds != undefined ? deserializeAws_restJson1TenantIdList(output.TenantIds, context) : undefined,
   } as any;
 };
 
@@ -1918,10 +1875,7 @@ const deserializeAws_restJson1MeetingFeaturesConfiguration = (
   context: __SerdeContext
 ): MeetingFeaturesConfiguration => {
   return {
-    Audio:
-      output.Audio !== undefined && output.Audio !== null
-        ? deserializeAws_restJson1AudioFeatures(output.Audio, context)
-        : undefined,
+    Audio: output.Audio != undefined ? deserializeAws_restJson1AudioFeatures(output.Audio, context) : undefined,
   } as any;
 };
 

@@ -2990,7 +2990,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1BatchDeleteBuildsInput = (input: BatchDeleteBuildsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ids !== undefined && input.ids !== null && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
+    ...(input.ids != undefined && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
   };
 };
 
@@ -2999,21 +2999,19 @@ const serializeAws_json1_1BatchGetBuildBatchesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ids !== undefined &&
-      input.ids !== null && { ids: serializeAws_json1_1BuildBatchIds(input.ids, context) }),
+    ...(input.ids != undefined && { ids: serializeAws_json1_1BuildBatchIds(input.ids, context) }),
   };
 };
 
 const serializeAws_json1_1BatchGetBuildsInput = (input: BatchGetBuildsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ids !== undefined && input.ids !== null && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
+    ...(input.ids != undefined && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
   };
 };
 
 const serializeAws_json1_1BatchGetProjectsInput = (input: BatchGetProjectsInput, context: __SerdeContext): any => {
   return {
-    ...(input.names !== undefined &&
-      input.names !== null && { names: serializeAws_json1_1ProjectNames(input.names, context) }),
+    ...(input.names != undefined && { names: serializeAws_json1_1ProjectNames(input.names, context) }),
   };
 };
 
@@ -3022,34 +3020,30 @@ const serializeAws_json1_1BatchGetReportGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.reportGroupArns !== undefined &&
-      input.reportGroupArns !== null && {
-        reportGroupArns: serializeAws_json1_1ReportGroupArns(input.reportGroupArns, context),
-      }),
+    ...(input.reportGroupArns != undefined && {
+      reportGroupArns: serializeAws_json1_1ReportGroupArns(input.reportGroupArns, context),
+    }),
   };
 };
 
 const serializeAws_json1_1BatchGetReportsInput = (input: BatchGetReportsInput, context: __SerdeContext): any => {
   return {
-    ...(input.reportArns !== undefined &&
-      input.reportArns !== null && { reportArns: serializeAws_json1_1ReportArns(input.reportArns, context) }),
+    ...(input.reportArns != undefined && { reportArns: serializeAws_json1_1ReportArns(input.reportArns, context) }),
   };
 };
 
 const serializeAws_json1_1BatchRestrictions = (input: BatchRestrictions, context: __SerdeContext): any => {
   return {
-    ...(input.computeTypesAllowed !== undefined &&
-      input.computeTypesAllowed !== null && {
-        computeTypesAllowed: serializeAws_json1_1ComputeTypesAllowed(input.computeTypesAllowed, context),
-      }),
-    ...(input.maximumBuildsAllowed !== undefined &&
-      input.maximumBuildsAllowed !== null && { maximumBuildsAllowed: input.maximumBuildsAllowed }),
+    ...(input.computeTypesAllowed != undefined && {
+      computeTypesAllowed: serializeAws_json1_1ComputeTypesAllowed(input.computeTypesAllowed, context),
+    }),
+    ...(input.maximumBuildsAllowed != undefined && { maximumBuildsAllowed: input.maximumBuildsAllowed }),
   };
 };
 
 const serializeAws_json1_1BuildBatchFilter = (input: BuildBatchFilter, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
@@ -3077,16 +3071,16 @@ const serializeAws_json1_1BuildIds = (input: string[], context: __SerdeContext):
 
 const serializeAws_json1_1BuildStatusConfig = (input: BuildStatusConfig, context: __SerdeContext): any => {
   return {
-    ...(input.context !== undefined && input.context !== null && { context: input.context }),
-    ...(input.targetUrl !== undefined && input.targetUrl !== null && { targetUrl: input.targetUrl }),
+    ...(input.context != undefined && { context: input.context }),
+    ...(input.targetUrl != undefined && { targetUrl: input.targetUrl }),
   };
 };
 
 const serializeAws_json1_1CloudWatchLogsConfig = (input: CloudWatchLogsConfig, context: __SerdeContext): any => {
   return {
-    ...(input.groupName !== undefined && input.groupName !== null && { groupName: input.groupName }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-    ...(input.streamName !== undefined && input.streamName !== null && { streamName: input.streamName }),
+    ...(input.groupName != undefined && { groupName: input.groupName }),
+    ...(input.status != undefined && { status: input.status }),
+    ...(input.streamName != undefined && { streamName: input.streamName }),
   };
 };
 
@@ -3103,103 +3097,89 @@ const serializeAws_json1_1ComputeTypesAllowed = (input: string[], context: __Ser
 
 const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifacts !== undefined &&
-      input.artifacts !== null && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
-    ...(input.badgeEnabled !== undefined && input.badgeEnabled !== null && { badgeEnabled: input.badgeEnabled }),
-    ...(input.buildBatchConfig !== undefined &&
-      input.buildBatchConfig !== null && {
-        buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
-      }),
-    ...(input.cache !== undefined &&
-      input.cache !== null && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
-    ...(input.concurrentBuildLimit !== undefined &&
-      input.concurrentBuildLimit !== null && { concurrentBuildLimit: input.concurrentBuildLimit }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.environment !== undefined &&
-      input.environment !== null && {
-        environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
-      }),
-    ...(input.fileSystemLocations !== undefined &&
-      input.fileSystemLocations !== null && {
-        fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
-      }),
-    ...(input.logsConfig !== undefined &&
-      input.logsConfig !== null && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes !== undefined &&
-      input.queuedTimeoutInMinutes !== null && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
-    ...(input.secondaryArtifacts !== undefined &&
-      input.secondaryArtifacts !== null && {
-        secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
-      }),
-    ...(input.secondarySourceVersions !== undefined &&
-      input.secondarySourceVersions !== null && {
-        secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
-          input.secondarySourceVersions,
-          context
-        ),
-      }),
-    ...(input.secondarySources !== undefined &&
-      input.secondarySources !== null && {
-        secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
-      }),
-    ...(input.serviceRole !== undefined && input.serviceRole !== null && { serviceRole: input.serviceRole }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
-    ...(input.sourceVersion !== undefined && input.sourceVersion !== null && { sourceVersion: input.sourceVersion }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutInMinutes !== undefined &&
-      input.timeoutInMinutes !== null && { timeoutInMinutes: input.timeoutInMinutes }),
-    ...(input.vpcConfig !== undefined &&
-      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
+    ...(input.artifacts != undefined && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
+    ...(input.badgeEnabled != undefined && { badgeEnabled: input.badgeEnabled }),
+    ...(input.buildBatchConfig != undefined && {
+      buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
+    }),
+    ...(input.cache != undefined && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
+    ...(input.concurrentBuildLimit != undefined && { concurrentBuildLimit: input.concurrentBuildLimit }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.encryptionKey != undefined && { encryptionKey: input.encryptionKey }),
+    ...(input.environment != undefined && {
+      environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
+    }),
+    ...(input.fileSystemLocations != undefined && {
+      fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
+    }),
+    ...(input.logsConfig != undefined && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.queuedTimeoutInMinutes != undefined && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
+    ...(input.secondaryArtifacts != undefined && {
+      secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
+    }),
+    ...(input.secondarySourceVersions != undefined && {
+      secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
+        input.secondarySourceVersions,
+        context
+      ),
+    }),
+    ...(input.secondarySources != undefined && {
+      secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
+    }),
+    ...(input.serviceRole != undefined && { serviceRole: input.serviceRole }),
+    ...(input.source != undefined && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
+    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.timeoutInMinutes != undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+    ...(input.vpcConfig != undefined && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
 const serializeAws_json1_1CreateReportGroupInput = (input: CreateReportGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.exportConfig !== undefined &&
-      input.exportConfig !== null && {
-        exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.exportConfig != undefined && {
+      exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
+    }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1CreateWebhookInput = (input: CreateWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.branchFilter !== undefined && input.branchFilter !== null && { branchFilter: input.branchFilter }),
-    ...(input.buildType !== undefined && input.buildType !== null && { buildType: input.buildType }),
-    ...(input.filterGroups !== undefined &&
-      input.filterGroups !== null && { filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context) }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
+    ...(input.branchFilter != undefined && { branchFilter: input.branchFilter }),
+    ...(input.buildType != undefined && { buildType: input.buildType }),
+    ...(input.filterGroups != undefined && {
+      filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context),
+    }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
   };
 };
 
 const serializeAws_json1_1DeleteBuildBatchInput = (input: DeleteBuildBatchInput, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
 const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != undefined && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DeleteReportGroupInput = (input: DeleteReportGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.deleteReports !== undefined && input.deleteReports !== null && { deleteReports: input.deleteReports }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.deleteReports != undefined && { deleteReports: input.deleteReports }),
   };
 };
 
 const serializeAws_json1_1DeleteReportInput = (input: DeleteReportInput, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
@@ -3208,7 +3188,7 @@ const serializeAws_json1_1DeleteResourcePolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
@@ -3217,13 +3197,13 @@ const serializeAws_json1_1DeleteSourceCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.arn != undefined && { arn: input.arn }),
   };
 };
 
 const serializeAws_json1_1DeleteWebhookInput = (input: DeleteWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
   };
 };
 
@@ -3232,37 +3212,34 @@ const serializeAws_json1_1DescribeCodeCoveragesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxLineCoveragePercentage !== undefined &&
-      input.maxLineCoveragePercentage !== null && {
-        maxLineCoveragePercentage: __serializeFloat(input.maxLineCoveragePercentage),
-      }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.minLineCoveragePercentage !== undefined &&
-      input.minLineCoveragePercentage !== null && {
-        minLineCoveragePercentage: __serializeFloat(input.minLineCoveragePercentage),
-      }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.reportArn !== undefined && input.reportArn !== null && { reportArn: input.reportArn }),
-    ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.maxLineCoveragePercentage != undefined && {
+      maxLineCoveragePercentage: __serializeFloat(input.maxLineCoveragePercentage),
+    }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.minLineCoveragePercentage != undefined && {
+      minLineCoveragePercentage: __serializeFloat(input.minLineCoveragePercentage),
+    }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.reportArn != undefined && { reportArn: input.reportArn }),
+    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1DescribeTestCasesInput = (input: DescribeTestCasesInput, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1TestCaseFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.reportArn !== undefined && input.reportArn !== null && { reportArn: input.reportArn }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1TestCaseFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.reportArn != undefined && { reportArn: input.reportArn }),
   };
 };
 
 const serializeAws_json1_1EnvironmentVariable = (input: EnvironmentVariable, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.type != undefined && { type: input.type }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -3304,23 +3281,21 @@ const serializeAws_json1_1GetReportGroupTrendInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.numOfReports !== undefined && input.numOfReports !== null && { numOfReports: input.numOfReports }),
-    ...(input.reportGroupArn !== undefined &&
-      input.reportGroupArn !== null && { reportGroupArn: input.reportGroupArn }),
-    ...(input.trendField !== undefined && input.trendField !== null && { trendField: input.trendField }),
+    ...(input.numOfReports != undefined && { numOfReports: input.numOfReports }),
+    ...(input.reportGroupArn != undefined && { reportGroupArn: input.reportGroupArn }),
+    ...(input.trendField != undefined && { trendField: input.trendField }),
   };
 };
 
 const serializeAws_json1_1GetResourcePolicyInput = (input: GetResourcePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1GitSubmodulesConfig = (input: GitSubmodulesConfig, context: __SerdeContext): any => {
   return {
-    ...(input.fetchSubmodules !== undefined &&
-      input.fetchSubmodules !== null && { fetchSubmodules: input.fetchSubmodules }),
+    ...(input.fetchSubmodules != undefined && { fetchSubmodules: input.fetchSubmodules }),
   };
 };
 
@@ -3329,12 +3304,11 @@ const serializeAws_json1_1ImportSourceCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.authType !== undefined && input.authType !== null && { authType: input.authType }),
-    ...(input.serverType !== undefined && input.serverType !== null && { serverType: input.serverType }),
-    ...(input.shouldOverwrite !== undefined &&
-      input.shouldOverwrite !== null && { shouldOverwrite: input.shouldOverwrite }),
-    ...(input.token !== undefined && input.token !== null && { token: input.token }),
-    ...(input.username !== undefined && input.username !== null && { username: input.username }),
+    ...(input.authType != undefined && { authType: input.authType }),
+    ...(input.serverType != undefined && { serverType: input.serverType }),
+    ...(input.shouldOverwrite != undefined && { shouldOverwrite: input.shouldOverwrite }),
+    ...(input.token != undefined && { token: input.token }),
+    ...(input.username != undefined && { username: input.username }),
   };
 };
 
@@ -3343,7 +3317,7 @@ const serializeAws_json1_1InvalidateProjectCacheInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
   };
 };
 
@@ -3352,22 +3326,20 @@ const serializeAws_json1_1ListBuildBatchesForProjectInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListBuildBatchesInput = (input: ListBuildBatchesInput, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -3376,16 +3348,16 @@ const serializeAws_json1_1ListBuildsForProjectInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListBuildsInput = (input: ListBuildsInput, context: __SerdeContext): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -3398,18 +3370,18 @@ const serializeAws_json1_1ListCuratedEnvironmentImagesInput = (
 
 const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context: __SerdeContext): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListReportGroupsInput = (input: ListReportGroupsInput, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -3418,32 +3390,29 @@ const serializeAws_json1_1ListReportsForReportGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.reportGroupArn !== undefined &&
-      input.reportGroupArn !== null && { reportGroupArn: input.reportGroupArn }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.reportGroupArn != undefined && { reportGroupArn: input.reportGroupArn }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListReportsInput = (input: ListReportsInput, context: __SerdeContext): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.filter != undefined && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListSharedProjectsInput = (input: ListSharedProjectsInput, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -3452,10 +3421,10 @@ const serializeAws_json1_1ListSharedReportGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.sortBy !== undefined && input.sortBy !== null && { sortBy: input.sortBy }),
-    ...(input.sortOrder !== undefined && input.sortOrder !== null && { sortOrder: input.sortOrder }),
+    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
+    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -3468,31 +3437,25 @@ const serializeAws_json1_1ListSourceCredentialsInput = (
 
 const serializeAws_json1_1LogsConfig = (input: LogsConfig, context: __SerdeContext): any => {
   return {
-    ...(input.cloudWatchLogs !== undefined &&
-      input.cloudWatchLogs !== null && {
-        cloudWatchLogs: serializeAws_json1_1CloudWatchLogsConfig(input.cloudWatchLogs, context),
-      }),
-    ...(input.s3Logs !== undefined &&
-      input.s3Logs !== null && { s3Logs: serializeAws_json1_1S3LogsConfig(input.s3Logs, context) }),
+    ...(input.cloudWatchLogs != undefined && {
+      cloudWatchLogs: serializeAws_json1_1CloudWatchLogsConfig(input.cloudWatchLogs, context),
+    }),
+    ...(input.s3Logs != undefined && { s3Logs: serializeAws_json1_1S3LogsConfig(input.s3Logs, context) }),
   };
 };
 
 const serializeAws_json1_1ProjectArtifacts = (input: ProjectArtifacts, context: __SerdeContext): any => {
   return {
-    ...(input.artifactIdentifier !== undefined &&
-      input.artifactIdentifier !== null && { artifactIdentifier: input.artifactIdentifier }),
-    ...(input.bucketOwnerAccess !== undefined &&
-      input.bucketOwnerAccess !== null && { bucketOwnerAccess: input.bucketOwnerAccess }),
-    ...(input.encryptionDisabled !== undefined &&
-      input.encryptionDisabled !== null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.location !== undefined && input.location !== null && { location: input.location }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.namespaceType !== undefined && input.namespaceType !== null && { namespaceType: input.namespaceType }),
-    ...(input.overrideArtifactName !== undefined &&
-      input.overrideArtifactName !== null && { overrideArtifactName: input.overrideArtifactName }),
-    ...(input.packaging !== undefined && input.packaging !== null && { packaging: input.packaging }),
-    ...(input.path !== undefined && input.path !== null && { path: input.path }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.artifactIdentifier != undefined && { artifactIdentifier: input.artifactIdentifier }),
+    ...(input.bucketOwnerAccess != undefined && { bucketOwnerAccess: input.bucketOwnerAccess }),
+    ...(input.encryptionDisabled != undefined && { encryptionDisabled: input.encryptionDisabled }),
+    ...(input.location != undefined && { location: input.location }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.namespaceType != undefined && { namespaceType: input.namespaceType }),
+    ...(input.overrideArtifactName != undefined && { overrideArtifactName: input.overrideArtifactName }),
+    ...(input.packaging != undefined && { packaging: input.packaging }),
+    ...(input.path != undefined && { path: input.path }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3509,25 +3472,21 @@ const serializeAws_json1_1ProjectArtifactsList = (input: ProjectArtifacts[], con
 
 const serializeAws_json1_1ProjectBuildBatchConfig = (input: ProjectBuildBatchConfig, context: __SerdeContext): any => {
   return {
-    ...(input.batchReportMode !== undefined &&
-      input.batchReportMode !== null && { batchReportMode: input.batchReportMode }),
-    ...(input.combineArtifacts !== undefined &&
-      input.combineArtifacts !== null && { combineArtifacts: input.combineArtifacts }),
-    ...(input.restrictions !== undefined &&
-      input.restrictions !== null && {
-        restrictions: serializeAws_json1_1BatchRestrictions(input.restrictions, context),
-      }),
-    ...(input.serviceRole !== undefined && input.serviceRole !== null && { serviceRole: input.serviceRole }),
-    ...(input.timeoutInMins !== undefined && input.timeoutInMins !== null && { timeoutInMins: input.timeoutInMins }),
+    ...(input.batchReportMode != undefined && { batchReportMode: input.batchReportMode }),
+    ...(input.combineArtifacts != undefined && { combineArtifacts: input.combineArtifacts }),
+    ...(input.restrictions != undefined && {
+      restrictions: serializeAws_json1_1BatchRestrictions(input.restrictions, context),
+    }),
+    ...(input.serviceRole != undefined && { serviceRole: input.serviceRole }),
+    ...(input.timeoutInMins != undefined && { timeoutInMins: input.timeoutInMins }),
   };
 };
 
 const serializeAws_json1_1ProjectCache = (input: ProjectCache, context: __SerdeContext): any => {
   return {
-    ...(input.location !== undefined && input.location !== null && { location: input.location }),
-    ...(input.modes !== undefined &&
-      input.modes !== null && { modes: serializeAws_json1_1ProjectCacheModes(input.modes, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.location != undefined && { location: input.location }),
+    ...(input.modes != undefined && { modes: serializeAws_json1_1ProjectCacheModes(input.modes, context) }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3544,22 +3503,18 @@ const serializeAws_json1_1ProjectCacheModes = (input: (CacheMode | string)[], co
 
 const serializeAws_json1_1ProjectEnvironment = (input: ProjectEnvironment, context: __SerdeContext): any => {
   return {
-    ...(input.certificate !== undefined && input.certificate !== null && { certificate: input.certificate }),
-    ...(input.computeType !== undefined && input.computeType !== null && { computeType: input.computeType }),
-    ...(input.environmentVariables !== undefined &&
-      input.environmentVariables !== null && {
-        environmentVariables: serializeAws_json1_1EnvironmentVariables(input.environmentVariables, context),
-      }),
-    ...(input.image !== undefined && input.image !== null && { image: input.image }),
-    ...(input.imagePullCredentialsType !== undefined &&
-      input.imagePullCredentialsType !== null && { imagePullCredentialsType: input.imagePullCredentialsType }),
-    ...(input.privilegedMode !== undefined &&
-      input.privilegedMode !== null && { privilegedMode: input.privilegedMode }),
-    ...(input.registryCredential !== undefined &&
-      input.registryCredential !== null && {
-        registryCredential: serializeAws_json1_1RegistryCredential(input.registryCredential, context),
-      }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.certificate != undefined && { certificate: input.certificate }),
+    ...(input.computeType != undefined && { computeType: input.computeType }),
+    ...(input.environmentVariables != undefined && {
+      environmentVariables: serializeAws_json1_1EnvironmentVariables(input.environmentVariables, context),
+    }),
+    ...(input.image != undefined && { image: input.image }),
+    ...(input.imagePullCredentialsType != undefined && { imagePullCredentialsType: input.imagePullCredentialsType }),
+    ...(input.privilegedMode != undefined && { privilegedMode: input.privilegedMode }),
+    ...(input.registryCredential != undefined && {
+      registryCredential: serializeAws_json1_1RegistryCredential(input.registryCredential, context),
+    }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3568,11 +3523,11 @@ const serializeAws_json1_1ProjectFileSystemLocation = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
-    ...(input.location !== undefined && input.location !== null && { location: input.location }),
-    ...(input.mountOptions !== undefined && input.mountOptions !== null && { mountOptions: input.mountOptions }),
-    ...(input.mountPoint !== undefined && input.mountPoint !== null && { mountPoint: input.mountPoint }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.identifier != undefined && { identifier: input.identifier }),
+    ...(input.location != undefined && { location: input.location }),
+    ...(input.mountOptions != undefined && { mountOptions: input.mountOptions }),
+    ...(input.mountPoint != undefined && { mountPoint: input.mountPoint }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3617,25 +3572,20 @@ const serializeAws_json1_1ProjectSecondarySourceVersions = (
 
 const serializeAws_json1_1ProjectSource = (input: ProjectSource, context: __SerdeContext): any => {
   return {
-    ...(input.auth !== undefined &&
-      input.auth !== null && { auth: serializeAws_json1_1SourceAuth(input.auth, context) }),
-    ...(input.buildStatusConfig !== undefined &&
-      input.buildStatusConfig !== null && {
-        buildStatusConfig: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfig, context),
-      }),
-    ...(input.buildspec !== undefined && input.buildspec !== null && { buildspec: input.buildspec }),
-    ...(input.gitCloneDepth !== undefined && input.gitCloneDepth !== null && { gitCloneDepth: input.gitCloneDepth }),
-    ...(input.gitSubmodulesConfig !== undefined &&
-      input.gitSubmodulesConfig !== null && {
-        gitSubmodulesConfig: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfig, context),
-      }),
-    ...(input.insecureSsl !== undefined && input.insecureSsl !== null && { insecureSsl: input.insecureSsl }),
-    ...(input.location !== undefined && input.location !== null && { location: input.location }),
-    ...(input.reportBuildStatus !== undefined &&
-      input.reportBuildStatus !== null && { reportBuildStatus: input.reportBuildStatus }),
-    ...(input.sourceIdentifier !== undefined &&
-      input.sourceIdentifier !== null && { sourceIdentifier: input.sourceIdentifier }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.auth != undefined && { auth: serializeAws_json1_1SourceAuth(input.auth, context) }),
+    ...(input.buildStatusConfig != undefined && {
+      buildStatusConfig: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfig, context),
+    }),
+    ...(input.buildspec != undefined && { buildspec: input.buildspec }),
+    ...(input.gitCloneDepth != undefined && { gitCloneDepth: input.gitCloneDepth }),
+    ...(input.gitSubmodulesConfig != undefined && {
+      gitSubmodulesConfig: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfig, context),
+    }),
+    ...(input.insecureSsl != undefined && { insecureSsl: input.insecureSsl }),
+    ...(input.location != undefined && { location: input.location }),
+    ...(input.reportBuildStatus != undefined && { reportBuildStatus: input.reportBuildStatus }),
+    ...(input.sourceIdentifier != undefined && { sourceIdentifier: input.sourceIdentifier }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -3652,24 +3602,22 @@ const serializeAws_json1_1ProjectSources = (input: ProjectSource[], context: __S
 
 const serializeAws_json1_1ProjectSourceVersion = (input: ProjectSourceVersion, context: __SerdeContext): any => {
   return {
-    ...(input.sourceIdentifier !== undefined &&
-      input.sourceIdentifier !== null && { sourceIdentifier: input.sourceIdentifier }),
-    ...(input.sourceVersion !== undefined && input.sourceVersion !== null && { sourceVersion: input.sourceVersion }),
+    ...(input.sourceIdentifier != undefined && { sourceIdentifier: input.sourceIdentifier }),
+    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
   };
 };
 
 const serializeAws_json1_1PutResourcePolicyInput = (input: PutResourcePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.policy != undefined && { policy: input.policy }),
+    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1RegistryCredential = (input: RegistryCredential, context: __SerdeContext): any => {
   return {
-    ...(input.credential !== undefined && input.credential !== null && { credential: input.credential }),
-    ...(input.credentialProvider !== undefined &&
-      input.credentialProvider !== null && { credentialProvider: input.credentialProvider }),
+    ...(input.credential != undefined && { credential: input.credential }),
+    ...(input.credentialProvider != undefined && { credentialProvider: input.credentialProvider }),
   };
 };
 
@@ -3686,18 +3634,16 @@ const serializeAws_json1_1ReportArns = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1ReportExportConfig = (input: ReportExportConfig, context: __SerdeContext): any => {
   return {
-    ...(input.exportConfigType !== undefined &&
-      input.exportConfigType !== null && { exportConfigType: input.exportConfigType }),
-    ...(input.s3Destination !== undefined &&
-      input.s3Destination !== null && {
-        s3Destination: serializeAws_json1_1S3ReportExportConfig(input.s3Destination, context),
-      }),
+    ...(input.exportConfigType != undefined && { exportConfigType: input.exportConfigType }),
+    ...(input.s3Destination != undefined && {
+      s3Destination: serializeAws_json1_1S3ReportExportConfig(input.s3Destination, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ReportFilter = (input: ReportFilter, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
@@ -3714,41 +3660,36 @@ const serializeAws_json1_1ReportGroupArns = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1RetryBuildBatchInput = (input: RetryBuildBatchInput, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.idempotencyToken !== undefined &&
-      input.idempotencyToken !== null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.retryType !== undefined && input.retryType !== null && { retryType: input.retryType }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.idempotencyToken != undefined && { idempotencyToken: input.idempotencyToken }),
+    ...(input.retryType != undefined && { retryType: input.retryType }),
   };
 };
 
 const serializeAws_json1_1RetryBuildInput = (input: RetryBuildInput, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.idempotencyToken !== undefined &&
-      input.idempotencyToken !== null && { idempotencyToken: input.idempotencyToken }),
+    ...(input.id != undefined && { id: input.id }),
+    ...(input.idempotencyToken != undefined && { idempotencyToken: input.idempotencyToken }),
   };
 };
 
 const serializeAws_json1_1S3LogsConfig = (input: S3LogsConfig, context: __SerdeContext): any => {
   return {
-    ...(input.bucketOwnerAccess !== undefined &&
-      input.bucketOwnerAccess !== null && { bucketOwnerAccess: input.bucketOwnerAccess }),
-    ...(input.encryptionDisabled !== undefined &&
-      input.encryptionDisabled !== null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.location !== undefined && input.location !== null && { location: input.location }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.bucketOwnerAccess != undefined && { bucketOwnerAccess: input.bucketOwnerAccess }),
+    ...(input.encryptionDisabled != undefined && { encryptionDisabled: input.encryptionDisabled }),
+    ...(input.location != undefined && { location: input.location }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1S3ReportExportConfig = (input: S3ReportExportConfig, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.bucketOwner !== undefined && input.bucketOwner !== null && { bucketOwner: input.bucketOwner }),
-    ...(input.encryptionDisabled !== undefined &&
-      input.encryptionDisabled !== null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.packaging !== undefined && input.packaging !== null && { packaging: input.packaging }),
-    ...(input.path !== undefined && input.path !== null && { path: input.path }),
+    ...(input.bucket != undefined && { bucket: input.bucket }),
+    ...(input.bucketOwner != undefined && { bucketOwner: input.bucketOwner }),
+    ...(input.encryptionDisabled != undefined && { encryptionDisabled: input.encryptionDisabled }),
+    ...(input.encryptionKey != undefined && { encryptionKey: input.encryptionKey }),
+    ...(input.packaging != undefined && { packaging: input.packaging }),
+    ...(input.path != undefined && { path: input.path }),
   };
 };
 
@@ -3765,222 +3706,160 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1SourceAuth = (input: SourceAuth, context: __SerdeContext): any => {
   return {
-    ...(input.resource !== undefined && input.resource !== null && { resource: input.resource }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.resource != undefined && { resource: input.resource }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1StartBuildBatchInput = (input: StartBuildBatchInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifactsOverride !== undefined &&
-      input.artifactsOverride !== null && {
-        artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
-      }),
-    ...(input.buildBatchConfigOverride !== undefined &&
-      input.buildBatchConfigOverride !== null && {
-        buildBatchConfigOverride: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfigOverride, context),
-      }),
-    ...(input.buildTimeoutInMinutesOverride !== undefined &&
-      input.buildTimeoutInMinutesOverride !== null && {
-        buildTimeoutInMinutesOverride: input.buildTimeoutInMinutesOverride,
-      }),
-    ...(input.buildspecOverride !== undefined &&
-      input.buildspecOverride !== null && { buildspecOverride: input.buildspecOverride }),
-    ...(input.cacheOverride !== undefined &&
-      input.cacheOverride !== null && {
-        cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
-      }),
-    ...(input.certificateOverride !== undefined &&
-      input.certificateOverride !== null && { certificateOverride: input.certificateOverride }),
-    ...(input.computeTypeOverride !== undefined &&
-      input.computeTypeOverride !== null && { computeTypeOverride: input.computeTypeOverride }),
-    ...(input.debugSessionEnabled !== undefined &&
-      input.debugSessionEnabled !== null && { debugSessionEnabled: input.debugSessionEnabled }),
-    ...(input.encryptionKeyOverride !== undefined &&
-      input.encryptionKeyOverride !== null && { encryptionKeyOverride: input.encryptionKeyOverride }),
-    ...(input.environmentTypeOverride !== undefined &&
-      input.environmentTypeOverride !== null && { environmentTypeOverride: input.environmentTypeOverride }),
-    ...(input.environmentVariablesOverride !== undefined &&
-      input.environmentVariablesOverride !== null && {
-        environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
-          input.environmentVariablesOverride,
-          context
-        ),
-      }),
-    ...(input.gitCloneDepthOverride !== undefined &&
-      input.gitCloneDepthOverride !== null && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
-    ...(input.gitSubmodulesConfigOverride !== undefined &&
-      input.gitSubmodulesConfigOverride !== null && {
-        gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(
-          input.gitSubmodulesConfigOverride,
-          context
-        ),
-      }),
-    ...(input.idempotencyToken !== undefined &&
-      input.idempotencyToken !== null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.imageOverride !== undefined && input.imageOverride !== null && { imageOverride: input.imageOverride }),
-    ...(input.imagePullCredentialsTypeOverride !== undefined &&
-      input.imagePullCredentialsTypeOverride !== null && {
-        imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
-      }),
-    ...(input.insecureSslOverride !== undefined &&
-      input.insecureSslOverride !== null && { insecureSslOverride: input.insecureSslOverride }),
-    ...(input.logsConfigOverride !== undefined &&
-      input.logsConfigOverride !== null && {
-        logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
-      }),
-    ...(input.privilegedModeOverride !== undefined &&
-      input.privilegedModeOverride !== null && { privilegedModeOverride: input.privilegedModeOverride }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.queuedTimeoutInMinutesOverride !== undefined &&
-      input.queuedTimeoutInMinutesOverride !== null && {
-        queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
-      }),
-    ...(input.registryCredentialOverride !== undefined &&
-      input.registryCredentialOverride !== null && {
-        registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
-      }),
-    ...(input.reportBuildBatchStatusOverride !== undefined &&
-      input.reportBuildBatchStatusOverride !== null && {
-        reportBuildBatchStatusOverride: input.reportBuildBatchStatusOverride,
-      }),
-    ...(input.secondaryArtifactsOverride !== undefined &&
-      input.secondaryArtifactsOverride !== null && {
-        secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
-      }),
-    ...(input.secondarySourcesOverride !== undefined &&
-      input.secondarySourcesOverride !== null && {
-        secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
-      }),
-    ...(input.secondarySourcesVersionOverride !== undefined &&
-      input.secondarySourcesVersionOverride !== null && {
-        secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
-          input.secondarySourcesVersionOverride,
-          context
-        ),
-      }),
-    ...(input.serviceRoleOverride !== undefined &&
-      input.serviceRoleOverride !== null && { serviceRoleOverride: input.serviceRoleOverride }),
-    ...(input.sourceAuthOverride !== undefined &&
-      input.sourceAuthOverride !== null && {
-        sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
-      }),
-    ...(input.sourceLocationOverride !== undefined &&
-      input.sourceLocationOverride !== null && { sourceLocationOverride: input.sourceLocationOverride }),
-    ...(input.sourceTypeOverride !== undefined &&
-      input.sourceTypeOverride !== null && { sourceTypeOverride: input.sourceTypeOverride }),
-    ...(input.sourceVersion !== undefined && input.sourceVersion !== null && { sourceVersion: input.sourceVersion }),
+    ...(input.artifactsOverride != undefined && {
+      artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
+    }),
+    ...(input.buildBatchConfigOverride != undefined && {
+      buildBatchConfigOverride: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfigOverride, context),
+    }),
+    ...(input.buildTimeoutInMinutesOverride != undefined && {
+      buildTimeoutInMinutesOverride: input.buildTimeoutInMinutesOverride,
+    }),
+    ...(input.buildspecOverride != undefined && { buildspecOverride: input.buildspecOverride }),
+    ...(input.cacheOverride != undefined && {
+      cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
+    }),
+    ...(input.certificateOverride != undefined && { certificateOverride: input.certificateOverride }),
+    ...(input.computeTypeOverride != undefined && { computeTypeOverride: input.computeTypeOverride }),
+    ...(input.debugSessionEnabled != undefined && { debugSessionEnabled: input.debugSessionEnabled }),
+    ...(input.encryptionKeyOverride != undefined && { encryptionKeyOverride: input.encryptionKeyOverride }),
+    ...(input.environmentTypeOverride != undefined && { environmentTypeOverride: input.environmentTypeOverride }),
+    ...(input.environmentVariablesOverride != undefined && {
+      environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
+        input.environmentVariablesOverride,
+        context
+      ),
+    }),
+    ...(input.gitCloneDepthOverride != undefined && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
+    ...(input.gitSubmodulesConfigOverride != undefined && {
+      gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfigOverride, context),
+    }),
+    ...(input.idempotencyToken != undefined && { idempotencyToken: input.idempotencyToken }),
+    ...(input.imageOverride != undefined && { imageOverride: input.imageOverride }),
+    ...(input.imagePullCredentialsTypeOverride != undefined && {
+      imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
+    }),
+    ...(input.insecureSslOverride != undefined && { insecureSslOverride: input.insecureSslOverride }),
+    ...(input.logsConfigOverride != undefined && {
+      logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
+    }),
+    ...(input.privilegedModeOverride != undefined && { privilegedModeOverride: input.privilegedModeOverride }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
+    ...(input.queuedTimeoutInMinutesOverride != undefined && {
+      queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
+    }),
+    ...(input.registryCredentialOverride != undefined && {
+      registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
+    }),
+    ...(input.reportBuildBatchStatusOverride != undefined && {
+      reportBuildBatchStatusOverride: input.reportBuildBatchStatusOverride,
+    }),
+    ...(input.secondaryArtifactsOverride != undefined && {
+      secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
+    }),
+    ...(input.secondarySourcesOverride != undefined && {
+      secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
+    }),
+    ...(input.secondarySourcesVersionOverride != undefined && {
+      secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
+        input.secondarySourcesVersionOverride,
+        context
+      ),
+    }),
+    ...(input.serviceRoleOverride != undefined && { serviceRoleOverride: input.serviceRoleOverride }),
+    ...(input.sourceAuthOverride != undefined && {
+      sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
+    }),
+    ...(input.sourceLocationOverride != undefined && { sourceLocationOverride: input.sourceLocationOverride }),
+    ...(input.sourceTypeOverride != undefined && { sourceTypeOverride: input.sourceTypeOverride }),
+    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
   };
 };
 
 const serializeAws_json1_1StartBuildInput = (input: StartBuildInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifactsOverride !== undefined &&
-      input.artifactsOverride !== null && {
-        artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
-      }),
-    ...(input.buildStatusConfigOverride !== undefined &&
-      input.buildStatusConfigOverride !== null && {
-        buildStatusConfigOverride: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfigOverride, context),
-      }),
-    ...(input.buildspecOverride !== undefined &&
-      input.buildspecOverride !== null && { buildspecOverride: input.buildspecOverride }),
-    ...(input.cacheOverride !== undefined &&
-      input.cacheOverride !== null && {
-        cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
-      }),
-    ...(input.certificateOverride !== undefined &&
-      input.certificateOverride !== null && { certificateOverride: input.certificateOverride }),
-    ...(input.computeTypeOverride !== undefined &&
-      input.computeTypeOverride !== null && { computeTypeOverride: input.computeTypeOverride }),
-    ...(input.debugSessionEnabled !== undefined &&
-      input.debugSessionEnabled !== null && { debugSessionEnabled: input.debugSessionEnabled }),
-    ...(input.encryptionKeyOverride !== undefined &&
-      input.encryptionKeyOverride !== null && { encryptionKeyOverride: input.encryptionKeyOverride }),
-    ...(input.environmentTypeOverride !== undefined &&
-      input.environmentTypeOverride !== null && { environmentTypeOverride: input.environmentTypeOverride }),
-    ...(input.environmentVariablesOverride !== undefined &&
-      input.environmentVariablesOverride !== null && {
-        environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
-          input.environmentVariablesOverride,
-          context
-        ),
-      }),
-    ...(input.gitCloneDepthOverride !== undefined &&
-      input.gitCloneDepthOverride !== null && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
-    ...(input.gitSubmodulesConfigOverride !== undefined &&
-      input.gitSubmodulesConfigOverride !== null && {
-        gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(
-          input.gitSubmodulesConfigOverride,
-          context
-        ),
-      }),
-    ...(input.idempotencyToken !== undefined &&
-      input.idempotencyToken !== null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.imageOverride !== undefined && input.imageOverride !== null && { imageOverride: input.imageOverride }),
-    ...(input.imagePullCredentialsTypeOverride !== undefined &&
-      input.imagePullCredentialsTypeOverride !== null && {
-        imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
-      }),
-    ...(input.insecureSslOverride !== undefined &&
-      input.insecureSslOverride !== null && { insecureSslOverride: input.insecureSslOverride }),
-    ...(input.logsConfigOverride !== undefined &&
-      input.logsConfigOverride !== null && {
-        logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
-      }),
-    ...(input.privilegedModeOverride !== undefined &&
-      input.privilegedModeOverride !== null && { privilegedModeOverride: input.privilegedModeOverride }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.queuedTimeoutInMinutesOverride !== undefined &&
-      input.queuedTimeoutInMinutesOverride !== null && {
-        queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
-      }),
-    ...(input.registryCredentialOverride !== undefined &&
-      input.registryCredentialOverride !== null && {
-        registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
-      }),
-    ...(input.reportBuildStatusOverride !== undefined &&
-      input.reportBuildStatusOverride !== null && { reportBuildStatusOverride: input.reportBuildStatusOverride }),
-    ...(input.secondaryArtifactsOverride !== undefined &&
-      input.secondaryArtifactsOverride !== null && {
-        secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
-      }),
-    ...(input.secondarySourcesOverride !== undefined &&
-      input.secondarySourcesOverride !== null && {
-        secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
-      }),
-    ...(input.secondarySourcesVersionOverride !== undefined &&
-      input.secondarySourcesVersionOverride !== null && {
-        secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
-          input.secondarySourcesVersionOverride,
-          context
-        ),
-      }),
-    ...(input.serviceRoleOverride !== undefined &&
-      input.serviceRoleOverride !== null && { serviceRoleOverride: input.serviceRoleOverride }),
-    ...(input.sourceAuthOverride !== undefined &&
-      input.sourceAuthOverride !== null && {
-        sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
-      }),
-    ...(input.sourceLocationOverride !== undefined &&
-      input.sourceLocationOverride !== null && { sourceLocationOverride: input.sourceLocationOverride }),
-    ...(input.sourceTypeOverride !== undefined &&
-      input.sourceTypeOverride !== null && { sourceTypeOverride: input.sourceTypeOverride }),
-    ...(input.sourceVersion !== undefined && input.sourceVersion !== null && { sourceVersion: input.sourceVersion }),
-    ...(input.timeoutInMinutesOverride !== undefined &&
-      input.timeoutInMinutesOverride !== null && { timeoutInMinutesOverride: input.timeoutInMinutesOverride }),
+    ...(input.artifactsOverride != undefined && {
+      artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
+    }),
+    ...(input.buildStatusConfigOverride != undefined && {
+      buildStatusConfigOverride: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfigOverride, context),
+    }),
+    ...(input.buildspecOverride != undefined && { buildspecOverride: input.buildspecOverride }),
+    ...(input.cacheOverride != undefined && {
+      cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
+    }),
+    ...(input.certificateOverride != undefined && { certificateOverride: input.certificateOverride }),
+    ...(input.computeTypeOverride != undefined && { computeTypeOverride: input.computeTypeOverride }),
+    ...(input.debugSessionEnabled != undefined && { debugSessionEnabled: input.debugSessionEnabled }),
+    ...(input.encryptionKeyOverride != undefined && { encryptionKeyOverride: input.encryptionKeyOverride }),
+    ...(input.environmentTypeOverride != undefined && { environmentTypeOverride: input.environmentTypeOverride }),
+    ...(input.environmentVariablesOverride != undefined && {
+      environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
+        input.environmentVariablesOverride,
+        context
+      ),
+    }),
+    ...(input.gitCloneDepthOverride != undefined && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
+    ...(input.gitSubmodulesConfigOverride != undefined && {
+      gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfigOverride, context),
+    }),
+    ...(input.idempotencyToken != undefined && { idempotencyToken: input.idempotencyToken }),
+    ...(input.imageOverride != undefined && { imageOverride: input.imageOverride }),
+    ...(input.imagePullCredentialsTypeOverride != undefined && {
+      imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
+    }),
+    ...(input.insecureSslOverride != undefined && { insecureSslOverride: input.insecureSslOverride }),
+    ...(input.logsConfigOverride != undefined && {
+      logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
+    }),
+    ...(input.privilegedModeOverride != undefined && { privilegedModeOverride: input.privilegedModeOverride }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
+    ...(input.queuedTimeoutInMinutesOverride != undefined && {
+      queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
+    }),
+    ...(input.registryCredentialOverride != undefined && {
+      registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
+    }),
+    ...(input.reportBuildStatusOverride != undefined && { reportBuildStatusOverride: input.reportBuildStatusOverride }),
+    ...(input.secondaryArtifactsOverride != undefined && {
+      secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
+    }),
+    ...(input.secondarySourcesOverride != undefined && {
+      secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
+    }),
+    ...(input.secondarySourcesVersionOverride != undefined && {
+      secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
+        input.secondarySourcesVersionOverride,
+        context
+      ),
+    }),
+    ...(input.serviceRoleOverride != undefined && { serviceRoleOverride: input.serviceRoleOverride }),
+    ...(input.sourceAuthOverride != undefined && {
+      sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
+    }),
+    ...(input.sourceLocationOverride != undefined && { sourceLocationOverride: input.sourceLocationOverride }),
+    ...(input.sourceTypeOverride != undefined && { sourceTypeOverride: input.sourceTypeOverride }),
+    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.timeoutInMinutesOverride != undefined && { timeoutInMinutesOverride: input.timeoutInMinutesOverride }),
   };
 };
 
 const serializeAws_json1_1StopBuildBatchInput = (input: StopBuildBatchInput, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
 const serializeAws_json1_1StopBuildInput = (input: StopBuildInput, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != undefined && { id: input.id }),
   };
 };
 
@@ -3997,8 +3876,8 @@ const serializeAws_json1_1Subnets = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != undefined && { key: input.key }),
+    ...(input.value != undefined && { value: input.value }),
   };
 };
 
@@ -4015,63 +3894,49 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TestCaseFilter = (input: TestCaseFilter, context: __SerdeContext): any => {
   return {
-    ...(input.keyword !== undefined && input.keyword !== null && { keyword: input.keyword }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.keyword != undefined && { keyword: input.keyword }),
+    ...(input.status != undefined && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.artifacts !== undefined &&
-      input.artifacts !== null && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
-    ...(input.badgeEnabled !== undefined && input.badgeEnabled !== null && { badgeEnabled: input.badgeEnabled }),
-    ...(input.buildBatchConfig !== undefined &&
-      input.buildBatchConfig !== null && {
-        buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
-      }),
-    ...(input.cache !== undefined &&
-      input.cache !== null && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
-    ...(input.concurrentBuildLimit !== undefined &&
-      input.concurrentBuildLimit !== null && { concurrentBuildLimit: input.concurrentBuildLimit }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.environment !== undefined &&
-      input.environment !== null && {
-        environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
-      }),
-    ...(input.fileSystemLocations !== undefined &&
-      input.fileSystemLocations !== null && {
-        fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
-      }),
-    ...(input.logsConfig !== undefined &&
-      input.logsConfig !== null && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes !== undefined &&
-      input.queuedTimeoutInMinutes !== null && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
-    ...(input.secondaryArtifacts !== undefined &&
-      input.secondaryArtifacts !== null && {
-        secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
-      }),
-    ...(input.secondarySourceVersions !== undefined &&
-      input.secondarySourceVersions !== null && {
-        secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
-          input.secondarySourceVersions,
-          context
-        ),
-      }),
-    ...(input.secondarySources !== undefined &&
-      input.secondarySources !== null && {
-        secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
-      }),
-    ...(input.serviceRole !== undefined && input.serviceRole !== null && { serviceRole: input.serviceRole }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
-    ...(input.sourceVersion !== undefined && input.sourceVersion !== null && { sourceVersion: input.sourceVersion }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutInMinutes !== undefined &&
-      input.timeoutInMinutes !== null && { timeoutInMinutes: input.timeoutInMinutes }),
-    ...(input.vpcConfig !== undefined &&
-      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
+    ...(input.artifacts != undefined && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
+    ...(input.badgeEnabled != undefined && { badgeEnabled: input.badgeEnabled }),
+    ...(input.buildBatchConfig != undefined && {
+      buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
+    }),
+    ...(input.cache != undefined && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
+    ...(input.concurrentBuildLimit != undefined && { concurrentBuildLimit: input.concurrentBuildLimit }),
+    ...(input.description != undefined && { description: input.description }),
+    ...(input.encryptionKey != undefined && { encryptionKey: input.encryptionKey }),
+    ...(input.environment != undefined && {
+      environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
+    }),
+    ...(input.fileSystemLocations != undefined && {
+      fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
+    }),
+    ...(input.logsConfig != undefined && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
+    ...(input.name != undefined && { name: input.name }),
+    ...(input.queuedTimeoutInMinutes != undefined && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
+    ...(input.secondaryArtifacts != undefined && {
+      secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
+    }),
+    ...(input.secondarySourceVersions != undefined && {
+      secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
+        input.secondarySourceVersions,
+        context
+      ),
+    }),
+    ...(input.secondarySources != undefined && {
+      secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
+    }),
+    ...(input.serviceRole != undefined && { serviceRole: input.serviceRole }),
+    ...(input.source != undefined && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
+    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.timeoutInMinutes != undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+    ...(input.vpcConfig != undefined && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -4080,54 +3945,49 @@ const serializeAws_json1_1UpdateProjectVisibilityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
-    ...(input.projectVisibility !== undefined &&
-      input.projectVisibility !== null && { projectVisibility: input.projectVisibility }),
-    ...(input.resourceAccessRole !== undefined &&
-      input.resourceAccessRole !== null && { resourceAccessRole: input.resourceAccessRole }),
+    ...(input.projectArn != undefined && { projectArn: input.projectArn }),
+    ...(input.projectVisibility != undefined && { projectVisibility: input.projectVisibility }),
+    ...(input.resourceAccessRole != undefined && { resourceAccessRole: input.resourceAccessRole }),
   };
 };
 
 const serializeAws_json1_1UpdateReportGroupInput = (input: UpdateReportGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
-    ...(input.exportConfig !== undefined &&
-      input.exportConfig !== null && {
-        exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.exportConfig != undefined && {
+      exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
+    }),
+    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateWebhookInput = (input: UpdateWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.branchFilter !== undefined && input.branchFilter !== null && { branchFilter: input.branchFilter }),
-    ...(input.buildType !== undefined && input.buildType !== null && { buildType: input.buildType }),
-    ...(input.filterGroups !== undefined &&
-      input.filterGroups !== null && { filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context) }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.rotateSecret !== undefined && input.rotateSecret !== null && { rotateSecret: input.rotateSecret }),
+    ...(input.branchFilter != undefined && { branchFilter: input.branchFilter }),
+    ...(input.buildType != undefined && { buildType: input.buildType }),
+    ...(input.filterGroups != undefined && {
+      filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context),
+    }),
+    ...(input.projectName != undefined && { projectName: input.projectName }),
+    ...(input.rotateSecret != undefined && { rotateSecret: input.rotateSecret }),
   };
 };
 
 const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
   return {
-    ...(input.securityGroupIds !== undefined &&
-      input.securityGroupIds !== null && {
-        securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
-      }),
-    ...(input.subnets !== undefined &&
-      input.subnets !== null && { subnets: serializeAws_json1_1Subnets(input.subnets, context) }),
-    ...(input.vpcId !== undefined && input.vpcId !== null && { vpcId: input.vpcId }),
+    ...(input.securityGroupIds != undefined && {
+      securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
+    }),
+    ...(input.subnets != undefined && { subnets: serializeAws_json1_1Subnets(input.subnets, context) }),
+    ...(input.vpcId != undefined && { vpcId: input.vpcId }),
   };
 };
 
 const serializeAws_json1_1WebhookFilter = (input: WebhookFilter, context: __SerdeContext): any => {
   return {
-    ...(input.excludeMatchedPattern !== undefined &&
-      input.excludeMatchedPattern !== null && { excludeMatchedPattern: input.excludeMatchedPattern }),
-    ...(input.pattern !== undefined && input.pattern !== null && { pattern: input.pattern }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.excludeMatchedPattern != undefined && { excludeMatchedPattern: input.excludeMatchedPattern }),
+    ...(input.pattern != undefined && { pattern: input.pattern }),
+    ...(input.type != undefined && { type: input.type }),
   };
 };
 
@@ -4146,11 +4006,9 @@ const deserializeAws_json1_1BatchDeleteBuildsOutput = (
 ): BatchDeleteBuildsOutput => {
   return {
     buildsDeleted:
-      output.buildsDeleted !== undefined && output.buildsDeleted !== null
-        ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context)
-        : undefined,
+      output.buildsDeleted != undefined ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context) : undefined,
     buildsNotDeleted:
-      output.buildsNotDeleted !== undefined && output.buildsNotDeleted !== null
+      output.buildsNotDeleted != undefined
         ? deserializeAws_json1_1BuildsNotDeleted(output.buildsNotDeleted, context)
         : undefined,
   } as any;
@@ -4162,11 +4020,9 @@ const deserializeAws_json1_1BatchGetBuildBatchesOutput = (
 ): BatchGetBuildBatchesOutput => {
   return {
     buildBatches:
-      output.buildBatches !== undefined && output.buildBatches !== null
-        ? deserializeAws_json1_1BuildBatches(output.buildBatches, context)
-        : undefined,
+      output.buildBatches != undefined ? deserializeAws_json1_1BuildBatches(output.buildBatches, context) : undefined,
     buildBatchesNotFound:
-      output.buildBatchesNotFound !== undefined && output.buildBatchesNotFound !== null
+      output.buildBatchesNotFound != undefined
         ? deserializeAws_json1_1BuildBatchIds(output.buildBatchesNotFound, context)
         : undefined,
   } as any;
@@ -4174,25 +4030,17 @@ const deserializeAws_json1_1BatchGetBuildBatchesOutput = (
 
 const deserializeAws_json1_1BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGetBuildsOutput => {
   return {
-    builds:
-      output.builds !== undefined && output.builds !== null
-        ? deserializeAws_json1_1Builds(output.builds, context)
-        : undefined,
+    builds: output.builds != undefined ? deserializeAws_json1_1Builds(output.builds, context) : undefined,
     buildsNotFound:
-      output.buildsNotFound !== undefined && output.buildsNotFound !== null
-        ? deserializeAws_json1_1BuildIds(output.buildsNotFound, context)
-        : undefined,
+      output.buildsNotFound != undefined ? deserializeAws_json1_1BuildIds(output.buildsNotFound, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BatchGetProjectsOutput = (output: any, context: __SerdeContext): BatchGetProjectsOutput => {
   return {
-    projects:
-      output.projects !== undefined && output.projects !== null
-        ? deserializeAws_json1_1Projects(output.projects, context)
-        : undefined,
+    projects: output.projects != undefined ? deserializeAws_json1_1Projects(output.projects, context) : undefined,
     projectsNotFound:
-      output.projectsNotFound !== undefined && output.projectsNotFound !== null
+      output.projectsNotFound != undefined
         ? deserializeAws_json1_1ProjectNames(output.projectsNotFound, context)
         : undefined,
   } as any;
@@ -4204,11 +4052,9 @@ const deserializeAws_json1_1BatchGetReportGroupsOutput = (
 ): BatchGetReportGroupsOutput => {
   return {
     reportGroups:
-      output.reportGroups !== undefined && output.reportGroups !== null
-        ? deserializeAws_json1_1ReportGroups(output.reportGroups, context)
-        : undefined,
+      output.reportGroups != undefined ? deserializeAws_json1_1ReportGroups(output.reportGroups, context) : undefined,
     reportGroupsNotFound:
-      output.reportGroupsNotFound !== undefined && output.reportGroupsNotFound !== null
+      output.reportGroupsNotFound != undefined
         ? deserializeAws_json1_1ReportGroupArns(output.reportGroupsNotFound, context)
         : undefined,
   } as any;
@@ -4216,12 +4062,9 @@ const deserializeAws_json1_1BatchGetReportGroupsOutput = (
 
 const deserializeAws_json1_1BatchGetReportsOutput = (output: any, context: __SerdeContext): BatchGetReportsOutput => {
   return {
-    reports:
-      output.reports !== undefined && output.reports !== null
-        ? deserializeAws_json1_1Reports(output.reports, context)
-        : undefined,
+    reports: output.reports != undefined ? deserializeAws_json1_1Reports(output.reports, context) : undefined,
     reportsNotFound:
-      output.reportsNotFound !== undefined && output.reportsNotFound !== null
+      output.reportsNotFound != undefined
         ? deserializeAws_json1_1ReportArns(output.reportsNotFound, context)
         : undefined,
   } as any;
@@ -4230,7 +4073,7 @@ const deserializeAws_json1_1BatchGetReportsOutput = (output: any, context: __Ser
 const deserializeAws_json1_1BatchRestrictions = (output: any, context: __SerdeContext): BatchRestrictions => {
   return {
     computeTypesAllowed:
-      output.computeTypesAllowed !== undefined && output.computeTypesAllowed !== null
+      output.computeTypesAllowed != undefined
         ? deserializeAws_json1_1ComputeTypesAllowed(output.computeTypesAllowed, context)
         : undefined,
     maximumBuildsAllowed: __expectInt32(output.maximumBuildsAllowed),
@@ -4241,87 +4084,64 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
   return {
     arn: __expectString(output.arn),
     artifacts:
-      output.artifacts !== undefined && output.artifacts !== null
-        ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context)
-        : undefined,
+      output.artifacts != undefined ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context) : undefined,
     buildBatchArn: __expectString(output.buildBatchArn),
     buildComplete: __expectBoolean(output.buildComplete),
     buildNumber: __expectLong(output.buildNumber),
     buildStatus: __expectString(output.buildStatus),
-    cache:
-      output.cache !== undefined && output.cache !== null
-        ? deserializeAws_json1_1ProjectCache(output.cache, context)
-        : undefined,
+    cache: output.cache != undefined ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
     currentPhase: __expectString(output.currentPhase),
     debugSession:
-      output.debugSession !== undefined && output.debugSession !== null
-        ? deserializeAws_json1_1DebugSession(output.debugSession, context)
-        : undefined,
+      output.debugSession != undefined ? deserializeAws_json1_1DebugSession(output.debugSession, context) : undefined,
     encryptionKey: __expectString(output.encryptionKey),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     environment:
-      output.environment !== undefined && output.environment !== null
+      output.environment != undefined
         ? deserializeAws_json1_1ProjectEnvironment(output.environment, context)
         : undefined,
     exportedEnvironmentVariables:
-      output.exportedEnvironmentVariables !== undefined && output.exportedEnvironmentVariables !== null
+      output.exportedEnvironmentVariables != undefined
         ? deserializeAws_json1_1ExportedEnvironmentVariables(output.exportedEnvironmentVariables, context)
         : undefined,
     fileSystemLocations:
-      output.fileSystemLocations !== undefined && output.fileSystemLocations !== null
+      output.fileSystemLocations != undefined
         ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
         : undefined,
     id: __expectString(output.id),
     initiator: __expectString(output.initiator),
-    logs:
-      output.logs !== undefined && output.logs !== null
-        ? deserializeAws_json1_1LogsLocation(output.logs, context)
-        : undefined,
+    logs: output.logs != undefined ? deserializeAws_json1_1LogsLocation(output.logs, context) : undefined,
     networkInterface:
-      output.networkInterface !== undefined && output.networkInterface !== null
+      output.networkInterface != undefined
         ? deserializeAws_json1_1NetworkInterface(output.networkInterface, context)
         : undefined,
-    phases:
-      output.phases !== undefined && output.phases !== null
-        ? deserializeAws_json1_1BuildPhases(output.phases, context)
-        : undefined,
+    phases: output.phases != undefined ? deserializeAws_json1_1BuildPhases(output.phases, context) : undefined,
     projectName: __expectString(output.projectName),
     queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     reportArns:
-      output.reportArns !== undefined && output.reportArns !== null
-        ? deserializeAws_json1_1BuildReportArns(output.reportArns, context)
-        : undefined,
+      output.reportArns != undefined ? deserializeAws_json1_1BuildReportArns(output.reportArns, context) : undefined,
     resolvedSourceVersion: __expectString(output.resolvedSourceVersion),
     secondaryArtifacts:
-      output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
+      output.secondaryArtifacts != undefined
         ? deserializeAws_json1_1BuildArtifactsList(output.secondaryArtifacts, context)
         : undefined,
     secondarySourceVersions:
-      output.secondarySourceVersions !== undefined && output.secondarySourceVersions !== null
+      output.secondarySourceVersions != undefined
         ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
         : undefined,
     secondarySources:
-      output.secondarySources !== undefined && output.secondarySources !== null
+      output.secondarySources != undefined
         ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
         : undefined,
     serviceRole: __expectString(output.serviceRole),
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_json1_1ProjectSource(output.source, context)
-        : undefined,
+    source: output.source != undefined ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
     sourceVersion: __expectString(output.sourceVersion),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
-    vpcConfig:
-      output.vpcConfig !== undefined && output.vpcConfig !== null
-        ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context)
-        : undefined,
+    vpcConfig: output.vpcConfig != undefined ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -4353,79 +4173,58 @@ const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     artifacts:
-      output.artifacts !== undefined && output.artifacts !== null
-        ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context)
-        : undefined,
+      output.artifacts != undefined ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context) : undefined,
     buildBatchConfig:
-      output.buildBatchConfig !== undefined && output.buildBatchConfig !== null
+      output.buildBatchConfig != undefined
         ? deserializeAws_json1_1ProjectBuildBatchConfig(output.buildBatchConfig, context)
         : undefined,
     buildBatchNumber: __expectLong(output.buildBatchNumber),
     buildBatchStatus: __expectString(output.buildBatchStatus),
     buildGroups:
-      output.buildGroups !== undefined && output.buildGroups !== null
-        ? deserializeAws_json1_1BuildGroups(output.buildGroups, context)
-        : undefined,
+      output.buildGroups != undefined ? deserializeAws_json1_1BuildGroups(output.buildGroups, context) : undefined,
     buildTimeoutInMinutes: __expectInt32(output.buildTimeoutInMinutes),
-    cache:
-      output.cache !== undefined && output.cache !== null
-        ? deserializeAws_json1_1ProjectCache(output.cache, context)
-        : undefined,
+    cache: output.cache != undefined ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
     complete: __expectBoolean(output.complete),
     currentPhase: __expectString(output.currentPhase),
     debugSessionEnabled: __expectBoolean(output.debugSessionEnabled),
     encryptionKey: __expectString(output.encryptionKey),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     environment:
-      output.environment !== undefined && output.environment !== null
+      output.environment != undefined
         ? deserializeAws_json1_1ProjectEnvironment(output.environment, context)
         : undefined,
     fileSystemLocations:
-      output.fileSystemLocations !== undefined && output.fileSystemLocations !== null
+      output.fileSystemLocations != undefined
         ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
         : undefined,
     id: __expectString(output.id),
     initiator: __expectString(output.initiator),
-    logConfig:
-      output.logConfig !== undefined && output.logConfig !== null
-        ? deserializeAws_json1_1LogsConfig(output.logConfig, context)
-        : undefined,
-    phases:
-      output.phases !== undefined && output.phases !== null
-        ? deserializeAws_json1_1BuildBatchPhases(output.phases, context)
-        : undefined,
+    logConfig: output.logConfig != undefined ? deserializeAws_json1_1LogsConfig(output.logConfig, context) : undefined,
+    phases: output.phases != undefined ? deserializeAws_json1_1BuildBatchPhases(output.phases, context) : undefined,
     projectName: __expectString(output.projectName),
     queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     resolvedSourceVersion: __expectString(output.resolvedSourceVersion),
     secondaryArtifacts:
-      output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
+      output.secondaryArtifacts != undefined
         ? deserializeAws_json1_1BuildArtifactsList(output.secondaryArtifacts, context)
         : undefined,
     secondarySourceVersions:
-      output.secondarySourceVersions !== undefined && output.secondarySourceVersions !== null
+      output.secondarySourceVersions != undefined
         ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
         : undefined,
     secondarySources:
-      output.secondarySources !== undefined && output.secondarySources !== null
+      output.secondarySources != undefined
         ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
         : undefined,
     serviceRole: __expectString(output.serviceRole),
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_json1_1ProjectSource(output.source, context)
-        : undefined,
+    source: output.source != undefined ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
     sourceVersion: __expectString(output.sourceVersion),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
-    vpcConfig:
-      output.vpcConfig !== undefined && output.vpcConfig !== null
-        ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context)
-        : undefined,
+    vpcConfig: output.vpcConfig != undefined ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
   } as any;
 };
 
@@ -4455,19 +4254,14 @@ const deserializeAws_json1_1BuildBatchIds = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1BuildBatchPhase = (output: any, context: __SerdeContext): BuildBatchPhase => {
   return {
-    contexts:
-      output.contexts !== undefined && output.contexts !== null
-        ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
-        : undefined,
+    contexts: output.contexts != undefined ? deserializeAws_json1_1PhaseContexts(output.contexts, context) : undefined,
     durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     phaseStatus: __expectString(output.phaseStatus),
     phaseType: __expectString(output.phaseType),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
@@ -4488,17 +4282,14 @@ const deserializeAws_json1_1BuildBatchPhases = (output: any, context: __SerdeCon
 const deserializeAws_json1_1BuildGroup = (output: any, context: __SerdeContext): BuildGroup => {
   return {
     currentBuildSummary:
-      output.currentBuildSummary !== undefined && output.currentBuildSummary !== null
+      output.currentBuildSummary != undefined
         ? deserializeAws_json1_1BuildSummary(output.currentBuildSummary, context)
         : undefined,
-    dependsOn:
-      output.dependsOn !== undefined && output.dependsOn !== null
-        ? deserializeAws_json1_1Identifiers(output.dependsOn, context)
-        : undefined,
+    dependsOn: output.dependsOn != undefined ? deserializeAws_json1_1Identifiers(output.dependsOn, context) : undefined,
     identifier: __expectString(output.identifier),
     ignoreFailure: __expectBoolean(output.ignoreFailure),
     priorBuildSummaryList:
-      output.priorBuildSummaryList !== undefined && output.priorBuildSummaryList !== null
+      output.priorBuildSummaryList != undefined
         ? deserializeAws_json1_1BuildSummaries(output.priorBuildSummaryList, context)
         : undefined,
   } as any;
@@ -4537,19 +4328,14 @@ const deserializeAws_json1_1BuildNotDeleted = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1BuildPhase = (output: any, context: __SerdeContext): BuildPhase => {
   return {
-    contexts:
-      output.contexts !== undefined && output.contexts !== null
-        ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
-        : undefined,
+    contexts: output.contexts != undefined ? deserializeAws_json1_1PhaseContexts(output.contexts, context) : undefined,
     durationInSeconds: __expectLong(output.durationInSeconds),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     phaseStatus: __expectString(output.phaseStatus),
     phaseType: __expectString(output.phaseType),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
+      output.startTime != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
   } as any;
@@ -4627,15 +4413,15 @@ const deserializeAws_json1_1BuildSummary = (output: any, context: __SerdeContext
     arn: __expectString(output.arn),
     buildStatus: __expectString(output.buildStatus),
     primaryArtifact:
-      output.primaryArtifact !== undefined && output.primaryArtifact !== null
+      output.primaryArtifact != undefined
         ? deserializeAws_json1_1ResolvedArtifact(output.primaryArtifact, context)
         : undefined,
     requestedOn:
-      output.requestedOn !== undefined && output.requestedOn !== null
+      output.requestedOn != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedOn)))
         : undefined,
     secondaryArtifacts:
-      output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
+      output.secondaryArtifacts != undefined
         ? deserializeAws_json1_1ResolvedSecondaryArtifacts(output.secondaryArtifacts, context)
         : undefined,
   } as any;
@@ -4655,9 +4441,7 @@ const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext
     branchesCovered: __expectInt32(output.branchesCovered),
     branchesMissed: __expectInt32(output.branchesMissed),
     expired:
-      output.expired !== undefined && output.expired !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
-        : undefined,
+      output.expired != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
     filePath: __expectString(output.filePath),
     id: __expectString(output.id),
     lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
@@ -4707,10 +4491,7 @@ const deserializeAws_json1_1ComputeTypesAllowed = (output: any, context: __Serde
 
 const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __SerdeContext): CreateProjectOutput => {
   return {
-    project:
-      output.project !== undefined && output.project !== null
-        ? deserializeAws_json1_1Project(output.project, context)
-        : undefined,
+    project: output.project != undefined ? deserializeAws_json1_1Project(output.project, context) : undefined,
   } as any;
 };
 
@@ -4720,18 +4501,13 @@ const deserializeAws_json1_1CreateReportGroupOutput = (
 ): CreateReportGroupOutput => {
   return {
     reportGroup:
-      output.reportGroup !== undefined && output.reportGroup !== null
-        ? deserializeAws_json1_1ReportGroup(output.reportGroup, context)
-        : undefined,
+      output.reportGroup != undefined ? deserializeAws_json1_1ReportGroup(output.reportGroup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateWebhookOutput = (output: any, context: __SerdeContext): CreateWebhookOutput => {
   return {
-    webhook:
-      output.webhook !== undefined && output.webhook !== null
-        ? deserializeAws_json1_1Webhook(output.webhook, context)
-        : undefined,
+    webhook: output.webhook != undefined ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
   } as any;
 };
 
@@ -4745,11 +4521,9 @@ const deserializeAws_json1_1DebugSession = (output: any, context: __SerdeContext
 const deserializeAws_json1_1DeleteBuildBatchOutput = (output: any, context: __SerdeContext): DeleteBuildBatchOutput => {
   return {
     buildsDeleted:
-      output.buildsDeleted !== undefined && output.buildsDeleted !== null
-        ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context)
-        : undefined,
+      output.buildsDeleted != undefined ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context) : undefined,
     buildsNotDeleted:
-      output.buildsNotDeleted !== undefined && output.buildsNotDeleted !== null
+      output.buildsNotDeleted != undefined
         ? deserializeAws_json1_1BuildsNotDeleted(output.buildsNotDeleted, context)
         : undefined,
     statusCode: __expectString(output.statusCode),
@@ -4797,7 +4571,7 @@ const deserializeAws_json1_1DescribeCodeCoveragesOutput = (
 ): DescribeCodeCoveragesOutput => {
   return {
     codeCoverages:
-      output.codeCoverages !== undefined && output.codeCoverages !== null
+      output.codeCoverages != undefined
         ? deserializeAws_json1_1CodeCoverages(output.codeCoverages, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4810,10 +4584,7 @@ const deserializeAws_json1_1DescribeTestCasesOutput = (
 ): DescribeTestCasesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    testCases:
-      output.testCases !== undefined && output.testCases !== null
-        ? deserializeAws_json1_1TestCases(output.testCases, context)
-        : undefined,
+    testCases: output.testCases != undefined ? deserializeAws_json1_1TestCases(output.testCases, context) : undefined,
   } as any;
 };
 
@@ -4821,10 +4592,7 @@ const deserializeAws_json1_1EnvironmentImage = (output: any, context: __SerdeCon
   return {
     description: __expectString(output.description),
     name: __expectString(output.name),
-    versions:
-      output.versions !== undefined && output.versions !== null
-        ? deserializeAws_json1_1ImageVersions(output.versions, context)
-        : undefined,
+    versions: output.versions != undefined ? deserializeAws_json1_1ImageVersions(output.versions, context) : undefined,
   } as any;
 };
 
@@ -4842,10 +4610,7 @@ const deserializeAws_json1_1EnvironmentImages = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1EnvironmentLanguage = (output: any, context: __SerdeContext): EnvironmentLanguage => {
   return {
-    images:
-      output.images !== undefined && output.images !== null
-        ? deserializeAws_json1_1EnvironmentImages(output.images, context)
-        : undefined,
+    images: output.images != undefined ? deserializeAws_json1_1EnvironmentImages(output.images, context) : undefined,
     language: __expectString(output.language),
   } as any;
 };
@@ -4865,9 +4630,7 @@ const deserializeAws_json1_1EnvironmentLanguages = (output: any, context: __Serd
 const deserializeAws_json1_1EnvironmentPlatform = (output: any, context: __SerdeContext): EnvironmentPlatform => {
   return {
     languages:
-      output.languages !== undefined && output.languages !== null
-        ? deserializeAws_json1_1EnvironmentLanguages(output.languages, context)
-        : undefined,
+      output.languages != undefined ? deserializeAws_json1_1EnvironmentLanguages(output.languages, context) : undefined,
     platform: __expectString(output.platform),
   } as any;
 };
@@ -4959,13 +4722,10 @@ const deserializeAws_json1_1GetReportGroupTrendOutput = (
 ): GetReportGroupTrendOutput => {
   return {
     rawData:
-      output.rawData !== undefined && output.rawData !== null
+      output.rawData != undefined
         ? deserializeAws_json1_1ReportGroupTrendRawDataList(output.rawData, context)
         : undefined,
-    stats:
-      output.stats !== undefined && output.stats !== null
-        ? deserializeAws_json1_1ReportGroupTrendStats(output.stats, context)
-        : undefined,
+    stats: output.stats != undefined ? deserializeAws_json1_1ReportGroupTrendStats(output.stats, context) : undefined,
   } as any;
 };
 
@@ -5035,20 +4795,14 @@ const deserializeAws_json1_1ListBuildBatchesForProjectOutput = (
   context: __SerdeContext
 ): ListBuildBatchesForProjectOutput => {
   return {
-    ids:
-      output.ids !== undefined && output.ids !== null
-        ? deserializeAws_json1_1BuildBatchIds(output.ids, context)
-        : undefined,
+    ids: output.ids != undefined ? deserializeAws_json1_1BuildBatchIds(output.ids, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListBuildBatchesOutput = (output: any, context: __SerdeContext): ListBuildBatchesOutput => {
   return {
-    ids:
-      output.ids !== undefined && output.ids !== null
-        ? deserializeAws_json1_1BuildBatchIds(output.ids, context)
-        : undefined,
+    ids: output.ids != undefined ? deserializeAws_json1_1BuildBatchIds(output.ids, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -5058,16 +4812,14 @@ const deserializeAws_json1_1ListBuildsForProjectOutput = (
   context: __SerdeContext
 ): ListBuildsForProjectOutput => {
   return {
-    ids:
-      output.ids !== undefined && output.ids !== null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
+    ids: output.ids != undefined ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeContext): ListBuildsOutput => {
   return {
-    ids:
-      output.ids !== undefined && output.ids !== null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
+    ids: output.ids != undefined ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -5078,19 +4830,14 @@ const deserializeAws_json1_1ListCuratedEnvironmentImagesOutput = (
 ): ListCuratedEnvironmentImagesOutput => {
   return {
     platforms:
-      output.platforms !== undefined && output.platforms !== null
-        ? deserializeAws_json1_1EnvironmentPlatforms(output.platforms, context)
-        : undefined,
+      output.platforms != undefined ? deserializeAws_json1_1EnvironmentPlatforms(output.platforms, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeContext): ListProjectsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    projects:
-      output.projects !== undefined && output.projects !== null
-        ? deserializeAws_json1_1ProjectNames(output.projects, context)
-        : undefined,
+    projects: output.projects != undefined ? deserializeAws_json1_1ProjectNames(output.projects, context) : undefined,
   } as any;
 };
 
@@ -5098,7 +4845,7 @@ const deserializeAws_json1_1ListReportGroupsOutput = (output: any, context: __Se
   return {
     nextToken: __expectString(output.nextToken),
     reportGroups:
-      output.reportGroups !== undefined && output.reportGroups !== null
+      output.reportGroups != undefined
         ? deserializeAws_json1_1ReportGroupArns(output.reportGroups, context)
         : undefined,
   } as any;
@@ -5110,20 +4857,14 @@ const deserializeAws_json1_1ListReportsForReportGroupOutput = (
 ): ListReportsForReportGroupOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    reports:
-      output.reports !== undefined && output.reports !== null
-        ? deserializeAws_json1_1ReportArns(output.reports, context)
-        : undefined,
+    reports: output.reports != undefined ? deserializeAws_json1_1ReportArns(output.reports, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListReportsOutput = (output: any, context: __SerdeContext): ListReportsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    reports:
-      output.reports !== undefined && output.reports !== null
-        ? deserializeAws_json1_1ReportArns(output.reports, context)
-        : undefined,
+    reports: output.reports != undefined ? deserializeAws_json1_1ReportArns(output.reports, context) : undefined,
   } as any;
 };
 
@@ -5133,10 +4874,7 @@ const deserializeAws_json1_1ListSharedProjectsOutput = (
 ): ListSharedProjectsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    projects:
-      output.projects !== undefined && output.projects !== null
-        ? deserializeAws_json1_1ProjectArns(output.projects, context)
-        : undefined,
+    projects: output.projects != undefined ? deserializeAws_json1_1ProjectArns(output.projects, context) : undefined,
   } as any;
 };
 
@@ -5147,7 +4885,7 @@ const deserializeAws_json1_1ListSharedReportGroupsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     reportGroups:
-      output.reportGroups !== undefined && output.reportGroups !== null
+      output.reportGroups != undefined
         ? deserializeAws_json1_1ReportGroupArns(output.reportGroups, context)
         : undefined,
   } as any;
@@ -5159,7 +4897,7 @@ const deserializeAws_json1_1ListSourceCredentialsOutput = (
 ): ListSourceCredentialsOutput => {
   return {
     sourceCredentialsInfos:
-      output.sourceCredentialsInfos !== undefined && output.sourceCredentialsInfos !== null
+      output.sourceCredentialsInfos != undefined
         ? deserializeAws_json1_1SourceCredentialsInfos(output.sourceCredentialsInfos, context)
         : undefined,
   } as any;
@@ -5168,30 +4906,24 @@ const deserializeAws_json1_1ListSourceCredentialsOutput = (
 const deserializeAws_json1_1LogsConfig = (output: any, context: __SerdeContext): LogsConfig => {
   return {
     cloudWatchLogs:
-      output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
+      output.cloudWatchLogs != undefined
         ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
         : undefined,
-    s3Logs:
-      output.s3Logs !== undefined && output.s3Logs !== null
-        ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context)
-        : undefined,
+    s3Logs: output.s3Logs != undefined ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LogsLocation = (output: any, context: __SerdeContext): LogsLocation => {
   return {
     cloudWatchLogs:
-      output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
+      output.cloudWatchLogs != undefined
         ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
         : undefined,
     cloudWatchLogsArn: __expectString(output.cloudWatchLogsArn),
     deepLink: __expectString(output.deepLink),
     groupName: __expectString(output.groupName),
     s3DeepLink: __expectString(output.s3DeepLink),
-    s3Logs:
-      output.s3Logs !== undefined && output.s3Logs !== null
-        ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context)
-        : undefined,
+    s3Logs: output.s3Logs != undefined ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context) : undefined,
     s3LogsArn: __expectString(output.s3LogsArn),
     streamName: __expectString(output.streamName),
   } as any;
@@ -5233,80 +4965,56 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
   return {
     arn: __expectString(output.arn),
     artifacts:
-      output.artifacts !== undefined && output.artifacts !== null
-        ? deserializeAws_json1_1ProjectArtifacts(output.artifacts, context)
-        : undefined,
-    badge:
-      output.badge !== undefined && output.badge !== null
-        ? deserializeAws_json1_1ProjectBadge(output.badge, context)
-        : undefined,
+      output.artifacts != undefined ? deserializeAws_json1_1ProjectArtifacts(output.artifacts, context) : undefined,
+    badge: output.badge != undefined ? deserializeAws_json1_1ProjectBadge(output.badge, context) : undefined,
     buildBatchConfig:
-      output.buildBatchConfig !== undefined && output.buildBatchConfig !== null
+      output.buildBatchConfig != undefined
         ? deserializeAws_json1_1ProjectBuildBatchConfig(output.buildBatchConfig, context)
         : undefined,
-    cache:
-      output.cache !== undefined && output.cache !== null
-        ? deserializeAws_json1_1ProjectCache(output.cache, context)
-        : undefined,
+    cache: output.cache != undefined ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
     concurrentBuildLimit: __expectInt32(output.concurrentBuildLimit),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     description: __expectString(output.description),
     encryptionKey: __expectString(output.encryptionKey),
     environment:
-      output.environment !== undefined && output.environment !== null
+      output.environment != undefined
         ? deserializeAws_json1_1ProjectEnvironment(output.environment, context)
         : undefined,
     fileSystemLocations:
-      output.fileSystemLocations !== undefined && output.fileSystemLocations !== null
+      output.fileSystemLocations != undefined
         ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
         : undefined,
     lastModified:
-      output.lastModified !== undefined && output.lastModified !== null
+      output.lastModified != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
         : undefined,
     logsConfig:
-      output.logsConfig !== undefined && output.logsConfig !== null
-        ? deserializeAws_json1_1LogsConfig(output.logsConfig, context)
-        : undefined,
+      output.logsConfig != undefined ? deserializeAws_json1_1LogsConfig(output.logsConfig, context) : undefined,
     name: __expectString(output.name),
     projectVisibility: __expectString(output.projectVisibility),
     publicProjectAlias: __expectString(output.publicProjectAlias),
     queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
     resourceAccessRole: __expectString(output.resourceAccessRole),
     secondaryArtifacts:
-      output.secondaryArtifacts !== undefined && output.secondaryArtifacts !== null
+      output.secondaryArtifacts != undefined
         ? deserializeAws_json1_1ProjectArtifactsList(output.secondaryArtifacts, context)
         : undefined,
     secondarySourceVersions:
-      output.secondarySourceVersions !== undefined && output.secondarySourceVersions !== null
+      output.secondarySourceVersions != undefined
         ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
         : undefined,
     secondarySources:
-      output.secondarySources !== undefined && output.secondarySources !== null
+      output.secondarySources != undefined
         ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
         : undefined,
     serviceRole: __expectString(output.serviceRole),
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_json1_1ProjectSource(output.source, context)
-        : undefined,
+    source: output.source != undefined ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
     sourceVersion: __expectString(output.sourceVersion),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
     timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
-    vpcConfig:
-      output.vpcConfig !== undefined && output.vpcConfig !== null
-        ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context)
-        : undefined,
-    webhook:
-      output.webhook !== undefined && output.webhook !== null
-        ? deserializeAws_json1_1Webhook(output.webhook, context)
-        : undefined,
+    vpcConfig: output.vpcConfig != undefined ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
+    webhook: output.webhook != undefined ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
   } as any;
 };
 
@@ -5364,7 +5072,7 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
     batchReportMode: __expectString(output.batchReportMode),
     combineArtifacts: __expectBoolean(output.combineArtifacts),
     restrictions:
-      output.restrictions !== undefined && output.restrictions !== null
+      output.restrictions != undefined
         ? deserializeAws_json1_1BatchRestrictions(output.restrictions, context)
         : undefined,
     serviceRole: __expectString(output.serviceRole),
@@ -5375,10 +5083,7 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
 const deserializeAws_json1_1ProjectCache = (output: any, context: __SerdeContext): ProjectCache => {
   return {
     location: __expectString(output.location),
-    modes:
-      output.modes !== undefined && output.modes !== null
-        ? deserializeAws_json1_1ProjectCacheModes(output.modes, context)
-        : undefined,
+    modes: output.modes != undefined ? deserializeAws_json1_1ProjectCacheModes(output.modes, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -5400,14 +5105,14 @@ const deserializeAws_json1_1ProjectEnvironment = (output: any, context: __SerdeC
     certificate: __expectString(output.certificate),
     computeType: __expectString(output.computeType),
     environmentVariables:
-      output.environmentVariables !== undefined && output.environmentVariables !== null
+      output.environmentVariables != undefined
         ? deserializeAws_json1_1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
     image: __expectString(output.image),
     imagePullCredentialsType: __expectString(output.imagePullCredentialsType),
     privilegedMode: __expectBoolean(output.privilegedMode),
     registryCredential:
-      output.registryCredential !== undefined && output.registryCredential !== null
+      output.registryCredential != undefined
         ? deserializeAws_json1_1RegistryCredential(output.registryCredential, context)
         : undefined,
     type: __expectString(output.type),
@@ -5483,18 +5188,15 @@ const deserializeAws_json1_1ProjectSecondarySourceVersions = (
 
 const deserializeAws_json1_1ProjectSource = (output: any, context: __SerdeContext): ProjectSource => {
   return {
-    auth:
-      output.auth !== undefined && output.auth !== null
-        ? deserializeAws_json1_1SourceAuth(output.auth, context)
-        : undefined,
+    auth: output.auth != undefined ? deserializeAws_json1_1SourceAuth(output.auth, context) : undefined,
     buildStatusConfig:
-      output.buildStatusConfig !== undefined && output.buildStatusConfig !== null
+      output.buildStatusConfig != undefined
         ? deserializeAws_json1_1BuildStatusConfig(output.buildStatusConfig, context)
         : undefined,
     buildspec: __expectString(output.buildspec),
     gitCloneDepth: __expectInt32(output.gitCloneDepth),
     gitSubmodulesConfig:
-      output.gitSubmodulesConfig !== undefined && output.gitSubmodulesConfig !== null
+      output.gitSubmodulesConfig != undefined
         ? deserializeAws_json1_1GitSubmodulesConfig(output.gitSubmodulesConfig, context)
         : undefined,
     insecureSsl: __expectBoolean(output.insecureSsl),
@@ -5544,27 +5246,23 @@ const deserializeAws_json1_1Report = (output: any, context: __SerdeContext): Rep
   return {
     arn: __expectString(output.arn),
     codeCoverageSummary:
-      output.codeCoverageSummary !== undefined && output.codeCoverageSummary !== null
+      output.codeCoverageSummary != undefined
         ? deserializeAws_json1_1CodeCoverageReportSummary(output.codeCoverageSummary, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     executionId: __expectString(output.executionId),
     expired:
-      output.expired !== undefined && output.expired !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
-        : undefined,
+      output.expired != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
     exportConfig:
-      output.exportConfig !== undefined && output.exportConfig !== null
+      output.exportConfig != undefined
         ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context)
         : undefined,
     name: __expectString(output.name),
     reportGroupArn: __expectString(output.reportGroupArn),
     status: __expectString(output.status),
     testSummary:
-      output.testSummary !== undefined && output.testSummary !== null
+      output.testSummary != undefined
         ? deserializeAws_json1_1TestReportSummary(output.testSummary, context)
         : undefined,
     truncated: __expectBoolean(output.truncated),
@@ -5588,7 +5286,7 @@ const deserializeAws_json1_1ReportExportConfig = (output: any, context: __SerdeC
   return {
     exportConfigType: __expectString(output.exportConfigType),
     s3Destination:
-      output.s3Destination !== undefined && output.s3Destination !== null
+      output.s3Destination != undefined
         ? deserializeAws_json1_1S3ReportExportConfig(output.s3Destination, context)
         : undefined,
   } as any;
@@ -5598,23 +5296,18 @@ const deserializeAws_json1_1ReportGroup = (output: any, context: __SerdeContext)
   return {
     arn: __expectString(output.arn),
     created:
-      output.created !== undefined && output.created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created)))
-        : undefined,
+      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     exportConfig:
-      output.exportConfig !== undefined && output.exportConfig !== null
+      output.exportConfig != undefined
         ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context)
         : undefined,
     lastModified:
-      output.lastModified !== undefined && output.lastModified !== null
+      output.lastModified != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
         : undefined,
     name: __expectString(output.name),
     status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -5738,18 +5431,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1RetryBuildBatchOutput = (output: any, context: __SerdeContext): RetryBuildBatchOutput => {
   return {
     buildBatch:
-      output.buildBatch !== undefined && output.buildBatch !== null
-        ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
-        : undefined,
+      output.buildBatch != undefined ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOutput => {
   return {
-    build:
-      output.build !== undefined && output.build !== null
-        ? deserializeAws_json1_1Build(output.build, context)
-        : undefined,
+    build: output.build != undefined ? deserializeAws_json1_1Build(output.build, context) : undefined,
   } as any;
 };
 
@@ -5818,36 +5506,26 @@ const deserializeAws_json1_1SourceCredentialsInfos = (
 const deserializeAws_json1_1StartBuildBatchOutput = (output: any, context: __SerdeContext): StartBuildBatchOutput => {
   return {
     buildBatch:
-      output.buildBatch !== undefined && output.buildBatch !== null
-        ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
-        : undefined,
+      output.buildBatch != undefined ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StartBuildOutput = (output: any, context: __SerdeContext): StartBuildOutput => {
   return {
-    build:
-      output.build !== undefined && output.build !== null
-        ? deserializeAws_json1_1Build(output.build, context)
-        : undefined,
+    build: output.build != undefined ? deserializeAws_json1_1Build(output.build, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuildBatchOutput => {
   return {
     buildBatch:
-      output.buildBatch !== undefined && output.buildBatch !== null
-        ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
-        : undefined,
+      output.buildBatch != undefined ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutput => {
   return {
-    build:
-      output.build !== undefined && output.build !== null
-        ? deserializeAws_json1_1Build(output.build, context)
-        : undefined,
+    build: output.build != undefined ? deserializeAws_json1_1Build(output.build, context) : undefined,
   } as any;
 };
 
@@ -5886,9 +5564,7 @@ const deserializeAws_json1_1TestCase = (output: any, context: __SerdeContext): T
   return {
     durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
     expired:
-      output.expired !== undefined && output.expired !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired)))
-        : undefined,
+      output.expired != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
     message: __expectString(output.message),
     name: __expectString(output.name),
     prefix: __expectString(output.prefix),
@@ -5914,7 +5590,7 @@ const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeCo
   return {
     durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
     statusCounts:
-      output.statusCounts !== undefined && output.statusCounts !== null
+      output.statusCounts != undefined
         ? deserializeAws_json1_1ReportStatusCounts(output.statusCounts, context)
         : undefined,
     total: __expectInt32(output.total),
@@ -5923,10 +5599,7 @@ const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
   return {
-    project:
-      output.project !== undefined && output.project !== null
-        ? deserializeAws_json1_1Project(output.project, context)
-        : undefined,
+    project: output.project != undefined ? deserializeAws_json1_1Project(output.project, context) : undefined,
   } as any;
 };
 
@@ -5947,31 +5620,23 @@ const deserializeAws_json1_1UpdateReportGroupOutput = (
 ): UpdateReportGroupOutput => {
   return {
     reportGroup:
-      output.reportGroup !== undefined && output.reportGroup !== null
-        ? deserializeAws_json1_1ReportGroup(output.reportGroup, context)
-        : undefined,
+      output.reportGroup != undefined ? deserializeAws_json1_1ReportGroup(output.reportGroup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateWebhookOutput = (output: any, context: __SerdeContext): UpdateWebhookOutput => {
   return {
-    webhook:
-      output.webhook !== undefined && output.webhook !== null
-        ? deserializeAws_json1_1Webhook(output.webhook, context)
-        : undefined,
+    webhook: output.webhook != undefined ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return {
     securityGroupIds:
-      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+      output.securityGroupIds != undefined
         ? deserializeAws_json1_1SecurityGroupIds(output.securityGroupIds, context)
         : undefined,
-    subnets:
-      output.subnets !== undefined && output.subnets !== null
-        ? deserializeAws_json1_1Subnets(output.subnets, context)
-        : undefined,
+    subnets: output.subnets != undefined ? deserializeAws_json1_1Subnets(output.subnets, context) : undefined,
     vpcId: __expectString(output.vpcId),
   } as any;
 };
@@ -5981,11 +5646,9 @@ const deserializeAws_json1_1Webhook = (output: any, context: __SerdeContext): We
     branchFilter: __expectString(output.branchFilter),
     buildType: __expectString(output.buildType),
     filterGroups:
-      output.filterGroups !== undefined && output.filterGroups !== null
-        ? deserializeAws_json1_1FilterGroups(output.filterGroups, context)
-        : undefined,
+      output.filterGroups != undefined ? deserializeAws_json1_1FilterGroups(output.filterGroups, context) : undefined,
     lastModifiedSecret:
-      output.lastModifiedSecret !== undefined && output.lastModifiedSecret !== null
+      output.lastModifiedSecret != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedSecret)))
         : undefined,
     payloadUrl: __expectString(output.payloadUrl),

@@ -41,10 +41,9 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
   body = JSON.stringify({
-    ...(input.Identifiers !== undefined &&
-      input.Identifiers !== null && {
-        Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
-      }),
+    ...(input.Identifiers != undefined && {
+      Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -150,8 +149,7 @@ export const serializeAws_restJson1PutRecordCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Record !== undefined &&
-      input.Record !== null && { Record: serializeAws_restJson1Record(input.Record, context) }),
+    ...(input.Record != undefined && { Record: serializeAws_restJson1Record(input.Record, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -471,17 +469,16 @@ const serializeAws_restJson1BatchGetRecordIdentifier = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FeatureGroupName !== undefined &&
-      input.FeatureGroupName !== null && { FeatureGroupName: input.FeatureGroupName }),
-    ...(input.FeatureNames !== undefined &&
-      input.FeatureNames !== null && { FeatureNames: serializeAws_restJson1FeatureNames(input.FeatureNames, context) }),
-    ...(input.RecordIdentifiersValueAsString !== undefined &&
-      input.RecordIdentifiersValueAsString !== null && {
-        RecordIdentifiersValueAsString: serializeAws_restJson1RecordIdentifiers(
-          input.RecordIdentifiersValueAsString,
-          context
-        ),
-      }),
+    ...(input.FeatureGroupName != undefined && { FeatureGroupName: input.FeatureGroupName }),
+    ...(input.FeatureNames != undefined && {
+      FeatureNames: serializeAws_restJson1FeatureNames(input.FeatureNames, context),
+    }),
+    ...(input.RecordIdentifiersValueAsString != undefined && {
+      RecordIdentifiersValueAsString: serializeAws_restJson1RecordIdentifiers(
+        input.RecordIdentifiersValueAsString,
+        context
+      ),
+    }),
   };
 };
 
@@ -512,8 +509,8 @@ const serializeAws_restJson1FeatureNames = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1FeatureValue = (input: FeatureValue, context: __SerdeContext): any => {
   return {
-    ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
-    ...(input.ValueAsString !== undefined && input.ValueAsString !== null && { ValueAsString: input.ValueAsString }),
+    ...(input.FeatureName != undefined && { FeatureName: input.FeatureName }),
+    ...(input.ValueAsString != undefined && { ValueAsString: input.ValueAsString }),
   };
 };
 
@@ -567,11 +564,9 @@ const deserializeAws_restJson1BatchGetRecordIdentifier = (
   return {
     FeatureGroupName: __expectString(output.FeatureGroupName),
     FeatureNames:
-      output.FeatureNames !== undefined && output.FeatureNames !== null
-        ? deserializeAws_restJson1FeatureNames(output.FeatureNames, context)
-        : undefined,
+      output.FeatureNames != undefined ? deserializeAws_restJson1FeatureNames(output.FeatureNames, context) : undefined,
     RecordIdentifiersValueAsString:
-      output.RecordIdentifiersValueAsString !== undefined && output.RecordIdentifiersValueAsString !== null
+      output.RecordIdentifiersValueAsString != undefined
         ? deserializeAws_restJson1RecordIdentifiers(output.RecordIdentifiersValueAsString, context)
         : undefined,
   } as any;
@@ -583,10 +578,7 @@ const deserializeAws_restJson1BatchGetRecordResultDetail = (
 ): BatchGetRecordResultDetail => {
   return {
     FeatureGroupName: __expectString(output.FeatureGroupName),
-    Record:
-      output.Record !== undefined && output.Record !== null
-        ? deserializeAws_restJson1Record(output.Record, context)
-        : undefined,
+    Record: output.Record != undefined ? deserializeAws_restJson1Record(output.Record, context) : undefined,
     RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
   } as any;
 };

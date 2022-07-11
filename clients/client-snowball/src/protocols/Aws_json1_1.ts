@@ -1828,110 +1828,100 @@ const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
 
 const serializeAws_json1_1Address = (input: Address, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
-    ...(input.City !== undefined && input.City !== null && { City: input.City }),
-    ...(input.Company !== undefined && input.Company !== null && { Company: input.Company }),
-    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.IsRestricted !== undefined && input.IsRestricted !== null && { IsRestricted: input.IsRestricted }),
-    ...(input.Landmark !== undefined && input.Landmark !== null && { Landmark: input.Landmark }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.PostalCode !== undefined && input.PostalCode !== null && { PostalCode: input.PostalCode }),
-    ...(input.PrefectureOrDistrict !== undefined &&
-      input.PrefectureOrDistrict !== null && { PrefectureOrDistrict: input.PrefectureOrDistrict }),
-    ...(input.StateOrProvince !== undefined &&
-      input.StateOrProvince !== null && { StateOrProvince: input.StateOrProvince }),
-    ...(input.Street1 !== undefined && input.Street1 !== null && { Street1: input.Street1 }),
-    ...(input.Street2 !== undefined && input.Street2 !== null && { Street2: input.Street2 }),
-    ...(input.Street3 !== undefined && input.Street3 !== null && { Street3: input.Street3 }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
+    ...(input.City != undefined && { City: input.City }),
+    ...(input.Company != undefined && { Company: input.Company }),
+    ...(input.Country != undefined && { Country: input.Country }),
+    ...(input.IsRestricted != undefined && { IsRestricted: input.IsRestricted }),
+    ...(input.Landmark != undefined && { Landmark: input.Landmark }),
+    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.PhoneNumber != undefined && { PhoneNumber: input.PhoneNumber }),
+    ...(input.PostalCode != undefined && { PostalCode: input.PostalCode }),
+    ...(input.PrefectureOrDistrict != undefined && { PrefectureOrDistrict: input.PrefectureOrDistrict }),
+    ...(input.StateOrProvince != undefined && { StateOrProvince: input.StateOrProvince }),
+    ...(input.Street1 != undefined && { Street1: input.Street1 }),
+    ...(input.Street2 != undefined && { Street2: input.Street2 }),
+    ...(input.Street3 != undefined && { Street3: input.Street3 }),
   };
 };
 
 const serializeAws_json1_1CancelClusterRequest = (input: CancelClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.ClusterId != undefined && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1CancelJobRequest = (input: CancelJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1CreateAddressRequest = (input: CreateAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Address !== undefined &&
-      input.Address !== null && { Address: serializeAws_json1_1Address(input.Address, context) }),
+    ...(input.Address != undefined && { Address: serializeAws_json1_1Address(input.Address, context) }),
   };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined &&
-      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
-    ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
-    ...(input.OnDeviceServiceConfiguration !== undefined &&
-      input.OnDeviceServiceConfiguration !== null && {
-        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
-          input.OnDeviceServiceConfiguration,
-          context
-        ),
-      }),
-    ...(input.RemoteManagement !== undefined &&
-      input.RemoteManagement !== null && { RemoteManagement: input.RemoteManagement }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined &&
-      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
-    ...(input.TaxDocuments !== undefined &&
-      input.TaxDocuments !== null && { TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context) }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId != undefined && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobType != undefined && { JobType: input.JobType }),
+    ...(input.KmsKeyARN != undefined && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.Notification != undefined && {
+      Notification: serializeAws_json1_1Notification(input.Notification, context),
+    }),
+    ...(input.OnDeviceServiceConfiguration != undefined && {
+      OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+        input.OnDeviceServiceConfiguration,
+        context
+      ),
+    }),
+    ...(input.RemoteManagement != undefined && { RemoteManagement: input.RemoteManagement }),
+    ...(input.Resources != undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN != undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption != undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballType != undefined && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments != undefined && {
+      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
+    }),
   };
 };
 
 const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DeviceConfiguration !== undefined &&
-      input.DeviceConfiguration !== null && {
-        DeviceConfiguration: serializeAws_json1_1DeviceConfiguration(input.DeviceConfiguration, context),
-      }),
-    ...(input.ForwardingAddressId !== undefined &&
-      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
-    ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
-    ...(input.LongTermPricingId !== undefined &&
-      input.LongTermPricingId !== null && { LongTermPricingId: input.LongTermPricingId }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
-    ...(input.OnDeviceServiceConfiguration !== undefined &&
-      input.OnDeviceServiceConfiguration !== null && {
-        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
-          input.OnDeviceServiceConfiguration,
-          context
-        ),
-      }),
-    ...(input.RemoteManagement !== undefined &&
-      input.RemoteManagement !== null && { RemoteManagement: input.RemoteManagement }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined &&
-      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballCapacityPreference !== undefined &&
-      input.SnowballCapacityPreference !== null && { SnowballCapacityPreference: input.SnowballCapacityPreference }),
-    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
-    ...(input.TaxDocuments !== undefined &&
-      input.TaxDocuments !== null && { TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context) }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
+    ...(input.ClusterId != undefined && { ClusterId: input.ClusterId }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.DeviceConfiguration != undefined && {
+      DeviceConfiguration: serializeAws_json1_1DeviceConfiguration(input.DeviceConfiguration, context),
+    }),
+    ...(input.ForwardingAddressId != undefined && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobType != undefined && { JobType: input.JobType }),
+    ...(input.KmsKeyARN != undefined && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.LongTermPricingId != undefined && { LongTermPricingId: input.LongTermPricingId }),
+    ...(input.Notification != undefined && {
+      Notification: serializeAws_json1_1Notification(input.Notification, context),
+    }),
+    ...(input.OnDeviceServiceConfiguration != undefined && {
+      OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+        input.OnDeviceServiceConfiguration,
+        context
+      ),
+    }),
+    ...(input.RemoteManagement != undefined && { RemoteManagement: input.RemoteManagement }),
+    ...(input.Resources != undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN != undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption != undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballCapacityPreference != undefined && {
+      SnowballCapacityPreference: input.SnowballCapacityPreference,
+    }),
+    ...(input.SnowballType != undefined && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments != undefined && {
+      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
+    }),
   };
 };
 
@@ -1940,11 +1930,11 @@ const serializeAws_json1_1CreateLongTermPricingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsLongTermPricingAutoRenew !== undefined &&
-      input.IsLongTermPricingAutoRenew !== null && { IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew }),
-    ...(input.LongTermPricingType !== undefined &&
-      input.LongTermPricingType !== null && { LongTermPricingType: input.LongTermPricingType }),
-    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
+    ...(input.IsLongTermPricingAutoRenew != undefined && {
+      IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew,
+    }),
+    ...(input.LongTermPricingType != undefined && { LongTermPricingType: input.LongTermPricingType }),
+    ...(input.SnowballType != undefined && { SnowballType: input.SnowballType }),
   };
 };
 
@@ -1953,9 +1943,8 @@ const serializeAws_json1_1CreateReturnShippingLabelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
-    ...(input.ShippingOption !== undefined &&
-      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
+    ...(input.ShippingOption != undefined && { ShippingOption: input.ShippingOption }),
   };
 };
 
@@ -1964,26 +1953,26 @@ const serializeAws_json1_1DescribeAddressesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeAddressRequest = (input: DescribeAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
   };
 };
 
 const serializeAws_json1_1DescribeClusterRequest = (input: DescribeClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.ClusterId != undefined && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1DescribeJobRequest = (input: DescribeJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
@@ -1992,26 +1981,25 @@ const serializeAws_json1_1DescribeReturnShippingLabelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1DeviceConfiguration = (input: DeviceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SnowconeDeviceConfiguration !== undefined &&
-      input.SnowconeDeviceConfiguration !== null && {
-        SnowconeDeviceConfiguration: serializeAws_json1_1SnowconeDeviceConfiguration(
-          input.SnowconeDeviceConfiguration,
-          context
-        ),
-      }),
+    ...(input.SnowconeDeviceConfiguration != undefined && {
+      SnowconeDeviceConfiguration: serializeAws_json1_1SnowconeDeviceConfiguration(
+        input.SnowconeDeviceConfiguration,
+        context
+      ),
+    }),
   };
 };
 
 const serializeAws_json1_1Ec2AmiResource = (input: Ec2AmiResource, context: __SerdeContext): any => {
   return {
-    ...(input.AmiId !== undefined && input.AmiId !== null && { AmiId: input.AmiId }),
-    ...(input.SnowballAmiId !== undefined && input.SnowballAmiId !== null && { SnowballAmiId: input.SnowballAmiId }),
+    ...(input.AmiId != undefined && { AmiId: input.AmiId }),
+    ...(input.SnowballAmiId != undefined && { SnowballAmiId: input.SnowballAmiId }),
   };
 };
 
@@ -2028,8 +2016,7 @@ const serializeAws_json1_1Ec2AmiResourceList = (input: Ec2AmiResource[], context
 
 const serializeAws_json1_1EventTriggerDefinition = (input: EventTriggerDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.EventResourceARN !== undefined &&
-      input.EventResourceARN !== null && { EventResourceARN: input.EventResourceARN }),
+    ...(input.EventResourceARN != undefined && { EventResourceARN: input.EventResourceARN }),
   };
 };
 
@@ -2049,13 +2036,13 @@ const serializeAws_json1_1EventTriggerDefinitionList = (
 
 const serializeAws_json1_1GetJobManifestRequest = (input: GetJobManifestRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1GetJobUnlockCodeRequest = (input: GetJobUnlockCodeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
@@ -2068,28 +2055,27 @@ const serializeAws_json1_1GetSoftwareUpdatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1INDTaxDocuments = (input: INDTaxDocuments, context: __SerdeContext): any => {
   return {
-    ...(input.GSTIN !== undefined && input.GSTIN !== null && { GSTIN: input.GSTIN }),
+    ...(input.GSTIN != undefined && { GSTIN: input.GSTIN }),
   };
 };
 
 const serializeAws_json1_1JobResource = (input: JobResource, context: __SerdeContext): any => {
   return {
-    ...(input.Ec2AmiResources !== undefined &&
-      input.Ec2AmiResources !== null && {
-        Ec2AmiResources: serializeAws_json1_1Ec2AmiResourceList(input.Ec2AmiResources, context),
-      }),
-    ...(input.LambdaResources !== undefined &&
-      input.LambdaResources !== null && {
-        LambdaResources: serializeAws_json1_1LambdaResourceList(input.LambdaResources, context),
-      }),
-    ...(input.S3Resources !== undefined &&
-      input.S3Resources !== null && { S3Resources: serializeAws_json1_1S3ResourceList(input.S3Resources, context) }),
+    ...(input.Ec2AmiResources != undefined && {
+      Ec2AmiResources: serializeAws_json1_1Ec2AmiResourceList(input.Ec2AmiResources, context),
+    }),
+    ...(input.LambdaResources != undefined && {
+      LambdaResources: serializeAws_json1_1LambdaResourceList(input.LambdaResources, context),
+    }),
+    ...(input.S3Resources != undefined && {
+      S3Resources: serializeAws_json1_1S3ResourceList(input.S3Resources, context),
+    }),
   };
 };
 
@@ -2106,18 +2092,17 @@ const serializeAws_json1_1JobStateList = (input: (JobState | string)[], context:
 
 const serializeAws_json1_1KeyRange = (input: KeyRange, context: __SerdeContext): any => {
   return {
-    ...(input.BeginMarker !== undefined && input.BeginMarker !== null && { BeginMarker: input.BeginMarker }),
-    ...(input.EndMarker !== undefined && input.EndMarker !== null && { EndMarker: input.EndMarker }),
+    ...(input.BeginMarker != undefined && { BeginMarker: input.BeginMarker }),
+    ...(input.EndMarker != undefined && { EndMarker: input.EndMarker }),
   };
 };
 
 const serializeAws_json1_1LambdaResource = (input: LambdaResource, context: __SerdeContext): any => {
   return {
-    ...(input.EventTriggers !== undefined &&
-      input.EventTriggers !== null && {
-        EventTriggers: serializeAws_json1_1EventTriggerDefinitionList(input.EventTriggers, context),
-      }),
-    ...(input.LambdaArn !== undefined && input.LambdaArn !== null && { LambdaArn: input.LambdaArn }),
+    ...(input.EventTriggers != undefined && {
+      EventTriggers: serializeAws_json1_1EventTriggerDefinitionList(input.EventTriggers, context),
+    }),
+    ...(input.LambdaArn != undefined && { LambdaArn: input.LambdaArn }),
   };
 };
 
@@ -2134,16 +2119,16 @@ const serializeAws_json1_1LambdaResourceList = (input: LambdaResource[], context
 
 const serializeAws_json1_1ListClusterJobsRequest = (input: ListClusterJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ClusterId != undefined && { ClusterId: input.ClusterId }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListClustersRequest = (input: ListClustersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2152,15 +2137,15 @@ const serializeAws_json1_1ListCompatibleImagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2169,8 +2154,8 @@ const serializeAws_json1_1ListLongTermPricingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -2179,19 +2164,18 @@ const serializeAws_json1_1NFSOnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StorageLimit !== undefined && input.StorageLimit !== null && { StorageLimit: input.StorageLimit }),
-    ...(input.StorageUnit !== undefined && input.StorageUnit !== null && { StorageUnit: input.StorageUnit }),
+    ...(input.StorageLimit != undefined && { StorageLimit: input.StorageLimit }),
+    ...(input.StorageUnit != undefined && { StorageUnit: input.StorageUnit }),
   };
 };
 
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
-    ...(input.JobStatesToNotify !== undefined &&
-      input.JobStatesToNotify !== null && {
-        JobStatesToNotify: serializeAws_json1_1JobStateList(input.JobStatesToNotify, context),
-      }),
-    ...(input.NotifyAll !== undefined && input.NotifyAll !== null && { NotifyAll: input.NotifyAll }),
-    ...(input.SnsTopicARN !== undefined && input.SnsTopicARN !== null && { SnsTopicARN: input.SnsTopicARN }),
+    ...(input.JobStatesToNotify != undefined && {
+      JobStatesToNotify: serializeAws_json1_1JobStateList(input.JobStatesToNotify, context),
+    }),
+    ...(input.NotifyAll != undefined && { NotifyAll: input.NotifyAll }),
+    ...(input.SnsTopicARN != undefined && { SnsTopicARN: input.SnsTopicARN }),
   };
 };
 
@@ -2200,26 +2184,22 @@ const serializeAws_json1_1OnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NFSOnDeviceService !== undefined &&
-      input.NFSOnDeviceService !== null && {
-        NFSOnDeviceService: serializeAws_json1_1NFSOnDeviceServiceConfiguration(input.NFSOnDeviceService, context),
-      }),
-    ...(input.TGWOnDeviceService !== undefined &&
-      input.TGWOnDeviceService !== null && {
-        TGWOnDeviceService: serializeAws_json1_1TGWOnDeviceServiceConfiguration(input.TGWOnDeviceService, context),
-      }),
+    ...(input.NFSOnDeviceService != undefined && {
+      NFSOnDeviceService: serializeAws_json1_1NFSOnDeviceServiceConfiguration(input.NFSOnDeviceService, context),
+    }),
+    ...(input.TGWOnDeviceService != undefined && {
+      TGWOnDeviceService: serializeAws_json1_1TGWOnDeviceServiceConfiguration(input.TGWOnDeviceService, context),
+    }),
   };
 };
 
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
-    ...(input.BucketArn !== undefined && input.BucketArn !== null && { BucketArn: input.BucketArn }),
-    ...(input.KeyRange !== undefined &&
-      input.KeyRange !== null && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
-    ...(input.TargetOnDeviceServices !== undefined &&
-      input.TargetOnDeviceServices !== null && {
-        TargetOnDeviceServices: serializeAws_json1_1TargetOnDeviceServiceList(input.TargetOnDeviceServices, context),
-      }),
+    ...(input.BucketArn != undefined && { BucketArn: input.BucketArn }),
+    ...(input.KeyRange != undefined && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
+    ...(input.TargetOnDeviceServices != undefined && {
+      TargetOnDeviceServices: serializeAws_json1_1TargetOnDeviceServiceList(input.TargetOnDeviceServices, context),
+    }),
   };
 };
 
@@ -2239,18 +2219,16 @@ const serializeAws_json1_1SnowconeDeviceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WirelessConnection !== undefined &&
-      input.WirelessConnection !== null && {
-        WirelessConnection: serializeAws_json1_1WirelessConnection(input.WirelessConnection, context),
-      }),
+    ...(input.WirelessConnection != undefined && {
+      WirelessConnection: serializeAws_json1_1WirelessConnection(input.WirelessConnection, context),
+    }),
   };
 };
 
 const serializeAws_json1_1TargetOnDeviceService = (input: TargetOnDeviceService, context: __SerdeContext): any => {
   return {
-    ...(input.ServiceName !== undefined && input.ServiceName !== null && { ServiceName: input.ServiceName }),
-    ...(input.TransferOption !== undefined &&
-      input.TransferOption !== null && { TransferOption: input.TransferOption }),
+    ...(input.ServiceName != undefined && { ServiceName: input.ServiceName }),
+    ...(input.TransferOption != undefined && { TransferOption: input.TransferOption }),
   };
 };
 
@@ -2270,8 +2248,7 @@ const serializeAws_json1_1TargetOnDeviceServiceList = (
 
 const serializeAws_json1_1TaxDocuments = (input: TaxDocuments, context: __SerdeContext): any => {
   return {
-    ...(input.IND !== undefined &&
-      input.IND !== null && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
+    ...(input.IND != undefined && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
   };
 };
 
@@ -2280,58 +2257,53 @@ const serializeAws_json1_1TGWOnDeviceServiceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StorageLimit !== undefined && input.StorageLimit !== null && { StorageLimit: input.StorageLimit }),
-    ...(input.StorageUnit !== undefined && input.StorageUnit !== null && { StorageUnit: input.StorageUnit }),
+    ...(input.StorageLimit != undefined && { StorageLimit: input.StorageLimit }),
+    ...(input.StorageUnit != undefined && { StorageUnit: input.StorageUnit }),
   };
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined &&
-      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
-    ...(input.OnDeviceServiceConfiguration !== undefined &&
-      input.OnDeviceServiceConfiguration !== null && {
-        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
-          input.OnDeviceServiceConfiguration,
-          context
-        ),
-      }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined &&
-      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
+    ...(input.ClusterId != undefined && { ClusterId: input.ClusterId }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId != undefined && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.Notification != undefined && {
+      Notification: serializeAws_json1_1Notification(input.Notification, context),
+    }),
+    ...(input.OnDeviceServiceConfiguration != undefined && {
+      OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+        input.OnDeviceServiceConfiguration,
+        context
+      ),
+    }),
+    ...(input.Resources != undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN != undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption != undefined && { ShippingOption: input.ShippingOption }),
   };
 };
 
 const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined &&
-      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
-    ...(input.OnDeviceServiceConfiguration !== undefined &&
-      input.OnDeviceServiceConfiguration !== null && {
-        OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
-          input.OnDeviceServiceConfiguration,
-          context
-        ),
-      }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined &&
-      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballCapacityPreference !== undefined &&
-      input.SnowballCapacityPreference !== null && { SnowballCapacityPreference: input.SnowballCapacityPreference }),
+    ...(input.AddressId != undefined && { AddressId: input.AddressId }),
+    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId != undefined && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
+    ...(input.Notification != undefined && {
+      Notification: serializeAws_json1_1Notification(input.Notification, context),
+    }),
+    ...(input.OnDeviceServiceConfiguration != undefined && {
+      OnDeviceServiceConfiguration: serializeAws_json1_1OnDeviceServiceConfiguration(
+        input.OnDeviceServiceConfiguration,
+        context
+      ),
+    }),
+    ...(input.Resources != undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN != undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption != undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballCapacityPreference != undefined && {
+      SnowballCapacityPreference: input.SnowballCapacityPreference,
+    }),
   };
 };
 
@@ -2340,8 +2312,8 @@ const serializeAws_json1_1UpdateJobShipmentStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
-    ...(input.ShipmentState !== undefined && input.ShipmentState !== null && { ShipmentState: input.ShipmentState }),
+    ...(input.JobId != undefined && { JobId: input.JobId }),
+    ...(input.ShipmentState != undefined && { ShipmentState: input.ShipmentState }),
   };
 };
 
@@ -2350,18 +2322,17 @@ const serializeAws_json1_1UpdateLongTermPricingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsLongTermPricingAutoRenew !== undefined &&
-      input.IsLongTermPricingAutoRenew !== null && { IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew }),
-    ...(input.LongTermPricingId !== undefined &&
-      input.LongTermPricingId !== null && { LongTermPricingId: input.LongTermPricingId }),
-    ...(input.ReplacementJob !== undefined &&
-      input.ReplacementJob !== null && { ReplacementJob: input.ReplacementJob }),
+    ...(input.IsLongTermPricingAutoRenew != undefined && {
+      IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew,
+    }),
+    ...(input.LongTermPricingId != undefined && { LongTermPricingId: input.LongTermPricingId }),
+    ...(input.ReplacementJob != undefined && { ReplacementJob: input.ReplacementJob }),
   };
 };
 
 const serializeAws_json1_1WirelessConnection = (input: WirelessConnection, context: __SerdeContext): any => {
   return {
-    ...(input.IsWifiEnabled !== undefined && input.IsWifiEnabled !== null && { IsWifiEnabled: input.IsWifiEnabled }),
+    ...(input.IsWifiEnabled != undefined && { IsWifiEnabled: input.IsWifiEnabled }),
   };
 };
 
@@ -2418,7 +2389,7 @@ const deserializeAws_json1_1ClusterListEntry = (output: any, context: __SerdeCon
     ClusterId: __expectString(output.ClusterId),
     ClusterState: __expectString(output.ClusterState),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
@@ -2443,7 +2414,7 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
     ClusterId: __expectString(output.ClusterId),
     ClusterState: __expectString(output.ClusterState),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
@@ -2451,24 +2422,17 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
     JobType: __expectString(output.JobType),
     KmsKeyARN: __expectString(output.KmsKeyARN),
     Notification:
-      output.Notification !== undefined && output.Notification !== null
-        ? deserializeAws_json1_1Notification(output.Notification, context)
-        : undefined,
+      output.Notification != undefined ? deserializeAws_json1_1Notification(output.Notification, context) : undefined,
     OnDeviceServiceConfiguration:
-      output.OnDeviceServiceConfiguration !== undefined && output.OnDeviceServiceConfiguration !== null
+      output.OnDeviceServiceConfiguration != undefined
         ? deserializeAws_json1_1OnDeviceServiceConfiguration(output.OnDeviceServiceConfiguration, context)
         : undefined,
-    Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_json1_1JobResource(output.Resources, context)
-        : undefined,
+    Resources: output.Resources != undefined ? deserializeAws_json1_1JobResource(output.Resources, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     ShippingOption: __expectString(output.ShippingOption),
     SnowballType: __expectString(output.SnowballType),
     TaxDocuments:
-      output.TaxDocuments !== undefined && output.TaxDocuments !== null
-        ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context)
-        : undefined,
+      output.TaxDocuments != undefined ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context) : undefined,
   } as any;
 };
 
@@ -2548,27 +2512,21 @@ const deserializeAws_json1_1DescribeAddressesResult = (
   context: __SerdeContext
 ): DescribeAddressesResult => {
   return {
-    Addresses:
-      output.Addresses !== undefined && output.Addresses !== null
-        ? deserializeAws_json1_1AddressList(output.Addresses, context)
-        : undefined,
+    Addresses: output.Addresses != undefined ? deserializeAws_json1_1AddressList(output.Addresses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeAddressResult = (output: any, context: __SerdeContext): DescribeAddressResult => {
   return {
-    Address:
-      output.Address !== undefined && output.Address !== null
-        ? deserializeAws_json1_1Address(output.Address, context)
-        : undefined,
+    Address: output.Address != undefined ? deserializeAws_json1_1Address(output.Address, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeClusterResult = (output: any, context: __SerdeContext): DescribeClusterResult => {
   return {
     ClusterMetadata:
-      output.ClusterMetadata !== undefined && output.ClusterMetadata !== null
+      output.ClusterMetadata != undefined
         ? deserializeAws_json1_1ClusterMetadata(output.ClusterMetadata, context)
         : undefined,
   } as any;
@@ -2577,11 +2535,9 @@ const deserializeAws_json1_1DescribeClusterResult = (output: any, context: __Ser
 const deserializeAws_json1_1DescribeJobResult = (output: any, context: __SerdeContext): DescribeJobResult => {
   return {
     JobMetadata:
-      output.JobMetadata !== undefined && output.JobMetadata !== null
-        ? deserializeAws_json1_1JobMetadata(output.JobMetadata, context)
-        : undefined,
+      output.JobMetadata != undefined ? deserializeAws_json1_1JobMetadata(output.JobMetadata, context) : undefined,
     SubJobMetadata:
-      output.SubJobMetadata !== undefined && output.SubJobMetadata !== null
+      output.SubJobMetadata != undefined
         ? deserializeAws_json1_1JobMetadataList(output.SubJobMetadata, context)
         : undefined,
   } as any;
@@ -2593,7 +2549,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelResult = (
 ): DescribeReturnShippingLabelResult => {
   return {
     ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+      output.ExpirationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     ReturnShippingLabelURI: __expectString(output.ReturnShippingLabelURI),
@@ -2604,7 +2560,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelResult = (
 const deserializeAws_json1_1DeviceConfiguration = (output: any, context: __SerdeContext): DeviceConfiguration => {
   return {
     SnowconeDeviceConfiguration:
-      output.SnowconeDeviceConfiguration !== undefined && output.SnowconeDeviceConfiguration !== null
+      output.SnowconeDeviceConfiguration != undefined
         ? deserializeAws_json1_1SnowconeDeviceConfiguration(output.SnowconeDeviceConfiguration, context)
         : undefined,
   } as any;
@@ -2742,7 +2698,7 @@ const deserializeAws_json1_1InvalidResourceException = (
 const deserializeAws_json1_1JobListEntry = (output: any, context: __SerdeContext): JobListEntry => {
   return {
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     Description: __expectString(output.Description),
@@ -2779,52 +2735,42 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
     AddressId: __expectString(output.AddressId),
     ClusterId: __expectString(output.ClusterId),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DataTransferProgress:
-      output.DataTransferProgress !== undefined && output.DataTransferProgress !== null
+      output.DataTransferProgress != undefined
         ? deserializeAws_json1_1DataTransfer(output.DataTransferProgress, context)
         : undefined,
     Description: __expectString(output.Description),
     DeviceConfiguration:
-      output.DeviceConfiguration !== undefined && output.DeviceConfiguration !== null
+      output.DeviceConfiguration != undefined
         ? deserializeAws_json1_1DeviceConfiguration(output.DeviceConfiguration, context)
         : undefined,
     ForwardingAddressId: __expectString(output.ForwardingAddressId),
     JobId: __expectString(output.JobId),
-    JobLogInfo:
-      output.JobLogInfo !== undefined && output.JobLogInfo !== null
-        ? deserializeAws_json1_1JobLogs(output.JobLogInfo, context)
-        : undefined,
+    JobLogInfo: output.JobLogInfo != undefined ? deserializeAws_json1_1JobLogs(output.JobLogInfo, context) : undefined,
     JobState: __expectString(output.JobState),
     JobType: __expectString(output.JobType),
     KmsKeyARN: __expectString(output.KmsKeyARN),
     LongTermPricingId: __expectString(output.LongTermPricingId),
     Notification:
-      output.Notification !== undefined && output.Notification !== null
-        ? deserializeAws_json1_1Notification(output.Notification, context)
-        : undefined,
+      output.Notification != undefined ? deserializeAws_json1_1Notification(output.Notification, context) : undefined,
     OnDeviceServiceConfiguration:
-      output.OnDeviceServiceConfiguration !== undefined && output.OnDeviceServiceConfiguration !== null
+      output.OnDeviceServiceConfiguration != undefined
         ? deserializeAws_json1_1OnDeviceServiceConfiguration(output.OnDeviceServiceConfiguration, context)
         : undefined,
     RemoteManagement: __expectString(output.RemoteManagement),
-    Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_json1_1JobResource(output.Resources, context)
-        : undefined,
+    Resources: output.Resources != undefined ? deserializeAws_json1_1JobResource(output.Resources, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     ShippingDetails:
-      output.ShippingDetails !== undefined && output.ShippingDetails !== null
+      output.ShippingDetails != undefined
         ? deserializeAws_json1_1ShippingDetails(output.ShippingDetails, context)
         : undefined,
     SnowballCapacityPreference: __expectString(output.SnowballCapacityPreference),
     SnowballType: __expectString(output.SnowballType),
     TaxDocuments:
-      output.TaxDocuments !== undefined && output.TaxDocuments !== null
-        ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context)
-        : undefined,
+      output.TaxDocuments != undefined ? deserializeAws_json1_1TaxDocuments(output.TaxDocuments, context) : undefined,
   } as any;
 };
 
@@ -2843,17 +2789,15 @@ const deserializeAws_json1_1JobMetadataList = (output: any, context: __SerdeCont
 const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext): JobResource => {
   return {
     Ec2AmiResources:
-      output.Ec2AmiResources !== undefined && output.Ec2AmiResources !== null
+      output.Ec2AmiResources != undefined
         ? deserializeAws_json1_1Ec2AmiResourceList(output.Ec2AmiResources, context)
         : undefined,
     LambdaResources:
-      output.LambdaResources !== undefined && output.LambdaResources !== null
+      output.LambdaResources != undefined
         ? deserializeAws_json1_1LambdaResourceList(output.LambdaResources, context)
         : undefined,
     S3Resources:
-      output.S3Resources !== undefined && output.S3Resources !== null
-        ? deserializeAws_json1_1S3ResourceList(output.S3Resources, context)
-        : undefined,
+      output.S3Resources != undefined ? deserializeAws_json1_1S3ResourceList(output.S3Resources, context) : undefined,
   } as any;
 };
 
@@ -2888,7 +2832,7 @@ const deserializeAws_json1_1KMSRequestFailedException = (
 const deserializeAws_json1_1LambdaResource = (output: any, context: __SerdeContext): LambdaResource => {
   return {
     EventTriggers:
-      output.EventTriggers !== undefined && output.EventTriggers !== null
+      output.EventTriggers != undefined
         ? deserializeAws_json1_1EventTriggerDefinitionList(output.EventTriggers, context)
         : undefined,
     LambdaArn: __expectString(output.LambdaArn),
@@ -2910,7 +2854,7 @@ const deserializeAws_json1_1LambdaResourceList = (output: any, context: __SerdeC
 const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __SerdeContext): ListClusterJobsResult => {
   return {
     JobListEntries:
-      output.JobListEntries !== undefined && output.JobListEntries !== null
+      output.JobListEntries != undefined
         ? deserializeAws_json1_1JobListEntryList(output.JobListEntries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2920,7 +2864,7 @@ const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __Ser
 const deserializeAws_json1_1ListClustersResult = (output: any, context: __SerdeContext): ListClustersResult => {
   return {
     ClusterListEntries:
-      output.ClusterListEntries !== undefined && output.ClusterListEntries !== null
+      output.ClusterListEntries != undefined
         ? deserializeAws_json1_1ClusterListEntryList(output.ClusterListEntries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2933,7 +2877,7 @@ const deserializeAws_json1_1ListCompatibleImagesResult = (
 ): ListCompatibleImagesResult => {
   return {
     CompatibleImages:
-      output.CompatibleImages !== undefined && output.CompatibleImages !== null
+      output.CompatibleImages != undefined
         ? deserializeAws_json1_1CompatibleImageList(output.CompatibleImages, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2943,7 +2887,7 @@ const deserializeAws_json1_1ListCompatibleImagesResult = (
 const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeContext): ListJobsResult => {
   return {
     JobListEntries:
-      output.JobListEntries !== undefined && output.JobListEntries !== null
+      output.JobListEntries != undefined
         ? deserializeAws_json1_1JobListEntryList(output.JobListEntries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2956,7 +2900,7 @@ const deserializeAws_json1_1ListLongTermPricingResult = (
 ): ListLongTermPricingResult => {
   return {
     LongTermPricingEntries:
-      output.LongTermPricingEntries !== undefined && output.LongTermPricingEntries !== null
+      output.LongTermPricingEntries != undefined
         ? deserializeAws_json1_1LongTermPricingEntryList(output.LongTermPricingEntries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2998,16 +2942,16 @@ const deserializeAws_json1_1LongTermPricingListEntry = (
     CurrentActiveJob: __expectString(output.CurrentActiveJob),
     IsLongTermPricingAutoRenew: __expectBoolean(output.IsLongTermPricingAutoRenew),
     JobIds:
-      output.JobIds !== undefined && output.JobIds !== null
+      output.JobIds != undefined
         ? deserializeAws_json1_1LongTermPricingAssociatedJobIdList(output.JobIds, context)
         : undefined,
     LongTermPricingEndDate:
-      output.LongTermPricingEndDate !== undefined && output.LongTermPricingEndDate !== null
+      output.LongTermPricingEndDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LongTermPricingEndDate)))
         : undefined,
     LongTermPricingId: __expectString(output.LongTermPricingId),
     LongTermPricingStartDate:
-      output.LongTermPricingStartDate !== undefined && output.LongTermPricingStartDate !== null
+      output.LongTermPricingStartDate != undefined
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LongTermPricingStartDate)))
         : undefined,
     LongTermPricingStatus: __expectString(output.LongTermPricingStatus),
@@ -3030,7 +2974,7 @@ const deserializeAws_json1_1NFSOnDeviceServiceConfiguration = (
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
     JobStatesToNotify:
-      output.JobStatesToNotify !== undefined && output.JobStatesToNotify !== null
+      output.JobStatesToNotify != undefined
         ? deserializeAws_json1_1JobStateList(output.JobStatesToNotify, context)
         : undefined,
     NotifyAll: __expectBoolean(output.NotifyAll),
@@ -3044,11 +2988,11 @@ const deserializeAws_json1_1OnDeviceServiceConfiguration = (
 ): OnDeviceServiceConfiguration => {
   return {
     NFSOnDeviceService:
-      output.NFSOnDeviceService !== undefined && output.NFSOnDeviceService !== null
+      output.NFSOnDeviceService != undefined
         ? deserializeAws_json1_1NFSOnDeviceServiceConfiguration(output.NFSOnDeviceService, context)
         : undefined,
     TGWOnDeviceService:
-      output.TGWOnDeviceService !== undefined && output.TGWOnDeviceService !== null
+      output.TGWOnDeviceService != undefined
         ? deserializeAws_json1_1TGWOnDeviceServiceConfiguration(output.TGWOnDeviceService, context)
         : undefined,
   } as any;
@@ -3066,12 +3010,9 @@ const deserializeAws_json1_1ReturnShippingLabelAlreadyExistsException = (
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
   return {
     BucketArn: __expectString(output.BucketArn),
-    KeyRange:
-      output.KeyRange !== undefined && output.KeyRange !== null
-        ? deserializeAws_json1_1KeyRange(output.KeyRange, context)
-        : undefined,
+    KeyRange: output.KeyRange != undefined ? deserializeAws_json1_1KeyRange(output.KeyRange, context) : undefined,
     TargetOnDeviceServices:
-      output.TargetOnDeviceServices !== undefined && output.TargetOnDeviceServices !== null
+      output.TargetOnDeviceServices != undefined
         ? deserializeAws_json1_1TargetOnDeviceServiceList(output.TargetOnDeviceServices, context)
         : undefined,
   } as any;
@@ -3099,11 +3040,9 @@ const deserializeAws_json1_1Shipment = (output: any, context: __SerdeContext): S
 const deserializeAws_json1_1ShippingDetails = (output: any, context: __SerdeContext): ShippingDetails => {
   return {
     InboundShipment:
-      output.InboundShipment !== undefined && output.InboundShipment !== null
-        ? deserializeAws_json1_1Shipment(output.InboundShipment, context)
-        : undefined,
+      output.InboundShipment != undefined ? deserializeAws_json1_1Shipment(output.InboundShipment, context) : undefined,
     OutboundShipment:
-      output.OutboundShipment !== undefined && output.OutboundShipment !== null
+      output.OutboundShipment != undefined
         ? deserializeAws_json1_1Shipment(output.OutboundShipment, context)
         : undefined,
     ShippingOption: __expectString(output.ShippingOption),
@@ -3116,7 +3055,7 @@ const deserializeAws_json1_1SnowconeDeviceConfiguration = (
 ): SnowconeDeviceConfiguration => {
   return {
     WirelessConnection:
-      output.WirelessConnection !== undefined && output.WirelessConnection !== null
+      output.WirelessConnection != undefined
         ? deserializeAws_json1_1WirelessConnection(output.WirelessConnection, context)
         : undefined,
   } as any;
@@ -3146,10 +3085,7 @@ const deserializeAws_json1_1TargetOnDeviceServiceList = (
 
 const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext): TaxDocuments => {
   return {
-    IND:
-      output.IND !== undefined && output.IND !== null
-        ? deserializeAws_json1_1INDTaxDocuments(output.IND, context)
-        : undefined,
+    IND: output.IND != undefined ? deserializeAws_json1_1INDTaxDocuments(output.IND, context) : undefined,
   } as any;
 };
 
