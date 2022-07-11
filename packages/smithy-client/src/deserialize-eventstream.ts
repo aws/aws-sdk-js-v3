@@ -58,7 +58,10 @@ export function toEventMessage(event: EventInput): EventOutput<keyof typeof even
  * @param input - a streaming union response.
  * @param targetTypes - a description of the union's members target types.
  */
-export function parseEventStream(input: any, targetTypes: Record<string, ParseEventStreamValidTargetTypes>): void {
+export function parseEventStream(
+  input?: Record<string, any>,
+  targetTypes: Record<string, ParseEventStreamValidTargetTypes> = {}
+): void {
   if (!input) {
     return;
   }
