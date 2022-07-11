@@ -336,10 +336,7 @@ const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1BucketInfo = (output: any, context: __SerdeContext): BucketInfo => {
   return {
-    buckets:
-      output.buckets !== undefined && output.buckets !== null
-        ? deserializeAws_restJson1BucketList(output.buckets, context)
-        : undefined,
+    buckets: output.buckets != null ? deserializeAws_restJson1BucketList(output.buckets, context) : undefined,
   } as any;
 };
 
@@ -454,18 +451,9 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit => {
   return {
-    exprs:
-      output.exprs !== undefined && output.exprs !== null
-        ? deserializeAws_restJson1Exprs(output.exprs, context)
-        : undefined,
-    fields:
-      output.fields !== undefined && output.fields !== null
-        ? deserializeAws_restJson1Fields(output.fields, context)
-        : undefined,
-    highlights:
-      output.highlights !== undefined && output.highlights !== null
-        ? deserializeAws_restJson1Highlights(output.highlights, context)
-        : undefined,
+    exprs: output.exprs != null ? deserializeAws_restJson1Exprs(output.exprs, context) : undefined,
+    fields: output.fields != null ? deserializeAws_restJson1Fields(output.fields, context) : undefined,
+    highlights: output.highlights != null ? deserializeAws_restJson1Highlights(output.highlights, context) : undefined,
     id: __expectString(output.id),
   } as any;
 };
@@ -486,10 +474,7 @@ const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hit
   return {
     cursor: __expectString(output.cursor),
     found: __expectLong(output.found),
-    hit:
-      output.hit !== undefined && output.hit !== null
-        ? deserializeAws_restJson1HitList(output.hit, context)
-        : undefined,
+    hit: output.hit != null ? deserializeAws_restJson1HitList(output.hit, context) : undefined,
     start: __expectLong(output.start),
   } as any;
 };
@@ -538,9 +523,7 @@ const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeConte
     found: __expectLong(output.found),
     query: __expectString(output.query),
     suggestions:
-      output.suggestions !== undefined && output.suggestions !== null
-        ? deserializeAws_restJson1Suggestions(output.suggestions, context)
-        : undefined,
+      output.suggestions != null ? deserializeAws_restJson1Suggestions(output.suggestions, context) : undefined,
   } as any;
 };
 

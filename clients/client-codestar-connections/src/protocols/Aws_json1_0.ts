@@ -835,66 +835,62 @@ const deserializeAws_json1_0UnsupportedOperationExceptionResponse = async (
 
 const serializeAws_json1_0CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined &&
-      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
-    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
-    ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
+    ...(input.HostArn != null && { HostArn: input.HostArn }),
+    ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateHostInput = (input: CreateHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ProviderEndpoint !== undefined &&
-      input.ProviderEndpoint !== null && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.VpcConfiguration !== undefined &&
-      input.VpcConfiguration !== null && {
-        VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
-      }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ProviderEndpoint != null && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+    }),
   };
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (input: DeleteConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0DeleteHostInput = (input: DeleteHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
+    ...(input.HostArn != null && { HostArn: input.HostArn }),
   };
 };
 
 const serializeAws_json1_0GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0GetHostInput = (input: GetHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
+    ...(input.HostArn != null && { HostArn: input.HostArn }),
   };
 };
 
 const serializeAws_json1_0ListConnectionsInput = (input: ListConnectionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArnFilter !== undefined && input.HostArnFilter !== null && { HostArnFilter: input.HostArnFilter }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ProviderTypeFilter !== undefined &&
-      input.ProviderTypeFilter !== null && { ProviderTypeFilter: input.ProviderTypeFilter }),
+    ...(input.HostArnFilter != null && { HostArnFilter: input.HostArnFilter }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ProviderTypeFilter != null && { ProviderTypeFilter: input.ProviderTypeFilter }),
   };
 };
 
 const serializeAws_json1_0ListHostsInput = (input: ListHostsInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -903,7 +899,7 @@ const serializeAws_json1_0ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -931,8 +927,8 @@ const serializeAws_json1_0SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -960,42 +956,36 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateHostInput = (input: UpdateHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
-    ...(input.ProviderEndpoint !== undefined &&
-      input.ProviderEndpoint !== null && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.VpcConfiguration !== undefined &&
-      input.VpcConfiguration !== null && {
-        VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
-      }),
+    ...(input.HostArn != null && { HostArn: input.HostArn }),
+    ...(input.ProviderEndpoint != null && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+    }),
   };
 };
 
 const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroupIds !== undefined &&
-      input.SecurityGroupIds !== null && {
-        SecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.SecurityGroupIds, context),
-      }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_0SubnetIds(input.SubnetIds, context) }),
-    ...(input.TlsCertificate !== undefined &&
-      input.TlsCertificate !== null && { TlsCertificate: input.TlsCertificate }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_0SubnetIds(input.SubnetIds, context) }),
+    ...(input.TlsCertificate != null && { TlsCertificate: input.TlsCertificate }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -1031,20 +1021,14 @@ const deserializeAws_json1_0ConnectionList = (output: any, context: __SerdeConte
 const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
   return {
     ConnectionArn: __expectString(output.ConnectionArn),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
   return {
     HostArn: __expectString(output.HostArn),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1058,10 +1042,7 @@ const deserializeAws_json1_0DeleteHostOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0GetConnectionOutput = (output: any, context: __SerdeContext): GetConnectionOutput => {
   return {
-    Connection:
-      output.Connection !== undefined && output.Connection !== null
-        ? deserializeAws_json1_0Connection(output.Connection, context)
-        : undefined,
+    Connection: output.Connection != null ? deserializeAws_json1_0Connection(output.Connection, context) : undefined,
   } as any;
 };
 
@@ -1072,7 +1053,7 @@ const deserializeAws_json1_0GetHostOutput = (output: any, context: __SerdeContex
     ProviderType: __expectString(output.ProviderType),
     Status: __expectString(output.Status),
     VpcConfiguration:
-      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+      output.VpcConfiguration != null
         ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
         : undefined,
   } as any;
@@ -1087,7 +1068,7 @@ const deserializeAws_json1_0Host = (output: any, context: __SerdeContext): Host 
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
     VpcConfiguration:
-      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+      output.VpcConfiguration != null
         ? deserializeAws_json1_0VpcConfiguration(output.VpcConfiguration, context)
         : undefined,
   } as any;
@@ -1114,19 +1095,14 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_0ListConnectionsOutput = (output: any, context: __SerdeContext): ListConnectionsOutput => {
   return {
     Connections:
-      output.Connections !== undefined && output.Connections !== null
-        ? deserializeAws_json1_0ConnectionList(output.Connections, context)
-        : undefined,
+      output.Connections != null ? deserializeAws_json1_0ConnectionList(output.Connections, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_0ListHostsOutput = (output: any, context: __SerdeContext): ListHostsOutput => {
   return {
-    Hosts:
-      output.Hosts !== undefined && output.Hosts !== null
-        ? deserializeAws_json1_0HostList(output.Hosts, context)
-        : undefined,
+    Hosts: output.Hosts != null ? deserializeAws_json1_0HostList(output.Hosts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1136,10 +1112,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1228,13 +1201,10 @@ const deserializeAws_json1_0UpdateHostOutput = (output: any, context: __SerdeCon
 const deserializeAws_json1_0VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
   return {
     SecurityGroupIds:
-      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+      output.SecurityGroupIds != null
         ? deserializeAws_json1_0SecurityGroupIds(output.SecurityGroupIds, context)
         : undefined,
-    SubnetIds:
-      output.SubnetIds !== undefined && output.SubnetIds !== null
-        ? deserializeAws_json1_0SubnetIds(output.SubnetIds, context)
-        : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_0SubnetIds(output.SubnetIds, context) : undefined,
     TlsCertificate: __expectString(output.TlsCertificate),
     VpcId: __expectString(output.VpcId),
   } as any;

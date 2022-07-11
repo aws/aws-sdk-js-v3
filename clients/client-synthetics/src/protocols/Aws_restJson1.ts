@@ -113,7 +113,7 @@ export const serializeAws_restJson1AssociateResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -137,34 +137,24 @@ export const serializeAws_restJson1CreateCanaryCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary";
   let body: any;
   body = JSON.stringify({
-    ...(input.ArtifactConfig !== undefined &&
-      input.ArtifactConfig !== null && {
-        ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
-      }),
-    ...(input.ArtifactS3Location !== undefined &&
-      input.ArtifactS3Location !== null && { ArtifactS3Location: input.ArtifactS3Location }),
-    ...(input.Code !== undefined &&
-      input.Code !== null && { Code: serializeAws_restJson1CanaryCodeInput(input.Code, context) }),
-    ...(input.ExecutionRoleArn !== undefined &&
-      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.FailureRetentionPeriodInDays !== undefined &&
-      input.FailureRetentionPeriodInDays !== null && {
-        FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RunConfig !== undefined &&
-      input.RunConfig !== null && { RunConfig: serializeAws_restJson1CanaryRunConfigInput(input.RunConfig, context) }),
-    ...(input.RuntimeVersion !== undefined &&
-      input.RuntimeVersion !== null && { RuntimeVersion: input.RuntimeVersion }),
-    ...(input.Schedule !== undefined &&
-      input.Schedule !== null && { Schedule: serializeAws_restJson1CanaryScheduleInput(input.Schedule, context) }),
-    ...(input.SuccessRetentionPeriodInDays !== undefined &&
-      input.SuccessRetentionPeriodInDays !== null && {
-        SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.VpcConfig !== undefined &&
-      input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
+    ...(input.ArtifactConfig != null && {
+      ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
+    }),
+    ...(input.ArtifactS3Location != null && { ArtifactS3Location: input.ArtifactS3Location }),
+    ...(input.Code != null && { Code: serializeAws_restJson1CanaryCodeInput(input.Code, context) }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.FailureRetentionPeriodInDays != null && {
+      FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RunConfig != null && { RunConfig: serializeAws_restJson1CanaryRunConfigInput(input.RunConfig, context) }),
+    ...(input.RuntimeVersion != null && { RuntimeVersion: input.RuntimeVersion }),
+    ...(input.Schedule != null && { Schedule: serializeAws_restJson1CanaryScheduleInput(input.Schedule, context) }),
+    ...(input.SuccessRetentionPeriodInDays != null && {
+      SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.VpcConfig != null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -188,8 +178,8 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -273,10 +263,9 @@ export const serializeAws_restJson1DescribeCanariesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined &&
-      input.Names !== null && { Names: serializeAws_restJson1DescribeCanariesNameFilter(input.Names, context) }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Names != null && { Names: serializeAws_restJson1DescribeCanariesNameFilter(input.Names, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -300,10 +289,11 @@ export const serializeAws_restJson1DescribeCanariesLastRunCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries/last-run";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.Names !== undefined &&
-      input.Names !== null && { Names: serializeAws_restJson1DescribeCanariesLastRunNameFilter(input.Names, context) }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Names != null && {
+      Names: serializeAws_restJson1DescribeCanariesLastRunNameFilter(input.Names, context),
+    }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -327,8 +317,8 @@ export const serializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runtime-versions";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -362,7 +352,7 @@ export const serializeAws_restJson1DisassociateResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -423,8 +413,8 @@ export const serializeAws_restJson1GetCanaryRunsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -486,8 +476,8 @@ export const serializeAws_restJson1ListAssociatedGroupsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -521,8 +511,8 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -546,8 +536,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -664,7 +654,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -729,36 +719,25 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ArtifactConfig !== undefined &&
-      input.ArtifactConfig !== null && {
-        ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
-      }),
-    ...(input.ArtifactS3Location !== undefined &&
-      input.ArtifactS3Location !== null && { ArtifactS3Location: input.ArtifactS3Location }),
-    ...(input.Code !== undefined &&
-      input.Code !== null && { Code: serializeAws_restJson1CanaryCodeInput(input.Code, context) }),
-    ...(input.ExecutionRoleArn !== undefined &&
-      input.ExecutionRoleArn !== null && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.FailureRetentionPeriodInDays !== undefined &&
-      input.FailureRetentionPeriodInDays !== null && {
-        FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
-      }),
-    ...(input.RunConfig !== undefined &&
-      input.RunConfig !== null && { RunConfig: serializeAws_restJson1CanaryRunConfigInput(input.RunConfig, context) }),
-    ...(input.RuntimeVersion !== undefined &&
-      input.RuntimeVersion !== null && { RuntimeVersion: input.RuntimeVersion }),
-    ...(input.Schedule !== undefined &&
-      input.Schedule !== null && { Schedule: serializeAws_restJson1CanaryScheduleInput(input.Schedule, context) }),
-    ...(input.SuccessRetentionPeriodInDays !== undefined &&
-      input.SuccessRetentionPeriodInDays !== null && {
-        SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
-      }),
-    ...(input.VisualReference !== undefined &&
-      input.VisualReference !== null && {
-        VisualReference: serializeAws_restJson1VisualReferenceInput(input.VisualReference, context),
-      }),
-    ...(input.VpcConfig !== undefined &&
-      input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
+    ...(input.ArtifactConfig != null && {
+      ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
+    }),
+    ...(input.ArtifactS3Location != null && { ArtifactS3Location: input.ArtifactS3Location }),
+    ...(input.Code != null && { Code: serializeAws_restJson1CanaryCodeInput(input.Code, context) }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.FailureRetentionPeriodInDays != null && {
+      FailureRetentionPeriodInDays: input.FailureRetentionPeriodInDays,
+    }),
+    ...(input.RunConfig != null && { RunConfig: serializeAws_restJson1CanaryRunConfigInput(input.RunConfig, context) }),
+    ...(input.RuntimeVersion != null && { RuntimeVersion: input.RuntimeVersion }),
+    ...(input.Schedule != null && { Schedule: serializeAws_restJson1CanaryScheduleInput(input.Schedule, context) }),
+    ...(input.SuccessRetentionPeriodInDays != null && {
+      SuccessRetentionPeriodInDays: input.SuccessRetentionPeriodInDays,
+    }),
+    ...(input.VisualReference != null && {
+      VisualReference: serializeAws_restJson1VisualReferenceInput(input.VisualReference, context),
+    }),
+    ...(input.VpcConfig != null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2035,21 +2014,18 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ArtifactConfigInput = (input: ArtifactConfigInput, context: __SerdeContext): any => {
   return {
-    ...(input.S3Encryption !== undefined &&
-      input.S3Encryption !== null && {
-        S3Encryption: serializeAws_restJson1S3EncryptionConfig(input.S3Encryption, context),
-      }),
+    ...(input.S3Encryption != null && {
+      S3Encryption: serializeAws_restJson1S3EncryptionConfig(input.S3Encryption, context),
+    }),
   };
 };
 
 const serializeAws_restJson1BaseScreenshot = (input: BaseScreenshot, context: __SerdeContext): any => {
   return {
-    ...(input.IgnoreCoordinates !== undefined &&
-      input.IgnoreCoordinates !== null && {
-        IgnoreCoordinates: serializeAws_restJson1BaseScreenshotIgnoreCoordinates(input.IgnoreCoordinates, context),
-      }),
-    ...(input.ScreenshotName !== undefined &&
-      input.ScreenshotName !== null && { ScreenshotName: input.ScreenshotName }),
+    ...(input.IgnoreCoordinates != null && {
+      IgnoreCoordinates: serializeAws_restJson1BaseScreenshotIgnoreCoordinates(input.IgnoreCoordinates, context),
+    }),
+    ...(input.ScreenshotName != null && { ScreenshotName: input.ScreenshotName }),
   };
 };
 
@@ -2077,32 +2053,29 @@ const serializeAws_restJson1BaseScreenshots = (input: BaseScreenshot[], context:
 
 const serializeAws_restJson1CanaryCodeInput = (input: CanaryCodeInput, context: __SerdeContext): any => {
   return {
-    ...(input.Handler !== undefined && input.Handler !== null && { Handler: input.Handler }),
-    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Key !== undefined && input.S3Key !== null && { S3Key: input.S3Key }),
-    ...(input.S3Version !== undefined && input.S3Version !== null && { S3Version: input.S3Version }),
-    ...(input.ZipFile !== undefined && input.ZipFile !== null && { ZipFile: context.base64Encoder(input.ZipFile) }),
+    ...(input.Handler != null && { Handler: input.Handler }),
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Key != null && { S3Key: input.S3Key }),
+    ...(input.S3Version != null && { S3Version: input.S3Version }),
+    ...(input.ZipFile != null && { ZipFile: context.base64Encoder(input.ZipFile) }),
   };
 };
 
 const serializeAws_restJson1CanaryRunConfigInput = (input: CanaryRunConfigInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActiveTracing !== undefined && input.ActiveTracing !== null && { ActiveTracing: input.ActiveTracing }),
-    ...(input.EnvironmentVariables !== undefined &&
-      input.EnvironmentVariables !== null && {
-        EnvironmentVariables: serializeAws_restJson1EnvironmentVariablesMap(input.EnvironmentVariables, context),
-      }),
-    ...(input.MemoryInMB !== undefined && input.MemoryInMB !== null && { MemoryInMB: input.MemoryInMB }),
-    ...(input.TimeoutInSeconds !== undefined &&
-      input.TimeoutInSeconds !== null && { TimeoutInSeconds: input.TimeoutInSeconds }),
+    ...(input.ActiveTracing != null && { ActiveTracing: input.ActiveTracing }),
+    ...(input.EnvironmentVariables != null && {
+      EnvironmentVariables: serializeAws_restJson1EnvironmentVariablesMap(input.EnvironmentVariables, context),
+    }),
+    ...(input.MemoryInMB != null && { MemoryInMB: input.MemoryInMB }),
+    ...(input.TimeoutInSeconds != null && { TimeoutInSeconds: input.TimeoutInSeconds }),
   };
 };
 
 const serializeAws_restJson1CanaryScheduleInput = (input: CanaryScheduleInput, context: __SerdeContext): any => {
   return {
-    ...(input.DurationInSeconds !== undefined &&
-      input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
-    ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
+    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
+    ...(input.Expression != null && { Expression: input.Expression }),
   };
 };
 
@@ -2142,9 +2115,8 @@ const serializeAws_restJson1EnvironmentVariablesMap = (input: Record<string, str
 
 const serializeAws_restJson1S3EncryptionConfig = (input: S3EncryptionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionMode !== undefined &&
-      input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
-    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.EncryptionMode != null && { EncryptionMode: input.EncryptionMode }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
   };
 };
 
@@ -2184,30 +2156,26 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1VisualReferenceInput = (input: VisualReferenceInput, context: __SerdeContext): any => {
   return {
-    ...(input.BaseCanaryRunId !== undefined &&
-      input.BaseCanaryRunId !== null && { BaseCanaryRunId: input.BaseCanaryRunId }),
-    ...(input.BaseScreenshots !== undefined &&
-      input.BaseScreenshots !== null && {
-        BaseScreenshots: serializeAws_restJson1BaseScreenshots(input.BaseScreenshots, context),
-      }),
+    ...(input.BaseCanaryRunId != null && { BaseCanaryRunId: input.BaseCanaryRunId }),
+    ...(input.BaseScreenshots != null && {
+      BaseScreenshots: serializeAws_restJson1BaseScreenshots(input.BaseScreenshots, context),
+    }),
   };
 };
 
 const serializeAws_restJson1VpcConfigInput = (input: VpcConfigInput, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroupIds !== undefined &&
-      input.SecurityGroupIds !== null && {
-        SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
-      }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_restJson1SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
   };
 };
 
 const deserializeAws_restJson1ArtifactConfigOutput = (output: any, context: __SerdeContext): ArtifactConfigOutput => {
   return {
     S3Encryption:
-      output.S3Encryption !== undefined && output.S3Encryption !== null
+      output.S3Encryption != null
         ? deserializeAws_restJson1S3EncryptionConfig(output.S3Encryption, context)
         : undefined,
   } as any;
@@ -2216,7 +2184,7 @@ const deserializeAws_restJson1ArtifactConfigOutput = (output: any, context: __Se
 const deserializeAws_restJson1BaseScreenshot = (output: any, context: __SerdeContext): BaseScreenshot => {
   return {
     IgnoreCoordinates:
-      output.IgnoreCoordinates !== undefined && output.IgnoreCoordinates !== null
+      output.IgnoreCoordinates != null
         ? deserializeAws_restJson1BaseScreenshotIgnoreCoordinates(output.IgnoreCoordinates, context)
         : undefined,
     ScreenshotName: __expectString(output.ScreenshotName),
@@ -2274,49 +2242,31 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
   return {
     ArtifactConfig:
-      output.ArtifactConfig !== undefined && output.ArtifactConfig !== null
+      output.ArtifactConfig != null
         ? deserializeAws_restJson1ArtifactConfigOutput(output.ArtifactConfig, context)
         : undefined,
     ArtifactS3Location: __expectString(output.ArtifactS3Location),
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? deserializeAws_restJson1CanaryCodeOutput(output.Code, context)
-        : undefined,
+    Code: output.Code != null ? deserializeAws_restJson1CanaryCodeOutput(output.Code, context) : undefined,
     EngineArn: __expectString(output.EngineArn),
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     FailureRetentionPeriodInDays: __expectInt32(output.FailureRetentionPeriodInDays),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     RunConfig:
-      output.RunConfig !== undefined && output.RunConfig !== null
-        ? deserializeAws_restJson1CanaryRunConfigOutput(output.RunConfig, context)
-        : undefined,
+      output.RunConfig != null ? deserializeAws_restJson1CanaryRunConfigOutput(output.RunConfig, context) : undefined,
     RuntimeVersion: __expectString(output.RuntimeVersion),
     Schedule:
-      output.Schedule !== undefined && output.Schedule !== null
-        ? deserializeAws_restJson1CanaryScheduleOutput(output.Schedule, context)
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? deserializeAws_restJson1CanaryStatus(output.Status, context)
-        : undefined,
+      output.Schedule != null ? deserializeAws_restJson1CanaryScheduleOutput(output.Schedule, context) : undefined,
+    Status: output.Status != null ? deserializeAws_restJson1CanaryStatus(output.Status, context) : undefined,
     SuccessRetentionPeriodInDays: __expectInt32(output.SuccessRetentionPeriodInDays),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
-    Timeline:
-      output.Timeline !== undefined && output.Timeline !== null
-        ? deserializeAws_restJson1CanaryTimeline(output.Timeline, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Timeline: output.Timeline != null ? deserializeAws_restJson1CanaryTimeline(output.Timeline, context) : undefined,
     VisualReference:
-      output.VisualReference !== undefined && output.VisualReference !== null
+      output.VisualReference != null
         ? deserializeAws_restJson1VisualReferenceOutput(output.VisualReference, context)
         : undefined,
     VpcConfig:
-      output.VpcConfig !== undefined && output.VpcConfig !== null
-        ? deserializeAws_restJson1VpcConfigOutput(output.VpcConfig, context)
-        : undefined,
+      output.VpcConfig != null ? deserializeAws_restJson1VpcConfigOutput(output.VpcConfig, context) : undefined,
   } as any;
 };
 
@@ -2330,10 +2280,7 @@ const deserializeAws_restJson1CanaryCodeOutput = (output: any, context: __SerdeC
 const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun => {
   return {
     CanaryName: __expectString(output.CanaryName),
-    LastRun:
-      output.LastRun !== undefined && output.LastRun !== null
-        ? deserializeAws_restJson1CanaryRun(output.LastRun, context)
-        : undefined,
+    LastRun: output.LastRun != null ? deserializeAws_restJson1CanaryRun(output.LastRun, context) : undefined,
   } as any;
 };
 
@@ -2342,14 +2289,8 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
     ArtifactS3Location: __expectString(output.ArtifactS3Location),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? deserializeAws_restJson1CanaryRunStatus(output.Status, context)
-        : undefined,
-    Timeline:
-      output.Timeline !== undefined && output.Timeline !== null
-        ? deserializeAws_restJson1CanaryRunTimeline(output.Timeline, context)
-        : undefined,
+    Status: output.Status != null ? deserializeAws_restJson1CanaryRunStatus(output.Status, context) : undefined,
+    Timeline: output.Timeline != null ? deserializeAws_restJson1CanaryRunTimeline(output.Timeline, context) : undefined,
   } as any;
 };
 
@@ -2384,13 +2325,9 @@ const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeCo
 const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __SerdeContext): CanaryRunTimeline => {
   return {
     Completed:
-      output.Completed !== undefined && output.Completed !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Completed)))
-        : undefined,
+      output.Completed != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Completed))) : undefined,
     Started:
-      output.Started !== undefined && output.Started !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Started)))
-        : undefined,
+      output.Started != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Started))) : undefined,
   } as any;
 };
 
@@ -2412,19 +2349,17 @@ const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeConte
 const deserializeAws_restJson1CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline => {
   return {
     Created:
-      output.Created !== undefined && output.Created !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created)))
-        : undefined,
+      output.Created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
     LastModified:
-      output.LastModified !== undefined && output.LastModified !== null
+      output.LastModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     LastStarted:
-      output.LastStarted !== undefined && output.LastStarted !== null
+      output.LastStarted != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStarted)))
         : undefined,
     LastStopped:
-      output.LastStopped !== undefined && output.LastStopped !== null
+      output.LastStopped != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStopped)))
         : undefined,
   } as any;
@@ -2434,19 +2369,16 @@ const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Gr
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2473,12 +2405,12 @@ const deserializeAws_restJson1GroupSummaryList = (output: any, context: __SerdeC
 const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeContext): RuntimeVersion => {
   return {
     DeprecationDate:
-      output.DeprecationDate !== undefined && output.DeprecationDate !== null
+      output.DeprecationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeprecationDate)))
         : undefined,
     Description: __expectString(output.Description),
     ReleaseDate:
-      output.ReleaseDate !== undefined && output.ReleaseDate !== null
+      output.ReleaseDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReleaseDate)))
         : undefined,
     VersionName: __expectString(output.VersionName),
@@ -2556,7 +2488,7 @@ const deserializeAws_restJson1VisualReferenceOutput = (output: any, context: __S
   return {
     BaseCanaryRunId: __expectString(output.BaseCanaryRunId),
     BaseScreenshots:
-      output.BaseScreenshots !== undefined && output.BaseScreenshots !== null
+      output.BaseScreenshots != null
         ? deserializeAws_restJson1BaseScreenshots(output.BaseScreenshots, context)
         : undefined,
   } as any;
@@ -2565,13 +2497,10 @@ const deserializeAws_restJson1VisualReferenceOutput = (output: any, context: __S
 const deserializeAws_restJson1VpcConfigOutput = (output: any, context: __SerdeContext): VpcConfigOutput => {
   return {
     SecurityGroupIds:
-      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+      output.SecurityGroupIds != null
         ? deserializeAws_restJson1SecurityGroupIds(output.SecurityGroupIds, context)
         : undefined,
-    SubnetIds:
-      output.SubnetIds !== undefined && output.SubnetIds !== null
-        ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context)
-        : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };

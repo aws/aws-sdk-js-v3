@@ -795,21 +795,20 @@ const serializeAws_json1_1BatchExecuteStatementInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.Sqls !== undefined && input.Sqls !== null && { Sqls: serializeAws_json1_1SqlList(input.Sqls, context) }),
-    ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
-    ...(input.WithEvent !== undefined && input.WithEvent !== null && { WithEvent: input.WithEvent }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.Sqls != null && { Sqls: serializeAws_json1_1SqlList(input.Sqls, context) }),
+    ...(input.StatementName != null && { StatementName: input.StatementName }),
+    ...(input.WithEvent != null && { WithEvent: input.WithEvent }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
 const serializeAws_json1_1CancelStatementRequest = (input: CancelStatementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -818,40 +817,36 @@ const serializeAws_json1_1DescribeStatementRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase !== undefined &&
-      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Schema !== undefined && input.Schema !== null && { Schema: input.Schema }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Schema != null && { Schema: input.Schema }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.Table != null && { Table: input.Table }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
 const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_json1_1SqlParametersList(input.Parameters, context) }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.Sql !== undefined && input.Sql !== null && { Sql: input.Sql }),
-    ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
-    ...(input.WithEvent !== undefined && input.WithEvent !== null && { WithEvent: input.WithEvent }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.Parameters != null && { Parameters: serializeAws_json1_1SqlParametersList(input.Parameters, context) }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.Sql != null && { Sql: input.Sql }),
+    ...(input.StatementName != null && { StatementName: input.StatementName }),
+    ...(input.WithEvent != null && { WithEvent: input.WithEvent }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -860,64 +855,59 @@ const serializeAws_json1_1GetStatementResultRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListDatabasesRequest = (input: ListDatabasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
 const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase !== undefined &&
-      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SchemaPattern !== undefined && input.SchemaPattern !== null && { SchemaPattern: input.SchemaPattern }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SchemaPattern != null && { SchemaPattern: input.SchemaPattern }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
 const serializeAws_json1_1ListStatementsRequest = (input: ListStatementsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.RoleLevel !== undefined && input.RoleLevel !== null && { RoleLevel: input.RoleLevel }),
-    ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RoleLevel != null && { RoleLevel: input.RoleLevel }),
+    ...(input.StatementName != null && { StatementName: input.StatementName }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.ConnectedDatabase !== undefined &&
-      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
-    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
-    ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SchemaPattern !== undefined && input.SchemaPattern !== null && { SchemaPattern: input.SchemaPattern }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.TablePattern !== undefined && input.TablePattern !== null && { TablePattern: input.TablePattern }),
-    ...(input.WorkgroupName !== undefined && input.WorkgroupName !== null && { WorkgroupName: input.WorkgroupName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase != null && { ConnectedDatabase: input.ConnectedDatabase }),
+    ...(input.Database != null && { Database: input.Database }),
+    ...(input.DbUser != null && { DbUser: input.DbUser }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SchemaPattern != null && { SchemaPattern: input.SchemaPattern }),
+    ...(input.SecretArn != null && { SecretArn: input.SecretArn }),
+    ...(input.TablePattern != null && { TablePattern: input.TablePattern }),
+    ...(input.WorkgroupName != null && { WorkgroupName: input.WorkgroupName }),
   };
 };
 
@@ -934,8 +924,8 @@ const serializeAws_json1_1SqlList = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -976,9 +966,7 @@ const deserializeAws_json1_1BatchExecuteStatementOutput = (
   return {
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
     Id: __expectString(output.Id),
@@ -1066,9 +1054,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
   return {
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
     Duration: __expectLong(output.Duration),
@@ -1076,7 +1062,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     HasResultSet: __expectBoolean(output.HasResultSet),
     Id: __expectString(output.Id),
     QueryParameters:
-      output.QueryParameters !== undefined && output.QueryParameters !== null
+      output.QueryParameters != null
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
     QueryString: __expectString(output.QueryString),
@@ -1087,23 +1073,16 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     SecretArn: __expectString(output.SecretArn),
     Status: __expectString(output.Status),
     SubStatements:
-      output.SubStatements !== undefined && output.SubStatements !== null
-        ? deserializeAws_json1_1SubStatementList(output.SubStatements, context)
-        : undefined,
+      output.SubStatements != null ? deserializeAws_json1_1SubStatementList(output.SubStatements, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
     WorkgroupName: __expectString(output.WorkgroupName),
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTableResponse = (output: any, context: __SerdeContext): DescribeTableResponse => {
   return {
-    ColumnList:
-      output.ColumnList !== undefined && output.ColumnList !== null
-        ? deserializeAws_json1_1ColumnList(output.ColumnList, context)
-        : undefined,
+    ColumnList: output.ColumnList != null ? deserializeAws_json1_1ColumnList(output.ColumnList, context) : undefined,
     NextToken: __expectString(output.NextToken),
     TableName: __expectString(output.TableName),
   } as any;
@@ -1123,9 +1102,7 @@ const deserializeAws_json1_1ExecuteStatementOutput = (output: any, context: __Se
   return {
     ClusterIdentifier: __expectString(output.ClusterIdentifier),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Database: __expectString(output.Database),
     DbUser: __expectString(output.DbUser),
     Id: __expectString(output.Id),
@@ -1176,14 +1153,11 @@ const deserializeAws_json1_1GetStatementResultResponse = (
 ): GetStatementResultResponse => {
   return {
     ColumnMetadata:
-      output.ColumnMetadata !== undefined && output.ColumnMetadata !== null
+      output.ColumnMetadata != null
         ? deserializeAws_json1_1ColumnMetadataList(output.ColumnMetadata, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
-    Records:
-      output.Records !== undefined && output.Records !== null
-        ? deserializeAws_json1_1SqlRecords(output.Records, context)
-        : undefined,
+    Records: output.Records != null ? deserializeAws_json1_1SqlRecords(output.Records, context) : undefined,
     TotalNumRows: __expectLong(output.TotalNumRows),
   } as any;
 };
@@ -1199,10 +1173,7 @@ const deserializeAws_json1_1InternalServerException = (
 
 const deserializeAws_json1_1ListDatabasesResponse = (output: any, context: __SerdeContext): ListDatabasesResponse => {
   return {
-    Databases:
-      output.Databases !== undefined && output.Databases !== null
-        ? deserializeAws_json1_1DatabaseList(output.Databases, context)
-        : undefined,
+    Databases: output.Databases != null ? deserializeAws_json1_1DatabaseList(output.Databases, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1210,30 +1181,21 @@ const deserializeAws_json1_1ListDatabasesResponse = (output: any, context: __Ser
 const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Schemas:
-      output.Schemas !== undefined && output.Schemas !== null
-        ? deserializeAws_json1_1SchemaList(output.Schemas, context)
-        : undefined,
+    Schemas: output.Schemas != null ? deserializeAws_json1_1SchemaList(output.Schemas, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListStatementsResponse = (output: any, context: __SerdeContext): ListStatementsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Statements:
-      output.Statements !== undefined && output.Statements !== null
-        ? deserializeAws_json1_1StatementList(output.Statements, context)
-        : undefined,
+    Statements: output.Statements != null ? deserializeAws_json1_1StatementList(output.Statements, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tables:
-      output.Tables !== undefined && output.Tables !== null
-        ? deserializeAws_json1_1TableList(output.Tables, context)
-        : undefined,
+    Tables: output.Tables != null ? deserializeAws_json1_1TableList(output.Tables, context) : undefined,
   } as any;
 };
 
@@ -1293,27 +1255,21 @@ const deserializeAws_json1_1SqlRecords = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContext): StatementData => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Id: __expectString(output.Id),
     IsBatchStatement: __expectBoolean(output.IsBatchStatement),
     QueryParameters:
-      output.QueryParameters !== undefined && output.QueryParameters !== null
+      output.QueryParameters != null
         ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
         : undefined,
     QueryString: __expectString(output.QueryString),
     QueryStrings:
-      output.QueryStrings !== undefined && output.QueryStrings !== null
-        ? deserializeAws_json1_1StatementStringList(output.QueryStrings, context)
-        : undefined,
+      output.QueryStrings != null ? deserializeAws_json1_1StatementStringList(output.QueryStrings, context) : undefined,
     SecretArn: __expectString(output.SecretArn),
     StatementName: __expectString(output.StatementName),
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -1344,9 +1300,7 @@ const deserializeAws_json1_1StatementStringList = (output: any, context: __Serde
 const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeContext): SubStatementData => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Duration: __expectLong(output.Duration),
     Error: __expectString(output.Error),
     HasResultSet: __expectBoolean(output.HasResultSet),
@@ -1357,9 +1311,7 @@ const deserializeAws_json1_1SubStatementData = (output: any, context: __SerdeCon
     ResultSize: __expectLong(output.ResultSize),
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 

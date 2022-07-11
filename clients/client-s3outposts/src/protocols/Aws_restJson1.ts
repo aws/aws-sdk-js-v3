@@ -45,13 +45,11 @@ export const serializeAws_restJson1CreateEndpointCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/CreateEndpoint";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccessType !== undefined && input.AccessType !== null && { AccessType: input.AccessType }),
-    ...(input.CustomerOwnedIpv4Pool !== undefined &&
-      input.CustomerOwnedIpv4Pool !== null && { CustomerOwnedIpv4Pool: input.CustomerOwnedIpv4Pool }),
-    ...(input.OutpostId !== undefined && input.OutpostId !== null && { OutpostId: input.OutpostId }),
-    ...(input.SecurityGroupId !== undefined &&
-      input.SecurityGroupId !== null && { SecurityGroupId: input.SecurityGroupId }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.AccessType != null && { AccessType: input.AccessType }),
+    ...(input.CustomerOwnedIpv4Pool != null && { CustomerOwnedIpv4Pool: input.CustomerOwnedIpv4Pool }),
+    ...(input.OutpostId != null && { OutpostId: input.OutpostId }),
+    ...(input.SecurityGroupId != null && { SecurityGroupId: input.SecurityGroupId }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   });
   return new __HttpRequest({
     protocol,
@@ -448,13 +446,13 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
     AccessType: __expectString(output.AccessType),
     CidrBlock: __expectString(output.CidrBlock),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CustomerOwnedIpv4Pool: __expectString(output.CustomerOwnedIpv4Pool),
     EndpointArn: __expectString(output.EndpointArn),
     NetworkInterfaces:
-      output.NetworkInterfaces !== undefined && output.NetworkInterfaces !== null
+      output.NetworkInterfaces != null
         ? deserializeAws_restJson1NetworkInterfaces(output.NetworkInterfaces, context)
         : undefined,
     OutpostsId: __expectString(output.OutpostsId),

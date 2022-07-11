@@ -122,12 +122,11 @@ export const serializeAws_restJson1ListChangeSetsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListChangeSets";
   let body: any;
   body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.FilterList !== undefined &&
-      input.FilterList !== null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
+    ...(input.Catalog != null && { Catalog: input.Catalog }),
+    ...(input.FilterList != null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Sort != null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -151,13 +150,12 @@ export const serializeAws_restJson1ListEntitiesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListEntities";
   let body: any;
   body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.EntityType !== undefined && input.EntityType !== null && { EntityType: input.EntityType }),
-    ...(input.FilterList !== undefined &&
-      input.FilterList !== null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Sort !== undefined && input.Sort !== null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
+    ...(input.Catalog != null && { Catalog: input.Catalog }),
+    ...(input.EntityType != null && { EntityType: input.EntityType }),
+    ...(input.FilterList != null && { FilterList: serializeAws_restJson1FilterList(input.FilterList, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Sort != null && { Sort: serializeAws_restJson1Sort(input.Sort, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -181,12 +179,10 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartChangeSet";
   let body: any;
   body = JSON.stringify({
-    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
-    ...(input.ChangeSet !== undefined &&
-      input.ChangeSet !== null && { ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context) }),
-    ...(input.ChangeSetName !== undefined && input.ChangeSetName !== null && { ChangeSetName: input.ChangeSetName }),
-    ...(input.ClientRequestToken !== undefined &&
-      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Catalog != null && { Catalog: input.Catalog }),
+    ...(input.ChangeSet != null && { ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context) }),
+    ...(input.ChangeSetName != null && { ChangeSetName: input.ChangeSetName }),
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -744,26 +740,24 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Change = (input: Change, context: __SerdeContext): any => {
   return {
-    ...(input.ChangeName !== undefined && input.ChangeName !== null && { ChangeName: input.ChangeName }),
-    ...(input.ChangeType !== undefined && input.ChangeType !== null && { ChangeType: input.ChangeType }),
-    ...(input.Details !== undefined && input.Details !== null && { Details: input.Details }),
-    ...(input.Entity !== undefined &&
-      input.Entity !== null && { Entity: serializeAws_restJson1Entity(input.Entity, context) }),
+    ...(input.ChangeName != null && { ChangeName: input.ChangeName }),
+    ...(input.ChangeType != null && { ChangeType: input.ChangeType }),
+    ...(input.Details != null && { Details: input.Details }),
+    ...(input.Entity != null && { Entity: serializeAws_restJson1Entity(input.Entity, context) }),
   };
 };
 
 const serializeAws_restJson1Entity = (input: Entity, context: __SerdeContext): any => {
   return {
-    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ValueList !== undefined &&
-      input.ValueList !== null && { ValueList: serializeAws_restJson1ValueList(input.ValueList, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ValueList != null && { ValueList: serializeAws_restJson1ValueList(input.ValueList, context) }),
   };
 };
 
@@ -791,8 +785,8 @@ const serializeAws_restJson1RequestedChangeList = (input: Change[], context: __S
 
 const serializeAws_restJson1Sort = (input: Sort, context: __SerdeContext): any => {
   return {
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -844,9 +838,7 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
     ChangeSetName: __expectString(output.ChangeSetName),
     EndTime: __expectString(output.EndTime),
     EntityIdList:
-      output.EntityIdList !== undefined && output.EntityIdList !== null
-        ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context)
-        : undefined,
+      output.EntityIdList != null ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context) : undefined,
     FailureCode: __expectString(output.FailureCode),
     StartTime: __expectString(output.StartTime),
     Status: __expectString(output.Status),
@@ -858,12 +850,9 @@ const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeCont
     ChangeName: __expectString(output.ChangeName),
     ChangeType: __expectString(output.ChangeType),
     Details: __expectString(output.Details),
-    Entity:
-      output.Entity !== undefined && output.Entity !== null
-        ? deserializeAws_restJson1Entity(output.Entity, context)
-        : undefined,
+    Entity: output.Entity != null ? deserializeAws_restJson1Entity(output.Entity, context) : undefined,
     ErrorDetailList:
-      output.ErrorDetailList !== undefined && output.ErrorDetailList !== null
+      output.ErrorDetailList != null
         ? deserializeAws_restJson1ErrorDetailList(output.ErrorDetailList, context)
         : undefined,
   } as any;

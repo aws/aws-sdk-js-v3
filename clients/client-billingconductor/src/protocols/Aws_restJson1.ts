@@ -145,9 +145,8 @@ export const serializeAws_restJson1AssociateAccountsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associate-accounts";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined &&
-      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,11 +171,10 @@ export const serializeAws_restJson1AssociatePricingRulesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associate-pricing-rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.PricingRuleArns !== undefined &&
-      input.PricingRuleArns !== null && {
-        PricingRuleArns: serializeAws_restJson1PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
-      }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.PricingRuleArns != null && {
+      PricingRuleArns: serializeAws_restJson1PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -202,15 +200,13 @@ export const serializeAws_restJson1BatchAssociateResourcesToCustomLineItemComman
     "/batch-associate-resources-to-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriodRange !== undefined &&
-      input.BillingPeriodRange !== null && {
-        BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-      }),
-    ...(input.ResourceArns !== undefined &&
-      input.ResourceArns !== null && {
-        ResourceArns: serializeAws_restJson1CustomLineItemBatchAssociationsList(input.ResourceArns, context),
-      }),
-    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
+    }),
+    ...(input.ResourceArns != null && {
+      ResourceArns: serializeAws_restJson1CustomLineItemBatchAssociationsList(input.ResourceArns, context),
+    }),
+    ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -236,15 +232,13 @@ export const serializeAws_restJson1BatchDisassociateResourcesFromCustomLineItemC
     "/batch-disassociate-resources-from-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriodRange !== undefined &&
-      input.BillingPeriodRange !== null && {
-        BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-      }),
-    ...(input.ResourceArns !== undefined &&
-      input.ResourceArns !== null && {
-        ResourceArns: serializeAws_restJson1CustomLineItemBatchDisassociationsList(input.ResourceArns, context),
-      }),
-    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
+    }),
+    ...(input.ResourceArns != null && {
+      ResourceArns: serializeAws_restJson1CustomLineItemBatchDisassociationsList(input.ResourceArns, context),
+    }),
+    ...(input.TargetArn != null && { TargetArn: input.TargetArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -269,19 +263,16 @@ export const serializeAws_restJson1CreateBillingGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-billing-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountGrouping !== undefined &&
-      input.AccountGrouping !== null && {
-        AccountGrouping: serializeAws_restJson1AccountGrouping(input.AccountGrouping, context),
-      }),
-    ...(input.ComputationPreference !== undefined &&
-      input.ComputationPreference !== null && {
-        ComputationPreference: serializeAws_restJson1ComputationPreference(input.ComputationPreference, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PrimaryAccountId !== undefined &&
-      input.PrimaryAccountId !== null && { PrimaryAccountId: input.PrimaryAccountId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.AccountGrouping != null && {
+      AccountGrouping: serializeAws_restJson1AccountGrouping(input.AccountGrouping, context),
+    }),
+    ...(input.ComputationPreference != null && {
+      ComputationPreference: serializeAws_restJson1ComputationPreference(input.ComputationPreference, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PrimaryAccountId != null && { PrimaryAccountId: input.PrimaryAccountId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -307,19 +298,16 @@ export const serializeAws_restJson1CreateCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingGroupArn !== undefined &&
-      input.BillingGroupArn !== null && { BillingGroupArn: input.BillingGroupArn }),
-    ...(input.BillingPeriodRange !== undefined &&
-      input.BillingPeriodRange !== null && {
-        BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-      }),
-    ...(input.ChargeDetails !== undefined &&
-      input.ChargeDetails !== null && {
-        ChargeDetails: serializeAws_restJson1CustomLineItemChargeDetails(input.ChargeDetails, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.BillingGroupArn != null && { BillingGroupArn: input.BillingGroupArn }),
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
+    }),
+    ...(input.ChargeDetails != null && {
+      ChargeDetails: serializeAws_restJson1CustomLineItemChargeDetails(input.ChargeDetails, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -344,13 +332,12 @@ export const serializeAws_restJson1CreatePricingPlanCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-plan";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PricingRuleArns !== undefined &&
-      input.PricingRuleArns !== null && {
-        PricingRuleArns: serializeAws_restJson1PricingRuleArnsInput(input.PricingRuleArns, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PricingRuleArns != null && {
+      PricingRuleArns: serializeAws_restJson1PricingRuleArnsInput(input.PricingRuleArns, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -375,14 +362,13 @@ export const serializeAws_restJson1CreatePricingRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-rule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ModifierPercentage !== undefined &&
-      input.ModifierPercentage !== null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
-    ...(input.Service !== undefined && input.Service !== null && { Service: input.Service }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Scope != null && { Scope: input.Scope }),
+    ...(input.Service != null && { Service: input.Service }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -406,7 +392,7 @@ export const serializeAws_restJson1DeleteBillingGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-billing-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -431,11 +417,10 @@ export const serializeAws_restJson1DeleteCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.BillingPeriodRange !== undefined &&
-      input.BillingPeriodRange !== null && {
-        BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-      }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -459,7 +444,7 @@ export const serializeAws_restJson1DeletePricingPlanCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-pricing-plan";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -483,7 +468,7 @@ export const serializeAws_restJson1DeletePricingRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-pricing-rule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -507,9 +492,8 @@ export const serializeAws_restJson1DisassociateAccountsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociate-accounts";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined &&
-      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -534,11 +518,10 @@ export const serializeAws_restJson1DisassociatePricingRulesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociate-pricing-rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.PricingRuleArns !== undefined &&
-      input.PricingRuleArns !== null && {
-        PricingRuleArns: serializeAws_restJson1PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
-      }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.PricingRuleArns != null && {
+      PricingRuleArns: serializeAws_restJson1PricingRuleArnsNonEmptyInput(input.PricingRuleArns, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -563,12 +546,11 @@ export const serializeAws_restJson1ListAccountAssociationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-account-associations";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && {
-        Filters: serializeAws_restJson1ListAccountAssociationsFilter(input.Filters, context),
-      }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListAccountAssociationsFilter(input.Filters, context),
+    }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -593,13 +575,12 @@ export const serializeAws_restJson1ListBillingGroupCostReportsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-billing-group-cost-reports";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && {
-        Filters: serializeAws_restJson1ListBillingGroupCostReportsFilter(input.Filters, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListBillingGroupCostReportsFilter(input.Filters, context),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -623,11 +604,10 @@ export const serializeAws_restJson1ListBillingGroupsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-billing-groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_restJson1ListBillingGroupsFilter(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1ListBillingGroupsFilter(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -652,11 +632,10 @@ export const serializeAws_restJson1ListCustomLineItemsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-custom-line-items";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_restJson1ListCustomLineItemsFilter(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1ListCustomLineItemsFilter(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -680,11 +659,10 @@ export const serializeAws_restJson1ListPricingPlansCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-pricing-plans";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_restJson1ListPricingPlansFilter(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1ListPricingPlansFilter(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -710,11 +688,10 @@ export const serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleComm
     "/list-pricing-plans-associated-with-pricing-rule";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PricingRuleArn !== undefined &&
-      input.PricingRuleArn !== null && { PricingRuleArn: input.PricingRuleArn }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PricingRuleArn != null && { PricingRuleArn: input.PricingRuleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -738,11 +715,10 @@ export const serializeAws_restJson1ListPricingRulesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-pricing-rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_restJson1ListPricingRulesFilter(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1ListPricingRulesFilter(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -768,11 +744,10 @@ export const serializeAws_restJson1ListPricingRulesAssociatedToPricingPlanComman
     "/list-pricing-rules-associated-to-pricing-plan";
   let body: any;
   body = JSON.stringify({
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PricingPlanArn !== undefined &&
-      input.PricingPlanArn !== null && { PricingPlanArn: input.PricingPlanArn }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PricingPlanArn != null && { PricingPlanArn: input.PricingPlanArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -798,14 +773,13 @@ export const serializeAws_restJson1ListResourcesAssociatedToCustomLineItemComman
     "/list-resources-associated-to-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.BillingPeriod !== undefined && input.BillingPeriod !== null && { BillingPeriod: input.BillingPeriod }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && {
-        Filters: serializeAws_restJson1ListResourcesAssociatedToCustomLineItemFilter(input.Filters, context),
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.BillingPeriod != null && { BillingPeriod: input.BillingPeriod }),
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListResourcesAssociatedToCustomLineItemFilter(input.Filters, context),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -866,7 +840,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -922,14 +896,13 @@ export const serializeAws_restJson1UpdateBillingGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-billing-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.ComputationPreference !== undefined &&
-      input.ComputationPreference !== null && {
-        ComputationPreference: serializeAws_restJson1ComputationPreference(input.ComputationPreference, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.ComputationPreference != null && {
+      ComputationPreference: serializeAws_restJson1ComputationPreference(input.ComputationPreference, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Status != null && { Status: input.Status }),
   });
   return new __HttpRequest({
     protocol,
@@ -954,17 +927,15 @@ export const serializeAws_restJson1UpdateCustomLineItemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-custom-line-item";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.BillingPeriodRange !== undefined &&
-      input.BillingPeriodRange !== null && {
-        BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
-      }),
-    ...(input.ChargeDetails !== undefined &&
-      input.ChargeDetails !== null && {
-        ChargeDetails: serializeAws_restJson1UpdateCustomLineItemChargeDetails(input.ChargeDetails, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.BillingPeriodRange != null && {
+      BillingPeriodRange: serializeAws_restJson1CustomLineItemBillingPeriodRange(input.BillingPeriodRange, context),
+    }),
+    ...(input.ChargeDetails != null && {
+      ChargeDetails: serializeAws_restJson1UpdateCustomLineItemChargeDetails(input.ChargeDetails, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -988,9 +959,9 @@ export const serializeAws_restJson1UpdatePricingPlanCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-pricing-plan";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -1014,12 +985,11 @@ export const serializeAws_restJson1UpdatePricingRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-pricing-rule";
   let body: any;
   body = JSON.stringify({
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.ModifierPercentage !== undefined &&
-      input.ModifierPercentage !== null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -3120,10 +3090,9 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AccountGrouping = (input: AccountGrouping, context: __SerdeContext): any => {
   return {
-    ...(input.LinkedAccountIds !== undefined &&
-      input.LinkedAccountIds !== null && {
-        LinkedAccountIds: serializeAws_restJson1AccountIdList(input.LinkedAccountIds, context),
-      }),
+    ...(input.LinkedAccountIds != null && {
+      LinkedAccountIds: serializeAws_restJson1AccountIdList(input.LinkedAccountIds, context),
+    }),
   };
 };
 
@@ -3151,8 +3120,7 @@ const serializeAws_restJson1BillingGroupArnList = (input: string[], context: __S
 
 const serializeAws_restJson1ComputationPreference = (input: ComputationPreference, context: __SerdeContext): any => {
   return {
-    ...(input.PricingPlanArn !== undefined &&
-      input.PricingPlanArn !== null && { PricingPlanArn: input.PricingPlanArn }),
+    ...(input.PricingPlanArn != null && { PricingPlanArn: input.PricingPlanArn }),
   };
 };
 
@@ -3208,10 +3176,10 @@ const serializeAws_restJson1CustomLineItemBillingPeriodRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExclusiveEndBillingPeriod !== undefined &&
-      input.ExclusiveEndBillingPeriod !== null && { ExclusiveEndBillingPeriod: input.ExclusiveEndBillingPeriod }),
-    ...(input.InclusiveStartBillingPeriod !== undefined &&
-      input.InclusiveStartBillingPeriod !== null && { InclusiveStartBillingPeriod: input.InclusiveStartBillingPeriod }),
+    ...(input.ExclusiveEndBillingPeriod != null && { ExclusiveEndBillingPeriod: input.ExclusiveEndBillingPeriod }),
+    ...(input.InclusiveStartBillingPeriod != null && {
+      InclusiveStartBillingPeriod: input.InclusiveStartBillingPeriod,
+    }),
   };
 };
 
@@ -3220,13 +3188,11 @@ const serializeAws_restJson1CustomLineItemChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Flat !== undefined &&
-      input.Flat !== null && { Flat: serializeAws_restJson1CustomLineItemFlatChargeDetails(input.Flat, context) }),
-    ...(input.Percentage !== undefined &&
-      input.Percentage !== null && {
-        Percentage: serializeAws_restJson1CustomLineItemPercentageChargeDetails(input.Percentage, context),
-      }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Flat != null && { Flat: serializeAws_restJson1CustomLineItemFlatChargeDetails(input.Flat, context) }),
+    ...(input.Percentage != null && {
+      Percentage: serializeAws_restJson1CustomLineItemPercentageChargeDetails(input.Percentage, context),
+    }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -3235,8 +3201,7 @@ const serializeAws_restJson1CustomLineItemFlatChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChargeValue !== undefined &&
-      input.ChargeValue !== null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
+    ...(input.ChargeValue != null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
   };
 };
 
@@ -3256,12 +3221,10 @@ const serializeAws_restJson1CustomLineItemPercentageChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociatedValues !== undefined &&
-      input.AssociatedValues !== null && {
-        AssociatedValues: serializeAws_restJson1CustomLineItemAssociationsList(input.AssociatedValues, context),
-      }),
-    ...(input.PercentageValue !== undefined &&
-      input.PercentageValue !== null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
+    ...(input.AssociatedValues != null && {
+      AssociatedValues: serializeAws_restJson1CustomLineItemAssociationsList(input.AssociatedValues, context),
+    }),
+    ...(input.PercentageValue != null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
   };
 };
 
@@ -3270,8 +3233,8 @@ const serializeAws_restJson1ListAccountAssociationsFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.Association !== undefined && input.Association !== null && { Association: input.Association }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.Association != null && { Association: input.Association }),
   };
 };
 
@@ -3280,10 +3243,9 @@ const serializeAws_restJson1ListBillingGroupCostReportsFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BillingGroupArns !== undefined &&
-      input.BillingGroupArns !== null && {
-        BillingGroupArns: serializeAws_restJson1BillingGroupArnList(input.BillingGroupArns, context),
-      }),
+    ...(input.BillingGroupArns != null && {
+      BillingGroupArns: serializeAws_restJson1BillingGroupArnList(input.BillingGroupArns, context),
+    }),
   };
 };
 
@@ -3292,9 +3254,8 @@ const serializeAws_restJson1ListBillingGroupsFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arns !== undefined &&
-      input.Arns !== null && { Arns: serializeAws_restJson1BillingGroupArnList(input.Arns, context) }),
-    ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
+    ...(input.Arns != null && { Arns: serializeAws_restJson1BillingGroupArnList(input.Arns, context) }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
   };
 };
 
@@ -3303,28 +3264,23 @@ const serializeAws_restJson1ListCustomLineItemsFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arns !== undefined &&
-      input.Arns !== null && { Arns: serializeAws_restJson1CustomLineItemArns(input.Arns, context) }),
-    ...(input.BillingGroups !== undefined &&
-      input.BillingGroups !== null && {
-        BillingGroups: serializeAws_restJson1BillingGroupArnList(input.BillingGroups, context),
-      }),
-    ...(input.Names !== undefined &&
-      input.Names !== null && { Names: serializeAws_restJson1CustomLineItemNameList(input.Names, context) }),
+    ...(input.Arns != null && { Arns: serializeAws_restJson1CustomLineItemArns(input.Arns, context) }),
+    ...(input.BillingGroups != null && {
+      BillingGroups: serializeAws_restJson1BillingGroupArnList(input.BillingGroups, context),
+    }),
+    ...(input.Names != null && { Names: serializeAws_restJson1CustomLineItemNameList(input.Names, context) }),
   };
 };
 
 const serializeAws_restJson1ListPricingPlansFilter = (input: ListPricingPlansFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Arns !== undefined &&
-      input.Arns !== null && { Arns: serializeAws_restJson1PricingPlanArns(input.Arns, context) }),
+    ...(input.Arns != null && { Arns: serializeAws_restJson1PricingPlanArns(input.Arns, context) }),
   };
 };
 
 const serializeAws_restJson1ListPricingRulesFilter = (input: ListPricingRulesFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Arns !== undefined &&
-      input.Arns !== null && { Arns: serializeAws_restJson1PricingRuleArns(input.Arns, context) }),
+    ...(input.Arns != null && { Arns: serializeAws_restJson1PricingRuleArns(input.Arns, context) }),
   };
 };
 
@@ -3333,7 +3289,7 @@ const serializeAws_restJson1ListResourcesAssociatedToCustomLineItemFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Relationship !== undefined && input.Relationship !== null && { Relationship: input.Relationship }),
+    ...(input.Relationship != null && { Relationship: input.Relationship }),
   };
 };
 
@@ -3398,14 +3354,12 @@ const serializeAws_restJson1UpdateCustomLineItemChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Flat !== undefined &&
-      input.Flat !== null && {
-        Flat: serializeAws_restJson1UpdateCustomLineItemFlatChargeDetails(input.Flat, context),
-      }),
-    ...(input.Percentage !== undefined &&
-      input.Percentage !== null && {
-        Percentage: serializeAws_restJson1UpdateCustomLineItemPercentageChargeDetails(input.Percentage, context),
-      }),
+    ...(input.Flat != null && {
+      Flat: serializeAws_restJson1UpdateCustomLineItemFlatChargeDetails(input.Flat, context),
+    }),
+    ...(input.Percentage != null && {
+      Percentage: serializeAws_restJson1UpdateCustomLineItemPercentageChargeDetails(input.Percentage, context),
+    }),
   };
 };
 
@@ -3414,8 +3368,7 @@ const serializeAws_restJson1UpdateCustomLineItemFlatChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChargeValue !== undefined &&
-      input.ChargeValue !== null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
+    ...(input.ChargeValue != null && { ChargeValue: __serializeFloat(input.ChargeValue) }),
   };
 };
 
@@ -3424,8 +3377,7 @@ const serializeAws_restJson1UpdateCustomLineItemPercentageChargeDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PercentageValue !== undefined &&
-      input.PercentageValue !== null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
+    ...(input.PercentageValue != null && { PercentageValue: __serializeFloat(input.PercentageValue) }),
   };
 };
 
@@ -3472,10 +3424,7 @@ const deserializeAws_restJson1AssociateResourceResponseElement = (
 ): AssociateResourceResponseElement => {
   return {
     Arn: __expectString(output.Arn),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1AssociateResourceError(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1AssociateResourceError(output.Error, context) : undefined,
   } as any;
 };
 
@@ -3542,7 +3491,7 @@ const deserializeAws_restJson1BillingGroupListElement = (
   return {
     Arn: __expectString(output.Arn),
     ComputationPreference:
-      output.ComputationPreference !== undefined && output.ComputationPreference !== null
+      output.ComputationPreference != null
         ? deserializeAws_restJson1ComputationPreference(output.ComputationPreference, context)
         : undefined,
     CreationTime: __expectLong(output.CreationTime),
@@ -3586,7 +3535,7 @@ const deserializeAws_restJson1CustomLineItemListElement = (
     AssociationSize: __expectLong(output.AssociationSize),
     BillingGroupArn: __expectString(output.BillingGroupArn),
     ChargeDetails:
-      output.ChargeDetails !== undefined && output.ChargeDetails !== null
+      output.ChargeDetails != null
         ? deserializeAws_restJson1ListCustomLineItemChargeDetails(output.ChargeDetails, context)
         : undefined,
     CreationTime: __expectLong(output.CreationTime),
@@ -3604,10 +3553,7 @@ const deserializeAws_restJson1DisassociateResourceResponseElement = (
 ): DisassociateResourceResponseElement => {
   return {
     Arn: __expectString(output.Arn),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1AssociateResourceError(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1AssociateResourceError(output.Error, context) : undefined,
   } as any;
 };
 
@@ -3632,11 +3578,11 @@ const deserializeAws_restJson1ListCustomLineItemChargeDetails = (
 ): ListCustomLineItemChargeDetails => {
   return {
     Flat:
-      output.Flat !== undefined && output.Flat !== null
+      output.Flat != null
         ? deserializeAws_restJson1ListCustomLineItemFlatChargeDetails(output.Flat, context)
         : undefined,
     Percentage:
-      output.Percentage !== undefined && output.Percentage !== null
+      output.Percentage != null
         ? deserializeAws_restJson1ListCustomLineItemPercentageChargeDetails(output.Percentage, context)
         : undefined,
     Type: __expectString(output.Type),

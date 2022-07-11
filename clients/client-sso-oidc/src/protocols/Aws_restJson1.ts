@@ -47,15 +47,14 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/token";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
-    ...(input.code !== undefined && input.code !== null && { code: input.code }),
-    ...(input.deviceCode !== undefined && input.deviceCode !== null && { deviceCode: input.deviceCode }),
-    ...(input.grantType !== undefined && input.grantType !== null && { grantType: input.grantType }),
-    ...(input.redirectUri !== undefined && input.redirectUri !== null && { redirectUri: input.redirectUri }),
-    ...(input.refreshToken !== undefined && input.refreshToken !== null && { refreshToken: input.refreshToken }),
-    ...(input.scope !== undefined &&
-      input.scope !== null && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
+    ...(input.clientId != null && { clientId: input.clientId }),
+    ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
+    ...(input.code != null && { code: input.code }),
+    ...(input.deviceCode != null && { deviceCode: input.deviceCode }),
+    ...(input.grantType != null && { grantType: input.grantType }),
+    ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
+    ...(input.refreshToken != null && { refreshToken: input.refreshToken }),
+    ...(input.scope != null && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -79,10 +78,9 @@ export const serializeAws_restJson1RegisterClientCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/client/register";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientName !== undefined && input.clientName !== null && { clientName: input.clientName }),
-    ...(input.clientType !== undefined && input.clientType !== null && { clientType: input.clientType }),
-    ...(input.scopes !== undefined &&
-      input.scopes !== null && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
+    ...(input.clientName != null && { clientName: input.clientName }),
+    ...(input.clientType != null && { clientType: input.clientType }),
+    ...(input.scopes != null && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -106,9 +104,9 @@ export const serializeAws_restJson1StartDeviceAuthorizationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device_authorization";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
-    ...(input.startUrl !== undefined && input.startUrl !== null && { startUrl: input.startUrl }),
+    ...(input.clientId != null && { clientId: input.clientId }),
+    ...(input.clientSecret != null && { clientSecret: input.clientSecret }),
+    ...(input.startUrl != null && { startUrl: input.startUrl }),
   });
   return new __HttpRequest({
     protocol,

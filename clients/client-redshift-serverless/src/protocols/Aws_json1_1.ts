@@ -2756,9 +2756,8 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1ConfigParameter = (input: ConfigParameter, context: __SerdeContext): any => {
   return {
-    ...(input.parameterKey !== undefined && input.parameterKey !== null && { parameterKey: input.parameterKey }),
-    ...(input.parameterValue !== undefined &&
-      input.parameterValue !== null && { parameterValue: input.parameterValue }),
+    ...(input.parameterKey != null && { parameterKey: input.parameterKey }),
+    ...(input.parameterValue != null && { parameterValue: input.parameterValue }),
   };
 };
 
@@ -2778,11 +2777,9 @@ const serializeAws_json1_1ConvertRecoveryPointToSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.recoveryPointId !== undefined &&
-      input.recoveryPointId !== null && { recoveryPointId: input.recoveryPointId }),
-    ...(input.retentionPeriod !== undefined &&
-      input.retentionPeriod !== null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
+    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
+    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
   };
 };
 
@@ -2791,74 +2788,62 @@ const serializeAws_json1_1CreateEndpointAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endpointName !== undefined && input.endpointName !== null && { endpointName: input.endpointName }),
-    ...(input.subnetIds !== undefined &&
-      input.subnetIds !== null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.vpcSecurityGroupIds !== undefined &&
-      input.vpcSecurityGroupIds !== null && {
-        vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
-      }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.endpointName != null && { endpointName: input.endpointName }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
+    ...(input.vpcSecurityGroupIds != null && {
+      vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
+    }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
 const serializeAws_json1_1CreateNamespaceRequest = (input: CreateNamespaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.adminUserPassword !== undefined &&
-      input.adminUserPassword !== null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.adminUsername !== undefined && input.adminUsername !== null && { adminUsername: input.adminUsername }),
-    ...(input.dbName !== undefined && input.dbName !== null && { dbName: input.dbName }),
-    ...(input.defaultIamRoleArn !== undefined &&
-      input.defaultIamRoleArn !== null && { defaultIamRoleArn: input.defaultIamRoleArn }),
-    ...(input.iamRoles !== undefined &&
-      input.iamRoles !== null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
-    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logExports !== undefined &&
-      input.logExports !== null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
+    ...(input.adminUsername != null && { adminUsername: input.adminUsername }),
+    ...(input.dbName != null && { dbName: input.dbName }),
+    ...(input.defaultIamRoleArn != null && { defaultIamRoleArn: input.defaultIamRoleArn }),
+    ...(input.iamRoles != null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logExports != null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.retentionPeriod !== undefined &&
-      input.retentionPeriod !== null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
   };
 };
 
 const serializeAws_json1_1CreateUsageLimitRequest = (input: CreateUsageLimitRequest, context: __SerdeContext): any => {
   return {
-    ...(input.amount !== undefined && input.amount !== null && { amount: input.amount }),
-    ...(input.breachAction !== undefined && input.breachAction !== null && { breachAction: input.breachAction }),
-    ...(input.period !== undefined && input.period !== null && { period: input.period }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.usageType !== undefined && input.usageType !== null && { usageType: input.usageType }),
+    ...(input.amount != null && { amount: input.amount }),
+    ...(input.breachAction != null && { breachAction: input.breachAction }),
+    ...(input.period != null && { period: input.period }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.usageType != null && { usageType: input.usageType }),
   };
 };
 
 const serializeAws_json1_1CreateWorkgroupRequest = (input: CreateWorkgroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.baseCapacity !== undefined && input.baseCapacity !== null && { baseCapacity: input.baseCapacity }),
-    ...(input.configParameters !== undefined &&
-      input.configParameters !== null && {
-        configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
-      }),
-    ...(input.enhancedVpcRouting !== undefined &&
-      input.enhancedVpcRouting !== null && { enhancedVpcRouting: input.enhancedVpcRouting }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.publiclyAccessible !== undefined &&
-      input.publiclyAccessible !== null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds !== undefined &&
-      input.securityGroupIds !== null && {
-        securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
-      }),
-    ...(input.subnetIds !== undefined &&
-      input.subnetIds !== null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.baseCapacity != null && { baseCapacity: input.baseCapacity }),
+    ...(input.configParameters != null && {
+      configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
+    }),
+    ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
+    ...(input.securityGroupIds != null && {
+      securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
+    }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -2867,19 +2852,17 @@ const serializeAws_json1_1DeleteEndpointAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endpointName !== undefined && input.endpointName !== null && { endpointName: input.endpointName }),
+    ...(input.endpointName != null && { endpointName: input.endpointName }),
   };
 };
 
 const serializeAws_json1_1DeleteNamespaceRequest = (input: DeleteNamespaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.finalSnapshotName !== undefined &&
-      input.finalSnapshotName !== null && { finalSnapshotName: input.finalSnapshotName }),
-    ...(input.finalSnapshotRetentionPeriod !== undefined &&
-      input.finalSnapshotRetentionPeriod !== null && {
-        finalSnapshotRetentionPeriod: input.finalSnapshotRetentionPeriod,
-      }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
+    ...(input.finalSnapshotName != null && { finalSnapshotName: input.finalSnapshotName }),
+    ...(input.finalSnapshotRetentionPeriod != null && {
+      finalSnapshotRetentionPeriod: input.finalSnapshotRetentionPeriod,
+    }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
   };
 };
 
@@ -2888,34 +2871,33 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
   };
 };
 
 const serializeAws_json1_1DeleteUsageLimitRequest = (input: DeleteUsageLimitRequest, context: __SerdeContext): any => {
   return {
-    ...(input.usageLimitId !== undefined && input.usageLimitId !== null && { usageLimitId: input.usageLimitId }),
+    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
   };
 };
 
 const serializeAws_json1_1DeleteWorkgroupRequest = (input: DeleteWorkgroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
 const serializeAws_json1_1GetCredentialsRequest = (input: GetCredentialsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.dbName !== undefined && input.dbName !== null && { dbName: input.dbName }),
-    ...(input.durationSeconds !== undefined &&
-      input.durationSeconds !== null && { durationSeconds: input.durationSeconds }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.dbName != null && { dbName: input.dbName }),
+    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -2924,20 +2906,19 @@ const serializeAws_json1_1GetEndpointAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endpointName !== undefined && input.endpointName !== null && { endpointName: input.endpointName }),
+    ...(input.endpointName != null && { endpointName: input.endpointName }),
   };
 };
 
 const serializeAws_json1_1GetNamespaceRequest = (input: GetNamespaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
   };
 };
 
 const serializeAws_json1_1GetRecoveryPointRequest = (input: GetRecoveryPointRequest, context: __SerdeContext): any => {
   return {
-    ...(input.recoveryPointId !== undefined &&
-      input.recoveryPointId !== null && { recoveryPointId: input.recoveryPointId }),
+    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
   };
 };
 
@@ -2946,27 +2927,27 @@ const serializeAws_json1_1GetResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1GetSnapshotRequest = (input: GetSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ownerAccount !== undefined && input.ownerAccount !== null && { ownerAccount: input.ownerAccount }),
-    ...(input.snapshotArn !== undefined && input.snapshotArn !== null && { snapshotArn: input.snapshotArn }),
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
+    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
+    ...(input.snapshotArn != null && { snapshotArn: input.snapshotArn }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
   };
 };
 
 const serializeAws_json1_1GetUsageLimitRequest = (input: GetUsageLimitRequest, context: __SerdeContext): any => {
   return {
-    ...(input.usageLimitId !== undefined && input.usageLimitId !== null && { usageLimitId: input.usageLimitId }),
+    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
   };
 };
 
 const serializeAws_json1_1GetWorkgroupRequest = (input: GetWorkgroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -2986,17 +2967,17 @@ const serializeAws_json1_1ListEndpointAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.vpcId !== undefined && input.vpcId !== null && { vpcId: input.vpcId }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.vpcId != null && { vpcId: input.vpcId }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
 const serializeAws_json1_1ListNamespacesRequest = (input: ListNamespacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3005,27 +2986,23 @@ const serializeAws_json1_1ListRecoveryPointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime !== undefined &&
-      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime !== undefined &&
-      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.namespaceArn !== undefined && input.namespaceArn !== null && { namespaceArn: input.namespaceArn }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.ownerAccount !== undefined && input.ownerAccount !== null && { ownerAccount: input.ownerAccount }),
-    ...(input.startTime !== undefined &&
-      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceArn != null && { namespaceArn: input.namespaceArn }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
@@ -3034,23 +3011,23 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1ListUsageLimitsRequest = (input: ListUsageLimitsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.usageType !== undefined && input.usageType !== null && { usageType: input.usageType }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.usageType != null && { usageType: input.usageType }),
   };
 };
 
 const serializeAws_json1_1ListWorkgroupsRequest = (input: ListWorkgroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3070,8 +3047,8 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.policy != null && { policy: input.policy }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
@@ -3080,10 +3057,9 @@ const serializeAws_json1_1RestoreFromRecoveryPointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.recoveryPointId !== undefined &&
-      input.recoveryPointId !== null && { recoveryPointId: input.recoveryPointId }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.recoveryPointId != null && { recoveryPointId: input.recoveryPointId }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -3092,11 +3068,11 @@ const serializeAws_json1_1RestoreFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
-    ...(input.ownerAccount !== undefined && input.ownerAccount !== null && { ownerAccount: input.ownerAccount }),
-    ...(input.snapshotArn !== undefined && input.snapshotArn !== null && { snapshotArn: input.snapshotArn }),
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
+    ...(input.ownerAccount != null && { ownerAccount: input.ownerAccount }),
+    ...(input.snapshotArn != null && { snapshotArn: input.snapshotArn }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -3124,8 +3100,8 @@ const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3153,16 +3129,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3171,64 +3146,53 @@ const serializeAws_json1_1UpdateEndpointAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endpointName !== undefined && input.endpointName !== null && { endpointName: input.endpointName }),
-    ...(input.vpcSecurityGroupIds !== undefined &&
-      input.vpcSecurityGroupIds !== null && {
-        vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
-      }),
+    ...(input.endpointName != null && { endpointName: input.endpointName }),
+    ...(input.vpcSecurityGroupIds != null && {
+      vpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.vpcSecurityGroupIds, context),
+    }),
   };
 };
 
 const serializeAws_json1_1UpdateNamespaceRequest = (input: UpdateNamespaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.adminUserPassword !== undefined &&
-      input.adminUserPassword !== null && { adminUserPassword: input.adminUserPassword }),
-    ...(input.adminUsername !== undefined && input.adminUsername !== null && { adminUsername: input.adminUsername }),
-    ...(input.defaultIamRoleArn !== undefined &&
-      input.defaultIamRoleArn !== null && { defaultIamRoleArn: input.defaultIamRoleArn }),
-    ...(input.iamRoles !== undefined &&
-      input.iamRoles !== null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
-    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logExports !== undefined &&
-      input.logExports !== null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
-    ...(input.namespaceName !== undefined && input.namespaceName !== null && { namespaceName: input.namespaceName }),
+    ...(input.adminUserPassword != null && { adminUserPassword: input.adminUserPassword }),
+    ...(input.adminUsername != null && { adminUsername: input.adminUsername }),
+    ...(input.defaultIamRoleArn != null && { defaultIamRoleArn: input.defaultIamRoleArn }),
+    ...(input.iamRoles != null && { iamRoles: serializeAws_json1_1IamRoleArnList(input.iamRoles, context) }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logExports != null && { logExports: serializeAws_json1_1LogExportList(input.logExports, context) }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
   };
 };
 
 const serializeAws_json1_1UpdateSnapshotRequest = (input: UpdateSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.retentionPeriod !== undefined &&
-      input.retentionPeriod !== null && { retentionPeriod: input.retentionPeriod }),
-    ...(input.snapshotName !== undefined && input.snapshotName !== null && { snapshotName: input.snapshotName }),
+    ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
+    ...(input.snapshotName != null && { snapshotName: input.snapshotName }),
   };
 };
 
 const serializeAws_json1_1UpdateUsageLimitRequest = (input: UpdateUsageLimitRequest, context: __SerdeContext): any => {
   return {
-    ...(input.amount !== undefined && input.amount !== null && { amount: input.amount }),
-    ...(input.breachAction !== undefined && input.breachAction !== null && { breachAction: input.breachAction }),
-    ...(input.usageLimitId !== undefined && input.usageLimitId !== null && { usageLimitId: input.usageLimitId }),
+    ...(input.amount != null && { amount: input.amount }),
+    ...(input.breachAction != null && { breachAction: input.breachAction }),
+    ...(input.usageLimitId != null && { usageLimitId: input.usageLimitId }),
   };
 };
 
 const serializeAws_json1_1UpdateWorkgroupRequest = (input: UpdateWorkgroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.baseCapacity !== undefined && input.baseCapacity !== null && { baseCapacity: input.baseCapacity }),
-    ...(input.configParameters !== undefined &&
-      input.configParameters !== null && {
-        configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
-      }),
-    ...(input.enhancedVpcRouting !== undefined &&
-      input.enhancedVpcRouting !== null && { enhancedVpcRouting: input.enhancedVpcRouting }),
-    ...(input.publiclyAccessible !== undefined &&
-      input.publiclyAccessible !== null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds !== undefined &&
-      input.securityGroupIds !== null && {
-        securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
-      }),
-    ...(input.subnetIds !== undefined &&
-      input.subnetIds !== null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
-    ...(input.workgroupName !== undefined && input.workgroupName !== null && { workgroupName: input.workgroupName }),
+    ...(input.baseCapacity != null && { baseCapacity: input.baseCapacity }),
+    ...(input.configParameters != null && {
+      configParameters: serializeAws_json1_1ConfigParameterList(input.configParameters, context),
+    }),
+    ...(input.enhancedVpcRouting != null && { enhancedVpcRouting: input.enhancedVpcRouting }),
+    ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
+    ...(input.securityGroupIds != null && {
+      securityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.securityGroupIds, context),
+    }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_1SubnetIdList(input.subnetIds, context) }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -3292,10 +3256,7 @@ const deserializeAws_json1_1ConvertRecoveryPointToSnapshotResponse = (
   context: __SerdeContext
 ): ConvertRecoveryPointToSnapshotResponse => {
   return {
-    snapshot:
-      output.snapshot !== undefined && output.snapshot !== null
-        ? deserializeAws_json1_1Snapshot(output.snapshot, context)
-        : undefined,
+    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
   } as any;
 };
 
@@ -3304,10 +3265,7 @@ const deserializeAws_json1_1CreateEndpointAccessResponse = (
   context: __SerdeContext
 ): CreateEndpointAccessResponse => {
   return {
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? deserializeAws_json1_1EndpointAccess(output.endpoint, context)
-        : undefined,
+    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
   } as any;
 };
 
@@ -3316,19 +3274,13 @@ const deserializeAws_json1_1CreateNamespaceResponse = (
   context: __SerdeContext
 ): CreateNamespaceResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
   return {
-    snapshot:
-      output.snapshot !== undefined && output.snapshot !== null
-        ? deserializeAws_json1_1Snapshot(output.snapshot, context)
-        : undefined,
+    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
   } as any;
 };
 
@@ -3337,10 +3289,7 @@ const deserializeAws_json1_1CreateUsageLimitResponse = (
   context: __SerdeContext
 ): CreateUsageLimitResponse => {
   return {
-    usageLimit:
-      output.usageLimit !== undefined && output.usageLimit !== null
-        ? deserializeAws_json1_1UsageLimit(output.usageLimit, context)
-        : undefined,
+    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
   } as any;
 };
 
@@ -3349,10 +3298,7 @@ const deserializeAws_json1_1CreateWorkgroupResponse = (
   context: __SerdeContext
 ): CreateWorkgroupResponse => {
   return {
-    workgroup:
-      output.workgroup !== undefined && output.workgroup !== null
-        ? deserializeAws_json1_1Workgroup(output.workgroup, context)
-        : undefined,
+    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
   } as any;
 };
 
@@ -3361,10 +3307,7 @@ const deserializeAws_json1_1DeleteEndpointAccessResponse = (
   context: __SerdeContext
 ): DeleteEndpointAccessResponse => {
   return {
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? deserializeAws_json1_1EndpointAccess(output.endpoint, context)
-        : undefined,
+    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
   } as any;
 };
 
@@ -3373,10 +3316,7 @@ const deserializeAws_json1_1DeleteNamespaceResponse = (
   context: __SerdeContext
 ): DeleteNamespaceResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
   } as any;
 };
 
@@ -3389,10 +3329,7 @@ const deserializeAws_json1_1DeleteResourcePolicyResponse = (
 
 const deserializeAws_json1_1DeleteSnapshotResponse = (output: any, context: __SerdeContext): DeleteSnapshotResponse => {
   return {
-    snapshot:
-      output.snapshot !== undefined && output.snapshot !== null
-        ? deserializeAws_json1_1Snapshot(output.snapshot, context)
-        : undefined,
+    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
   } as any;
 };
 
@@ -3401,10 +3338,7 @@ const deserializeAws_json1_1DeleteUsageLimitResponse = (
   context: __SerdeContext
 ): DeleteUsageLimitResponse => {
   return {
-    usageLimit:
-      output.usageLimit !== undefined && output.usageLimit !== null
-        ? deserializeAws_json1_1UsageLimit(output.usageLimit, context)
-        : undefined,
+    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
   } as any;
 };
 
@@ -3413,10 +3347,7 @@ const deserializeAws_json1_1DeleteWorkgroupResponse = (
   context: __SerdeContext
 ): DeleteWorkgroupResponse => {
   return {
-    workgroup:
-      output.workgroup !== undefined && output.workgroup !== null
-        ? deserializeAws_json1_1Workgroup(output.workgroup, context)
-        : undefined,
+    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
   } as any;
 };
 
@@ -3425,9 +3356,7 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
     address: __expectString(output.address),
     port: __expectInt32(output.port),
     vpcEndpoints:
-      output.vpcEndpoints !== undefined && output.vpcEndpoints !== null
-        ? deserializeAws_json1_1VpcEndpointList(output.vpcEndpoints, context)
-        : undefined,
+      output.vpcEndpoints != null ? deserializeAws_json1_1VpcEndpointList(output.vpcEndpoints, context) : undefined,
   } as any;
 };
 
@@ -3436,22 +3365,17 @@ const deserializeAws_json1_1EndpointAccess = (output: any, context: __SerdeConte
     address: __expectString(output.address),
     endpointArn: __expectString(output.endpointArn),
     endpointCreateTime:
-      output.endpointCreateTime !== undefined && output.endpointCreateTime !== null
+      output.endpointCreateTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.endpointCreateTime))
         : undefined,
     endpointName: __expectString(output.endpointName),
     endpointStatus: __expectString(output.endpointStatus),
     port: __expectInt32(output.port),
-    subnetIds:
-      output.subnetIds !== undefined && output.subnetIds !== null
-        ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context)
-        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context) : undefined,
     vpcEndpoint:
-      output.vpcEndpoint !== undefined && output.vpcEndpoint !== null
-        ? deserializeAws_json1_1VpcEndpoint(output.vpcEndpoint, context)
-        : undefined,
+      output.vpcEndpoint != null ? deserializeAws_json1_1VpcEndpoint(output.vpcEndpoint, context) : undefined,
     vpcSecurityGroups:
-      output.vpcSecurityGroups !== undefined && output.vpcSecurityGroups !== null
+      output.vpcSecurityGroups != null
         ? deserializeAws_json1_1VpcSecurityGroupMembershipList(output.vpcSecurityGroups, context)
         : undefined,
     workgroupName: __expectString(output.workgroupName),
@@ -3475,11 +3399,9 @@ const deserializeAws_json1_1GetCredentialsResponse = (output: any, context: __Se
     dbPassword: __expectString(output.dbPassword),
     dbUser: __expectString(output.dbUser),
     expiration:
-      output.expiration !== undefined && output.expiration !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiration)))
-        : undefined,
+      output.expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expiration))) : undefined,
     nextRefreshTime:
-      output.nextRefreshTime !== undefined && output.nextRefreshTime !== null
+      output.nextRefreshTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.nextRefreshTime)))
         : undefined,
   } as any;
@@ -3490,19 +3412,13 @@ const deserializeAws_json1_1GetEndpointAccessResponse = (
   context: __SerdeContext
 ): GetEndpointAccessResponse => {
   return {
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? deserializeAws_json1_1EndpointAccess(output.endpoint, context)
-        : undefined,
+    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
   } as any;
 };
 
@@ -3512,9 +3428,7 @@ const deserializeAws_json1_1GetRecoveryPointResponse = (
 ): GetRecoveryPointResponse => {
   return {
     recoveryPoint:
-      output.recoveryPoint !== undefined && output.recoveryPoint !== null
-        ? deserializeAws_json1_1RecoveryPoint(output.recoveryPoint, context)
-        : undefined,
+      output.recoveryPoint != null ? deserializeAws_json1_1RecoveryPoint(output.recoveryPoint, context) : undefined,
   } as any;
 };
 
@@ -3524,36 +3438,25 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
 ): GetResourcePolicyResponse => {
   return {
     resourcePolicy:
-      output.resourcePolicy !== undefined && output.resourcePolicy !== null
-        ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context)
-        : undefined,
+      output.resourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetSnapshotResponse = (output: any, context: __SerdeContext): GetSnapshotResponse => {
   return {
-    snapshot:
-      output.snapshot !== undefined && output.snapshot !== null
-        ? deserializeAws_json1_1Snapshot(output.snapshot, context)
-        : undefined,
+    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetUsageLimitResponse = (output: any, context: __SerdeContext): GetUsageLimitResponse => {
   return {
-    usageLimit:
-      output.usageLimit !== undefined && output.usageLimit !== null
-        ? deserializeAws_json1_1UsageLimit(output.usageLimit, context)
-        : undefined,
+    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkgroupResponse => {
   return {
-    workgroup:
-      output.workgroup !== undefined && output.workgroup !== null
-        ? deserializeAws_json1_1Workgroup(output.workgroup, context)
-        : undefined,
+    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
   } as any;
 };
 
@@ -3602,19 +3505,14 @@ const deserializeAws_json1_1ListEndpointAccessResponse = (
 ): ListEndpointAccessResponse => {
   return {
     endpoints:
-      output.endpoints !== undefined && output.endpoints !== null
-        ? deserializeAws_json1_1EndpointAccessList(output.endpoints, context)
-        : undefined,
+      output.endpoints != null ? deserializeAws_json1_1EndpointAccessList(output.endpoints, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
   return {
-    namespaces:
-      output.namespaces !== undefined && output.namespaces !== null
-        ? deserializeAws_json1_1NamespaceList(output.namespaces, context)
-        : undefined,
+    namespaces: output.namespaces != null ? deserializeAws_json1_1NamespaceList(output.namespaces, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -3626,7 +3524,7 @@ const deserializeAws_json1_1ListRecoveryPointsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     recoveryPoints:
-      output.recoveryPoints !== undefined && output.recoveryPoints !== null
+      output.recoveryPoints != null
         ? deserializeAws_json1_1RecoveryPointList(output.recoveryPoints, context)
         : undefined,
   } as any;
@@ -3635,10 +3533,7 @@ const deserializeAws_json1_1ListRecoveryPointsResponse = (
 const deserializeAws_json1_1ListSnapshotsResponse = (output: any, context: __SerdeContext): ListSnapshotsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    snapshots:
-      output.snapshots !== undefined && output.snapshots !== null
-        ? deserializeAws_json1_1SnapshotList(output.snapshots, context)
-        : undefined,
+    snapshots: output.snapshots != null ? deserializeAws_json1_1SnapshotList(output.snapshots, context) : undefined,
   } as any;
 };
 
@@ -3647,10 +3542,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3661,19 +3553,14 @@ const deserializeAws_json1_1ListUsageLimitsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     usageLimits:
-      output.usageLimits !== undefined && output.usageLimits !== null
-        ? deserializeAws_json1_1UsageLimits(output.usageLimits, context)
-        : undefined,
+      output.usageLimits != null ? deserializeAws_json1_1UsageLimits(output.usageLimits, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListWorkgroupsResponse = (output: any, context: __SerdeContext): ListWorkgroupsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    workgroups:
-      output.workgroups !== undefined && output.workgroups !== null
-        ? deserializeAws_json1_1WorkgroupList(output.workgroups, context)
-        : undefined,
+    workgroups: output.workgroups != null ? deserializeAws_json1_1WorkgroupList(output.workgroups, context) : undefined,
   } as any;
 };
 
@@ -3693,20 +3580,12 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
   return {
     adminUsername: __expectString(output.adminUsername),
     creationDate:
-      output.creationDate !== undefined && output.creationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationDate))
-        : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
     dbName: __expectString(output.dbName),
     defaultIamRoleArn: __expectString(output.defaultIamRoleArn),
-    iamRoles:
-      output.iamRoles !== undefined && output.iamRoles !== null
-        ? deserializeAws_json1_1IamRoleArnList(output.iamRoles, context)
-        : undefined,
+    iamRoles: output.iamRoles != null ? deserializeAws_json1_1IamRoleArnList(output.iamRoles, context) : undefined,
     kmsKeyId: __expectString(output.kmsKeyId),
-    logExports:
-      output.logExports !== undefined && output.logExports !== null
-        ? deserializeAws_json1_1LogExportList(output.logExports, context)
-        : undefined,
+    logExports: output.logExports != null ? deserializeAws_json1_1LogExportList(output.logExports, context) : undefined,
     namespaceArn: __expectString(output.namespaceArn),
     namespaceId: __expectString(output.namespaceId),
     namespaceName: __expectString(output.namespaceName),
@@ -3753,9 +3632,7 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
 ): PutResourcePolicyResponse => {
   return {
     resourcePolicy:
-      output.resourcePolicy !== undefined && output.resourcePolicy !== null
-        ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context)
-        : undefined,
+      output.resourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context) : undefined,
   } as any;
 };
 
@@ -3763,7 +3640,7 @@ const deserializeAws_json1_1RecoveryPoint = (output: any, context: __SerdeContex
   return {
     namespaceName: __expectString(output.namespaceName),
     recoveryPointCreateTime:
-      output.recoveryPointCreateTime !== undefined && output.recoveryPointCreateTime !== null
+      output.recoveryPointCreateTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.recoveryPointCreateTime))
         : undefined,
     recoveryPointId: __expectString(output.recoveryPointId),
@@ -3806,10 +3683,7 @@ const deserializeAws_json1_1RestoreFromRecoveryPointResponse = (
   context: __SerdeContext
 ): RestoreFromRecoveryPointResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
     recoveryPointId: __expectString(output.recoveryPointId),
   } as any;
 };
@@ -3819,10 +3693,7 @@ const deserializeAws_json1_1RestoreFromSnapshotResponse = (
   context: __SerdeContext
 ): RestoreFromSnapshotResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
     ownerAccount: __expectString(output.ownerAccount),
     snapshotName: __expectString(output.snapshotName),
   } as any;
@@ -3852,11 +3723,11 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
 const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
     accountsWithProvisionedRestoreAccess:
-      output.accountsWithProvisionedRestoreAccess !== undefined && output.accountsWithProvisionedRestoreAccess !== null
+      output.accountsWithProvisionedRestoreAccess != null
         ? deserializeAws_json1_1AccountIdList(output.accountsWithProvisionedRestoreAccess, context)
         : undefined,
     accountsWithRestoreAccess:
-      output.accountsWithRestoreAccess !== undefined && output.accountsWithRestoreAccess !== null
+      output.accountsWithRestoreAccess != null
         ? deserializeAws_json1_1AccountIdList(output.accountsWithRestoreAccess, context)
         : undefined,
     actualIncrementalBackupSizeInMegaBytes: __limitedParseDouble(output.actualIncrementalBackupSizeInMegaBytes),
@@ -3871,14 +3742,14 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
     ownerAccount: __expectString(output.ownerAccount),
     snapshotArn: __expectString(output.snapshotArn),
     snapshotCreateTime:
-      output.snapshotCreateTime !== undefined && output.snapshotCreateTime !== null
+      output.snapshotCreateTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.snapshotCreateTime))
         : undefined,
     snapshotName: __expectString(output.snapshotName),
     snapshotRemainingDays: __expectInt32(output.snapshotRemainingDays),
     snapshotRetentionPeriod: __expectInt32(output.snapshotRetentionPeriod),
     snapshotRetentionStartTime:
-      output.snapshotRetentionStartTime !== undefined && output.snapshotRetentionStartTime !== null
+      output.snapshotRetentionStartTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.snapshotRetentionStartTime))
         : undefined,
     status: __expectString(output.status),
@@ -3956,10 +3827,7 @@ const deserializeAws_json1_1UpdateEndpointAccessResponse = (
   context: __SerdeContext
 ): UpdateEndpointAccessResponse => {
   return {
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? deserializeAws_json1_1EndpointAccess(output.endpoint, context)
-        : undefined,
+    endpoint: output.endpoint != null ? deserializeAws_json1_1EndpointAccess(output.endpoint, context) : undefined,
   } as any;
 };
 
@@ -3968,19 +3836,13 @@ const deserializeAws_json1_1UpdateNamespaceResponse = (
   context: __SerdeContext
 ): UpdateNamespaceResponse => {
   return {
-    namespace:
-      output.namespace !== undefined && output.namespace !== null
-        ? deserializeAws_json1_1Namespace(output.namespace, context)
-        : undefined,
+    namespace: output.namespace != null ? deserializeAws_json1_1Namespace(output.namespace, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
   return {
-    snapshot:
-      output.snapshot !== undefined && output.snapshot !== null
-        ? deserializeAws_json1_1Snapshot(output.snapshot, context)
-        : undefined,
+    snapshot: output.snapshot != null ? deserializeAws_json1_1Snapshot(output.snapshot, context) : undefined,
   } as any;
 };
 
@@ -3989,10 +3851,7 @@ const deserializeAws_json1_1UpdateUsageLimitResponse = (
   context: __SerdeContext
 ): UpdateUsageLimitResponse => {
   return {
-    usageLimit:
-      output.usageLimit !== undefined && output.usageLimit !== null
-        ? deserializeAws_json1_1UsageLimit(output.usageLimit, context)
-        : undefined,
+    usageLimit: output.usageLimit != null ? deserializeAws_json1_1UsageLimit(output.usageLimit, context) : undefined,
   } as any;
 };
 
@@ -4001,10 +3860,7 @@ const deserializeAws_json1_1UpdateWorkgroupResponse = (
   context: __SerdeContext
 ): UpdateWorkgroupResponse => {
   return {
-    workgroup:
-      output.workgroup !== undefined && output.workgroup !== null
-        ? deserializeAws_json1_1Workgroup(output.workgroup, context)
-        : undefined,
+    workgroup: output.workgroup != null ? deserializeAws_json1_1Workgroup(output.workgroup, context) : undefined,
   } as any;
 };
 
@@ -4041,7 +3897,7 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 const deserializeAws_json1_1VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   return {
     networkInterfaces:
-      output.networkInterfaces !== undefined && output.networkInterfaces !== null
+      output.networkInterfaces != null
         ? deserializeAws_json1_1NetworkInterfaceList(output.networkInterfaces, context)
         : undefined,
     vpcEndpointId: __expectString(output.vpcEndpointId),
@@ -4090,29 +3946,21 @@ const deserializeAws_json1_1Workgroup = (output: any, context: __SerdeContext): 
   return {
     baseCapacity: __expectInt32(output.baseCapacity),
     configParameters:
-      output.configParameters !== undefined && output.configParameters !== null
+      output.configParameters != null
         ? deserializeAws_json1_1ConfigParameterList(output.configParameters, context)
         : undefined,
     creationDate:
-      output.creationDate !== undefined && output.creationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.creationDate))
-        : undefined,
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? deserializeAws_json1_1Endpoint(output.endpoint, context)
-        : undefined,
+      output.creationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.creationDate)) : undefined,
+    endpoint: output.endpoint != null ? deserializeAws_json1_1Endpoint(output.endpoint, context) : undefined,
     enhancedVpcRouting: __expectBoolean(output.enhancedVpcRouting),
     namespaceName: __expectString(output.namespaceName),
     publiclyAccessible: __expectBoolean(output.publiclyAccessible),
     securityGroupIds:
-      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+      output.securityGroupIds != null
         ? deserializeAws_json1_1SecurityGroupIdList(output.securityGroupIds, context)
         : undefined,
     status: __expectString(output.status),
-    subnetIds:
-      output.subnetIds !== undefined && output.subnetIds !== null
-        ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context)
-        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_json1_1SubnetIdList(output.subnetIds, context) : undefined,
     workgroupArn: __expectString(output.workgroupArn),
     workgroupId: __expectString(output.workgroupId),
     workgroupName: __expectString(output.workgroupName),

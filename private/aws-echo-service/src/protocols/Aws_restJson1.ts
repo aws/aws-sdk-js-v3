@@ -30,7 +30,7 @@ export const serializeAws_restJson1EchoCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/echo";
   let body: any;
   body = JSON.stringify({
-    ...(input.string !== undefined && input.string !== null && { string: input.string }),
+    ...(input.string != null && { string: input.string }),
   });
   return new __HttpRequest({
     protocol,

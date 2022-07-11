@@ -2847,12 +2847,10 @@ const serializeAws_json1_1AddAttributesToFindingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && { attributes: serializeAws_json1_1UserAttributeList(input.attributes, context) }),
-    ...(input.findingArns !== undefined &&
-      input.findingArns !== null && {
-        findingArns: serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context),
-      }),
+    ...(input.attributes != null && { attributes: serializeAws_json1_1UserAttributeList(input.attributes, context) }),
+    ...(input.findingArns != null && {
+      findingArns: serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context),
+    }),
   };
 };
 
@@ -2869,14 +2867,12 @@ const serializeAws_json1_1AddRemoveAttributesFindingArnList = (input: string[], 
 
 const serializeAws_json1_1AgentFilter = (input: AgentFilter, context: __SerdeContext): any => {
   return {
-    ...(input.agentHealthCodes !== undefined &&
-      input.agentHealthCodes !== null && {
-        agentHealthCodes: serializeAws_json1_1AgentHealthCodeList(input.agentHealthCodes, context),
-      }),
-    ...(input.agentHealths !== undefined &&
-      input.agentHealths !== null && {
-        agentHealths: serializeAws_json1_1AgentHealthList(input.agentHealths, context),
-      }),
+    ...(input.agentHealthCodes != null && {
+      agentHealthCodes: serializeAws_json1_1AgentHealthCodeList(input.agentHealthCodes, context),
+    }),
+    ...(input.agentHealths != null && {
+      agentHealths: serializeAws_json1_1AgentHealthList(input.agentHealths, context),
+    }),
   };
 };
 
@@ -2915,29 +2911,23 @@ const serializeAws_json1_1AgentIdList = (input: string[], context: __SerdeContex
 
 const serializeAws_json1_1AssessmentRunFilter = (input: AssessmentRunFilter, context: __SerdeContext): any => {
   return {
-    ...(input.completionTimeRange !== undefined &&
-      input.completionTimeRange !== null && {
-        completionTimeRange: serializeAws_json1_1TimestampRange(input.completionTimeRange, context),
-      }),
-    ...(input.durationRange !== undefined &&
-      input.durationRange !== null && {
-        durationRange: serializeAws_json1_1DurationRange(input.durationRange, context),
-      }),
-    ...(input.namePattern !== undefined && input.namePattern !== null && { namePattern: input.namePattern }),
-    ...(input.rulesPackageArns !== undefined &&
-      input.rulesPackageArns !== null && {
-        rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
-      }),
-    ...(input.startTimeRange !== undefined &&
-      input.startTimeRange !== null && {
-        startTimeRange: serializeAws_json1_1TimestampRange(input.startTimeRange, context),
-      }),
-    ...(input.stateChangeTimeRange !== undefined &&
-      input.stateChangeTimeRange !== null && {
-        stateChangeTimeRange: serializeAws_json1_1TimestampRange(input.stateChangeTimeRange, context),
-      }),
-    ...(input.states !== undefined &&
-      input.states !== null && { states: serializeAws_json1_1AssessmentRunStateList(input.states, context) }),
+    ...(input.completionTimeRange != null && {
+      completionTimeRange: serializeAws_json1_1TimestampRange(input.completionTimeRange, context),
+    }),
+    ...(input.durationRange != null && {
+      durationRange: serializeAws_json1_1DurationRange(input.durationRange, context),
+    }),
+    ...(input.namePattern != null && { namePattern: input.namePattern }),
+    ...(input.rulesPackageArns != null && {
+      rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
+    }),
+    ...(input.startTimeRange != null && {
+      startTimeRange: serializeAws_json1_1TimestampRange(input.startTimeRange, context),
+    }),
+    ...(input.stateChangeTimeRange != null && {
+      stateChangeTimeRange: serializeAws_json1_1TimestampRange(input.stateChangeTimeRange, context),
+    }),
+    ...(input.states != null && { states: serializeAws_json1_1AssessmentRunStateList(input.states, context) }),
   };
 };
 
@@ -2957,8 +2947,9 @@ const serializeAws_json1_1AssessmentRunStateList = (
 
 const serializeAws_json1_1AssessmentTargetFilter = (input: AssessmentTargetFilter, context: __SerdeContext): any => {
   return {
-    ...(input.assessmentTargetNamePattern !== undefined &&
-      input.assessmentTargetNamePattern !== null && { assessmentTargetNamePattern: input.assessmentTargetNamePattern }),
+    ...(input.assessmentTargetNamePattern != null && {
+      assessmentTargetNamePattern: input.assessmentTargetNamePattern,
+    }),
   };
 };
 
@@ -2967,15 +2958,13 @@ const serializeAws_json1_1AssessmentTemplateFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.durationRange !== undefined &&
-      input.durationRange !== null && {
-        durationRange: serializeAws_json1_1DurationRange(input.durationRange, context),
-      }),
-    ...(input.namePattern !== undefined && input.namePattern !== null && { namePattern: input.namePattern }),
-    ...(input.rulesPackageArns !== undefined &&
-      input.rulesPackageArns !== null && {
-        rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
-      }),
+    ...(input.durationRange != null && {
+      durationRange: serializeAws_json1_1DurationRange(input.durationRange, context),
+    }),
+    ...(input.namePattern != null && { namePattern: input.namePattern }),
+    ...(input.rulesPackageArns != null && {
+      rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
+    }),
   };
 };
 
@@ -2992,8 +2981,8 @@ const serializeAws_json1_1AssessmentTemplateRulesPackageArnList = (input: string
 
 const serializeAws_json1_1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3046,10 +3035,8 @@ const serializeAws_json1_1CreateAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetName !== undefined &&
-      input.assessmentTargetName !== null && { assessmentTargetName: input.assessmentTargetName }),
-    ...(input.resourceGroupArn !== undefined &&
-      input.resourceGroupArn !== null && { resourceGroupArn: input.resourceGroupArn }),
+    ...(input.assessmentTargetName != null && { assessmentTargetName: input.assessmentTargetName }),
+    ...(input.resourceGroupArn != null && { resourceGroupArn: input.resourceGroupArn }),
   };
 };
 
@@ -3058,20 +3045,15 @@ const serializeAws_json1_1CreateAssessmentTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined &&
-      input.assessmentTargetArn !== null && { assessmentTargetArn: input.assessmentTargetArn }),
-    ...(input.assessmentTemplateName !== undefined &&
-      input.assessmentTemplateName !== null && { assessmentTemplateName: input.assessmentTemplateName }),
-    ...(input.durationInSeconds !== undefined &&
-      input.durationInSeconds !== null && { durationInSeconds: input.durationInSeconds }),
-    ...(input.rulesPackageArns !== undefined &&
-      input.rulesPackageArns !== null && {
-        rulesPackageArns: serializeAws_json1_1AssessmentTemplateRulesPackageArnList(input.rulesPackageArns, context),
-      }),
-    ...(input.userAttributesForFindings !== undefined &&
-      input.userAttributesForFindings !== null && {
-        userAttributesForFindings: serializeAws_json1_1UserAttributeList(input.userAttributesForFindings, context),
-      }),
+    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
+    ...(input.assessmentTemplateName != null && { assessmentTemplateName: input.assessmentTemplateName }),
+    ...(input.durationInSeconds != null && { durationInSeconds: input.durationInSeconds }),
+    ...(input.rulesPackageArns != null && {
+      rulesPackageArns: serializeAws_json1_1AssessmentTemplateRulesPackageArnList(input.rulesPackageArns, context),
+    }),
+    ...(input.userAttributesForFindings != null && {
+      userAttributesForFindings: serializeAws_json1_1UserAttributeList(input.userAttributesForFindings, context),
+    }),
   };
 };
 
@@ -3080,8 +3062,7 @@ const serializeAws_json1_1CreateExclusionsPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined &&
-      input.assessmentTemplateArn !== null && { assessmentTemplateArn: input.assessmentTemplateArn }),
+    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -3090,10 +3071,9 @@ const serializeAws_json1_1CreateResourceGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceGroupTags !== undefined &&
-      input.resourceGroupTags !== null && {
-        resourceGroupTags: serializeAws_json1_1ResourceGroupTags(input.resourceGroupTags, context),
-      }),
+    ...(input.resourceGroupTags != null && {
+      resourceGroupTags: serializeAws_json1_1ResourceGroupTags(input.resourceGroupTags, context),
+    }),
   };
 };
 
@@ -3102,8 +3082,7 @@ const serializeAws_json1_1DeleteAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
   };
 };
 
@@ -3112,8 +3091,7 @@ const serializeAws_json1_1DeleteAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined &&
-      input.assessmentTargetArn !== null && { assessmentTargetArn: input.assessmentTargetArn }),
+    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
   };
 };
 
@@ -3122,8 +3100,7 @@ const serializeAws_json1_1DeleteAssessmentTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined &&
-      input.assessmentTemplateArn !== null && { assessmentTemplateArn: input.assessmentTemplateArn }),
+    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -3132,10 +3109,9 @@ const serializeAws_json1_1DescribeAssessmentRunsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArns !== undefined &&
-      input.assessmentRunArns !== null && {
-        assessmentRunArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentRunArns, context),
-      }),
+    ...(input.assessmentRunArns != null && {
+      assessmentRunArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentRunArns, context),
+    }),
   };
 };
 
@@ -3144,10 +3120,9 @@ const serializeAws_json1_1DescribeAssessmentTargetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArns !== undefined &&
-      input.assessmentTargetArns !== null && {
-        assessmentTargetArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentTargetArns, context),
-      }),
+    ...(input.assessmentTargetArns != null && {
+      assessmentTargetArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentTargetArns, context),
+    }),
   };
 };
 
@@ -3156,10 +3131,9 @@ const serializeAws_json1_1DescribeAssessmentTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArns !== undefined &&
-      input.assessmentTemplateArns !== null && {
-        assessmentTemplateArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentTemplateArns, context),
-      }),
+    ...(input.assessmentTemplateArns != null && {
+      assessmentTemplateArns: serializeAws_json1_1BatchDescribeArnList(input.assessmentTemplateArns, context),
+    }),
   };
 };
 
@@ -3168,21 +3142,19 @@ const serializeAws_json1_1DescribeExclusionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exclusionArns !== undefined &&
-      input.exclusionArns !== null && {
-        exclusionArns: serializeAws_json1_1BatchDescribeExclusionsArnList(input.exclusionArns, context),
-      }),
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
+    ...(input.exclusionArns != null && {
+      exclusionArns: serializeAws_json1_1BatchDescribeExclusionsArnList(input.exclusionArns, context),
+    }),
+    ...(input.locale != null && { locale: input.locale }),
   };
 };
 
 const serializeAws_json1_1DescribeFindingsRequest = (input: DescribeFindingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.findingArns !== undefined &&
-      input.findingArns !== null && {
-        findingArns: serializeAws_json1_1BatchDescribeArnList(input.findingArns, context),
-      }),
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
+    ...(input.findingArns != null && {
+      findingArns: serializeAws_json1_1BatchDescribeArnList(input.findingArns, context),
+    }),
+    ...(input.locale != null && { locale: input.locale }),
   };
 };
 
@@ -3191,10 +3163,9 @@ const serializeAws_json1_1DescribeResourceGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceGroupArns !== undefined &&
-      input.resourceGroupArns !== null && {
-        resourceGroupArns: serializeAws_json1_1BatchDescribeArnList(input.resourceGroupArns, context),
-      }),
+    ...(input.resourceGroupArns != null && {
+      resourceGroupArns: serializeAws_json1_1BatchDescribeArnList(input.resourceGroupArns, context),
+    }),
   };
 };
 
@@ -3203,18 +3174,17 @@ const serializeAws_json1_1DescribeRulesPackagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
-    ...(input.rulesPackageArns !== undefined &&
-      input.rulesPackageArns !== null && {
-        rulesPackageArns: serializeAws_json1_1BatchDescribeArnList(input.rulesPackageArns, context),
-      }),
+    ...(input.locale != null && { locale: input.locale }),
+    ...(input.rulesPackageArns != null && {
+      rulesPackageArns: serializeAws_json1_1BatchDescribeArnList(input.rulesPackageArns, context),
+    }),
   };
 };
 
 const serializeAws_json1_1DurationRange = (input: DurationRange, context: __SerdeContext): any => {
   return {
-    ...(input.maxSeconds !== undefined && input.maxSeconds !== null && { maxSeconds: input.maxSeconds }),
-    ...(input.minSeconds !== undefined && input.minSeconds !== null && { minSeconds: input.minSeconds }),
+    ...(input.maxSeconds != null && { maxSeconds: input.maxSeconds }),
+    ...(input.minSeconds != null && { minSeconds: input.minSeconds }),
   };
 };
 
@@ -3231,30 +3201,22 @@ const serializeAws_json1_1FilterRulesPackageArnList = (input: string[], context:
 
 const serializeAws_json1_1FindingFilter = (input: FindingFilter, context: __SerdeContext): any => {
   return {
-    ...(input.agentIds !== undefined &&
-      input.agentIds !== null && { agentIds: serializeAws_json1_1AgentIdList(input.agentIds, context) }),
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && { attributes: serializeAws_json1_1AttributeList(input.attributes, context) }),
-    ...(input.autoScalingGroups !== undefined &&
-      input.autoScalingGroups !== null && {
-        autoScalingGroups: serializeAws_json1_1AutoScalingGroupList(input.autoScalingGroups, context),
-      }),
-    ...(input.creationTimeRange !== undefined &&
-      input.creationTimeRange !== null && {
-        creationTimeRange: serializeAws_json1_1TimestampRange(input.creationTimeRange, context),
-      }),
-    ...(input.ruleNames !== undefined &&
-      input.ruleNames !== null && { ruleNames: serializeAws_json1_1RuleNameList(input.ruleNames, context) }),
-    ...(input.rulesPackageArns !== undefined &&
-      input.rulesPackageArns !== null && {
-        rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
-      }),
-    ...(input.severities !== undefined &&
-      input.severities !== null && { severities: serializeAws_json1_1SeverityList(input.severities, context) }),
-    ...(input.userAttributes !== undefined &&
-      input.userAttributes !== null && {
-        userAttributes: serializeAws_json1_1AttributeList(input.userAttributes, context),
-      }),
+    ...(input.agentIds != null && { agentIds: serializeAws_json1_1AgentIdList(input.agentIds, context) }),
+    ...(input.attributes != null && { attributes: serializeAws_json1_1AttributeList(input.attributes, context) }),
+    ...(input.autoScalingGroups != null && {
+      autoScalingGroups: serializeAws_json1_1AutoScalingGroupList(input.autoScalingGroups, context),
+    }),
+    ...(input.creationTimeRange != null && {
+      creationTimeRange: serializeAws_json1_1TimestampRange(input.creationTimeRange, context),
+    }),
+    ...(input.ruleNames != null && { ruleNames: serializeAws_json1_1RuleNameList(input.ruleNames, context) }),
+    ...(input.rulesPackageArns != null && {
+      rulesPackageArns: serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context),
+    }),
+    ...(input.severities != null && { severities: serializeAws_json1_1SeverityList(input.severities, context) }),
+    ...(input.userAttributes != null && {
+      userAttributes: serializeAws_json1_1AttributeList(input.userAttributes, context),
+    }),
   };
 };
 
@@ -3263,11 +3225,9 @@ const serializeAws_json1_1GetAssessmentReportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.reportFileFormat !== undefined &&
-      input.reportFileFormat !== null && { reportFileFormat: input.reportFileFormat }),
-    ...(input.reportType !== undefined && input.reportType !== null && { reportType: input.reportType }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.reportFileFormat != null && { reportFileFormat: input.reportFileFormat }),
+    ...(input.reportType != null && { reportType: input.reportType }),
   };
 };
 
@@ -3276,12 +3236,11 @@ const serializeAws_json1_1GetExclusionsPreviewRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArn !== undefined &&
-      input.assessmentTemplateArn !== null && { assessmentTemplateArn: input.assessmentTemplateArn }),
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.previewToken !== undefined && input.previewToken !== null && { previewToken: input.previewToken }),
+    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
+    ...(input.locale != null && { locale: input.locale }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.previewToken != null && { previewToken: input.previewToken }),
   };
 };
 
@@ -3290,8 +3249,7 @@ const serializeAws_json1_1GetTelemetryMetadataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
   };
 };
 
@@ -3300,12 +3258,10 @@ const serializeAws_json1_1ListAssessmentRunAgentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1AgentFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.filter != null && { filter: serializeAws_json1_1AgentFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3314,14 +3270,12 @@ const serializeAws_json1_1ListAssessmentRunsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTemplateArns !== undefined &&
-      input.assessmentTemplateArns !== null && {
-        assessmentTemplateArns: serializeAws_json1_1ListParentArnList(input.assessmentTemplateArns, context),
-      }),
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1AssessmentRunFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentTemplateArns != null && {
+      assessmentTemplateArns: serializeAws_json1_1ListParentArnList(input.assessmentTemplateArns, context),
+    }),
+    ...(input.filter != null && { filter: serializeAws_json1_1AssessmentRunFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3330,10 +3284,9 @@ const serializeAws_json1_1ListAssessmentTargetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1AssessmentTargetFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.filter != null && { filter: serializeAws_json1_1AssessmentTargetFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3342,14 +3295,12 @@ const serializeAws_json1_1ListAssessmentTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArns !== undefined &&
-      input.assessmentTargetArns !== null && {
-        assessmentTargetArns: serializeAws_json1_1ListParentArnList(input.assessmentTargetArns, context),
-      }),
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1AssessmentTemplateFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentTargetArns != null && {
+      assessmentTargetArns: serializeAws_json1_1ListParentArnList(input.assessmentTargetArns, context),
+    }),
+    ...(input.filter != null && { filter: serializeAws_json1_1AssessmentTemplateFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3358,31 +3309,28 @@ const serializeAws_json1_1ListEventSubscriptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1ListExclusionsRequest = (input: ListExclusionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListFindingsRequest = (input: ListFindingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.assessmentRunArns !== undefined &&
-      input.assessmentRunArns !== null && {
-        assessmentRunArns: serializeAws_json1_1ListParentArnList(input.assessmentRunArns, context),
-      }),
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_json1_1FindingFilter(input.filter, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.assessmentRunArns != null && {
+      assessmentRunArns: serializeAws_json1_1ListParentArnList(input.assessmentRunArns, context),
+    }),
+    ...(input.filter != null && { filter: serializeAws_json1_1FindingFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3402,8 +3350,8 @@ const serializeAws_json1_1ListRulesPackagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3412,16 +3360,15 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1PreviewAgentsRequest = (input: PreviewAgentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.previewAgentsArn !== undefined &&
-      input.previewAgentsArn !== null && { previewAgentsArn: input.previewAgentsArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.previewAgentsArn != null && { previewAgentsArn: input.previewAgentsArn }),
   };
 };
 
@@ -3430,7 +3377,7 @@ const serializeAws_json1_1RegisterCrossAccountAccessRoleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
   };
 };
 
@@ -3439,21 +3386,19 @@ const serializeAws_json1_1RemoveAttributesFromFindingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.attributeKeys !== undefined &&
-      input.attributeKeys !== null && {
-        attributeKeys: serializeAws_json1_1UserAttributeKeyList(input.attributeKeys, context),
-      }),
-    ...(input.findingArns !== undefined &&
-      input.findingArns !== null && {
-        findingArns: serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context),
-      }),
+    ...(input.attributeKeys != null && {
+      attributeKeys: serializeAws_json1_1UserAttributeKeyList(input.attributeKeys, context),
+    }),
+    ...(input.findingArns != null && {
+      findingArns: serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ResourceGroupTag = (input: ResourceGroupTag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3484,8 +3429,8 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -3505,10 +3450,8 @@ const serializeAws_json1_1StartAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunName !== undefined &&
-      input.assessmentRunName !== null && { assessmentRunName: input.assessmentRunName }),
-    ...(input.assessmentTemplateArn !== undefined &&
-      input.assessmentTemplateArn !== null && { assessmentTemplateArn: input.assessmentTemplateArn }),
+    ...(input.assessmentRunName != null && { assessmentRunName: input.assessmentRunName }),
+    ...(input.assessmentTemplateArn != null && { assessmentTemplateArn: input.assessmentTemplateArn }),
   };
 };
 
@@ -3517,24 +3460,23 @@ const serializeAws_json1_1StopAssessmentRunRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentRunArn !== undefined &&
-      input.assessmentRunArn !== null && { assessmentRunArn: input.assessmentRunArn }),
-    ...(input.stopAction !== undefined && input.stopAction !== null && { stopAction: input.stopAction }),
+    ...(input.assessmentRunArn != null && { assessmentRunArn: input.assessmentRunArn }),
+    ...(input.stopAction != null && { stopAction: input.stopAction }),
   };
 };
 
 const serializeAws_json1_1SubscribeToEventRequest = (input: SubscribeToEventRequest, context: __SerdeContext): any => {
   return {
-    ...(input.event !== undefined && input.event !== null && { event: input.event }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.topicArn !== undefined && input.topicArn !== null && { topicArn: input.topicArn }),
+    ...(input.event != null && { event: input.event }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.topicArn != null && { topicArn: input.topicArn }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3551,10 +3493,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.beginDate !== undefined &&
-      input.beginDate !== null && { beginDate: Math.round(input.beginDate.getTime() / 1000) }),
-    ...(input.endDate !== undefined &&
-      input.endDate !== null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
+    ...(input.beginDate != null && { beginDate: Math.round(input.beginDate.getTime() / 1000) }),
+    ...(input.endDate != null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
   };
 };
 
@@ -3563,9 +3503,9 @@ const serializeAws_json1_1UnsubscribeFromEventRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.event !== undefined && input.event !== null && { event: input.event }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.topicArn !== undefined && input.topicArn !== null && { topicArn: input.topicArn }),
+    ...(input.event != null && { event: input.event }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.topicArn != null && { topicArn: input.topicArn }),
   };
 };
 
@@ -3574,12 +3514,9 @@ const serializeAws_json1_1UpdateAssessmentTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.assessmentTargetArn !== undefined &&
-      input.assessmentTargetArn !== null && { assessmentTargetArn: input.assessmentTargetArn }),
-    ...(input.assessmentTargetName !== undefined &&
-      input.assessmentTargetName !== null && { assessmentTargetName: input.assessmentTargetName }),
-    ...(input.resourceGroupArn !== undefined &&
-      input.resourceGroupArn !== null && { resourceGroupArn: input.resourceGroupArn }),
+    ...(input.assessmentTargetArn != null && { assessmentTargetArn: input.assessmentTargetArn }),
+    ...(input.assessmentTargetName != null && { assessmentTargetName: input.assessmentTargetName }),
+    ...(input.resourceGroupArn != null && { resourceGroupArn: input.resourceGroupArn }),
   };
 };
 
@@ -3619,9 +3556,7 @@ const deserializeAws_json1_1AddAttributesToFindingsResponse = (
 ): AddAttributesToFindingsResponse => {
   return {
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -3681,7 +3616,7 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
 ): AgentsAlreadyRunningAssessmentException => {
   return {
     agents:
-      output.agents !== undefined && output.agents !== null
+      output.agents != null
         ? deserializeAws_json1_1AgentAlreadyRunningAssessmentList(output.agents, context)
         : undefined,
     agentsTruncated: __expectBoolean(output.agentsTruncated),
@@ -3707,43 +3642,39 @@ const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContex
     arn: __expectString(output.arn),
     assessmentTemplateArn: __expectString(output.assessmentTemplateArn),
     completedAt:
-      output.completedAt !== undefined && output.completedAt !== null
+      output.completedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completedAt)))
         : undefined,
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     dataCollected: __expectBoolean(output.dataCollected),
     durationInSeconds: __expectInt32(output.durationInSeconds),
     findingCounts:
-      output.findingCounts !== undefined && output.findingCounts !== null
+      output.findingCounts != null
         ? deserializeAws_json1_1AssessmentRunFindingCounts(output.findingCounts, context)
         : undefined,
     name: __expectString(output.name),
     notifications:
-      output.notifications !== undefined && output.notifications !== null
+      output.notifications != null
         ? deserializeAws_json1_1AssessmentRunNotificationList(output.notifications, context)
         : undefined,
     rulesPackageArns:
-      output.rulesPackageArns !== undefined && output.rulesPackageArns !== null
+      output.rulesPackageArns != null
         ? deserializeAws_json1_1AssessmentRulesPackageArnList(output.rulesPackageArns, context)
         : undefined,
     startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
-        : undefined,
+      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
     state: __expectString(output.state),
     stateChangedAt:
-      output.stateChangedAt !== undefined && output.stateChangedAt !== null
+      output.stateChangedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
         : undefined,
     stateChanges:
-      output.stateChanges !== undefined && output.stateChanges !== null
+      output.stateChanges != null
         ? deserializeAws_json1_1AssessmentRunStateChangeList(output.stateChanges, context)
         : undefined,
     userAttributesForFindings:
-      output.userAttributesForFindings !== undefined && output.userAttributesForFindings !== null
+      output.userAttributesForFindings != null
         ? deserializeAws_json1_1UserAttributeList(output.userAttributesForFindings, context)
         : undefined,
   } as any;
@@ -3758,7 +3689,7 @@ const deserializeAws_json1_1AssessmentRunAgent = (output: any, context: __SerdeC
     assessmentRunArn: __expectString(output.assessmentRunArn),
     autoScalingGroup: __expectString(output.autoScalingGroup),
     telemetryMetadata:
-      output.telemetryMetadata !== undefined && output.telemetryMetadata !== null
+      output.telemetryMetadata != null
         ? deserializeAws_json1_1TelemetryMetadataList(output.telemetryMetadata, context)
         : undefined,
   } as any;
@@ -3809,7 +3740,7 @@ const deserializeAws_json1_1AssessmentRunInProgressException = (
 ): AssessmentRunInProgressException => {
   return {
     assessmentRunArns:
-      output.assessmentRunArns !== undefined && output.assessmentRunArns !== null
+      output.assessmentRunArns != null
         ? deserializeAws_json1_1AssessmentRunInProgressArnList(output.assessmentRunArns, context)
         : undefined,
     assessmentRunArnsTruncated: __expectBoolean(output.assessmentRunArnsTruncated),
@@ -3835,10 +3766,7 @@ const deserializeAws_json1_1AssessmentRunNotification = (
   context: __SerdeContext
 ): AssessmentRunNotification => {
   return {
-    date:
-      output.date !== undefined && output.date !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date)))
-        : undefined,
+    date: output.date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.date))) : undefined,
     error: __expectBoolean(output.error),
     event: __expectString(output.event),
     message: __expectString(output.message),
@@ -3869,7 +3797,7 @@ const deserializeAws_json1_1AssessmentRunStateChange = (
   return {
     state: __expectString(output.state),
     stateChangedAt:
-      output.stateChangedAt !== undefined && output.stateChangedAt !== null
+      output.stateChangedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stateChangedAt)))
         : undefined,
   } as any;
@@ -3894,15 +3822,11 @@ const deserializeAws_json1_1AssessmentTarget = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     name: __expectString(output.name),
     resourceGroupArn: __expectString(output.resourceGroupArn),
     updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
-        : undefined,
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 
@@ -3924,18 +3848,16 @@ const deserializeAws_json1_1AssessmentTemplate = (output: any, context: __SerdeC
     assessmentRunCount: __expectInt32(output.assessmentRunCount),
     assessmentTargetArn: __expectString(output.assessmentTargetArn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     durationInSeconds: __expectInt32(output.durationInSeconds),
     lastAssessmentRunArn: __expectString(output.lastAssessmentRunArn),
     name: __expectString(output.name),
     rulesPackageArns:
-      output.rulesPackageArns !== undefined && output.rulesPackageArns !== null
+      output.rulesPackageArns != null
         ? deserializeAws_json1_1AssessmentTemplateRulesPackageArnList(output.rulesPackageArns, context)
         : undefined,
     userAttributesForFindings:
-      output.userAttributesForFindings !== undefined && output.userAttributesForFindings !== null
+      output.userAttributesForFindings != null
         ? deserializeAws_json1_1UserAttributeList(output.userAttributesForFindings, context)
         : undefined,
   } as any;
@@ -3975,16 +3897,13 @@ const deserializeAws_json1_1AssetAttributes = (output: any, context: __SerdeCont
     autoScalingGroup: __expectString(output.autoScalingGroup),
     hostname: __expectString(output.hostname),
     ipv4Addresses:
-      output.ipv4Addresses !== undefined && output.ipv4Addresses !== null
-        ? deserializeAws_json1_1Ipv4AddressList(output.ipv4Addresses, context)
-        : undefined,
+      output.ipv4Addresses != null ? deserializeAws_json1_1Ipv4AddressList(output.ipv4Addresses, context) : undefined,
     networkInterfaces:
-      output.networkInterfaces !== undefined && output.networkInterfaces !== null
+      output.networkInterfaces != null
         ? deserializeAws_json1_1NetworkInterfaces(output.networkInterfaces, context)
         : undefined,
     schemaVersion: __expectInt32(output.schemaVersion),
-    tags:
-      output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4049,13 +3968,11 @@ const deserializeAws_json1_1DescribeAssessmentRunsResponse = (
 ): DescribeAssessmentRunsResponse => {
   return {
     assessmentRuns:
-      output.assessmentRuns !== undefined && output.assessmentRuns !== null
+      output.assessmentRuns != null
         ? deserializeAws_json1_1AssessmentRunList(output.assessmentRuns, context)
         : undefined,
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -4065,13 +3982,11 @@ const deserializeAws_json1_1DescribeAssessmentTargetsResponse = (
 ): DescribeAssessmentTargetsResponse => {
   return {
     assessmentTargets:
-      output.assessmentTargets !== undefined && output.assessmentTargets !== null
+      output.assessmentTargets != null
         ? deserializeAws_json1_1AssessmentTargetList(output.assessmentTargets, context)
         : undefined,
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -4081,13 +3996,11 @@ const deserializeAws_json1_1DescribeAssessmentTemplatesResponse = (
 ): DescribeAssessmentTemplatesResponse => {
   return {
     assessmentTemplates:
-      output.assessmentTemplates !== undefined && output.assessmentTemplates !== null
+      output.assessmentTemplates != null
         ? deserializeAws_json1_1AssessmentTemplateList(output.assessmentTemplates, context)
         : undefined,
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -4097,7 +4010,7 @@ const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
 ): DescribeCrossAccountAccessRoleResponse => {
   return {
     registeredAt:
-      output.registeredAt !== undefined && output.registeredAt !== null
+      output.registeredAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -4110,14 +4023,9 @@ const deserializeAws_json1_1DescribeExclusionsResponse = (
   context: __SerdeContext
 ): DescribeExclusionsResponse => {
   return {
-    exclusions:
-      output.exclusions !== undefined && output.exclusions !== null
-        ? deserializeAws_json1_1ExclusionMap(output.exclusions, context)
-        : undefined,
+    exclusions: output.exclusions != null ? deserializeAws_json1_1ExclusionMap(output.exclusions, context) : undefined,
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -4127,13 +4035,8 @@ const deserializeAws_json1_1DescribeFindingsResponse = (
 ): DescribeFindingsResponse => {
   return {
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
-    findings:
-      output.findings !== undefined && output.findings !== null
-        ? deserializeAws_json1_1FindingList(output.findings, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
+    findings: output.findings != null ? deserializeAws_json1_1FindingList(output.findings, context) : undefined,
   } as any;
 };
 
@@ -4143,11 +4046,9 @@ const deserializeAws_json1_1DescribeResourceGroupsResponse = (
 ): DescribeResourceGroupsResponse => {
   return {
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
     resourceGroups:
-      output.resourceGroups !== undefined && output.resourceGroups !== null
+      output.resourceGroups != null
         ? deserializeAws_json1_1ResourceGroupList(output.resourceGroups, context)
         : undefined,
   } as any;
@@ -4159,13 +4060,9 @@ const deserializeAws_json1_1DescribeRulesPackagesResponse = (
 ): DescribeRulesPackagesResponse => {
   return {
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
     rulesPackages:
-      output.rulesPackages !== undefined && output.rulesPackages !== null
-        ? deserializeAws_json1_1RulesPackageList(output.rulesPackages, context)
-        : undefined,
+      output.rulesPackages != null ? deserializeAws_json1_1RulesPackageList(output.rulesPackages, context) : undefined,
   } as any;
 };
 
@@ -4173,7 +4070,7 @@ const deserializeAws_json1_1EventSubscription = (output: any, context: __SerdeCo
   return {
     event: __expectString(output.event),
     subscribedAt:
-      output.subscribedAt !== undefined && output.subscribedAt !== null
+      output.subscribedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.subscribedAt)))
         : undefined,
   } as any;
@@ -4194,16 +4091,10 @@ const deserializeAws_json1_1EventSubscriptionList = (output: any, context: __Ser
 const deserializeAws_json1_1Exclusion = (output: any, context: __SerdeContext): Exclusion => {
   return {
     arn: __expectString(output.arn),
-    attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_json1_1AttributeList(output.attributes, context)
-        : undefined,
+    attributes: output.attributes != null ? deserializeAws_json1_1AttributeList(output.attributes, context) : undefined,
     description: __expectString(output.description),
     recommendation: __expectString(output.recommendation),
-    scopes:
-      output.scopes !== undefined && output.scopes !== null
-        ? deserializeAws_json1_1ScopeList(output.scopes, context)
-        : undefined,
+    scopes: output.scopes != null ? deserializeAws_json1_1ScopeList(output.scopes, context) : undefined,
     title: __expectString(output.title),
   } as any;
 };
@@ -4222,16 +4113,10 @@ const deserializeAws_json1_1ExclusionMap = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ExclusionPreview = (output: any, context: __SerdeContext): ExclusionPreview => {
   return {
-    attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_json1_1AttributeList(output.attributes, context)
-        : undefined,
+    attributes: output.attributes != null ? deserializeAws_json1_1AttributeList(output.attributes, context) : undefined,
     description: __expectString(output.description),
     recommendation: __expectString(output.recommendation),
-    scopes:
-      output.scopes !== undefined && output.scopes !== null
-        ? deserializeAws_json1_1ScopeList(output.scopes, context)
-        : undefined,
+    scopes: output.scopes != null ? deserializeAws_json1_1ScopeList(output.scopes, context) : undefined,
     title: __expectString(output.title),
   } as any;
 };
@@ -4271,19 +4156,14 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
   return {
     arn: __expectString(output.arn),
     assetAttributes:
-      output.assetAttributes !== undefined && output.assetAttributes !== null
+      output.assetAttributes != null
         ? deserializeAws_json1_1AssetAttributes(output.assetAttributes, context)
         : undefined,
     assetType: __expectString(output.assetType),
-    attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_json1_1AttributeList(output.attributes, context)
-        : undefined,
+    attributes: output.attributes != null ? deserializeAws_json1_1AttributeList(output.attributes, context) : undefined,
     confidence: __expectInt32(output.confidence),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     id: __expectString(output.id),
     indicatorOfCompromise: __expectBoolean(output.indicatorOfCompromise),
@@ -4292,17 +4172,15 @@ const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Fi
     schemaVersion: __expectInt32(output.schemaVersion),
     service: __expectString(output.service),
     serviceAttributes:
-      output.serviceAttributes !== undefined && output.serviceAttributes !== null
+      output.serviceAttributes != null
         ? deserializeAws_json1_1InspectorServiceAttributes(output.serviceAttributes, context)
         : undefined,
     severity: __expectString(output.severity),
     title: __expectString(output.title),
     updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
-        : undefined,
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
     userAttributes:
-      output.userAttributes !== undefined && output.userAttributes !== null
+      output.userAttributes != null
         ? deserializeAws_json1_1UserAttributeList(output.userAttributes, context)
         : undefined,
   } as any;
@@ -4336,7 +4214,7 @@ const deserializeAws_json1_1GetExclusionsPreviewResponse = (
 ): GetExclusionsPreviewResponse => {
   return {
     exclusionPreviews:
-      output.exclusionPreviews !== undefined && output.exclusionPreviews !== null
+      output.exclusionPreviews != null
         ? deserializeAws_json1_1ExclusionPreviewList(output.exclusionPreviews, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4350,7 +4228,7 @@ const deserializeAws_json1_1GetTelemetryMetadataResponse = (
 ): GetTelemetryMetadataResponse => {
   return {
     telemetryMetadata:
-      output.telemetryMetadata !== undefined && output.telemetryMetadata !== null
+      output.telemetryMetadata != null
         ? deserializeAws_json1_1TelemetryMetadataList(output.telemetryMetadata, context)
         : undefined,
   } as any;
@@ -4431,7 +4309,7 @@ const deserializeAws_json1_1ListAssessmentRunAgentsResponse = (
 ): ListAssessmentRunAgentsResponse => {
   return {
     assessmentRunAgents:
-      output.assessmentRunAgents !== undefined && output.assessmentRunAgents !== null
+      output.assessmentRunAgents != null
         ? deserializeAws_json1_1AssessmentRunAgentList(output.assessmentRunAgents, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4444,7 +4322,7 @@ const deserializeAws_json1_1ListAssessmentRunsResponse = (
 ): ListAssessmentRunsResponse => {
   return {
     assessmentRunArns:
-      output.assessmentRunArns !== undefined && output.assessmentRunArns !== null
+      output.assessmentRunArns != null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentRunArns, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4457,7 +4335,7 @@ const deserializeAws_json1_1ListAssessmentTargetsResponse = (
 ): ListAssessmentTargetsResponse => {
   return {
     assessmentTargetArns:
-      output.assessmentTargetArns !== undefined && output.assessmentTargetArns !== null
+      output.assessmentTargetArns != null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentTargetArns, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4470,7 +4348,7 @@ const deserializeAws_json1_1ListAssessmentTemplatesResponse = (
 ): ListAssessmentTemplatesResponse => {
   return {
     assessmentTemplateArns:
-      output.assessmentTemplateArns !== undefined && output.assessmentTemplateArns !== null
+      output.assessmentTemplateArns != null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentTemplateArns, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4484,16 +4362,14 @@ const deserializeAws_json1_1ListEventSubscriptionsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     subscriptions:
-      output.subscriptions !== undefined && output.subscriptions !== null
-        ? deserializeAws_json1_1SubscriptionList(output.subscriptions, context)
-        : undefined,
+      output.subscriptions != null ? deserializeAws_json1_1SubscriptionList(output.subscriptions, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListExclusionsResponse = (output: any, context: __SerdeContext): ListExclusionsResponse => {
   return {
     exclusionArns:
-      output.exclusionArns !== undefined && output.exclusionArns !== null
+      output.exclusionArns != null
         ? deserializeAws_json1_1ListReturnedArnList(output.exclusionArns, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -4503,9 +4379,7 @@ const deserializeAws_json1_1ListExclusionsResponse = (output: any, context: __Se
 const deserializeAws_json1_1ListFindingsResponse = (output: any, context: __SerdeContext): ListFindingsResponse => {
   return {
     findingArns:
-      output.findingArns !== undefined && output.findingArns !== null
-        ? deserializeAws_json1_1ListReturnedArnList(output.findingArns, context)
-        : undefined,
+      output.findingArns != null ? deserializeAws_json1_1ListReturnedArnList(output.findingArns, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -4529,7 +4403,7 @@ const deserializeAws_json1_1ListRulesPackagesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     rulesPackageArns:
-      output.rulesPackageArns !== undefined && output.rulesPackageArns !== null
+      output.rulesPackageArns != null
         ? deserializeAws_json1_1ListReturnedArnList(output.rulesPackageArns, context)
         : undefined,
   } as any;
@@ -4540,32 +4414,25 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
     ipv6Addresses:
-      output.ipv6Addresses !== undefined && output.ipv6Addresses !== null
-        ? deserializeAws_json1_1Ipv6Addresses(output.ipv6Addresses, context)
-        : undefined,
+      output.ipv6Addresses != null ? deserializeAws_json1_1Ipv6Addresses(output.ipv6Addresses, context) : undefined,
     networkInterfaceId: __expectString(output.networkInterfaceId),
     privateDnsName: __expectString(output.privateDnsName),
     privateIpAddress: __expectString(output.privateIpAddress),
     privateIpAddresses:
-      output.privateIpAddresses !== undefined && output.privateIpAddresses !== null
+      output.privateIpAddresses != null
         ? deserializeAws_json1_1PrivateIpAddresses(output.privateIpAddresses, context)
         : undefined,
     publicDnsName: __expectString(output.publicDnsName),
     publicIp: __expectString(output.publicIp),
     securityGroups:
-      output.securityGroups !== undefined && output.securityGroups !== null
-        ? deserializeAws_json1_1SecurityGroups(output.securityGroups, context)
-        : undefined,
+      output.securityGroups != null ? deserializeAws_json1_1SecurityGroups(output.securityGroups, context) : undefined,
     subnetId: __expectString(output.subnetId),
     vpcId: __expectString(output.vpcId),
   } as any;
@@ -4594,9 +4461,7 @@ const deserializeAws_json1_1NoSuchEntityException = (output: any, context: __Ser
 const deserializeAws_json1_1PreviewAgentsResponse = (output: any, context: __SerdeContext): PreviewAgentsResponse => {
   return {
     agentPreviews:
-      output.agentPreviews !== undefined && output.agentPreviews !== null
-        ? deserializeAws_json1_1AgentPreviewList(output.agentPreviews, context)
-        : undefined,
+      output.agentPreviews != null ? deserializeAws_json1_1AgentPreviewList(output.agentPreviews, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -4635,9 +4500,7 @@ const deserializeAws_json1_1RemoveAttributesFromFindingsResponse = (
 ): RemoveAttributesFromFindingsResponse => {
   return {
     failedItems:
-      output.failedItems !== undefined && output.failedItems !== null
-        ? deserializeAws_json1_1FailedItems(output.failedItems, context)
-        : undefined,
+      output.failedItems != null ? deserializeAws_json1_1FailedItems(output.failedItems, context) : undefined,
   } as any;
 };
 
@@ -4645,13 +4508,8 @@ const deserializeAws_json1_1ResourceGroup = (output: any, context: __SerdeContex
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_1ResourceGroupTags(output.tags, context)
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1ResourceGroupTags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4768,7 +4626,7 @@ const deserializeAws_json1_1StartAssessmentRunResponse = (
 const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
     eventSubscriptions:
-      output.eventSubscriptions !== undefined && output.eventSubscriptions !== null
+      output.eventSubscriptions != null
         ? deserializeAws_json1_1EventSubscriptionList(output.eventSubscriptions, context)
         : undefined,
     resourceArn: __expectString(output.resourceArn),

@@ -5842,7 +5842,7 @@ const serializeAws_json1_0AcceptEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -5851,7 +5851,7 @@ const serializeAws_json1_0CancelComponentDeploymentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
+    ...(input.componentName != null && { componentName: input.componentName }),
   };
 };
 
@@ -5860,8 +5860,7 @@ const serializeAws_json1_0CancelEnvironmentDeploymentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
   };
 };
 
@@ -5870,9 +5869,8 @@ const serializeAws_json1_0CancelServiceInstanceDeploymentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -5881,7 +5879,7 @@ const serializeAws_json1_0CancelServicePipelineDeploymentInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -5890,8 +5888,8 @@ const serializeAws_json1_0CompatibleEnvironmentTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -5911,17 +5909,15 @@ const serializeAws_json1_0CompatibleEnvironmentTemplateInputList = (
 
 const serializeAws_json1_0CreateComponentInput = (input: CreateComponentInput, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.manifest !== undefined && input.manifest !== null && { manifest: input.manifest }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
-    ...(input.serviceSpec !== undefined && input.serviceSpec !== null && { serviceSpec: input.serviceSpec }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.templateFile !== undefined && input.templateFile !== null && { templateFile: input.templateFile }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.manifest != null && { manifest: input.manifest }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.serviceSpec != null && { serviceSpec: input.serviceSpec }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateFile != null && { templateFile: input.templateFile }),
   };
 };
 
@@ -5931,40 +5927,31 @@ const serializeAws_json1_0CreateEnvironmentAccountConnectionInput = (
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.componentRoleArn !== undefined &&
-      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.managementAccountId !== undefined &&
-      input.managementAccountId !== null && { managementAccountId: input.managementAccountId }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.managementAccountId != null && { managementAccountId: input.managementAccountId }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateEnvironmentInput = (input: CreateEnvironmentInput, context: __SerdeContext): any => {
   return {
-    ...(input.componentRoleArn !== undefined &&
-      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.environmentAccountConnectionId !== undefined &&
-      input.environmentAccountConnectionId !== null && {
-        environmentAccountConnectionId: input.environmentAccountConnectionId,
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.protonServiceRoleArn !== undefined &&
-      input.protonServiceRoleArn !== null && { protonServiceRoleArn: input.protonServiceRoleArn }),
-    ...(input.provisioningRepository !== undefined &&
-      input.provisioningRepository !== null && {
-        provisioningRepository: serializeAws_json1_0RepositoryBranchInput(input.provisioningRepository, context),
-      }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.templateMajorVersion !== undefined &&
-      input.templateMajorVersion !== null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion !== undefined &&
-      input.templateMinorVersion !== null && { templateMinorVersion: input.templateMinorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.environmentAccountConnectionId != null && {
+      environmentAccountConnectionId: input.environmentAccountConnectionId,
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.protonServiceRoleArn != null && { protonServiceRoleArn: input.protonServiceRoleArn }),
+    ...(input.provisioningRepository != null && {
+      provisioningRepository: serializeAws_json1_0RepositoryBranchInput(input.provisioningRepository, context),
+    }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -5973,12 +5960,12 @@ const serializeAws_json1_0CreateEnvironmentTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.provisioning !== undefined && input.provisioning !== null && { provisioning: input.provisioning }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.provisioning != null && { provisioning: input.provisioning }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
@@ -5988,40 +5975,36 @@ const serializeAws_json1_0CreateEnvironmentTemplateVersionInput = (
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_0TemplateVersionSourceInput(input.source, context) }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.source != null && { source: serializeAws_json1_0TemplateVersionSourceInput(input.source, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
 const serializeAws_json1_0CreateRepositoryInput = (input: CreateRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.connectionArn !== undefined && input.connectionArn !== null && { connectionArn: input.connectionArn }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.connectionArn != null && { connectionArn: input.connectionArn }),
+    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateServiceInput = (input: CreateServiceInput, context: __SerdeContext): any => {
   return {
-    ...(input.branchName !== undefined && input.branchName !== null && { branchName: input.branchName }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.repositoryConnectionArn !== undefined &&
-      input.repositoryConnectionArn !== null && { repositoryConnectionArn: input.repositoryConnectionArn }),
-    ...(input.repositoryId !== undefined && input.repositoryId !== null && { repositoryId: input.repositoryId }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.templateMajorVersion !== undefined &&
-      input.templateMajorVersion !== null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion !== undefined &&
-      input.templateMinorVersion !== null && { templateMinorVersion: input.templateMinorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.branchName != null && { branchName: input.branchName }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.repositoryConnectionArn != null && { repositoryConnectionArn: input.repositoryConnectionArn }),
+    ...(input.repositoryId != null && { repositoryId: input.repositoryId }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6030,13 +6013,12 @@ const serializeAws_json1_0CreateServiceTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.pipelineProvisioning !== undefined &&
-      input.pipelineProvisioning !== null && { pipelineProvisioning: input.pipelineProvisioning }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.pipelineProvisioning != null && { pipelineProvisioning: input.pipelineProvisioning }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
@@ -6046,26 +6028,23 @@ const serializeAws_json1_0CreateServiceTemplateVersionInput = (
 ): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.compatibleEnvironmentTemplates !== undefined &&
-      input.compatibleEnvironmentTemplates !== null && {
-        compatibleEnvironmentTemplates: serializeAws_json1_0CompatibleEnvironmentTemplateInputList(
-          input.compatibleEnvironmentTemplates,
-          context
-        ),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_json1_0TemplateVersionSourceInput(input.source, context) }),
-    ...(input.supportedComponentSources !== undefined &&
-      input.supportedComponentSources !== null && {
-        supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
-          input.supportedComponentSources,
-          context
-        ),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.compatibleEnvironmentTemplates != null && {
+      compatibleEnvironmentTemplates: serializeAws_json1_0CompatibleEnvironmentTemplateInputList(
+        input.compatibleEnvironmentTemplates,
+        context
+      ),
+    }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.source != null && { source: serializeAws_json1_0TemplateVersionSourceInput(input.source, context) }),
+    ...(input.supportedComponentSources != null && {
+      supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
+        input.supportedComponentSources,
+        context
+      ),
+    }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6074,20 +6053,18 @@ const serializeAws_json1_0CreateTemplateSyncConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.branch !== undefined && input.branch !== null && { branch: input.branch }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider !== undefined &&
-      input.repositoryProvider !== null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.subdirectory !== undefined && input.subdirectory !== null && { subdirectory: input.subdirectory }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
-    ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.subdirectory != null && { subdirectory: input.subdirectory }),
+    ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.templateType != null && { templateType: input.templateType }),
   };
 };
 
 const serializeAws_json1_0DeleteComponentInput = (input: DeleteComponentInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6096,13 +6073,13 @@ const serializeAws_json1_0DeleteEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
 const serializeAws_json1_0DeleteEnvironmentInput = (input: DeleteEnvironmentInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6111,7 +6088,7 @@ const serializeAws_json1_0DeleteEnvironmentTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6120,22 +6097,22 @@ const serializeAws_json1_0DeleteEnvironmentTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
 const serializeAws_json1_0DeleteRepositoryInput = (input: DeleteRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.provider != null && { provider: input.provider }),
   };
 };
 
 const serializeAws_json1_0DeleteServiceInput = (input: DeleteServiceInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6144,7 +6121,7 @@ const serializeAws_json1_0DeleteServiceTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6153,9 +6130,9 @@ const serializeAws_json1_0DeleteServiceTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6164,8 +6141,8 @@ const serializeAws_json1_0DeleteTemplateSyncConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
-    ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
+    ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.templateType != null && { templateType: input.templateType }),
   };
 };
 
@@ -6188,8 +6165,8 @@ const serializeAws_json1_0EnvironmentTemplateFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6213,7 +6190,7 @@ const serializeAws_json1_0GetAccountSettingsInput = (input: GetAccountSettingsIn
 
 const serializeAws_json1_0GetComponentInput = (input: GetComponentInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6222,13 +6199,13 @@ const serializeAws_json1_0GetEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
 const serializeAws_json1_0GetEnvironmentInput = (input: GetEnvironmentInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6237,7 +6214,7 @@ const serializeAws_json1_0GetEnvironmentTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6246,16 +6223,16 @@ const serializeAws_json1_0GetEnvironmentTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
 const serializeAws_json1_0GetRepositoryInput = (input: GetRepositoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.provider != null && { provider: input.provider }),
   };
 };
 
@@ -6264,31 +6241,29 @@ const serializeAws_json1_0GetRepositorySyncStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.branch !== undefined && input.branch !== null && { branch: input.branch }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider !== undefined &&
-      input.repositoryProvider !== null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.syncType !== undefined && input.syncType !== null && { syncType: input.syncType }),
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.syncType != null && { syncType: input.syncType }),
   };
 };
 
 const serializeAws_json1_0GetServiceInput = (input: GetServiceInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_0GetServiceInstanceInput = (input: GetServiceInstanceInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
 const serializeAws_json1_0GetServiceTemplateInput = (input: GetServiceTemplateInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6297,9 +6272,9 @@ const serializeAws_json1_0GetServiceTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6308,8 +6283,8 @@ const serializeAws_json1_0GetTemplateSyncConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
-    ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
+    ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.templateType != null && { templateType: input.templateType }),
   };
 };
 
@@ -6318,10 +6293,9 @@ const serializeAws_json1_0GetTemplateSyncStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
-    ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
-    ...(input.templateVersion !== undefined &&
-      input.templateVersion !== null && { templateVersion: input.templateVersion }),
+    ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.templateType != null && { templateType: input.templateType }),
+    ...(input.templateVersion != null && { templateVersion: input.templateVersion }),
   };
 };
 
@@ -6330,8 +6304,8 @@ const serializeAws_json1_0ListComponentOutputsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.componentName != null && { componentName: input.componentName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6340,20 +6314,18 @@ const serializeAws_json1_0ListComponentProvisionedResourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.componentName != null && { componentName: input.componentName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_0ListComponentsInput = (input: ListComponentsInput, context: __SerdeContext): any => {
   return {
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6362,15 +6334,13 @@ const serializeAws_json1_0ListEnvironmentAccountConnectionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.requestedBy !== undefined && input.requestedBy !== null && { requestedBy: input.requestedBy }),
-    ...(input.statuses !== undefined &&
-      input.statuses !== null && {
-        statuses: serializeAws_json1_0EnvironmentAccountConnectionStatusList(input.statuses, context),
-      }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.requestedBy != null && { requestedBy: input.requestedBy }),
+    ...(input.statuses != null && {
+      statuses: serializeAws_json1_0EnvironmentAccountConnectionStatusList(input.statuses, context),
+    }),
   };
 };
 
@@ -6379,9 +6349,8 @@ const serializeAws_json1_0ListEnvironmentOutputsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6390,20 +6359,18 @@ const serializeAws_json1_0ListEnvironmentProvisionedResourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.environmentName !== undefined &&
-      input.environmentName !== null && { environmentName: input.environmentName }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_0ListEnvironmentsInput = (input: ListEnvironmentsInput, context: __SerdeContext): any => {
   return {
-    ...(input.environmentTemplates !== undefined &&
-      input.environmentTemplates !== null && {
-        environmentTemplates: serializeAws_json1_0EnvironmentTemplateFilterList(input.environmentTemplates, context),
-      }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.environmentTemplates != null && {
+      environmentTemplates: serializeAws_json1_0EnvironmentTemplateFilterList(input.environmentTemplates, context),
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6412,8 +6379,8 @@ const serializeAws_json1_0ListEnvironmentTemplatesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6422,17 +6389,17 @@ const serializeAws_json1_0ListEnvironmentTemplateVersionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
 const serializeAws_json1_0ListRepositoriesInput = (input: ListRepositoriesInput, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6441,12 +6408,10 @@ const serializeAws_json1_0ListRepositorySyncDefinitionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider !== undefined &&
-      input.repositoryProvider !== null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.syncType !== undefined && input.syncType !== null && { syncType: input.syncType }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.syncType != null && { syncType: input.syncType }),
   };
 };
 
@@ -6455,10 +6420,9 @@ const serializeAws_json1_0ListServiceInstanceOutputsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6467,10 +6431,9 @@ const serializeAws_json1_0ListServiceInstanceProvisionedResourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6479,9 +6442,9 @@ const serializeAws_json1_0ListServiceInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6490,8 +6453,8 @@ const serializeAws_json1_0ListServicePipelineOutputsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6500,15 +6463,15 @@ const serializeAws_json1_0ListServicePipelineProvisionedResourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
 const serializeAws_json1_0ListServicesInput = (input: ListServicesInput, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6517,8 +6480,8 @@ const serializeAws_json1_0ListServiceTemplatesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6527,10 +6490,10 @@ const serializeAws_json1_0ListServiceTemplateVersionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6539,9 +6502,9 @@ const serializeAws_json1_0ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
@@ -6550,19 +6513,18 @@ const serializeAws_json1_0NotifyResourceDeploymentStatusChangeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId !== undefined && input.deploymentId !== null && { deploymentId: input.deploymentId }),
-    ...(input.outputs !== undefined &&
-      input.outputs !== null && { outputs: serializeAws_json1_0OutputsList(input.outputs, context) }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-    ...(input.statusMessage !== undefined && input.statusMessage !== null && { statusMessage: input.statusMessage }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.outputs != null && { outputs: serializeAws_json1_0OutputsList(input.outputs, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.statusMessage != null && { statusMessage: input.statusMessage }),
   };
 };
 
 const serializeAws_json1_0Output = (input: Output, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.valueString !== undefined && input.valueString !== null && { valueString: input.valueString }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.valueString != null && { valueString: input.valueString }),
   };
 };
 
@@ -6582,22 +6544,22 @@ const serializeAws_json1_0RejectEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
 const serializeAws_json1_0RepositoryBranchInput = (input: RepositoryBranchInput, context: __SerdeContext): any => {
   return {
-    ...(input.branch !== undefined && input.branch !== null && { branch: input.branch }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.provider != null && { provider: input.provider }),
   };
 };
 
 const serializeAws_json1_0S3ObjectSource = (input: S3ObjectSource, context: __SerdeContext): any => {
   return {
-    ...(input.bucket !== undefined && input.bucket !== null && { bucket: input.bucket }),
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.key != null && { key: input.key }),
   };
 };
 
@@ -6617,8 +6579,8 @@ const serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList = (
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -6646,8 +6608,8 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
   };
 };
 
@@ -6663,9 +6625,8 @@ const serializeAws_json1_0TemplateVersionSourceInput = (
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -6674,29 +6635,25 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pipelineProvisioningRepository !== undefined &&
-      input.pipelineProvisioningRepository !== null && {
-        pipelineProvisioningRepository: serializeAws_json1_0RepositoryBranchInput(
-          input.pipelineProvisioningRepository,
-          context
-        ),
-      }),
-    ...(input.pipelineServiceRoleArn !== undefined &&
-      input.pipelineServiceRoleArn !== null && { pipelineServiceRoleArn: input.pipelineServiceRoleArn }),
+    ...(input.pipelineProvisioningRepository != null && {
+      pipelineProvisioningRepository: serializeAws_json1_0RepositoryBranchInput(
+        input.pipelineProvisioningRepository,
+        context
+      ),
+    }),
+    ...(input.pipelineServiceRoleArn != null && { pipelineServiceRoleArn: input.pipelineServiceRoleArn }),
   };
 };
 
 const serializeAws_json1_0UpdateComponentInput = (input: UpdateComponentInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentType !== undefined &&
-      input.deploymentType !== null && { deploymentType: input.deploymentType }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.serviceInstanceName !== undefined &&
-      input.serviceInstanceName !== null && { serviceInstanceName: input.serviceInstanceName }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
-    ...(input.serviceSpec !== undefined && input.serviceSpec !== null && { serviceSpec: input.serviceSpec }),
-    ...(input.templateFile !== undefined && input.templateFile !== null && { templateFile: input.templateFile }),
+    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.serviceSpec != null && { serviceSpec: input.serviceSpec }),
+    ...(input.templateFile != null && { templateFile: input.templateFile }),
   };
 };
 
@@ -6705,36 +6662,28 @@ const serializeAws_json1_0UpdateEnvironmentAccountConnectionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.componentRoleArn !== undefined &&
-      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
   };
 };
 
 const serializeAws_json1_0UpdateEnvironmentInput = (input: UpdateEnvironmentInput, context: __SerdeContext): any => {
   return {
-    ...(input.componentRoleArn !== undefined &&
-      input.componentRoleArn !== null && { componentRoleArn: input.componentRoleArn }),
-    ...(input.deploymentType !== undefined &&
-      input.deploymentType !== null && { deploymentType: input.deploymentType }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.environmentAccountConnectionId !== undefined &&
-      input.environmentAccountConnectionId !== null && {
-        environmentAccountConnectionId: input.environmentAccountConnectionId,
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.protonServiceRoleArn !== undefined &&
-      input.protonServiceRoleArn !== null && { protonServiceRoleArn: input.protonServiceRoleArn }),
-    ...(input.provisioningRepository !== undefined &&
-      input.provisioningRepository !== null && {
-        provisioningRepository: serializeAws_json1_0RepositoryBranchInput(input.provisioningRepository, context),
-      }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
-    ...(input.templateMajorVersion !== undefined &&
-      input.templateMajorVersion !== null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion !== undefined &&
-      input.templateMinorVersion !== null && { templateMinorVersion: input.templateMinorVersion }),
+    ...(input.componentRoleArn != null && { componentRoleArn: input.componentRoleArn }),
+    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.environmentAccountConnectionId != null && {
+      environmentAccountConnectionId: input.environmentAccountConnectionId,
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.protonServiceRoleArn != null && { protonServiceRoleArn: input.protonServiceRoleArn }),
+    ...(input.provisioningRepository != null && {
+      provisioningRepository: serializeAws_json1_0RepositoryBranchInput(input.provisioningRepository, context),
+    }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
   };
 };
 
@@ -6743,9 +6692,9 @@ const serializeAws_json1_0UpdateEnvironmentTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6754,19 +6703,19 @@ const serializeAws_json1_0UpdateEnvironmentTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
 const serializeAws_json1_0UpdateServiceInput = (input: UpdateServiceInput, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.spec != null && { spec: input.spec }),
   };
 };
 
@@ -6775,15 +6724,12 @@ const serializeAws_json1_0UpdateServiceInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentType !== undefined &&
-      input.deploymentType !== null && { deploymentType: input.deploymentType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
-    ...(input.templateMajorVersion !== undefined &&
-      input.templateMajorVersion !== null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion !== undefined &&
-      input.templateMinorVersion !== null && { templateMinorVersion: input.templateMinorVersion }),
+    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
   };
 };
 
@@ -6792,14 +6738,11 @@ const serializeAws_json1_0UpdateServicePipelineInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentType !== undefined &&
-      input.deploymentType !== null && { deploymentType: input.deploymentType }),
-    ...(input.serviceName !== undefined && input.serviceName !== null && { serviceName: input.serviceName }),
-    ...(input.spec !== undefined && input.spec !== null && { spec: input.spec }),
-    ...(input.templateMajorVersion !== undefined &&
-      input.templateMajorVersion !== null && { templateMajorVersion: input.templateMajorVersion }),
-    ...(input.templateMinorVersion !== undefined &&
-      input.templateMinorVersion !== null && { templateMinorVersion: input.templateMinorVersion }),
+    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
   };
 };
 
@@ -6808,9 +6751,9 @@ const serializeAws_json1_0UpdateServiceTemplateInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6819,25 +6762,23 @@ const serializeAws_json1_0UpdateServiceTemplateVersionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleEnvironmentTemplates !== undefined &&
-      input.compatibleEnvironmentTemplates !== null && {
-        compatibleEnvironmentTemplates: serializeAws_json1_0CompatibleEnvironmentTemplateInputList(
-          input.compatibleEnvironmentTemplates,
-          context
-        ),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.majorVersion !== undefined && input.majorVersion !== null && { majorVersion: input.majorVersion }),
-    ...(input.minorVersion !== undefined && input.minorVersion !== null && { minorVersion: input.minorVersion }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-    ...(input.supportedComponentSources !== undefined &&
-      input.supportedComponentSources !== null && {
-        supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
-          input.supportedComponentSources,
-          context
-        ),
-      }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
+    ...(input.compatibleEnvironmentTemplates != null && {
+      compatibleEnvironmentTemplates: serializeAws_json1_0CompatibleEnvironmentTemplateInputList(
+        input.compatibleEnvironmentTemplates,
+        context
+      ),
+    }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.majorVersion != null && { majorVersion: input.majorVersion }),
+    ...(input.minorVersion != null && { minorVersion: input.minorVersion }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.supportedComponentSources != null && {
+      supportedComponentSources: serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
+        input.supportedComponentSources,
+        context
+      ),
+    }),
+    ...(input.templateName != null && { templateName: input.templateName }),
   };
 };
 
@@ -6846,14 +6787,12 @@ const serializeAws_json1_0UpdateTemplateSyncConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.branch !== undefined && input.branch !== null && { branch: input.branch }),
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
-    ...(input.repositoryProvider !== undefined &&
-      input.repositoryProvider !== null && { repositoryProvider: input.repositoryProvider }),
-    ...(input.subdirectory !== undefined && input.subdirectory !== null && { subdirectory: input.subdirectory }),
-    ...(input.templateName !== undefined && input.templateName !== null && { templateName: input.templateName }),
-    ...(input.templateType !== undefined && input.templateType !== null && { templateType: input.templateType }),
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.subdirectory != null && { subdirectory: input.subdirectory }),
+    ...(input.templateName != null && { templateName: input.templateName }),
+    ...(input.templateType != null && { templateType: input.templateType }),
   };
 };
 
@@ -6863,7 +6802,7 @@ const deserializeAws_json1_0AcceptEnvironmentAccountConnectionOutput = (
 ): AcceptEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -6878,7 +6817,7 @@ const deserializeAws_json1_0AccessDeniedException = (output: any, context: __Ser
 const deserializeAws_json1_0AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
     pipelineProvisioningRepository:
-      output.pipelineProvisioningRepository !== undefined && output.pipelineProvisioningRepository !== null
+      output.pipelineProvisioningRepository != null
         ? deserializeAws_json1_0RepositoryBranch(output.pipelineProvisioningRepository, context)
         : undefined,
     pipelineServiceRoleArn: __expectString(output.pipelineServiceRoleArn),
@@ -6890,10 +6829,7 @@ const deserializeAws_json1_0CancelComponentDeploymentOutput = (
   context: __SerdeContext
 ): CancelComponentDeploymentOutput => {
   return {
-    component:
-      output.component !== undefined && output.component !== null
-        ? deserializeAws_json1_0Component(output.component, context)
-        : undefined,
+    component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
   } as any;
 };
 
@@ -6903,9 +6839,7 @@ const deserializeAws_json1_0CancelEnvironmentDeploymentOutput = (
 ): CancelEnvironmentDeploymentOutput => {
   return {
     environment:
-      output.environment !== undefined && output.environment !== null
-        ? deserializeAws_json1_0Environment(output.environment, context)
-        : undefined,
+      output.environment != null ? deserializeAws_json1_0Environment(output.environment, context) : undefined,
   } as any;
 };
 
@@ -6915,7 +6849,7 @@ const deserializeAws_json1_0CancelServiceInstanceDeploymentOutput = (
 ): CancelServiceInstanceDeploymentOutput => {
   return {
     serviceInstance:
-      output.serviceInstance !== undefined && output.serviceInstance !== null
+      output.serviceInstance != null
         ? deserializeAws_json1_0ServiceInstance(output.serviceInstance, context)
         : undefined,
   } as any;
@@ -6926,10 +6860,7 @@ const deserializeAws_json1_0CancelServicePipelineDeploymentOutput = (
   context: __SerdeContext
 ): CancelServicePipelineDeploymentOutput => {
   return {
-    pipeline:
-      output.pipeline !== undefined && output.pipeline !== null
-        ? deserializeAws_json1_0ServicePipeline(output.pipeline, context)
-        : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_0ServicePipeline(output.pipeline, context) : undefined,
   } as any;
 };
 
@@ -6962,23 +6893,21 @@ const deserializeAws_json1_0Component = (output: any, context: __SerdeContext): 
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     description: __expectString(output.description),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -6992,22 +6921,20 @@ const deserializeAws_json1_0ComponentSummary = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -7036,10 +6963,7 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0CreateComponentOutput = (output: any, context: __SerdeContext): CreateComponentOutput => {
   return {
-    component:
-      output.component !== undefined && output.component !== null
-        ? deserializeAws_json1_0Component(output.component, context)
-        : undefined,
+    component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
   } as any;
 };
 
@@ -7049,7 +6973,7 @@ const deserializeAws_json1_0CreateEnvironmentAccountConnectionOutput = (
 ): CreateEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -7061,9 +6985,7 @@ const deserializeAws_json1_0CreateEnvironmentOutput = (
 ): CreateEnvironmentOutput => {
   return {
     environment:
-      output.environment !== undefined && output.environment !== null
-        ? deserializeAws_json1_0Environment(output.environment, context)
-        : undefined,
+      output.environment != null ? deserializeAws_json1_0Environment(output.environment, context) : undefined,
   } as any;
 };
 
@@ -7073,7 +6995,7 @@ const deserializeAws_json1_0CreateEnvironmentTemplateOutput = (
 ): CreateEnvironmentTemplateOutput => {
   return {
     environmentTemplate:
-      output.environmentTemplate !== undefined && output.environmentTemplate !== null
+      output.environmentTemplate != null
         ? deserializeAws_json1_0EnvironmentTemplate(output.environmentTemplate, context)
         : undefined,
   } as any;
@@ -7085,7 +7007,7 @@ const deserializeAws_json1_0CreateEnvironmentTemplateVersionOutput = (
 ): CreateEnvironmentTemplateVersionOutput => {
   return {
     environmentTemplateVersion:
-      output.environmentTemplateVersion !== undefined && output.environmentTemplateVersion !== null
+      output.environmentTemplateVersion != null
         ? deserializeAws_json1_0EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
         : undefined,
   } as any;
@@ -7093,19 +7015,13 @@ const deserializeAws_json1_0CreateEnvironmentTemplateVersionOutput = (
 
 const deserializeAws_json1_0CreateRepositoryOutput = (output: any, context: __SerdeContext): CreateRepositoryOutput => {
   return {
-    repository:
-      output.repository !== undefined && output.repository !== null
-        ? deserializeAws_json1_0Repository(output.repository, context)
-        : undefined,
+    repository: output.repository != null ? deserializeAws_json1_0Repository(output.repository, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0CreateServiceOutput = (output: any, context: __SerdeContext): CreateServiceOutput => {
   return {
-    service:
-      output.service !== undefined && output.service !== null
-        ? deserializeAws_json1_0Service(output.service, context)
-        : undefined,
+    service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
   } as any;
 };
 
@@ -7115,7 +7031,7 @@ const deserializeAws_json1_0CreateServiceTemplateOutput = (
 ): CreateServiceTemplateOutput => {
   return {
     serviceTemplate:
-      output.serviceTemplate !== undefined && output.serviceTemplate !== null
+      output.serviceTemplate != null
         ? deserializeAws_json1_0ServiceTemplate(output.serviceTemplate, context)
         : undefined,
   } as any;
@@ -7127,7 +7043,7 @@ const deserializeAws_json1_0CreateServiceTemplateVersionOutput = (
 ): CreateServiceTemplateVersionOutput => {
   return {
     serviceTemplateVersion:
-      output.serviceTemplateVersion !== undefined && output.serviceTemplateVersion !== null
+      output.serviceTemplateVersion != null
         ? deserializeAws_json1_0ServiceTemplateVersion(output.serviceTemplateVersion, context)
         : undefined,
   } as any;
@@ -7139,7 +7055,7 @@ const deserializeAws_json1_0CreateTemplateSyncConfigOutput = (
 ): CreateTemplateSyncConfigOutput => {
   return {
     templateSyncConfig:
-      output.templateSyncConfig !== undefined && output.templateSyncConfig !== null
+      output.templateSyncConfig != null
         ? deserializeAws_json1_0TemplateSyncConfig(output.templateSyncConfig, context)
         : undefined,
   } as any;
@@ -7147,10 +7063,7 @@ const deserializeAws_json1_0CreateTemplateSyncConfigOutput = (
 
 const deserializeAws_json1_0DeleteComponentOutput = (output: any, context: __SerdeContext): DeleteComponentOutput => {
   return {
-    component:
-      output.component !== undefined && output.component !== null
-        ? deserializeAws_json1_0Component(output.component, context)
-        : undefined,
+    component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
   } as any;
 };
 
@@ -7160,7 +7073,7 @@ const deserializeAws_json1_0DeleteEnvironmentAccountConnectionOutput = (
 ): DeleteEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -7172,9 +7085,7 @@ const deserializeAws_json1_0DeleteEnvironmentOutput = (
 ): DeleteEnvironmentOutput => {
   return {
     environment:
-      output.environment !== undefined && output.environment !== null
-        ? deserializeAws_json1_0Environment(output.environment, context)
-        : undefined,
+      output.environment != null ? deserializeAws_json1_0Environment(output.environment, context) : undefined,
   } as any;
 };
 
@@ -7184,7 +7095,7 @@ const deserializeAws_json1_0DeleteEnvironmentTemplateOutput = (
 ): DeleteEnvironmentTemplateOutput => {
   return {
     environmentTemplate:
-      output.environmentTemplate !== undefined && output.environmentTemplate !== null
+      output.environmentTemplate != null
         ? deserializeAws_json1_0EnvironmentTemplate(output.environmentTemplate, context)
         : undefined,
   } as any;
@@ -7196,7 +7107,7 @@ const deserializeAws_json1_0DeleteEnvironmentTemplateVersionOutput = (
 ): DeleteEnvironmentTemplateVersionOutput => {
   return {
     environmentTemplateVersion:
-      output.environmentTemplateVersion !== undefined && output.environmentTemplateVersion !== null
+      output.environmentTemplateVersion != null
         ? deserializeAws_json1_0EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
         : undefined,
   } as any;
@@ -7204,19 +7115,13 @@ const deserializeAws_json1_0DeleteEnvironmentTemplateVersionOutput = (
 
 const deserializeAws_json1_0DeleteRepositoryOutput = (output: any, context: __SerdeContext): DeleteRepositoryOutput => {
   return {
-    repository:
-      output.repository !== undefined && output.repository !== null
-        ? deserializeAws_json1_0Repository(output.repository, context)
-        : undefined,
+    repository: output.repository != null ? deserializeAws_json1_0Repository(output.repository, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DeleteServiceOutput = (output: any, context: __SerdeContext): DeleteServiceOutput => {
   return {
-    service:
-      output.service !== undefined && output.service !== null
-        ? deserializeAws_json1_0Service(output.service, context)
-        : undefined,
+    service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
   } as any;
 };
 
@@ -7226,7 +7131,7 @@ const deserializeAws_json1_0DeleteServiceTemplateOutput = (
 ): DeleteServiceTemplateOutput => {
   return {
     serviceTemplate:
-      output.serviceTemplate !== undefined && output.serviceTemplate !== null
+      output.serviceTemplate != null
         ? deserializeAws_json1_0ServiceTemplate(output.serviceTemplate, context)
         : undefined,
   } as any;
@@ -7238,7 +7143,7 @@ const deserializeAws_json1_0DeleteServiceTemplateVersionOutput = (
 ): DeleteServiceTemplateVersionOutput => {
   return {
     serviceTemplateVersion:
-      output.serviceTemplateVersion !== undefined && output.serviceTemplateVersion !== null
+      output.serviceTemplateVersion != null
         ? deserializeAws_json1_0ServiceTemplateVersion(output.serviceTemplateVersion, context)
         : undefined,
   } as any;
@@ -7250,7 +7155,7 @@ const deserializeAws_json1_0DeleteTemplateSyncConfigOutput = (
 ): DeleteTemplateSyncConfigOutput => {
   return {
     templateSyncConfig:
-      output.templateSyncConfig !== undefined && output.templateSyncConfig !== null
+      output.templateSyncConfig != null
         ? deserializeAws_json1_0TemplateSyncConfig(output.templateSyncConfig, context)
         : undefined,
   } as any;
@@ -7261,27 +7166,25 @@ const deserializeAws_json1_0Environment = (output: any, context: __SerdeContext)
     arn: __expectString(output.arn),
     componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     description: __expectString(output.description),
     environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
     environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
     protonServiceRoleArn: __expectString(output.protonServiceRoleArn),
     provisioning: __expectString(output.provisioning),
     provisioningRepository:
-      output.provisioningRepository !== undefined && output.provisioningRepository !== null
+      output.provisioningRepository != null
         ? deserializeAws_json1_0RepositoryBranch(output.provisioningRepository, context)
         : undefined,
     spec: __expectString(output.spec),
@@ -7302,12 +7205,12 @@ const deserializeAws_json1_0EnvironmentAccountConnection = (
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
-      output.requestedAt !== undefined && output.requestedAt !== null
+      output.requestedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -7326,12 +7229,12 @@ const deserializeAws_json1_0EnvironmentAccountConnectionSummary = (
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     managementAccountId: __expectString(output.managementAccountId),
     requestedAt:
-      output.requestedAt !== undefined && output.requestedAt !== null
+      output.requestedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedAt)))
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -7359,20 +7262,18 @@ const deserializeAws_json1_0EnvironmentSummary = (output: any, context: __SerdeC
     arn: __expectString(output.arn),
     componentRoleArn: __expectString(output.componentRoleArn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     description: __expectString(output.description),
     environmentAccountConnectionId: __expectString(output.environmentAccountConnectionId),
     environmentAccountId: __expectString(output.environmentAccountId),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
@@ -7400,14 +7301,12 @@ const deserializeAws_json1_0EnvironmentTemplate = (output: any, context: __Serde
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -7423,13 +7322,11 @@ const deserializeAws_json1_0EnvironmentTemplateSummary = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -7460,12 +7357,10 @@ const deserializeAws_json1_0EnvironmentTemplateVersion = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
@@ -7485,12 +7380,10 @@ const deserializeAws_json1_0EnvironmentTemplateVersionSummary = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
@@ -7523,7 +7416,7 @@ const deserializeAws_json1_0GetAccountSettingsOutput = (
 ): GetAccountSettingsOutput => {
   return {
     accountSettings:
-      output.accountSettings !== undefined && output.accountSettings !== null
+      output.accountSettings != null
         ? deserializeAws_json1_0AccountSettings(output.accountSettings, context)
         : undefined,
   } as any;
@@ -7531,10 +7424,7 @@ const deserializeAws_json1_0GetAccountSettingsOutput = (
 
 const deserializeAws_json1_0GetComponentOutput = (output: any, context: __SerdeContext): GetComponentOutput => {
   return {
-    component:
-      output.component !== undefined && output.component !== null
-        ? deserializeAws_json1_0Component(output.component, context)
-        : undefined,
+    component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
   } as any;
 };
 
@@ -7544,7 +7434,7 @@ const deserializeAws_json1_0GetEnvironmentAccountConnectionOutput = (
 ): GetEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -7553,9 +7443,7 @@ const deserializeAws_json1_0GetEnvironmentAccountConnectionOutput = (
 const deserializeAws_json1_0GetEnvironmentOutput = (output: any, context: __SerdeContext): GetEnvironmentOutput => {
   return {
     environment:
-      output.environment !== undefined && output.environment !== null
-        ? deserializeAws_json1_0Environment(output.environment, context)
-        : undefined,
+      output.environment != null ? deserializeAws_json1_0Environment(output.environment, context) : undefined,
   } as any;
 };
 
@@ -7565,7 +7453,7 @@ const deserializeAws_json1_0GetEnvironmentTemplateOutput = (
 ): GetEnvironmentTemplateOutput => {
   return {
     environmentTemplate:
-      output.environmentTemplate !== undefined && output.environmentTemplate !== null
+      output.environmentTemplate != null
         ? deserializeAws_json1_0EnvironmentTemplate(output.environmentTemplate, context)
         : undefined,
   } as any;
@@ -7577,7 +7465,7 @@ const deserializeAws_json1_0GetEnvironmentTemplateVersionOutput = (
 ): GetEnvironmentTemplateVersionOutput => {
   return {
     environmentTemplateVersion:
-      output.environmentTemplateVersion !== undefined && output.environmentTemplateVersion !== null
+      output.environmentTemplateVersion != null
         ? deserializeAws_json1_0EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
         : undefined,
   } as any;
@@ -7585,10 +7473,7 @@ const deserializeAws_json1_0GetEnvironmentTemplateVersionOutput = (
 
 const deserializeAws_json1_0GetRepositoryOutput = (output: any, context: __SerdeContext): GetRepositoryOutput => {
   return {
-    repository:
-      output.repository !== undefined && output.repository !== null
-        ? deserializeAws_json1_0Repository(output.repository, context)
-        : undefined,
+    repository: output.repository != null ? deserializeAws_json1_0Repository(output.repository, context) : undefined,
   } as any;
 };
 
@@ -7598,9 +7483,7 @@ const deserializeAws_json1_0GetRepositorySyncStatusOutput = (
 ): GetRepositorySyncStatusOutput => {
   return {
     latestSync:
-      output.latestSync !== undefined && output.latestSync !== null
-        ? deserializeAws_json1_0RepositorySyncAttempt(output.latestSync, context)
-        : undefined,
+      output.latestSync != null ? deserializeAws_json1_0RepositorySyncAttempt(output.latestSync, context) : undefined,
   } as any;
 };
 
@@ -7610,7 +7493,7 @@ const deserializeAws_json1_0GetServiceInstanceOutput = (
 ): GetServiceInstanceOutput => {
   return {
     serviceInstance:
-      output.serviceInstance !== undefined && output.serviceInstance !== null
+      output.serviceInstance != null
         ? deserializeAws_json1_0ServiceInstance(output.serviceInstance, context)
         : undefined,
   } as any;
@@ -7618,10 +7501,7 @@ const deserializeAws_json1_0GetServiceInstanceOutput = (
 
 const deserializeAws_json1_0GetServiceOutput = (output: any, context: __SerdeContext): GetServiceOutput => {
   return {
-    service:
-      output.service !== undefined && output.service !== null
-        ? deserializeAws_json1_0Service(output.service, context)
-        : undefined,
+    service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
   } as any;
 };
 
@@ -7631,7 +7511,7 @@ const deserializeAws_json1_0GetServiceTemplateOutput = (
 ): GetServiceTemplateOutput => {
   return {
     serviceTemplate:
-      output.serviceTemplate !== undefined && output.serviceTemplate !== null
+      output.serviceTemplate != null
         ? deserializeAws_json1_0ServiceTemplate(output.serviceTemplate, context)
         : undefined,
   } as any;
@@ -7643,7 +7523,7 @@ const deserializeAws_json1_0GetServiceTemplateVersionOutput = (
 ): GetServiceTemplateVersionOutput => {
   return {
     serviceTemplateVersion:
-      output.serviceTemplateVersion !== undefined && output.serviceTemplateVersion !== null
+      output.serviceTemplateVersion != null
         ? deserializeAws_json1_0ServiceTemplateVersion(output.serviceTemplateVersion, context)
         : undefined,
   } as any;
@@ -7655,7 +7535,7 @@ const deserializeAws_json1_0GetTemplateSyncConfigOutput = (
 ): GetTemplateSyncConfigOutput => {
   return {
     templateSyncConfig:
-      output.templateSyncConfig !== undefined && output.templateSyncConfig !== null
+      output.templateSyncConfig != null
         ? deserializeAws_json1_0TemplateSyncConfig(output.templateSyncConfig, context)
         : undefined,
   } as any;
@@ -7667,17 +7547,13 @@ const deserializeAws_json1_0GetTemplateSyncStatusOutput = (
 ): GetTemplateSyncStatusOutput => {
   return {
     desiredState:
-      output.desiredState !== undefined && output.desiredState !== null
-        ? deserializeAws_json1_0Revision(output.desiredState, context)
-        : undefined,
+      output.desiredState != null ? deserializeAws_json1_0Revision(output.desiredState, context) : undefined,
     latestSuccessfulSync:
-      output.latestSuccessfulSync !== undefined && output.latestSuccessfulSync !== null
+      output.latestSuccessfulSync != null
         ? deserializeAws_json1_0ResourceSyncAttempt(output.latestSuccessfulSync, context)
         : undefined,
     latestSync:
-      output.latestSync !== undefined && output.latestSync !== null
-        ? deserializeAws_json1_0ResourceSyncAttempt(output.latestSync, context)
-        : undefined,
+      output.latestSync != null ? deserializeAws_json1_0ResourceSyncAttempt(output.latestSync, context) : undefined,
   } as any;
 };
 
@@ -7696,10 +7572,7 @@ const deserializeAws_json1_0ListComponentOutputsOutput = (
 ): ListComponentOutputsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    outputs:
-      output.outputs !== undefined && output.outputs !== null
-        ? deserializeAws_json1_0OutputsList(output.outputs, context)
-        : undefined,
+    outputs: output.outputs != null ? deserializeAws_json1_0OutputsList(output.outputs, context) : undefined,
   } as any;
 };
 
@@ -7710,7 +7583,7 @@ const deserializeAws_json1_0ListComponentProvisionedResourcesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     provisionedResources:
-      output.provisionedResources !== undefined && output.provisionedResources !== null
+      output.provisionedResources != null
         ? deserializeAws_json1_0ProvisionedResourceList(output.provisionedResources, context)
         : undefined,
   } as any;
@@ -7719,9 +7592,7 @@ const deserializeAws_json1_0ListComponentProvisionedResourcesOutput = (
 const deserializeAws_json1_0ListComponentsOutput = (output: any, context: __SerdeContext): ListComponentsOutput => {
   return {
     components:
-      output.components !== undefined && output.components !== null
-        ? deserializeAws_json1_0ComponentSummaryList(output.components, context)
-        : undefined,
+      output.components != null ? deserializeAws_json1_0ComponentSummaryList(output.components, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -7732,7 +7603,7 @@ const deserializeAws_json1_0ListEnvironmentAccountConnectionsOutput = (
 ): ListEnvironmentAccountConnectionsOutput => {
   return {
     environmentAccountConnections:
-      output.environmentAccountConnections !== undefined && output.environmentAccountConnections !== null
+      output.environmentAccountConnections != null
         ? deserializeAws_json1_0EnvironmentAccountConnectionSummaryList(output.environmentAccountConnections, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7745,10 +7616,7 @@ const deserializeAws_json1_0ListEnvironmentOutputsOutput = (
 ): ListEnvironmentOutputsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    outputs:
-      output.outputs !== undefined && output.outputs !== null
-        ? deserializeAws_json1_0OutputsList(output.outputs, context)
-        : undefined,
+    outputs: output.outputs != null ? deserializeAws_json1_0OutputsList(output.outputs, context) : undefined,
   } as any;
 };
 
@@ -7759,7 +7627,7 @@ const deserializeAws_json1_0ListEnvironmentProvisionedResourcesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     provisionedResources:
-      output.provisionedResources !== undefined && output.provisionedResources !== null
+      output.provisionedResources != null
         ? deserializeAws_json1_0ProvisionedResourceList(output.provisionedResources, context)
         : undefined,
   } as any;
@@ -7768,7 +7636,7 @@ const deserializeAws_json1_0ListEnvironmentProvisionedResourcesOutput = (
 const deserializeAws_json1_0ListEnvironmentsOutput = (output: any, context: __SerdeContext): ListEnvironmentsOutput => {
   return {
     environments:
-      output.environments !== undefined && output.environments !== null
+      output.environments != null
         ? deserializeAws_json1_0EnvironmentSummaryList(output.environments, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -7782,7 +7650,7 @@ const deserializeAws_json1_0ListEnvironmentTemplatesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     templates:
-      output.templates !== undefined && output.templates !== null
+      output.templates != null
         ? deserializeAws_json1_0EnvironmentTemplateSummaryList(output.templates, context)
         : undefined,
   } as any;
@@ -7795,7 +7663,7 @@ const deserializeAws_json1_0ListEnvironmentTemplateVersionsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     templateVersions:
-      output.templateVersions !== undefined && output.templateVersions !== null
+      output.templateVersions != null
         ? deserializeAws_json1_0EnvironmentTemplateVersionSummaryList(output.templateVersions, context)
         : undefined,
   } as any;
@@ -7805,7 +7673,7 @@ const deserializeAws_json1_0ListRepositoriesOutput = (output: any, context: __Se
   return {
     nextToken: __expectString(output.nextToken),
     repositories:
-      output.repositories !== undefined && output.repositories !== null
+      output.repositories != null
         ? deserializeAws_json1_0RepositorySummaryList(output.repositories, context)
         : undefined,
   } as any;
@@ -7818,7 +7686,7 @@ const deserializeAws_json1_0ListRepositorySyncDefinitionsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     syncDefinitions:
-      output.syncDefinitions !== undefined && output.syncDefinitions !== null
+      output.syncDefinitions != null
         ? deserializeAws_json1_0RepositorySyncDefinitionList(output.syncDefinitions, context)
         : undefined,
   } as any;
@@ -7830,10 +7698,7 @@ const deserializeAws_json1_0ListServiceInstanceOutputsOutput = (
 ): ListServiceInstanceOutputsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    outputs:
-      output.outputs !== undefined && output.outputs !== null
-        ? deserializeAws_json1_0OutputsList(output.outputs, context)
-        : undefined,
+    outputs: output.outputs != null ? deserializeAws_json1_0OutputsList(output.outputs, context) : undefined,
   } as any;
 };
 
@@ -7844,7 +7709,7 @@ const deserializeAws_json1_0ListServiceInstanceProvisionedResourcesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     provisionedResources:
-      output.provisionedResources !== undefined && output.provisionedResources !== null
+      output.provisionedResources != null
         ? deserializeAws_json1_0ProvisionedResourceList(output.provisionedResources, context)
         : undefined,
   } as any;
@@ -7857,7 +7722,7 @@ const deserializeAws_json1_0ListServiceInstancesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     serviceInstances:
-      output.serviceInstances !== undefined && output.serviceInstances !== null
+      output.serviceInstances != null
         ? deserializeAws_json1_0ServiceInstanceSummaryList(output.serviceInstances, context)
         : undefined,
   } as any;
@@ -7869,10 +7734,7 @@ const deserializeAws_json1_0ListServicePipelineOutputsOutput = (
 ): ListServicePipelineOutputsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    outputs:
-      output.outputs !== undefined && output.outputs !== null
-        ? deserializeAws_json1_0OutputsList(output.outputs, context)
-        : undefined,
+    outputs: output.outputs != null ? deserializeAws_json1_0OutputsList(output.outputs, context) : undefined,
   } as any;
 };
 
@@ -7883,7 +7745,7 @@ const deserializeAws_json1_0ListServicePipelineProvisionedResourcesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     provisionedResources:
-      output.provisionedResources !== undefined && output.provisionedResources !== null
+      output.provisionedResources != null
         ? deserializeAws_json1_0ProvisionedResourceList(output.provisionedResources, context)
         : undefined,
   } as any;
@@ -7892,10 +7754,7 @@ const deserializeAws_json1_0ListServicePipelineProvisionedResourcesOutput = (
 const deserializeAws_json1_0ListServicesOutput = (output: any, context: __SerdeContext): ListServicesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    services:
-      output.services !== undefined && output.services !== null
-        ? deserializeAws_json1_0ServiceSummaryList(output.services, context)
-        : undefined,
+    services: output.services != null ? deserializeAws_json1_0ServiceSummaryList(output.services, context) : undefined,
   } as any;
 };
 
@@ -7906,7 +7765,7 @@ const deserializeAws_json1_0ListServiceTemplatesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     templates:
-      output.templates !== undefined && output.templates !== null
+      output.templates != null
         ? deserializeAws_json1_0ServiceTemplateSummaryList(output.templates, context)
         : undefined,
   } as any;
@@ -7919,7 +7778,7 @@ const deserializeAws_json1_0ListServiceTemplateVersionsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     templateVersions:
-      output.templateVersions !== undefined && output.templateVersions !== null
+      output.templateVersions != null
         ? deserializeAws_json1_0ServiceTemplateVersionSummaryList(output.templateVersions, context)
         : undefined,
   } as any;
@@ -7931,10 +7790,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_0TagList(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_json1_0TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -7990,7 +7846,7 @@ const deserializeAws_json1_0RejectEnvironmentAccountConnectionOutput = (
 ): RejectEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -8037,14 +7893,9 @@ const deserializeAws_json1_0RepositorySummaryList = (output: any, context: __Ser
 
 const deserializeAws_json1_0RepositorySyncAttempt = (output: any, context: __SerdeContext): RepositorySyncAttempt => {
   return {
-    events:
-      output.events !== undefined && output.events !== null
-        ? deserializeAws_json1_0RepositorySyncEvents(output.events, context)
-        : undefined,
+    events: output.events != null ? deserializeAws_json1_0RepositorySyncEvents(output.events, context) : undefined,
     startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
-        : undefined,
+      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -8080,10 +7931,7 @@ const deserializeAws_json1_0RepositorySyncEvent = (output: any, context: __Serde
   return {
     event: __expectString(output.event),
     externalId: __expectString(output.externalId),
-    time:
-      output.time !== undefined && output.time !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time)))
-        : undefined,
+    time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -8111,24 +7959,15 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 
 const deserializeAws_json1_0ResourceSyncAttempt = (output: any, context: __SerdeContext): ResourceSyncAttempt => {
   return {
-    events:
-      output.events !== undefined && output.events !== null
-        ? deserializeAws_json1_0ResourceSyncEvents(output.events, context)
-        : undefined,
+    events: output.events != null ? deserializeAws_json1_0ResourceSyncEvents(output.events, context) : undefined,
     initialRevision:
-      output.initialRevision !== undefined && output.initialRevision !== null
-        ? deserializeAws_json1_0Revision(output.initialRevision, context)
-        : undefined,
+      output.initialRevision != null ? deserializeAws_json1_0Revision(output.initialRevision, context) : undefined,
     startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt)))
-        : undefined,
+      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
     status: __expectString(output.status),
     target: __expectString(output.target),
     targetRevision:
-      output.targetRevision !== undefined && output.targetRevision !== null
-        ? deserializeAws_json1_0Revision(output.targetRevision, context)
-        : undefined,
+      output.targetRevision != null ? deserializeAws_json1_0Revision(output.targetRevision, context) : undefined,
   } as any;
 };
 
@@ -8136,10 +7975,7 @@ const deserializeAws_json1_0ResourceSyncEvent = (output: any, context: __SerdeCo
   return {
     event: __expectString(output.event),
     externalId: __expectString(output.externalId),
-    time:
-      output.time !== undefined && output.time !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time)))
-        : undefined,
+    time: output.time != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.time))) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -8171,19 +8007,14 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
     arn: __expectString(output.arn),
     branchName: __expectString(output.branchName),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
-    pipeline:
-      output.pipeline !== undefined && output.pipeline !== null
-        ? deserializeAws_json1_0ServicePipeline(output.pipeline, context)
-        : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_0ServicePipeline(output.pipeline, context) : undefined,
     repositoryConnectionArn: __expectString(output.repositoryConnectionArn),
     repositoryId: __expectString(output.repositoryId),
     spec: __expectString(output.spec),
@@ -8197,18 +8028,16 @@ const deserializeAws_json1_0ServiceInstance = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
@@ -8224,18 +8053,16 @@ const deserializeAws_json1_0ServiceInstanceSummary = (output: any, context: __Se
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     name: __expectString(output.name),
@@ -8265,17 +8092,15 @@ const deserializeAws_json1_0ServicePipeline = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     lastDeploymentAttemptedAt:
-      output.lastDeploymentAttemptedAt !== undefined && output.lastDeploymentAttemptedAt !== null
+      output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
         : undefined,
     lastDeploymentSucceededAt:
-      output.lastDeploymentSucceededAt !== undefined && output.lastDeploymentSucceededAt !== null
+      output.lastDeploymentSucceededAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentSucceededAt)))
         : undefined,
     spec: __expectString(output.spec),
@@ -8298,12 +8123,10 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -8329,14 +8152,12 @@ const deserializeAws_json1_0ServiceTemplate = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     encryptionKey: __expectString(output.encryptionKey),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -8349,13 +8170,11 @@ const deserializeAws_json1_0ServiceTemplateSummary = (output: any, context: __Se
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     displayName: __expectString(output.displayName),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     name: __expectString(output.name),
@@ -8398,16 +8217,14 @@ const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __Se
   return {
     arn: __expectString(output.arn),
     compatibleEnvironmentTemplates:
-      output.compatibleEnvironmentTemplates !== undefined && output.compatibleEnvironmentTemplates !== null
+      output.compatibleEnvironmentTemplates != null
         ? deserializeAws_json1_0CompatibleEnvironmentTemplateList(output.compatibleEnvironmentTemplates, context)
         : undefined,
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
@@ -8417,7 +8234,7 @@ const deserializeAws_json1_0ServiceTemplateVersion = (output: any, context: __Se
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
     supportedComponentSources:
-      output.supportedComponentSources !== undefined && output.supportedComponentSources !== null
+      output.supportedComponentSources != null
         ? deserializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList(
             output.supportedComponentSources,
             context
@@ -8434,12 +8251,10 @@ const deserializeAws_json1_0ServiceTemplateVersionSummary = (
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastModifiedAt:
-      output.lastModifiedAt !== undefined && output.lastModifiedAt !== null
+      output.lastModifiedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedAt)))
         : undefined,
     majorVersion: __expectString(output.majorVersion),
@@ -8516,7 +8331,7 @@ const deserializeAws_json1_0UpdateAccountSettingsOutput = (
 ): UpdateAccountSettingsOutput => {
   return {
     accountSettings:
-      output.accountSettings !== undefined && output.accountSettings !== null
+      output.accountSettings != null
         ? deserializeAws_json1_0AccountSettings(output.accountSettings, context)
         : undefined,
   } as any;
@@ -8524,10 +8339,7 @@ const deserializeAws_json1_0UpdateAccountSettingsOutput = (
 
 const deserializeAws_json1_0UpdateComponentOutput = (output: any, context: __SerdeContext): UpdateComponentOutput => {
   return {
-    component:
-      output.component !== undefined && output.component !== null
-        ? deserializeAws_json1_0Component(output.component, context)
-        : undefined,
+    component: output.component != null ? deserializeAws_json1_0Component(output.component, context) : undefined,
   } as any;
 };
 
@@ -8537,7 +8349,7 @@ const deserializeAws_json1_0UpdateEnvironmentAccountConnectionOutput = (
 ): UpdateEnvironmentAccountConnectionOutput => {
   return {
     environmentAccountConnection:
-      output.environmentAccountConnection !== undefined && output.environmentAccountConnection !== null
+      output.environmentAccountConnection != null
         ? deserializeAws_json1_0EnvironmentAccountConnection(output.environmentAccountConnection, context)
         : undefined,
   } as any;
@@ -8549,9 +8361,7 @@ const deserializeAws_json1_0UpdateEnvironmentOutput = (
 ): UpdateEnvironmentOutput => {
   return {
     environment:
-      output.environment !== undefined && output.environment !== null
-        ? deserializeAws_json1_0Environment(output.environment, context)
-        : undefined,
+      output.environment != null ? deserializeAws_json1_0Environment(output.environment, context) : undefined,
   } as any;
 };
 
@@ -8561,7 +8371,7 @@ const deserializeAws_json1_0UpdateEnvironmentTemplateOutput = (
 ): UpdateEnvironmentTemplateOutput => {
   return {
     environmentTemplate:
-      output.environmentTemplate !== undefined && output.environmentTemplate !== null
+      output.environmentTemplate != null
         ? deserializeAws_json1_0EnvironmentTemplate(output.environmentTemplate, context)
         : undefined,
   } as any;
@@ -8573,7 +8383,7 @@ const deserializeAws_json1_0UpdateEnvironmentTemplateVersionOutput = (
 ): UpdateEnvironmentTemplateVersionOutput => {
   return {
     environmentTemplateVersion:
-      output.environmentTemplateVersion !== undefined && output.environmentTemplateVersion !== null
+      output.environmentTemplateVersion != null
         ? deserializeAws_json1_0EnvironmentTemplateVersion(output.environmentTemplateVersion, context)
         : undefined,
   } as any;
@@ -8585,7 +8395,7 @@ const deserializeAws_json1_0UpdateServiceInstanceOutput = (
 ): UpdateServiceInstanceOutput => {
   return {
     serviceInstance:
-      output.serviceInstance !== undefined && output.serviceInstance !== null
+      output.serviceInstance != null
         ? deserializeAws_json1_0ServiceInstance(output.serviceInstance, context)
         : undefined,
   } as any;
@@ -8593,10 +8403,7 @@ const deserializeAws_json1_0UpdateServiceInstanceOutput = (
 
 const deserializeAws_json1_0UpdateServiceOutput = (output: any, context: __SerdeContext): UpdateServiceOutput => {
   return {
-    service:
-      output.service !== undefined && output.service !== null
-        ? deserializeAws_json1_0Service(output.service, context)
-        : undefined,
+    service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
   } as any;
 };
 
@@ -8605,10 +8412,7 @@ const deserializeAws_json1_0UpdateServicePipelineOutput = (
   context: __SerdeContext
 ): UpdateServicePipelineOutput => {
   return {
-    pipeline:
-      output.pipeline !== undefined && output.pipeline !== null
-        ? deserializeAws_json1_0ServicePipeline(output.pipeline, context)
-        : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_0ServicePipeline(output.pipeline, context) : undefined,
   } as any;
 };
 
@@ -8618,7 +8422,7 @@ const deserializeAws_json1_0UpdateServiceTemplateOutput = (
 ): UpdateServiceTemplateOutput => {
   return {
     serviceTemplate:
-      output.serviceTemplate !== undefined && output.serviceTemplate !== null
+      output.serviceTemplate != null
         ? deserializeAws_json1_0ServiceTemplate(output.serviceTemplate, context)
         : undefined,
   } as any;
@@ -8630,7 +8434,7 @@ const deserializeAws_json1_0UpdateServiceTemplateVersionOutput = (
 ): UpdateServiceTemplateVersionOutput => {
   return {
     serviceTemplateVersion:
-      output.serviceTemplateVersion !== undefined && output.serviceTemplateVersion !== null
+      output.serviceTemplateVersion != null
         ? deserializeAws_json1_0ServiceTemplateVersion(output.serviceTemplateVersion, context)
         : undefined,
   } as any;
@@ -8642,7 +8446,7 @@ const deserializeAws_json1_0UpdateTemplateSyncConfigOutput = (
 ): UpdateTemplateSyncConfigOutput => {
   return {
     templateSyncConfig:
-      output.templateSyncConfig !== undefined && output.templateSyncConfig !== null
+      output.templateSyncConfig != null
         ? deserializeAws_json1_0TemplateSyncConfig(output.templateSyncConfig, context)
         : undefined,
   } as any;

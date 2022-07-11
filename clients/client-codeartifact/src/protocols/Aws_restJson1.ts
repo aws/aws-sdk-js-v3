@@ -195,16 +195,12 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.allowOverwrite !== undefined &&
-      input.allowOverwrite !== null && { allowOverwrite: input.allowOverwrite }),
-    ...(input.includeFromUpstream !== undefined &&
-      input.includeFromUpstream !== null && { includeFromUpstream: input.includeFromUpstream }),
-    ...(input.versionRevisions !== undefined &&
-      input.versionRevisions !== null && {
-        versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
-      }),
-    ...(input.versions !== undefined &&
-      input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
+    ...(input.allowOverwrite != null && { allowOverwrite: input.allowOverwrite }),
+    ...(input.includeFromUpstream != null && { includeFromUpstream: input.includeFromUpstream }),
+    ...(input.versionRevisions != null && {
+      versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
+    }),
+    ...(input.versions != null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -232,9 +228,8 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.encryptionKey !== undefined && input.encryptionKey !== null && { encryptionKey: input.encryptionKey }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -264,13 +259,11 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.upstreams !== undefined &&
-      input.upstreams !== null && {
-        upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
-      }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.upstreams != null && {
+      upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -354,10 +347,8 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.expectedStatus !== undefined &&
-      input.expectedStatus !== null && { expectedStatus: input.expectedStatus }),
-    ...(input.versions !== undefined &&
-      input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
+    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
+    ...(input.versions != null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -548,14 +539,11 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.expectedStatus !== undefined &&
-      input.expectedStatus !== null && { expectedStatus: input.expectedStatus }),
-    ...(input.versionRevisions !== undefined &&
-      input.versionRevisions !== null && {
-        versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
-      }),
-    ...(input.versions !== undefined &&
-      input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
+    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
+    ...(input.versionRevisions != null && {
+      versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
+    }),
+    ...(input.versions != null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -746,8 +734,8 @@ export const serializeAws_restJson1ListDomainsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domains";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -974,12 +962,10 @@ export const serializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   let body: any;
   body = JSON.stringify({
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.domainOwner !== undefined && input.domainOwner !== null && { domainOwner: input.domainOwner }),
-    ...(input.policyDocument !== undefined &&
-      input.policyDocument !== null && { policyDocument: input.policyDocument }),
-    ...(input.policyRevision !== undefined &&
-      input.policyRevision !== null && { policyRevision: input.policyRevision }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.domainOwner != null && { domainOwner: input.domainOwner }),
+    ...(input.policyDocument != null && { policyDocument: input.policyDocument }),
+    ...(input.policyRevision != null && { policyRevision: input.policyRevision }),
   });
   return new __HttpRequest({
     protocol,
@@ -1009,10 +995,8 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.policyDocument !== undefined &&
-      input.policyDocument !== null && { policyDocument: input.policyDocument }),
-    ...(input.policyRevision !== undefined &&
-      input.policyRevision !== null && { policyRevision: input.policyRevision }),
+    ...(input.policyDocument != null && { policyDocument: input.policyDocument }),
+    ...(input.policyRevision != null && { policyRevision: input.policyRevision }),
   });
   return new __HttpRequest({
     protocol,
@@ -1040,8 +1024,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1069,8 +1052,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1104,15 +1086,12 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.expectedStatus !== undefined &&
-      input.expectedStatus !== null && { expectedStatus: input.expectedStatus }),
-    ...(input.targetStatus !== undefined && input.targetStatus !== null && { targetStatus: input.targetStatus }),
-    ...(input.versionRevisions !== undefined &&
-      input.versionRevisions !== null && {
-        versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
-      }),
-    ...(input.versions !== undefined &&
-      input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
+    ...(input.expectedStatus != null && { expectedStatus: input.expectedStatus }),
+    ...(input.targetStatus != null && { targetStatus: input.targetStatus }),
+    ...(input.versionRevisions != null && {
+      versionRevisions: serializeAws_restJson1PackageVersionRevisionMap(input.versionRevisions, context),
+    }),
+    ...(input.versions != null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1142,11 +1121,10 @@ export const serializeAws_restJson1UpdateRepositoryCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.upstreams !== undefined &&
-      input.upstreams !== null && {
-        upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
-      }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.upstreams != null && {
+      upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -3460,8 +3438,8 @@ const serializeAws_restJson1PackageVersionRevisionMap = (
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3489,8 +3467,7 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1UpstreamRepository = (input: UpstreamRepository, context: __SerdeContext): any => {
   return {
-    ...(input.repositoryName !== undefined &&
-      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
   };
 };
 
@@ -3519,10 +3496,7 @@ const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
   return {
-    hashes:
-      output.hashes !== undefined && output.hashes !== null
-        ? deserializeAws_restJson1AssetHashes(output.hashes, context)
-        : undefined,
+    hashes: output.hashes != null ? deserializeAws_restJson1AssetHashes(output.hashes, context) : undefined,
     name: __expectString(output.name),
     size: __expectLong(output.size),
   } as any;
@@ -3545,7 +3519,7 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
     arn: __expectString(output.arn),
     assetSizeBytes: __expectLong(output.assetSizeBytes),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     encryptionKey: __expectString(output.encryptionKey),
@@ -3561,7 +3535,7 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     createdTime:
-      output.createdTime !== undefined && output.createdTime !== null
+      output.createdTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
         : undefined,
     encryptionKey: __expectString(output.encryptionKey),
@@ -3651,14 +3625,11 @@ const deserializeAws_restJson1PackageVersionDescription = (
     displayName: __expectString(output.displayName),
     format: __expectString(output.format),
     homePage: __expectString(output.homePage),
-    licenses:
-      output.licenses !== undefined && output.licenses !== null
-        ? deserializeAws_restJson1LicenseInfoList(output.licenses, context)
-        : undefined,
+    licenses: output.licenses != null ? deserializeAws_restJson1LicenseInfoList(output.licenses, context) : undefined,
     namespace: __expectString(output.namespace),
     packageName: __expectString(output.packageName),
     publishedTime:
-      output.publishedTime !== undefined && output.publishedTime !== null
+      output.publishedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.publishedTime)))
         : undefined,
     revision: __expectString(output.revision),
@@ -3722,12 +3693,12 @@ const deserializeAws_restJson1RepositoryDescription = (output: any, context: __S
     domainName: __expectString(output.domainName),
     domainOwner: __expectString(output.domainOwner),
     externalConnections:
-      output.externalConnections !== undefined && output.externalConnections !== null
+      output.externalConnections != null
         ? deserializeAws_restJson1RepositoryExternalConnectionInfoList(output.externalConnections, context)
         : undefined,
     name: __expectString(output.name),
     upstreams:
-      output.upstreams !== undefined && output.upstreams !== null
+      output.upstreams != null
         ? deserializeAws_restJson1UpstreamRepositoryInfoList(output.upstreams, context)
         : undefined,
   } as any;

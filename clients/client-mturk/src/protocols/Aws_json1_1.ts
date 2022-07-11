@@ -2595,9 +2595,8 @@ const serializeAws_json1_1AcceptQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationRequestId !== undefined &&
-      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
+    ...(input.IntegerValue != null && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationRequestId != null && { QualificationRequestId: input.QualificationRequestId }),
   };
 };
 
@@ -2606,11 +2605,9 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.OverrideRejection !== undefined &&
-      input.OverrideRejection !== null && { OverrideRejection: input.OverrideRejection }),
-    ...(input.RequesterFeedback !== undefined &&
-      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
+    ...(input.OverrideRejection != null && { OverrideRejection: input.OverrideRejection }),
+    ...(input.RequesterFeedback != null && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -2633,12 +2630,10 @@ const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.SendNotification !== undefined &&
-      input.SendNotification !== null && { SendNotification: input.SendNotification }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.IntegerValue != null && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.SendNotification != null && { SendNotification: input.SendNotification }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -2647,75 +2642,64 @@ const serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.NumberOfAdditionalAssignments !== undefined &&
-      input.NumberOfAdditionalAssignments !== null && {
-        NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
-      }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.NumberOfAdditionalAssignments != null && {
+      NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
+    }),
+    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
 const serializeAws_json1_1CreateHITRequest = (input: CreateHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentDurationInSeconds !== undefined &&
-      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
-    ...(input.AssignmentReviewPolicy !== undefined &&
-      input.AssignmentReviewPolicy !== null && {
-        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-      }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined &&
-      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined &&
-      input.HITLayoutParameters !== null && {
-        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-      }),
-    ...(input.HITReviewPolicy !== undefined &&
-      input.HITReviewPolicy !== null && {
-        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-      }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.LifetimeInSeconds !== undefined &&
-      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined &&
-      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.QualificationRequirements !== undefined &&
-      input.QualificationRequirements !== null && {
-        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-          input.QualificationRequirements,
-          context
-        ),
-      }),
-    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined &&
-      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.AssignmentDurationInSeconds != null && {
+      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
+    }),
+    ...(input.AssignmentReviewPolicy != null && {
+      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
+    }),
+    ...(input.AutoApprovalDelayInSeconds != null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HITLayoutId != null && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters != null && {
+      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
+    }),
+    ...(input.HITReviewPolicy != null && {
+      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
+    }),
+    ...(input.Keywords != null && { Keywords: input.Keywords }),
+    ...(input.LifetimeInSeconds != null && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments != null && { MaxAssignments: input.MaxAssignments }),
+    ...(input.QualificationRequirements != null && {
+      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+        input.QualificationRequirements,
+        context
+      ),
+    }),
+    ...(input.Question != null && { Question: input.Question }),
+    ...(input.RequesterAnnotation != null && { RequesterAnnotation: input.RequesterAnnotation }),
+    ...(input.Reward != null && { Reward: input.Reward }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
 const serializeAws_json1_1CreateHITTypeRequest = (input: CreateHITTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentDurationInSeconds !== undefined &&
-      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined &&
-      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.QualificationRequirements !== undefined &&
-      input.QualificationRequirements !== null && {
-        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-          input.QualificationRequirements,
-          context
-        ),
-      }),
-    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
+    ...(input.AssignmentDurationInSeconds != null && {
+      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
+    }),
+    ...(input.AutoApprovalDelayInSeconds != null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Keywords != null && { Keywords: input.Keywords }),
+    ...(input.QualificationRequirements != null && {
+      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+        input.QualificationRequirements,
+        context
+      ),
+    }),
+    ...(input.Reward != null && { Reward: input.Reward }),
+    ...(input.Title != null && { Title: input.Title }),
   };
 };
 
@@ -2724,29 +2708,22 @@ const serializeAws_json1_1CreateHITWithHITTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentReviewPolicy !== undefined &&
-      input.AssignmentReviewPolicy !== null && {
-        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-      }),
-    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined &&
-      input.HITLayoutParameters !== null && {
-        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-      }),
-    ...(input.HITReviewPolicy !== undefined &&
-      input.HITReviewPolicy !== null && {
-        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-      }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.LifetimeInSeconds !== undefined &&
-      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined &&
-      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
-    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined &&
-      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.AssignmentReviewPolicy != null && {
+      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
+    }),
+    ...(input.HITLayoutId != null && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters != null && {
+      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
+    }),
+    ...(input.HITReviewPolicy != null && {
+      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
+    }),
+    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
+    ...(input.LifetimeInSeconds != null && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments != null && { MaxAssignments: input.MaxAssignments }),
+    ...(input.Question != null && { Question: input.Question }),
+    ...(input.RequesterAnnotation != null && { RequesterAnnotation: input.RequesterAnnotation }),
+    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
@@ -2755,20 +2732,16 @@ const serializeAws_json1_1CreateQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined &&
-      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.QualificationTypeStatus !== undefined &&
-      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined &&
-      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined &&
-      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
+    ...(input.AnswerKey != null && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted != null && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue != null && { AutoGrantedValue: input.AutoGrantedValue }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Keywords != null && { Keywords: input.Keywords }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.QualificationTypeStatus != null && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds != null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
+    ...(input.Test != null && { Test: input.Test }),
+    ...(input.TestDurationInSeconds != null && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 
@@ -2777,8 +2750,8 @@ const serializeAws_json1_1CreateWorkerBlockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.Reason != null && { Reason: input.Reason }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -2795,7 +2768,7 @@ const serializeAws_json1_1CustomerIdList = (input: string[], context: __SerdeCon
 
 const serializeAws_json1_1DeleteHITRequest = (input: DeleteHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.HITId != null && { HITId: input.HITId }),
   };
 };
 
@@ -2804,8 +2777,7 @@ const serializeAws_json1_1DeleteQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -2814,8 +2786,8 @@ const serializeAws_json1_1DeleteWorkerBlockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.Reason != null && { Reason: input.Reason }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -2824,10 +2796,9 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.Reason != null && { Reason: input.Reason }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -2851,21 +2822,20 @@ const serializeAws_json1_1GetAccountBalanceRequest = (
 
 const serializeAws_json1_1GetAssignmentRequest = (input: GetAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
   };
 };
 
 const serializeAws_json1_1GetFileUploadURLRequest = (input: GetFileUploadURLRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.QuestionIdentifier !== undefined &&
-      input.QuestionIdentifier !== null && { QuestionIdentifier: input.QuestionIdentifier }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
+    ...(input.QuestionIdentifier != null && { QuestionIdentifier: input.QuestionIdentifier }),
   };
 };
 
 const serializeAws_json1_1GetHITRequest = (input: GetHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.HITId != null && { HITId: input.HITId }),
   };
 };
 
@@ -2874,9 +2844,8 @@ const serializeAws_json1_1GetQualificationScoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -2885,15 +2854,14 @@ const serializeAws_json1_1GetQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
 const serializeAws_json1_1HITLayoutParameter = (input: HITLayoutParameter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2924,13 +2892,12 @@ const serializeAws_json1_1ListAssignmentsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentStatuses !== undefined &&
-      input.AssignmentStatuses !== null && {
-        AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(input.AssignmentStatuses, context),
-      }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AssignmentStatuses != null && {
+      AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(input.AssignmentStatuses, context),
+    }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2939,10 +2906,10 @@ const serializeAws_json1_1ListBonusPaymentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2951,17 +2918,16 @@ const serializeAws_json1_1ListHITsForQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
 const serializeAws_json1_1ListHITsRequest = (input: ListHITsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2970,10 +2936,9 @@ const serializeAws_json1_1ListQualificationRequestsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -2982,13 +2947,11 @@ const serializeAws_json1_1ListQualificationTypesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.MustBeOwnedByCaller !== undefined &&
-      input.MustBeOwnedByCaller !== null && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
-    ...(input.MustBeRequestable !== undefined &&
-      input.MustBeRequestable !== null && { MustBeRequestable: input.MustBeRequestable }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Query !== undefined && input.Query !== null && { Query: input.Query }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MustBeOwnedByCaller != null && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
+    ...(input.MustBeRequestable != null && { MustBeRequestable: input.MustBeRequestable }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Query != null && { Query: input.Query }),
   };
 };
 
@@ -2997,10 +2960,10 @@ const serializeAws_json1_1ListReviewableHITsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
@@ -3009,24 +2972,21 @@ const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PolicyLevels !== undefined &&
-      input.PolicyLevels !== null && {
-        PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
-      }),
-    ...(input.RetrieveActions !== undefined &&
-      input.RetrieveActions !== null && { RetrieveActions: input.RetrieveActions }),
-    ...(input.RetrieveResults !== undefined &&
-      input.RetrieveResults !== null && { RetrieveResults: input.RetrieveResults }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PolicyLevels != null && {
+      PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
+    }),
+    ...(input.RetrieveActions != null && { RetrieveActions: input.RetrieveActions }),
+    ...(input.RetrieveResults != null && { RetrieveResults: input.RetrieveResults }),
   };
 };
 
 const serializeAws_json1_1ListWorkerBlocksRequest = (input: ListWorkerBlocksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3035,18 +2995,17 @@ const serializeAws_json1_1ListWorkersWithQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1Locale = (input: Locale, context: __SerdeContext): any => {
   return {
-    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.Subdivision !== undefined && input.Subdivision !== null && { Subdivision: input.Subdivision }),
+    ...(input.Country != null && { Country: input.Country }),
+    ...(input.Subdivision != null && { Subdivision: input.Subdivision }),
   };
 };
 
@@ -3066,28 +3025,25 @@ const serializeAws_json1_1NotificationSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
-    ...(input.EventTypes !== undefined &&
-      input.EventTypes !== null && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
-    ...(input.Transport !== undefined && input.Transport !== null && { Transport: input.Transport }),
-    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.EventTypes != null && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
+    ...(input.Transport != null && { Transport: input.Transport }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
 const serializeAws_json1_1NotifyWorkersRequest = (input: NotifyWorkersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MessageText !== undefined && input.MessageText !== null && { MessageText: input.MessageText }),
-    ...(input.Subject !== undefined && input.Subject !== null && { Subject: input.Subject }),
-    ...(input.WorkerIds !== undefined &&
-      input.WorkerIds !== null && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
+    ...(input.MessageText != null && { MessageText: input.MessageText }),
+    ...(input.Subject != null && { Subject: input.Subject }),
+    ...(input.WorkerIds != null && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
   };
 };
 
 const serializeAws_json1_1ParameterMapEntry = (input: ParameterMapEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Values != null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
@@ -3104,13 +3060,11 @@ const serializeAws_json1_1ParameterMapEntryList = (input: ParameterMapEntry[], c
 
 const serializeAws_json1_1PolicyParameter = (input: PolicyParameter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.MapEntries !== undefined &&
-      input.MapEntries !== null && {
-        MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
-      }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.MapEntries != null && {
+      MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
+    }),
+    ...(input.Values != null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
@@ -3130,17 +3084,14 @@ const serializeAws_json1_1QualificationRequirement = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActionsGuarded !== undefined &&
-      input.ActionsGuarded !== null && { ActionsGuarded: input.ActionsGuarded }),
-    ...(input.Comparator !== undefined && input.Comparator !== null && { Comparator: input.Comparator }),
-    ...(input.IntegerValues !== undefined &&
-      input.IntegerValues !== null && { IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context) }),
-    ...(input.LocaleValues !== undefined &&
-      input.LocaleValues !== null && { LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context) }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.RequiredToPreview !== undefined &&
-      input.RequiredToPreview !== null && { RequiredToPreview: input.RequiredToPreview }),
+    ...(input.ActionsGuarded != null && { ActionsGuarded: input.ActionsGuarded }),
+    ...(input.Comparator != null && { Comparator: input.Comparator }),
+    ...(input.IntegerValues != null && {
+      IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context),
+    }),
+    ...(input.LocaleValues != null && { LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context) }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.RequiredToPreview != null && { RequiredToPreview: input.RequiredToPreview }),
   };
 };
 
@@ -3160,9 +3111,8 @@ const serializeAws_json1_1QualificationRequirementList = (
 
 const serializeAws_json1_1RejectAssignmentRequest = (input: RejectAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.RequesterFeedback !== undefined &&
-      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
+    ...(input.RequesterFeedback != null && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -3171,17 +3121,15 @@ const serializeAws_json1_1RejectQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationRequestId !== undefined &&
-      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.QualificationRequestId != null && { QualificationRequestId: input.QualificationRequestId }),
+    ...(input.Reason != null && { Reason: input.Reason }),
   };
 };
 
 const serializeAws_json1_1ReviewPolicy = (input: ReviewPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_json1_1PolicyParameterList(input.Parameters, context) }),
-    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
+    ...(input.Parameters != null && { Parameters: serializeAws_json1_1PolicyParameterList(input.Parameters, context) }),
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
   };
 };
 
@@ -3201,12 +3149,11 @@ const serializeAws_json1_1ReviewPolicyLevelList = (
 
 const serializeAws_json1_1SendBonusRequest = (input: SendBonusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
-    ...(input.BonusAmount !== undefined && input.BonusAmount !== null && { BonusAmount: input.BonusAmount }),
-    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
-    ...(input.UniqueRequestToken !== undefined &&
-      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
-    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
+    ...(input.AssignmentId != null && { AssignmentId: input.AssignmentId }),
+    ...(input.BonusAmount != null && { BonusAmount: input.BonusAmount }),
+    ...(input.Reason != null && { Reason: input.Reason }),
+    ...(input.UniqueRequestToken != null && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.WorkerId != null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -3215,11 +3162,10 @@ const serializeAws_json1_1SendTestEventNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && {
-        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-      }),
-    ...(input.TestEventType !== undefined && input.TestEventType !== null && { TestEventType: input.TestEventType }),
+    ...(input.Notification != null && {
+      Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
+    }),
+    ...(input.TestEventType != null && { TestEventType: input.TestEventType }),
   };
 };
 
@@ -3239,9 +3185,8 @@ const serializeAws_json1_1UpdateExpirationForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExpireAt !== undefined &&
-      input.ExpireAt !== null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.ExpireAt != null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
+    ...(input.HITId != null && { HITId: input.HITId }),
   };
 };
 
@@ -3250,8 +3195,8 @@ const serializeAws_json1_1UpdateHITReviewStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.Revert !== undefined && input.Revert !== null && { Revert: input.Revert }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.Revert != null && { Revert: input.Revert }),
   };
 };
 
@@ -3260,8 +3205,8 @@ const serializeAws_json1_1UpdateHITTypeOfHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
+    ...(input.HITId != null && { HITId: input.HITId }),
+    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
   };
 };
 
@@ -3270,12 +3215,11 @@ const serializeAws_json1_1UpdateNotificationSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
-    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
-    ...(input.Notification !== undefined &&
-      input.Notification !== null && {
-        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-      }),
+    ...(input.Active != null && { Active: input.Active }),
+    ...(input.HITTypeId != null && { HITTypeId: input.HITTypeId }),
+    ...(input.Notification != null && {
+      Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
+    }),
   };
 };
 
@@ -3284,20 +3228,15 @@ const serializeAws_json1_1UpdateQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined &&
-      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.QualificationTypeId !== undefined &&
-      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.QualificationTypeStatus !== undefined &&
-      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined &&
-      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined &&
-      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
+    ...(input.AnswerKey != null && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted != null && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue != null && { AutoGrantedValue: input.AutoGrantedValue }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.QualificationTypeId != null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeStatus != null && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds != null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
+    ...(input.Test != null && { Test: input.Test }),
+    ...(input.TestDurationInSeconds != null && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 
@@ -3318,34 +3257,28 @@ const deserializeAws_json1_1ApproveAssignmentResponse = (
 const deserializeAws_json1_1Assignment = (output: any, context: __SerdeContext): Assignment => {
   return {
     AcceptTime:
-      output.AcceptTime !== undefined && output.AcceptTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AcceptTime)))
-        : undefined,
+      output.AcceptTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AcceptTime))) : undefined,
     Answer: __expectString(output.Answer),
     ApprovalTime:
-      output.ApprovalTime !== undefined && output.ApprovalTime !== null
+      output.ApprovalTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApprovalTime)))
         : undefined,
     AssignmentId: __expectString(output.AssignmentId),
     AssignmentStatus: __expectString(output.AssignmentStatus),
     AutoApprovalTime:
-      output.AutoApprovalTime !== undefined && output.AutoApprovalTime !== null
+      output.AutoApprovalTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AutoApprovalTime)))
         : undefined,
     Deadline:
-      output.Deadline !== undefined && output.Deadline !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Deadline)))
-        : undefined,
+      output.Deadline != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Deadline))) : undefined,
     HITId: __expectString(output.HITId),
     RejectionTime:
-      output.RejectionTime !== undefined && output.RejectionTime !== null
+      output.RejectionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RejectionTime)))
         : undefined,
     RequesterFeedback: __expectString(output.RequesterFeedback),
     SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
-        : undefined,
+      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
     WorkerId: __expectString(output.WorkerId),
   } as any;
 };
@@ -3374,9 +3307,7 @@ const deserializeAws_json1_1BonusPayment = (output: any, context: __SerdeContext
     AssignmentId: __expectString(output.AssignmentId),
     BonusAmount: __expectString(output.BonusAmount),
     GrantTime:
-      output.GrantTime !== undefined && output.GrantTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
-        : undefined,
+      output.GrantTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime))) : undefined,
     Reason: __expectString(output.Reason),
     WorkerId: __expectString(output.WorkerId),
   } as any;
@@ -3403,7 +3334,7 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse = (
 
 const deserializeAws_json1_1CreateHITResponse = (output: any, context: __SerdeContext): CreateHITResponse => {
   return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
+    HIT: output.HIT != null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
 
@@ -3418,7 +3349,7 @@ const deserializeAws_json1_1CreateHITWithHITTypeResponse = (
   context: __SerdeContext
 ): CreateHITWithHITTypeResponse => {
   return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
+    HIT: output.HIT != null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
 
@@ -3428,7 +3359,7 @@ const deserializeAws_json1_1CreateQualificationTypeResponse = (
 ): CreateQualificationTypeResponse => {
   return {
     QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
+      output.QualificationType != null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
         : undefined,
   } as any;
@@ -3478,11 +3409,8 @@ const deserializeAws_json1_1GetAccountBalanceResponse = (
 
 const deserializeAws_json1_1GetAssignmentResponse = (output: any, context: __SerdeContext): GetAssignmentResponse => {
   return {
-    Assignment:
-      output.Assignment !== undefined && output.Assignment !== null
-        ? deserializeAws_json1_1Assignment(output.Assignment, context)
-        : undefined,
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
+    Assignment: output.Assignment != null ? deserializeAws_json1_1Assignment(output.Assignment, context) : undefined,
+    HIT: output.HIT != null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
 
@@ -3497,7 +3425,7 @@ const deserializeAws_json1_1GetFileUploadURLResponse = (
 
 const deserializeAws_json1_1GetHITResponse = (output: any, context: __SerdeContext): GetHITResponse => {
   return {
-    HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
+    HIT: output.HIT != null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
 
@@ -3507,9 +3435,7 @@ const deserializeAws_json1_1GetQualificationScoreResponse = (
 ): GetQualificationScoreResponse => {
   return {
     Qualification:
-      output.Qualification !== undefined && output.Qualification !== null
-        ? deserializeAws_json1_1Qualification(output.Qualification, context)
-        : undefined,
+      output.Qualification != null ? deserializeAws_json1_1Qualification(output.Qualification, context) : undefined,
   } as any;
 };
 
@@ -3519,7 +3445,7 @@ const deserializeAws_json1_1GetQualificationTypeResponse = (
 ): GetQualificationTypeResponse => {
   return {
     QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
+      output.QualificationType != null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
         : undefined,
   } as any;
@@ -3530,14 +3456,12 @@ const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT =>
     AssignmentDurationInSeconds: __expectLong(output.AssignmentDurationInSeconds),
     AutoApprovalDelayInSeconds: __expectLong(output.AutoApprovalDelayInSeconds),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     Expiration:
-      output.Expiration !== undefined && output.Expiration !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration)))
-        : undefined,
+      output.Expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration))) : undefined,
     HITGroupId: __expectString(output.HITGroupId),
     HITId: __expectString(output.HITId),
     HITLayoutId: __expectString(output.HITLayoutId),
@@ -3550,7 +3474,7 @@ const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT =>
     NumberOfAssignmentsCompleted: __expectInt32(output.NumberOfAssignmentsCompleted),
     NumberOfAssignmentsPending: __expectInt32(output.NumberOfAssignmentsPending),
     QualificationRequirements:
-      output.QualificationRequirements !== undefined && output.QualificationRequirements !== null
+      output.QualificationRequirements != null
         ? deserializeAws_json1_1QualificationRequirementList(output.QualificationRequirements, context)
         : undefined,
     Question: __expectString(output.Question),
@@ -3590,9 +3514,7 @@ const deserializeAws_json1_1ListAssignmentsForHITResponse = (
 ): ListAssignmentsForHITResponse => {
   return {
     Assignments:
-      output.Assignments !== undefined && output.Assignments !== null
-        ? deserializeAws_json1_1AssignmentList(output.Assignments, context)
-        : undefined,
+      output.Assignments != null ? deserializeAws_json1_1AssignmentList(output.Assignments, context) : undefined,
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
   } as any;
@@ -3604,9 +3526,7 @@ const deserializeAws_json1_1ListBonusPaymentsResponse = (
 ): ListBonusPaymentsResponse => {
   return {
     BonusPayments:
-      output.BonusPayments !== undefined && output.BonusPayments !== null
-        ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context)
-        : undefined,
+      output.BonusPayments != null ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context) : undefined,
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
   } as any;
@@ -3617,10 +3537,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
   context: __SerdeContext
 ): ListHITsForQualificationTypeResponse => {
   return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
+    HITs: output.HITs != null ? deserializeAws_json1_1HITList(output.HITs, context) : undefined,
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
   } as any;
@@ -3628,10 +3545,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
 
 const deserializeAws_json1_1ListHITsResponse = (output: any, context: __SerdeContext): ListHITsResponse => {
   return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
+    HITs: output.HITs != null ? deserializeAws_json1_1HITList(output.HITs, context) : undefined,
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
   } as any;
@@ -3645,7 +3559,7 @@ const deserializeAws_json1_1ListQualificationRequestsResponse = (
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
     QualificationRequests:
-      output.QualificationRequests !== undefined && output.QualificationRequests !== null
+      output.QualificationRequests != null
         ? deserializeAws_json1_1QualificationRequestList(output.QualificationRequests, context)
         : undefined,
   } as any;
@@ -3659,7 +3573,7 @@ const deserializeAws_json1_1ListQualificationTypesResponse = (
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
     QualificationTypes:
-      output.QualificationTypes !== undefined && output.QualificationTypes !== null
+      output.QualificationTypes != null
         ? deserializeAws_json1_1QualificationTypeList(output.QualificationTypes, context)
         : undefined,
   } as any;
@@ -3670,10 +3584,7 @@ const deserializeAws_json1_1ListReviewableHITsResponse = (
   context: __SerdeContext
 ): ListReviewableHITsResponse => {
   return {
-    HITs:
-      output.HITs !== undefined && output.HITs !== null
-        ? deserializeAws_json1_1HITList(output.HITs, context)
-        : undefined,
+    HITs: output.HITs != null ? deserializeAws_json1_1HITList(output.HITs, context) : undefined,
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
   } as any;
@@ -3685,22 +3596,18 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
 ): ListReviewPolicyResultsForHITResponse => {
   return {
     AssignmentReviewPolicy:
-      output.AssignmentReviewPolicy !== undefined && output.AssignmentReviewPolicy !== null
+      output.AssignmentReviewPolicy != null
         ? deserializeAws_json1_1ReviewPolicy(output.AssignmentReviewPolicy, context)
         : undefined,
     AssignmentReviewReport:
-      output.AssignmentReviewReport !== undefined && output.AssignmentReviewReport !== null
+      output.AssignmentReviewReport != null
         ? deserializeAws_json1_1ReviewReport(output.AssignmentReviewReport, context)
         : undefined,
     HITId: __expectString(output.HITId),
     HITReviewPolicy:
-      output.HITReviewPolicy !== undefined && output.HITReviewPolicy !== null
-        ? deserializeAws_json1_1ReviewPolicy(output.HITReviewPolicy, context)
-        : undefined,
+      output.HITReviewPolicy != null ? deserializeAws_json1_1ReviewPolicy(output.HITReviewPolicy, context) : undefined,
     HITReviewReport:
-      output.HITReviewReport !== undefined && output.HITReviewReport !== null
-        ? deserializeAws_json1_1ReviewReport(output.HITReviewReport, context)
-        : undefined,
+      output.HITReviewReport != null ? deserializeAws_json1_1ReviewReport(output.HITReviewReport, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -3713,9 +3620,7 @@ const deserializeAws_json1_1ListWorkerBlocksResponse = (
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
     WorkerBlocks:
-      output.WorkerBlocks !== undefined && output.WorkerBlocks !== null
-        ? deserializeAws_json1_1WorkerBlockList(output.WorkerBlocks, context)
-        : undefined,
+      output.WorkerBlocks != null ? deserializeAws_json1_1WorkerBlockList(output.WorkerBlocks, context) : undefined,
   } as any;
 };
 
@@ -3727,7 +3632,7 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
     NextToken: __expectString(output.NextToken),
     NumResults: __expectInt32(output.NumResults),
     Qualifications:
-      output.Qualifications !== undefined && output.Qualifications !== null
+      output.Qualifications != null
         ? deserializeAws_json1_1QualificationList(output.Qualifications, context)
         : undefined,
   } as any;
@@ -3781,7 +3686,7 @@ const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
 const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __SerdeContext): NotifyWorkersResponse => {
   return {
     NotifyWorkersFailureStatuses:
-      output.NotifyWorkersFailureStatuses !== undefined && output.NotifyWorkersFailureStatuses !== null
+      output.NotifyWorkersFailureStatuses != null
         ? deserializeAws_json1_1NotifyWorkersFailureStatusList(output.NotifyWorkersFailureStatuses, context)
         : undefined,
   } as any;
@@ -3790,10 +3695,7 @@ const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __Ser
 const deserializeAws_json1_1ParameterMapEntry = (output: any, context: __SerdeContext): ParameterMapEntry => {
   return {
     Key: __expectString(output.Key),
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1StringList(output.Values, context)
-        : undefined,
+    Values: output.Values != null ? deserializeAws_json1_1StringList(output.Values, context) : undefined,
   } as any;
 };
 
@@ -3813,13 +3715,8 @@ const deserializeAws_json1_1PolicyParameter = (output: any, context: __SerdeCont
   return {
     Key: __expectString(output.Key),
     MapEntries:
-      output.MapEntries !== undefined && output.MapEntries !== null
-        ? deserializeAws_json1_1ParameterMapEntryList(output.MapEntries, context)
-        : undefined,
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1StringList(output.Values, context)
-        : undefined,
+      output.MapEntries != null ? deserializeAws_json1_1ParameterMapEntryList(output.MapEntries, context) : undefined,
+    Values: output.Values != null ? deserializeAws_json1_1StringList(output.Values, context) : undefined,
   } as any;
 };
 
@@ -3838,14 +3735,9 @@ const deserializeAws_json1_1PolicyParameterList = (output: any, context: __Serde
 const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContext): Qualification => {
   return {
     GrantTime:
-      output.GrantTime !== undefined && output.GrantTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime)))
-        : undefined,
+      output.GrantTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.GrantTime))) : undefined,
     IntegerValue: __expectInt32(output.IntegerValue),
-    LocaleValue:
-      output.LocaleValue !== undefined && output.LocaleValue !== null
-        ? deserializeAws_json1_1Locale(output.LocaleValue, context)
-        : undefined,
+    LocaleValue: output.LocaleValue != null ? deserializeAws_json1_1Locale(output.LocaleValue, context) : undefined,
     QualificationTypeId: __expectString(output.QualificationTypeId),
     Status: __expectString(output.Status),
     WorkerId: __expectString(output.WorkerId),
@@ -3870,9 +3762,7 @@ const deserializeAws_json1_1QualificationRequest = (output: any, context: __Serd
     QualificationRequestId: __expectString(output.QualificationRequestId),
     QualificationTypeId: __expectString(output.QualificationTypeId),
     SubmitTime:
-      output.SubmitTime !== undefined && output.SubmitTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
-        : undefined,
+      output.SubmitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime))) : undefined,
     Test: __expectString(output.Test),
     WorkerId: __expectString(output.WorkerId),
   } as any;
@@ -3901,13 +3791,9 @@ const deserializeAws_json1_1QualificationRequirement = (
     ActionsGuarded: __expectString(output.ActionsGuarded),
     Comparator: __expectString(output.Comparator),
     IntegerValues:
-      output.IntegerValues !== undefined && output.IntegerValues !== null
-        ? deserializeAws_json1_1IntegerList(output.IntegerValues, context)
-        : undefined,
+      output.IntegerValues != null ? deserializeAws_json1_1IntegerList(output.IntegerValues, context) : undefined,
     LocaleValues:
-      output.LocaleValues !== undefined && output.LocaleValues !== null
-        ? deserializeAws_json1_1LocaleList(output.LocaleValues, context)
-        : undefined,
+      output.LocaleValues != null ? deserializeAws_json1_1LocaleList(output.LocaleValues, context) : undefined,
     QualificationTypeId: __expectString(output.QualificationTypeId),
     RequiredToPreview: __expectBoolean(output.RequiredToPreview),
   } as any;
@@ -3934,7 +3820,7 @@ const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeCo
     AutoGranted: __expectBoolean(output.AutoGranted),
     AutoGrantedValue: __expectInt32(output.AutoGrantedValue),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
@@ -3987,7 +3873,7 @@ const deserializeAws_json1_1ReviewActionDetail = (output: any, context: __SerdeC
     ActionId: __expectString(output.ActionId),
     ActionName: __expectString(output.ActionName),
     CompleteTime:
-      output.CompleteTime !== undefined && output.CompleteTime !== null
+      output.CompleteTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompleteTime)))
         : undefined,
     ErrorCode: __expectString(output.ErrorCode),
@@ -4013,9 +3899,7 @@ const deserializeAws_json1_1ReviewActionDetailList = (output: any, context: __Se
 const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext): ReviewPolicy => {
   return {
     Parameters:
-      output.Parameters !== undefined && output.Parameters !== null
-        ? deserializeAws_json1_1PolicyParameterList(output.Parameters, context)
-        : undefined,
+      output.Parameters != null ? deserializeAws_json1_1PolicyParameterList(output.Parameters, context) : undefined,
     PolicyName: __expectString(output.PolicyName),
   } as any;
 };
@@ -4023,11 +3907,11 @@ const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ReviewReport = (output: any, context: __SerdeContext): ReviewReport => {
   return {
     ReviewActions:
-      output.ReviewActions !== undefined && output.ReviewActions !== null
+      output.ReviewActions != null
         ? deserializeAws_json1_1ReviewActionDetailList(output.ReviewActions, context)
         : undefined,
     ReviewResults:
-      output.ReviewResults !== undefined && output.ReviewResults !== null
+      output.ReviewResults != null
         ? deserializeAws_json1_1ReviewResultDetailList(output.ReviewResults, context)
         : undefined,
   } as any;
@@ -4120,7 +4004,7 @@ const deserializeAws_json1_1UpdateQualificationTypeResponse = (
 ): UpdateQualificationTypeResponse => {
   return {
     QualificationType:
-      output.QualificationType !== undefined && output.QualificationType !== null
+      output.QualificationType != null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
         : undefined,
   } as any;

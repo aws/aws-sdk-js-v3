@@ -46,10 +46,10 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
     "/realtime-contact-analysis/analysis-segments";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
-    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -206,11 +206,11 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
 const deserializeAws_restJson1Categories = (output: any, context: __SerdeContext): Categories => {
   return {
     MatchedCategories:
-      output.MatchedCategories !== undefined && output.MatchedCategories !== null
+      output.MatchedCategories != null
         ? deserializeAws_restJson1MatchedCategories(output.MatchedCategories, context)
         : undefined,
     MatchedDetails:
-      output.MatchedDetails !== undefined && output.MatchedDetails !== null
+      output.MatchedDetails != null
         ? deserializeAws_restJson1MatchedDetails(output.MatchedDetails, context)
         : undefined,
   } as any;
@@ -219,7 +219,7 @@ const deserializeAws_restJson1Categories = (output: any, context: __SerdeContext
 const deserializeAws_restJson1CategoryDetails = (output: any, context: __SerdeContext): CategoryDetails => {
   return {
     PointsOfInterest:
-      output.PointsOfInterest !== undefined && output.PointsOfInterest !== null
+      output.PointsOfInterest != null
         ? deserializeAws_restJson1PointsOfInterest(output.PointsOfInterest, context)
         : undefined,
   } as any;
@@ -235,7 +235,7 @@ const deserializeAws_restJson1CharacterOffsets = (output: any, context: __SerdeC
 const deserializeAws_restJson1IssueDetected = (output: any, context: __SerdeContext): IssueDetected => {
   return {
     CharacterOffsets:
-      output.CharacterOffsets !== undefined && output.CharacterOffsets !== null
+      output.CharacterOffsets != null
         ? deserializeAws_restJson1CharacterOffsets(output.CharacterOffsets, context)
         : undefined,
   } as any;
@@ -304,14 +304,8 @@ const deserializeAws_restJson1RealtimeContactAnalysisSegment = (
   context: __SerdeContext
 ): RealtimeContactAnalysisSegment => {
   return {
-    Categories:
-      output.Categories !== undefined && output.Categories !== null
-        ? deserializeAws_restJson1Categories(output.Categories, context)
-        : undefined,
-    Transcript:
-      output.Transcript !== undefined && output.Transcript !== null
-        ? deserializeAws_restJson1Transcript(output.Transcript, context)
-        : undefined,
+    Categories: output.Categories != null ? deserializeAws_restJson1Categories(output.Categories, context) : undefined,
+    Transcript: output.Transcript != null ? deserializeAws_restJson1Transcript(output.Transcript, context) : undefined,
   } as any;
 };
 
@@ -337,7 +331,7 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
     EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
     Id: __expectString(output.Id),
     IssuesDetected:
-      output.IssuesDetected !== undefined && output.IssuesDetected !== null
+      output.IssuesDetected != null
         ? deserializeAws_restJson1IssuesDetected(output.IssuesDetected, context)
         : undefined,
     ParticipantId: __expectString(output.ParticipantId),

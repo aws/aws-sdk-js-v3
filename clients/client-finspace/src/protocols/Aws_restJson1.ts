@@ -50,22 +50,18 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
   let body: any;
   body = JSON.stringify({
-    ...(input.dataBundles !== undefined &&
-      input.dataBundles !== null && { dataBundles: serializeAws_restJson1DataBundleArns(input.dataBundles, context) }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.federationMode !== undefined &&
-      input.federationMode !== null && { federationMode: input.federationMode }),
-    ...(input.federationParameters !== undefined &&
-      input.federationParameters !== null && {
-        federationParameters: serializeAws_restJson1FederationParameters(input.federationParameters, context),
-      }),
-    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.superuserParameters !== undefined &&
-      input.superuserParameters !== null && {
-        superuserParameters: serializeAws_restJson1SuperuserParameters(input.superuserParameters, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.dataBundles != null && { dataBundles: serializeAws_restJson1DataBundleArns(input.dataBundles, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.federationMode != null && { federationMode: input.federationMode }),
+    ...(input.federationParameters != null && {
+      federationParameters: serializeAws_restJson1FederationParameters(input.federationParameters, context),
+    }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.superuserParameters != null && {
+      superuserParameters: serializeAws_restJson1SuperuserParameters(input.superuserParameters, context),
+    }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -208,7 +204,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -274,14 +270,12 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.federationMode !== undefined &&
-      input.federationMode !== null && { federationMode: input.federationMode }),
-    ...(input.federationParameters !== undefined &&
-      input.federationParameters !== null && {
-        federationParameters: serializeAws_restJson1FederationParameters(input.federationParameters, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.federationMode != null && { federationMode: input.federationMode }),
+    ...(input.federationParameters != null && {
+      federationParameters: serializeAws_restJson1FederationParameters(input.federationParameters, context),
+    }),
+    ...(input.name != null && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -870,25 +864,22 @@ const serializeAws_restJson1DataBundleArns = (input: string[], context: __SerdeC
 
 const serializeAws_restJson1FederationParameters = (input: FederationParameters, context: __SerdeContext): any => {
   return {
-    ...(input.applicationCallBackURL !== undefined &&
-      input.applicationCallBackURL !== null && { applicationCallBackURL: input.applicationCallBackURL }),
-    ...(input.attributeMap !== undefined &&
-      input.attributeMap !== null && { attributeMap: serializeAws_restJson1AttributeMap(input.attributeMap, context) }),
-    ...(input.federationProviderName !== undefined &&
-      input.federationProviderName !== null && { federationProviderName: input.federationProviderName }),
-    ...(input.federationURN !== undefined && input.federationURN !== null && { federationURN: input.federationURN }),
-    ...(input.samlMetadataDocument !== undefined &&
-      input.samlMetadataDocument !== null && { samlMetadataDocument: input.samlMetadataDocument }),
-    ...(input.samlMetadataURL !== undefined &&
-      input.samlMetadataURL !== null && { samlMetadataURL: input.samlMetadataURL }),
+    ...(input.applicationCallBackURL != null && { applicationCallBackURL: input.applicationCallBackURL }),
+    ...(input.attributeMap != null && {
+      attributeMap: serializeAws_restJson1AttributeMap(input.attributeMap, context),
+    }),
+    ...(input.federationProviderName != null && { federationProviderName: input.federationProviderName }),
+    ...(input.federationURN != null && { federationURN: input.federationURN }),
+    ...(input.samlMetadataDocument != null && { samlMetadataDocument: input.samlMetadataDocument }),
+    ...(input.samlMetadataURL != null && { samlMetadataURL: input.samlMetadataURL }),
   };
 };
 
 const serializeAws_restJson1SuperuserParameters = (input: SuperuserParameters, context: __SerdeContext): any => {
   return {
-    ...(input.emailAddress !== undefined && input.emailAddress !== null && { emailAddress: input.emailAddress }),
-    ...(input.firstName !== undefined && input.firstName !== null && { firstName: input.firstName }),
-    ...(input.lastName !== undefined && input.lastName !== null && { lastName: input.lastName }),
+    ...(input.emailAddress != null && { emailAddress: input.emailAddress }),
+    ...(input.firstName != null && { firstName: input.firstName }),
+    ...(input.lastName != null && { lastName: input.lastName }),
   };
 };
 
@@ -926,7 +917,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     environmentUrl: __expectString(output.environmentUrl),
     federationMode: __expectString(output.federationMode),
     federationParameters:
-      output.federationParameters !== undefined && output.federationParameters !== null
+      output.federationParameters != null
         ? deserializeAws_restJson1FederationParameters(output.federationParameters, context)
         : undefined,
     kmsKeyId: __expectString(output.kmsKeyId),
@@ -952,9 +943,7 @@ const deserializeAws_restJson1FederationParameters = (output: any, context: __Se
   return {
     applicationCallBackURL: __expectString(output.applicationCallBackURL),
     attributeMap:
-      output.attributeMap !== undefined && output.attributeMap !== null
-        ? deserializeAws_restJson1AttributeMap(output.attributeMap, context)
-        : undefined,
+      output.attributeMap != null ? deserializeAws_restJson1AttributeMap(output.attributeMap, context) : undefined,
     federationProviderName: __expectString(output.federationProviderName),
     federationURN: __expectString(output.federationURN),
     samlMetadataDocument: __expectString(output.samlMetadataDocument),

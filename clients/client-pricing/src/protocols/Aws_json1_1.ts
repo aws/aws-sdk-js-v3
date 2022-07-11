@@ -307,18 +307,18 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 
 const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.FormatVersion !== undefined && input.FormatVersion !== null && { FormatVersion: input.FormatVersion }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
+    ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Field !== undefined && input.Field !== null && { Field: input.Field }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Field != null && { Field: input.Field }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -338,21 +338,20 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
+    ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
   };
 };
 
 const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.FormatVersion !== undefined && input.FormatVersion !== null && { FormatVersion: input.FormatVersion }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.FormatVersion != null && { FormatVersion: input.FormatVersion }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceCode != null && { ServiceCode: input.ServiceCode }),
   };
 };
 
@@ -393,10 +392,7 @@ const deserializeAws_json1_1DescribeServicesResponse = (
   return {
     FormatVersion: __expectString(output.FormatVersion),
     NextToken: __expectString(output.NextToken),
-    Services:
-      output.Services !== undefined && output.Services !== null
-        ? deserializeAws_json1_1ServiceList(output.Services, context)
-        : undefined,
+    Services: output.Services != null ? deserializeAws_json1_1ServiceList(output.Services, context) : undefined,
   } as any;
 };
 
@@ -415,7 +411,7 @@ const deserializeAws_json1_1GetAttributeValuesResponse = (
 ): GetAttributeValuesResponse => {
   return {
     AttributeValues:
-      output.AttributeValues !== undefined && output.AttributeValues !== null
+      output.AttributeValues != null
         ? deserializeAws_json1_1AttributeValueList(output.AttributeValues, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -427,9 +423,7 @@ const deserializeAws_json1_1GetProductsResponse = (output: any, context: __Serde
     FormatVersion: __expectString(output.FormatVersion),
     NextToken: __expectString(output.NextToken),
     PriceList:
-      output.PriceList !== undefined && output.PriceList !== null
-        ? deserializeAws_json1_1PriceListJsonItems(output.PriceList, context)
-        : undefined,
+      output.PriceList != null ? deserializeAws_json1_1PriceListJsonItems(output.PriceList, context) : undefined,
   } as any;
 };
 
@@ -481,7 +475,7 @@ const deserializeAws_json1_1PriceListJsonItems = (
 const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
     AttributeNames:
-      output.AttributeNames !== undefined && output.AttributeNames !== null
+      output.AttributeNames != null
         ? deserializeAws_json1_1AttributeNameList(output.AttributeNames, context)
         : undefined,
     ServiceCode: __expectString(output.ServiceCode),

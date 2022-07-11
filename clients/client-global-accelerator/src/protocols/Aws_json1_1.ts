@@ -3612,15 +3612,13 @@ const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined &&
-      input.EndpointConfigurations !== null && {
-        EndpointConfigurations: serializeAws_json1_1CustomRoutingEndpointConfigurations(
-          input.EndpointConfigurations,
-          context
-        ),
-      }),
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointConfigurations != null && {
+      EndpointConfigurations: serializeAws_json1_1CustomRoutingEndpointConfigurations(
+        input.EndpointConfigurations,
+        context
+      ),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -3629,7 +3627,7 @@ const serializeAws_json1_1AdvertiseByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
+    ...(input.Cidr != null && { Cidr: input.Cidr }),
   };
 };
 
@@ -3638,19 +3636,15 @@ const serializeAws_json1_1AllowCustomRoutingTrafficRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowAllTrafficToEndpoint !== undefined &&
-      input.AllowAllTrafficToEndpoint !== null && { AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint }),
-    ...(input.DestinationAddresses !== undefined &&
-      input.DestinationAddresses !== null && {
-        DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
-      }),
-    ...(input.DestinationPorts !== undefined &&
-      input.DestinationPorts !== null && {
-        DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
-      }),
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
+    ...(input.AllowAllTrafficToEndpoint != null && { AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint }),
+    ...(input.DestinationAddresses != null && {
+      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+    }),
+    ...(input.DestinationPorts != null && {
+      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -3659,8 +3653,8 @@ const serializeAws_json1_1CidrAuthorizationContext = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Message !== undefined && input.Message !== null && { Message: input.Message }),
-    ...(input.Signature !== undefined && input.Signature !== null && { Signature: input.Signature }),
+    ...(input.Message != null && { Message: input.Message }),
+    ...(input.Signature != null && { Signature: input.Signature }),
   };
 };
 
@@ -3669,13 +3663,12 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
-    ...(input.IpAddresses !== undefined &&
-      input.IpAddresses !== null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
+    ...(input.IpAddresses != null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3684,13 +3677,12 @@ const serializeAws_json1_1CreateCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
-    ...(input.IpAddresses !== undefined &&
-      input.IpAddresses !== null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
+    ...(input.IpAddresses != null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3699,17 +3691,15 @@ const serializeAws_json1_1CreateCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationConfigurations !== undefined &&
-      input.DestinationConfigurations !== null && {
-        DestinationConfigurations: serializeAws_json1_1CustomRoutingDestinationConfigurations(
-          input.DestinationConfigurations,
-          context
-        ),
-      }),
-    ...(input.EndpointGroupRegion !== undefined &&
-      input.EndpointGroupRegion !== null && { EndpointGroupRegion: input.EndpointGroupRegion }),
+    ...(input.DestinationConfigurations != null && {
+      DestinationConfigurations: serializeAws_json1_1CustomRoutingDestinationConfigurations(
+        input.DestinationConfigurations,
+        context
+      ),
+    }),
+    ...(input.EndpointGroupRegion != null && { EndpointGroupRegion: input.EndpointGroupRegion }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -3718,11 +3708,9 @@ const serializeAws_json1_1CreateCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges !== undefined &&
-      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.PortRanges != null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -3731,43 +3719,33 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined &&
-      input.EndpointConfigurations !== null && {
-        EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
-      }),
-    ...(input.EndpointGroupRegion !== undefined &&
-      input.EndpointGroupRegion !== null && { EndpointGroupRegion: input.EndpointGroupRegion }),
-    ...(input.HealthCheckIntervalSeconds !== undefined &&
-      input.HealthCheckIntervalSeconds !== null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
-    ...(input.HealthCheckPath !== undefined &&
-      input.HealthCheckPath !== null && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort !== undefined &&
-      input.HealthCheckPort !== null && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol !== undefined &&
-      input.HealthCheckProtocol !== null && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.EndpointConfigurations != null && {
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
+    }),
+    ...(input.EndpointGroupRegion != null && { EndpointGroupRegion: input.EndpointGroupRegion }),
+    ...(input.HealthCheckIntervalSeconds != null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
+    ...(input.HealthCheckPath != null && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort != null && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol != null && { HealthCheckProtocol: input.HealthCheckProtocol }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortOverrides !== undefined &&
-      input.PortOverrides !== null && {
-        PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
-      }),
-    ...(input.ThresholdCount !== undefined &&
-      input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage !== undefined &&
-      input.TrafficDialPercentage !== null && { TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage) }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortOverrides != null && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
+    ...(input.ThresholdCount != null && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage != null && {
+      TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage),
+    }),
   };
 };
 
 const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.ClientAffinity !== undefined &&
-      input.ClientAffinity !== null && { ClientAffinity: input.ClientAffinity }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.ClientAffinity != null && { ClientAffinity: input.ClientAffinity }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges !== undefined &&
-      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.PortRanges != null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.Protocol != null && { Protocol: input.Protocol }),
   };
 };
 
@@ -3776,10 +3754,9 @@ const serializeAws_json1_1CustomRoutingDestinationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
-    ...(input.Protocols !== undefined &&
-      input.Protocols !== null && { Protocols: serializeAws_json1_1CustomRoutingProtocols(input.Protocols, context) }),
-    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
+    ...(input.FromPort != null && { FromPort: input.FromPort }),
+    ...(input.Protocols != null && { Protocols: serializeAws_json1_1CustomRoutingProtocols(input.Protocols, context) }),
+    ...(input.ToPort != null && { ToPort: input.ToPort }),
   };
 };
 
@@ -3802,7 +3779,7 @@ const serializeAws_json1_1CustomRoutingEndpointConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -3839,8 +3816,7 @@ const serializeAws_json1_1DeleteAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3849,8 +3825,7 @@ const serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3859,8 +3834,7 @@ const serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -3869,7 +3843,7 @@ const serializeAws_json1_1DeleteCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -3878,14 +3852,13 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
 const serializeAws_json1_1DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -3894,19 +3867,15 @@ const serializeAws_json1_1DenyCustomRoutingTrafficRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DenyAllTrafficToEndpoint !== undefined &&
-      input.DenyAllTrafficToEndpoint !== null && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
-    ...(input.DestinationAddresses !== undefined &&
-      input.DestinationAddresses !== null && {
-        DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
-      }),
-    ...(input.DestinationPorts !== undefined &&
-      input.DestinationPorts !== null && {
-        DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
-      }),
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
+    ...(input.DenyAllTrafficToEndpoint != null && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
+    ...(input.DestinationAddresses != null && {
+      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+    }),
+    ...(input.DestinationPorts != null && {
+      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -3915,7 +3884,7 @@ const serializeAws_json1_1DeprovisionByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
+    ...(input.Cidr != null && { Cidr: input.Cidr }),
   };
 };
 
@@ -3924,8 +3893,7 @@ const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3934,8 +3902,7 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3944,8 +3911,7 @@ const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3954,8 +3920,7 @@ const serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -3964,8 +3929,7 @@ const serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -3974,7 +3938,7 @@ const serializeAws_json1_1DescribeCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -3983,14 +3947,13 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
 const serializeAws_json1_1DescribeListenerRequest = (input: DescribeListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -4018,10 +3981,11 @@ const serializeAws_json1_1DestinationPorts = (input: number[], context: __SerdeC
 
 const serializeAws_json1_1EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ClientIPPreservationEnabled !== undefined &&
-      input.ClientIPPreservationEnabled !== null && { ClientIPPreservationEnabled: input.ClientIPPreservationEnabled }),
-    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
-    ...(input.Weight !== undefined && input.Weight !== null && { Weight: input.Weight }),
+    ...(input.ClientIPPreservationEnabled != null && {
+      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
+    }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
+    ...(input.Weight != null && { Weight: input.Weight }),
   };
 };
 
@@ -4060,15 +4024,15 @@ const serializeAws_json1_1IpAddresses = (input: string[], context: __SerdeContex
 
 const serializeAws_json1_1ListAcceleratorsRequest = (input: ListAcceleratorsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListByoipCidrsRequest = (input: ListByoipCidrsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4077,8 +4041,8 @@ const serializeAws_json1_1ListCustomRoutingAcceleratorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4087,9 +4051,9 @@ const serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4098,10 +4062,9 @@ const serializeAws_json1_1ListCustomRoutingListenersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4110,11 +4073,10 @@ const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationAddress !== undefined &&
-      input.DestinationAddress !== null && { DestinationAddress: input.DestinationAddress }),
-    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DestinationAddress != null && { DestinationAddress: input.DestinationAddress }),
+    ...(input.EndpointId != null && { EndpointId: input.EndpointId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4123,12 +4085,10 @@ const serializeAws_json1_1ListCustomRoutingPortMappingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4137,18 +4097,17 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListListenersRequest = (input: ListListenersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4157,14 +4116,14 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1PortOverride = (input: PortOverride, context: __SerdeContext): any => {
   return {
-    ...(input.EndpointPort !== undefined && input.EndpointPort !== null && { EndpointPort: input.EndpointPort }),
-    ...(input.ListenerPort !== undefined && input.ListenerPort !== null && { ListenerPort: input.ListenerPort }),
+    ...(input.EndpointPort != null && { EndpointPort: input.EndpointPort }),
+    ...(input.ListenerPort != null && { ListenerPort: input.ListenerPort }),
   };
 };
 
@@ -4181,8 +4140,8 @@ const serializeAws_json1_1PortOverrides = (input: PortOverride[], context: __Ser
 
 const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
-    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
+    ...(input.FromPort != null && { FromPort: input.FromPort }),
+    ...(input.ToPort != null && { ToPort: input.ToPort }),
   };
 };
 
@@ -4202,11 +4161,10 @@ const serializeAws_json1_1ProvisionByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
-    ...(input.CidrAuthorizationContext !== undefined &&
-      input.CidrAuthorizationContext !== null && {
-        CidrAuthorizationContext: serializeAws_json1_1CidrAuthorizationContext(input.CidrAuthorizationContext, context),
-      }),
+    ...(input.Cidr != null && { Cidr: input.Cidr }),
+    ...(input.CidrAuthorizationContext != null && {
+      CidrAuthorizationContext: serializeAws_json1_1CidrAuthorizationContext(input.CidrAuthorizationContext, context),
+    }),
   };
 };
 
@@ -4215,17 +4173,15 @@ const serializeAws_json1_1RemoveCustomRoutingEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointIds !== undefined &&
-      input.EndpointIds !== null && { EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context) }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointIds != null && { EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4242,8 +4198,8 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4260,9 +4216,8 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -4271,14 +4226,10 @@ const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled !== undefined &&
-      input.FlowLogsEnabled !== null && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket !== undefined &&
-      input.FlowLogsS3Bucket !== null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix !== undefined &&
-      input.FlowLogsS3Prefix !== null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled != null && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket != null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix != null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
   };
 };
 
@@ -4287,11 +4238,10 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -4300,14 +4250,10 @@ const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled !== undefined &&
-      input.FlowLogsEnabled !== null && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket !== undefined &&
-      input.FlowLogsS3Bucket !== null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix !== undefined &&
-      input.FlowLogsS3Prefix !== null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled != null && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket != null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix != null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
   };
 };
 
@@ -4316,11 +4262,10 @@ const serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined &&
-      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.AcceleratorArn != null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.IpAddressType != null && { IpAddressType: input.IpAddressType }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -4329,9 +4274,8 @@ const serializeAws_json1_1UpdateCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges !== undefined &&
-      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortRanges != null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -4340,39 +4284,30 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined &&
-      input.EndpointConfigurations !== null && {
-        EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
-      }),
-    ...(input.EndpointGroupArn !== undefined &&
-      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.HealthCheckIntervalSeconds !== undefined &&
-      input.HealthCheckIntervalSeconds !== null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
-    ...(input.HealthCheckPath !== undefined &&
-      input.HealthCheckPath !== null && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort !== undefined &&
-      input.HealthCheckPort !== null && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol !== undefined &&
-      input.HealthCheckProtocol !== null && { HealthCheckProtocol: input.HealthCheckProtocol }),
-    ...(input.PortOverrides !== undefined &&
-      input.PortOverrides !== null && {
-        PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
-      }),
-    ...(input.ThresholdCount !== undefined &&
-      input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage !== undefined &&
-      input.TrafficDialPercentage !== null && { TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage) }),
+    ...(input.EndpointConfigurations != null && {
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
+    }),
+    ...(input.EndpointGroupArn != null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.HealthCheckIntervalSeconds != null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
+    ...(input.HealthCheckPath != null && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort != null && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol != null && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.PortOverrides != null && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
+    ...(input.ThresholdCount != null && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage != null && {
+      TrafficDialPercentage: __serializeFloat(input.TrafficDialPercentage),
+    }),
   };
 };
 
 const serializeAws_json1_1UpdateListenerRequest = (input: UpdateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientAffinity !== undefined &&
-      input.ClientAffinity !== null && { ClientAffinity: input.ClientAffinity }),
-    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges !== undefined &&
-      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.ClientAffinity != null && { ClientAffinity: input.ClientAffinity }),
+    ...(input.ListenerArn != null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortRanges != null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.Protocol != null && { Protocol: input.Protocol }),
   };
 };
 
@@ -4381,7 +4316,7 @@ const serializeAws_json1_1WithdrawByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
+    ...(input.Cidr != null && { Cidr: input.Cidr }),
   };
 };
 
@@ -4389,18 +4324,15 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
   return {
     AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     Enabled: __expectBoolean(output.Enabled),
     IpAddressType: __expectString(output.IpAddressType),
-    IpSets:
-      output.IpSets !== undefined && output.IpSets !== null
-        ? deserializeAws_json1_1IpSets(output.IpSets, context)
-        : undefined,
+    IpSets: output.IpSets != null ? deserializeAws_json1_1IpSets(output.IpSets, context) : undefined,
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
@@ -4458,7 +4390,7 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsResponse = (
 ): AddCustomRoutingEndpointsResponse => {
   return {
     EndpointDescriptions:
-      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+      output.EndpointDescriptions != null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
@@ -4470,10 +4402,7 @@ const deserializeAws_json1_1AdvertiseByoipCidrResponse = (
   context: __SerdeContext
 ): AdvertiseByoipCidrResponse => {
   return {
-    ByoipCidr:
-      output.ByoipCidr !== undefined && output.ByoipCidr !== null
-        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
-        : undefined,
+    ByoipCidr: output.ByoipCidr != null ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context) : undefined,
   } as any;
 };
 
@@ -4498,10 +4427,7 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
 const deserializeAws_json1_1ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   return {
     Cidr: __expectString(output.Cidr),
-    Events:
-      output.Events !== undefined && output.Events !== null
-        ? deserializeAws_json1_1ByoipCidrEvents(output.Events, context)
-        : undefined,
+    Events: output.Events != null ? deserializeAws_json1_1ByoipCidrEvents(output.Events, context) : undefined,
     State: __expectString(output.State),
   } as any;
 };
@@ -4510,9 +4436,7 @@ const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeConte
   return {
     Message: __expectString(output.Message),
     Timestamp:
-      output.Timestamp !== undefined && output.Timestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
   } as any;
 };
 
@@ -4561,9 +4485,7 @@ const deserializeAws_json1_1CreateAcceleratorResponse = (
 ): CreateAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
-        ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
-        : undefined,
+      output.Accelerator != null ? deserializeAws_json1_1Accelerator(output.Accelerator, context) : undefined,
   } as any;
 };
 
@@ -4573,7 +4495,7 @@ const deserializeAws_json1_1CreateCustomRoutingAcceleratorResponse = (
 ): CreateCustomRoutingAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
+      output.Accelerator != null
         ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
         : undefined,
   } as any;
@@ -4585,7 +4507,7 @@ const deserializeAws_json1_1CreateCustomRoutingEndpointGroupResponse = (
 ): CreateCustomRoutingEndpointGroupResponse => {
   return {
     EndpointGroup:
-      output.EndpointGroup !== undefined && output.EndpointGroup !== null
+      output.EndpointGroup != null
         ? deserializeAws_json1_1CustomRoutingEndpointGroup(output.EndpointGroup, context)
         : undefined,
   } as any;
@@ -4597,9 +4519,7 @@ const deserializeAws_json1_1CreateCustomRoutingListenerResponse = (
 ): CreateCustomRoutingListenerResponse => {
   return {
     Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
-        : undefined,
+      output.Listener != null ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -4609,18 +4529,13 @@ const deserializeAws_json1_1CreateEndpointGroupResponse = (
 ): CreateEndpointGroupResponse => {
   return {
     EndpointGroup:
-      output.EndpointGroup !== undefined && output.EndpointGroup !== null
-        ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
-        : undefined,
+      output.EndpointGroup != null ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateListenerResponse = (output: any, context: __SerdeContext): CreateListenerResponse => {
   return {
-    Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1Listener(output.Listener, context)
-        : undefined,
+    Listener: output.Listener != null ? deserializeAws_json1_1Listener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -4631,18 +4546,15 @@ const deserializeAws_json1_1CustomRoutingAccelerator = (
   return {
     AcceleratorArn: __expectString(output.AcceleratorArn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
     Enabled: __expectBoolean(output.Enabled),
     IpAddressType: __expectString(output.IpAddressType),
-    IpSets:
-      output.IpSets !== undefined && output.IpSets !== null
-        ? deserializeAws_json1_1IpSets(output.IpSets, context)
-        : undefined,
+    IpSets: output.IpSets != null ? deserializeAws_json1_1IpSets(output.IpSets, context) : undefined,
     LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+      output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     Name: __expectString(output.Name),
@@ -4682,10 +4594,7 @@ const deserializeAws_json1_1CustomRoutingDestinationDescription = (
 ): CustomRoutingDestinationDescription => {
   return {
     FromPort: __expectInt32(output.FromPort),
-    Protocols:
-      output.Protocols !== undefined && output.Protocols !== null
-        ? deserializeAws_json1_1Protocols(output.Protocols, context)
-        : undefined,
+    Protocols: output.Protocols != null ? deserializeAws_json1_1Protocols(output.Protocols, context) : undefined,
     ToPort: __expectInt32(output.ToPort),
   } as any;
 };
@@ -4735,11 +4644,11 @@ const deserializeAws_json1_1CustomRoutingEndpointGroup = (
 ): CustomRoutingEndpointGroup => {
   return {
     DestinationDescriptions:
-      output.DestinationDescriptions !== undefined && output.DestinationDescriptions !== null
+      output.DestinationDescriptions != null
         ? deserializeAws_json1_1CustomRoutingDestinationDescriptions(output.DestinationDescriptions, context)
         : undefined,
     EndpointDescriptions:
-      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+      output.EndpointDescriptions != null
         ? deserializeAws_json1_1CustomRoutingEndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
@@ -4765,10 +4674,7 @@ const deserializeAws_json1_1CustomRoutingEndpointGroups = (
 const deserializeAws_json1_1CustomRoutingListener = (output: any, context: __SerdeContext): CustomRoutingListener => {
   return {
     ListenerArn: __expectString(output.ListenerArn),
-    PortRanges:
-      output.PortRanges !== undefined && output.PortRanges !== null
-        ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
-        : undefined,
+    PortRanges: output.PortRanges != null ? deserializeAws_json1_1PortRanges(output.PortRanges, context) : undefined,
   } as any;
 };
 
@@ -4807,10 +4713,7 @@ const deserializeAws_json1_1DeprovisionByoipCidrResponse = (
   context: __SerdeContext
 ): DeprovisionByoipCidrResponse => {
   return {
-    ByoipCidr:
-      output.ByoipCidr !== undefined && output.ByoipCidr !== null
-        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
-        : undefined,
+    ByoipCidr: output.ByoipCidr != null ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context) : undefined,
   } as any;
 };
 
@@ -4820,7 +4723,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesResponse = (
 ): DescribeAcceleratorAttributesResponse => {
   return {
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+      output.AcceleratorAttributes != null
         ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined,
   } as any;
@@ -4832,9 +4735,7 @@ const deserializeAws_json1_1DescribeAcceleratorResponse = (
 ): DescribeAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
-        ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
-        : undefined,
+      output.Accelerator != null ? deserializeAws_json1_1Accelerator(output.Accelerator, context) : undefined,
   } as any;
 };
 
@@ -4844,7 +4745,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesResponse =
 ): DescribeCustomRoutingAcceleratorAttributesResponse => {
   return {
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+      output.AcceleratorAttributes != null
         ? deserializeAws_json1_1CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined,
   } as any;
@@ -4856,7 +4757,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorResponse = (
 ): DescribeCustomRoutingAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
+      output.Accelerator != null
         ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
         : undefined,
   } as any;
@@ -4868,7 +4769,7 @@ const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupResponse = (
 ): DescribeCustomRoutingEndpointGroupResponse => {
   return {
     EndpointGroup:
-      output.EndpointGroup !== undefined && output.EndpointGroup !== null
+      output.EndpointGroup != null
         ? deserializeAws_json1_1CustomRoutingEndpointGroup(output.EndpointGroup, context)
         : undefined,
   } as any;
@@ -4880,9 +4781,7 @@ const deserializeAws_json1_1DescribeCustomRoutingListenerResponse = (
 ): DescribeCustomRoutingListenerResponse => {
   return {
     Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
-        : undefined,
+      output.Listener != null ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -4892,9 +4791,7 @@ const deserializeAws_json1_1DescribeEndpointGroupResponse = (
 ): DescribeEndpointGroupResponse => {
   return {
     EndpointGroup:
-      output.EndpointGroup !== undefined && output.EndpointGroup !== null
-        ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
-        : undefined,
+      output.EndpointGroup != null ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context) : undefined,
   } as any;
 };
 
@@ -4903,10 +4800,7 @@ const deserializeAws_json1_1DescribeListenerResponse = (
   context: __SerdeContext
 ): DescribeListenerResponse => {
   return {
-    Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1Listener(output.Listener, context)
-        : undefined,
+    Listener: output.Listener != null ? deserializeAws_json1_1Listener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -4914,11 +4808,11 @@ const deserializeAws_json1_1DestinationPortMapping = (output: any, context: __Se
   return {
     AcceleratorArn: __expectString(output.AcceleratorArn),
     AcceleratorSocketAddresses:
-      output.AcceleratorSocketAddresses !== undefined && output.AcceleratorSocketAddresses !== null
+      output.AcceleratorSocketAddresses != null
         ? deserializeAws_json1_1SocketAddresses(output.AcceleratorSocketAddresses, context)
         : undefined,
     DestinationSocketAddress:
-      output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
+      output.DestinationSocketAddress != null
         ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
         : undefined,
     DestinationTrafficState: __expectString(output.DestinationTrafficState),
@@ -4978,7 +4872,7 @@ const deserializeAws_json1_1EndpointDescriptions = (output: any, context: __Serd
 const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContext): EndpointGroup => {
   return {
     EndpointDescriptions:
-      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+      output.EndpointDescriptions != null
         ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
@@ -4988,9 +4882,7 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
     HealthCheckPort: __expectInt32(output.HealthCheckPort),
     HealthCheckProtocol: __expectString(output.HealthCheckProtocol),
     PortOverrides:
-      output.PortOverrides !== undefined && output.PortOverrides !== null
-        ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
-        : undefined,
+      output.PortOverrides != null ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context) : undefined,
     ThresholdCount: __expectInt32(output.ThresholdCount),
     TrafficDialPercentage: __limitedParseFloat32(output.TrafficDialPercentage),
   } as any;
@@ -5095,9 +4987,7 @@ const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSet => {
   return {
     IpAddresses:
-      output.IpAddresses !== undefined && output.IpAddresses !== null
-        ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context)
-        : undefined,
+      output.IpAddresses != null ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context) : undefined,
     IpFamily: __expectString(output.IpFamily),
   } as any;
 };
@@ -5126,19 +5016,14 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
 ): ListAcceleratorsResponse => {
   return {
     Accelerators:
-      output.Accelerators !== undefined && output.Accelerators !== null
-        ? deserializeAws_json1_1Accelerators(output.Accelerators, context)
-        : undefined,
+      output.Accelerators != null ? deserializeAws_json1_1Accelerators(output.Accelerators, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListByoipCidrsResponse = (output: any, context: __SerdeContext): ListByoipCidrsResponse => {
   return {
-    ByoipCidrs:
-      output.ByoipCidrs !== undefined && output.ByoipCidrs !== null
-        ? deserializeAws_json1_1ByoipCidrs(output.ByoipCidrs, context)
-        : undefined,
+    ByoipCidrs: output.ByoipCidrs != null ? deserializeAws_json1_1ByoipCidrs(output.ByoipCidrs, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5149,7 +5034,7 @@ const deserializeAws_json1_1ListCustomRoutingAcceleratorsResponse = (
 ): ListCustomRoutingAcceleratorsResponse => {
   return {
     Accelerators:
-      output.Accelerators !== undefined && output.Accelerators !== null
+      output.Accelerators != null
         ? deserializeAws_json1_1CustomRoutingAccelerators(output.Accelerators, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5162,7 +5047,7 @@ const deserializeAws_json1_1ListCustomRoutingEndpointGroupsResponse = (
 ): ListCustomRoutingEndpointGroupsResponse => {
   return {
     EndpointGroups:
-      output.EndpointGroups !== undefined && output.EndpointGroups !== null
+      output.EndpointGroups != null
         ? deserializeAws_json1_1CustomRoutingEndpointGroups(output.EndpointGroups, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5175,9 +5060,7 @@ const deserializeAws_json1_1ListCustomRoutingListenersResponse = (
 ): ListCustomRoutingListenersResponse => {
   return {
     Listeners:
-      output.Listeners !== undefined && output.Listeners !== null
-        ? deserializeAws_json1_1CustomRoutingListeners(output.Listeners, context)
-        : undefined,
+      output.Listeners != null ? deserializeAws_json1_1CustomRoutingListeners(output.Listeners, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5188,7 +5071,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationResponse =
 ): ListCustomRoutingPortMappingsByDestinationResponse => {
   return {
     DestinationPortMappings:
-      output.DestinationPortMappings !== undefined && output.DestinationPortMappings !== null
+      output.DestinationPortMappings != null
         ? deserializeAws_json1_1DestinationPortMappings(output.DestinationPortMappings, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5202,9 +5085,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     PortMappings:
-      output.PortMappings !== undefined && output.PortMappings !== null
-        ? deserializeAws_json1_1PortMappings(output.PortMappings, context)
-        : undefined,
+      output.PortMappings != null ? deserializeAws_json1_1PortMappings(output.PortMappings, context) : undefined,
   } as any;
 };
 
@@ -5214,9 +5095,7 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
 ): ListEndpointGroupsResponse => {
   return {
     EndpointGroups:
-      output.EndpointGroups !== undefined && output.EndpointGroups !== null
-        ? deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context)
-        : undefined,
+      output.EndpointGroups != null ? deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5225,10 +5104,7 @@ const deserializeAws_json1_1Listener = (output: any, context: __SerdeContext): L
   return {
     ClientAffinity: __expectString(output.ClientAffinity),
     ListenerArn: __expectString(output.ListenerArn),
-    PortRanges:
-      output.PortRanges !== undefined && output.PortRanges !== null
-        ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
-        : undefined,
+    PortRanges: output.PortRanges != null ? deserializeAws_json1_1PortRanges(output.PortRanges, context) : undefined,
     Protocol: __expectString(output.Protocol),
   } as any;
 };
@@ -5256,10 +5132,7 @@ const deserializeAws_json1_1Listeners = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ListListenersResponse = (output: any, context: __SerdeContext): ListListenersResponse => {
   return {
-    Listeners:
-      output.Listeners !== undefined && output.Listeners !== null
-        ? deserializeAws_json1_1Listeners(output.Listeners, context)
-        : undefined,
+    Listeners: output.Listeners != null ? deserializeAws_json1_1Listeners(output.Listeners, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5269,8 +5142,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -5278,16 +5150,14 @@ const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext)
   return {
     AcceleratorPort: __expectInt32(output.AcceleratorPort),
     DestinationSocketAddress:
-      output.DestinationSocketAddress !== undefined && output.DestinationSocketAddress !== null
+      output.DestinationSocketAddress != null
         ? deserializeAws_json1_1SocketAddress(output.DestinationSocketAddress, context)
         : undefined,
     DestinationTrafficState: __expectString(output.DestinationTrafficState),
     EndpointGroupArn: __expectString(output.EndpointGroupArn),
     EndpointId: __expectString(output.EndpointId),
     Protocols:
-      output.Protocols !== undefined && output.Protocols !== null
-        ? deserializeAws_json1_1CustomRoutingProtocols(output.Protocols, context)
-        : undefined,
+      output.Protocols != null ? deserializeAws_json1_1CustomRoutingProtocols(output.Protocols, context) : undefined,
   } as any;
 };
 
@@ -5358,10 +5228,7 @@ const deserializeAws_json1_1ProvisionByoipCidrResponse = (
   context: __SerdeContext
 ): ProvisionByoipCidrResponse => {
   return {
-    ByoipCidr:
-      output.ByoipCidr !== undefined && output.ByoipCidr !== null
-        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
-        : undefined,
+    ByoipCidr: output.ByoipCidr != null ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context) : undefined,
   } as any;
 };
 
@@ -5417,7 +5284,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
 ): UpdateAcceleratorAttributesResponse => {
   return {
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+      output.AcceleratorAttributes != null
         ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined,
   } as any;
@@ -5429,9 +5296,7 @@ const deserializeAws_json1_1UpdateAcceleratorResponse = (
 ): UpdateAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
-        ? deserializeAws_json1_1Accelerator(output.Accelerator, context)
-        : undefined,
+      output.Accelerator != null ? deserializeAws_json1_1Accelerator(output.Accelerator, context) : undefined,
   } as any;
 };
 
@@ -5441,7 +5306,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesResponse = (
 ): UpdateCustomRoutingAcceleratorAttributesResponse => {
   return {
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+      output.AcceleratorAttributes != null
         ? deserializeAws_json1_1CustomRoutingAcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined,
   } as any;
@@ -5453,7 +5318,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorResponse = (
 ): UpdateCustomRoutingAcceleratorResponse => {
   return {
     Accelerator:
-      output.Accelerator !== undefined && output.Accelerator !== null
+      output.Accelerator != null
         ? deserializeAws_json1_1CustomRoutingAccelerator(output.Accelerator, context)
         : undefined,
   } as any;
@@ -5465,9 +5330,7 @@ const deserializeAws_json1_1UpdateCustomRoutingListenerResponse = (
 ): UpdateCustomRoutingListenerResponse => {
   return {
     Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context)
-        : undefined,
+      output.Listener != null ? deserializeAws_json1_1CustomRoutingListener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -5477,18 +5340,13 @@ const deserializeAws_json1_1UpdateEndpointGroupResponse = (
 ): UpdateEndpointGroupResponse => {
   return {
     EndpointGroup:
-      output.EndpointGroup !== undefined && output.EndpointGroup !== null
-        ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context)
-        : undefined,
+      output.EndpointGroup != null ? deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateListenerResponse = (output: any, context: __SerdeContext): UpdateListenerResponse => {
   return {
-    Listener:
-      output.Listener !== undefined && output.Listener !== null
-        ? deserializeAws_json1_1Listener(output.Listener, context)
-        : undefined,
+    Listener: output.Listener != null ? deserializeAws_json1_1Listener(output.Listener, context) : undefined,
   } as any;
 };
 
@@ -5497,10 +5355,7 @@ const deserializeAws_json1_1WithdrawByoipCidrResponse = (
   context: __SerdeContext
 ): WithdrawByoipCidrResponse => {
   return {
-    ByoipCidr:
-      output.ByoipCidr !== undefined && output.ByoipCidr !== null
-        ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context)
-        : undefined,
+    ByoipCidr: output.ByoipCidr != null ? deserializeAws_json1_1ByoipCidr(output.ByoipCidr, context) : undefined,
   } as any;
 };
 

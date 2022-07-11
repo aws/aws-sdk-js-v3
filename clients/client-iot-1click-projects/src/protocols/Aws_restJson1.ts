@@ -98,7 +98,7 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.deviceId !== undefined && input.deviceId !== null && { deviceId: input.deviceId }),
+    ...(input.deviceId != null && { deviceId: input.deviceId }),
   });
   return new __HttpRequest({
     protocol,
@@ -132,11 +132,10 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && {
-        attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
-      }),
-    ...(input.placementName !== undefined && input.placementName !== null && { placementName: input.placementName }),
+    ...(input.attributes != null && {
+      attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
+    }),
+    ...(input.placementName != null && { placementName: input.placementName }),
   });
   return new __HttpRequest({
     protocol,
@@ -160,13 +159,12 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.placementTemplate !== undefined &&
-      input.placementTemplate !== null && {
-        placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
-      }),
-    ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.placementTemplate != null && {
+      placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
+    }),
+    ...(input.projectName != null && { projectName: input.projectName }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -506,7 +504,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -582,10 +580,9 @@ export const serializeAws_restJson1UpdatePlacementCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && {
-        attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
-      }),
+    ...(input.attributes != null && {
+      attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -618,11 +615,10 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.placementTemplate !== undefined &&
-      input.placementTemplate !== null && {
-        placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
-      }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.placementTemplate != null && {
+      placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1564,11 +1560,10 @@ const serializeAws_restJson1DeviceCallbackOverrideMap = (
 
 const serializeAws_restJson1DeviceTemplate = (input: DeviceTemplate, context: __SerdeContext): any => {
   return {
-    ...(input.callbackOverrides !== undefined &&
-      input.callbackOverrides !== null && {
-        callbackOverrides: serializeAws_restJson1DeviceCallbackOverrideMap(input.callbackOverrides, context),
-      }),
-    ...(input.deviceType !== undefined && input.deviceType !== null && { deviceType: input.deviceType }),
+    ...(input.callbackOverrides != null && {
+      callbackOverrides: serializeAws_restJson1DeviceCallbackOverrideMap(input.callbackOverrides, context),
+    }),
+    ...(input.deviceType != null && { deviceType: input.deviceType }),
   };
 };
 
@@ -1601,14 +1596,12 @@ const serializeAws_restJson1PlacementAttributeMap = (input: Record<string, strin
 
 const serializeAws_restJson1PlacementTemplate = (input: PlacementTemplate, context: __SerdeContext): any => {
   return {
-    ...(input.defaultAttributes !== undefined &&
-      input.defaultAttributes !== null && {
-        defaultAttributes: serializeAws_restJson1DefaultPlacementAttributeMap(input.defaultAttributes, context),
-      }),
-    ...(input.deviceTemplates !== undefined &&
-      input.deviceTemplates !== null && {
-        deviceTemplates: serializeAws_restJson1DeviceTemplateMap(input.deviceTemplates, context),
-      }),
+    ...(input.defaultAttributes != null && {
+      defaultAttributes: serializeAws_restJson1DefaultPlacementAttributeMap(input.defaultAttributes, context),
+    }),
+    ...(input.deviceTemplates != null && {
+      deviceTemplates: serializeAws_restJson1DeviceTemplateMap(input.deviceTemplates, context),
+    }),
   };
 };
 
@@ -1669,7 +1662,7 @@ const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeContext): DeviceTemplate => {
   return {
     callbackOverrides:
-      output.callbackOverrides !== undefined && output.callbackOverrides !== null
+      output.callbackOverrides != null
         ? deserializeAws_restJson1DeviceCallbackOverrideMap(output.callbackOverrides, context)
         : undefined,
     deviceType: __expectString(output.deviceType),
@@ -1709,17 +1702,15 @@ const deserializeAws_restJson1PlacementAttributeMap = (
 const deserializeAws_restJson1PlacementDescription = (output: any, context: __SerdeContext): PlacementDescription => {
   return {
     attributes:
-      output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_restJson1PlacementAttributeMap(output.attributes, context)
-        : undefined,
+      output.attributes != null ? deserializeAws_restJson1PlacementAttributeMap(output.attributes, context) : undefined,
     createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     placementName: __expectString(output.placementName),
     projectName: __expectString(output.projectName),
     updatedDate:
-      output.updatedDate !== undefined && output.updatedDate !== null
+      output.updatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
@@ -1728,13 +1719,13 @@ const deserializeAws_restJson1PlacementDescription = (output: any, context: __Se
 const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeContext): PlacementSummary => {
   return {
     createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     placementName: __expectString(output.placementName),
     projectName: __expectString(output.projectName),
     updatedDate:
-      output.updatedDate !== undefined && output.updatedDate !== null
+      output.updatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
@@ -1755,11 +1746,11 @@ const deserializeAws_restJson1PlacementSummaryList = (output: any, context: __Se
 const deserializeAws_restJson1PlacementTemplate = (output: any, context: __SerdeContext): PlacementTemplate => {
   return {
     defaultAttributes:
-      output.defaultAttributes !== undefined && output.defaultAttributes !== null
+      output.defaultAttributes != null
         ? deserializeAws_restJson1DefaultPlacementAttributeMap(output.defaultAttributes, context)
         : undefined,
     deviceTemplates:
-      output.deviceTemplates !== undefined && output.deviceTemplates !== null
+      output.deviceTemplates != null
         ? deserializeAws_restJson1DeviceTemplateMap(output.deviceTemplates, context)
         : undefined,
   } as any;
@@ -1769,21 +1760,18 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
   return {
     arn: __expectString(output.arn),
     createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     description: __expectString(output.description),
     placementTemplate:
-      output.placementTemplate !== undefined && output.placementTemplate !== null
+      output.placementTemplate != null
         ? deserializeAws_restJson1PlacementTemplate(output.placementTemplate, context)
         : undefined,
     projectName: __expectString(output.projectName),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     updatedDate:
-      output.updatedDate !== undefined && output.updatedDate !== null
+      output.updatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;
@@ -1793,16 +1781,13 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     projectName: __expectString(output.projectName),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     updatedDate:
-      output.updatedDate !== undefined && output.updatedDate !== null
+      output.updatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedDate)))
         : undefined,
   } as any;

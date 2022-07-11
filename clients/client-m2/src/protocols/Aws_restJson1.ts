@@ -185,12 +185,11 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.definition !== undefined &&
-      input.definition !== null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.engineType !== undefined && input.engineType !== null && { engineType: input.engineType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.engineType != null && { engineType: input.engineType }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -226,10 +225,9 @@ export const serializeAws_restJson1CreateDataSetImportTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.importConfig !== undefined &&
-      input.importConfig !== null && {
-        importConfig: serializeAws_restJson1DataSetImportConfig(input.importConfig, context),
-      }),
+    ...(input.importConfig != null && {
+      importConfig: serializeAws_restJson1DataSetImportConfig(input.importConfig, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -263,10 +261,9 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationVersion !== undefined &&
-      input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
+    ...(input.applicationVersion != null && { applicationVersion: input.applicationVersion }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.environmentId !== undefined && input.environmentId !== null && { environmentId: input.environmentId }),
+    ...(input.environmentId != null && { environmentId: input.environmentId }),
   });
   return new __HttpRequest({
     protocol,
@@ -291,30 +288,24 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.engineType !== undefined && input.engineType !== null && { engineType: input.engineType }),
-    ...(input.engineVersion !== undefined && input.engineVersion !== null && { engineVersion: input.engineVersion }),
-    ...(input.highAvailabilityConfig !== undefined &&
-      input.highAvailabilityConfig !== null && {
-        highAvailabilityConfig: serializeAws_restJson1HighAvailabilityConfig(input.highAvailabilityConfig, context),
-      }),
-    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.preferredMaintenanceWindow !== undefined &&
-      input.preferredMaintenanceWindow !== null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
-    ...(input.publiclyAccessible !== undefined &&
-      input.publiclyAccessible !== null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds !== undefined &&
-      input.securityGroupIds !== null && {
-        securityGroupIds: serializeAws_restJson1String50List(input.securityGroupIds, context),
-      }),
-    ...(input.storageConfigurations !== undefined &&
-      input.storageConfigurations !== null && {
-        storageConfigurations: serializeAws_restJson1StorageConfigurationList(input.storageConfigurations, context),
-      }),
-    ...(input.subnetIds !== undefined &&
-      input.subnetIds !== null && { subnetIds: serializeAws_restJson1String50List(input.subnetIds, context) }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.engineType != null && { engineType: input.engineType }),
+    ...(input.engineVersion != null && { engineVersion: input.engineVersion }),
+    ...(input.highAvailabilityConfig != null && {
+      highAvailabilityConfig: serializeAws_restJson1HighAvailabilityConfig(input.highAvailabilityConfig, context),
+    }),
+    ...(input.instanceType != null && { instanceType: input.instanceType }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
+    ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
+    ...(input.securityGroupIds != null && {
+      securityGroupIds: serializeAws_restJson1String50List(input.securityGroupIds, context),
+    }),
+    ...(input.storageConfigurations != null && {
+      storageConfigurations: serializeAws_restJson1StorageConfigurationList(input.storageConfigurations, context),
+    }),
+    ...(input.subnetIds != null && { subnetIds: serializeAws_restJson1String50List(input.subnetIds, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1052,12 +1043,12 @@ export const serializeAws_restJson1StartBatchJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.batchJobIdentifier !== undefined &&
-      input.batchJobIdentifier !== null && {
-        batchJobIdentifier: serializeAws_restJson1BatchJobIdentifier(input.batchJobIdentifier, context),
-      }),
-    ...(input.jobParams !== undefined &&
-      input.jobParams !== null && { jobParams: serializeAws_restJson1BatchJobParametersMap(input.jobParams, context) }),
+    ...(input.batchJobIdentifier != null && {
+      batchJobIdentifier: serializeAws_restJson1BatchJobIdentifier(input.batchJobIdentifier, context),
+    }),
+    ...(input.jobParams != null && {
+      jobParams: serializeAws_restJson1BatchJobParametersMap(input.jobParams, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1091,7 +1082,7 @@ export const serializeAws_restJson1StopApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.forceStop !== undefined && input.forceStop !== null && { forceStop: input.forceStop }),
+    ...(input.forceStop != null && { forceStop: input.forceStop }),
   });
   return new __HttpRequest({
     protocol,
@@ -1124,7 +1115,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1190,11 +1181,9 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.currentApplicationVersion !== undefined &&
-      input.currentApplicationVersion !== null && { currentApplicationVersion: input.currentApplicationVersion }),
-    ...(input.definition !== undefined &&
-      input.definition !== null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.currentApplicationVersion != null && { currentApplicationVersion: input.currentApplicationVersion }),
+    ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
+    ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1228,16 +1217,13 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.applyDuringMaintenanceWindow !== undefined &&
-      input.applyDuringMaintenanceWindow !== null && {
-        applyDuringMaintenanceWindow: input.applyDuringMaintenanceWindow,
-      }),
-    ...(input.desiredCapacity !== undefined &&
-      input.desiredCapacity !== null && { desiredCapacity: input.desiredCapacity }),
-    ...(input.engineVersion !== undefined && input.engineVersion !== null && { engineVersion: input.engineVersion }),
-    ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
-    ...(input.preferredMaintenanceWindow !== undefined &&
-      input.preferredMaintenanceWindow !== null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
+    ...(input.applyDuringMaintenanceWindow != null && {
+      applyDuringMaintenanceWindow: input.applyDuringMaintenanceWindow,
+    }),
+    ...(input.desiredCapacity != null && { desiredCapacity: input.desiredCapacity }),
+    ...(input.engineVersion != null && { engineVersion: input.engineVersion }),
+    ...(input.instanceType != null && { instanceType: input.instanceType }),
+    ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
   });
   return new __HttpRequest({
     protocol,
@@ -3558,11 +3544,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AlternateKey = (input: AlternateKey, context: __SerdeContext): any => {
   return {
-    ...(input.allowDuplicates !== undefined &&
-      input.allowDuplicates !== null && { allowDuplicates: input.allowDuplicates }),
-    ...(input.length !== undefined && input.length !== null && { length: input.length }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.offset !== undefined && input.offset !== null && { offset: input.offset }),
+    ...(input.allowDuplicates != null && { allowDuplicates: input.allowDuplicates }),
+    ...(input.length != null && { length: input.length }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.offset != null && { offset: input.offset }),
   };
 };
 
@@ -3603,15 +3588,15 @@ const serializeAws_restJson1BatchJobParametersMap = (input: Record<string, strin
 
 const serializeAws_restJson1DataSet = (input: DataSet, context: __SerdeContext): any => {
   return {
-    ...(input.datasetName !== undefined && input.datasetName !== null && { datasetName: input.datasetName }),
-    ...(input.datasetOrg !== undefined &&
-      input.datasetOrg !== null && {
-        datasetOrg: serializeAws_restJson1DatasetOrgAttributes(input.datasetOrg, context),
-      }),
-    ...(input.recordLength !== undefined &&
-      input.recordLength !== null && { recordLength: serializeAws_restJson1RecordLength(input.recordLength, context) }),
-    ...(input.relativePath !== undefined && input.relativePath !== null && { relativePath: input.relativePath }),
-    ...(input.storageType !== undefined && input.storageType !== null && { storageType: input.storageType }),
+    ...(input.datasetName != null && { datasetName: input.datasetName }),
+    ...(input.datasetOrg != null && {
+      datasetOrg: serializeAws_restJson1DatasetOrgAttributes(input.datasetOrg, context),
+    }),
+    ...(input.recordLength != null && {
+      recordLength: serializeAws_restJson1RecordLength(input.recordLength, context),
+    }),
+    ...(input.relativePath != null && { relativePath: input.relativePath }),
+    ...(input.storageType != null && { storageType: input.storageType }),
   };
 };
 
@@ -3625,12 +3610,10 @@ const serializeAws_restJson1DataSetImportConfig = (input: DataSetImportConfig, c
 
 const serializeAws_restJson1DataSetImportItem = (input: DataSetImportItem, context: __SerdeContext): any => {
   return {
-    ...(input.dataSet !== undefined &&
-      input.dataSet !== null && { dataSet: serializeAws_restJson1DataSet(input.dataSet, context) }),
-    ...(input.externalLocation !== undefined &&
-      input.externalLocation !== null && {
-        externalLocation: serializeAws_restJson1ExternalLocation(input.externalLocation, context),
-      }),
+    ...(input.dataSet != null && { dataSet: serializeAws_restJson1DataSet(input.dataSet, context) }),
+    ...(input.externalLocation != null && {
+      externalLocation: serializeAws_restJson1ExternalLocation(input.externalLocation, context),
+    }),
   };
 };
 
@@ -3666,8 +3649,8 @@ const serializeAws_restJson1EfsStorageConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.fileSystemId !== undefined && input.fileSystemId !== null && { "file-system-id": input.fileSystemId }),
-    ...(input.mountPoint !== undefined && input.mountPoint !== null && { "mount-point": input.mountPoint }),
+    ...(input.fileSystemId != null && { "file-system-id": input.fileSystemId }),
+    ...(input.mountPoint != null && { "mount-point": input.mountPoint }),
   };
 };
 
@@ -3680,8 +3663,8 @@ const serializeAws_restJson1ExternalLocation = (input: ExternalLocation, context
 
 const serializeAws_restJson1FileBatchJobIdentifier = (input: FileBatchJobIdentifier, context: __SerdeContext): any => {
   return {
-    ...(input.fileName !== undefined && input.fileName !== null && { fileName: input.fileName }),
-    ...(input.folderPath !== undefined && input.folderPath !== null && { folderPath: input.folderPath }),
+    ...(input.fileName != null && { fileName: input.fileName }),
+    ...(input.folderPath != null && { folderPath: input.folderPath }),
   };
 };
 
@@ -3690,38 +3673,36 @@ const serializeAws_restJson1FsxStorageConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.fileSystemId !== undefined && input.fileSystemId !== null && { "file-system-id": input.fileSystemId }),
-    ...(input.mountPoint !== undefined && input.mountPoint !== null && { "mount-point": input.mountPoint }),
+    ...(input.fileSystemId != null && { "file-system-id": input.fileSystemId }),
+    ...(input.mountPoint != null && { "mount-point": input.mountPoint }),
   };
 };
 
 const serializeAws_restJson1GdgAttributes = (input: GdgAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
-    ...(input.rollDisposition !== undefined &&
-      input.rollDisposition !== null && { rollDisposition: input.rollDisposition }),
+    ...(input.limit != null && { limit: input.limit }),
+    ...(input.rollDisposition != null && { rollDisposition: input.rollDisposition }),
   };
 };
 
 const serializeAws_restJson1HighAvailabilityConfig = (input: HighAvailabilityConfig, context: __SerdeContext): any => {
   return {
-    ...(input.desiredCapacity !== undefined &&
-      input.desiredCapacity !== null && { desiredCapacity: input.desiredCapacity }),
+    ...(input.desiredCapacity != null && { desiredCapacity: input.desiredCapacity }),
   };
 };
 
 const serializeAws_restJson1PrimaryKey = (input: PrimaryKey, context: __SerdeContext): any => {
   return {
-    ...(input.length !== undefined && input.length !== null && { length: input.length }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.offset !== undefined && input.offset !== null && { offset: input.offset }),
+    ...(input.length != null && { length: input.length }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.offset != null && { offset: input.offset }),
   };
 };
 
 const serializeAws_restJson1RecordLength = (input: RecordLength, context: __SerdeContext): any => {
   return {
-    ...(input.max !== undefined && input.max !== null && { max: input.max }),
-    ...(input.min !== undefined && input.min !== null && { min: input.min }),
+    ...(input.max != null && { max: input.max }),
+    ...(input.min != null && { min: input.min }),
   };
 };
 
@@ -3730,7 +3711,7 @@ const serializeAws_restJson1ScriptBatchJobIdentifier = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.scriptName !== undefined && input.scriptName !== null && { scriptName: input.scriptName }),
+    ...(input.scriptName != null && { scriptName: input.scriptName }),
   };
 };
 
@@ -3781,15 +3762,13 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1VsamAttributes = (input: VsamAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.alternateKeys !== undefined &&
-      input.alternateKeys !== null && {
-        alternateKeys: serializeAws_restJson1AlternateKeyList(input.alternateKeys, context),
-      }),
-    ...(input.compressed !== undefined && input.compressed !== null && { compressed: input.compressed }),
-    ...(input.encoding !== undefined && input.encoding !== null && { encoding: input.encoding }),
-    ...(input.format !== undefined && input.format !== null && { format: input.format }),
-    ...(input.primaryKey !== undefined &&
-      input.primaryKey !== null && { primaryKey: serializeAws_restJson1PrimaryKey(input.primaryKey, context) }),
+    ...(input.alternateKeys != null && {
+      alternateKeys: serializeAws_restJson1AlternateKeyList(input.alternateKeys, context),
+    }),
+    ...(input.compressed != null && { compressed: input.compressed }),
+    ...(input.encoding != null && { encoding: input.encoding }),
+    ...(input.format != null && { format: input.format }),
+    ...(input.primaryKey != null && { primaryKey: serializeAws_restJson1PrimaryKey(input.primaryKey, context) }),
   };
 };
 
@@ -3820,7 +3799,7 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
     applicationId: __expectString(output.applicationId),
     applicationVersion: __expectInt32(output.applicationVersion),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     deploymentStatus: __expectString(output.deploymentStatus),
@@ -3828,7 +3807,7 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
     engineType: __expectString(output.engineType),
     environmentId: __expectString(output.environmentId),
     lastStartTime:
-      output.lastStartTime !== undefined && output.lastStartTime !== null
+      output.lastStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStartTime)))
         : undefined,
     name: __expectString(output.name),
@@ -3856,7 +3835,7 @@ const deserializeAws_restJson1ApplicationVersionSummary = (
   return {
     applicationVersion: __expectInt32(output.applicationVersion),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     status: __expectString(output.status),
@@ -3927,17 +3906,13 @@ const deserializeAws_restJson1BatchJobExecutionSummary = (
   return {
     applicationId: __expectString(output.applicationId),
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     executionId: __expectString(output.executionId),
     jobId: __expectString(output.jobId),
     jobName: __expectString(output.jobName),
     jobType: __expectString(output.jobType),
     startTime:
-      output.startTime !== undefined && output.startTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -3987,10 +3962,7 @@ const deserializeAws_restJson1DataSetImportSummary = (output: any, context: __Se
 const deserializeAws_restJson1DataSetImportTask = (output: any, context: __SerdeContext): DataSetImportTask => {
   return {
     status: __expectString(output.status),
-    summary:
-      output.summary !== undefined && output.summary !== null
-        ? deserializeAws_restJson1DataSetImportSummary(output.summary, context)
-        : undefined,
+    summary: output.summary != null ? deserializeAws_restJson1DataSetImportSummary(output.summary, context) : undefined,
     taskId: __expectString(output.taskId),
   } as any;
 };
@@ -4022,18 +3994,18 @@ const deserializeAws_restJson1DataSetsSummaryList = (output: any, context: __Ser
 const deserializeAws_restJson1DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary => {
   return {
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     dataSetName: __expectString(output.dataSetName),
     dataSetOrg: __expectString(output.dataSetOrg),
     format: __expectString(output.format),
     lastReferencedTime:
-      output.lastReferencedTime !== undefined && output.lastReferencedTime !== null
+      output.lastReferencedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastReferencedTime)))
         : undefined,
     lastUpdatedTime:
-      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
   } as any;
@@ -4067,7 +4039,7 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
     applicationId: __expectString(output.applicationId),
     applicationVersion: __expectInt32(output.applicationVersion),
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     deploymentId: __expectString(output.deploymentId),
@@ -4112,7 +4084,7 @@ const deserializeAws_restJson1EngineVersionsSummaryList = (
 const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
   return {
     creationTime:
-      output.creationTime !== undefined && output.creationTime !== null
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     engineType: __expectString(output.engineType),
@@ -4195,13 +4167,9 @@ const deserializeAws_restJson1LogGroupSummary = (output: any, context: __SerdeCo
 const deserializeAws_restJson1MaintenanceSchedule = (output: any, context: __SerdeContext): MaintenanceSchedule => {
   return {
     endTime:
-      output.endTime !== undefined && output.endTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
-        : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     startTime:
-      output.startTime !== undefined && output.startTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
   } as any;
 };
 
@@ -4209,9 +4177,7 @@ const deserializeAws_restJson1PendingMaintenance = (output: any, context: __Serd
   return {
     engineVersion: __expectString(output.engineVersion),
     schedule:
-      output.schedule !== undefined && output.schedule !== null
-        ? deserializeAws_restJson1MaintenanceSchedule(output.schedule, context)
-        : undefined,
+      output.schedule != null ? deserializeAws_restJson1MaintenanceSchedule(output.schedule, context) : undefined,
   } as any;
 };
 
@@ -4325,16 +4291,13 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
 const deserializeAws_restJson1VsamDetailAttributes = (output: any, context: __SerdeContext): VsamDetailAttributes => {
   return {
     alternateKeys:
-      output.alternateKeys !== undefined && output.alternateKeys !== null
+      output.alternateKeys != null
         ? deserializeAws_restJson1AlternateKeyList(output.alternateKeys, context)
         : undefined,
     cacheAtStartup: __expectBoolean(output.cacheAtStartup),
     compressed: __expectBoolean(output.compressed),
     encoding: __expectString(output.encoding),
-    primaryKey:
-      output.primaryKey !== undefined && output.primaryKey !== null
-        ? deserializeAws_restJson1PrimaryKey(output.primaryKey, context)
-        : undefined,
+    primaryKey: output.primaryKey != null ? deserializeAws_restJson1PrimaryKey(output.primaryKey, context) : undefined,
     recordFormat: __expectString(output.recordFormat),
   } as any;
 };

@@ -85,24 +85,21 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
-    ...(input.Author !== undefined && input.Author !== null && { author: input.Author }),
-    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
-    ...(input.HomePageUrl !== undefined && input.HomePageUrl !== null && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels !== undefined &&
-      input.Labels !== null && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
-    ...(input.LicenseBody !== undefined && input.LicenseBody !== null && { licenseBody: input.LicenseBody }),
-    ...(input.LicenseUrl !== undefined && input.LicenseUrl !== null && { licenseUrl: input.LicenseUrl }),
-    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
-    ...(input.ReadmeBody !== undefined && input.ReadmeBody !== null && { readmeBody: input.ReadmeBody }),
-    ...(input.ReadmeUrl !== undefined && input.ReadmeUrl !== null && { readmeUrl: input.ReadmeUrl }),
-    ...(input.SemanticVersion !== undefined &&
-      input.SemanticVersion !== null && { semanticVersion: input.SemanticVersion }),
-    ...(input.SourceCodeArchiveUrl !== undefined &&
-      input.SourceCodeArchiveUrl !== null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
-    ...(input.SourceCodeUrl !== undefined && input.SourceCodeUrl !== null && { sourceCodeUrl: input.SourceCodeUrl }),
-    ...(input.SpdxLicenseId !== undefined && input.SpdxLicenseId !== null && { spdxLicenseId: input.SpdxLicenseId }),
-    ...(input.TemplateBody !== undefined && input.TemplateBody !== null && { templateBody: input.TemplateBody }),
-    ...(input.TemplateUrl !== undefined && input.TemplateUrl !== null && { templateUrl: input.TemplateUrl }),
+    ...(input.Author != null && { author: input.Author }),
+    ...(input.Description != null && { description: input.Description }),
+    ...(input.HomePageUrl != null && { homePageUrl: input.HomePageUrl }),
+    ...(input.Labels != null && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
+    ...(input.LicenseBody != null && { licenseBody: input.LicenseBody }),
+    ...(input.LicenseUrl != null && { licenseUrl: input.LicenseUrl }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.ReadmeBody != null && { readmeBody: input.ReadmeBody }),
+    ...(input.ReadmeUrl != null && { readmeUrl: input.ReadmeUrl }),
+    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
+    ...(input.SourceCodeArchiveUrl != null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
+    ...(input.SourceCodeUrl != null && { sourceCodeUrl: input.SourceCodeUrl }),
+    ...(input.SpdxLicenseId != null && { spdxLicenseId: input.SpdxLicenseId }),
+    ...(input.TemplateBody != null && { templateBody: input.TemplateBody }),
+    ...(input.TemplateUrl != null && { templateUrl: input.TemplateUrl }),
   });
   return new __HttpRequest({
     protocol,
@@ -146,11 +143,10 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SourceCodeArchiveUrl !== undefined &&
-      input.SourceCodeArchiveUrl !== null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
-    ...(input.SourceCodeUrl !== undefined && input.SourceCodeUrl !== null && { sourceCodeUrl: input.SourceCodeUrl }),
-    ...(input.TemplateBody !== undefined && input.TemplateBody !== null && { templateBody: input.TemplateBody }),
-    ...(input.TemplateUrl !== undefined && input.TemplateUrl !== null && { templateUrl: input.TemplateUrl }),
+    ...(input.SourceCodeArchiveUrl != null && { sourceCodeArchiveUrl: input.SourceCodeArchiveUrl }),
+    ...(input.SourceCodeUrl != null && { sourceCodeUrl: input.SourceCodeUrl }),
+    ...(input.TemplateBody != null && { templateBody: input.TemplateBody }),
+    ...(input.TemplateUrl != null && { templateUrl: input.TemplateUrl }),
   });
   return new __HttpRequest({
     protocol,
@@ -184,35 +180,28 @@ export const serializeAws_restJson1CreateCloudFormationChangeSetCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Capabilities !== undefined &&
-      input.Capabilities !== null && {
-        capabilities: serializeAws_restJson1__listOf__string(input.Capabilities, context),
-      }),
-    ...(input.ChangeSetName !== undefined && input.ChangeSetName !== null && { changeSetName: input.ChangeSetName }),
-    ...(input.ClientToken !== undefined && input.ClientToken !== null && { clientToken: input.ClientToken }),
-    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
-    ...(input.NotificationArns !== undefined &&
-      input.NotificationArns !== null && {
-        notificationArns: serializeAws_restJson1__listOf__string(input.NotificationArns, context),
-      }),
-    ...(input.ParameterOverrides !== undefined &&
-      input.ParameterOverrides !== null && {
-        parameterOverrides: serializeAws_restJson1__listOfParameterValue(input.ParameterOverrides, context),
-      }),
-    ...(input.ResourceTypes !== undefined &&
-      input.ResourceTypes !== null && {
-        resourceTypes: serializeAws_restJson1__listOf__string(input.ResourceTypes, context),
-      }),
-    ...(input.RollbackConfiguration !== undefined &&
-      input.RollbackConfiguration !== null && {
-        rollbackConfiguration: serializeAws_restJson1RollbackConfiguration(input.RollbackConfiguration, context),
-      }),
-    ...(input.SemanticVersion !== undefined &&
-      input.SemanticVersion !== null && { semanticVersion: input.SemanticVersion }),
-    ...(input.StackName !== undefined && input.StackName !== null && { stackName: input.StackName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__listOfTag(input.Tags, context) }),
-    ...(input.TemplateId !== undefined && input.TemplateId !== null && { templateId: input.TemplateId }),
+    ...(input.Capabilities != null && {
+      capabilities: serializeAws_restJson1__listOf__string(input.Capabilities, context),
+    }),
+    ...(input.ChangeSetName != null && { changeSetName: input.ChangeSetName }),
+    ...(input.ClientToken != null && { clientToken: input.ClientToken }),
+    ...(input.Description != null && { description: input.Description }),
+    ...(input.NotificationArns != null && {
+      notificationArns: serializeAws_restJson1__listOf__string(input.NotificationArns, context),
+    }),
+    ...(input.ParameterOverrides != null && {
+      parameterOverrides: serializeAws_restJson1__listOfParameterValue(input.ParameterOverrides, context),
+    }),
+    ...(input.ResourceTypes != null && {
+      resourceTypes: serializeAws_restJson1__listOf__string(input.ResourceTypes, context),
+    }),
+    ...(input.RollbackConfiguration != null && {
+      rollbackConfiguration: serializeAws_restJson1RollbackConfiguration(input.RollbackConfiguration, context),
+    }),
+    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
+    ...(input.StackName != null && { stackName: input.StackName }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1__listOfTag(input.Tags, context) }),
+    ...(input.TemplateId != null && { templateId: input.TemplateId }),
   });
   return new __HttpRequest({
     protocol,
@@ -246,8 +235,7 @@ export const serializeAws_restJson1CreateCloudFormationTemplateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SemanticVersion !== undefined &&
-      input.SemanticVersion !== null && { semanticVersion: input.SemanticVersion }),
+    ...(input.SemanticVersion != null && { semanticVersion: input.SemanticVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -505,10 +493,9 @@ export const serializeAws_restJson1PutApplicationPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Statements !== undefined &&
-      input.Statements !== null && {
-        statements: serializeAws_restJson1__listOfApplicationPolicyStatement(input.Statements, context),
-      }),
+    ...(input.Statements != null && {
+      statements: serializeAws_restJson1__listOfApplicationPolicyStatement(input.Statements, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -542,8 +529,7 @@ export const serializeAws_restJson1UnshareApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.OrganizationId !== undefined &&
-      input.OrganizationId !== null && { organizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { organizationId: input.OrganizationId }),
   });
   return new __HttpRequest({
     protocol,
@@ -577,13 +563,12 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Author !== undefined && input.Author !== null && { author: input.Author }),
-    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
-    ...(input.HomePageUrl !== undefined && input.HomePageUrl !== null && { homePageUrl: input.HomePageUrl }),
-    ...(input.Labels !== undefined &&
-      input.Labels !== null && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
-    ...(input.ReadmeBody !== undefined && input.ReadmeBody !== null && { readmeBody: input.ReadmeBody }),
-    ...(input.ReadmeUrl !== undefined && input.ReadmeUrl !== null && { readmeUrl: input.ReadmeUrl }),
+    ...(input.Author != null && { author: input.Author }),
+    ...(input.Description != null && { description: input.Description }),
+    ...(input.HomePageUrl != null && { homePageUrl: input.HomePageUrl }),
+    ...(input.Labels != null && { labels: serializeAws_restJson1__listOf__string(input.Labels, context) }),
+    ...(input.ReadmeBody != null && { readmeBody: input.ReadmeBody }),
+    ...(input.ReadmeUrl != null && { readmeUrl: input.ReadmeUrl }),
   });
   return new __HttpRequest({
     protocol,
@@ -1814,47 +1799,42 @@ const serializeAws_restJson1ApplicationPolicyStatement = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Actions !== undefined &&
-      input.Actions !== null && { actions: serializeAws_restJson1__listOf__string(input.Actions, context) }),
-    ...(input.PrincipalOrgIDs !== undefined &&
-      input.PrincipalOrgIDs !== null && {
-        principalOrgIDs: serializeAws_restJson1__listOf__string(input.PrincipalOrgIDs, context),
-      }),
-    ...(input.Principals !== undefined &&
-      input.Principals !== null && { principals: serializeAws_restJson1__listOf__string(input.Principals, context) }),
-    ...(input.StatementId !== undefined && input.StatementId !== null && { statementId: input.StatementId }),
+    ...(input.Actions != null && { actions: serializeAws_restJson1__listOf__string(input.Actions, context) }),
+    ...(input.PrincipalOrgIDs != null && {
+      principalOrgIDs: serializeAws_restJson1__listOf__string(input.PrincipalOrgIDs, context),
+    }),
+    ...(input.Principals != null && { principals: serializeAws_restJson1__listOf__string(input.Principals, context) }),
+    ...(input.StatementId != null && { statementId: input.StatementId }),
   };
 };
 
 const serializeAws_restJson1ParameterValue = (input: ParameterValue, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { value: input.Value }),
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Value != null && { value: input.Value }),
   };
 };
 
 const serializeAws_restJson1RollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.MonitoringTimeInMinutes !== undefined &&
-      input.MonitoringTimeInMinutes !== null && { monitoringTimeInMinutes: input.MonitoringTimeInMinutes }),
-    ...(input.RollbackTriggers !== undefined &&
-      input.RollbackTriggers !== null && {
-        rollbackTriggers: serializeAws_restJson1__listOfRollbackTrigger(input.RollbackTriggers, context),
-      }),
+    ...(input.MonitoringTimeInMinutes != null && { monitoringTimeInMinutes: input.MonitoringTimeInMinutes }),
+    ...(input.RollbackTriggers != null && {
+      rollbackTriggers: serializeAws_restJson1__listOfRollbackTrigger(input.RollbackTriggers, context),
+    }),
   };
 };
 
 const serializeAws_restJson1RollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { arn: input.Arn }),
-    ...(input.Type !== undefined && input.Type !== null && { type: input.Type }),
+    ...(input.Arn != null && { arn: input.Arn }),
+    ...(input.Type != null && { type: input.Type }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { value: input.Value }),
+    ...(input.Key != null && { key: input.Key }),
+    ...(input.Value != null && { value: input.Value }),
   };
 };
 
@@ -1969,18 +1949,13 @@ const deserializeAws_restJson1ApplicationPolicyStatement = (
   context: __SerdeContext
 ): ApplicationPolicyStatement => {
   return {
-    Actions:
-      output.actions !== undefined && output.actions !== null
-        ? deserializeAws_restJson1__listOf__string(output.actions, context)
-        : undefined,
+    Actions: output.actions != null ? deserializeAws_restJson1__listOf__string(output.actions, context) : undefined,
     PrincipalOrgIDs:
-      output.principalOrgIDs !== undefined && output.principalOrgIDs !== null
+      output.principalOrgIDs != null
         ? deserializeAws_restJson1__listOf__string(output.principalOrgIDs, context)
         : undefined,
     Principals:
-      output.principals !== undefined && output.principals !== null
-        ? deserializeAws_restJson1__listOf__string(output.principals, context)
-        : undefined,
+      output.principals != null ? deserializeAws_restJson1__listOf__string(output.principals, context) : undefined,
     StatementId: __expectString(output.statementId),
   } as any;
 };
@@ -1992,10 +1967,7 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
     CreationTime: __expectString(output.creationTime),
     Description: __expectString(output.description),
     HomePageUrl: __expectString(output.homePageUrl),
-    Labels:
-      output.labels !== undefined && output.labels !== null
-        ? deserializeAws_restJson1__listOf__string(output.labels, context)
-        : undefined,
+    Labels: output.labels != null ? deserializeAws_restJson1__listOf__string(output.labels, context) : undefined,
     Name: __expectString(output.name),
     SpdxLicenseId: __expectString(output.spdxLicenseId),
   } as any;
@@ -2005,7 +1977,7 @@ const deserializeAws_restJson1ParameterDefinition = (output: any, context: __Ser
   return {
     AllowedPattern: __expectString(output.allowedPattern),
     AllowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null
+      output.allowedValues != null
         ? deserializeAws_restJson1__listOf__string(output.allowedValues, context)
         : undefined,
     ConstraintDescription: __expectString(output.constraintDescription),
@@ -2018,7 +1990,7 @@ const deserializeAws_restJson1ParameterDefinition = (output: any, context: __Ser
     Name: __expectString(output.name),
     NoEcho: __expectBoolean(output.noEcho),
     ReferencedByResources:
-      output.referencedByResources !== undefined && output.referencedByResources !== null
+      output.referencedByResources != null
         ? deserializeAws_restJson1__listOf__string(output.referencedByResources, context)
         : undefined,
     Type: __expectString(output.type),
@@ -2030,11 +2002,11 @@ const deserializeAws_restJson1Version = (output: any, context: __SerdeContext): 
     ApplicationId: __expectString(output.applicationId),
     CreationTime: __expectString(output.creationTime),
     ParameterDefinitions:
-      output.parameterDefinitions !== undefined && output.parameterDefinitions !== null
+      output.parameterDefinitions != null
         ? deserializeAws_restJson1__listOfParameterDefinition(output.parameterDefinitions, context)
         : undefined,
     RequiredCapabilities:
-      output.requiredCapabilities !== undefined && output.requiredCapabilities !== null
+      output.requiredCapabilities != null
         ? deserializeAws_restJson1__listOfCapability(output.requiredCapabilities, context)
         : undefined,
     ResourcesSupported: __expectBoolean(output.resourcesSupported),

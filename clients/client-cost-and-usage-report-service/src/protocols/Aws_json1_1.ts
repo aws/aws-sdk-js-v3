@@ -361,7 +361,7 @@ const serializeAws_json1_1DeleteReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
+    ...(input.ReportName != null && { ReportName: input.ReportName }),
   };
 };
 
@@ -370,8 +370,8 @@ const serializeAws_json1_1DescribeReportDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -380,11 +380,10 @@ const serializeAws_json1_1ModifyReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportDefinition !== undefined &&
-      input.ReportDefinition !== null && {
-        ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-      }),
-    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
+    ...(input.ReportDefinition != null && {
+      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
+    }),
+    ...(input.ReportName != null && { ReportName: input.ReportName }),
   };
 };
 
@@ -393,36 +392,30 @@ const serializeAws_json1_1PutReportDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ReportDefinition !== undefined &&
-      input.ReportDefinition !== null && {
-        ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
-      }),
+    ...(input.ReportDefinition != null && {
+      ReportDefinition: serializeAws_json1_1ReportDefinition(input.ReportDefinition, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalArtifacts !== undefined &&
-      input.AdditionalArtifacts !== null && {
-        AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(input.AdditionalArtifacts, context),
-      }),
-    ...(input.AdditionalSchemaElements !== undefined &&
-      input.AdditionalSchemaElements !== null && {
-        AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
-      }),
-    ...(input.BillingViewArn !== undefined &&
-      input.BillingViewArn !== null && { BillingViewArn: input.BillingViewArn }),
-    ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
-    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
-    ...(input.RefreshClosedReports !== undefined &&
-      input.RefreshClosedReports !== null && { RefreshClosedReports: input.RefreshClosedReports }),
-    ...(input.ReportName !== undefined && input.ReportName !== null && { ReportName: input.ReportName }),
-    ...(input.ReportVersioning !== undefined &&
-      input.ReportVersioning !== null && { ReportVersioning: input.ReportVersioning }),
-    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Prefix !== undefined && input.S3Prefix !== null && { S3Prefix: input.S3Prefix }),
-    ...(input.S3Region !== undefined && input.S3Region !== null && { S3Region: input.S3Region }),
-    ...(input.TimeUnit !== undefined && input.TimeUnit !== null && { TimeUnit: input.TimeUnit }),
+    ...(input.AdditionalArtifacts != null && {
+      AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(input.AdditionalArtifacts, context),
+    }),
+    ...(input.AdditionalSchemaElements != null && {
+      AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
+    }),
+    ...(input.BillingViewArn != null && { BillingViewArn: input.BillingViewArn }),
+    ...(input.Compression != null && { Compression: input.Compression }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.RefreshClosedReports != null && { RefreshClosedReports: input.RefreshClosedReports }),
+    ...(input.ReportName != null && { ReportName: input.ReportName }),
+    ...(input.ReportVersioning != null && { ReportVersioning: input.ReportVersioning }),
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
+    ...(input.S3Region != null && { S3Region: input.S3Region }),
+    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
   };
 };
 
@@ -468,7 +461,7 @@ const deserializeAws_json1_1DescribeReportDefinitionsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ReportDefinitions:
-      output.ReportDefinitions !== undefined && output.ReportDefinitions !== null
+      output.ReportDefinitions != null
         ? deserializeAws_json1_1ReportDefinitionList(output.ReportDefinitions, context)
         : undefined,
   } as any;
@@ -506,11 +499,11 @@ const deserializeAws_json1_1PutReportDefinitionResponse = (
 const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
     AdditionalArtifacts:
-      output.AdditionalArtifacts !== undefined && output.AdditionalArtifacts !== null
+      output.AdditionalArtifacts != null
         ? deserializeAws_json1_1AdditionalArtifactList(output.AdditionalArtifacts, context)
         : undefined,
     AdditionalSchemaElements:
-      output.AdditionalSchemaElements !== undefined && output.AdditionalSchemaElements !== null
+      output.AdditionalSchemaElements != null
         ? deserializeAws_json1_1SchemaElementList(output.AdditionalSchemaElements, context)
         : undefined,
     BillingViewArn: __expectString(output.BillingViewArn),

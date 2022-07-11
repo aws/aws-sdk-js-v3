@@ -164,14 +164,12 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
-    ...(input.PosixUser !== undefined &&
-      input.PosixUser !== null && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
-    ...(input.RootDirectory !== undefined &&
-      input.RootDirectory !== null && {
-        RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.PosixUser != null && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
+    ...(input.RootDirectory != null && {
+      RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -196,21 +194,17 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   let body: any;
   body = JSON.stringify({
-    ...(input.AvailabilityZoneName !== undefined &&
-      input.AvailabilityZoneName !== null && { AvailabilityZoneName: input.AvailabilityZoneName }),
-    ...(input.Backup !== undefined && input.Backup !== null && { Backup: input.Backup }),
+    ...(input.AvailabilityZoneName != null && { AvailabilityZoneName: input.AvailabilityZoneName }),
+    ...(input.Backup != null && { Backup: input.Backup }),
     CreationToken: input.CreationToken ?? generateIdempotencyToken(),
-    ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PerformanceMode !== undefined &&
-      input.PerformanceMode !== null && { PerformanceMode: input.PerformanceMode }),
-    ...(input.ProvisionedThroughputInMibps !== undefined &&
-      input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.ThroughputMode !== undefined &&
-      input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
+    ...(input.Encrypted != null && { Encrypted: input.Encrypted }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PerformanceMode != null && { PerformanceMode: input.PerformanceMode }),
+    ...(input.ProvisionedThroughputInMibps != null && {
+      ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.ThroughputMode != null && { ThroughputMode: input.ThroughputMode }),
   });
   return new __HttpRequest({
     protocol,
@@ -235,13 +229,12 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   let body: any;
   body = JSON.stringify({
-    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
-    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
-    ...(input.SecurityGroups !== undefined &&
-      input.SecurityGroups !== null && {
-        SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-      }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
+    ...(input.SecurityGroups != null && {
+      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
+    }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   });
   return new __HttpRequest({
     protocol,
@@ -276,10 +269,9 @@ export const serializeAws_restJson1CreateReplicationConfigurationCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Destinations !== undefined &&
-      input.Destinations !== null && {
-        Destinations: serializeAws_restJson1DestinationsToCreate(input.Destinations, context),
-      }),
+    ...(input.Destinations != null && {
+      Destinations: serializeAws_restJson1DestinationsToCreate(input.Destinations, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -313,7 +305,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -494,8 +486,7 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -547,8 +538,8 @@ export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -853,10 +844,9 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SecurityGroups !== undefined &&
-      input.SecurityGroups !== null && {
-        SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-      }),
+    ...(input.SecurityGroups != null && {
+      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -881,8 +871,7 @@ export const serializeAws_restJson1PutAccountPreferencesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceIdType !== undefined &&
-      input.ResourceIdType !== null && { ResourceIdType: input.ResourceIdType }),
+    ...(input.ResourceIdType != null && { ResourceIdType: input.ResourceIdType }),
   });
   return new __HttpRequest({
     protocol,
@@ -917,8 +906,9 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPolicy !== undefined &&
-      input.BackupPolicy !== null && { BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context) }),
+    ...(input.BackupPolicy != null && {
+      BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -953,11 +943,10 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BypassPolicyLockoutSafetyCheck !== undefined &&
-      input.BypassPolicyLockoutSafetyCheck !== null && {
-        BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-      }),
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.BypassPolicyLockoutSafetyCheck != null && {
+      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
+    }),
+    ...(input.Policy != null && { Policy: input.Policy }),
   });
   return new __HttpRequest({
     protocol,
@@ -992,10 +981,9 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LifecyclePolicies !== undefined &&
-      input.LifecyclePolicies !== null && {
-        LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
-      }),
+    ...(input.LifecyclePolicies != null && {
+      LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1029,7 +1017,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1096,12 +1084,10 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ProvisionedThroughputInMibps !== undefined &&
-      input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
-      }),
-    ...(input.ThroughputMode !== undefined &&
-      input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
+    ...(input.ProvisionedThroughputInMibps != null && {
+      ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
+    }),
+    ...(input.ThroughputMode != null && { ThroughputMode: input.ThroughputMode }),
   });
   return new __HttpRequest({
     protocol,
@@ -3600,15 +3586,15 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1BackupPolicy = (input: BackupPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_restJson1CreationInfo = (input: CreationInfo, context: __SerdeContext): any => {
   return {
-    ...(input.OwnerGid !== undefined && input.OwnerGid !== null && { OwnerGid: input.OwnerGid }),
-    ...(input.OwnerUid !== undefined && input.OwnerUid !== null && { OwnerUid: input.OwnerUid }),
-    ...(input.Permissions !== undefined && input.Permissions !== null && { Permissions: input.Permissions }),
+    ...(input.OwnerGid != null && { OwnerGid: input.OwnerGid }),
+    ...(input.OwnerUid != null && { OwnerUid: input.OwnerUid }),
+    ...(input.Permissions != null && { Permissions: input.Permissions }),
   };
 };
 
@@ -3625,10 +3611,9 @@ const serializeAws_restJson1DestinationsToCreate = (input: DestinationToCreate[]
 
 const serializeAws_restJson1DestinationToCreate = (input: DestinationToCreate, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZoneName !== undefined &&
-      input.AvailabilityZoneName !== null && { AvailabilityZoneName: input.AvailabilityZoneName }),
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
+    ...(input.AvailabilityZoneName != null && { AvailabilityZoneName: input.AvailabilityZoneName }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Region != null && { Region: input.Region }),
   };
 };
 
@@ -3645,31 +3630,29 @@ const serializeAws_restJson1LifecyclePolicies = (input: LifecyclePolicy[], conte
 
 const serializeAws_restJson1LifecyclePolicy = (input: LifecyclePolicy, context: __SerdeContext): any => {
   return {
-    ...(input.TransitionToIA !== undefined &&
-      input.TransitionToIA !== null && { TransitionToIA: input.TransitionToIA }),
-    ...(input.TransitionToPrimaryStorageClass !== undefined &&
-      input.TransitionToPrimaryStorageClass !== null && {
-        TransitionToPrimaryStorageClass: input.TransitionToPrimaryStorageClass,
-      }),
+    ...(input.TransitionToIA != null && { TransitionToIA: input.TransitionToIA }),
+    ...(input.TransitionToPrimaryStorageClass != null && {
+      TransitionToPrimaryStorageClass: input.TransitionToPrimaryStorageClass,
+    }),
   };
 };
 
 const serializeAws_restJson1PosixUser = (input: PosixUser, context: __SerdeContext): any => {
   return {
-    ...(input.Gid !== undefined && input.Gid !== null && { Gid: input.Gid }),
-    ...(input.SecondaryGids !== undefined &&
-      input.SecondaryGids !== null && {
-        SecondaryGids: serializeAws_restJson1SecondaryGids(input.SecondaryGids, context),
-      }),
-    ...(input.Uid !== undefined && input.Uid !== null && { Uid: input.Uid }),
+    ...(input.Gid != null && { Gid: input.Gid }),
+    ...(input.SecondaryGids != null && {
+      SecondaryGids: serializeAws_restJson1SecondaryGids(input.SecondaryGids, context),
+    }),
+    ...(input.Uid != null && { Uid: input.Uid }),
   };
 };
 
 const serializeAws_restJson1RootDirectory = (input: RootDirectory, context: __SerdeContext): any => {
   return {
-    ...(input.CreationInfo !== undefined &&
-      input.CreationInfo !== null && { CreationInfo: serializeAws_restJson1CreationInfo(input.CreationInfo, context) }),
-    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.CreationInfo != null && {
+      CreationInfo: serializeAws_restJson1CreationInfo(input.CreationInfo, context),
+    }),
+    ...(input.Path != null && { Path: input.Path }),
   };
 };
 
@@ -3697,8 +3680,8 @@ const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeC
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -3736,18 +3719,10 @@ const deserializeAws_restJson1AccessPointDescription = (
     LifeCycleState: __expectString(output.LifeCycleState),
     Name: __expectString(output.Name),
     OwnerId: __expectString(output.OwnerId),
-    PosixUser:
-      output.PosixUser !== undefined && output.PosixUser !== null
-        ? deserializeAws_restJson1PosixUser(output.PosixUser, context)
-        : undefined,
+    PosixUser: output.PosixUser != null ? deserializeAws_restJson1PosixUser(output.PosixUser, context) : undefined,
     RootDirectory:
-      output.RootDirectory !== undefined && output.RootDirectory !== null
-        ? deserializeAws_restJson1RootDirectory(output.RootDirectory, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1Tags(output.Tags, context)
-        : undefined,
+      output.RootDirectory != null ? deserializeAws_restJson1RootDirectory(output.RootDirectory, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3784,7 +3759,7 @@ const deserializeAws_restJson1Destination = (output: any, context: __SerdeContex
   return {
     FileSystemId: __expectString(output.FileSystemId),
     LastReplicatedTimestamp:
-      output.LastReplicatedTimestamp !== undefined && output.LastReplicatedTimestamp !== null
+      output.LastReplicatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastReplicatedTimestamp)))
         : undefined,
     Region: __expectString(output.Region),
@@ -3809,7 +3784,7 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
     AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     CreationToken: __expectString(output.CreationToken),
@@ -3824,13 +3799,8 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
     PerformanceMode: __expectString(output.PerformanceMode),
     ProvisionedThroughputInMibps: __limitedParseDouble(output.ProvisionedThroughputInMibps),
     SizeInBytes:
-      output.SizeInBytes !== undefined && output.SizeInBytes !== null
-        ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1Tags(output.Tags, context)
-        : undefined,
+      output.SizeInBytes != null ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
     ThroughputMode: __expectString(output.ThroughputMode),
   } as any;
 };
@@ -3853,9 +3823,7 @@ const deserializeAws_restJson1FileSystemDescriptions = (
 const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
   return {
     Timestamp:
-      output.Timestamp !== undefined && output.Timestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
     Value: __expectLong(output.Value),
     ValueInIA: __expectLong(output.ValueInIA),
     ValueInStandard: __expectLong(output.ValueInStandard),
@@ -3918,9 +3886,7 @@ const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext)
   return {
     Gid: __expectLong(output.Gid),
     SecondaryGids:
-      output.SecondaryGids !== undefined && output.SecondaryGids !== null
-        ? deserializeAws_restJson1SecondaryGids(output.SecondaryGids, context)
-        : undefined,
+      output.SecondaryGids != null ? deserializeAws_restJson1SecondaryGids(output.SecondaryGids, context) : undefined,
     Uid: __expectLong(output.Uid),
   } as any;
 };
@@ -3931,13 +3897,11 @@ const deserializeAws_restJson1ReplicationConfigurationDescription = (
 ): ReplicationConfigurationDescription => {
   return {
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Destinations:
-      output.Destinations !== undefined && output.Destinations !== null
-        ? deserializeAws_restJson1Destinations(output.Destinations, context)
-        : undefined,
+      output.Destinations != null ? deserializeAws_restJson1Destinations(output.Destinations, context) : undefined,
     OriginalSourceFileSystemArn: __expectString(output.OriginalSourceFileSystemArn),
     SourceFileSystemArn: __expectString(output.SourceFileSystemArn),
     SourceFileSystemId: __expectString(output.SourceFileSystemId),
@@ -3963,10 +3927,7 @@ const deserializeAws_restJson1ReplicationConfigurationDescriptions = (
 const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __SerdeContext): ResourceIdPreference => {
   return {
     ResourceIdType: __expectString(output.ResourceIdType),
-    Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_restJson1Resources(output.Resources, context)
-        : undefined,
+    Resources: output.Resources != null ? deserializeAws_restJson1Resources(output.Resources, context) : undefined,
   } as any;
 };
 
@@ -3985,9 +3946,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeContext): RootDirectory => {
   return {
     CreationInfo:
-      output.CreationInfo !== undefined && output.CreationInfo !== null
-        ? deserializeAws_restJson1CreationInfo(output.CreationInfo, context)
-        : undefined,
+      output.CreationInfo != null ? deserializeAws_restJson1CreationInfo(output.CreationInfo, context) : undefined,
     Path: __expectString(output.Path),
   } as any;
 };

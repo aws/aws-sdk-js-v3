@@ -587,50 +587,44 @@ const deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse = async (
 
 const serializeAws_json1_1BatchMeterUsageRequest = (input: BatchMeterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
-    ...(input.UsageRecords !== undefined &&
-      input.UsageRecords !== null && {
-        UsageRecords: serializeAws_json1_1UsageRecordList(input.UsageRecords, context),
-      }),
+    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
+    ...(input.UsageRecords != null && {
+      UsageRecords: serializeAws_json1_1UsageRecordList(input.UsageRecords, context),
+    }),
   };
 };
 
 const serializeAws_json1_1MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
-    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations !== undefined &&
-      input.UsageAllocations !== null && {
-        UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
-      }),
-    ...(input.UsageDimension !== undefined &&
-      input.UsageDimension !== null && { UsageDimension: input.UsageDimension }),
-    ...(input.UsageQuantity !== undefined && input.UsageQuantity !== null && { UsageQuantity: input.UsageQuantity }),
+    ...(input.DryRun != null && { DryRun: input.DryRun }),
+    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations != null && {
+      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+    }),
+    ...(input.UsageDimension != null && { UsageDimension: input.UsageDimension }),
+    ...(input.UsageQuantity != null && { UsageQuantity: input.UsageQuantity }),
   };
 };
 
 const serializeAws_json1_1RegisterUsageRequest = (input: RegisterUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Nonce !== undefined && input.Nonce !== null && { Nonce: input.Nonce }),
-    ...(input.ProductCode !== undefined && input.ProductCode !== null && { ProductCode: input.ProductCode }),
-    ...(input.PublicKeyVersion !== undefined &&
-      input.PublicKeyVersion !== null && { PublicKeyVersion: input.PublicKeyVersion }),
+    ...(input.Nonce != null && { Nonce: input.Nonce }),
+    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
+    ...(input.PublicKeyVersion != null && { PublicKeyVersion: input.PublicKeyVersion }),
   };
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (input: ResolveCustomerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RegistrationToken !== undefined &&
-      input.RegistrationToken !== null && { RegistrationToken: input.RegistrationToken }),
+    ...(input.RegistrationToken != null && { RegistrationToken: input.RegistrationToken }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -647,9 +641,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1UsageAllocation = (input: UsageAllocation, context: __SerdeContext): any => {
   return {
-    ...(input.AllocatedUsageQuantity !== undefined &&
-      input.AllocatedUsageQuantity !== null && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.AllocatedUsageQuantity != null && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -666,16 +659,13 @@ const serializeAws_json1_1UsageAllocations = (input: UsageAllocation[], context:
 
 const serializeAws_json1_1UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
   return {
-    ...(input.CustomerIdentifier !== undefined &&
-      input.CustomerIdentifier !== null && { CustomerIdentifier: input.CustomerIdentifier }),
-    ...(input.Dimension !== undefined && input.Dimension !== null && { Dimension: input.Dimension }),
-    ...(input.Quantity !== undefined && input.Quantity !== null && { Quantity: input.Quantity }),
-    ...(input.Timestamp !== undefined &&
-      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.UsageAllocations !== undefined &&
-      input.UsageAllocations !== null && {
-        UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
-      }),
+    ...(input.CustomerIdentifier != null && { CustomerIdentifier: input.CustomerIdentifier }),
+    ...(input.Dimension != null && { Dimension: input.Dimension }),
+    ...(input.Quantity != null && { Quantity: input.Quantity }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations != null && {
+      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+    }),
   };
 };
 
@@ -692,12 +682,9 @@ const serializeAws_json1_1UsageRecordList = (input: UsageRecord[], context: __Se
 
 const deserializeAws_json1_1BatchMeterUsageResult = (output: any, context: __SerdeContext): BatchMeterUsageResult => {
   return {
-    Results:
-      output.Results !== undefined && output.Results !== null
-        ? deserializeAws_json1_1UsageRecordResultList(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? deserializeAws_json1_1UsageRecordResultList(output.Results, context) : undefined,
     UnprocessedRecords:
-      output.UnprocessedRecords !== undefined && output.UnprocessedRecords !== null
+      output.UnprocessedRecords != null
         ? deserializeAws_json1_1UsageRecordList(output.UnprocessedRecords, context)
         : undefined,
   } as any;
@@ -832,7 +819,7 @@ const deserializeAws_json1_1PlatformNotSupportedException = (
 const deserializeAws_json1_1RegisterUsageResult = (output: any, context: __SerdeContext): RegisterUsageResult => {
   return {
     PublicKeyRotationTimestamp:
-      output.PublicKeyRotationTimestamp !== undefined && output.PublicKeyRotationTimestamp !== null
+      output.PublicKeyRotationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PublicKeyRotationTimestamp)))
         : undefined,
     Signature: __expectString(output.Signature),
@@ -884,10 +871,7 @@ const deserializeAws_json1_1TimestampOutOfBoundsException = (
 const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeContext): UsageAllocation => {
   return {
     AllocatedUsageQuantity: __expectInt32(output.AllocatedUsageQuantity),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -909,11 +893,9 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
     Dimension: __expectString(output.Dimension),
     Quantity: __expectInt32(output.Quantity),
     Timestamp:
-      output.Timestamp !== undefined && output.Timestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
     UsageAllocations:
-      output.UsageAllocations !== undefined && output.UsageAllocations !== null
+      output.UsageAllocations != null
         ? deserializeAws_json1_1UsageAllocations(output.UsageAllocations, context)
         : undefined,
   } as any;
@@ -936,9 +918,7 @@ const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeCo
     MeteringRecordId: __expectString(output.MeteringRecordId),
     Status: __expectString(output.Status),
     UsageRecord:
-      output.UsageRecord !== undefined && output.UsageRecord !== null
-        ? deserializeAws_json1_1UsageRecord(output.UsageRecord, context)
-        : undefined,
+      output.UsageRecord != null ? deserializeAws_json1_1UsageRecord(output.UsageRecord, context) : undefined,
   } as any;
 };
 

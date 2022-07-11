@@ -98,9 +98,8 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterName !== undefined && input.ClusterName !== null && { ClusterName: input.ClusterName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
+    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -125,11 +124,9 @@ export const serializeAws_restJson1CreateControlPanelCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn !== undefined && input.ClusterArn !== null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelName !== undefined &&
-      input.ControlPanelName !== null && { ControlPanelName: input.ControlPanelName }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
+    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
+    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -154,11 +151,9 @@ export const serializeAws_restJson1CreateRoutingControlCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ClusterArn !== undefined && input.ClusterArn !== null && { ClusterArn: input.ClusterArn }),
-    ...(input.ControlPanelArn !== undefined &&
-      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.RoutingControlName !== undefined &&
-      input.RoutingControlName !== null && { RoutingControlName: input.RoutingControlName }),
+    ...(input.ClusterArn != null && { ClusterArn: input.ClusterArn }),
+    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
   });
   return new __HttpRequest({
     protocol,
@@ -182,15 +177,12 @@ export const serializeAws_restJson1CreateSafetyRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
   body = JSON.stringify({
-    ...(input.AssertionRule !== undefined &&
-      input.AssertionRule !== null && {
-        AssertionRule: serializeAws_restJson1NewAssertionRule(input.AssertionRule, context),
-      }),
+    ...(input.AssertionRule != null && {
+      AssertionRule: serializeAws_restJson1NewAssertionRule(input.AssertionRule, context),
+    }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.GatingRule !== undefined &&
-      input.GatingRule !== null && { GatingRule: serializeAws_restJson1NewGatingRule(input.GatingRule, context) }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
+    ...(input.GatingRule != null && { GatingRule: serializeAws_restJson1NewGatingRule(input.GatingRule, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -635,8 +627,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1__mapOf__stringMin0Max256PatternS(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -692,10 +683,8 @@ export const serializeAws_restJson1UpdateControlPanelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controlpanel";
   let body: any;
   body = JSON.stringify({
-    ...(input.ControlPanelArn !== undefined &&
-      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.ControlPanelName !== undefined &&
-      input.ControlPanelName !== null && { ControlPanelName: input.ControlPanelName }),
+    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.ControlPanelName != null && { ControlPanelName: input.ControlPanelName }),
   });
   return new __HttpRequest({
     protocol,
@@ -719,10 +708,8 @@ export const serializeAws_restJson1UpdateRoutingControlCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routingcontrol";
   let body: any;
   body = JSON.stringify({
-    ...(input.RoutingControlArn !== undefined &&
-      input.RoutingControlArn !== null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlName !== undefined &&
-      input.RoutingControlName !== null && { RoutingControlName: input.RoutingControlName }),
+    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
+    ...(input.RoutingControlName != null && { RoutingControlName: input.RoutingControlName }),
   });
   return new __HttpRequest({
     protocol,
@@ -746,14 +733,12 @@ export const serializeAws_restJson1UpdateSafetyRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/safetyrule";
   let body: any;
   body = JSON.stringify({
-    ...(input.AssertionRuleUpdate !== undefined &&
-      input.AssertionRuleUpdate !== null && {
-        AssertionRuleUpdate: serializeAws_restJson1AssertionRuleUpdate(input.AssertionRuleUpdate, context),
-      }),
-    ...(input.GatingRuleUpdate !== undefined &&
-      input.GatingRuleUpdate !== null && {
-        GatingRuleUpdate: serializeAws_restJson1GatingRuleUpdate(input.GatingRuleUpdate, context),
-      }),
+    ...(input.AssertionRuleUpdate != null && {
+      AssertionRuleUpdate: serializeAws_restJson1AssertionRuleUpdate(input.AssertionRuleUpdate, context),
+    }),
+    ...(input.GatingRuleUpdate != null && {
+      GatingRuleUpdate: serializeAws_restJson1GatingRuleUpdate(input.GatingRuleUpdate, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -2216,62 +2201,52 @@ const serializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
 
 const serializeAws_restJson1AssertionRuleUpdate = (input: AssertionRuleUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SafetyRuleArn !== undefined && input.SafetyRuleArn !== null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs !== undefined && input.WaitPeriodMs !== null && { WaitPeriodMs: input.WaitPeriodMs }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
+    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
   };
 };
 
 const serializeAws_restJson1GatingRuleUpdate = (input: GatingRuleUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SafetyRuleArn !== undefined && input.SafetyRuleArn !== null && { SafetyRuleArn: input.SafetyRuleArn }),
-    ...(input.WaitPeriodMs !== undefined && input.WaitPeriodMs !== null && { WaitPeriodMs: input.WaitPeriodMs }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SafetyRuleArn != null && { SafetyRuleArn: input.SafetyRuleArn }),
+    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
   };
 };
 
 const serializeAws_restJson1NewAssertionRule = (input: NewAssertionRule, context: __SerdeContext): any => {
   return {
-    ...(input.AssertedControls !== undefined &&
-      input.AssertedControls !== null && {
-        AssertedControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(
-          input.AssertedControls,
-          context
-        ),
-      }),
-    ...(input.ControlPanelArn !== undefined &&
-      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RuleConfig !== undefined &&
-      input.RuleConfig !== null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
-    ...(input.WaitPeriodMs !== undefined && input.WaitPeriodMs !== null && { WaitPeriodMs: input.WaitPeriodMs }),
+    ...(input.AssertedControls != null && {
+      AssertedControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.AssertedControls, context),
+    }),
+    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RuleConfig != null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
+    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
   };
 };
 
 const serializeAws_restJson1NewGatingRule = (input: NewGatingRule, context: __SerdeContext): any => {
   return {
-    ...(input.ControlPanelArn !== undefined &&
-      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.GatingControls !== undefined &&
-      input.GatingControls !== null && {
-        GatingControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.GatingControls, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.RuleConfig !== undefined &&
-      input.RuleConfig !== null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
-    ...(input.TargetControls !== undefined &&
-      input.TargetControls !== null && {
-        TargetControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.TargetControls, context),
-      }),
-    ...(input.WaitPeriodMs !== undefined && input.WaitPeriodMs !== null && { WaitPeriodMs: input.WaitPeriodMs }),
+    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.GatingControls != null && {
+      GatingControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.GatingControls, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RuleConfig != null && { RuleConfig: serializeAws_restJson1RuleConfig(input.RuleConfig, context) }),
+    ...(input.TargetControls != null && {
+      TargetControls: serializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(input.TargetControls, context),
+    }),
+    ...(input.WaitPeriodMs != null && { WaitPeriodMs: input.WaitPeriodMs }),
   };
 };
 
 const serializeAws_restJson1RuleConfig = (input: RuleConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Inverted !== undefined && input.Inverted !== null && { Inverted: input.Inverted }),
-    ...(input.Threshold !== undefined && input.Threshold !== null && { Threshold: input.Threshold }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Inverted != null && { Inverted: input.Inverted }),
+    ...(input.Threshold != null && { Threshold: input.Threshold }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -2380,15 +2355,12 @@ const deserializeAws_restJson1__mapOf__stringMin0Max256PatternS = (
 const deserializeAws_restJson1AssertionRule = (output: any, context: __SerdeContext): AssertionRule => {
   return {
     AssertedControls:
-      output.AssertedControls !== undefined && output.AssertedControls !== null
+      output.AssertedControls != null
         ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.AssertedControls, context)
         : undefined,
     ControlPanelArn: __expectString(output.ControlPanelArn),
     Name: __expectString(output.Name),
-    RuleConfig:
-      output.RuleConfig !== undefined && output.RuleConfig !== null
-        ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context)
-        : undefined,
+    RuleConfig: output.RuleConfig != null ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context) : undefined,
     SafetyRuleArn: __expectString(output.SafetyRuleArn),
     Status: __expectString(output.Status),
     WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
@@ -2399,7 +2371,7 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
   return {
     ClusterArn: __expectString(output.ClusterArn),
     ClusterEndpoints:
-      output.ClusterEndpoints !== undefined && output.ClusterEndpoints !== null
+      output.ClusterEndpoints != null
         ? deserializeAws_restJson1__listOfClusterEndpoint(output.ClusterEndpoints, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -2429,18 +2401,15 @@ const deserializeAws_restJson1GatingRule = (output: any, context: __SerdeContext
   return {
     ControlPanelArn: __expectString(output.ControlPanelArn),
     GatingControls:
-      output.GatingControls !== undefined && output.GatingControls !== null
+      output.GatingControls != null
         ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.GatingControls, context)
         : undefined,
     Name: __expectString(output.Name),
-    RuleConfig:
-      output.RuleConfig !== undefined && output.RuleConfig !== null
-        ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context)
-        : undefined,
+    RuleConfig: output.RuleConfig != null ? deserializeAws_restJson1RuleConfig(output.RuleConfig, context) : undefined,
     SafetyRuleArn: __expectString(output.SafetyRuleArn),
     Status: __expectString(output.Status),
     TargetControls:
-      output.TargetControls !== undefined && output.TargetControls !== null
+      output.TargetControls != null
         ? deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09(output.TargetControls, context)
         : undefined,
     WaitPeriodMs: __expectInt32(output.WaitPeriodMs),
@@ -2458,14 +2427,8 @@ const deserializeAws_restJson1RoutingControl = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
-    ASSERTION:
-      output.ASSERTION !== undefined && output.ASSERTION !== null
-        ? deserializeAws_restJson1AssertionRule(output.ASSERTION, context)
-        : undefined,
-    GATING:
-      output.GATING !== undefined && output.GATING !== null
-        ? deserializeAws_restJson1GatingRule(output.GATING, context)
-        : undefined,
+    ASSERTION: output.ASSERTION != null ? deserializeAws_restJson1AssertionRule(output.ASSERTION, context) : undefined,
+    GATING: output.GATING != null ? deserializeAws_restJson1GatingRule(output.GATING, context) : undefined,
   } as any;
 };
 

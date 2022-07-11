@@ -75,8 +75,7 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/configuration-sets";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationSetName !== undefined &&
-      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   });
   return new __HttpRequest({
     protocol,
@@ -111,12 +110,10 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination !== undefined &&
-      input.EventDestination !== null && {
-        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-      }),
-    ...(input.EventDestinationName !== undefined &&
-      input.EventDestinationName !== null && { EventDestinationName: input.EventDestinationName }),
+    ...(input.EventDestination != null && {
+      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+    }),
+    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
   });
   return new __HttpRequest({
     protocol,
@@ -265,15 +262,11 @@ export const serializeAws_restJson1SendVoiceMessageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/voice/message";
   let body: any;
   body = JSON.stringify({
-    ...(input.CallerId !== undefined && input.CallerId !== null && { CallerId: input.CallerId }),
-    ...(input.ConfigurationSetName !== undefined &&
-      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content !== undefined &&
-      input.Content !== null && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
-    ...(input.DestinationPhoneNumber !== undefined &&
-      input.DestinationPhoneNumber !== null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.OriginationPhoneNumber !== undefined &&
-      input.OriginationPhoneNumber !== null && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
+    ...(input.CallerId != null && { CallerId: input.CallerId }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Content != null && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
+    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
+    ...(input.OriginationPhoneNumber != null && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
   });
   return new __HttpRequest({
     protocol,
@@ -317,10 +310,9 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination !== undefined &&
-      input.EventDestination !== null && {
-        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-      }),
+    ...(input.EventDestination != null && {
+      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -853,7 +845,7 @@ const serializeAws_restJson1CallInstructionsMessageType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+    ...(input.Text != null && { Text: input.Text }),
   };
 };
 
@@ -862,8 +854,8 @@ const serializeAws_restJson1CloudWatchLogsDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.LogGroupArn !== undefined && input.LogGroupArn !== null && { LogGroupArn: input.LogGroupArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
   };
 };
 
@@ -872,29 +864,25 @@ const serializeAws_restJson1EventDestinationDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogsDestination !== undefined &&
-      input.CloudWatchLogsDestination !== null && {
-        CloudWatchLogsDestination: serializeAws_restJson1CloudWatchLogsDestination(
-          input.CloudWatchLogsDestination,
-          context
-        ),
-      }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination !== undefined &&
-      input.KinesisFirehoseDestination !== null && {
-        KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
-          input.KinesisFirehoseDestination,
-          context
-        ),
-      }),
-    ...(input.MatchingEventTypes !== undefined &&
-      input.MatchingEventTypes !== null && {
-        MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
-      }),
-    ...(input.SnsDestination !== undefined &&
-      input.SnsDestination !== null && {
-        SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
-      }),
+    ...(input.CloudWatchLogsDestination != null && {
+      CloudWatchLogsDestination: serializeAws_restJson1CloudWatchLogsDestination(
+        input.CloudWatchLogsDestination,
+        context
+      ),
+    }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.KinesisFirehoseDestination != null && {
+      KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
+        input.KinesisFirehoseDestination,
+        context
+      ),
+    }),
+    ...(input.MatchingEventTypes != null && {
+      MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
+    }),
+    ...(input.SnsDestination != null && {
+      SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
+    }),
   };
 };
 
@@ -914,49 +902,47 @@ const serializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryStreamArn !== undefined &&
-      input.DeliveryStreamArn !== null && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
 const serializeAws_restJson1PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
-    ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text != null && { Text: input.Text }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   };
 };
 
 const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
-    ...(input.TopicArn !== undefined && input.TopicArn !== null && { TopicArn: input.TopicArn }),
+    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
 const serializeAws_restJson1SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
-    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
-    ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text != null && { Text: input.Text }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   };
 };
 
 const serializeAws_restJson1VoiceMessageContent = (input: VoiceMessageContent, context: __SerdeContext): any => {
   return {
-    ...(input.CallInstructionsMessage !== undefined &&
-      input.CallInstructionsMessage !== null && {
-        CallInstructionsMessage: serializeAws_restJson1CallInstructionsMessageType(
-          input.CallInstructionsMessage,
-          context
-        ),
-      }),
-    ...(input.PlainTextMessage !== undefined &&
-      input.PlainTextMessage !== null && {
-        PlainTextMessage: serializeAws_restJson1PlainTextMessageType(input.PlainTextMessage, context),
-      }),
-    ...(input.SSMLMessage !== undefined &&
-      input.SSMLMessage !== null && { SSMLMessage: serializeAws_restJson1SSMLMessageType(input.SSMLMessage, context) }),
+    ...(input.CallInstructionsMessage != null && {
+      CallInstructionsMessage: serializeAws_restJson1CallInstructionsMessageType(
+        input.CallInstructionsMessage,
+        context
+      ),
+    }),
+    ...(input.PlainTextMessage != null && {
+      PlainTextMessage: serializeAws_restJson1PlainTextMessageType(input.PlainTextMessage, context),
+    }),
+    ...(input.SSMLMessage != null && {
+      SSMLMessage: serializeAws_restJson1SSMLMessageType(input.SSMLMessage, context),
+    }),
   };
 };
 
@@ -985,21 +971,21 @@ const deserializeAws_restJson1ConfigurationSets = (output: any, context: __Serde
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
     CloudWatchLogsDestination:
-      output.CloudWatchLogsDestination !== undefined && output.CloudWatchLogsDestination !== null
+      output.CloudWatchLogsDestination != null
         ? deserializeAws_restJson1CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
+      output.KinesisFirehoseDestination != null
         ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
+      output.MatchingEventTypes != null
         ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
         : undefined,
     Name: __expectString(output.Name),
     SnsDestination:
-      output.SnsDestination !== undefined && output.SnsDestination !== null
+      output.SnsDestination != null
         ? deserializeAws_restJson1SnsDestination(output.SnsDestination, context)
         : undefined,
   } as any;

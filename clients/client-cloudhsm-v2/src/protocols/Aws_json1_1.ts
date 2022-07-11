@@ -1216,8 +1216,8 @@ const deserializeAws_json1_1CloudHsmTagExceptionResponse = async (
 
 const serializeAws_json1_1BackupRetentionPolicy = (input: BackupRetentionPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1226,76 +1226,67 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
-    ...(input.DestinationRegion !== undefined &&
-      input.DestinationRegion !== null && { DestinationRegion: input.DestinationRegion }),
-    ...(input.TagList !== undefined &&
-      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
+    ...(input.DestinationRegion != null && { DestinationRegion: input.DestinationRegion }),
+    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupRetentionPolicy !== undefined &&
-      input.BackupRetentionPolicy !== null && {
-        BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
-      }),
-    ...(input.HsmType !== undefined && input.HsmType !== null && { HsmType: input.HsmType }),
-    ...(input.SourceBackupId !== undefined &&
-      input.SourceBackupId !== null && { SourceBackupId: input.SourceBackupId }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.TagList !== undefined &&
-      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.BackupRetentionPolicy != null && {
+      BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
+    }),
+    ...(input.HsmType != null && { HsmType: input.HsmType }),
+    ...(input.SourceBackupId != null && { SourceBackupId: input.SourceBackupId }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (input: CreateHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined &&
-      input.AvailabilityZone !== null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
+    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
   };
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (input: DeleteBackupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
   };
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (input: DeleteClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (input: DeleteHsmRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.EniId !== undefined && input.EniId !== null && { EniId: input.EniId }),
-    ...(input.EniIp !== undefined && input.EniIp !== null && { EniIp: input.EniIp }),
-    ...(input.HsmId !== undefined && input.HsmId !== null && { HsmId: input.HsmId }),
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
+    ...(input.EniId != null && { EniId: input.EniId }),
+    ...(input.EniIp != null && { EniIp: input.EniIp }),
+    ...(input.HsmId != null && { HsmId: input.HsmId }),
   };
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (input: DescribeBackupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SortAscending !== undefined && input.SortAscending !== null && { SortAscending: input.SortAscending }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortAscending != null && { SortAscending: input.SortAscending }),
   };
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (input: DescribeClustersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1316,17 +1307,17 @@ const serializeAws_json1_1InitializeClusterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
-    ...(input.SignedCert !== undefined && input.SignedCert !== null && { SignedCert: input.SignedCert }),
-    ...(input.TrustAnchor !== undefined && input.TrustAnchor !== null && { TrustAnchor: input.TrustAnchor }),
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
+    ...(input.SignedCert != null && { SignedCert: input.SignedCert }),
+    ...(input.TrustAnchor != null && { TrustAnchor: input.TrustAnchor }),
   };
 };
 
 const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -1335,24 +1326,23 @@ const serializeAws_json1_1ModifyBackupAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
-    ...(input.NeverExpires !== undefined && input.NeverExpires !== null && { NeverExpires: input.NeverExpires }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
+    ...(input.NeverExpires != null && { NeverExpires: input.NeverExpires }),
   };
 };
 
 const serializeAws_json1_1ModifyClusterRequest = (input: ModifyClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupRetentionPolicy !== undefined &&
-      input.BackupRetentionPolicy !== null && {
-        BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
-      }),
-    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.BackupRetentionPolicy != null && {
+      BackupRetentionPolicy: serializeAws_json1_1BackupRetentionPolicy(input.BackupRetentionPolicy, context),
+    }),
+    ...(input.ClusterId != null && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1RestoreBackupRequest = (input: RestoreBackupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
   };
 };
 
@@ -1380,8 +1370,8 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1409,17 +1399,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagList !== undefined &&
-      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeyList != null && { TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context) }),
   };
 };
 
@@ -1429,25 +1417,22 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     BackupState: __expectString(output.BackupState),
     ClusterId: __expectString(output.ClusterId),
     CopyTimestamp:
-      output.CopyTimestamp !== undefined && output.CopyTimestamp !== null
+      output.CopyTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CopyTimestamp)))
         : undefined,
     CreateTimestamp:
-      output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
+      output.CreateTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     DeleteTimestamp:
-      output.DeleteTimestamp !== undefined && output.DeleteTimestamp !== null
+      output.DeleteTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteTimestamp)))
         : undefined,
     NeverExpires: __expectBoolean(output.NeverExpires),
     SourceBackup: __expectString(output.SourceBackup),
     SourceCluster: __expectString(output.SourceCluster),
     SourceRegion: __expectString(output.SourceRegion),
-    TagList:
-      output.TagList !== undefined && output.TagList !== null
-        ? deserializeAws_json1_1TagList(output.TagList, context)
-        : undefined,
+    TagList: output.TagList != null ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
   } as any;
 };
 
@@ -1535,34 +1520,28 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
   return {
     BackupPolicy: __expectString(output.BackupPolicy),
     BackupRetentionPolicy:
-      output.BackupRetentionPolicy !== undefined && output.BackupRetentionPolicy !== null
+      output.BackupRetentionPolicy != null
         ? deserializeAws_json1_1BackupRetentionPolicy(output.BackupRetentionPolicy, context)
         : undefined,
     Certificates:
-      output.Certificates !== undefined && output.Certificates !== null
-        ? deserializeAws_json1_1Certificates(output.Certificates, context)
-        : undefined,
+      output.Certificates != null ? deserializeAws_json1_1Certificates(output.Certificates, context) : undefined,
     ClusterId: __expectString(output.ClusterId),
     CreateTimestamp:
-      output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
+      output.CreateTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     HsmType: __expectString(output.HsmType),
-    Hsms:
-      output.Hsms !== undefined && output.Hsms !== null ? deserializeAws_json1_1Hsms(output.Hsms, context) : undefined,
+    Hsms: output.Hsms != null ? deserializeAws_json1_1Hsms(output.Hsms, context) : undefined,
     PreCoPassword: __expectString(output.PreCoPassword),
     SecurityGroup: __expectString(output.SecurityGroup),
     SourceBackupId: __expectString(output.SourceBackupId),
     State: __expectString(output.State),
     StateMessage: __expectString(output.StateMessage),
     SubnetMapping:
-      output.SubnetMapping !== undefined && output.SubnetMapping !== null
+      output.SubnetMapping != null
         ? deserializeAws_json1_1ExternalSubnetMapping(output.SubnetMapping, context)
         : undefined,
-    TagList:
-      output.TagList !== undefined && output.TagList !== null
-        ? deserializeAws_json1_1TagList(output.TagList, context)
-        : undefined,
+    TagList: output.TagList != null ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -1585,7 +1564,7 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
 ): CopyBackupToRegionResponse => {
   return {
     DestinationBackup:
-      output.DestinationBackup !== undefined && output.DestinationBackup !== null
+      output.DestinationBackup != null
         ? deserializeAws_json1_1DestinationBackup(output.DestinationBackup, context)
         : undefined,
   } as any;
@@ -1593,34 +1572,25 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
 
 const deserializeAws_json1_1CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
   return {
-    Cluster:
-      output.Cluster !== undefined && output.Cluster !== null
-        ? deserializeAws_json1_1Cluster(output.Cluster, context)
-        : undefined,
+    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateHsmResponse = (output: any, context: __SerdeContext): CreateHsmResponse => {
   return {
-    Hsm: output.Hsm !== undefined && output.Hsm !== null ? deserializeAws_json1_1Hsm(output.Hsm, context) : undefined,
+    Hsm: output.Hsm != null ? deserializeAws_json1_1Hsm(output.Hsm, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __SerdeContext): DeleteBackupResponse => {
   return {
-    Backup:
-      output.Backup !== undefined && output.Backup !== null
-        ? deserializeAws_json1_1Backup(output.Backup, context)
-        : undefined,
+    Backup: output.Backup != null ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
   return {
-    Cluster:
-      output.Cluster !== undefined && output.Cluster !== null
-        ? deserializeAws_json1_1Cluster(output.Cluster, context)
-        : undefined,
+    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
   } as any;
 };
 
@@ -1635,10 +1605,7 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   context: __SerdeContext
 ): DescribeBackupsResponse => {
   return {
-    Backups:
-      output.Backups !== undefined && output.Backups !== null
-        ? deserializeAws_json1_1Backups(output.Backups, context)
-        : undefined,
+    Backups: output.Backups != null ? deserializeAws_json1_1Backups(output.Backups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1648,10 +1615,7 @@ const deserializeAws_json1_1DescribeClustersResponse = (
   context: __SerdeContext
 ): DescribeClustersResponse => {
   return {
-    Clusters:
-      output.Clusters !== undefined && output.Clusters !== null
-        ? deserializeAws_json1_1Clusters(output.Clusters, context)
-        : undefined,
+    Clusters: output.Clusters != null ? deserializeAws_json1_1Clusters(output.Clusters, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1659,7 +1623,7 @@ const deserializeAws_json1_1DescribeClustersResponse = (
 const deserializeAws_json1_1DestinationBackup = (output: any, context: __SerdeContext): DestinationBackup => {
   return {
     CreateTimestamp:
-      output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
+      output.CreateTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTimestamp)))
         : undefined,
     SourceBackup: __expectString(output.SourceBackup),
@@ -1718,10 +1682,7 @@ const deserializeAws_json1_1InitializeClusterResponse = (
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    TagList:
-      output.TagList !== undefined && output.TagList !== null
-        ? deserializeAws_json1_1TagList(output.TagList, context)
-        : undefined,
+    TagList: output.TagList != null ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
   } as any;
 };
 
@@ -1730,28 +1691,19 @@ const deserializeAws_json1_1ModifyBackupAttributesResponse = (
   context: __SerdeContext
 ): ModifyBackupAttributesResponse => {
   return {
-    Backup:
-      output.Backup !== undefined && output.Backup !== null
-        ? deserializeAws_json1_1Backup(output.Backup, context)
-        : undefined,
+    Backup: output.Backup != null ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ModifyClusterResponse = (output: any, context: __SerdeContext): ModifyClusterResponse => {
   return {
-    Cluster:
-      output.Cluster !== undefined && output.Cluster !== null
-        ? deserializeAws_json1_1Cluster(output.Cluster, context)
-        : undefined,
+    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RestoreBackupResponse = (output: any, context: __SerdeContext): RestoreBackupResponse => {
   return {
-    Backup:
-      output.Backup !== undefined && output.Backup !== null
-        ? deserializeAws_json1_1Backup(output.Backup, context)
-        : undefined,
+    Backup: output.Backup != null ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
   } as any;
 };
 

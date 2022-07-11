@@ -2654,8 +2654,8 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse = async
 
 const serializeAws_json1_0ActivityType = (input: ActivityType, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -2664,7 +2664,7 @@ const serializeAws_json1_0CancelTimerDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.timerId !== undefined && input.timerId !== null && { timerId: input.timerId }),
+    ...(input.timerId != null && { timerId: input.timerId }),
   };
 };
 
@@ -2673,13 +2673,13 @@ const serializeAws_json1_0CancelWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
+    ...(input.details != null && { details: input.details }),
   };
 };
 
 const serializeAws_json1_0CloseStatusFilter = (input: CloseStatusFilter, context: __SerdeContext): any => {
   return {
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.status != null && { status: input.status }),
   };
 };
 
@@ -2688,7 +2688,7 @@ const serializeAws_json1_0CompleteWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.result !== undefined && input.result !== null && { result: input.result }),
+    ...(input.result != null && { result: input.result }),
   };
 };
 
@@ -2697,22 +2697,17 @@ const serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.childPolicy !== undefined && input.childPolicy !== null && { childPolicy: input.childPolicy }),
-    ...(input.executionStartToCloseTimeout !== undefined &&
-      input.executionStartToCloseTimeout !== null && {
-        executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-      }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.lambdaRole !== undefined && input.lambdaRole !== null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined &&
-      input.tagList !== null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
-    ...(input.taskPriority !== undefined && input.taskPriority !== null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout !== undefined &&
-      input.taskStartToCloseTimeout !== null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowTypeVersion !== undefined &&
-      input.workflowTypeVersion !== null && { workflowTypeVersion: input.workflowTypeVersion }),
+    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
+    ...(input.executionStartToCloseTimeout != null && {
+      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
+    }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
+    ...(input.tagList != null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
+    ...(input.workflowTypeVersion != null && { workflowTypeVersion: input.workflowTypeVersion }),
   };
 };
 
@@ -2721,27 +2716,21 @@ const serializeAws_json1_0CountClosedWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.closeStatusFilter !== undefined &&
-      input.closeStatusFilter !== null && {
-        closeStatusFilter: serializeAws_json1_0CloseStatusFilter(input.closeStatusFilter, context),
-      }),
-    ...(input.closeTimeFilter !== undefined &&
-      input.closeTimeFilter !== null && {
-        closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.closeTimeFilter, context),
-      }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.executionFilter !== undefined &&
-      input.executionFilter !== null && {
-        executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
-      }),
-    ...(input.startTimeFilter !== undefined &&
-      input.startTimeFilter !== null && {
-        startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
-      }),
-    ...(input.tagFilter !== undefined &&
-      input.tagFilter !== null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter !== undefined &&
-      input.typeFilter !== null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
+    ...(input.closeStatusFilter != null && {
+      closeStatusFilter: serializeAws_json1_0CloseStatusFilter(input.closeStatusFilter, context),
+    }),
+    ...(input.closeTimeFilter != null && {
+      closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.closeTimeFilter, context),
+    }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.executionFilter != null && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
+    }),
+    ...(input.startTimeFilter != null && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
+    }),
+    ...(input.tagFilter != null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
+    ...(input.typeFilter != null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
   };
 };
 
@@ -2750,19 +2739,15 @@ const serializeAws_json1_0CountOpenWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.executionFilter !== undefined &&
-      input.executionFilter !== null && {
-        executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
-      }),
-    ...(input.startTimeFilter !== undefined &&
-      input.startTimeFilter !== null && {
-        startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
-      }),
-    ...(input.tagFilter !== undefined &&
-      input.tagFilter !== null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter !== undefined &&
-      input.typeFilter !== null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.executionFilter != null && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
+    }),
+    ...(input.startTimeFilter != null && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
+    }),
+    ...(input.tagFilter != null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
+    ...(input.typeFilter != null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
   };
 };
 
@@ -2771,9 +2756,8 @@ const serializeAws_json1_0CountPendingActivityTasksInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -2782,110 +2766,95 @@ const serializeAws_json1_0CountPendingDecisionTasksInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
 const serializeAws_json1_0Decision = (input: Decision, context: __SerdeContext): any => {
   return {
-    ...(input.cancelTimerDecisionAttributes !== undefined &&
-      input.cancelTimerDecisionAttributes !== null && {
-        cancelTimerDecisionAttributes: serializeAws_json1_0CancelTimerDecisionAttributes(
-          input.cancelTimerDecisionAttributes,
+    ...(input.cancelTimerDecisionAttributes != null && {
+      cancelTimerDecisionAttributes: serializeAws_json1_0CancelTimerDecisionAttributes(
+        input.cancelTimerDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.cancelWorkflowExecutionDecisionAttributes != null && {
+      cancelWorkflowExecutionDecisionAttributes: serializeAws_json1_0CancelWorkflowExecutionDecisionAttributes(
+        input.cancelWorkflowExecutionDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.completeWorkflowExecutionDecisionAttributes != null && {
+      completeWorkflowExecutionDecisionAttributes: serializeAws_json1_0CompleteWorkflowExecutionDecisionAttributes(
+        input.completeWorkflowExecutionDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.continueAsNewWorkflowExecutionDecisionAttributes != null && {
+      continueAsNewWorkflowExecutionDecisionAttributes:
+        serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes(
+          input.continueAsNewWorkflowExecutionDecisionAttributes,
           context
         ),
-      }),
-    ...(input.cancelWorkflowExecutionDecisionAttributes !== undefined &&
-      input.cancelWorkflowExecutionDecisionAttributes !== null && {
-        cancelWorkflowExecutionDecisionAttributes: serializeAws_json1_0CancelWorkflowExecutionDecisionAttributes(
-          input.cancelWorkflowExecutionDecisionAttributes,
+    }),
+    ...(input.decisionType != null && { decisionType: input.decisionType }),
+    ...(input.failWorkflowExecutionDecisionAttributes != null && {
+      failWorkflowExecutionDecisionAttributes: serializeAws_json1_0FailWorkflowExecutionDecisionAttributes(
+        input.failWorkflowExecutionDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.recordMarkerDecisionAttributes != null && {
+      recordMarkerDecisionAttributes: serializeAws_json1_0RecordMarkerDecisionAttributes(
+        input.recordMarkerDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.requestCancelActivityTaskDecisionAttributes != null && {
+      requestCancelActivityTaskDecisionAttributes: serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes(
+        input.requestCancelActivityTaskDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.requestCancelExternalWorkflowExecutionDecisionAttributes != null && {
+      requestCancelExternalWorkflowExecutionDecisionAttributes:
+        serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes(
+          input.requestCancelExternalWorkflowExecutionDecisionAttributes,
           context
         ),
-      }),
-    ...(input.completeWorkflowExecutionDecisionAttributes !== undefined &&
-      input.completeWorkflowExecutionDecisionAttributes !== null && {
-        completeWorkflowExecutionDecisionAttributes: serializeAws_json1_0CompleteWorkflowExecutionDecisionAttributes(
-          input.completeWorkflowExecutionDecisionAttributes,
+    }),
+    ...(input.scheduleActivityTaskDecisionAttributes != null && {
+      scheduleActivityTaskDecisionAttributes: serializeAws_json1_0ScheduleActivityTaskDecisionAttributes(
+        input.scheduleActivityTaskDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.scheduleLambdaFunctionDecisionAttributes != null && {
+      scheduleLambdaFunctionDecisionAttributes: serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes(
+        input.scheduleLambdaFunctionDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.signalExternalWorkflowExecutionDecisionAttributes != null && {
+      signalExternalWorkflowExecutionDecisionAttributes:
+        serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes(
+          input.signalExternalWorkflowExecutionDecisionAttributes,
           context
         ),
-      }),
-    ...(input.continueAsNewWorkflowExecutionDecisionAttributes !== undefined &&
-      input.continueAsNewWorkflowExecutionDecisionAttributes !== null && {
-        continueAsNewWorkflowExecutionDecisionAttributes:
-          serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes(
-            input.continueAsNewWorkflowExecutionDecisionAttributes,
-            context
-          ),
-      }),
-    ...(input.decisionType !== undefined && input.decisionType !== null && { decisionType: input.decisionType }),
-    ...(input.failWorkflowExecutionDecisionAttributes !== undefined &&
-      input.failWorkflowExecutionDecisionAttributes !== null && {
-        failWorkflowExecutionDecisionAttributes: serializeAws_json1_0FailWorkflowExecutionDecisionAttributes(
-          input.failWorkflowExecutionDecisionAttributes,
-          context
-        ),
-      }),
-    ...(input.recordMarkerDecisionAttributes !== undefined &&
-      input.recordMarkerDecisionAttributes !== null && {
-        recordMarkerDecisionAttributes: serializeAws_json1_0RecordMarkerDecisionAttributes(
-          input.recordMarkerDecisionAttributes,
-          context
-        ),
-      }),
-    ...(input.requestCancelActivityTaskDecisionAttributes !== undefined &&
-      input.requestCancelActivityTaskDecisionAttributes !== null && {
-        requestCancelActivityTaskDecisionAttributes: serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes(
-          input.requestCancelActivityTaskDecisionAttributes,
-          context
-        ),
-      }),
-    ...(input.requestCancelExternalWorkflowExecutionDecisionAttributes !== undefined &&
-      input.requestCancelExternalWorkflowExecutionDecisionAttributes !== null && {
-        requestCancelExternalWorkflowExecutionDecisionAttributes:
-          serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes(
-            input.requestCancelExternalWorkflowExecutionDecisionAttributes,
-            context
-          ),
-      }),
-    ...(input.scheduleActivityTaskDecisionAttributes !== undefined &&
-      input.scheduleActivityTaskDecisionAttributes !== null && {
-        scheduleActivityTaskDecisionAttributes: serializeAws_json1_0ScheduleActivityTaskDecisionAttributes(
-          input.scheduleActivityTaskDecisionAttributes,
-          context
-        ),
-      }),
-    ...(input.scheduleLambdaFunctionDecisionAttributes !== undefined &&
-      input.scheduleLambdaFunctionDecisionAttributes !== null && {
-        scheduleLambdaFunctionDecisionAttributes: serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes(
-          input.scheduleLambdaFunctionDecisionAttributes,
-          context
-        ),
-      }),
-    ...(input.signalExternalWorkflowExecutionDecisionAttributes !== undefined &&
-      input.signalExternalWorkflowExecutionDecisionAttributes !== null && {
-        signalExternalWorkflowExecutionDecisionAttributes:
-          serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes(
-            input.signalExternalWorkflowExecutionDecisionAttributes,
-            context
-          ),
-      }),
-    ...(input.startChildWorkflowExecutionDecisionAttributes !== undefined &&
-      input.startChildWorkflowExecutionDecisionAttributes !== null && {
-        startChildWorkflowExecutionDecisionAttributes:
-          serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes(
-            input.startChildWorkflowExecutionDecisionAttributes,
-            context
-          ),
-      }),
-    ...(input.startTimerDecisionAttributes !== undefined &&
-      input.startTimerDecisionAttributes !== null && {
-        startTimerDecisionAttributes: serializeAws_json1_0StartTimerDecisionAttributes(
-          input.startTimerDecisionAttributes,
-          context
-        ),
-      }),
+    }),
+    ...(input.startChildWorkflowExecutionDecisionAttributes != null && {
+      startChildWorkflowExecutionDecisionAttributes: serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes(
+        input.startChildWorkflowExecutionDecisionAttributes,
+        context
+      ),
+    }),
+    ...(input.startTimerDecisionAttributes != null && {
+      startTimerDecisionAttributes: serializeAws_json1_0StartTimerDecisionAttributes(
+        input.startTimerDecisionAttributes,
+        context
+      ),
+    }),
   };
 };
 
@@ -2905,15 +2874,14 @@ const serializeAws_json1_0DeprecateActivityTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.activityType !== undefined &&
-      input.activityType !== null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
+    ...(input.activityType != null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
   };
 };
 
 const serializeAws_json1_0DeprecateDomainInput = (input: DeprecateDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -2922,9 +2890,8 @@ const serializeAws_json1_0DeprecateWorkflowTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.workflowType !== undefined &&
-      input.workflowType !== null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.workflowType != null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
   };
 };
 
@@ -2933,15 +2900,14 @@ const serializeAws_json1_0DescribeActivityTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.activityType !== undefined &&
-      input.activityType !== null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
+    ...(input.activityType != null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
   };
 };
 
 const serializeAws_json1_0DescribeDomainInput = (input: DescribeDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -2950,9 +2916,8 @@ const serializeAws_json1_0DescribeWorkflowExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.execution !== undefined &&
-      input.execution !== null && { execution: serializeAws_json1_0WorkflowExecution(input.execution, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.execution != null && { execution: serializeAws_json1_0WorkflowExecution(input.execution, context) }),
   };
 };
 
@@ -2961,18 +2926,15 @@ const serializeAws_json1_0DescribeWorkflowTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.workflowType !== undefined &&
-      input.workflowType !== null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.workflowType != null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
   };
 };
 
 const serializeAws_json1_0ExecutionTimeFilter = (input: ExecutionTimeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.latestDate !== undefined &&
-      input.latestDate !== null && { latestDate: Math.round(input.latestDate.getTime() / 1000) }),
-    ...(input.oldestDate !== undefined &&
-      input.oldestDate !== null && { oldestDate: Math.round(input.oldestDate.getTime() / 1000) }),
+    ...(input.latestDate != null && { latestDate: Math.round(input.latestDate.getTime() / 1000) }),
+    ...(input.oldestDate != null && { oldestDate: Math.round(input.oldestDate.getTime() / 1000) }),
   };
 };
 
@@ -2981,8 +2943,8 @@ const serializeAws_json1_0FailWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.reason != null && { reason: input.reason }),
   };
 };
 
@@ -2991,26 +2953,22 @@ const serializeAws_json1_0GetWorkflowExecutionHistoryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.execution !== undefined &&
-      input.execution !== null && { execution: serializeAws_json1_0WorkflowExecution(input.execution, context) }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.execution != null && { execution: serializeAws_json1_0WorkflowExecution(input.execution, context) }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
   };
 };
 
 const serializeAws_json1_0ListActivityTypesInput = (input: ListActivityTypesInput, context: __SerdeContext): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus !== undefined &&
-      input.registrationStatus !== null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3019,42 +2977,33 @@ const serializeAws_json1_0ListClosedWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.closeStatusFilter !== undefined &&
-      input.closeStatusFilter !== null && {
-        closeStatusFilter: serializeAws_json1_0CloseStatusFilter(input.closeStatusFilter, context),
-      }),
-    ...(input.closeTimeFilter !== undefined &&
-      input.closeTimeFilter !== null && {
-        closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.closeTimeFilter, context),
-      }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.executionFilter !== undefined &&
-      input.executionFilter !== null && {
-        executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
-      }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
-    ...(input.startTimeFilter !== undefined &&
-      input.startTimeFilter !== null && {
-        startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
-      }),
-    ...(input.tagFilter !== undefined &&
-      input.tagFilter !== null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter !== undefined &&
-      input.typeFilter !== null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
+    ...(input.closeStatusFilter != null && {
+      closeStatusFilter: serializeAws_json1_0CloseStatusFilter(input.closeStatusFilter, context),
+    }),
+    ...(input.closeTimeFilter != null && {
+      closeTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.closeTimeFilter, context),
+    }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.executionFilter != null && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
+    }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
+    ...(input.startTimeFilter != null && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
+    }),
+    ...(input.tagFilter != null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
+    ...(input.typeFilter != null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
   };
 };
 
 const serializeAws_json1_0ListDomainsInput = (input: ListDomainsInput, context: __SerdeContext): any => {
   return {
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus !== undefined &&
-      input.registrationStatus !== null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3063,23 +3012,18 @@ const serializeAws_json1_0ListOpenWorkflowExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.executionFilter !== undefined &&
-      input.executionFilter !== null && {
-        executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
-      }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
-    ...(input.startTimeFilter !== undefined &&
-      input.startTimeFilter !== null && {
-        startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
-      }),
-    ...(input.tagFilter !== undefined &&
-      input.tagFilter !== null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
-    ...(input.typeFilter !== undefined &&
-      input.typeFilter !== null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.executionFilter != null && {
+      executionFilter: serializeAws_json1_0WorkflowExecutionFilter(input.executionFilter, context),
+    }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
+    ...(input.startTimeFilter != null && {
+      startTimeFilter: serializeAws_json1_0ExecutionTimeFilter(input.startTimeFilter, context),
+    }),
+    ...(input.tagFilter != null && { tagFilter: serializeAws_json1_0TagFilter(input.tagFilter, context) }),
+    ...(input.typeFilter != null && { typeFilter: serializeAws_json1_0WorkflowTypeFilter(input.typeFilter, context) }),
   };
 };
 
@@ -3088,20 +3032,18 @@ const serializeAws_json1_0ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_0ListWorkflowTypesInput = (input: ListWorkflowTypesInput, context: __SerdeContext): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.registrationStatus !== undefined &&
-      input.registrationStatus !== null && { registrationStatus: input.registrationStatus }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
   };
 };
 
@@ -3110,10 +3052,9 @@ const serializeAws_json1_0PollForActivityTaskInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.identity !== undefined && input.identity !== null && { identity: input.identity }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.identity != null && { identity: input.identity }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3122,14 +3063,12 @@ const serializeAws_json1_0PollForDecisionTaskInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.identity !== undefined && input.identity !== null && { identity: input.identity }),
-    ...(input.maximumPageSize !== undefined &&
-      input.maximumPageSize !== null && { maximumPageSize: input.maximumPageSize }),
-    ...(input.nextPageToken !== undefined && input.nextPageToken !== null && { nextPageToken: input.nextPageToken }),
-    ...(input.reverseOrder !== undefined && input.reverseOrder !== null && { reverseOrder: input.reverseOrder }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.identity != null && { identity: input.identity }),
+    ...(input.maximumPageSize != null && { maximumPageSize: input.maximumPageSize }),
+    ...(input.nextPageToken != null && { nextPageToken: input.nextPageToken }),
+    ...(input.reverseOrder != null && { reverseOrder: input.reverseOrder }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
   };
 };
 
@@ -3138,8 +3077,8 @@ const serializeAws_json1_0RecordActivityTaskHeartbeatInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.taskToken !== undefined && input.taskToken !== null && { taskToken: input.taskToken }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
@@ -3148,8 +3087,8 @@ const serializeAws_json1_0RecordMarkerDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.markerName !== undefined && input.markerName !== null && { markerName: input.markerName }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.markerName != null && { markerName: input.markerName }),
   };
 };
 
@@ -3158,43 +3097,37 @@ const serializeAws_json1_0RegisterActivityTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.defaultTaskHeartbeatTimeout !== undefined &&
-      input.defaultTaskHeartbeatTimeout !== null && { defaultTaskHeartbeatTimeout: input.defaultTaskHeartbeatTimeout }),
-    ...(input.defaultTaskList !== undefined &&
-      input.defaultTaskList !== null && {
-        defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
-      }),
-    ...(input.defaultTaskPriority !== undefined &&
-      input.defaultTaskPriority !== null && { defaultTaskPriority: input.defaultTaskPriority }),
-    ...(input.defaultTaskScheduleToCloseTimeout !== undefined &&
-      input.defaultTaskScheduleToCloseTimeout !== null && {
-        defaultTaskScheduleToCloseTimeout: input.defaultTaskScheduleToCloseTimeout,
-      }),
-    ...(input.defaultTaskScheduleToStartTimeout !== undefined &&
-      input.defaultTaskScheduleToStartTimeout !== null && {
-        defaultTaskScheduleToStartTimeout: input.defaultTaskScheduleToStartTimeout,
-      }),
-    ...(input.defaultTaskStartToCloseTimeout !== undefined &&
-      input.defaultTaskStartToCloseTimeout !== null && {
-        defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.defaultTaskHeartbeatTimeout != null && {
+      defaultTaskHeartbeatTimeout: input.defaultTaskHeartbeatTimeout,
+    }),
+    ...(input.defaultTaskList != null && {
+      defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
+    }),
+    ...(input.defaultTaskPriority != null && { defaultTaskPriority: input.defaultTaskPriority }),
+    ...(input.defaultTaskScheduleToCloseTimeout != null && {
+      defaultTaskScheduleToCloseTimeout: input.defaultTaskScheduleToCloseTimeout,
+    }),
+    ...(input.defaultTaskScheduleToStartTimeout != null && {
+      defaultTaskScheduleToStartTimeout: input.defaultTaskScheduleToStartTimeout,
+    }),
+    ...(input.defaultTaskStartToCloseTimeout != null && {
+      defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
+    }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_0RegisterDomainInput = (input: RegisterDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
-    ...(input.workflowExecutionRetentionPeriodInDays !== undefined &&
-      input.workflowExecutionRetentionPeriodInDays !== null && {
-        workflowExecutionRetentionPeriodInDays: input.workflowExecutionRetentionPeriodInDays,
-      }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
+    ...(input.workflowExecutionRetentionPeriodInDays != null && {
+      workflowExecutionRetentionPeriodInDays: input.workflowExecutionRetentionPeriodInDays,
+    }),
   };
 };
 
@@ -3203,28 +3136,22 @@ const serializeAws_json1_0RegisterWorkflowTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.defaultChildPolicy !== undefined &&
-      input.defaultChildPolicy !== null && { defaultChildPolicy: input.defaultChildPolicy }),
-    ...(input.defaultExecutionStartToCloseTimeout !== undefined &&
-      input.defaultExecutionStartToCloseTimeout !== null && {
-        defaultExecutionStartToCloseTimeout: input.defaultExecutionStartToCloseTimeout,
-      }),
-    ...(input.defaultLambdaRole !== undefined &&
-      input.defaultLambdaRole !== null && { defaultLambdaRole: input.defaultLambdaRole }),
-    ...(input.defaultTaskList !== undefined &&
-      input.defaultTaskList !== null && {
-        defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
-      }),
-    ...(input.defaultTaskPriority !== undefined &&
-      input.defaultTaskPriority !== null && { defaultTaskPriority: input.defaultTaskPriority }),
-    ...(input.defaultTaskStartToCloseTimeout !== undefined &&
-      input.defaultTaskStartToCloseTimeout !== null && {
-        defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.defaultChildPolicy != null && { defaultChildPolicy: input.defaultChildPolicy }),
+    ...(input.defaultExecutionStartToCloseTimeout != null && {
+      defaultExecutionStartToCloseTimeout: input.defaultExecutionStartToCloseTimeout,
+    }),
+    ...(input.defaultLambdaRole != null && { defaultLambdaRole: input.defaultLambdaRole }),
+    ...(input.defaultTaskList != null && {
+      defaultTaskList: serializeAws_json1_0TaskList(input.defaultTaskList, context),
+    }),
+    ...(input.defaultTaskPriority != null && { defaultTaskPriority: input.defaultTaskPriority }),
+    ...(input.defaultTaskStartToCloseTimeout != null && {
+      defaultTaskStartToCloseTimeout: input.defaultTaskStartToCloseTimeout,
+    }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -3233,7 +3160,7 @@ const serializeAws_json1_0RequestCancelActivityTaskDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.activityId !== undefined && input.activityId !== null && { activityId: input.activityId }),
+    ...(input.activityId != null && { activityId: input.activityId }),
   };
 };
 
@@ -3242,9 +3169,9 @@ const serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttribut
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
@@ -3253,16 +3180,16 @@ const serializeAws_json1_0RequestCancelWorkflowExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
 const serializeAws_json1_0ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3293,8 +3220,8 @@ const serializeAws_json1_0RespondActivityTaskCanceledInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.taskToken !== undefined && input.taskToken !== null && { taskToken: input.taskToken }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
@@ -3303,8 +3230,8 @@ const serializeAws_json1_0RespondActivityTaskCompletedInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.result !== undefined && input.result !== null && { result: input.result }),
-    ...(input.taskToken !== undefined && input.taskToken !== null && { taskToken: input.taskToken }),
+    ...(input.result != null && { result: input.result }),
+    ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
@@ -3313,9 +3240,9 @@ const serializeAws_json1_0RespondActivityTaskFailedInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-    ...(input.taskToken !== undefined && input.taskToken !== null && { taskToken: input.taskToken }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.reason != null && { reason: input.reason }),
+    ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
@@ -3324,11 +3251,9 @@ const serializeAws_json1_0RespondDecisionTaskCompletedInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.decisions !== undefined &&
-      input.decisions !== null && { decisions: serializeAws_json1_0DecisionList(input.decisions, context) }),
-    ...(input.executionContext !== undefined &&
-      input.executionContext !== null && { executionContext: input.executionContext }),
-    ...(input.taskToken !== undefined && input.taskToken !== null && { taskToken: input.taskToken }),
+    ...(input.decisions != null && { decisions: serializeAws_json1_0DecisionList(input.decisions, context) }),
+    ...(input.executionContext != null && { executionContext: input.executionContext }),
+    ...(input.taskToken != null && { taskToken: input.taskToken }),
   };
 };
 
@@ -3337,22 +3262,16 @@ const serializeAws_json1_0ScheduleActivityTaskDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.activityId !== undefined && input.activityId !== null && { activityId: input.activityId }),
-    ...(input.activityType !== undefined &&
-      input.activityType !== null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.heartbeatTimeout !== undefined &&
-      input.heartbeatTimeout !== null && { heartbeatTimeout: input.heartbeatTimeout }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.scheduleToCloseTimeout !== undefined &&
-      input.scheduleToCloseTimeout !== null && { scheduleToCloseTimeout: input.scheduleToCloseTimeout }),
-    ...(input.scheduleToStartTimeout !== undefined &&
-      input.scheduleToStartTimeout !== null && { scheduleToStartTimeout: input.scheduleToStartTimeout }),
-    ...(input.startToCloseTimeout !== undefined &&
-      input.startToCloseTimeout !== null && { startToCloseTimeout: input.startToCloseTimeout }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
-    ...(input.taskPriority !== undefined && input.taskPriority !== null && { taskPriority: input.taskPriority }),
+    ...(input.activityId != null && { activityId: input.activityId }),
+    ...(input.activityType != null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.heartbeatTimeout != null && { heartbeatTimeout: input.heartbeatTimeout }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.scheduleToCloseTimeout != null && { scheduleToCloseTimeout: input.scheduleToCloseTimeout }),
+    ...(input.scheduleToStartTimeout != null && { scheduleToStartTimeout: input.scheduleToStartTimeout }),
+    ...(input.startToCloseTimeout != null && { startToCloseTimeout: input.startToCloseTimeout }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
   };
 };
 
@@ -3361,12 +3280,11 @@ const serializeAws_json1_0ScheduleLambdaFunctionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.startToCloseTimeout !== undefined &&
-      input.startToCloseTimeout !== null && { startToCloseTimeout: input.startToCloseTimeout }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.startToCloseTimeout != null && { startToCloseTimeout: input.startToCloseTimeout }),
   };
 };
 
@@ -3375,11 +3293,11 @@ const serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.signalName !== undefined && input.signalName !== null && { signalName: input.signalName }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.signalName != null && { signalName: input.signalName }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
@@ -3388,11 +3306,11 @@ const serializeAws_json1_0SignalWorkflowExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.signalName !== undefined && input.signalName !== null && { signalName: input.signalName }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.signalName != null && { signalName: input.signalName }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
@@ -3401,24 +3319,19 @@ const serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.childPolicy !== undefined && input.childPolicy !== null && { childPolicy: input.childPolicy }),
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.executionStartToCloseTimeout !== undefined &&
-      input.executionStartToCloseTimeout !== null && {
-        executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-      }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.lambdaRole !== undefined && input.lambdaRole !== null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined &&
-      input.tagList !== null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
-    ...(input.taskPriority !== undefined && input.taskPriority !== null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout !== undefined &&
-      input.taskStartToCloseTimeout !== null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
-    ...(input.workflowType !== undefined &&
-      input.workflowType !== null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
+    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.executionStartToCloseTimeout != null && {
+      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
+    }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
+    ...(input.tagList != null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
+    ...(input.workflowType != null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
   };
 };
 
@@ -3427,10 +3340,9 @@ const serializeAws_json1_0StartTimerDecisionAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.control !== undefined && input.control !== null && { control: input.control }),
-    ...(input.startToFireTimeout !== undefined &&
-      input.startToFireTimeout !== null && { startToFireTimeout: input.startToFireTimeout }),
-    ...(input.timerId !== undefined && input.timerId !== null && { timerId: input.timerId }),
+    ...(input.control != null && { control: input.control }),
+    ...(input.startToFireTimeout != null && { startToFireTimeout: input.startToFireTimeout }),
+    ...(input.timerId != null && { timerId: input.timerId }),
   };
 };
 
@@ -3439,30 +3351,25 @@ const serializeAws_json1_0StartWorkflowExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.childPolicy !== undefined && input.childPolicy !== null && { childPolicy: input.childPolicy }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.executionStartToCloseTimeout !== undefined &&
-      input.executionStartToCloseTimeout !== null && {
-        executionStartToCloseTimeout: input.executionStartToCloseTimeout,
-      }),
-    ...(input.input !== undefined && input.input !== null && { input: input.input }),
-    ...(input.lambdaRole !== undefined && input.lambdaRole !== null && { lambdaRole: input.lambdaRole }),
-    ...(input.tagList !== undefined &&
-      input.tagList !== null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
-    ...(input.taskList !== undefined &&
-      input.taskList !== null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
-    ...(input.taskPriority !== undefined && input.taskPriority !== null && { taskPriority: input.taskPriority }),
-    ...(input.taskStartToCloseTimeout !== undefined &&
-      input.taskStartToCloseTimeout !== null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
-    ...(input.workflowType !== undefined &&
-      input.workflowType !== null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
+    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.executionStartToCloseTimeout != null && {
+      executionStartToCloseTimeout: input.executionStartToCloseTimeout,
+    }),
+    ...(input.input != null && { input: input.input }),
+    ...(input.lambdaRole != null && { lambdaRole: input.lambdaRole }),
+    ...(input.tagList != null && { tagList: serializeAws_json1_0TagList(input.tagList, context) }),
+    ...(input.taskList != null && { taskList: serializeAws_json1_0TaskList(input.taskList, context) }),
+    ...(input.taskPriority != null && { taskPriority: input.taskPriority }),
+    ...(input.taskStartToCloseTimeout != null && { taskStartToCloseTimeout: input.taskStartToCloseTimeout }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
+    ...(input.workflowType != null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
   };
 };
 
 const serializeAws_json1_0TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.tag !== undefined && input.tag !== null && { tag: input.tag }),
+    ...(input.tag != null && { tag: input.tag }),
   };
 };
 
@@ -3479,15 +3386,14 @@ const serializeAws_json1_0TagList = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_0ResourceTagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_0TaskList = (input: TaskList, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3496,12 +3402,12 @@ const serializeAws_json1_0TerminateWorkflowExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.childPolicy !== undefined && input.childPolicy !== null && { childPolicy: input.childPolicy }),
-    ...(input.details !== undefined && input.details !== null && { details: input.details }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.childPolicy != null && { childPolicy: input.childPolicy }),
+    ...(input.details != null && { details: input.details }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.reason != null && { reason: input.reason }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
@@ -3510,15 +3416,14 @@ const serializeAws_json1_0UndeprecateActivityTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.activityType !== undefined &&
-      input.activityType !== null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
+    ...(input.activityType != null && { activityType: serializeAws_json1_0ActivityType(input.activityType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
   };
 };
 
 const serializeAws_json1_0UndeprecateDomainInput = (input: UndeprecateDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3527,44 +3432,42 @@ const serializeAws_json1_0UndeprecateWorkflowTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
-    ...(input.workflowType !== undefined &&
-      input.workflowType !== null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
+    ...(input.domain != null && { domain: input.domain }),
+    ...(input.workflowType != null && { workflowType: serializeAws_json1_0WorkflowType(input.workflowType, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_json1_0ResourceTagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_0ResourceTagKeyList(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0WorkflowExecution = (input: WorkflowExecution, context: __SerdeContext): any => {
   return {
-    ...(input.runId !== undefined && input.runId !== null && { runId: input.runId }),
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.runId != null && { runId: input.runId }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
 const serializeAws_json1_0WorkflowExecutionFilter = (input: WorkflowExecutionFilter, context: __SerdeContext): any => {
   return {
-    ...(input.workflowId !== undefined && input.workflowId !== null && { workflowId: input.workflowId }),
+    ...(input.workflowId != null && { workflowId: input.workflowId }),
   };
 };
 
 const serializeAws_json1_0WorkflowType = (input: WorkflowType, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_0WorkflowTypeFilter = (input: WorkflowTypeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -3572,14 +3475,12 @@ const deserializeAws_json1_0ActivityTask = (output: any, context: __SerdeContext
   return {
     activityId: __expectString(output.activityId),
     activityType:
-      output.activityType !== undefined && output.activityType !== null
-        ? deserializeAws_json1_0ActivityType(output.activityType, context)
-        : undefined,
+      output.activityType != null ? deserializeAws_json1_0ActivityType(output.activityType, context) : undefined,
     input: __expectString(output.input),
     startedEventId: __expectLong(output.startedEventId),
     taskToken: __expectString(output.taskToken),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
   } as any;
@@ -3637,9 +3538,7 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
   return {
     activityId: __expectString(output.activityId),
     activityType:
-      output.activityType !== undefined && output.activityType !== null
-        ? deserializeAws_json1_0ActivityType(output.activityType, context)
-        : undefined,
+      output.activityType != null ? deserializeAws_json1_0ActivityType(output.activityType, context) : undefined,
     control: __expectString(output.control),
     decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
     heartbeatTimeout: __expectString(output.heartbeatTimeout),
@@ -3647,10 +3546,7 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
     scheduleToCloseTimeout: __expectString(output.scheduleToCloseTimeout),
     scheduleToStartTimeout: __expectString(output.scheduleToStartTimeout),
     startToCloseTimeout: __expectString(output.startToCloseTimeout),
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
   } as any;
 };
@@ -3697,9 +3593,7 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
   return {
     defaultTaskHeartbeatTimeout: __expectString(output.defaultTaskHeartbeatTimeout),
     defaultTaskList:
-      output.defaultTaskList !== undefined && output.defaultTaskList !== null
-        ? deserializeAws_json1_0TaskList(output.defaultTaskList, context)
-        : undefined,
+      output.defaultTaskList != null ? deserializeAws_json1_0TaskList(output.defaultTaskList, context) : undefined,
     defaultTaskPriority: __expectString(output.defaultTaskPriority),
     defaultTaskScheduleToCloseTimeout: __expectString(output.defaultTaskScheduleToCloseTimeout),
     defaultTaskScheduleToStartTimeout: __expectString(output.defaultTaskScheduleToStartTimeout),
@@ -3710,28 +3604,23 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
 const deserializeAws_json1_0ActivityTypeDetail = (output: any, context: __SerdeContext): ActivityTypeDetail => {
   return {
     configuration:
-      output.configuration !== undefined && output.configuration !== null
+      output.configuration != null
         ? deserializeAws_json1_0ActivityTypeConfiguration(output.configuration, context)
         : undefined,
-    typeInfo:
-      output.typeInfo !== undefined && output.typeInfo !== null
-        ? deserializeAws_json1_0ActivityTypeInfo(output.typeInfo, context)
-        : undefined,
+    typeInfo: output.typeInfo != null ? deserializeAws_json1_0ActivityTypeInfo(output.typeInfo, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0ActivityTypeInfo = (output: any, context: __SerdeContext): ActivityTypeInfo => {
   return {
     activityType:
-      output.activityType !== undefined && output.activityType !== null
-        ? deserializeAws_json1_0ActivityType(output.activityType, context)
-        : undefined,
+      output.activityType != null ? deserializeAws_json1_0ActivityType(output.activityType, context) : undefined,
     creationDate:
-      output.creationDate !== undefined && output.creationDate !== null
+      output.creationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deprecationDate:
-      output.deprecationDate !== undefined && output.deprecationDate !== null
+      output.deprecationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
         : undefined,
     description: __expectString(output.description),
@@ -3755,9 +3644,7 @@ const deserializeAws_json1_0ActivityTypeInfos = (output: any, context: __SerdeCo
   return {
     nextPageToken: __expectString(output.nextPageToken),
     typeInfos:
-      output.typeInfos !== undefined && output.typeInfos !== null
-        ? deserializeAws_json1_0ActivityTypeInfoList(output.typeInfos, context)
-        : undefined,
+      output.typeInfos != null ? deserializeAws_json1_0ActivityTypeInfoList(output.typeInfos, context) : undefined,
   } as any;
 };
 
@@ -3791,13 +3678,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes = (
     initiatedEventId: __expectLong(output.initiatedEventId),
     startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3810,13 +3695,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes = (
     result: __expectString(output.result),
     startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3830,13 +3713,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes = (
     reason: __expectString(output.reason),
     startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3847,13 +3728,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes = (
   return {
     initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3865,13 +3744,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes = (
     initiatedEventId: __expectLong(output.initiatedEventId),
     startedEventId: __expectLong(output.startedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3884,13 +3761,11 @@ const deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes = (
     startedEventId: __expectLong(output.startedEventId),
     timeoutType: __expectString(output.timeoutType),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3916,22 +3791,17 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
 
 const deserializeAws_json1_0DecisionTask = (output: any, context: __SerdeContext): DecisionTask => {
   return {
-    events:
-      output.events !== undefined && output.events !== null
-        ? deserializeAws_json1_0HistoryEventList(output.events, context)
-        : undefined,
+    events: output.events != null ? deserializeAws_json1_0HistoryEventList(output.events, context) : undefined,
     nextPageToken: __expectString(output.nextPageToken),
     previousStartedEventId: __expectLong(output.previousStartedEventId),
     startedEventId: __expectLong(output.startedEventId),
     taskToken: __expectString(output.taskToken),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -3952,10 +3822,7 @@ const deserializeAws_json1_0DecisionTaskScheduledEventAttributes = (
 ): DecisionTaskScheduledEventAttributes => {
   return {
     startToCloseTimeout: __expectString(output.startToCloseTimeout),
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
   } as any;
 };
@@ -4011,13 +3878,10 @@ const deserializeAws_json1_0DomainDeprecatedFault = (output: any, context: __Ser
 const deserializeAws_json1_0DomainDetail = (output: any, context: __SerdeContext): DomainDetail => {
   return {
     configuration:
-      output.configuration !== undefined && output.configuration !== null
+      output.configuration != null
         ? deserializeAws_json1_0DomainConfiguration(output.configuration, context)
         : undefined,
-    domainInfo:
-      output.domainInfo !== undefined && output.domainInfo !== null
-        ? deserializeAws_json1_0DomainInfo(output.domainInfo, context)
-        : undefined,
+    domainInfo: output.domainInfo != null ? deserializeAws_json1_0DomainInfo(output.domainInfo, context) : undefined,
   } as any;
 };
 
@@ -4045,9 +3909,7 @@ const deserializeAws_json1_0DomainInfoList = (output: any, context: __SerdeConte
 const deserializeAws_json1_0DomainInfos = (output: any, context: __SerdeContext): DomainInfos => {
   return {
     domainInfos:
-      output.domainInfos !== undefined && output.domainInfos !== null
-        ? deserializeAws_json1_0DomainInfoList(output.domainInfos, context)
-        : undefined,
+      output.domainInfos != null ? deserializeAws_json1_0DomainInfoList(output.domainInfos, context) : undefined,
     nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
@@ -4059,7 +3921,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttribu
   return {
     initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
   } as any;
@@ -4072,7 +3934,7 @@ const deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes = (
   return {
     initiatedEventId: __expectLong(output.initiatedEventId),
     workflowExecution:
-      output.workflowExecution !== undefined && output.workflowExecution !== null
+      output.workflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.workflowExecution, context)
         : undefined,
   } as any;
@@ -4090,10 +3952,7 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
 
 const deserializeAws_json1_0History = (output: any, context: __SerdeContext): History => {
   return {
-    events:
-      output.events !== undefined && output.events !== null
-        ? deserializeAws_json1_0HistoryEventList(output.events, context)
-        : undefined,
+    events: output.events != null ? deserializeAws_json1_0HistoryEventList(output.events, context) : undefined,
     nextPageToken: __expectString(output.nextPageToken),
   } as any;
 };
@@ -4101,377 +3960,342 @@ const deserializeAws_json1_0History = (output: any, context: __SerdeContext): Hi
 const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
   return {
     activityTaskCancelRequestedEventAttributes:
-      output.activityTaskCancelRequestedEventAttributes !== undefined &&
-      output.activityTaskCancelRequestedEventAttributes !== null
+      output.activityTaskCancelRequestedEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes(
             output.activityTaskCancelRequestedEventAttributes,
             context
           )
         : undefined,
     activityTaskCanceledEventAttributes:
-      output.activityTaskCanceledEventAttributes !== undefined && output.activityTaskCanceledEventAttributes !== null
+      output.activityTaskCanceledEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskCanceledEventAttributes(output.activityTaskCanceledEventAttributes, context)
         : undefined,
     activityTaskCompletedEventAttributes:
-      output.activityTaskCompletedEventAttributes !== undefined && output.activityTaskCompletedEventAttributes !== null
+      output.activityTaskCompletedEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskCompletedEventAttributes(
             output.activityTaskCompletedEventAttributes,
             context
           )
         : undefined,
     activityTaskFailedEventAttributes:
-      output.activityTaskFailedEventAttributes !== undefined && output.activityTaskFailedEventAttributes !== null
+      output.activityTaskFailedEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskFailedEventAttributes(output.activityTaskFailedEventAttributes, context)
         : undefined,
     activityTaskScheduledEventAttributes:
-      output.activityTaskScheduledEventAttributes !== undefined && output.activityTaskScheduledEventAttributes !== null
+      output.activityTaskScheduledEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskScheduledEventAttributes(
             output.activityTaskScheduledEventAttributes,
             context
           )
         : undefined,
     activityTaskStartedEventAttributes:
-      output.activityTaskStartedEventAttributes !== undefined && output.activityTaskStartedEventAttributes !== null
+      output.activityTaskStartedEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskStartedEventAttributes(output.activityTaskStartedEventAttributes, context)
         : undefined,
     activityTaskTimedOutEventAttributes:
-      output.activityTaskTimedOutEventAttributes !== undefined && output.activityTaskTimedOutEventAttributes !== null
+      output.activityTaskTimedOutEventAttributes != null
         ? deserializeAws_json1_0ActivityTaskTimedOutEventAttributes(output.activityTaskTimedOutEventAttributes, context)
         : undefined,
     cancelTimerFailedEventAttributes:
-      output.cancelTimerFailedEventAttributes !== undefined && output.cancelTimerFailedEventAttributes !== null
+      output.cancelTimerFailedEventAttributes != null
         ? deserializeAws_json1_0CancelTimerFailedEventAttributes(output.cancelTimerFailedEventAttributes, context)
         : undefined,
     cancelWorkflowExecutionFailedEventAttributes:
-      output.cancelWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.cancelWorkflowExecutionFailedEventAttributes !== null
+      output.cancelWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes(
             output.cancelWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionCanceledEventAttributes:
-      output.childWorkflowExecutionCanceledEventAttributes !== undefined &&
-      output.childWorkflowExecutionCanceledEventAttributes !== null
+      output.childWorkflowExecutionCanceledEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes(
             output.childWorkflowExecutionCanceledEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionCompletedEventAttributes:
-      output.childWorkflowExecutionCompletedEventAttributes !== undefined &&
-      output.childWorkflowExecutionCompletedEventAttributes !== null
+      output.childWorkflowExecutionCompletedEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes(
             output.childWorkflowExecutionCompletedEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionFailedEventAttributes:
-      output.childWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.childWorkflowExecutionFailedEventAttributes !== null
+      output.childWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes(
             output.childWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionStartedEventAttributes:
-      output.childWorkflowExecutionStartedEventAttributes !== undefined &&
-      output.childWorkflowExecutionStartedEventAttributes !== null
+      output.childWorkflowExecutionStartedEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes(
             output.childWorkflowExecutionStartedEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionTerminatedEventAttributes:
-      output.childWorkflowExecutionTerminatedEventAttributes !== undefined &&
-      output.childWorkflowExecutionTerminatedEventAttributes !== null
+      output.childWorkflowExecutionTerminatedEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes(
             output.childWorkflowExecutionTerminatedEventAttributes,
             context
           )
         : undefined,
     childWorkflowExecutionTimedOutEventAttributes:
-      output.childWorkflowExecutionTimedOutEventAttributes !== undefined &&
-      output.childWorkflowExecutionTimedOutEventAttributes !== null
+      output.childWorkflowExecutionTimedOutEventAttributes != null
         ? deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes(
             output.childWorkflowExecutionTimedOutEventAttributes,
             context
           )
         : undefined,
     completeWorkflowExecutionFailedEventAttributes:
-      output.completeWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.completeWorkflowExecutionFailedEventAttributes !== null
+      output.completeWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes(
             output.completeWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     continueAsNewWorkflowExecutionFailedEventAttributes:
-      output.continueAsNewWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.continueAsNewWorkflowExecutionFailedEventAttributes !== null
+      output.continueAsNewWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes(
             output.continueAsNewWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     decisionTaskCompletedEventAttributes:
-      output.decisionTaskCompletedEventAttributes !== undefined && output.decisionTaskCompletedEventAttributes !== null
+      output.decisionTaskCompletedEventAttributes != null
         ? deserializeAws_json1_0DecisionTaskCompletedEventAttributes(
             output.decisionTaskCompletedEventAttributes,
             context
           )
         : undefined,
     decisionTaskScheduledEventAttributes:
-      output.decisionTaskScheduledEventAttributes !== undefined && output.decisionTaskScheduledEventAttributes !== null
+      output.decisionTaskScheduledEventAttributes != null
         ? deserializeAws_json1_0DecisionTaskScheduledEventAttributes(
             output.decisionTaskScheduledEventAttributes,
             context
           )
         : undefined,
     decisionTaskStartedEventAttributes:
-      output.decisionTaskStartedEventAttributes !== undefined && output.decisionTaskStartedEventAttributes !== null
+      output.decisionTaskStartedEventAttributes != null
         ? deserializeAws_json1_0DecisionTaskStartedEventAttributes(output.decisionTaskStartedEventAttributes, context)
         : undefined,
     decisionTaskTimedOutEventAttributes:
-      output.decisionTaskTimedOutEventAttributes !== undefined && output.decisionTaskTimedOutEventAttributes !== null
+      output.decisionTaskTimedOutEventAttributes != null
         ? deserializeAws_json1_0DecisionTaskTimedOutEventAttributes(output.decisionTaskTimedOutEventAttributes, context)
         : undefined,
     eventId: __expectLong(output.eventId),
     eventTimestamp:
-      output.eventTimestamp !== undefined && output.eventTimestamp !== null
+      output.eventTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTimestamp)))
         : undefined,
     eventType: __expectString(output.eventType),
     externalWorkflowExecutionCancelRequestedEventAttributes:
-      output.externalWorkflowExecutionCancelRequestedEventAttributes !== undefined &&
-      output.externalWorkflowExecutionCancelRequestedEventAttributes !== null
+      output.externalWorkflowExecutionCancelRequestedEventAttributes != null
         ? deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttributes(
             output.externalWorkflowExecutionCancelRequestedEventAttributes,
             context
           )
         : undefined,
     externalWorkflowExecutionSignaledEventAttributes:
-      output.externalWorkflowExecutionSignaledEventAttributes !== undefined &&
-      output.externalWorkflowExecutionSignaledEventAttributes !== null
+      output.externalWorkflowExecutionSignaledEventAttributes != null
         ? deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes(
             output.externalWorkflowExecutionSignaledEventAttributes,
             context
           )
         : undefined,
     failWorkflowExecutionFailedEventAttributes:
-      output.failWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.failWorkflowExecutionFailedEventAttributes !== null
+      output.failWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes(
             output.failWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     lambdaFunctionCompletedEventAttributes:
-      output.lambdaFunctionCompletedEventAttributes !== undefined &&
-      output.lambdaFunctionCompletedEventAttributes !== null
+      output.lambdaFunctionCompletedEventAttributes != null
         ? deserializeAws_json1_0LambdaFunctionCompletedEventAttributes(
             output.lambdaFunctionCompletedEventAttributes,
             context
           )
         : undefined,
     lambdaFunctionFailedEventAttributes:
-      output.lambdaFunctionFailedEventAttributes !== undefined && output.lambdaFunctionFailedEventAttributes !== null
+      output.lambdaFunctionFailedEventAttributes != null
         ? deserializeAws_json1_0LambdaFunctionFailedEventAttributes(output.lambdaFunctionFailedEventAttributes, context)
         : undefined,
     lambdaFunctionScheduledEventAttributes:
-      output.lambdaFunctionScheduledEventAttributes !== undefined &&
-      output.lambdaFunctionScheduledEventAttributes !== null
+      output.lambdaFunctionScheduledEventAttributes != null
         ? deserializeAws_json1_0LambdaFunctionScheduledEventAttributes(
             output.lambdaFunctionScheduledEventAttributes,
             context
           )
         : undefined,
     lambdaFunctionStartedEventAttributes:
-      output.lambdaFunctionStartedEventAttributes !== undefined && output.lambdaFunctionStartedEventAttributes !== null
+      output.lambdaFunctionStartedEventAttributes != null
         ? deserializeAws_json1_0LambdaFunctionStartedEventAttributes(
             output.lambdaFunctionStartedEventAttributes,
             context
           )
         : undefined,
     lambdaFunctionTimedOutEventAttributes:
-      output.lambdaFunctionTimedOutEventAttributes !== undefined &&
-      output.lambdaFunctionTimedOutEventAttributes !== null
+      output.lambdaFunctionTimedOutEventAttributes != null
         ? deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes(
             output.lambdaFunctionTimedOutEventAttributes,
             context
           )
         : undefined,
     markerRecordedEventAttributes:
-      output.markerRecordedEventAttributes !== undefined && output.markerRecordedEventAttributes !== null
+      output.markerRecordedEventAttributes != null
         ? deserializeAws_json1_0MarkerRecordedEventAttributes(output.markerRecordedEventAttributes, context)
         : undefined,
     recordMarkerFailedEventAttributes:
-      output.recordMarkerFailedEventAttributes !== undefined && output.recordMarkerFailedEventAttributes !== null
+      output.recordMarkerFailedEventAttributes != null
         ? deserializeAws_json1_0RecordMarkerFailedEventAttributes(output.recordMarkerFailedEventAttributes, context)
         : undefined,
     requestCancelActivityTaskFailedEventAttributes:
-      output.requestCancelActivityTaskFailedEventAttributes !== undefined &&
-      output.requestCancelActivityTaskFailedEventAttributes !== null
+      output.requestCancelActivityTaskFailedEventAttributes != null
         ? deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes(
             output.requestCancelActivityTaskFailedEventAttributes,
             context
           )
         : undefined,
     requestCancelExternalWorkflowExecutionFailedEventAttributes:
-      output.requestCancelExternalWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.requestCancelExternalWorkflowExecutionFailedEventAttributes !== null
+      output.requestCancelExternalWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAttributes(
             output.requestCancelExternalWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     requestCancelExternalWorkflowExecutionInitiatedEventAttributes:
-      output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes !== undefined &&
-      output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes !== null
+      output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes != null
         ? deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEventAttributes(
             output.requestCancelExternalWorkflowExecutionInitiatedEventAttributes,
             context
           )
         : undefined,
     scheduleActivityTaskFailedEventAttributes:
-      output.scheduleActivityTaskFailedEventAttributes !== undefined &&
-      output.scheduleActivityTaskFailedEventAttributes !== null
+      output.scheduleActivityTaskFailedEventAttributes != null
         ? deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes(
             output.scheduleActivityTaskFailedEventAttributes,
             context
           )
         : undefined,
     scheduleLambdaFunctionFailedEventAttributes:
-      output.scheduleLambdaFunctionFailedEventAttributes !== undefined &&
-      output.scheduleLambdaFunctionFailedEventAttributes !== null
+      output.scheduleLambdaFunctionFailedEventAttributes != null
         ? deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes(
             output.scheduleLambdaFunctionFailedEventAttributes,
             context
           )
         : undefined,
     signalExternalWorkflowExecutionFailedEventAttributes:
-      output.signalExternalWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.signalExternalWorkflowExecutionFailedEventAttributes !== null
+      output.signalExternalWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes(
             output.signalExternalWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     signalExternalWorkflowExecutionInitiatedEventAttributes:
-      output.signalExternalWorkflowExecutionInitiatedEventAttributes !== undefined &&
-      output.signalExternalWorkflowExecutionInitiatedEventAttributes !== null
+      output.signalExternalWorkflowExecutionInitiatedEventAttributes != null
         ? deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttributes(
             output.signalExternalWorkflowExecutionInitiatedEventAttributes,
             context
           )
         : undefined,
     startChildWorkflowExecutionFailedEventAttributes:
-      output.startChildWorkflowExecutionFailedEventAttributes !== undefined &&
-      output.startChildWorkflowExecutionFailedEventAttributes !== null
+      output.startChildWorkflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes(
             output.startChildWorkflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     startChildWorkflowExecutionInitiatedEventAttributes:
-      output.startChildWorkflowExecutionInitiatedEventAttributes !== undefined &&
-      output.startChildWorkflowExecutionInitiatedEventAttributes !== null
+      output.startChildWorkflowExecutionInitiatedEventAttributes != null
         ? deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes(
             output.startChildWorkflowExecutionInitiatedEventAttributes,
             context
           )
         : undefined,
     startLambdaFunctionFailedEventAttributes:
-      output.startLambdaFunctionFailedEventAttributes !== undefined &&
-      output.startLambdaFunctionFailedEventAttributes !== null
+      output.startLambdaFunctionFailedEventAttributes != null
         ? deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes(
             output.startLambdaFunctionFailedEventAttributes,
             context
           )
         : undefined,
     startTimerFailedEventAttributes:
-      output.startTimerFailedEventAttributes !== undefined && output.startTimerFailedEventAttributes !== null
+      output.startTimerFailedEventAttributes != null
         ? deserializeAws_json1_0StartTimerFailedEventAttributes(output.startTimerFailedEventAttributes, context)
         : undefined,
     timerCanceledEventAttributes:
-      output.timerCanceledEventAttributes !== undefined && output.timerCanceledEventAttributes !== null
+      output.timerCanceledEventAttributes != null
         ? deserializeAws_json1_0TimerCanceledEventAttributes(output.timerCanceledEventAttributes, context)
         : undefined,
     timerFiredEventAttributes:
-      output.timerFiredEventAttributes !== undefined && output.timerFiredEventAttributes !== null
+      output.timerFiredEventAttributes != null
         ? deserializeAws_json1_0TimerFiredEventAttributes(output.timerFiredEventAttributes, context)
         : undefined,
     timerStartedEventAttributes:
-      output.timerStartedEventAttributes !== undefined && output.timerStartedEventAttributes !== null
+      output.timerStartedEventAttributes != null
         ? deserializeAws_json1_0TimerStartedEventAttributes(output.timerStartedEventAttributes, context)
         : undefined,
     workflowExecutionCancelRequestedEventAttributes:
-      output.workflowExecutionCancelRequestedEventAttributes !== undefined &&
-      output.workflowExecutionCancelRequestedEventAttributes !== null
+      output.workflowExecutionCancelRequestedEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes(
             output.workflowExecutionCancelRequestedEventAttributes,
             context
           )
         : undefined,
     workflowExecutionCanceledEventAttributes:
-      output.workflowExecutionCanceledEventAttributes !== undefined &&
-      output.workflowExecutionCanceledEventAttributes !== null
+      output.workflowExecutionCanceledEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes(
             output.workflowExecutionCanceledEventAttributes,
             context
           )
         : undefined,
     workflowExecutionCompletedEventAttributes:
-      output.workflowExecutionCompletedEventAttributes !== undefined &&
-      output.workflowExecutionCompletedEventAttributes !== null
+      output.workflowExecutionCompletedEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes(
             output.workflowExecutionCompletedEventAttributes,
             context
           )
         : undefined,
     workflowExecutionContinuedAsNewEventAttributes:
-      output.workflowExecutionContinuedAsNewEventAttributes !== undefined &&
-      output.workflowExecutionContinuedAsNewEventAttributes !== null
+      output.workflowExecutionContinuedAsNewEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes(
             output.workflowExecutionContinuedAsNewEventAttributes,
             context
           )
         : undefined,
     workflowExecutionFailedEventAttributes:
-      output.workflowExecutionFailedEventAttributes !== undefined &&
-      output.workflowExecutionFailedEventAttributes !== null
+      output.workflowExecutionFailedEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionFailedEventAttributes(
             output.workflowExecutionFailedEventAttributes,
             context
           )
         : undefined,
     workflowExecutionSignaledEventAttributes:
-      output.workflowExecutionSignaledEventAttributes !== undefined &&
-      output.workflowExecutionSignaledEventAttributes !== null
+      output.workflowExecutionSignaledEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes(
             output.workflowExecutionSignaledEventAttributes,
             context
           )
         : undefined,
     workflowExecutionStartedEventAttributes:
-      output.workflowExecutionStartedEventAttributes !== undefined &&
-      output.workflowExecutionStartedEventAttributes !== null
+      output.workflowExecutionStartedEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionStartedEventAttributes(
             output.workflowExecutionStartedEventAttributes,
             context
           )
         : undefined,
     workflowExecutionTerminatedEventAttributes:
-      output.workflowExecutionTerminatedEventAttributes !== undefined &&
-      output.workflowExecutionTerminatedEventAttributes !== null
+      output.workflowExecutionTerminatedEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes(
             output.workflowExecutionTerminatedEventAttributes,
             context
           )
         : undefined,
     workflowExecutionTimedOutEventAttributes:
-      output.workflowExecutionTimedOutEventAttributes !== undefined &&
-      output.workflowExecutionTimedOutEventAttributes !== null
+      output.workflowExecutionTimedOutEventAttributes != null
         ? deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes(
             output.workflowExecutionTimedOutEventAttributes,
             context
@@ -4560,10 +4384,7 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_json1_0ResourceTagList(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_json1_0ResourceTagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4674,9 +4495,7 @@ const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
   return {
     activityId: __expectString(output.activityId),
     activityType:
-      output.activityType !== undefined && output.activityType !== null
-        ? deserializeAws_json1_0ActivityType(output.activityType, context)
-        : undefined,
+      output.activityType != null ? deserializeAws_json1_0ActivityType(output.activityType, context) : undefined,
     cause: __expectString(output.cause),
     decisionTaskCompletedEventId: __expectLong(output.decisionTaskCompletedEventId),
   } as any;
@@ -4733,9 +4552,7 @@ const deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes = (
     initiatedEventId: __expectLong(output.initiatedEventId),
     workflowId: __expectString(output.workflowId),
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -4750,21 +4567,13 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
     executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
     input: __expectString(output.input),
     lambdaRole: __expectString(output.lambdaRole),
-    tagList:
-      output.tagList !== undefined && output.tagList !== null
-        ? deserializeAws_json1_0TagList(output.tagList, context)
-        : undefined,
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    tagList: output.tagList != null ? deserializeAws_json1_0TagList(output.tagList, context) : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
     taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
     workflowId: __expectString(output.workflowId),
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -4899,7 +4708,7 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
     cause: __expectString(output.cause),
     externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
     externalWorkflowExecution:
-      output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
+      output.externalWorkflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
         : undefined,
   } as any;
@@ -4923,10 +4732,7 @@ const deserializeAws_json1_0WorkflowExecutionConfiguration = (
     childPolicy: __expectString(output.childPolicy),
     executionStartToCloseTimeout: __expectString(output.executionStartToCloseTimeout),
     lambdaRole: __expectString(output.lambdaRole),
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
     taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
   } as any;
@@ -4943,20 +4749,12 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
     input: __expectString(output.input),
     lambdaRole: __expectString(output.lambdaRole),
     newExecutionRunId: __expectString(output.newExecutionRunId),
-    tagList:
-      output.tagList !== undefined && output.tagList !== null
-        ? deserializeAws_json1_0TagList(output.tagList, context)
-        : undefined,
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    tagList: output.tagList != null ? deserializeAws_json1_0TagList(output.tagList, context) : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
     taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -4973,20 +4771,20 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
 ): WorkflowExecutionDetail => {
   return {
     executionConfiguration:
-      output.executionConfiguration !== undefined && output.executionConfiguration !== null
+      output.executionConfiguration != null
         ? deserializeAws_json1_0WorkflowExecutionConfiguration(output.executionConfiguration, context)
         : undefined,
     executionInfo:
-      output.executionInfo !== undefined && output.executionInfo !== null
+      output.executionInfo != null
         ? deserializeAws_json1_0WorkflowExecutionInfo(output.executionInfo, context)
         : undefined,
     latestActivityTaskTimestamp:
-      output.latestActivityTaskTimestamp !== undefined && output.latestActivityTaskTimestamp !== null
+      output.latestActivityTaskTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.latestActivityTaskTimestamp)))
         : undefined,
     latestExecutionContext: __expectString(output.latestExecutionContext),
     openCounts:
-      output.openCounts !== undefined && output.openCounts !== null
+      output.openCounts != null
         ? deserializeAws_json1_0WorkflowExecutionOpenCounts(output.openCounts, context)
         : undefined,
   } as any;
@@ -5008,30 +4806,20 @@ const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __Ser
     cancelRequested: __expectBoolean(output.cancelRequested),
     closeStatus: __expectString(output.closeStatus),
     closeTimestamp:
-      output.closeTimestamp !== undefined && output.closeTimestamp !== null
+      output.closeTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.closeTimestamp)))
         : undefined,
     execution:
-      output.execution !== undefined && output.execution !== null
-        ? deserializeAws_json1_0WorkflowExecution(output.execution, context)
-        : undefined,
+      output.execution != null ? deserializeAws_json1_0WorkflowExecution(output.execution, context) : undefined,
     executionStatus: __expectString(output.executionStatus),
-    parent:
-      output.parent !== undefined && output.parent !== null
-        ? deserializeAws_json1_0WorkflowExecution(output.parent, context)
-        : undefined,
+    parent: output.parent != null ? deserializeAws_json1_0WorkflowExecution(output.parent, context) : undefined,
     startTimestamp:
-      output.startTimestamp !== undefined && output.startTimestamp !== null
+      output.startTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTimestamp)))
         : undefined,
-    tagList:
-      output.tagList !== undefined && output.tagList !== null
-        ? deserializeAws_json1_0TagList(output.tagList, context)
-        : undefined,
+    tagList: output.tagList != null ? deserializeAws_json1_0TagList(output.tagList, context) : undefined,
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -5053,7 +4841,7 @@ const deserializeAws_json1_0WorkflowExecutionInfoList = (
 const deserializeAws_json1_0WorkflowExecutionInfos = (output: any, context: __SerdeContext): WorkflowExecutionInfos => {
   return {
     executionInfos:
-      output.executionInfos !== undefined && output.executionInfos !== null
+      output.executionInfos != null
         ? deserializeAws_json1_0WorkflowExecutionInfoList(output.executionInfos, context)
         : undefined,
     nextPageToken: __expectString(output.nextPageToken),
@@ -5080,7 +4868,7 @@ const deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes = (
   return {
     externalInitiatedEventId: __expectLong(output.externalInitiatedEventId),
     externalWorkflowExecution:
-      output.externalWorkflowExecution !== undefined && output.externalWorkflowExecution !== null
+      output.externalWorkflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.externalWorkflowExecution, context)
         : undefined,
     input: __expectString(output.input),
@@ -5100,23 +4888,15 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
     lambdaRole: __expectString(output.lambdaRole),
     parentInitiatedEventId: __expectLong(output.parentInitiatedEventId),
     parentWorkflowExecution:
-      output.parentWorkflowExecution !== undefined && output.parentWorkflowExecution !== null
+      output.parentWorkflowExecution != null
         ? deserializeAws_json1_0WorkflowExecution(output.parentWorkflowExecution, context)
         : undefined,
-    tagList:
-      output.tagList !== undefined && output.tagList !== null
-        ? deserializeAws_json1_0TagList(output.tagList, context)
-        : undefined,
-    taskList:
-      output.taskList !== undefined && output.taskList !== null
-        ? deserializeAws_json1_0TaskList(output.taskList, context)
-        : undefined,
+    tagList: output.tagList != null ? deserializeAws_json1_0TagList(output.tagList, context) : undefined,
+    taskList: output.taskList != null ? deserializeAws_json1_0TaskList(output.taskList, context) : undefined,
     taskPriority: __expectString(output.taskPriority),
     taskStartToCloseTimeout: __expectString(output.taskStartToCloseTimeout),
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -5158,9 +4938,7 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
     defaultExecutionStartToCloseTimeout: __expectString(output.defaultExecutionStartToCloseTimeout),
     defaultLambdaRole: __expectString(output.defaultLambdaRole),
     defaultTaskList:
-      output.defaultTaskList !== undefined && output.defaultTaskList !== null
-        ? deserializeAws_json1_0TaskList(output.defaultTaskList, context)
-        : undefined,
+      output.defaultTaskList != null ? deserializeAws_json1_0TaskList(output.defaultTaskList, context) : undefined,
     defaultTaskPriority: __expectString(output.defaultTaskPriority),
     defaultTaskStartToCloseTimeout: __expectString(output.defaultTaskStartToCloseTimeout),
   } as any;
@@ -5169,32 +4947,27 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
 const deserializeAws_json1_0WorkflowTypeDetail = (output: any, context: __SerdeContext): WorkflowTypeDetail => {
   return {
     configuration:
-      output.configuration !== undefined && output.configuration !== null
+      output.configuration != null
         ? deserializeAws_json1_0WorkflowTypeConfiguration(output.configuration, context)
         : undefined,
-    typeInfo:
-      output.typeInfo !== undefined && output.typeInfo !== null
-        ? deserializeAws_json1_0WorkflowTypeInfo(output.typeInfo, context)
-        : undefined,
+    typeInfo: output.typeInfo != null ? deserializeAws_json1_0WorkflowTypeInfo(output.typeInfo, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0WorkflowTypeInfo = (output: any, context: __SerdeContext): WorkflowTypeInfo => {
   return {
     creationDate:
-      output.creationDate !== undefined && output.creationDate !== null
+      output.creationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDate)))
         : undefined,
     deprecationDate:
-      output.deprecationDate !== undefined && output.deprecationDate !== null
+      output.deprecationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deprecationDate)))
         : undefined,
     description: __expectString(output.description),
     status: __expectString(output.status),
     workflowType:
-      output.workflowType !== undefined && output.workflowType !== null
-        ? deserializeAws_json1_0WorkflowType(output.workflowType, context)
-        : undefined,
+      output.workflowType != null ? deserializeAws_json1_0WorkflowType(output.workflowType, context) : undefined,
   } as any;
 };
 
@@ -5214,9 +4987,7 @@ const deserializeAws_json1_0WorkflowTypeInfos = (output: any, context: __SerdeCo
   return {
     nextPageToken: __expectString(output.nextPageToken),
     typeInfos:
-      output.typeInfos !== undefined && output.typeInfos !== null
-        ? deserializeAws_json1_0WorkflowTypeInfoList(output.typeInfos, context)
-        : undefined,
+      output.typeInfos != null ? deserializeAws_json1_0WorkflowTypeInfoList(output.typeInfos, context) : undefined,
   } as any;
 };
 

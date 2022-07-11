@@ -94,15 +94,14 @@ export const serializeAws_restJson1CreateDataIntegrationCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.KmsKey !== undefined && input.KmsKey !== null && { KmsKey: input.KmsKey }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ScheduleConfig !== undefined &&
-      input.ScheduleConfig !== null && {
-        ScheduleConfig: serializeAws_restJson1ScheduleConfiguration(input.ScheduleConfig, context),
-      }),
-    ...(input.SourceURI !== undefined && input.SourceURI !== null && { SourceURI: input.SourceURI }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ScheduleConfig != null && {
+      ScheduleConfig: serializeAws_restJson1ScheduleConfiguration(input.ScheduleConfig, context),
+    }),
+    ...(input.SourceURI != null && { SourceURI: input.SourceURI }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -127,13 +126,11 @@ export const serializeAws_restJson1CreateEventIntegrationCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.EventBridgeBus !== undefined &&
-      input.EventBridgeBus !== null && { EventBridgeBus: input.EventBridgeBus }),
-    ...(input.EventFilter !== undefined &&
-      input.EventFilter !== null && { EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EventBridgeBus != null && { EventBridgeBus: input.EventBridgeBus }),
+    ...(input.EventFilter != null && { EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -429,7 +426,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -495,8 +492,8 @@ export const serializeAws_restJson1UpdateDataIntegrationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -530,7 +527,7 @@ export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1581,17 +1578,15 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
 
 const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Source !== undefined && input.Source !== null && { Source: input.Source }),
+    ...(input.Source != null && { Source: input.Source }),
   };
 };
 
 const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.FirstExecutionFrom !== undefined &&
-      input.FirstExecutionFrom !== null && { FirstExecutionFrom: input.FirstExecutionFrom }),
-    ...(input.Object !== undefined && input.Object !== null && { Object: input.Object }),
-    ...(input.ScheduleExpression !== undefined &&
-      input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.FirstExecutionFrom != null && { FirstExecutionFrom: input.FirstExecutionFrom }),
+    ...(input.Object != null && { Object: input.Object }),
+    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
@@ -1685,15 +1680,10 @@ const deserializeAws_restJson1EventIntegration = (output: any, context: __SerdeC
     Description: __expectString(output.Description),
     EventBridgeBus: __expectString(output.EventBridgeBus),
     EventFilter:
-      output.EventFilter !== undefined && output.EventFilter !== null
-        ? deserializeAws_restJson1EventFilter(output.EventFilter, context)
-        : undefined,
+      output.EventFilter != null ? deserializeAws_restJson1EventFilter(output.EventFilter, context) : undefined,
     EventIntegrationArn: __expectString(output.EventIntegrationArn),
     Name: __expectString(output.Name),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1703,7 +1693,7 @@ const deserializeAws_restJson1EventIntegrationAssociation = (
 ): EventIntegrationAssociation => {
   return {
     ClientAssociationMetadata:
-      output.ClientAssociationMetadata !== undefined && output.ClientAssociationMetadata !== null
+      output.ClientAssociationMetadata != null
         ? deserializeAws_restJson1ClientAssociationMetadata(output.ClientAssociationMetadata, context)
         : undefined,
     ClientId: __expectString(output.ClientId),

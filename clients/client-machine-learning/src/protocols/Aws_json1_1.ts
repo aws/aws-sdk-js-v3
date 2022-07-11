@@ -2039,9 +2039,9 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2050,14 +2050,13 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionDataSourceId !== undefined &&
-      input.BatchPredictionDataSourceId !== null && { BatchPredictionDataSourceId: input.BatchPredictionDataSourceId }),
-    ...(input.BatchPredictionId !== undefined &&
-      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName !== undefined &&
-      input.BatchPredictionName !== null && { BatchPredictionName: input.BatchPredictionName }),
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
-    ...(input.OutputUri !== undefined && input.OutputUri !== null && { OutputUri: input.OutputUri }),
+    ...(input.BatchPredictionDataSourceId != null && {
+      BatchPredictionDataSourceId: input.BatchPredictionDataSourceId,
+    }),
+    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName != null && { BatchPredictionName: input.BatchPredictionName }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
+    ...(input.OutputUri != null && { OutputUri: input.OutputUri }),
   };
 };
 
@@ -2066,14 +2065,11 @@ const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined &&
-      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined &&
-      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
-    ...(input.RDSData !== undefined &&
-      input.RDSData !== null && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
+    ...(input.RDSData != null && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
   };
 };
 
@@ -2082,14 +2078,11 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined &&
-      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined &&
-      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec !== undefined &&
-      input.DataSpec !== null && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
-    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec != null && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
   };
 };
 
@@ -2098,38 +2091,31 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined &&
-      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined &&
-      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec !== undefined &&
-      input.DataSpec !== null && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
+    ...(input.ComputeStatistics != null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec != null && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
   };
 };
 
 const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationDataSourceId !== undefined &&
-      input.EvaluationDataSourceId !== null && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
-    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName !== undefined &&
-      input.EvaluationName !== null && { EvaluationName: input.EvaluationName }),
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.EvaluationDataSourceId != null && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
+    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName != null && { EvaluationName: input.EvaluationName }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
 const serializeAws_json1_1CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName !== undefined && input.MLModelName !== null && { MLModelName: input.MLModelName }),
-    ...(input.MLModelType !== undefined && input.MLModelType !== null && { MLModelType: input.MLModelType }),
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && { Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context) }),
-    ...(input.Recipe !== undefined && input.Recipe !== null && { Recipe: input.Recipe }),
-    ...(input.RecipeUri !== undefined && input.RecipeUri !== null && { RecipeUri: input.RecipeUri }),
-    ...(input.TrainingDataSourceId !== undefined &&
-      input.TrainingDataSourceId !== null && { TrainingDataSourceId: input.TrainingDataSourceId }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
+    ...(input.MLModelType != null && { MLModelType: input.MLModelType }),
+    ...(input.Parameters != null && { Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context) }),
+    ...(input.Recipe != null && { Recipe: input.Recipe }),
+    ...(input.RecipeUri != null && { RecipeUri: input.RecipeUri }),
+    ...(input.TrainingDataSourceId != null && { TrainingDataSourceId: input.TrainingDataSourceId }),
   };
 };
 
@@ -2138,7 +2124,7 @@ const serializeAws_json1_1CreateRealtimeEndpointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
@@ -2147,26 +2133,25 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined &&
-      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
   };
 };
 
 const serializeAws_json1_1DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
   };
 };
 
 const serializeAws_json1_1DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
@@ -2175,16 +2160,15 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
   };
 };
 
 const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2193,18 +2177,17 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined &&
-      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
-    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
-    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
-    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.EQ != null && { EQ: input.EQ }),
+    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE != null && { GE: input.GE }),
+    ...(input.GT != null && { GT: input.GT }),
+    ...(input.LE != null && { LE: input.LE }),
+    ...(input.LT != null && { LT: input.LT }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NE != null && { NE: input.NE }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2213,18 +2196,17 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined &&
-      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
-    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
-    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
-    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.EQ != null && { EQ: input.EQ }),
+    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE != null && { GE: input.GE }),
+    ...(input.GT != null && { GT: input.GT }),
+    ...(input.LE != null && { LE: input.LE }),
+    ...(input.LT != null && { LT: input.LT }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NE != null && { NE: input.NE }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2233,42 +2215,40 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined &&
-      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
-    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
-    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
-    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.EQ != null && { EQ: input.EQ }),
+    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE != null && { GE: input.GE }),
+    ...(input.GT != null && { GT: input.GT }),
+    ...(input.LE != null && { LE: input.LE }),
+    ...(input.LT != null && { LT: input.LT }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NE != null && { NE: input.NE }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
   return {
-    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined &&
-      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
-    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
-    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
-    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.EQ != null && { EQ: input.EQ }),
+    ...(input.FilterVariable != null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE != null && { GE: input.GE }),
+    ...(input.GT != null && { GT: input.GT }),
+    ...(input.LE != null && { LE: input.LE }),
+    ...(input.LT != null && { LT: input.LT }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NE != null && { NE: input.NE }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -2285,81 +2265,71 @@ const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __Ser
 
 const serializeAws_json1_1GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
   return {
-    ...(input.BatchPredictionId !== undefined &&
-      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
-    ...(input.Verbose !== undefined && input.Verbose !== null && { Verbose: input.Verbose }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
+    ...(input.Verbose != null && { Verbose: input.Verbose }),
   };
 };
 
 const serializeAws_json1_1GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
   };
 };
 
 const serializeAws_json1_1GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
-    ...(input.Verbose !== undefined && input.Verbose !== null && { Verbose: input.Verbose }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
+    ...(input.Verbose != null && { Verbose: input.Verbose }),
   };
 };
 
 const serializeAws_json1_1PredictInput = (input: PredictInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
-    ...(input.PredictEndpoint !== undefined &&
-      input.PredictEndpoint !== null && { PredictEndpoint: input.PredictEndpoint }),
-    ...(input.Record !== undefined &&
-      input.Record !== null && { Record: serializeAws_json1_1Record(input.Record, context) }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
+    ...(input.PredictEndpoint != null && { PredictEndpoint: input.PredictEndpoint }),
+    ...(input.Record != null && { Record: serializeAws_json1_1Record(input.Record, context) }),
   };
 };
 
 const serializeAws_json1_1RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
-    ...(input.InstanceIdentifier !== undefined &&
-      input.InstanceIdentifier !== null && { InstanceIdentifier: input.InstanceIdentifier }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.InstanceIdentifier != null && { InstanceIdentifier: input.InstanceIdentifier }),
   };
 };
 
 const serializeAws_json1_1RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
   return {
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.Username != null && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined &&
-      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && input.DataSchemaUri !== null && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials !== undefined &&
-      input.DatabaseCredentials !== null && {
-        DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
-      }),
-    ...(input.DatabaseInformation !== undefined &&
-      input.DatabaseInformation !== null && {
-        DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
-      }),
-    ...(input.ResourceRole !== undefined && input.ResourceRole !== null && { ResourceRole: input.ResourceRole }),
-    ...(input.S3StagingLocation !== undefined &&
-      input.S3StagingLocation !== null && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SecurityGroupIds !== undefined &&
-      input.SecurityGroupIds !== null && {
-        SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
-      }),
-    ...(input.SelectSqlQuery !== undefined &&
-      input.SelectSqlQuery !== null && { SelectSqlQuery: input.SelectSqlQuery }),
-    ...(input.ServiceRole !== undefined && input.ServiceRole !== null && { ServiceRole: input.ServiceRole }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
+    ...(input.DatabaseCredentials != null && {
+      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
+    }),
+    ...(input.DatabaseInformation != null && {
+      DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
+    }),
+    ...(input.ResourceRole != null && { ResourceRole: input.ResourceRole }),
+    ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
+    ...(input.ServiceRole != null && { ServiceRole: input.ServiceRole }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
 
@@ -2377,9 +2347,8 @@ const serializeAws_json1_1Record = (input: Record<string, string>, context: __Se
 
 const serializeAws_json1_1RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined &&
-      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.ClusterIdentifier != null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
   };
 };
 
@@ -2388,48 +2357,40 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.Username != null && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_1RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined &&
-      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && input.DataSchemaUri !== null && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials !== undefined &&
-      input.DatabaseCredentials !== null && {
-        DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
-      }),
-    ...(input.DatabaseInformation !== undefined &&
-      input.DatabaseInformation !== null && {
-        DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
-      }),
-    ...(input.S3StagingLocation !== undefined &&
-      input.S3StagingLocation !== null && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SelectSqlQuery !== undefined &&
-      input.SelectSqlQuery !== null && { SelectSqlQuery: input.SelectSqlQuery }),
+    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri != null && { DataSchemaUri: input.DataSchemaUri }),
+    ...(input.DatabaseCredentials != null && {
+      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
+    }),
+    ...(input.DatabaseInformation != null && {
+      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
+    }),
+    ...(input.S3StagingLocation != null && { S3StagingLocation: input.S3StagingLocation }),
+    ...(input.SelectSqlQuery != null && { SelectSqlQuery: input.SelectSqlQuery }),
   };
 };
 
 const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataLocationS3 !== undefined &&
-      input.DataLocationS3 !== null && { DataLocationS3: input.DataLocationS3 }),
-    ...(input.DataRearrangement !== undefined &&
-      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaLocationS3 !== undefined &&
-      input.DataSchemaLocationS3 !== null && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
+    ...(input.DataLocationS3 != null && { DataLocationS3: input.DataLocationS3 }),
+    ...(input.DataRearrangement != null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema != null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaLocationS3 != null && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2472,35 +2433,30 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined &&
-      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName !== undefined &&
-      input.BatchPredictionName !== null && { BatchPredictionName: input.BatchPredictionName }),
+    ...(input.BatchPredictionId != null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName != null && { BatchPredictionName: input.BatchPredictionName }),
   };
 };
 
 const serializeAws_json1_1UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined &&
-      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSourceId != null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName != null && { DataSourceName: input.DataSourceName }),
   };
 };
 
 const serializeAws_json1_1UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName !== undefined &&
-      input.EvaluationName !== null && { EvaluationName: input.EvaluationName }),
+    ...(input.EvaluationId != null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName != null && { EvaluationName: input.EvaluationName }),
   };
 };
 
 const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName !== undefined && input.MLModelName !== null && { MLModelName: input.MLModelName }),
-    ...(input.ScoreThreshold !== undefined &&
-      input.ScoreThreshold !== null && { ScoreThreshold: __serializeFloat(input.ScoreThreshold) }),
+    ...(input.MLModelId != null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName != null && { MLModelName: input.MLModelName }),
+    ...(input.ScoreThreshold != null && { ScoreThreshold: __serializeFloat(input.ScoreThreshold) }),
   };
 };
 
@@ -2517,18 +2473,14 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
     BatchPredictionId: __expectString(output.BatchPredictionId),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
@@ -2536,9 +2488,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
     Name: __expectString(output.Name),
     OutputUri: __expectString(output.OutputUri),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
     TotalRecordCount: __expectLong(output.TotalRecordCount),
   } as any;
@@ -2611,7 +2561,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
   return {
     MLModelId: __expectString(output.MLModelId),
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo !== undefined && output.RealtimeEndpointInfo !== null
+      output.RealtimeEndpointInfo != null
         ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
         : undefined,
   } as any;
@@ -2622,38 +2572,30 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
     DataRearrangement: __expectString(output.DataRearrangement),
     DataSizeInBytes: __expectLong(output.DataSizeInBytes),
     DataSourceId: __expectString(output.DataSourceId),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     NumberOfFiles: __expectLong(output.NumberOfFiles),
     RDSMetadata:
-      output.RDSMetadata !== undefined && output.RDSMetadata !== null
-        ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
-        : undefined,
+      output.RDSMetadata != null ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context) : undefined,
     RedshiftMetadata:
-      output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
+      output.RedshiftMetadata != null
         ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
         : undefined,
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2704,7 +2646,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
   return {
     MLModelId: __expectString(output.MLModelId),
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo !== undefined && output.RealtimeEndpointInfo !== null
+      output.RealtimeEndpointInfo != null
         ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
         : undefined,
   } as any;
@@ -2723,10 +2665,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
 ): DescribeBatchPredictionsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results:
-      output.Results !== undefined && output.Results !== null
-        ? deserializeAws_json1_1BatchPredictions(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? deserializeAws_json1_1BatchPredictions(output.Results, context) : undefined,
   } as any;
 };
 
@@ -2736,10 +2675,7 @@ const deserializeAws_json1_1DescribeDataSourcesOutput = (
 ): DescribeDataSourcesOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results:
-      output.Results !== undefined && output.Results !== null
-        ? deserializeAws_json1_1DataSources(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? deserializeAws_json1_1DataSources(output.Results, context) : undefined,
   } as any;
 };
 
@@ -2749,20 +2685,14 @@ const deserializeAws_json1_1DescribeEvaluationsOutput = (
 ): DescribeEvaluationsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results:
-      output.Results !== undefined && output.Results !== null
-        ? deserializeAws_json1_1Evaluations(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? deserializeAws_json1_1Evaluations(output.Results, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeMLModelsOutput = (output: any, context: __SerdeContext): DescribeMLModelsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Results:
-      output.Results !== undefined && output.Results !== null
-        ? deserializeAws_json1_1MLModels(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? deserializeAws_json1_1MLModels(output.Results, context) : undefined,
   } as any;
 };
 
@@ -2770,10 +2700,7 @@ const deserializeAws_json1_1DescribeTagsOutput = (output: any, context: __SerdeC
   return {
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2796,32 +2723,26 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
     EvaluationId: __expectString(output.EvaluationId),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     PerformanceMetrics:
-      output.PerformanceMetrics !== undefined && output.PerformanceMetrics !== null
+      output.PerformanceMetrics != null
         ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
         : undefined,
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2847,18 +2768,14 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     BatchPredictionId: __expectString(output.BatchPredictionId),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     InvalidRecordCount: __expectLong(output.InvalidRecordCount),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
@@ -2867,9 +2784,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     Name: __expectString(output.Name),
     OutputUri: __expectString(output.OutputUri),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
     TotalRecordCount: __expectLong(output.TotalRecordCount),
   } as any;
@@ -2880,9 +2795,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     ComputeStatistics: __expectBoolean(output.ComputeStatistics),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     DataLocationS3: __expectString(output.DataLocationS3),
     DataRearrangement: __expectString(output.DataRearrangement),
@@ -2890,11 +2803,9 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     DataSourceId: __expectString(output.DataSourceId),
     DataSourceSchema: __expectString(output.DataSourceSchema),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
@@ -2902,18 +2813,14 @@ const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __Serde
     Name: __expectString(output.Name),
     NumberOfFiles: __expectLong(output.NumberOfFiles),
     RDSMetadata:
-      output.RDSMetadata !== undefined && output.RDSMetadata !== null
-        ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
-        : undefined,
+      output.RDSMetadata != null ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context) : undefined,
     RedshiftMetadata:
-      output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
+      output.RedshiftMetadata != null
         ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
         : undefined,
     RoleARN: __expectString(output.RoleARN),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2922,19 +2829,15 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EvaluationDataSourceId: __expectString(output.EvaluationDataSourceId),
     EvaluationId: __expectString(output.EvaluationId),
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
@@ -2942,13 +2845,11 @@ const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __Serde
     Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     PerformanceMetrics:
-      output.PerformanceMetrics !== undefined && output.PerformanceMetrics !== null
+      output.PerformanceMetrics != null
         ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
         : undefined,
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -2957,21 +2858,17 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
   return {
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EndpointInfo:
-      output.EndpointInfo !== undefined && output.EndpointInfo !== null
+      output.EndpointInfo != null
         ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
         : undefined,
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     LogUri: __expectString(output.LogUri),
@@ -2983,18 +2880,16 @@ const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeCon
     Schema: __expectString(output.Schema),
     ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
+      output.ScoreThresholdLastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
         : undefined,
     SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
     TrainingParameters:
-      output.TrainingParameters !== undefined && output.TrainingParameters !== null
+      output.TrainingParameters != null
         ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
         : undefined,
   } as any;
@@ -3045,21 +2940,17 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     Algorithm: __expectString(output.Algorithm),
     ComputeTime: __expectLong(output.ComputeTime),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CreatedByIamUser: __expectString(output.CreatedByIamUser),
     EndpointInfo:
-      output.EndpointInfo !== undefined && output.EndpointInfo !== null
+      output.EndpointInfo != null
         ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
         : undefined,
     FinishedAt:
-      output.FinishedAt !== undefined && output.FinishedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt)))
-        : undefined,
+      output.FinishedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FinishedAt))) : undefined,
     InputDataLocationS3: __expectString(output.InputDataLocationS3),
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     MLModelId: __expectString(output.MLModelId),
@@ -3068,18 +2959,16 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
     Name: __expectString(output.Name),
     ScoreThreshold: __limitedParseFloat32(output.ScoreThreshold),
     ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
+      output.ScoreThresholdLastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScoreThresholdLastUpdatedAt)))
         : undefined,
     SizeInBytes: __expectLong(output.SizeInBytes),
     StartedAt:
-      output.StartedAt !== undefined && output.StartedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt)))
-        : undefined,
+      output.StartedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartedAt))) : undefined,
     Status: __expectString(output.Status),
     TrainingDataSourceId: __expectString(output.TrainingDataSourceId),
     TrainingParameters:
-      output.TrainingParameters !== undefined && output.TrainingParameters !== null
+      output.TrainingParameters != null
         ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
         : undefined,
   } as any;
@@ -3100,7 +2989,7 @@ const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): M
 const deserializeAws_json1_1PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
   return {
     Properties:
-      output.Properties !== undefined && output.Properties !== null
+      output.Properties != null
         ? deserializeAws_json1_1PerformanceMetricsProperties(output.Properties, context)
         : undefined,
   } as any;
@@ -3123,13 +3012,10 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
 
 const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
   return {
-    details:
-      output.details !== undefined && output.details !== null
-        ? deserializeAws_json1_1DetailsMap(output.details, context)
-        : undefined,
+    details: output.details != null ? deserializeAws_json1_1DetailsMap(output.details, context) : undefined,
     predictedLabel: __expectString(output.predictedLabel),
     predictedScores:
-      output.predictedScores !== undefined && output.predictedScores !== null
+      output.predictedScores != null
         ? deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context)
         : undefined,
     predictedValue: __limitedParseFloat32(output.predictedValue),
@@ -3147,10 +3033,7 @@ const deserializeAws_json1_1PredictorNotMountedException = (
 
 const deserializeAws_json1_1PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
   return {
-    Prediction:
-      output.Prediction !== undefined && output.Prediction !== null
-        ? deserializeAws_json1_1Prediction(output.Prediction, context)
-        : undefined,
+    Prediction: output.Prediction != null ? deserializeAws_json1_1Prediction(output.Prediction, context) : undefined,
   } as any;
 };
 
@@ -3164,10 +3047,7 @@ const deserializeAws_json1_1RDSDatabase = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1RDSMetadata = (output: any, context: __SerdeContext): RDSMetadata => {
   return {
     DataPipelineId: __expectString(output.DataPipelineId),
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? deserializeAws_json1_1RDSDatabase(output.Database, context)
-        : undefined,
+    Database: output.Database != null ? deserializeAws_json1_1RDSDatabase(output.Database, context) : undefined,
     DatabaseUserName: __expectString(output.DatabaseUserName),
     ResourceRole: __expectString(output.ResourceRole),
     SelectSqlQuery: __expectString(output.SelectSqlQuery),
@@ -3178,9 +3058,7 @@ const deserializeAws_json1_1RDSMetadata = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __SerdeContext): RealtimeEndpointInfo => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     EndpointStatus: __expectString(output.EndpointStatus),
     EndpointUrl: __expectString(output.EndpointUrl),
     PeakRequestsPerSecond: __expectInt32(output.PeakRequestsPerSecond),
@@ -3198,7 +3076,7 @@ const deserializeAws_json1_1RedshiftMetadata = (output: any, context: __SerdeCon
   return {
     DatabaseUserName: __expectString(output.DatabaseUserName),
     RedshiftDatabase:
-      output.RedshiftDatabase !== undefined && output.RedshiftDatabase !== null
+      output.RedshiftDatabase != null
         ? deserializeAws_json1_1RedshiftDatabase(output.RedshiftDatabase, context)
         : undefined,
     SelectSqlQuery: __expectString(output.SelectSqlQuery),

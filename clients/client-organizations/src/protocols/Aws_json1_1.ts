@@ -4919,37 +4919,36 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
 
 const serializeAws_json1_1AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
 const serializeAws_json1_1AttachPolicyRequest = (input: AttachPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
-    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
 const serializeAws_json1_1CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
 const serializeAws_json1_1CloseAccountRequest = (input: CloseAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
   };
 };
 
 const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountName !== undefined && input.AccountName !== null && { AccountName: input.AccountName }),
-    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined &&
-      input.IamUserAccessToBilling !== null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName !== undefined && input.RoleName !== null && { RoleName: input.RoleName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.AccountName != null && { AccountName: input.AccountName }),
+    ...(input.Email != null && { Email: input.Email }),
+    ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
+    ...(input.RoleName != null && { RoleName: input.RoleName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4972,12 +4971,11 @@ const serializeAws_json1_1CreateGovCloudAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountName !== undefined && input.AccountName !== null && { AccountName: input.AccountName }),
-    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
-    ...(input.IamUserAccessToBilling !== undefined &&
-      input.IamUserAccessToBilling !== null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
-    ...(input.RoleName !== undefined && input.RoleName !== null && { RoleName: input.RoleName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.AccountName != null && { AccountName: input.AccountName }),
+    ...(input.Email != null && { Email: input.Email }),
+    ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
+    ...(input.RoleName != null && { RoleName: input.RoleName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4986,9 +4984,9 @@ const serializeAws_json1_1CreateOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ParentId != null && { ParentId: input.ParentId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4997,23 +4995,23 @@ const serializeAws_json1_1CreateOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FeatureSet !== undefined && input.FeatureSet !== null && { FeatureSet: input.FeatureSet }),
+    ...(input.FeatureSet != null && { FeatureSet: input.FeatureSet }),
   };
 };
 
 const serializeAws_json1_1CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DeclineHandshakeRequest = (input: DeclineHandshakeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
@@ -5022,14 +5020,13 @@ const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined &&
-      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -5038,15 +5035,14 @@ const serializeAws_json1_1DeregisterDelegatedAdministratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal !== undefined &&
-      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
 const serializeAws_json1_1DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
   };
 };
 
@@ -5055,8 +5051,7 @@ const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreateAccountRequestId !== undefined &&
-      input.CreateAccountRequestId !== null && { CreateAccountRequestId: input.CreateAccountRequestId }),
+    ...(input.CreateAccountRequestId != null && { CreateAccountRequestId: input.CreateAccountRequestId }),
   };
 };
 
@@ -5065,8 +5060,8 @@ const serializeAws_json1_1DescribeEffectivePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
-    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
@@ -5075,7 +5070,7 @@ const serializeAws_json1_1DescribeHandshakeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
+    ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
@@ -5084,21 +5079,20 @@ const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationalUnitId !== undefined &&
-      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1DescribePolicyRequest = (input: DescribePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
 const serializeAws_json1_1DetachPolicyRequest = (input: DetachPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
-    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
@@ -5107,8 +5101,7 @@ const serializeAws_json1_1DisableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined &&
-      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -5117,8 +5110,8 @@ const serializeAws_json1_1DisablePolicyTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
-    ...(input.RootId !== undefined && input.RootId !== null && { RootId: input.RootId }),
+    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
+    ...(input.RootId != null && { RootId: input.RootId }),
   };
 };
 
@@ -5134,30 +5127,28 @@ const serializeAws_json1_1EnableAWSServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ServicePrincipal !== undefined &&
-      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
 const serializeAws_json1_1EnablePolicyTypeRequest = (input: EnablePolicyTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
-    ...(input.RootId !== undefined && input.RootId !== null && { RootId: input.RootId }),
+    ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
+    ...(input.RootId != null && { RootId: input.RootId }),
   };
 };
 
 const serializeAws_json1_1HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.ActionType !== undefined && input.ActionType !== null && { ActionType: input.ActionType }),
-    ...(input.ParentHandshakeId !== undefined &&
-      input.ParentHandshakeId !== null && { ParentHandshakeId: input.ParentHandshakeId }),
+    ...(input.ActionType != null && { ActionType: input.ActionType }),
+    ...(input.ParentHandshakeId != null && { ParentHandshakeId: input.ParentHandshakeId }),
   };
 };
 
 const serializeAws_json1_1HandshakeParty = (input: HandshakeParty, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -5166,10 +5157,9 @@ const serializeAws_json1_1InviteAccountToOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notes !== undefined && input.Notes !== null && { Notes: input.Notes }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Target !== undefined &&
-      input.Target !== null && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
+    ...(input.Notes != null && { Notes: input.Notes }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Target != null && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
   };
 };
 
@@ -5178,16 +5168,16 @@ const serializeAws_json1_1ListAccountsForParentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ParentId != null && { ParentId: input.ParentId }),
   };
 };
 
 const serializeAws_json1_1ListAccountsRequest = (input: ListAccountsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5196,17 +5186,17 @@ const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListChildrenRequest = (input: ListChildrenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ChildType !== undefined && input.ChildType !== null && { ChildType: input.ChildType }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
+    ...(input.ChildType != null && { ChildType: input.ChildType }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ParentId != null && { ParentId: input.ParentId }),
   };
 };
 
@@ -5215,10 +5205,9 @@ const serializeAws_json1_1ListCreateAccountStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.States !== undefined &&
-      input.States !== null && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.States != null && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
   };
 };
 
@@ -5227,10 +5216,9 @@ const serializeAws_json1_1ListDelegatedAdministratorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ServicePrincipal !== undefined &&
-      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -5239,9 +5227,9 @@ const serializeAws_json1_1ListDelegatedServicesForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5250,10 +5238,9 @@ const serializeAws_json1_1ListHandshakesForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined &&
-      input.Filter !== null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5262,10 +5249,9 @@ const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined &&
-      input.Filter !== null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5274,17 +5260,17 @@ const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ParentId != null && { ParentId: input.ParentId }),
   };
 };
 
 const serializeAws_json1_1ListParentsRequest = (input: ListParentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ChildId !== undefined && input.ChildId !== null && { ChildId: input.ChildId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ChildId != null && { ChildId: input.ChildId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5293,25 +5279,25 @@ const serializeAws_json1_1ListPoliciesForTargetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && input.Filter !== null && { Filter: input.Filter }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.Filter != null && { Filter: input.Filter }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
 const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter !== undefined && input.Filter !== null && { Filter: input.Filter }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: input.Filter }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListRootsRequest = (input: ListRootsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5320,8 +5306,8 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5330,19 +5316,17 @@ const serializeAws_json1_1ListTargetsForPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
 const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.DestinationParentId !== undefined &&
-      input.DestinationParentId !== null && { DestinationParentId: input.DestinationParentId }),
-    ...(input.SourceParentId !== undefined &&
-      input.SourceParentId !== null && { SourceParentId: input.SourceParentId }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.DestinationParentId != null && { DestinationParentId: input.DestinationParentId }),
+    ...(input.SourceParentId != null && { SourceParentId: input.SourceParentId }),
   };
 };
 
@@ -5351,9 +5335,8 @@ const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.ServicePrincipal !== undefined &&
-      input.ServicePrincipal !== null && { ServicePrincipal: input.ServicePrincipal }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
@@ -5362,14 +5345,14 @@ const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5386,8 +5369,8 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -5404,9 +5387,8 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -5415,18 +5397,17 @@ const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.OrganizationalUnitId !== undefined &&
-      input.OrganizationalUnitId !== null && { OrganizationalUnitId: input.OrganizationalUnitId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
 const serializeAws_json1_1UpdatePolicyRequest = (input: UpdatePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -5435,10 +5416,7 @@ const deserializeAws_json1_1AcceptHandshakeResponse = (
   context: __SerdeContext
 ): AcceptHandshakeResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -5465,7 +5443,7 @@ const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Ac
     Id: __expectString(output.Id),
     JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
-      output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
+      output.JoinedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
@@ -5553,10 +5531,7 @@ const deserializeAws_json1_1CancelHandshakeResponse = (
   context: __SerdeContext
 ): CancelHandshakeResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -5613,7 +5588,7 @@ const deserializeAws_json1_1ConstraintViolationException = (
 const deserializeAws_json1_1CreateAccountResponse = (output: any, context: __SerdeContext): CreateAccountResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
+      output.CreateAccountStatus != null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
         : undefined,
   } as any;
@@ -5624,14 +5599,14 @@ const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __Serde
     AccountId: __expectString(output.AccountId),
     AccountName: __expectString(output.AccountName),
     CompletedTimestamp:
-      output.CompletedTimestamp !== undefined && output.CompletedTimestamp !== null
+      output.CompletedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedTimestamp)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
     GovCloudAccountId: __expectString(output.GovCloudAccountId),
     Id: __expectString(output.Id),
     RequestedTimestamp:
-      output.RequestedTimestamp !== undefined && output.RequestedTimestamp !== null
+      output.RequestedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
         : undefined,
     State: __expectString(output.State),
@@ -5665,7 +5640,7 @@ const deserializeAws_json1_1CreateGovCloudAccountResponse = (
 ): CreateGovCloudAccountResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
+      output.CreateAccountStatus != null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
         : undefined,
   } as any;
@@ -5677,7 +5652,7 @@ const deserializeAws_json1_1CreateOrganizationalUnitResponse = (
 ): CreateOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
+      output.OrganizationalUnit != null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
         : undefined,
   } as any;
@@ -5689,18 +5664,13 @@ const deserializeAws_json1_1CreateOrganizationResponse = (
 ): CreateOrganizationResponse => {
   return {
     Organization:
-      output.Organization !== undefined && output.Organization !== null
-        ? deserializeAws_json1_1Organization(output.Organization, context)
-        : undefined,
+      output.Organization != null ? deserializeAws_json1_1Organization(output.Organization, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
   return {
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? deserializeAws_json1_1Policy(output.Policy, context)
-        : undefined,
+    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
   } as any;
 };
 
@@ -5709,10 +5679,7 @@ const deserializeAws_json1_1DeclineHandshakeResponse = (
   context: __SerdeContext
 ): DeclineHandshakeResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -5720,14 +5687,14 @@ const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __Se
   return {
     Arn: __expectString(output.Arn),
     DelegationEnabledDate:
-      output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
+      output.DelegationEnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     Id: __expectString(output.Id),
     JoinedMethod: __expectString(output.JoinedMethod),
     JoinedTimestamp:
-      output.JoinedTimestamp !== undefined && output.JoinedTimestamp !== null
+      output.JoinedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.JoinedTimestamp)))
         : undefined,
     Name: __expectString(output.Name),
@@ -5753,7 +5720,7 @@ const deserializeAws_json1_1DelegatedAdministrators = (
 const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
   return {
     DelegationEnabledDate:
-      output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
+      output.DelegationEnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DelegationEnabledDate)))
         : undefined,
     ServicePrincipal: __expectString(output.ServicePrincipal),
@@ -5777,10 +5744,7 @@ const deserializeAws_json1_1DescribeAccountResponse = (
   context: __SerdeContext
 ): DescribeAccountResponse => {
   return {
-    Account:
-      output.Account !== undefined && output.Account !== null
-        ? deserializeAws_json1_1Account(output.Account, context)
-        : undefined,
+    Account: output.Account != null ? deserializeAws_json1_1Account(output.Account, context) : undefined,
   } as any;
 };
 
@@ -5790,7 +5754,7 @@ const deserializeAws_json1_1DescribeCreateAccountStatusResponse = (
 ): DescribeCreateAccountStatusResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
+      output.CreateAccountStatus != null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
         : undefined,
   } as any;
@@ -5802,7 +5766,7 @@ const deserializeAws_json1_1DescribeEffectivePolicyResponse = (
 ): DescribeEffectivePolicyResponse => {
   return {
     EffectivePolicy:
-      output.EffectivePolicy !== undefined && output.EffectivePolicy !== null
+      output.EffectivePolicy != null
         ? deserializeAws_json1_1EffectivePolicy(output.EffectivePolicy, context)
         : undefined,
   } as any;
@@ -5813,10 +5777,7 @@ const deserializeAws_json1_1DescribeHandshakeResponse = (
   context: __SerdeContext
 ): DescribeHandshakeResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -5826,7 +5787,7 @@ const deserializeAws_json1_1DescribeOrganizationalUnitResponse = (
 ): DescribeOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
+      output.OrganizationalUnit != null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
         : undefined,
   } as any;
@@ -5838,18 +5799,13 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
 ): DescribeOrganizationResponse => {
   return {
     Organization:
-      output.Organization !== undefined && output.Organization !== null
-        ? deserializeAws_json1_1Organization(output.Organization, context)
-        : undefined,
+      output.Organization != null ? deserializeAws_json1_1Organization(output.Organization, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
   return {
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? deserializeAws_json1_1Policy(output.Policy, context)
-        : undefined,
+    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
   } as any;
 };
 
@@ -5867,8 +5823,7 @@ const deserializeAws_json1_1DisablePolicyTypeResponse = (
   context: __SerdeContext
 ): DisablePolicyTypeResponse => {
   return {
-    Root:
-      output.Root !== undefined && output.Root !== null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
+    Root: output.Root != null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
   } as any;
 };
 
@@ -5920,7 +5875,7 @@ const deserializeAws_json1_1DuplicatePolicyException = (
 const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
   return {
     LastUpdatedTimestamp:
-      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+      output.LastUpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
         : undefined,
     PolicyContent: __expectString(output.PolicyContent),
@@ -5943,10 +5898,7 @@ const deserializeAws_json1_1EnableAllFeaturesResponse = (
   context: __SerdeContext
 ): EnableAllFeaturesResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -5956,7 +5908,7 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
 ): EnabledServicePrincipal => {
   return {
     DateEnabled:
-      output.DateEnabled !== undefined && output.DateEnabled !== null
+      output.DateEnabled != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateEnabled)))
         : undefined,
     ServicePrincipal: __expectString(output.ServicePrincipal),
@@ -5983,8 +5935,7 @@ const deserializeAws_json1_1EnablePolicyTypeResponse = (
   context: __SerdeContext
 ): EnablePolicyTypeResponse => {
   return {
-    Root:
-      output.Root !== undefined && output.Root !== null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
+    Root: output.Root != null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
   } as any;
 };
 
@@ -6002,22 +5953,17 @@ const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): 
     Action: __expectString(output.Action),
     Arn: __expectString(output.Arn),
     ExpirationTimestamp:
-      output.ExpirationTimestamp !== undefined && output.ExpirationTimestamp !== null
+      output.ExpirationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTimestamp)))
         : undefined,
     Id: __expectString(output.Id),
-    Parties:
-      output.Parties !== undefined && output.Parties !== null
-        ? deserializeAws_json1_1HandshakeParties(output.Parties, context)
-        : undefined,
+    Parties: output.Parties != null ? deserializeAws_json1_1HandshakeParties(output.Parties, context) : undefined,
     RequestedTimestamp:
-      output.RequestedTimestamp !== undefined && output.RequestedTimestamp !== null
+      output.RequestedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
         : undefined,
     Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_json1_1HandshakeResources(output.Resources, context)
-        : undefined,
+      output.Resources != null ? deserializeAws_json1_1HandshakeResources(output.Resources, context) : undefined,
     State: __expectString(output.State),
   } as any;
 };
@@ -6072,9 +6018,7 @@ const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeConte
 const deserializeAws_json1_1HandshakeResource = (output: any, context: __SerdeContext): HandshakeResource => {
   return {
     Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_json1_1HandshakeResources(output.Resources, context)
-        : undefined,
+      output.Resources != null ? deserializeAws_json1_1HandshakeResources(output.Resources, context) : undefined,
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
   } as any;
@@ -6125,10 +6069,7 @@ const deserializeAws_json1_1InviteAccountToOrganizationResponse = (
   context: __SerdeContext
 ): InviteAccountToOrganizationResponse => {
   return {
-    Handshake:
-      output.Handshake !== undefined && output.Handshake !== null
-        ? deserializeAws_json1_1Handshake(output.Handshake, context)
-        : undefined,
+    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
@@ -6137,20 +6078,14 @@ const deserializeAws_json1_1ListAccountsForParentResponse = (
   context: __SerdeContext
 ): ListAccountsForParentResponse => {
   return {
-    Accounts:
-      output.Accounts !== undefined && output.Accounts !== null
-        ? deserializeAws_json1_1Accounts(output.Accounts, context)
-        : undefined,
+    Accounts: output.Accounts != null ? deserializeAws_json1_1Accounts(output.Accounts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListAccountsResponse = (output: any, context: __SerdeContext): ListAccountsResponse => {
   return {
-    Accounts:
-      output.Accounts !== undefined && output.Accounts !== null
-        ? deserializeAws_json1_1Accounts(output.Accounts, context)
-        : undefined,
+    Accounts: output.Accounts != null ? deserializeAws_json1_1Accounts(output.Accounts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6161,7 +6096,7 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
 ): ListAWSServiceAccessForOrganizationResponse => {
   return {
     EnabledServicePrincipals:
-      output.EnabledServicePrincipals !== undefined && output.EnabledServicePrincipals !== null
+      output.EnabledServicePrincipals != null
         ? deserializeAws_json1_1EnabledServicePrincipals(output.EnabledServicePrincipals, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6170,10 +6105,7 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
 
 const deserializeAws_json1_1ListChildrenResponse = (output: any, context: __SerdeContext): ListChildrenResponse => {
   return {
-    Children:
-      output.Children !== undefined && output.Children !== null
-        ? deserializeAws_json1_1Children(output.Children, context)
-        : undefined,
+    Children: output.Children != null ? deserializeAws_json1_1Children(output.Children, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6184,7 +6116,7 @@ const deserializeAws_json1_1ListCreateAccountStatusResponse = (
 ): ListCreateAccountStatusResponse => {
   return {
     CreateAccountStatuses:
-      output.CreateAccountStatuses !== undefined && output.CreateAccountStatuses !== null
+      output.CreateAccountStatuses != null
         ? deserializeAws_json1_1CreateAccountStatuses(output.CreateAccountStatuses, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6197,7 +6129,7 @@ const deserializeAws_json1_1ListDelegatedAdministratorsResponse = (
 ): ListDelegatedAdministratorsResponse => {
   return {
     DelegatedAdministrators:
-      output.DelegatedAdministrators !== undefined && output.DelegatedAdministrators !== null
+      output.DelegatedAdministrators != null
         ? deserializeAws_json1_1DelegatedAdministrators(output.DelegatedAdministrators, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6210,7 +6142,7 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountResponse = (
 ): ListDelegatedServicesForAccountResponse => {
   return {
     DelegatedServices:
-      output.DelegatedServices !== undefined && output.DelegatedServices !== null
+      output.DelegatedServices != null
         ? deserializeAws_json1_1DelegatedServices(output.DelegatedServices, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6222,10 +6154,7 @@ const deserializeAws_json1_1ListHandshakesForAccountResponse = (
   context: __SerdeContext
 ): ListHandshakesForAccountResponse => {
   return {
-    Handshakes:
-      output.Handshakes !== undefined && output.Handshakes !== null
-        ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
-        : undefined,
+    Handshakes: output.Handshakes != null ? deserializeAws_json1_1Handshakes(output.Handshakes, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6235,10 +6164,7 @@ const deserializeAws_json1_1ListHandshakesForOrganizationResponse = (
   context: __SerdeContext
 ): ListHandshakesForOrganizationResponse => {
   return {
-    Handshakes:
-      output.Handshakes !== undefined && output.Handshakes !== null
-        ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
-        : undefined,
+    Handshakes: output.Handshakes != null ? deserializeAws_json1_1Handshakes(output.Handshakes, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6250,7 +6176,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     OrganizationalUnits:
-      output.OrganizationalUnits !== undefined && output.OrganizationalUnits !== null
+      output.OrganizationalUnits != null
         ? deserializeAws_json1_1OrganizationalUnits(output.OrganizationalUnits, context)
         : undefined,
   } as any;
@@ -6259,10 +6185,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
 const deserializeAws_json1_1ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Parents:
-      output.Parents !== undefined && output.Parents !== null
-        ? deserializeAws_json1_1Parents(output.Parents, context)
-        : undefined,
+    Parents: output.Parents != null ? deserializeAws_json1_1Parents(output.Parents, context) : undefined,
   } as any;
 };
 
@@ -6272,30 +6195,21 @@ const deserializeAws_json1_1ListPoliciesForTargetResponse = (
 ): ListPoliciesForTargetResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Policies:
-      output.Policies !== undefined && output.Policies !== null
-        ? deserializeAws_json1_1Policies(output.Policies, context)
-        : undefined,
+    Policies: output.Policies != null ? deserializeAws_json1_1Policies(output.Policies, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Policies:
-      output.Policies !== undefined && output.Policies !== null
-        ? deserializeAws_json1_1Policies(output.Policies, context)
-        : undefined,
+    Policies: output.Policies != null ? deserializeAws_json1_1Policies(output.Policies, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Roots:
-      output.Roots !== undefined && output.Roots !== null
-        ? deserializeAws_json1_1Roots(output.Roots, context)
-        : undefined,
+    Roots: output.Roots != null ? deserializeAws_json1_1Roots(output.Roots, context) : undefined,
   } as any;
 };
 
@@ -6305,8 +6219,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -6316,10 +6229,7 @@ const deserializeAws_json1_1ListTargetsForPolicyResponse = (
 ): ListTargetsForPolicyResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Targets:
-      output.Targets !== undefined && output.Targets !== null
-        ? deserializeAws_json1_1PolicyTargets(output.Targets, context)
-        : undefined,
+    Targets: output.Targets != null ? deserializeAws_json1_1PolicyTargets(output.Targets, context) : undefined,
   } as any;
 };
 
@@ -6345,7 +6255,7 @@ const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext
   return {
     Arn: __expectString(output.Arn),
     AvailablePolicyTypes:
-      output.AvailablePolicyTypes !== undefined && output.AvailablePolicyTypes !== null
+      output.AvailablePolicyTypes != null
         ? deserializeAws_json1_1PolicyTypes(output.AvailablePolicyTypes, context)
         : undefined,
     FeatureSet: __expectString(output.FeatureSet),
@@ -6447,9 +6357,7 @@ const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Pol
   return {
     Content: __expectString(output.Content),
     PolicySummary:
-      output.PolicySummary !== undefined && output.PolicySummary !== null
-        ? deserializeAws_json1_1PolicySummary(output.PolicySummary, context)
-        : undefined,
+      output.PolicySummary != null ? deserializeAws_json1_1PolicySummary(output.PolicySummary, context) : undefined,
   } as any;
 };
 
@@ -6570,9 +6478,7 @@ const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root 
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     PolicyTypes:
-      output.PolicyTypes !== undefined && output.PolicyTypes !== null
-        ? deserializeAws_json1_1PolicyTypes(output.PolicyTypes, context)
-        : undefined,
+      output.PolicyTypes != null ? deserializeAws_json1_1PolicyTypes(output.PolicyTypes, context) : undefined,
   } as any;
 };
 
@@ -6662,7 +6568,7 @@ const deserializeAws_json1_1UpdateOrganizationalUnitResponse = (
 ): UpdateOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
+      output.OrganizationalUnit != null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
         : undefined,
   } as any;
@@ -6670,10 +6576,7 @@ const deserializeAws_json1_1UpdateOrganizationalUnitResponse = (
 
 const deserializeAws_json1_1UpdatePolicyResponse = (output: any, context: __SerdeContext): UpdatePolicyResponse => {
   return {
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? deserializeAws_json1_1Policy(output.Policy, context)
-        : undefined,
+    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
   } as any;
 };
 

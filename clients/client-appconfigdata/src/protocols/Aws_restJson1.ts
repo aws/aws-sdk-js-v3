@@ -67,18 +67,14 @@ export const serializeAws_restJson1StartConfigurationSessionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configurationsessions";
   let body: any;
   body = JSON.stringify({
-    ...(input.ApplicationIdentifier !== undefined &&
-      input.ApplicationIdentifier !== null && { ApplicationIdentifier: input.ApplicationIdentifier }),
-    ...(input.ConfigurationProfileIdentifier !== undefined &&
-      input.ConfigurationProfileIdentifier !== null && {
-        ConfigurationProfileIdentifier: input.ConfigurationProfileIdentifier,
-      }),
-    ...(input.EnvironmentIdentifier !== undefined &&
-      input.EnvironmentIdentifier !== null && { EnvironmentIdentifier: input.EnvironmentIdentifier }),
-    ...(input.RequiredMinimumPollIntervalInSeconds !== undefined &&
-      input.RequiredMinimumPollIntervalInSeconds !== null && {
-        RequiredMinimumPollIntervalInSeconds: input.RequiredMinimumPollIntervalInSeconds,
-      }),
+    ...(input.ApplicationIdentifier != null && { ApplicationIdentifier: input.ApplicationIdentifier }),
+    ...(input.ConfigurationProfileIdentifier != null && {
+      ConfigurationProfileIdentifier: input.ConfigurationProfileIdentifier,
+    }),
+    ...(input.EnvironmentIdentifier != null && { EnvironmentIdentifier: input.EnvironmentIdentifier }),
+    ...(input.RequiredMinimumPollIntervalInSeconds != null && {
+      RequiredMinimumPollIntervalInSeconds: input.RequiredMinimumPollIntervalInSeconds,
+    }),
   });
   return new __HttpRequest({
     protocol,

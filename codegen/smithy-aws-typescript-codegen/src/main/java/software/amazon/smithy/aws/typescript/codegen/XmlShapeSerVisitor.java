@@ -205,7 +205,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($1L !== undefined && $1L !== null) {", "}", inputLocation, () -> {
+            writer.openBlock("if ($1L != null) {", "}", inputLocation, () -> {
                 serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
             });
         });

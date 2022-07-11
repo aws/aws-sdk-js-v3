@@ -103,15 +103,14 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ApiGatewayProxy !== undefined &&
-      input.ApiGatewayProxy !== null && {
-        ApiGatewayProxy: serializeAws_restJson1ApiGatewayProxyInput(input.ApiGatewayProxy, context),
-      }),
+    ...(input.ApiGatewayProxy != null && {
+      ApiGatewayProxy: serializeAws_restJson1ApiGatewayProxyInput(input.ApiGatewayProxy, context),
+    }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ProxyType !== undefined && input.ProxyType !== null && { ProxyType: input.ProxyType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ProxyType != null && { ProxyType: input.ProxyType }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   });
   return new __HttpRequest({
     protocol,
@@ -136,11 +135,10 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.NetworkFabricType !== undefined &&
-      input.NetworkFabricType !== null && { NetworkFabricType: input.NetworkFabricType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NetworkFabricType != null && { NetworkFabricType: input.NetworkFabricType }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -185,18 +183,15 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DefaultRoute !== undefined &&
-      input.DefaultRoute !== null && {
-        DefaultRoute: serializeAws_restJson1DefaultRouteInput(input.DefaultRoute, context),
-      }),
-    ...(input.RouteType !== undefined && input.RouteType !== null && { RouteType: input.RouteType }),
-    ...(input.ServiceIdentifier !== undefined &&
-      input.ServiceIdentifier !== null && { ServiceIdentifier: input.ServiceIdentifier }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.UriPathRoute !== undefined &&
-      input.UriPathRoute !== null && {
-        UriPathRoute: serializeAws_restJson1UriPathRouteInput(input.UriPathRoute, context),
-      }),
+    ...(input.DefaultRoute != null && {
+      DefaultRoute: serializeAws_restJson1DefaultRouteInput(input.DefaultRoute, context),
+    }),
+    ...(input.RouteType != null && { RouteType: input.RouteType }),
+    ...(input.ServiceIdentifier != null && { ServiceIdentifier: input.ServiceIdentifier }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.UriPathRoute != null && {
+      UriPathRoute: serializeAws_restJson1UriPathRouteInput(input.UriPathRoute, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -241,19 +236,17 @@ export const serializeAws_restJson1CreateServiceCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.EndpointType !== undefined && input.EndpointType !== null && { EndpointType: input.EndpointType }),
-    ...(input.LambdaEndpoint !== undefined &&
-      input.LambdaEndpoint !== null && {
-        LambdaEndpoint: serializeAws_restJson1LambdaEndpointInput(input.LambdaEndpoint, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.UrlEndpoint !== undefined &&
-      input.UrlEndpoint !== null && {
-        UrlEndpoint: serializeAws_restJson1UrlEndpointInput(input.UrlEndpoint, context),
-      }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
+    ...(input.LambdaEndpoint != null && {
+      LambdaEndpoint: serializeAws_restJson1LambdaEndpointInput(input.LambdaEndpoint, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.UrlEndpoint != null && {
+      UrlEndpoint: serializeAws_restJson1UrlEndpointInput(input.UrlEndpoint, context),
+    }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   });
   return new __HttpRequest({
     protocol,
@@ -873,8 +866,8 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resourcepolicy";
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Policy != null && { Policy: input.Policy }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -907,7 +900,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -992,8 +985,7 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ActivationState !== undefined &&
-      input.ActivationState !== null && { ActivationState: input.ActivationState }),
+    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
   });
   return new __HttpRequest({
     protocol,
@@ -3098,15 +3090,14 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ApiGatewayProxyInput = (input: ApiGatewayProxyInput, context: __SerdeContext): any => {
   return {
-    ...(input.EndpointType !== undefined && input.EndpointType !== null && { EndpointType: input.EndpointType }),
-    ...(input.StageName !== undefined && input.StageName !== null && { StageName: input.StageName }),
+    ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
+    ...(input.StageName != null && { StageName: input.StageName }),
   };
 };
 
 const serializeAws_restJson1DefaultRouteInput = (input: DefaultRouteInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationState !== undefined &&
-      input.ActivationState !== null && { ActivationState: input.ActivationState }),
+    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
   };
 };
 
@@ -3123,7 +3114,7 @@ const serializeAws_restJson1HttpMethods = (input: (HttpMethod | string)[], conte
 
 const serializeAws_restJson1LambdaEndpointInput = (input: LambdaEndpointInput, context: __SerdeContext): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
@@ -3141,20 +3132,17 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1UriPathRouteInput = (input: UriPathRouteInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationState !== undefined &&
-      input.ActivationState !== null && { ActivationState: input.ActivationState }),
-    ...(input.IncludeChildPaths !== undefined &&
-      input.IncludeChildPaths !== null && { IncludeChildPaths: input.IncludeChildPaths }),
-    ...(input.Methods !== undefined &&
-      input.Methods !== null && { Methods: serializeAws_restJson1HttpMethods(input.Methods, context) }),
-    ...(input.SourcePath !== undefined && input.SourcePath !== null && { SourcePath: input.SourcePath }),
+    ...(input.ActivationState != null && { ActivationState: input.ActivationState }),
+    ...(input.IncludeChildPaths != null && { IncludeChildPaths: input.IncludeChildPaths }),
+    ...(input.Methods != null && { Methods: serializeAws_restJson1HttpMethods(input.Methods, context) }),
+    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
   };
 };
 
 const serializeAws_restJson1UrlEndpointInput = (input: UrlEndpointInput, context: __SerdeContext): any => {
   return {
-    ...(input.HealthUrl !== undefined && input.HealthUrl !== null && { HealthUrl: input.HealthUrl }),
-    ...(input.Url !== undefined && input.Url !== null && { Url: input.Url }),
+    ...(input.HealthUrl != null && { HealthUrl: input.HealthUrl }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -3219,33 +3207,27 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
     ApiGatewayProxy:
-      output.ApiGatewayProxy !== undefined && output.ApiGatewayProxy !== null
+      output.ApiGatewayProxy != null
         ? deserializeAws_restJson1ApiGatewayProxySummary(output.ApiGatewayProxy, context)
         : undefined,
     ApplicationId: __expectString(output.ApplicationId),
     Arn: __expectString(output.Arn),
     CreatedByAccountId: __expectString(output.CreatedByAccountId),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     EnvironmentId: __expectString(output.EnvironmentId),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1ErrorResponse(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorResponse(output.Error, context) : undefined,
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProxyType: __expectString(output.ProxyType),
     State: __expectString(output.State),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -3278,27 +3260,21 @@ const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __Serd
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     EnvironmentId: __expectString(output.EnvironmentId),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1ErrorResponse(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorResponse(output.Error, context) : undefined,
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     NetworkFabricType: __expectString(output.NetworkFabricType),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     State: __expectString(output.State),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     TransitGatewayId: __expectString(output.TransitGatewayId),
   } as any;
 };
@@ -3306,17 +3282,14 @@ const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __Serd
 const deserializeAws_restJson1EnvironmentVpc = (output: any, context: __SerdeContext): EnvironmentVpc => {
   return {
     AccountId: __expectString(output.AccountId),
-    CidrBlocks:
-      output.CidrBlocks !== undefined && output.CidrBlocks !== null
-        ? deserializeAws_restJson1CidrBlocks(output.CidrBlocks, context)
-        : undefined,
+    CidrBlocks: output.CidrBlocks != null ? deserializeAws_restJson1CidrBlocks(output.CidrBlocks, context) : undefined,
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     EnvironmentId: __expectString(output.EnvironmentId),
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     VpcId: __expectString(output.VpcId),
@@ -3340,7 +3313,7 @@ const deserializeAws_restJson1ErrorResponse = (output: any, context: __SerdeCont
   return {
     AccountId: __expectString(output.AccountId),
     AdditionalDetails:
-      output.AdditionalDetails !== undefined && output.AdditionalDetails !== null
+      output.AdditionalDetails != null
         ? deserializeAws_restJson1AdditionalDetails(output.AdditionalDetails, context)
         : undefined,
     Code: __expectString(output.Code),
@@ -3410,26 +3383,20 @@ const deserializeAws_restJson1RouteSummary = (output: any, context: __SerdeConte
     Arn: __expectString(output.Arn),
     CreatedByAccountId: __expectString(output.CreatedByAccountId),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     EnvironmentId: __expectString(output.EnvironmentId),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1ErrorResponse(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorResponse(output.Error, context) : undefined,
     IncludeChildPaths: __expectBoolean(output.IncludeChildPaths),
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
-    Methods:
-      output.Methods !== undefined && output.Methods !== null
-        ? deserializeAws_restJson1HttpMethods(output.Methods, context)
-        : undefined,
+    Methods: output.Methods != null ? deserializeAws_restJson1HttpMethods(output.Methods, context) : undefined,
     OwnerAccountId: __expectString(output.OwnerAccountId),
     PathResourceToId:
-      output.PathResourceToId !== undefined && output.PathResourceToId !== null
+      output.PathResourceToId != null
         ? deserializeAws_restJson1PathResourceToId(output.PathResourceToId, context)
         : undefined,
     RouteId: __expectString(output.RouteId),
@@ -3437,10 +3404,7 @@ const deserializeAws_restJson1RouteSummary = (output: any, context: __SerdeConte
     ServiceId: __expectString(output.ServiceId),
     SourcePath: __expectString(output.SourcePath),
     State: __expectString(output.State),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3462,36 +3426,28 @@ const deserializeAws_restJson1ServiceSummary = (output: any, context: __SerdeCon
     Arn: __expectString(output.Arn),
     CreatedByAccountId: __expectString(output.CreatedByAccountId),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     EndpointType: __expectString(output.EndpointType),
     EnvironmentId: __expectString(output.EnvironmentId),
-    Error:
-      output.Error !== undefined && output.Error !== null
-        ? deserializeAws_restJson1ErrorResponse(output.Error, context)
-        : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorResponse(output.Error, context) : undefined,
     LambdaEndpoint:
-      output.LambdaEndpoint !== undefined && output.LambdaEndpoint !== null
+      output.LambdaEndpoint != null
         ? deserializeAws_restJson1LambdaEndpointSummary(output.LambdaEndpoint, context)
         : undefined,
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ServiceId: __expectString(output.ServiceId),
     State: __expectString(output.State),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1TagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     UrlEndpoint:
-      output.UrlEndpoint !== undefined && output.UrlEndpoint !== null
-        ? deserializeAws_restJson1UrlEndpointSummary(output.UrlEndpoint, context)
-        : undefined,
+      output.UrlEndpoint != null ? deserializeAws_restJson1UrlEndpointSummary(output.UrlEndpoint, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -3512,10 +3468,7 @@ const deserializeAws_restJson1UriPathRouteInput = (output: any, context: __Serde
   return {
     ActivationState: __expectString(output.ActivationState),
     IncludeChildPaths: __expectBoolean(output.IncludeChildPaths),
-    Methods:
-      output.Methods !== undefined && output.Methods !== null
-        ? deserializeAws_restJson1HttpMethods(output.Methods, context)
-        : undefined,
+    Methods: output.Methods != null ? deserializeAws_restJson1HttpMethods(output.Methods, context) : undefined,
     SourcePath: __expectString(output.SourcePath),
   } as any;
 };

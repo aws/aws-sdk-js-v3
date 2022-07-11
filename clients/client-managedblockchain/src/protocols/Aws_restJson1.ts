@@ -114,11 +114,10 @@ export const serializeAws_restJson1CreateMemberCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.InvitationId !== undefined && input.InvitationId !== null && { InvitationId: input.InvitationId }),
-    ...(input.MemberConfiguration !== undefined &&
-      input.MemberConfiguration !== null && {
-        MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
-      }),
+    ...(input.InvitationId != null && { InvitationId: input.InvitationId }),
+    ...(input.MemberConfiguration != null && {
+      MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -143,26 +142,23 @@ export const serializeAws_restJson1CreateNetworkCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Framework !== undefined && input.Framework !== null && { Framework: input.Framework }),
-    ...(input.FrameworkConfiguration !== undefined &&
-      input.FrameworkConfiguration !== null && {
-        FrameworkConfiguration: serializeAws_restJson1NetworkFrameworkConfiguration(
-          input.FrameworkConfiguration,
-          context
-        ),
-      }),
-    ...(input.FrameworkVersion !== undefined &&
-      input.FrameworkVersion !== null && { FrameworkVersion: input.FrameworkVersion }),
-    ...(input.MemberConfiguration !== undefined &&
-      input.MemberConfiguration !== null && {
-        MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
-    ...(input.VotingPolicy !== undefined &&
-      input.VotingPolicy !== null && { VotingPolicy: serializeAws_restJson1VotingPolicy(input.VotingPolicy, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Framework != null && { Framework: input.Framework }),
+    ...(input.FrameworkConfiguration != null && {
+      FrameworkConfiguration: serializeAws_restJson1NetworkFrameworkConfiguration(
+        input.FrameworkConfiguration,
+        context
+      ),
+    }),
+    ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
+    ...(input.MemberConfiguration != null && {
+      MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.VotingPolicy != null && {
+      VotingPolicy: serializeAws_restJson1VotingPolicy(input.VotingPolicy, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -197,13 +193,11 @@ export const serializeAws_restJson1CreateNodeCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
-    ...(input.NodeConfiguration !== undefined &&
-      input.NodeConfiguration !== null && {
-        NodeConfiguration: serializeAws_restJson1NodeConfiguration(input.NodeConfiguration, context),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
+    ...(input.NodeConfiguration != null && {
+      NodeConfiguration: serializeAws_restJson1NodeConfiguration(input.NodeConfiguration, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -237,13 +231,11 @@ export const serializeAws_restJson1CreateProposalCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Actions !== undefined &&
-      input.Actions !== null && { Actions: serializeAws_restJson1ProposalActions(input.Actions, context) }),
+    ...(input.Actions != null && { Actions: serializeAws_restJson1ProposalActions(input.Actions, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -762,8 +754,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -838,13 +829,12 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LogPublishingConfiguration !== undefined &&
-      input.LogPublishingConfiguration !== null && {
-        LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
-          input.LogPublishingConfiguration,
-          context
-        ),
-      }),
+    ...(input.LogPublishingConfiguration != null && {
+      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -887,14 +877,13 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LogPublishingConfiguration !== undefined &&
-      input.LogPublishingConfiguration !== null && {
-        LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
-          input.LogPublishingConfiguration,
-          context
-        ),
-      }),
-    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.LogPublishingConfiguration != null && {
+      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
   });
   return new __HttpRequest({
     protocol,
@@ -938,8 +927,8 @@ export const serializeAws_restJson1VoteOnProposalCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Vote !== undefined && input.Vote !== null && { Vote: input.Vote }),
-    ...(input.VoterMemberId !== undefined && input.VoterMemberId !== null && { VoterMemberId: input.VoterMemberId }),
+    ...(input.Vote != null && { Vote: input.Vote }),
+    ...(input.VoterMemberId != null && { VoterMemberId: input.VoterMemberId }),
   });
   return new __HttpRequest({
     protocol,
@@ -2457,12 +2446,9 @@ const serializeAws_restJson1ApprovalThresholdPolicy = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProposalDurationInHours !== undefined &&
-      input.ProposalDurationInHours !== null && { ProposalDurationInHours: input.ProposalDurationInHours }),
-    ...(input.ThresholdComparator !== undefined &&
-      input.ThresholdComparator !== null && { ThresholdComparator: input.ThresholdComparator }),
-    ...(input.ThresholdPercentage !== undefined &&
-      input.ThresholdPercentage !== null && { ThresholdPercentage: input.ThresholdPercentage }),
+    ...(input.ProposalDurationInHours != null && { ProposalDurationInHours: input.ProposalDurationInHours }),
+    ...(input.ThresholdComparator != null && { ThresholdComparator: input.ThresholdComparator }),
+    ...(input.ThresholdPercentage != null && { ThresholdPercentage: input.ThresholdPercentage }),
   };
 };
 
@@ -2480,7 +2466,7 @@ const serializeAws_restJson1InputTagMap = (input: Record<string, string>, contex
 
 const serializeAws_restJson1InviteAction = (input: InviteAction, context: __SerdeContext): any => {
   return {
-    ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
+    ...(input.Principal != null && { Principal: input.Principal }),
   };
 };
 
@@ -2497,38 +2483,31 @@ const serializeAws_restJson1InviteActionList = (input: InviteAction[], context: 
 
 const serializeAws_restJson1LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1LogConfigurations = (input: LogConfigurations, context: __SerdeContext): any => {
   return {
-    ...(input.Cloudwatch !== undefined &&
-      input.Cloudwatch !== null && { Cloudwatch: serializeAws_restJson1LogConfiguration(input.Cloudwatch, context) }),
+    ...(input.Cloudwatch != null && { Cloudwatch: serializeAws_restJson1LogConfiguration(input.Cloudwatch, context) }),
   };
 };
 
 const serializeAws_restJson1MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.FrameworkConfiguration !== undefined &&
-      input.FrameworkConfiguration !== null && {
-        FrameworkConfiguration: serializeAws_restJson1MemberFrameworkConfiguration(
-          input.FrameworkConfiguration,
-          context
-        ),
-      }),
-    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.LogPublishingConfiguration !== undefined &&
-      input.LogPublishingConfiguration !== null && {
-        LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
-          input.LogPublishingConfiguration,
-          context
-        ),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FrameworkConfiguration != null && {
+      FrameworkConfiguration: serializeAws_restJson1MemberFrameworkConfiguration(input.FrameworkConfiguration, context),
+    }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.LogPublishingConfiguration != null && {
+      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   };
 };
 
@@ -2537,8 +2516,8 @@ const serializeAws_restJson1MemberFabricConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminPassword !== undefined && input.AdminPassword !== null && { AdminPassword: input.AdminPassword }),
-    ...(input.AdminUsername !== undefined && input.AdminUsername !== null && { AdminUsername: input.AdminUsername }),
+    ...(input.AdminPassword != null && { AdminPassword: input.AdminPassword }),
+    ...(input.AdminUsername != null && { AdminUsername: input.AdminUsername }),
   };
 };
 
@@ -2547,8 +2526,7 @@ const serializeAws_restJson1MemberFabricLogPublishingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CaLogs !== undefined &&
-      input.CaLogs !== null && { CaLogs: serializeAws_restJson1LogConfigurations(input.CaLogs, context) }),
+    ...(input.CaLogs != null && { CaLogs: serializeAws_restJson1LogConfigurations(input.CaLogs, context) }),
   };
 };
 
@@ -2557,8 +2535,7 @@ const serializeAws_restJson1MemberFrameworkConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Fabric !== undefined &&
-      input.Fabric !== null && { Fabric: serializeAws_restJson1MemberFabricConfiguration(input.Fabric, context) }),
+    ...(input.Fabric != null && { Fabric: serializeAws_restJson1MemberFabricConfiguration(input.Fabric, context) }),
   };
 };
 
@@ -2567,10 +2544,9 @@ const serializeAws_restJson1MemberLogPublishingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Fabric !== undefined &&
-      input.Fabric !== null && {
-        Fabric: serializeAws_restJson1MemberFabricLogPublishingConfiguration(input.Fabric, context),
-      }),
+    ...(input.Fabric != null && {
+      Fabric: serializeAws_restJson1MemberFabricLogPublishingConfiguration(input.Fabric, context),
+    }),
   };
 };
 
@@ -2579,7 +2555,7 @@ const serializeAws_restJson1NetworkFabricConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Edition !== undefined && input.Edition !== null && { Edition: input.Edition }),
+    ...(input.Edition != null && { Edition: input.Edition }),
   };
 };
 
@@ -2588,24 +2564,21 @@ const serializeAws_restJson1NetworkFrameworkConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Fabric !== undefined &&
-      input.Fabric !== null && { Fabric: serializeAws_restJson1NetworkFabricConfiguration(input.Fabric, context) }),
+    ...(input.Fabric != null && { Fabric: serializeAws_restJson1NetworkFabricConfiguration(input.Fabric, context) }),
   };
 };
 
 const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone !== undefined &&
-      input.AvailabilityZone !== null && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.InstanceType !== undefined && input.InstanceType !== null && { InstanceType: input.InstanceType }),
-    ...(input.LogPublishingConfiguration !== undefined &&
-      input.LogPublishingConfiguration !== null && {
-        LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
-          input.LogPublishingConfiguration,
-          context
-        ),
-      }),
-    ...(input.StateDB !== undefined && input.StateDB !== null && { StateDB: input.StateDB }),
+    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
+    ...(input.LogPublishingConfiguration != null && {
+      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
+        input.LogPublishingConfiguration,
+        context
+      ),
+    }),
+    ...(input.StateDB != null && { StateDB: input.StateDB }),
   };
 };
 
@@ -2614,12 +2587,10 @@ const serializeAws_restJson1NodeFabricLogPublishingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChaincodeLogs !== undefined &&
-      input.ChaincodeLogs !== null && {
-        ChaincodeLogs: serializeAws_restJson1LogConfigurations(input.ChaincodeLogs, context),
-      }),
-    ...(input.PeerLogs !== undefined &&
-      input.PeerLogs !== null && { PeerLogs: serializeAws_restJson1LogConfigurations(input.PeerLogs, context) }),
+    ...(input.ChaincodeLogs != null && {
+      ChaincodeLogs: serializeAws_restJson1LogConfigurations(input.ChaincodeLogs, context),
+    }),
+    ...(input.PeerLogs != null && { PeerLogs: serializeAws_restJson1LogConfigurations(input.PeerLogs, context) }),
   };
 };
 
@@ -2628,27 +2599,24 @@ const serializeAws_restJson1NodeLogPublishingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Fabric !== undefined &&
-      input.Fabric !== null && {
-        Fabric: serializeAws_restJson1NodeFabricLogPublishingConfiguration(input.Fabric, context),
-      }),
+    ...(input.Fabric != null && {
+      Fabric: serializeAws_restJson1NodeFabricLogPublishingConfiguration(input.Fabric, context),
+    }),
   };
 };
 
 const serializeAws_restJson1ProposalActions = (input: ProposalActions, context: __SerdeContext): any => {
   return {
-    ...(input.Invitations !== undefined &&
-      input.Invitations !== null && {
-        Invitations: serializeAws_restJson1InviteActionList(input.Invitations, context),
-      }),
-    ...(input.Removals !== undefined &&
-      input.Removals !== null && { Removals: serializeAws_restJson1RemoveActionList(input.Removals, context) }),
+    ...(input.Invitations != null && {
+      Invitations: serializeAws_restJson1InviteActionList(input.Invitations, context),
+    }),
+    ...(input.Removals != null && { Removals: serializeAws_restJson1RemoveActionList(input.Removals, context) }),
   };
 };
 
 const serializeAws_restJson1RemoveAction = (input: RemoveAction, context: __SerdeContext): any => {
   return {
-    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
   };
 };
 
@@ -2665,10 +2633,9 @@ const serializeAws_restJson1RemoveActionList = (input: RemoveAction[], context: 
 
 const serializeAws_restJson1VotingPolicy = (input: VotingPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.ApprovalThresholdPolicy !== undefined &&
-      input.ApprovalThresholdPolicy !== null && {
-        ApprovalThresholdPolicy: serializeAws_restJson1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
-      }),
+    ...(input.ApprovalThresholdPolicy != null && {
+      ApprovalThresholdPolicy: serializeAws_restJson1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
+    }),
   };
 };
 
@@ -2687,16 +2654,12 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
-        : undefined,
+      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
     InvitationId: __expectString(output.InvitationId),
     NetworkSummary:
-      output.NetworkSummary !== undefined && output.NetworkSummary !== null
+      output.NetworkSummary != null
         ? deserializeAws_restJson1NetworkSummary(output.NetworkSummary, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -2742,9 +2705,7 @@ const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeC
 const deserializeAws_restJson1LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
   return {
     Cloudwatch:
-      output.Cloudwatch !== undefined && output.Cloudwatch !== null
-        ? deserializeAws_restJson1LogConfiguration(output.Cloudwatch, context)
-        : undefined,
+      output.Cloudwatch != null ? deserializeAws_restJson1LogConfiguration(output.Cloudwatch, context) : undefined,
   } as any;
 };
 
@@ -2752,27 +2713,22 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+      output.FrameworkAttributes != null
         ? deserializeAws_restJson1MemberFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: __expectString(output.Id),
     KmsKeyArn: __expectString(output.KmsKeyArn),
     LogPublishingConfiguration:
-      output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
+      output.LogPublishingConfiguration != null
         ? deserializeAws_restJson1MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
         : undefined,
     Name: __expectString(output.Name),
     NetworkId: __expectString(output.NetworkId),
     Status: __expectString(output.Status),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2791,10 +2747,7 @@ const deserializeAws_restJson1MemberFabricLogPublishingConfiguration = (
   context: __SerdeContext
 ): MemberFabricLogPublishingConfiguration => {
   return {
-    CaLogs:
-      output.CaLogs !== undefined && output.CaLogs !== null
-        ? deserializeAws_restJson1LogConfigurations(output.CaLogs, context)
-        : undefined,
+    CaLogs: output.CaLogs != null ? deserializeAws_restJson1LogConfigurations(output.CaLogs, context) : undefined,
   } as any;
 };
 
@@ -2803,10 +2756,7 @@ const deserializeAws_restJson1MemberFrameworkAttributes = (
   context: __SerdeContext
 ): MemberFrameworkAttributes => {
   return {
-    Fabric:
-      output.Fabric !== undefined && output.Fabric !== null
-        ? deserializeAws_restJson1MemberFabricAttributes(output.Fabric, context)
-        : undefined,
+    Fabric: output.Fabric != null ? deserializeAws_restJson1MemberFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
@@ -2816,7 +2766,7 @@ const deserializeAws_restJson1MemberLogPublishingConfiguration = (
 ): MemberLogPublishingConfiguration => {
   return {
     Fabric:
-      output.Fabric !== undefined && output.Fabric !== null
+      output.Fabric != null
         ? deserializeAws_restJson1MemberFabricLogPublishingConfiguration(output.Fabric, context)
         : undefined,
   } as any;
@@ -2826,9 +2776,7 @@ const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     IsOwned: __expectBoolean(output.IsOwned),
@@ -2853,27 +2801,20 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+      output.FrameworkAttributes != null
         ? deserializeAws_restJson1NetworkFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     FrameworkVersion: __expectString(output.FrameworkVersion),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
     VotingPolicy:
-      output.VotingPolicy !== undefined && output.VotingPolicy !== null
-        ? deserializeAws_restJson1VotingPolicy(output.VotingPolicy, context)
-        : undefined,
+      output.VotingPolicy != null ? deserializeAws_restJson1VotingPolicy(output.VotingPolicy, context) : undefined,
     VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
   } as any;
 };
@@ -2903,13 +2844,8 @@ const deserializeAws_restJson1NetworkFrameworkAttributes = (
 ): NetworkFrameworkAttributes => {
   return {
     Ethereum:
-      output.Ethereum !== undefined && output.Ethereum !== null
-        ? deserializeAws_restJson1NetworkEthereumAttributes(output.Ethereum, context)
-        : undefined,
-    Fabric:
-      output.Fabric !== undefined && output.Fabric !== null
-        ? deserializeAws_restJson1NetworkFabricAttributes(output.Fabric, context)
-        : undefined,
+      output.Ethereum != null ? deserializeAws_restJson1NetworkEthereumAttributes(output.Ethereum, context) : undefined,
+    Fabric: output.Fabric != null ? deserializeAws_restJson1NetworkFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
@@ -2917,9 +2853,7 @@ const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeCon
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     Framework: __expectString(output.Framework),
     FrameworkVersion: __expectString(output.FrameworkVersion),
@@ -2946,28 +2880,23 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+      output.FrameworkAttributes != null
         ? deserializeAws_restJson1NodeFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: __expectString(output.Id),
     InstanceType: __expectString(output.InstanceType),
     KmsKeyArn: __expectString(output.KmsKeyArn),
     LogPublishingConfiguration:
-      output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
+      output.LogPublishingConfiguration != null
         ? deserializeAws_restJson1NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)
         : undefined,
     MemberId: __expectString(output.MemberId),
     NetworkId: __expectString(output.NetworkId),
     StateDB: __expectString(output.StateDB),
     Status: __expectString(output.Status),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2994,13 +2923,10 @@ const deserializeAws_restJson1NodeFabricLogPublishingConfiguration = (
 ): NodeFabricLogPublishingConfiguration => {
   return {
     ChaincodeLogs:
-      output.ChaincodeLogs !== undefined && output.ChaincodeLogs !== null
+      output.ChaincodeLogs != null
         ? deserializeAws_restJson1LogConfigurations(output.ChaincodeLogs, context)
         : undefined,
-    PeerLogs:
-      output.PeerLogs !== undefined && output.PeerLogs !== null
-        ? deserializeAws_restJson1LogConfigurations(output.PeerLogs, context)
-        : undefined,
+    PeerLogs: output.PeerLogs != null ? deserializeAws_restJson1LogConfigurations(output.PeerLogs, context) : undefined,
   } as any;
 };
 
@@ -3010,13 +2936,8 @@ const deserializeAws_restJson1NodeFrameworkAttributes = (
 ): NodeFrameworkAttributes => {
   return {
     Ethereum:
-      output.Ethereum !== undefined && output.Ethereum !== null
-        ? deserializeAws_restJson1NodeEthereumAttributes(output.Ethereum, context)
-        : undefined,
-    Fabric:
-      output.Fabric !== undefined && output.Fabric !== null
-        ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context)
-        : undefined,
+      output.Ethereum != null ? deserializeAws_restJson1NodeEthereumAttributes(output.Ethereum, context) : undefined,
+    Fabric: output.Fabric != null ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
@@ -3026,7 +2947,7 @@ const deserializeAws_restJson1NodeLogPublishingConfiguration = (
 ): NodeLogPublishingConfiguration => {
   return {
     Fabric:
-      output.Fabric !== undefined && output.Fabric !== null
+      output.Fabric != null
         ? deserializeAws_restJson1NodeFabricLogPublishingConfiguration(output.Fabric, context)
         : undefined,
   } as any;
@@ -3037,9 +2958,7 @@ const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContex
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     InstanceType: __expectString(output.InstanceType),
     Status: __expectString(output.Status),
@@ -3072,20 +2991,13 @@ const deserializeAws_restJson1OutputTagMap = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext): Proposal => {
   return {
-    Actions:
-      output.Actions !== undefined && output.Actions !== null
-        ? deserializeAws_restJson1ProposalActions(output.Actions, context)
-        : undefined,
+    Actions: output.Actions != null ? deserializeAws_restJson1ProposalActions(output.Actions, context) : undefined,
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
-        : undefined,
+      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
     NetworkId: __expectString(output.NetworkId),
     NoVoteCount: __expectInt32(output.NoVoteCount),
     OutstandingVoteCount: __expectInt32(output.OutstandingVoteCount),
@@ -3093,10 +3005,7 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),
     Status: __expectString(output.Status),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
     YesVoteCount: __expectInt32(output.YesVoteCount),
   } as any;
 };
@@ -3104,13 +3013,8 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
   return {
     Invitations:
-      output.Invitations !== undefined && output.Invitations !== null
-        ? deserializeAws_restJson1InviteActionList(output.Invitations, context)
-        : undefined,
-    Removals:
-      output.Removals !== undefined && output.Removals !== null
-        ? deserializeAws_restJson1RemoveActionList(output.Removals, context)
-        : undefined,
+      output.Invitations != null ? deserializeAws_restJson1InviteActionList(output.Invitations, context) : undefined,
+    Removals: output.Removals != null ? deserializeAws_restJson1RemoveActionList(output.Removals, context) : undefined,
   } as any;
 };
 
@@ -3118,14 +3022,10 @@ const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeCo
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate))
-        : undefined,
+      output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreationDate)) : undefined,
     Description: __expectString(output.Description),
     ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate))
-        : undefined,
+      output.ExpirationDate != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationDate)) : undefined,
     ProposalId: __expectString(output.ProposalId),
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),
@@ -3186,7 +3086,7 @@ const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContex
 const deserializeAws_restJson1VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
   return {
     ApprovalThresholdPolicy:
-      output.ApprovalThresholdPolicy !== undefined && output.ApprovalThresholdPolicy !== null
+      output.ApprovalThresholdPolicy != null
         ? deserializeAws_restJson1ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)
         : undefined,
   } as any;

@@ -5051,14 +5051,12 @@ const serializeAws_json1_1AssociateFirewallRuleGroupRequest = (
 ): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
-    ...(input.MutationProtection !== undefined &&
-      input.MutationProtection !== null && { MutationProtection: input.MutationProtection }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.MutationProtection != null && { MutationProtection: input.MutationProtection }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Priority != null && { Priority: input.Priority }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -5067,10 +5065,8 @@ const serializeAws_json1_1AssociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined &&
-      input.IpAddress !== null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.IpAddress != null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5079,9 +5075,8 @@ const serializeAws_json1_1AssociateResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined &&
-      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResolverQueryLogConfigId != null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5090,10 +5085,9 @@ const serializeAws_json1_1AssociateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ResolverRuleId !== undefined &&
-      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
-    ...(input.VPCId !== undefined && input.VPCId !== null && { VPCId: input.VPCId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.VPCId != null && { VPCId: input.VPCId }),
   };
 };
 
@@ -5103,8 +5097,8 @@ const serializeAws_json1_1CreateFirewallDomainListRequest = (
 ): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5114,8 +5108,8 @@ const serializeAws_json1_1CreateFirewallRuleGroupRequest = (
 ): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5124,21 +5118,16 @@ const serializeAws_json1_1CreateFirewallRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
-    ...(input.BlockOverrideDnsType !== undefined &&
-      input.BlockOverrideDnsType !== null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
-    ...(input.BlockOverrideDomain !== undefined &&
-      input.BlockOverrideDomain !== null && { BlockOverrideDomain: input.BlockOverrideDomain }),
-    ...(input.BlockOverrideTtl !== undefined &&
-      input.BlockOverrideTtl !== null && { BlockOverrideTtl: input.BlockOverrideTtl }),
-    ...(input.BlockResponse !== undefined && input.BlockResponse !== null && { BlockResponse: input.BlockResponse }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.BlockOverrideDnsType != null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
+    ...(input.BlockOverrideDomain != null && { BlockOverrideDomain: input.BlockOverrideDomain }),
+    ...(input.BlockOverrideTtl != null && { BlockOverrideTtl: input.BlockOverrideTtl }),
+    ...(input.BlockResponse != null && { BlockResponse: input.BlockResponse }),
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Priority != null && { Priority: input.Priority }),
   };
 };
 
@@ -5147,19 +5136,16 @@ const serializeAws_json1_1CreateResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.Direction !== undefined && input.Direction !== null && { Direction: input.Direction }),
-    ...(input.IpAddresses !== undefined &&
-      input.IpAddresses !== null && {
-        IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SecurityGroupIds !== undefined &&
-      input.SecurityGroupIds !== null && {
-        SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.Direction != null && { Direction: input.Direction }),
+    ...(input.IpAddresses != null && {
+      IpAddresses: serializeAws_json1_1IpAddressesRequest(input.IpAddresses, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5169,10 +5155,9 @@ const serializeAws_json1_1CreateResolverQueryLogConfigRequest = (
 ): any => {
   return {
     CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
-    ...(input.DestinationArn !== undefined &&
-      input.DestinationArn !== null && { DestinationArn: input.DestinationArn }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.DestinationArn != null && { DestinationArn: input.DestinationArn }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5181,16 +5166,13 @@ const serializeAws_json1_1CreateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
-    ...(input.RuleType !== undefined && input.RuleType !== null && { RuleType: input.RuleType }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.TargetIps !== undefined &&
-      input.TargetIps !== null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.RuleType != null && { RuleType: input.RuleType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.TargetIps != null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
@@ -5199,8 +5181,7 @@ const serializeAws_json1_1DeleteFirewallDomainListRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
   };
 };
 
@@ -5209,8 +5190,7 @@ const serializeAws_json1_1DeleteFirewallRuleGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
@@ -5219,10 +5199,8 @@ const serializeAws_json1_1DeleteFirewallRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
@@ -5231,8 +5209,7 @@ const serializeAws_json1_1DeleteResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5241,8 +5218,7 @@ const serializeAws_json1_1DeleteResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined &&
-      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResolverQueryLogConfigId != null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
   };
 };
 
@@ -5251,8 +5227,7 @@ const serializeAws_json1_1DeleteResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined &&
-      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -5261,10 +5236,9 @@ const serializeAws_json1_1DisassociateFirewallRuleGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupAssociationId !== undefined &&
-      input.FirewallRuleGroupAssociationId !== null && {
-        FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
-      }),
+    ...(input.FirewallRuleGroupAssociationId != null && {
+      FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
+    }),
   };
 };
 
@@ -5273,10 +5247,8 @@ const serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress !== undefined &&
-      input.IpAddress !== null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.IpAddress != null && { IpAddress: serializeAws_json1_1IpAddressUpdate(input.IpAddress, context) }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5285,9 +5257,8 @@ const serializeAws_json1_1DisassociateResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined &&
-      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResolverQueryLogConfigId != null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5296,17 +5267,15 @@ const serializeAws_json1_1DisassociateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleId !== undefined &&
-      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
-    ...(input.VPCId !== undefined && input.VPCId !== null && { VPCId: input.VPCId }),
+    ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.VPCId != null && { VPCId: input.VPCId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
@@ -5348,7 +5317,7 @@ const serializeAws_json1_1GetFirewallConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5357,8 +5326,7 @@ const serializeAws_json1_1GetFirewallDomainListRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
   };
 };
 
@@ -5367,10 +5335,9 @@ const serializeAws_json1_1GetFirewallRuleGroupAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupAssociationId !== undefined &&
-      input.FirewallRuleGroupAssociationId !== null && {
-        FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
-      }),
+    ...(input.FirewallRuleGroupAssociationId != null && {
+      FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
+    }),
   };
 };
 
@@ -5379,7 +5346,7 @@ const serializeAws_json1_1GetFirewallRuleGroupPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
@@ -5388,8 +5355,7 @@ const serializeAws_json1_1GetFirewallRuleGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
   };
 };
 
@@ -5398,7 +5364,7 @@ const serializeAws_json1_1GetResolverConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5407,7 +5373,7 @@ const serializeAws_json1_1GetResolverDnssecConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5416,8 +5382,7 @@ const serializeAws_json1_1GetResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5426,10 +5391,9 @@ const serializeAws_json1_1GetResolverQueryLogConfigAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigAssociationId !== undefined &&
-      input.ResolverQueryLogConfigAssociationId !== null && {
-        ResolverQueryLogConfigAssociationId: input.ResolverQueryLogConfigAssociationId,
-      }),
+    ...(input.ResolverQueryLogConfigAssociationId != null && {
+      ResolverQueryLogConfigAssociationId: input.ResolverQueryLogConfigAssociationId,
+    }),
   };
 };
 
@@ -5438,7 +5402,7 @@ const serializeAws_json1_1GetResolverQueryLogConfigPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
@@ -5447,8 +5411,7 @@ const serializeAws_json1_1GetResolverQueryLogConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverQueryLogConfigId !== undefined &&
-      input.ResolverQueryLogConfigId !== null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
+    ...(input.ResolverQueryLogConfigId != null && { ResolverQueryLogConfigId: input.ResolverQueryLogConfigId }),
   };
 };
 
@@ -5457,8 +5420,7 @@ const serializeAws_json1_1GetResolverRuleAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResolverRuleAssociationId !== undefined &&
-      input.ResolverRuleAssociationId !== null && { ResolverRuleAssociationId: input.ResolverRuleAssociationId }),
+    ...(input.ResolverRuleAssociationId != null && { ResolverRuleAssociationId: input.ResolverRuleAssociationId }),
   };
 };
 
@@ -5467,14 +5429,13 @@ const serializeAws_json1_1GetResolverRulePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
 const serializeAws_json1_1GetResolverRuleRequest = (input: GetResolverRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResolverRuleId !== undefined &&
-      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -5483,10 +5444,9 @@ const serializeAws_json1_1ImportFirewallDomainsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainFileUrl !== undefined && input.DomainFileUrl !== null && { DomainFileUrl: input.DomainFileUrl }),
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
+    ...(input.DomainFileUrl != null && { DomainFileUrl: input.DomainFileUrl }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.Operation != null && { Operation: input.Operation }),
   };
 };
 
@@ -5503,16 +5463,16 @@ const serializeAws_json1_1IpAddressesRequest = (input: IpAddressRequest[], conte
 
 const serializeAws_json1_1IpAddressRequest = (input: IpAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.Ip != null && { Ip: input.Ip }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
 
 const serializeAws_json1_1IpAddressUpdate = (input: IpAddressUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
-    ...(input.IpId !== undefined && input.IpId !== null && { IpId: input.IpId }),
-    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.Ip != null && { Ip: input.Ip }),
+    ...(input.IpId != null && { IpId: input.IpId }),
+    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
   };
 };
 
@@ -5521,8 +5481,8 @@ const serializeAws_json1_1ListFirewallConfigsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5531,8 +5491,8 @@ const serializeAws_json1_1ListFirewallDomainListsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5541,10 +5501,9 @@ const serializeAws_json1_1ListFirewallDomainsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5553,13 +5512,12 @@ const serializeAws_json1_1ListFirewallRuleGroupAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Priority != null && { Priority: input.Priority }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -5568,8 +5526,8 @@ const serializeAws_json1_1ListFirewallRuleGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5578,12 +5536,11 @@ const serializeAws_json1_1ListFirewallRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Priority != null && { Priority: input.Priority }),
   };
 };
 
@@ -5592,8 +5549,8 @@ const serializeAws_json1_1ListResolverConfigsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5602,10 +5559,9 @@ const serializeAws_json1_1ListResolverDnssecConfigsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5614,10 +5570,9 @@ const serializeAws_json1_1ListResolverEndpointIpAddressesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5626,10 +5581,9 @@ const serializeAws_json1_1ListResolverEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5638,12 +5592,11 @@ const serializeAws_json1_1ListResolverQueryLogConfigAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -5652,12 +5605,11 @@ const serializeAws_json1_1ListResolverQueryLogConfigsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -5666,10 +5618,9 @@ const serializeAws_json1_1ListResolverRuleAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5678,10 +5629,9 @@ const serializeAws_json1_1ListResolverRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5690,9 +5640,9 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -5701,9 +5651,8 @@ const serializeAws_json1_1PutFirewallRuleGroupPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.FirewallRuleGroupPolicy !== undefined &&
-      input.FirewallRuleGroupPolicy !== null && { FirewallRuleGroupPolicy: input.FirewallRuleGroupPolicy }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.FirewallRuleGroupPolicy != null && { FirewallRuleGroupPolicy: input.FirewallRuleGroupPolicy }),
   };
 };
 
@@ -5712,11 +5661,10 @@ const serializeAws_json1_1PutResolverQueryLogConfigPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.ResolverQueryLogConfigPolicy !== undefined &&
-      input.ResolverQueryLogConfigPolicy !== null && {
-        ResolverQueryLogConfigPolicy: input.ResolverQueryLogConfigPolicy,
-      }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.ResolverQueryLogConfigPolicy != null && {
+      ResolverQueryLogConfigPolicy: input.ResolverQueryLogConfigPolicy,
+    }),
   };
 };
 
@@ -5725,19 +5673,16 @@ const serializeAws_json1_1PutResolverRulePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
-    ...(input.ResolverRulePolicy !== undefined &&
-      input.ResolverRulePolicy !== null && { ResolverRulePolicy: input.ResolverRulePolicy }),
+    ...(input.Arn != null && { Arn: input.Arn }),
+    ...(input.ResolverRulePolicy != null && { ResolverRulePolicy: input.ResolverRulePolicy }),
   };
 };
 
 const serializeAws_json1_1ResolverRuleConfig = (input: ResolverRuleConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
-    ...(input.TargetIps !== undefined &&
-      input.TargetIps !== null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.TargetIps != null && { TargetIps: serializeAws_json1_1TargetList(input.TargetIps, context) }),
   };
 };
 
@@ -5754,8 +5699,8 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5783,15 +5728,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TargetAddress = (input: TargetAddress, context: __SerdeContext): any => {
   return {
-    ...(input.Ip !== undefined && input.Ip !== null && { Ip: input.Ip }),
-    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.Ip != null && { Ip: input.Ip }),
+    ...(input.Port != null && { Port: input.Port }),
   };
 };
 
@@ -5808,9 +5753,8 @@ const serializeAws_json1_1TargetList = (input: TargetAddress[], context: __Serde
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -5819,9 +5763,8 @@ const serializeAws_json1_1UpdateFirewallConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallFailOpen !== undefined &&
-      input.FirewallFailOpen !== null && { FirewallFailOpen: input.FirewallFailOpen }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.FirewallFailOpen != null && { FirewallFailOpen: input.FirewallFailOpen }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5830,11 +5773,9 @@ const serializeAws_json1_1UpdateFirewallDomainsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Domains !== undefined &&
-      input.Domains !== null && { Domains: serializeAws_json1_1FirewallDomains(input.Domains, context) }),
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
+    ...(input.Domains != null && { Domains: serializeAws_json1_1FirewallDomains(input.Domains, context) }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.Operation != null && { Operation: input.Operation }),
   };
 };
 
@@ -5843,14 +5784,12 @@ const serializeAws_json1_1UpdateFirewallRuleGroupAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FirewallRuleGroupAssociationId !== undefined &&
-      input.FirewallRuleGroupAssociationId !== null && {
-        FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
-      }),
-    ...(input.MutationProtection !== undefined &&
-      input.MutationProtection !== null && { MutationProtection: input.MutationProtection }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.FirewallRuleGroupAssociationId != null && {
+      FirewallRuleGroupAssociationId: input.FirewallRuleGroupAssociationId,
+    }),
+    ...(input.MutationProtection != null && { MutationProtection: input.MutationProtection }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Priority != null && { Priority: input.Priority }),
   };
 };
 
@@ -5859,20 +5798,15 @@ const serializeAws_json1_1UpdateFirewallRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
-    ...(input.BlockOverrideDnsType !== undefined &&
-      input.BlockOverrideDnsType !== null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
-    ...(input.BlockOverrideDomain !== undefined &&
-      input.BlockOverrideDomain !== null && { BlockOverrideDomain: input.BlockOverrideDomain }),
-    ...(input.BlockOverrideTtl !== undefined &&
-      input.BlockOverrideTtl !== null && { BlockOverrideTtl: input.BlockOverrideTtl }),
-    ...(input.BlockResponse !== undefined && input.BlockResponse !== null && { BlockResponse: input.BlockResponse }),
-    ...(input.FirewallDomainListId !== undefined &&
-      input.FirewallDomainListId !== null && { FirewallDomainListId: input.FirewallDomainListId }),
-    ...(input.FirewallRuleGroupId !== undefined &&
-      input.FirewallRuleGroupId !== null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.BlockOverrideDnsType != null && { BlockOverrideDnsType: input.BlockOverrideDnsType }),
+    ...(input.BlockOverrideDomain != null && { BlockOverrideDomain: input.BlockOverrideDomain }),
+    ...(input.BlockOverrideTtl != null && { BlockOverrideTtl: input.BlockOverrideTtl }),
+    ...(input.BlockResponse != null && { BlockResponse: input.BlockResponse }),
+    ...(input.FirewallDomainListId != null && { FirewallDomainListId: input.FirewallDomainListId }),
+    ...(input.FirewallRuleGroupId != null && { FirewallRuleGroupId: input.FirewallRuleGroupId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Priority != null && { Priority: input.Priority }),
   };
 };
 
@@ -5881,9 +5815,8 @@ const serializeAws_json1_1UpdateResolverConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutodefinedReverseFlag !== undefined &&
-      input.AutodefinedReverseFlag !== null && { AutodefinedReverseFlag: input.AutodefinedReverseFlag }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.AutodefinedReverseFlag != null && { AutodefinedReverseFlag: input.AutodefinedReverseFlag }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5892,8 +5825,8 @@ const serializeAws_json1_1UpdateResolverDnssecConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.Validation !== undefined && input.Validation !== null && { Validation: input.Validation }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.Validation != null && { Validation: input.Validation }),
   };
 };
 
@@ -5902,9 +5835,8 @@ const serializeAws_json1_1UpdateResolverEndpointRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ResolverEndpointId !== undefined &&
-      input.ResolverEndpointId !== null && { ResolverEndpointId: input.ResolverEndpointId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResolverEndpointId != null && { ResolverEndpointId: input.ResolverEndpointId }),
   };
 };
 
@@ -5913,10 +5845,8 @@ const serializeAws_json1_1UpdateResolverRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Config !== undefined &&
-      input.Config !== null && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
-    ...(input.ResolverRuleId !== undefined &&
-      input.ResolverRuleId !== null && { ResolverRuleId: input.ResolverRuleId }),
+    ...(input.Config != null && { Config: serializeAws_json1_1ResolverRuleConfig(input.Config, context) }),
+    ...(input.ResolverRuleId != null && { ResolverRuleId: input.ResolverRuleId }),
   };
 };
 
@@ -5932,7 +5862,7 @@ const deserializeAws_json1_1AssociateFirewallRuleGroupResponse = (
 ): AssociateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroupAssociation:
-      output.FirewallRuleGroupAssociation !== undefined && output.FirewallRuleGroupAssociation !== null
+      output.FirewallRuleGroupAssociation != null
         ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
@@ -5944,7 +5874,7 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (
 ): AssociateResolverEndpointIpAddressResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -5956,7 +5886,7 @@ const deserializeAws_json1_1AssociateResolverQueryLogConfigResponse = (
 ): AssociateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfigAssociation:
-      output.ResolverQueryLogConfigAssociation !== undefined && output.ResolverQueryLogConfigAssociation !== null
+      output.ResolverQueryLogConfigAssociation != null
         ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
@@ -5968,7 +5898,7 @@ const deserializeAws_json1_1AssociateResolverRuleResponse = (
 ): AssociateResolverRuleResponse => {
   return {
     ResolverRuleAssociation:
-      output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
+      output.ResolverRuleAssociation != null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
@@ -5986,7 +5916,7 @@ const deserializeAws_json1_1CreateFirewallDomainListResponse = (
 ): CreateFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList !== undefined && output.FirewallDomainList !== null
+      output.FirewallDomainList != null
         ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
         : undefined,
   } as any;
@@ -5998,7 +5928,7 @@ const deserializeAws_json1_1CreateFirewallRuleGroupResponse = (
 ): CreateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup !== undefined && output.FirewallRuleGroup !== null
+      output.FirewallRuleGroup != null
         ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
         : undefined,
   } as any;
@@ -6010,9 +5940,7 @@ const deserializeAws_json1_1CreateFirewallRuleResponse = (
 ): CreateFirewallRuleResponse => {
   return {
     FirewallRule:
-      output.FirewallRule !== undefined && output.FirewallRule !== null
-        ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context)
-        : undefined,
+      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
@@ -6022,7 +5950,7 @@ const deserializeAws_json1_1CreateResolverEndpointResponse = (
 ): CreateResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -6034,7 +5962,7 @@ const deserializeAws_json1_1CreateResolverQueryLogConfigResponse = (
 ): CreateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
-      output.ResolverQueryLogConfig !== undefined && output.ResolverQueryLogConfig !== null
+      output.ResolverQueryLogConfig != null
         ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
@@ -6046,9 +5974,7 @@ const deserializeAws_json1_1CreateResolverRuleResponse = (
 ): CreateResolverRuleResponse => {
   return {
     ResolverRule:
-      output.ResolverRule !== undefined && output.ResolverRule !== null
-        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
-        : undefined,
+      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
@@ -6058,7 +5984,7 @@ const deserializeAws_json1_1DeleteFirewallDomainListResponse = (
 ): DeleteFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList !== undefined && output.FirewallDomainList !== null
+      output.FirewallDomainList != null
         ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
         : undefined,
   } as any;
@@ -6070,7 +5996,7 @@ const deserializeAws_json1_1DeleteFirewallRuleGroupResponse = (
 ): DeleteFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup !== undefined && output.FirewallRuleGroup !== null
+      output.FirewallRuleGroup != null
         ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
         : undefined,
   } as any;
@@ -6082,9 +6008,7 @@ const deserializeAws_json1_1DeleteFirewallRuleResponse = (
 ): DeleteFirewallRuleResponse => {
   return {
     FirewallRule:
-      output.FirewallRule !== undefined && output.FirewallRule !== null
-        ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context)
-        : undefined,
+      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
@@ -6094,7 +6018,7 @@ const deserializeAws_json1_1DeleteResolverEndpointResponse = (
 ): DeleteResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -6106,7 +6030,7 @@ const deserializeAws_json1_1DeleteResolverQueryLogConfigResponse = (
 ): DeleteResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
-      output.ResolverQueryLogConfig !== undefined && output.ResolverQueryLogConfig !== null
+      output.ResolverQueryLogConfig != null
         ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
@@ -6118,9 +6042,7 @@ const deserializeAws_json1_1DeleteResolverRuleResponse = (
 ): DeleteResolverRuleResponse => {
   return {
     ResolverRule:
-      output.ResolverRule !== undefined && output.ResolverRule !== null
-        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
-        : undefined,
+      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
@@ -6130,7 +6052,7 @@ const deserializeAws_json1_1DisassociateFirewallRuleGroupResponse = (
 ): DisassociateFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroupAssociation:
-      output.FirewallRuleGroupAssociation !== undefined && output.FirewallRuleGroupAssociation !== null
+      output.FirewallRuleGroupAssociation != null
         ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
@@ -6142,7 +6064,7 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse = (
 ): DisassociateResolverEndpointIpAddressResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -6154,7 +6076,7 @@ const deserializeAws_json1_1DisassociateResolverQueryLogConfigResponse = (
 ): DisassociateResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfigAssociation:
-      output.ResolverQueryLogConfigAssociation !== undefined && output.ResolverQueryLogConfigAssociation !== null
+      output.ResolverQueryLogConfigAssociation != null
         ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
@@ -6166,7 +6088,7 @@ const deserializeAws_json1_1DisassociateResolverRuleResponse = (
 ): DisassociateResolverRuleResponse => {
   return {
     ResolverRuleAssociation:
-      output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
+      output.ResolverRuleAssociation != null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
@@ -6364,9 +6286,7 @@ const deserializeAws_json1_1GetFirewallConfigResponse = (
 ): GetFirewallConfigResponse => {
   return {
     FirewallConfig:
-      output.FirewallConfig !== undefined && output.FirewallConfig !== null
-        ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context)
-        : undefined,
+      output.FirewallConfig != null ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context) : undefined,
   } as any;
 };
 
@@ -6376,7 +6296,7 @@ const deserializeAws_json1_1GetFirewallDomainListResponse = (
 ): GetFirewallDomainListResponse => {
   return {
     FirewallDomainList:
-      output.FirewallDomainList !== undefined && output.FirewallDomainList !== null
+      output.FirewallDomainList != null
         ? deserializeAws_json1_1FirewallDomainList(output.FirewallDomainList, context)
         : undefined,
   } as any;
@@ -6388,7 +6308,7 @@ const deserializeAws_json1_1GetFirewallRuleGroupAssociationResponse = (
 ): GetFirewallRuleGroupAssociationResponse => {
   return {
     FirewallRuleGroupAssociation:
-      output.FirewallRuleGroupAssociation !== undefined && output.FirewallRuleGroupAssociation !== null
+      output.FirewallRuleGroupAssociation != null
         ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
@@ -6409,7 +6329,7 @@ const deserializeAws_json1_1GetFirewallRuleGroupResponse = (
 ): GetFirewallRuleGroupResponse => {
   return {
     FirewallRuleGroup:
-      output.FirewallRuleGroup !== undefined && output.FirewallRuleGroup !== null
+      output.FirewallRuleGroup != null
         ? deserializeAws_json1_1FirewallRuleGroup(output.FirewallRuleGroup, context)
         : undefined,
   } as any;
@@ -6421,9 +6341,7 @@ const deserializeAws_json1_1GetResolverConfigResponse = (
 ): GetResolverConfigResponse => {
   return {
     ResolverConfig:
-      output.ResolverConfig !== undefined && output.ResolverConfig !== null
-        ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context)
-        : undefined,
+      output.ResolverConfig != null ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context) : undefined,
   } as any;
 };
 
@@ -6433,7 +6351,7 @@ const deserializeAws_json1_1GetResolverDnssecConfigResponse = (
 ): GetResolverDnssecConfigResponse => {
   return {
     ResolverDNSSECConfig:
-      output.ResolverDNSSECConfig !== undefined && output.ResolverDNSSECConfig !== null
+      output.ResolverDNSSECConfig != null
         ? deserializeAws_json1_1ResolverDnssecConfig(output.ResolverDNSSECConfig, context)
         : undefined,
   } as any;
@@ -6445,7 +6363,7 @@ const deserializeAws_json1_1GetResolverEndpointResponse = (
 ): GetResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -6457,7 +6375,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigAssociationResponse = (
 ): GetResolverQueryLogConfigAssociationResponse => {
   return {
     ResolverQueryLogConfigAssociation:
-      output.ResolverQueryLogConfigAssociation !== undefined && output.ResolverQueryLogConfigAssociation !== null
+      output.ResolverQueryLogConfigAssociation != null
         ? deserializeAws_json1_1ResolverQueryLogConfigAssociation(output.ResolverQueryLogConfigAssociation, context)
         : undefined,
   } as any;
@@ -6478,7 +6396,7 @@ const deserializeAws_json1_1GetResolverQueryLogConfigResponse = (
 ): GetResolverQueryLogConfigResponse => {
   return {
     ResolverQueryLogConfig:
-      output.ResolverQueryLogConfig !== undefined && output.ResolverQueryLogConfig !== null
+      output.ResolverQueryLogConfig != null
         ? deserializeAws_json1_1ResolverQueryLogConfig(output.ResolverQueryLogConfig, context)
         : undefined,
   } as any;
@@ -6490,7 +6408,7 @@ const deserializeAws_json1_1GetResolverRuleAssociationResponse = (
 ): GetResolverRuleAssociationResponse => {
   return {
     ResolverRuleAssociation:
-      output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
+      output.ResolverRuleAssociation != null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
         : undefined,
   } as any;
@@ -6511,9 +6429,7 @@ const deserializeAws_json1_1GetResolverRuleResponse = (
 ): GetResolverRuleResponse => {
   return {
     ResolverRule:
-      output.ResolverRule !== undefined && output.ResolverRule !== null
-        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
-        : undefined,
+      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 
@@ -6615,7 +6531,7 @@ const deserializeAws_json1_1ListFirewallConfigsResponse = (
 ): ListFirewallConfigsResponse => {
   return {
     FirewallConfigs:
-      output.FirewallConfigs !== undefined && output.FirewallConfigs !== null
+      output.FirewallConfigs != null
         ? deserializeAws_json1_1FirewallConfigList(output.FirewallConfigs, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6628,7 +6544,7 @@ const deserializeAws_json1_1ListFirewallDomainListsResponse = (
 ): ListFirewallDomainListsResponse => {
   return {
     FirewallDomainLists:
-      output.FirewallDomainLists !== undefined && output.FirewallDomainLists !== null
+      output.FirewallDomainLists != null
         ? deserializeAws_json1_1FirewallDomainListMetadataList(output.FirewallDomainLists, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6640,10 +6556,7 @@ const deserializeAws_json1_1ListFirewallDomainsResponse = (
   context: __SerdeContext
 ): ListFirewallDomainsResponse => {
   return {
-    Domains:
-      output.Domains !== undefined && output.Domains !== null
-        ? deserializeAws_json1_1FirewallDomains(output.Domains, context)
-        : undefined,
+    Domains: output.Domains != null ? deserializeAws_json1_1FirewallDomains(output.Domains, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6654,7 +6567,7 @@ const deserializeAws_json1_1ListFirewallRuleGroupAssociationsResponse = (
 ): ListFirewallRuleGroupAssociationsResponse => {
   return {
     FirewallRuleGroupAssociations:
-      output.FirewallRuleGroupAssociations !== undefined && output.FirewallRuleGroupAssociations !== null
+      output.FirewallRuleGroupAssociations != null
         ? deserializeAws_json1_1FirewallRuleGroupAssociations(output.FirewallRuleGroupAssociations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6667,7 +6580,7 @@ const deserializeAws_json1_1ListFirewallRuleGroupsResponse = (
 ): ListFirewallRuleGroupsResponse => {
   return {
     FirewallRuleGroups:
-      output.FirewallRuleGroups !== undefined && output.FirewallRuleGroups !== null
+      output.FirewallRuleGroups != null
         ? deserializeAws_json1_1FirewallRuleGroupMetadataList(output.FirewallRuleGroups, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6680,9 +6593,7 @@ const deserializeAws_json1_1ListFirewallRulesResponse = (
 ): ListFirewallRulesResponse => {
   return {
     FirewallRules:
-      output.FirewallRules !== undefined && output.FirewallRules !== null
-        ? deserializeAws_json1_1FirewallRules(output.FirewallRules, context)
-        : undefined,
+      output.FirewallRules != null ? deserializeAws_json1_1FirewallRules(output.FirewallRules, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6694,7 +6605,7 @@ const deserializeAws_json1_1ListResolverConfigsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResolverConfigs:
-      output.ResolverConfigs !== undefined && output.ResolverConfigs !== null
+      output.ResolverConfigs != null
         ? deserializeAws_json1_1ResolverConfigList(output.ResolverConfigs, context)
         : undefined,
   } as any;
@@ -6707,7 +6618,7 @@ const deserializeAws_json1_1ListResolverDnssecConfigsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResolverDnssecConfigs:
-      output.ResolverDnssecConfigs !== undefined && output.ResolverDnssecConfigs !== null
+      output.ResolverDnssecConfigs != null
         ? deserializeAws_json1_1ResolverDnssecConfigList(output.ResolverDnssecConfigs, context)
         : undefined,
   } as any;
@@ -6719,9 +6630,7 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
 ): ListResolverEndpointIpAddressesResponse => {
   return {
     IpAddresses:
-      output.IpAddresses !== undefined && output.IpAddresses !== null
-        ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context)
-        : undefined,
+      output.IpAddresses != null ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context) : undefined,
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -6735,7 +6644,7 @@ const deserializeAws_json1_1ListResolverEndpointsResponse = (
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverEndpoints:
-      output.ResolverEndpoints !== undefined && output.ResolverEndpoints !== null
+      output.ResolverEndpoints != null
         ? deserializeAws_json1_1ResolverEndpoints(output.ResolverEndpoints, context)
         : undefined,
   } as any;
@@ -6748,7 +6657,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigAssociationsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResolverQueryLogConfigAssociations:
-      output.ResolverQueryLogConfigAssociations !== undefined && output.ResolverQueryLogConfigAssociations !== null
+      output.ResolverQueryLogConfigAssociations != null
         ? deserializeAws_json1_1ResolverQueryLogConfigAssociationList(
             output.ResolverQueryLogConfigAssociations,
             context
@@ -6766,7 +6675,7 @@ const deserializeAws_json1_1ListResolverQueryLogConfigsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResolverQueryLogConfigs:
-      output.ResolverQueryLogConfigs !== undefined && output.ResolverQueryLogConfigs !== null
+      output.ResolverQueryLogConfigs != null
         ? deserializeAws_json1_1ResolverQueryLogConfigList(output.ResolverQueryLogConfigs, context)
         : undefined,
     TotalCount: __expectInt32(output.TotalCount),
@@ -6782,7 +6691,7 @@ const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverRuleAssociations:
-      output.ResolverRuleAssociations !== undefined && output.ResolverRuleAssociations !== null
+      output.ResolverRuleAssociations != null
         ? deserializeAws_json1_1ResolverRuleAssociations(output.ResolverRuleAssociations, context)
         : undefined,
   } as any;
@@ -6796,9 +6705,7 @@ const deserializeAws_json1_1ListResolverRulesResponse = (
     MaxResults: __expectInt32(output.MaxResults),
     NextToken: __expectString(output.NextToken),
     ResolverRules:
-      output.ResolverRules !== undefined && output.ResolverRules !== null
-        ? deserializeAws_json1_1ResolverRules(output.ResolverRules, context)
-        : undefined,
+      output.ResolverRules != null ? deserializeAws_json1_1ResolverRules(output.ResolverRules, context) : undefined,
   } as any;
 };
 
@@ -6808,10 +6715,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -6899,7 +6803,7 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
     ModificationTime: __expectString(output.ModificationTime),
     Name: __expectString(output.Name),
     SecurityGroupIds:
-      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+      output.SecurityGroupIds != null
         ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -6994,10 +6898,7 @@ const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext
     ShareStatus: __expectString(output.ShareStatus),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    TargetIps:
-      output.TargetIps !== undefined && output.TargetIps !== null
-        ? deserializeAws_json1_1TargetList(output.TargetIps, context)
-        : undefined,
+    TargetIps: output.TargetIps != null ? deserializeAws_json1_1TargetList(output.TargetIps, context) : undefined,
   } as any;
 };
 
@@ -7158,9 +7059,7 @@ const deserializeAws_json1_1UpdateFirewallConfigResponse = (
 ): UpdateFirewallConfigResponse => {
   return {
     FirewallConfig:
-      output.FirewallConfig !== undefined && output.FirewallConfig !== null
-        ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context)
-        : undefined,
+      output.FirewallConfig != null ? deserializeAws_json1_1FirewallConfig(output.FirewallConfig, context) : undefined,
   } as any;
 };
 
@@ -7182,7 +7081,7 @@ const deserializeAws_json1_1UpdateFirewallRuleGroupAssociationResponse = (
 ): UpdateFirewallRuleGroupAssociationResponse => {
   return {
     FirewallRuleGroupAssociation:
-      output.FirewallRuleGroupAssociation !== undefined && output.FirewallRuleGroupAssociation !== null
+      output.FirewallRuleGroupAssociation != null
         ? deserializeAws_json1_1FirewallRuleGroupAssociation(output.FirewallRuleGroupAssociation, context)
         : undefined,
   } as any;
@@ -7194,9 +7093,7 @@ const deserializeAws_json1_1UpdateFirewallRuleResponse = (
 ): UpdateFirewallRuleResponse => {
   return {
     FirewallRule:
-      output.FirewallRule !== undefined && output.FirewallRule !== null
-        ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context)
-        : undefined,
+      output.FirewallRule != null ? deserializeAws_json1_1FirewallRule(output.FirewallRule, context) : undefined,
   } as any;
 };
 
@@ -7206,9 +7103,7 @@ const deserializeAws_json1_1UpdateResolverConfigResponse = (
 ): UpdateResolverConfigResponse => {
   return {
     ResolverConfig:
-      output.ResolverConfig !== undefined && output.ResolverConfig !== null
-        ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context)
-        : undefined,
+      output.ResolverConfig != null ? deserializeAws_json1_1ResolverConfig(output.ResolverConfig, context) : undefined,
   } as any;
 };
 
@@ -7218,7 +7113,7 @@ const deserializeAws_json1_1UpdateResolverDnssecConfigResponse = (
 ): UpdateResolverDnssecConfigResponse => {
   return {
     ResolverDNSSECConfig:
-      output.ResolverDNSSECConfig !== undefined && output.ResolverDNSSECConfig !== null
+      output.ResolverDNSSECConfig != null
         ? deserializeAws_json1_1ResolverDnssecConfig(output.ResolverDNSSECConfig, context)
         : undefined,
   } as any;
@@ -7230,7 +7125,7 @@ const deserializeAws_json1_1UpdateResolverEndpointResponse = (
 ): UpdateResolverEndpointResponse => {
   return {
     ResolverEndpoint:
-      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+      output.ResolverEndpoint != null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
         : undefined,
   } as any;
@@ -7242,9 +7137,7 @@ const deserializeAws_json1_1UpdateResolverRuleResponse = (
 ): UpdateResolverRuleResponse => {
   return {
     ResolverRule:
-      output.ResolverRule !== undefined && output.ResolverRule !== null
-        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
-        : undefined,
+      output.ResolverRule != null ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context) : undefined,
   } as any;
 };
 

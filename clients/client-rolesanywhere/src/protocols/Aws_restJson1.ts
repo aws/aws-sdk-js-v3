@@ -75,21 +75,16 @@ export const serializeAws_restJson1CreateProfileCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
   let body: any;
   body = JSON.stringify({
-    ...(input.durationSeconds !== undefined &&
-      input.durationSeconds !== null && { durationSeconds: input.durationSeconds }),
-    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
-    ...(input.managedPolicyArns !== undefined &&
-      input.managedPolicyArns !== null && {
-        managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.requireInstanceProperties !== undefined &&
-      input.requireInstanceProperties !== null && { requireInstanceProperties: input.requireInstanceProperties }),
-    ...(input.roleArns !== undefined &&
-      input.roleArns !== null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
-    ...(input.sessionPolicy !== undefined && input.sessionPolicy !== null && { sessionPolicy: input.sessionPolicy }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.managedPolicyArns != null && {
+      managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.requireInstanceProperties != null && { requireInstanceProperties: input.requireInstanceProperties }),
+    ...(input.roleArns != null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
+    ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -113,12 +108,10 @@ export const serializeAws_restJson1CreateTrustAnchorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchors";
   let body: any;
   body = JSON.stringify({
-    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_restJson1Source(input.source, context) }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.source != null && { source: serializeAws_restJson1Source(input.source, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -512,13 +505,11 @@ export const serializeAws_restJson1ImportCrlCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crls";
   let body: any;
   body = JSON.stringify({
-    ...(input.crlData !== undefined && input.crlData !== null && { crlData: context.base64Encoder(input.crlData) }),
-    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.trustAnchorArn !== undefined &&
-      input.trustAnchorArn !== null && { trustAnchorArn: input.trustAnchorArn }),
+    ...(input.crlData != null && { crlData: context.base64Encoder(input.crlData) }),
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.trustAnchorArn != null && { trustAnchorArn: input.trustAnchorArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -661,9 +652,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -687,9 +677,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys !== undefined &&
-      input.tagKeys !== null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -722,8 +711,8 @@ export const serializeAws_restJson1UpdateCrlCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.crlData !== undefined && input.crlData !== null && { crlData: context.base64Encoder(input.crlData) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.crlData != null && { crlData: context.base64Encoder(input.crlData) }),
+    ...(input.name != null && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -756,16 +745,13 @@ export const serializeAws_restJson1UpdateProfileCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.durationSeconds !== undefined &&
-      input.durationSeconds !== null && { durationSeconds: input.durationSeconds }),
-    ...(input.managedPolicyArns !== undefined &&
-      input.managedPolicyArns !== null && {
-        managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.roleArns !== undefined &&
-      input.roleArns !== null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
-    ...(input.sessionPolicy !== undefined && input.sessionPolicy !== null && { sessionPolicy: input.sessionPolicy }),
+    ...(input.durationSeconds != null && { durationSeconds: input.durationSeconds }),
+    ...(input.managedPolicyArns != null && {
+      managedPolicyArns: serializeAws_restJson1ManagedPolicyList(input.managedPolicyArns, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.roleArns != null && { roleArns: serializeAws_restJson1RoleArnList(input.roleArns, context) }),
+    ...(input.sessionPolicy != null && { sessionPolicy: input.sessionPolicy }),
   });
   return new __HttpRequest({
     protocol,
@@ -799,9 +785,8 @@ export const serializeAws_restJson1UpdateTrustAnchorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_restJson1Source(input.source, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.source != null && { source: serializeAws_restJson1Source(input.source, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2179,9 +2164,8 @@ const serializeAws_restJson1RoleArnList = (input: string[], context: __SerdeCont
 
 const serializeAws_restJson1Source = (input: Source, context: __SerdeContext): any => {
   return {
-    ...(input.sourceData !== undefined &&
-      input.sourceData !== null && { sourceData: serializeAws_restJson1SourceData(input.sourceData, context) }),
-    ...(input.sourceType !== undefined && input.sourceType !== null && { sourceType: input.sourceType }),
+    ...(input.sourceData != null && { sourceData: serializeAws_restJson1SourceData(input.sourceData, context) }),
+    ...(input.sourceType != null && { sourceType: input.sourceType }),
   };
 };
 
@@ -2195,8 +2179,8 @@ const serializeAws_restJson1SourceData = (input: SourceData, context: __SerdeCon
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -2239,10 +2223,7 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
     enabled: __expectBoolean(output.enabled),
     failed: __expectBoolean(output.failed),
     issuer: __expectString(output.issuer),
-    seenAt:
-      output.seenAt !== undefined && output.seenAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.seenAt))
-        : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
     serialNumber: __expectString(output.serialNumber),
     x509CertificateData: __expectString(output.x509CertificateData),
   } as any;
@@ -2250,21 +2231,14 @@ const deserializeAws_restJson1CredentialSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1CrlDetail = (output: any, context: __SerdeContext): CrlDetail => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     crlArn: __expectString(output.crlArn),
-    crlData:
-      output.crlData !== undefined && output.crlData !== null ? context.base64Decoder(output.crlData) : undefined,
+    crlData: output.crlData != null ? context.base64Decoder(output.crlData) : undefined,
     crlId: __expectString(output.crlId),
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
     trustAnchorArn: __expectString(output.trustAnchorArn),
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
-        : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2296,13 +2270,8 @@ const deserializeAws_restJson1InstanceProperty = (output: any, context: __SerdeC
   return {
     failed: __expectBoolean(output.failed),
     properties:
-      output.properties !== undefined && output.properties !== null
-        ? deserializeAws_restJson1InstancePropertyMap(output.properties, context)
-        : undefined,
-    seenAt:
-      output.seenAt !== undefined && output.seenAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.seenAt))
-        : undefined,
+      output.properties != null ? deserializeAws_restJson1InstancePropertyMap(output.properties, context) : undefined,
+    seenAt: output.seenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.seenAt)) : undefined,
   } as any;
 };
 
@@ -2332,30 +2301,21 @@ const deserializeAws_restJson1ManagedPolicyList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     durationSeconds: __expectInt32(output.durationSeconds),
     enabled: __expectBoolean(output.enabled),
     managedPolicyArns:
-      output.managedPolicyArns !== undefined && output.managedPolicyArns !== null
+      output.managedPolicyArns != null
         ? deserializeAws_restJson1ManagedPolicyList(output.managedPolicyArns, context)
         : undefined,
     name: __expectString(output.name),
     profileArn: __expectString(output.profileArn),
     profileId: __expectString(output.profileId),
     requireInstanceProperties: __expectBoolean(output.requireInstanceProperties),
-    roleArns:
-      output.roleArns !== undefined && output.roleArns !== null
-        ? deserializeAws_restJson1RoleArnList(output.roleArns, context)
-        : undefined,
+    roleArns: output.roleArns != null ? deserializeAws_restJson1RoleArnList(output.roleArns, context) : undefined,
     sessionPolicy: __expectString(output.sessionPolicy),
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
-        : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2386,7 +2346,7 @@ const deserializeAws_restJson1RoleArnList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
     sourceData:
-      output.sourceData !== undefined && output.sourceData !== null
+      output.sourceData != null
         ? deserializeAws_restJson1SourceData(__expectUnion(output.sourceData), context)
         : undefined,
     sourceType: __expectString(output.sourceType),
@@ -2405,29 +2365,18 @@ const deserializeAws_restJson1SourceData = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SubjectDetail = (output: any, context: __SerdeContext): SubjectDetail => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     credentials:
-      output.credentials !== undefined && output.credentials !== null
-        ? deserializeAws_restJson1CredentialSummaries(output.credentials, context)
-        : undefined,
+      output.credentials != null ? deserializeAws_restJson1CredentialSummaries(output.credentials, context) : undefined,
     enabled: __expectBoolean(output.enabled),
     instanceProperties:
-      output.instanceProperties !== undefined && output.instanceProperties !== null
+      output.instanceProperties != null
         ? deserializeAws_restJson1InstanceProperties(output.instanceProperties, context)
         : undefined,
-    lastSeenAt:
-      output.lastSeenAt !== undefined && output.lastSeenAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt))
-        : undefined,
+    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
-        : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2446,21 +2395,12 @@ const deserializeAws_restJson1SubjectSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SubjectSummary = (output: any, context: __SerdeContext): SubjectSummary => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
-    lastSeenAt:
-      output.lastSeenAt !== undefined && output.lastSeenAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt))
-        : undefined,
+    lastSeenAt: output.lastSeenAt != null ? __expectNonNull(__parseRfc3339DateTime(output.lastSeenAt)) : undefined,
     subjectArn: __expectString(output.subjectArn),
     subjectId: __expectString(output.subjectId),
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
-        : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
     x509Subject: __expectString(output.x509Subject),
   } as any;
 };
@@ -2486,22 +2426,13 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrustAnchorDetail = (output: any, context: __SerdeContext): TrustAnchorDetail => {
   return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     enabled: __expectBoolean(output.enabled),
     name: __expectString(output.name),
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_restJson1Source(output.source, context)
-        : undefined,
+    source: output.source != null ? deserializeAws_restJson1Source(output.source, context) : undefined,
     trustAnchorArn: __expectString(output.trustAnchorArn),
     trustAnchorId: __expectString(output.trustAnchorId),
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
-        : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
   } as any;
 };
 

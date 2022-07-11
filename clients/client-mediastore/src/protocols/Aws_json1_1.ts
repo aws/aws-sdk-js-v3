@@ -1566,36 +1566,32 @@ const serializeAws_json1_1CorsPolicy = (input: CorsRule[], context: __SerdeConte
 
 const serializeAws_json1_1CorsRule = (input: CorsRule, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedHeaders !== undefined &&
-      input.AllowedHeaders !== null && {
-        AllowedHeaders: serializeAws_json1_1AllowedHeaders(input.AllowedHeaders, context),
-      }),
-    ...(input.AllowedMethods !== undefined &&
-      input.AllowedMethods !== null && {
-        AllowedMethods: serializeAws_json1_1AllowedMethods(input.AllowedMethods, context),
-      }),
-    ...(input.AllowedOrigins !== undefined &&
-      input.AllowedOrigins !== null && {
-        AllowedOrigins: serializeAws_json1_1AllowedOrigins(input.AllowedOrigins, context),
-      }),
-    ...(input.ExposeHeaders !== undefined &&
-      input.ExposeHeaders !== null && {
-        ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context),
-      }),
-    ...(input.MaxAgeSeconds !== undefined && input.MaxAgeSeconds !== null && { MaxAgeSeconds: input.MaxAgeSeconds }),
+    ...(input.AllowedHeaders != null && {
+      AllowedHeaders: serializeAws_json1_1AllowedHeaders(input.AllowedHeaders, context),
+    }),
+    ...(input.AllowedMethods != null && {
+      AllowedMethods: serializeAws_json1_1AllowedMethods(input.AllowedMethods, context),
+    }),
+    ...(input.AllowedOrigins != null && {
+      AllowedOrigins: serializeAws_json1_1AllowedOrigins(input.AllowedOrigins, context),
+    }),
+    ...(input.ExposeHeaders != null && {
+      ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context),
+    }),
+    ...(input.MaxAgeSeconds != null && { MaxAgeSeconds: input.MaxAgeSeconds }),
   };
 };
 
 const serializeAws_json1_1CreateContainerInput = (input: CreateContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteContainerInput = (input: DeleteContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1604,13 +1600,13 @@ const serializeAws_json1_1DeleteContainerPolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DeleteCorsPolicyInput = (input: DeleteCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1619,19 +1615,19 @@ const serializeAws_json1_1DeleteLifecyclePolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DeleteMetricPolicyInput = (input: DeleteMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
@@ -1648,32 +1644,32 @@ const serializeAws_json1_1ExposeHeaders = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1GetContainerPolicyInput = (input: GetContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetCorsPolicyInput = (input: GetCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetLifecyclePolicyInput = (input: GetLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1GetMetricPolicyInput = (input: GetMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1ListContainersInput = (input: ListContainersInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1682,26 +1678,23 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
+    ...(input.Resource != null && { Resource: input.Resource }),
   };
 };
 
 const serializeAws_json1_1MetricPolicy = (input: MetricPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerLevelMetrics !== undefined &&
-      input.ContainerLevelMetrics !== null && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
-    ...(input.MetricPolicyRules !== undefined &&
-      input.MetricPolicyRules !== null && {
-        MetricPolicyRules: serializeAws_json1_1MetricPolicyRules(input.MetricPolicyRules, context),
-      }),
+    ...(input.ContainerLevelMetrics != null && { ContainerLevelMetrics: input.ContainerLevelMetrics }),
+    ...(input.MetricPolicyRules != null && {
+      MetricPolicyRules: serializeAws_json1_1MetricPolicyRules(input.MetricPolicyRules, context),
+    }),
   };
 };
 
 const serializeAws_json1_1MetricPolicyRule = (input: MetricPolicyRule, context: __SerdeContext): any => {
   return {
-    ...(input.ObjectGroup !== undefined && input.ObjectGroup !== null && { ObjectGroup: input.ObjectGroup }),
-    ...(input.ObjectGroupName !== undefined &&
-      input.ObjectGroupName !== null && { ObjectGroupName: input.ObjectGroupName }),
+    ...(input.ObjectGroup != null && { ObjectGroup: input.ObjectGroup }),
+    ...(input.ObjectGroupName != null && { ObjectGroupName: input.ObjectGroupName }),
   };
 };
 
@@ -1718,51 +1711,48 @@ const serializeAws_json1_1MetricPolicyRules = (input: MetricPolicyRule[], contex
 
 const serializeAws_json1_1PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
+    ...(input.Policy != null && { Policy: input.Policy }),
   };
 };
 
 const serializeAws_json1_1PutCorsPolicyInput = (input: PutCorsPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
-    ...(input.CorsPolicy !== undefined &&
-      input.CorsPolicy !== null && { CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context) }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
+    ...(input.CorsPolicy != null && { CorsPolicy: serializeAws_json1_1CorsPolicy(input.CorsPolicy, context) }),
   };
 };
 
 const serializeAws_json1_1PutLifecyclePolicyInput = (input: PutLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
-    ...(input.LifecyclePolicy !== undefined &&
-      input.LifecyclePolicy !== null && { LifecyclePolicy: input.LifecyclePolicy }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
+    ...(input.LifecyclePolicy != null && { LifecyclePolicy: input.LifecyclePolicy }),
   };
 };
 
 const serializeAws_json1_1PutMetricPolicyInput = (input: PutMetricPolicyInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
-    ...(input.MetricPolicy !== undefined &&
-      input.MetricPolicy !== null && { MetricPolicy: serializeAws_json1_1MetricPolicy(input.MetricPolicy, context) }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
+    ...(input.MetricPolicy != null && { MetricPolicy: serializeAws_json1_1MetricPolicy(input.MetricPolicy, context) }),
   };
 };
 
 const serializeAws_json1_1StartAccessLoggingInput = (input: StartAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1StopAccessLoggingInput = (input: StopAccessLoggingInput, context: __SerdeContext): any => {
   return {
-    ...(input.ContainerName !== undefined && input.ContainerName !== null && { ContainerName: input.ContainerName }),
+    ...(input.ContainerName != null && { ContainerName: input.ContainerName }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1790,16 +1780,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Resource != null && { Resource: input.Resource }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.Resource !== undefined && input.Resource !== null && { Resource: input.Resource }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.Resource != null && { Resource: input.Resource }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1844,7 +1833,7 @@ const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): 
     ARN: __expectString(output.ARN),
     AccessLoggingEnabled: __expectBoolean(output.AccessLoggingEnabled),
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Endpoint: __expectString(output.Endpoint),
@@ -1907,31 +1896,20 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
 const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): CorsRule => {
   return {
     AllowedHeaders:
-      output.AllowedHeaders !== undefined && output.AllowedHeaders !== null
-        ? deserializeAws_json1_1AllowedHeaders(output.AllowedHeaders, context)
-        : undefined,
+      output.AllowedHeaders != null ? deserializeAws_json1_1AllowedHeaders(output.AllowedHeaders, context) : undefined,
     AllowedMethods:
-      output.AllowedMethods !== undefined && output.AllowedMethods !== null
-        ? deserializeAws_json1_1AllowedMethods(output.AllowedMethods, context)
-        : undefined,
+      output.AllowedMethods != null ? deserializeAws_json1_1AllowedMethods(output.AllowedMethods, context) : undefined,
     AllowedOrigins:
-      output.AllowedOrigins !== undefined && output.AllowedOrigins !== null
-        ? deserializeAws_json1_1AllowedOrigins(output.AllowedOrigins, context)
-        : undefined,
+      output.AllowedOrigins != null ? deserializeAws_json1_1AllowedOrigins(output.AllowedOrigins, context) : undefined,
     ExposeHeaders:
-      output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
-        ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context)
-        : undefined,
+      output.ExposeHeaders != null ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context) : undefined,
     MaxAgeSeconds: __expectInt32(output.MaxAgeSeconds),
   } as any;
 };
 
 const deserializeAws_json1_1CreateContainerOutput = (output: any, context: __SerdeContext): CreateContainerOutput => {
   return {
-    Container:
-      output.Container !== undefined && output.Container !== null
-        ? deserializeAws_json1_1Container(output.Container, context)
-        : undefined,
+    Container: output.Container != null ? deserializeAws_json1_1Container(output.Container, context) : undefined,
   } as any;
 };
 
@@ -1969,10 +1947,7 @@ const deserializeAws_json1_1DescribeContainerOutput = (
   context: __SerdeContext
 ): DescribeContainerOutput => {
   return {
-    Container:
-      output.Container !== undefined && output.Container !== null
-        ? deserializeAws_json1_1Container(output.Container, context)
-        : undefined,
+    Container: output.Container != null ? deserializeAws_json1_1Container(output.Container, context) : undefined,
   } as any;
 };
 
@@ -1999,10 +1974,7 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
 
 const deserializeAws_json1_1GetCorsPolicyOutput = (output: any, context: __SerdeContext): GetCorsPolicyOutput => {
   return {
-    CorsPolicy:
-      output.CorsPolicy !== undefined && output.CorsPolicy !== null
-        ? deserializeAws_json1_1CorsPolicy(output.CorsPolicy, context)
-        : undefined,
+    CorsPolicy: output.CorsPolicy != null ? deserializeAws_json1_1CorsPolicy(output.CorsPolicy, context) : undefined,
   } as any;
 };
 
@@ -2018,9 +1990,7 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
 const deserializeAws_json1_1GetMetricPolicyOutput = (output: any, context: __SerdeContext): GetMetricPolicyOutput => {
   return {
     MetricPolicy:
-      output.MetricPolicy !== undefined && output.MetricPolicy !== null
-        ? deserializeAws_json1_1MetricPolicy(output.MetricPolicy, context)
-        : undefined,
+      output.MetricPolicy != null ? deserializeAws_json1_1MetricPolicy(output.MetricPolicy, context) : undefined,
   } as any;
 };
 
@@ -2038,10 +2008,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 
 const deserializeAws_json1_1ListContainersOutput = (output: any, context: __SerdeContext): ListContainersOutput => {
   return {
-    Containers:
-      output.Containers !== undefined && output.Containers !== null
-        ? deserializeAws_json1_1ContainerList(output.Containers, context)
-        : undefined,
+    Containers: output.Containers != null ? deserializeAws_json1_1ContainerList(output.Containers, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2051,10 +2018,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2062,7 +2026,7 @@ const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext
   return {
     ContainerLevelMetrics: __expectString(output.ContainerLevelMetrics),
     MetricPolicyRules:
-      output.MetricPolicyRules !== undefined && output.MetricPolicyRules !== null
+      output.MetricPolicyRules != null
         ? deserializeAws_json1_1MetricPolicyRules(output.MetricPolicyRules, context)
         : undefined,
   } as any;

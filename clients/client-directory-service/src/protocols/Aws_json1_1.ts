@@ -5426,31 +5426,27 @@ const serializeAws_json1_1AcceptSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined &&
-      input.SharedDirectoryId !== null && { SharedDirectoryId: input.SharedDirectoryId }),
+    ...(input.SharedDirectoryId != null && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
 const serializeAws_json1_1AddIpRoutesRequest = (input: AddIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.IpRoutes !== undefined &&
-      input.IpRoutes !== null && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
-    ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined &&
-      input.UpdateSecurityGroupForDirectoryControllers !== null && {
-        UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.IpRoutes != null && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
+    ...(input.UpdateSecurityGroupForDirectoryControllers != null && {
+      UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
+    }),
   };
 };
 
 const serializeAws_json1_1AddRegionRequest = (input: AddRegionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
-    ...(input.VPCSettings !== undefined &&
-      input.VPCSettings !== null && {
-        VPCSettings: serializeAws_json1_1DirectoryVpcSettings(input.VPCSettings, context),
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
+    ...(input.VPCSettings != null && {
+      VPCSettings: serializeAws_json1_1DirectoryVpcSettings(input.VPCSettings, context),
+    }),
   };
 };
 
@@ -5459,15 +5455,15 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5487,9 +5483,8 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.SchemaExtensionId !== undefined &&
-      input.SchemaExtensionId !== null && { SchemaExtensionId: input.SchemaExtensionId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.SchemaExtensionId != null && { SchemaExtensionId: input.SchemaExtensionId }),
   };
 };
 
@@ -5506,45 +5501,42 @@ const serializeAws_json1_1CidrIps = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1ClientCertAuthSettings = (input: ClientCertAuthSettings, context: __SerdeContext): any => {
   return {
-    ...(input.OCSPUrl !== undefined && input.OCSPUrl !== null && { OCSPUrl: input.OCSPUrl }),
+    ...(input.OCSPUrl != null && { OCSPUrl: input.OCSPUrl }),
   };
 };
 
 const serializeAws_json1_1ConnectDirectoryRequest = (input: ConnectDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectSettings !== undefined &&
-      input.ConnectSettings !== null && {
-        ConnectSettings: serializeAws_json1_1DirectoryConnectSettings(input.ConnectSettings, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
-    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ConnectSettings != null && {
+      ConnectSettings: serializeAws_json1_1DirectoryConnectSettings(input.ConnectSettings, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.ShortName != null && { ShortName: input.ShortName }),
+    ...(input.Size != null && { Size: input.Size }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1CreateComputerRequest = (input: CreateComputerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ComputerAttributes !== undefined &&
-      input.ComputerAttributes !== null && {
-        ComputerAttributes: serializeAws_json1_1Attributes(input.ComputerAttributes, context),
-      }),
-    ...(input.ComputerName !== undefined && input.ComputerName !== null && { ComputerName: input.ComputerName }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.OrganizationalUnitDistinguishedName !== undefined &&
-      input.OrganizationalUnitDistinguishedName !== null && {
-        OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
-      }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.ComputerAttributes != null && {
+      ComputerAttributes: serializeAws_json1_1Attributes(input.ComputerAttributes, context),
+    }),
+    ...(input.ComputerName != null && { ComputerName: input.ComputerName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.OrganizationalUnitDistinguishedName != null && {
+      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
+    }),
+    ...(input.Password != null && { Password: input.Password }),
   };
 };
 
@@ -5553,26 +5545,23 @@ const serializeAws_json1_1CreateConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined &&
-      input.DnsIpAddrs !== null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName !== undefined &&
-      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs != null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
 const serializeAws_json1_1CreateDirectoryRequest = (input: CreateDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
-    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VpcSettings !== undefined &&
-      input.VpcSettings !== null && {
-        VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
-      }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.ShortName != null && { ShortName: input.ShortName }),
+    ...(input.Size != null && { Size: input.Size }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcSettings != null && {
+      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
+    }),
   };
 };
 
@@ -5581,8 +5570,8 @@ const serializeAws_json1_1CreateLogSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.LogGroupName !== undefined && input.LogGroupName !== null && { LogGroupName: input.LogGroupName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.LogGroupName != null && { LogGroupName: input.LogGroupName }),
   };
 };
 
@@ -5591,40 +5580,36 @@ const serializeAws_json1_1CreateMicrosoftADRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Edition !== undefined && input.Edition !== null && { Edition: input.Edition }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VpcSettings !== undefined &&
-      input.VpcSettings !== null && {
-        VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
-      }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Edition != null && { Edition: input.Edition }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.ShortName != null && { ShortName: input.ShortName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcSettings != null && {
+      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
+    }),
   };
 };
 
 const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1CreateTrustRequest = (input: CreateTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionalForwarderIpAddrs !== undefined &&
-      input.ConditionalForwarderIpAddrs !== null && {
-        ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
-      }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined &&
-      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
-    ...(input.SelectiveAuth !== undefined && input.SelectiveAuth !== null && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustDirection !== undefined &&
-      input.TrustDirection !== null && { TrustDirection: input.TrustDirection }),
-    ...(input.TrustPassword !== undefined && input.TrustPassword !== null && { TrustPassword: input.TrustPassword }),
-    ...(input.TrustType !== undefined && input.TrustType !== null && { TrustType: input.TrustType }),
+    ...(input.ConditionalForwarderIpAddrs != null && {
+      ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
+    }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.SelectiveAuth != null && { SelectiveAuth: input.SelectiveAuth }),
+    ...(input.TrustDirection != null && { TrustDirection: input.TrustDirection }),
+    ...(input.TrustPassword != null && { TrustPassword: input.TrustPassword }),
+    ...(input.TrustType != null && { TrustType: input.TrustType }),
   };
 };
 
@@ -5633,15 +5618,14 @@ const serializeAws_json1_1DeleteConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined &&
-      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
 const serializeAws_json1_1DeleteDirectoryRequest = (input: DeleteDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -5650,23 +5634,22 @@ const serializeAws_json1_1DeleteLogSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
   };
 };
 
 const serializeAws_json1_1DeleteTrustRequest = (input: DeleteTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAssociatedConditionalForwarder !== undefined &&
-      input.DeleteAssociatedConditionalForwarder !== null && {
-        DeleteAssociatedConditionalForwarder: input.DeleteAssociatedConditionalForwarder,
-      }),
-    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
+    ...(input.DeleteAssociatedConditionalForwarder != null && {
+      DeleteAssociatedConditionalForwarder: input.DeleteAssociatedConditionalForwarder,
+    }),
+    ...(input.TrustId != null && { TrustId: input.TrustId }),
   };
 };
 
@@ -5675,8 +5658,8 @@ const serializeAws_json1_1DeregisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && input.CertificateId !== null && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -5685,8 +5668,8 @@ const serializeAws_json1_1DeregisterEventTopicRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName !== undefined && input.TopicName !== null && { TopicName: input.TopicName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName != null && { TopicName: input.TopicName }),
   };
 };
 
@@ -5695,8 +5678,8 @@ const serializeAws_json1_1DescribeCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && input.CertificateId !== null && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -5705,10 +5688,10 @@ const serializeAws_json1_1DescribeClientAuthenticationSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -5717,11 +5700,10 @@ const serializeAws_json1_1DescribeConditionalForwardersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainNames !== undefined &&
-      input.RemoteDomainNames !== null && {
-        RemoteDomainNames: serializeAws_json1_1RemoteDomainNames(input.RemoteDomainNames, context),
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainNames != null && {
+      RemoteDomainNames: serializeAws_json1_1RemoteDomainNames(input.RemoteDomainNames, context),
+    }),
   };
 };
 
@@ -5730,10 +5712,9 @@ const serializeAws_json1_1DescribeDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryIds !== undefined &&
-      input.DirectoryIds !== null && { DirectoryIds: serializeAws_json1_1DirectoryIds(input.DirectoryIds, context) }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryIds != null && { DirectoryIds: serializeAws_json1_1DirectoryIds(input.DirectoryIds, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5742,13 +5723,12 @@ const serializeAws_json1_1DescribeDomainControllersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.DomainControllerIds !== undefined &&
-      input.DomainControllerIds !== null && {
-        DomainControllerIds: serializeAws_json1_1DomainControllerIds(input.DomainControllerIds, context),
-      }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.DomainControllerIds != null && {
+      DomainControllerIds: serializeAws_json1_1DomainControllerIds(input.DomainControllerIds, context),
+    }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5757,9 +5737,8 @@ const serializeAws_json1_1DescribeEventTopicsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicNames !== undefined &&
-      input.TopicNames !== null && { TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicNames != null && { TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context) }),
   };
 };
 
@@ -5768,26 +5747,26 @@ const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.RegionName != null && { RegionName: input.RegionName }),
   };
 };
 
 const serializeAws_json1_1DescribeSettingsRequest = (input: DescribeSettingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
@@ -5796,14 +5775,12 @@ const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.OwnerDirectoryId !== undefined &&
-      input.OwnerDirectoryId !== null && { OwnerDirectoryId: input.OwnerDirectoryId }),
-    ...(input.SharedDirectoryIds !== undefined &&
-      input.SharedDirectoryIds !== null && {
-        SharedDirectoryIds: serializeAws_json1_1DirectoryIds(input.SharedDirectoryIds, context),
-      }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OwnerDirectoryId != null && { OwnerDirectoryId: input.OwnerDirectoryId }),
+    ...(input.SharedDirectoryIds != null && {
+      SharedDirectoryIds: serializeAws_json1_1DirectoryIds(input.SharedDirectoryIds, context),
+    }),
   };
 };
 
@@ -5812,21 +5789,19 @@ const serializeAws_json1_1DescribeSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.SnapshotIds !== undefined &&
-      input.SnapshotIds !== null && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SnapshotIds != null && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeTrustsRequest = (input: DescribeTrustsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.TrustIds !== undefined &&
-      input.TrustIds !== null && { TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TrustIds != null && { TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context) }),
   };
 };
 
@@ -5835,15 +5810,12 @@ const serializeAws_json1_1DirectoryConnectSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomerDnsIps !== undefined &&
-      input.CustomerDnsIps !== null && {
-        CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(input.CustomerDnsIps, context),
-      }),
-    ...(input.CustomerUserName !== undefined &&
-      input.CustomerUserName !== null && { CustomerUserName: input.CustomerUserName }),
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.CustomerDnsIps != null && {
+      CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(input.CustomerDnsIps, context),
+    }),
+    ...(input.CustomerUserName != null && { CustomerUserName: input.CustomerUserName }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -5860,9 +5832,8 @@ const serializeAws_json1_1DirectoryIds = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1DirectoryVpcSettings = (input: DirectoryVpcSettings, context: __SerdeContext): any => {
   return {
-    ...(input.SubnetIds !== undefined &&
-      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
@@ -5871,29 +5842,29 @@ const serializeAws_json1_1DisableClientAuthenticationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DisableLDAPSRequest = (input: DisableLDAPSRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DisableRadiusRequest = (input: DisableRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1DisableSsoRequest = (input: DisableSsoRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
@@ -5924,33 +5895,32 @@ const serializeAws_json1_1EnableClientAuthenticationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1EnableLDAPSRequest = (input: EnableLDAPSRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1EnableRadiusRequest = (input: EnableRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings !== undefined &&
-      input.RadiusSettings !== null && {
-        RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings != null && {
+      RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
+    }),
   };
 };
 
 const serializeAws_json1_1EnableSsoRequest = (input: EnableSsoRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
-    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
@@ -5966,14 +5936,14 @@ const serializeAws_json1_1GetSnapshotLimitsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1IpRoute = (input: IpRoute, context: __SerdeContext): any => {
   return {
-    ...(input.CidrIp !== undefined && input.CidrIp !== null && { CidrIp: input.CidrIp }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.CidrIp != null && { CidrIp: input.CidrIp }),
+    ...(input.Description != null && { Description: input.Description }),
   };
 };
 
@@ -5990,17 +5960,17 @@ const serializeAws_json1_1IpRoutes = (input: IpRoute[], context: __SerdeContext)
 
 const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListIpRoutesRequest = (input: ListIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -6009,9 +5979,9 @@ const serializeAws_json1_1ListLogSubscriptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -6020,9 +5990,9 @@ const serializeAws_json1_1ListSchemaExtensionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -6031,25 +6001,22 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1RadiusSettings = (input: RadiusSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationProtocol !== undefined &&
-      input.AuthenticationProtocol !== null && { AuthenticationProtocol: input.AuthenticationProtocol }),
-    ...(input.DisplayLabel !== undefined && input.DisplayLabel !== null && { DisplayLabel: input.DisplayLabel }),
-    ...(input.RadiusPort !== undefined && input.RadiusPort !== null && { RadiusPort: input.RadiusPort }),
-    ...(input.RadiusRetries !== undefined && input.RadiusRetries !== null && { RadiusRetries: input.RadiusRetries }),
-    ...(input.RadiusServers !== undefined &&
-      input.RadiusServers !== null && { RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context) }),
-    ...(input.RadiusTimeout !== undefined && input.RadiusTimeout !== null && { RadiusTimeout: input.RadiusTimeout }),
-    ...(input.SharedSecret !== undefined && input.SharedSecret !== null && { SharedSecret: input.SharedSecret }),
-    ...(input.UseSameUsername !== undefined &&
-      input.UseSameUsername !== null && { UseSameUsername: input.UseSameUsername }),
+    ...(input.AuthenticationProtocol != null && { AuthenticationProtocol: input.AuthenticationProtocol }),
+    ...(input.DisplayLabel != null && { DisplayLabel: input.DisplayLabel }),
+    ...(input.RadiusPort != null && { RadiusPort: input.RadiusPort }),
+    ...(input.RadiusRetries != null && { RadiusRetries: input.RadiusRetries }),
+    ...(input.RadiusServers != null && { RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context) }),
+    ...(input.RadiusTimeout != null && { RadiusTimeout: input.RadiusTimeout }),
+    ...(input.SharedSecret != null && { SharedSecret: input.SharedSecret }),
+    ...(input.UseSameUsername != null && { UseSameUsername: input.UseSameUsername }),
   };
 };
 
@@ -6058,14 +6025,12 @@ const serializeAws_json1_1RegisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateData !== undefined &&
-      input.CertificateData !== null && { CertificateData: input.CertificateData }),
-    ...(input.ClientCertAuthSettings !== undefined &&
-      input.ClientCertAuthSettings !== null && {
-        ClientCertAuthSettings: serializeAws_json1_1ClientCertAuthSettings(input.ClientCertAuthSettings, context),
-      }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.CertificateData != null && { CertificateData: input.CertificateData }),
+    ...(input.ClientCertAuthSettings != null && {
+      ClientCertAuthSettings: serializeAws_json1_1ClientCertAuthSettings(input.ClientCertAuthSettings, context),
+    }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -6074,8 +6039,8 @@ const serializeAws_json1_1RegisterEventTopicRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName !== undefined && input.TopicName !== null && { TopicName: input.TopicName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName != null && { TopicName: input.TopicName }),
   };
 };
 
@@ -6084,8 +6049,7 @@ const serializeAws_json1_1RejectSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined &&
-      input.SharedDirectoryId !== null && { SharedDirectoryId: input.SharedDirectoryId }),
+    ...(input.SharedDirectoryId != null && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
@@ -6102,15 +6066,14 @@ const serializeAws_json1_1RemoteDomainNames = (input: string[], context: __Serde
 
 const serializeAws_json1_1RemoveIpRoutesRequest = (input: RemoveIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CidrIps !== undefined &&
-      input.CidrIps !== null && { CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context) }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.CidrIps != null && { CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1RemoveRegionRequest = (input: RemoveRegionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -6119,9 +6082,8 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -6130,9 +6092,9 @@ const serializeAws_json1_1ResetUserPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.NewPassword !== undefined && input.NewPassword !== null && { NewPassword: input.NewPassword }),
-    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.NewPassword != null && { NewPassword: input.NewPassword }),
+    ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
@@ -6141,7 +6103,7 @@ const serializeAws_json1_1RestoreFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
   };
 };
 
@@ -6158,8 +6120,8 @@ const serializeAws_json1_1Servers = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1Setting = (input: Setting, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -6176,18 +6138,17 @@ const serializeAws_json1_1Settings = (input: Setting[], context: __SerdeContext)
 
 const serializeAws_json1_1ShareDirectoryRequest = (input: ShareDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.ShareMethod !== undefined && input.ShareMethod !== null && { ShareMethod: input.ShareMethod }),
-    ...(input.ShareNotes !== undefined && input.ShareNotes !== null && { ShareNotes: input.ShareNotes }),
-    ...(input.ShareTarget !== undefined &&
-      input.ShareTarget !== null && { ShareTarget: serializeAws_json1_1ShareTarget(input.ShareTarget, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.ShareMethod != null && { ShareMethod: input.ShareMethod }),
+    ...(input.ShareNotes != null && { ShareNotes: input.ShareNotes }),
+    ...(input.ShareTarget != null && { ShareTarget: serializeAws_json1_1ShareTarget(input.ShareTarget, context) }),
   };
 };
 
 const serializeAws_json1_1ShareTarget = (input: ShareTarget, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -6207,13 +6168,12 @@ const serializeAws_json1_1StartSchemaExtensionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreateSnapshotBeforeSchemaExtension !== undefined &&
-      input.CreateSnapshotBeforeSchemaExtension !== null && {
-        CreateSnapshotBeforeSchemaExtension: input.CreateSnapshotBeforeSchemaExtension,
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.LdifContent !== undefined && input.LdifContent !== null && { LdifContent: input.LdifContent }),
+    ...(input.CreateSnapshotBeforeSchemaExtension != null && {
+      CreateSnapshotBeforeSchemaExtension: input.CreateSnapshotBeforeSchemaExtension,
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.LdifContent != null && { LdifContent: input.LdifContent }),
   };
 };
 
@@ -6230,8 +6190,8 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -6281,18 +6241,17 @@ const serializeAws_json1_1TrustIds = (input: string[], context: __SerdeContext):
 
 const serializeAws_json1_1UnshareDirectoryRequest = (input: UnshareDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.UnshareTarget !== undefined &&
-      input.UnshareTarget !== null && {
-        UnshareTarget: serializeAws_json1_1UnshareTarget(input.UnshareTarget, context),
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.UnshareTarget != null && {
+      UnshareTarget: serializeAws_json1_1UnshareTarget(input.UnshareTarget, context),
+    }),
   };
 };
 
 const serializeAws_json1_1UnshareTarget = (input: UnshareTarget, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -6301,11 +6260,9 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined &&
-      input.DnsIpAddrs !== null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName !== undefined &&
-      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs != null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName != null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
@@ -6314,39 +6271,37 @@ const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredNumber !== undefined && input.DesiredNumber !== null && { DesiredNumber: input.DesiredNumber }),
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DesiredNumber != null && { DesiredNumber: input.DesiredNumber }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1UpdateRadiusRequest = (input: UpdateRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings !== undefined &&
-      input.RadiusSettings !== null && {
-        RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
-      }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings != null && {
+      RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
+    }),
   };
 };
 
 const serializeAws_json1_1UpdateSettingsRequest = (input: UpdateSettingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
-    ...(input.Settings !== undefined &&
-      input.Settings !== null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateTrustRequest = (input: UpdateTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SelectiveAuth !== undefined && input.SelectiveAuth !== null && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
+    ...(input.SelectiveAuth != null && { SelectiveAuth: input.SelectiveAuth }),
+    ...(input.TrustId != null && { TrustId: input.TrustId }),
   };
 };
 
 const serializeAws_json1_1VerifyTrustRequest = (input: VerifyTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
+    ...(input.TrustId != null && { TrustId: input.TrustId }),
   };
 };
 
@@ -6356,7 +6311,7 @@ const deserializeAws_json1_1AcceptSharedDirectoryResult = (
 ): AcceptSharedDirectoryResult => {
   return {
     SharedDirectory:
-      output.SharedDirectory !== undefined && output.SharedDirectory !== null
+      output.SharedDirectory != null
         ? deserializeAws_json1_1SharedDirectory(output.SharedDirectory, context)
         : undefined,
   } as any;
@@ -6448,16 +6403,16 @@ const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext)
   return {
     CertificateId: __expectString(output.CertificateId),
     ClientCertAuthSettings:
-      output.ClientCertAuthSettings !== undefined && output.ClientCertAuthSettings !== null
+      output.ClientCertAuthSettings != null
         ? deserializeAws_json1_1ClientCertAuthSettings(output.ClientCertAuthSettings, context)
         : undefined,
     CommonName: __expectString(output.CommonName),
     ExpiryDateTime:
-      output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null
+      output.ExpiryDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryDateTime)))
         : undefined,
     RegisteredDateTime:
-      output.RegisteredDateTime !== undefined && output.RegisteredDateTime !== null
+      output.RegisteredDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RegisteredDateTime)))
         : undefined,
     State: __expectString(output.State),
@@ -6491,7 +6446,7 @@ const deserializeAws_json1_1CertificateInfo = (output: any, context: __SerdeCont
     CertificateId: __expectString(output.CertificateId),
     CommonName: __expectString(output.CommonName),
     ExpiryDateTime:
-      output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null
+      output.ExpiryDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpiryDateTime)))
         : undefined,
     State: __expectString(output.State),
@@ -6537,7 +6492,7 @@ const deserializeAws_json1_1ClientAuthenticationSettingInfo = (
 ): ClientAuthenticationSettingInfo => {
   return {
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
     Status: __expectString(output.Status),
@@ -6576,7 +6531,7 @@ const deserializeAws_json1_1ClientException = (output: any, context: __SerdeCont
 const deserializeAws_json1_1Computer = (output: any, context: __SerdeContext): Computer => {
   return {
     ComputerAttributes:
-      output.ComputerAttributes !== undefined && output.ComputerAttributes !== null
+      output.ComputerAttributes != null
         ? deserializeAws_json1_1Attributes(output.ComputerAttributes, context)
         : undefined,
     ComputerId: __expectString(output.ComputerId),
@@ -6586,10 +6541,7 @@ const deserializeAws_json1_1Computer = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1ConditionalForwarder = (output: any, context: __SerdeContext): ConditionalForwarder => {
   return {
-    DnsIpAddrs:
-      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
-        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
-        : undefined,
+    DnsIpAddrs: output.DnsIpAddrs != null ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
     RemoteDomainName: __expectString(output.RemoteDomainName),
     ReplicationScope: __expectString(output.ReplicationScope),
   } as any;
@@ -6622,10 +6574,7 @@ const deserializeAws_json1_1CreateAliasResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CreateComputerResult = (output: any, context: __SerdeContext): CreateComputerResult => {
   return {
-    Computer:
-      output.Computer !== undefined && output.Computer !== null
-        ? deserializeAws_json1_1Computer(output.Computer, context)
-        : undefined,
+    Computer: output.Computer != null ? deserializeAws_json1_1Computer(output.Computer, context) : undefined,
   } as any;
 };
 
@@ -6722,9 +6671,7 @@ const deserializeAws_json1_1DescribeCertificateResult = (
 ): DescribeCertificateResult => {
   return {
     Certificate:
-      output.Certificate !== undefined && output.Certificate !== null
-        ? deserializeAws_json1_1Certificate(output.Certificate, context)
-        : undefined,
+      output.Certificate != null ? deserializeAws_json1_1Certificate(output.Certificate, context) : undefined,
   } as any;
 };
 
@@ -6734,7 +6681,7 @@ const deserializeAws_json1_1DescribeClientAuthenticationSettingsResult = (
 ): DescribeClientAuthenticationSettingsResult => {
   return {
     ClientAuthenticationSettingsInfo:
-      output.ClientAuthenticationSettingsInfo !== undefined && output.ClientAuthenticationSettingsInfo !== null
+      output.ClientAuthenticationSettingsInfo != null
         ? deserializeAws_json1_1ClientAuthenticationSettingsInfo(output.ClientAuthenticationSettingsInfo, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6747,7 +6694,7 @@ const deserializeAws_json1_1DescribeConditionalForwardersResult = (
 ): DescribeConditionalForwardersResult => {
   return {
     ConditionalForwarders:
-      output.ConditionalForwarders !== undefined && output.ConditionalForwarders !== null
+      output.ConditionalForwarders != null
         ? deserializeAws_json1_1ConditionalForwarders(output.ConditionalForwarders, context)
         : undefined,
   } as any;
@@ -6759,7 +6706,7 @@ const deserializeAws_json1_1DescribeDirectoriesResult = (
 ): DescribeDirectoriesResult => {
   return {
     DirectoryDescriptions:
-      output.DirectoryDescriptions !== undefined && output.DirectoryDescriptions !== null
+      output.DirectoryDescriptions != null
         ? deserializeAws_json1_1DirectoryDescriptions(output.DirectoryDescriptions, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6772,7 +6719,7 @@ const deserializeAws_json1_1DescribeDomainControllersResult = (
 ): DescribeDomainControllersResult => {
   return {
     DomainControllers:
-      output.DomainControllers !== undefined && output.DomainControllers !== null
+      output.DomainControllers != null
         ? deserializeAws_json1_1DomainControllers(output.DomainControllers, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6785,9 +6732,7 @@ const deserializeAws_json1_1DescribeEventTopicsResult = (
 ): DescribeEventTopicsResult => {
   return {
     EventTopics:
-      output.EventTopics !== undefined && output.EventTopics !== null
-        ? deserializeAws_json1_1EventTopics(output.EventTopics, context)
-        : undefined,
+      output.EventTopics != null ? deserializeAws_json1_1EventTopics(output.EventTopics, context) : undefined,
   } as any;
 };
 
@@ -6797,7 +6742,7 @@ const deserializeAws_json1_1DescribeLDAPSSettingsResult = (
 ): DescribeLDAPSSettingsResult => {
   return {
     LDAPSSettingsInfo:
-      output.LDAPSSettingsInfo !== undefined && output.LDAPSSettingsInfo !== null
+      output.LDAPSSettingsInfo != null
         ? deserializeAws_json1_1LDAPSSettingsInfo(output.LDAPSSettingsInfo, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6808,7 +6753,7 @@ const deserializeAws_json1_1DescribeRegionsResult = (output: any, context: __Ser
   return {
     NextToken: __expectString(output.NextToken),
     RegionsDescription:
-      output.RegionsDescription !== undefined && output.RegionsDescription !== null
+      output.RegionsDescription != null
         ? deserializeAws_json1_1RegionsDescription(output.RegionsDescription, context)
         : undefined,
   } as any;
@@ -6819,9 +6764,7 @@ const deserializeAws_json1_1DescribeSettingsResult = (output: any, context: __Se
     DirectoryId: __expectString(output.DirectoryId),
     NextToken: __expectString(output.NextToken),
     SettingEntries:
-      output.SettingEntries !== undefined && output.SettingEntries !== null
-        ? deserializeAws_json1_1SettingEntries(output.SettingEntries, context)
-        : undefined,
+      output.SettingEntries != null ? deserializeAws_json1_1SettingEntries(output.SettingEntries, context) : undefined,
   } as any;
 };
 
@@ -6832,7 +6775,7 @@ const deserializeAws_json1_1DescribeSharedDirectoriesResult = (
   return {
     NextToken: __expectString(output.NextToken),
     SharedDirectories:
-      output.SharedDirectories !== undefined && output.SharedDirectories !== null
+      output.SharedDirectories != null
         ? deserializeAws_json1_1SharedDirectories(output.SharedDirectories, context)
         : undefined,
   } as any;
@@ -6844,20 +6787,14 @@ const deserializeAws_json1_1DescribeSnapshotsResult = (
 ): DescribeSnapshotsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Snapshots:
-      output.Snapshots !== undefined && output.Snapshots !== null
-        ? deserializeAws_json1_1Snapshots(output.Snapshots, context)
-        : undefined,
+    Snapshots: output.Snapshots != null ? deserializeAws_json1_1Snapshots(output.Snapshots, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTrustsResult = (output: any, context: __SerdeContext): DescribeTrustsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Trusts:
-      output.Trusts !== undefined && output.Trusts !== null
-        ? deserializeAws_json1_1Trusts(output.Trusts, context)
-        : undefined,
+    Trusts: output.Trusts != null ? deserializeAws_json1_1Trusts(output.Trusts, context) : undefined,
   } as any;
 };
 
@@ -6905,19 +6842,13 @@ const deserializeAws_json1_1DirectoryConnectSettingsDescription = (
 ): DirectoryConnectSettingsDescription => {
   return {
     AvailabilityZones:
-      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+      output.AvailabilityZones != null
         ? deserializeAws_json1_1AvailabilityZones(output.AvailabilityZones, context)
         : undefined,
-    ConnectIps:
-      output.ConnectIps !== undefined && output.ConnectIps !== null
-        ? deserializeAws_json1_1IpAddrs(output.ConnectIps, context)
-        : undefined,
+    ConnectIps: output.ConnectIps != null ? deserializeAws_json1_1IpAddrs(output.ConnectIps, context) : undefined,
     CustomerUserName: __expectString(output.CustomerUserName),
     SecurityGroupId: __expectString(output.SecurityGroupId),
-    SubnetIds:
-      output.SubnetIds !== undefined && output.SubnetIds !== null
-        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
-        : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -6927,35 +6858,26 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
     AccessUrl: __expectString(output.AccessUrl),
     Alias: __expectString(output.Alias),
     ConnectSettings:
-      output.ConnectSettings !== undefined && output.ConnectSettings !== null
+      output.ConnectSettings != null
         ? deserializeAws_json1_1DirectoryConnectSettingsDescription(output.ConnectSettings, context)
         : undefined,
     Description: __expectString(output.Description),
     DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
     DirectoryId: __expectString(output.DirectoryId),
-    DnsIpAddrs:
-      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
-        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
-        : undefined,
+    DnsIpAddrs: output.DnsIpAddrs != null ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
     Edition: __expectString(output.Edition),
     LaunchTime:
-      output.LaunchTime !== undefined && output.LaunchTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime)))
-        : undefined,
+      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
     Name: __expectString(output.Name),
     OwnerDirectoryDescription:
-      output.OwnerDirectoryDescription !== undefined && output.OwnerDirectoryDescription !== null
+      output.OwnerDirectoryDescription != null
         ? deserializeAws_json1_1OwnerDirectoryDescription(output.OwnerDirectoryDescription, context)
         : undefined,
     RadiusSettings:
-      output.RadiusSettings !== undefined && output.RadiusSettings !== null
-        ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context)
-        : undefined,
+      output.RadiusSettings != null ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context) : undefined,
     RadiusStatus: __expectString(output.RadiusStatus),
     RegionsInfo:
-      output.RegionsInfo !== undefined && output.RegionsInfo !== null
-        ? deserializeAws_json1_1RegionsInfo(output.RegionsInfo, context)
-        : undefined,
+      output.RegionsInfo != null ? deserializeAws_json1_1RegionsInfo(output.RegionsInfo, context) : undefined,
     ShareMethod: __expectString(output.ShareMethod),
     ShareNotes: __expectString(output.ShareNotes),
     ShareStatus: __expectString(output.ShareStatus),
@@ -6964,13 +6886,13 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
     SsoEnabled: __expectBoolean(output.SsoEnabled),
     Stage: __expectString(output.Stage),
     StageLastUpdatedDateTime:
-      output.StageLastUpdatedDateTime !== undefined && output.StageLastUpdatedDateTime !== null
+      output.StageLastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StageLastUpdatedDateTime)))
         : undefined,
     StageReason: __expectString(output.StageReason),
     Type: __expectString(output.Type),
     VpcSettings:
-      output.VpcSettings !== undefined && output.VpcSettings !== null
+      output.VpcSettings != null
         ? deserializeAws_json1_1DirectoryVpcSettingsDescription(output.VpcSettings, context)
         : undefined,
   } as any;
@@ -7044,10 +6966,7 @@ const deserializeAws_json1_1DirectoryUnavailableException = (
 
 const deserializeAws_json1_1DirectoryVpcSettings = (output: any, context: __SerdeContext): DirectoryVpcSettings => {
   return {
-    SubnetIds:
-      output.SubnetIds !== undefined && output.SubnetIds !== null
-        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
-        : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -7058,14 +6977,11 @@ const deserializeAws_json1_1DirectoryVpcSettingsDescription = (
 ): DirectoryVpcSettingsDescription => {
   return {
     AvailabilityZones:
-      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+      output.AvailabilityZones != null
         ? deserializeAws_json1_1AvailabilityZones(output.AvailabilityZones, context)
         : undefined,
     SecurityGroupId: __expectString(output.SecurityGroupId),
-    SubnetIds:
-      output.SubnetIds !== undefined && output.SubnetIds !== null
-        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
-        : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };
@@ -7108,12 +7024,10 @@ const deserializeAws_json1_1DomainController = (output: any, context: __SerdeCon
     DnsIpAddr: __expectString(output.DnsIpAddr),
     DomainControllerId: __expectString(output.DomainControllerId),
     LaunchTime:
-      output.LaunchTime !== undefined && output.LaunchTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime)))
-        : undefined,
+      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
     Status: __expectString(output.Status),
     StatusLastUpdatedDateTime:
-      output.StatusLastUpdatedDateTime !== undefined && output.StatusLastUpdatedDateTime !== null
+      output.StatusLastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusLastUpdatedDateTime)))
         : undefined,
     StatusReason: __expectString(output.StatusReason),
@@ -7186,7 +7100,7 @@ const deserializeAws_json1_1EntityDoesNotExistException = (
 const deserializeAws_json1_1EventTopic = (output: any, context: __SerdeContext): EventTopic => {
   return {
     CreatedDateTime:
-      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+      output.CreatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
         : undefined,
     DirectoryId: __expectString(output.DirectoryId),
@@ -7214,7 +7128,7 @@ const deserializeAws_json1_1GetDirectoryLimitsResult = (
 ): GetDirectoryLimitsResult => {
   return {
     DirectoryLimits:
-      output.DirectoryLimits !== undefined && output.DirectoryLimits !== null
+      output.DirectoryLimits != null
         ? deserializeAws_json1_1DirectoryLimits(output.DirectoryLimits, context)
         : undefined,
   } as any;
@@ -7226,9 +7140,7 @@ const deserializeAws_json1_1GetSnapshotLimitsResult = (
 ): GetSnapshotLimitsResult => {
   return {
     SnapshotLimits:
-      output.SnapshotLimits !== undefined && output.SnapshotLimits !== null
-        ? deserializeAws_json1_1SnapshotLimits(output.SnapshotLimits, context)
-        : undefined,
+      output.SnapshotLimits != null ? deserializeAws_json1_1SnapshotLimits(output.SnapshotLimits, context) : undefined,
   } as any;
 };
 
@@ -7334,7 +7246,7 @@ const deserializeAws_json1_1IpAddrs = (output: any, context: __SerdeContext): st
 const deserializeAws_json1_1IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
   return {
     AddedDateTime:
-      output.AddedDateTime !== undefined && output.AddedDateTime !== null
+      output.AddedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AddedDateTime)))
         : undefined,
     CidrIp: __expectString(output.CidrIp),
@@ -7372,7 +7284,7 @@ const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeCon
     LDAPSStatus: __expectString(output.LDAPSStatus),
     LDAPSStatusReason: __expectString(output.LDAPSStatusReason),
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
   } as any;
@@ -7393,7 +7305,7 @@ const deserializeAws_json1_1LDAPSSettingsInfo = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __SerdeContext): ListCertificatesResult => {
   return {
     CertificatesInfo:
-      output.CertificatesInfo !== undefined && output.CertificatesInfo !== null
+      output.CertificatesInfo != null
         ? deserializeAws_json1_1CertificatesInfo(output.CertificatesInfo, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -7403,9 +7315,7 @@ const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __Se
 const deserializeAws_json1_1ListIpRoutesResult = (output: any, context: __SerdeContext): ListIpRoutesResult => {
   return {
     IpRoutesInfo:
-      output.IpRoutesInfo !== undefined && output.IpRoutesInfo !== null
-        ? deserializeAws_json1_1IpRoutesInfo(output.IpRoutesInfo, context)
-        : undefined,
+      output.IpRoutesInfo != null ? deserializeAws_json1_1IpRoutesInfo(output.IpRoutesInfo, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7416,7 +7326,7 @@ const deserializeAws_json1_1ListLogSubscriptionsResult = (
 ): ListLogSubscriptionsResult => {
   return {
     LogSubscriptions:
-      output.LogSubscriptions !== undefined && output.LogSubscriptions !== null
+      output.LogSubscriptions != null
         ? deserializeAws_json1_1LogSubscriptions(output.LogSubscriptions, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -7430,7 +7340,7 @@ const deserializeAws_json1_1ListSchemaExtensionsResult = (
   return {
     NextToken: __expectString(output.NextToken),
     SchemaExtensionsInfo:
-      output.SchemaExtensionsInfo !== undefined && output.SchemaExtensionsInfo !== null
+      output.SchemaExtensionsInfo != null
         ? deserializeAws_json1_1SchemaExtensionsInfo(output.SchemaExtensionsInfo, context)
         : undefined,
   } as any;
@@ -7442,8 +7352,7 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
 ): ListTagsForResourceResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -7452,7 +7361,7 @@ const deserializeAws_json1_1LogSubscription = (output: any, context: __SerdeCont
     DirectoryId: __expectString(output.DirectoryId),
     LogGroupName: __expectString(output.LogGroupName),
     SubscriptionCreatedDateTime:
-      output.SubscriptionCreatedDateTime !== undefined && output.SubscriptionCreatedDateTime !== null
+      output.SubscriptionCreatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionCreatedDateTime)))
         : undefined,
   } as any;
@@ -7494,17 +7403,12 @@ const deserializeAws_json1_1OwnerDirectoryDescription = (
   return {
     AccountId: __expectString(output.AccountId),
     DirectoryId: __expectString(output.DirectoryId),
-    DnsIpAddrs:
-      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
-        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
-        : undefined,
+    DnsIpAddrs: output.DnsIpAddrs != null ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context) : undefined,
     RadiusSettings:
-      output.RadiusSettings !== undefined && output.RadiusSettings !== null
-        ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context)
-        : undefined,
+      output.RadiusSettings != null ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context) : undefined,
     RadiusStatus: __expectString(output.RadiusStatus),
     VpcSettings:
-      output.VpcSettings !== undefined && output.VpcSettings !== null
+      output.VpcSettings != null
         ? deserializeAws_json1_1DirectoryVpcSettingsDescription(output.VpcSettings, context)
         : undefined,
   } as any;
@@ -7517,9 +7421,7 @@ const deserializeAws_json1_1RadiusSettings = (output: any, context: __SerdeConte
     RadiusPort: __expectInt32(output.RadiusPort),
     RadiusRetries: __expectInt32(output.RadiusRetries),
     RadiusServers:
-      output.RadiusServers !== undefined && output.RadiusServers !== null
-        ? deserializeAws_json1_1Servers(output.RadiusServers, context)
-        : undefined,
+      output.RadiusServers != null ? deserializeAws_json1_1Servers(output.RadiusServers, context) : undefined,
     RadiusTimeout: __expectInt32(output.RadiusTimeout),
     SharedSecret: __expectString(output.SharedSecret),
     UseSameUsername: __expectBoolean(output.UseSameUsername),
@@ -7531,24 +7433,20 @@ const deserializeAws_json1_1RegionDescription = (output: any, context: __SerdeCo
     DesiredNumberOfDomainControllers: __expectInt32(output.DesiredNumberOfDomainControllers),
     DirectoryId: __expectString(output.DirectoryId),
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
     LaunchTime:
-      output.LaunchTime !== undefined && output.LaunchTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime)))
-        : undefined,
+      output.LaunchTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LaunchTime))) : undefined,
     RegionName: __expectString(output.RegionName),
     RegionType: __expectString(output.RegionType),
     Status: __expectString(output.Status),
     StatusLastUpdatedDateTime:
-      output.StatusLastUpdatedDateTime !== undefined && output.StatusLastUpdatedDateTime !== null
+      output.StatusLastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusLastUpdatedDateTime)))
         : undefined,
     VpcSettings:
-      output.VpcSettings !== undefined && output.VpcSettings !== null
-        ? deserializeAws_json1_1DirectoryVpcSettings(output.VpcSettings, context)
-        : undefined,
+      output.VpcSettings != null ? deserializeAws_json1_1DirectoryVpcSettings(output.VpcSettings, context) : undefined,
   } as any;
 };
 
@@ -7577,7 +7475,7 @@ const deserializeAws_json1_1RegionsDescription = (output: any, context: __SerdeC
 const deserializeAws_json1_1RegionsInfo = (output: any, context: __SerdeContext): RegionsInfo => {
   return {
     AdditionalRegions:
-      output.AdditionalRegions !== undefined && output.AdditionalRegions !== null
+      output.AdditionalRegions != null
         ? deserializeAws_json1_1AdditionalRegions(output.AdditionalRegions, context)
         : undefined,
     PrimaryRegion: __expectString(output.PrimaryRegion),
@@ -7643,14 +7541,14 @@ const deserializeAws_json1_1SchemaExtensionInfo = (output: any, context: __Serde
     Description: __expectString(output.Description),
     DirectoryId: __expectString(output.DirectoryId),
     EndDateTime:
-      output.EndDateTime !== undefined && output.EndDateTime !== null
+      output.EndDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndDateTime)))
         : undefined,
     SchemaExtensionId: __expectString(output.SchemaExtensionId),
     SchemaExtensionStatus: __expectString(output.SchemaExtensionStatus),
     SchemaExtensionStatusReason: __expectString(output.SchemaExtensionStatusReason),
     StartDateTime:
-      output.StartDateTime !== undefined && output.StartDateTime !== null
+      output.StartDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDateTime)))
         : undefined,
   } as any;
@@ -7704,16 +7602,16 @@ const deserializeAws_json1_1SettingEntry = (output: any, context: __SerdeContext
     AllowedValues: __expectString(output.AllowedValues),
     AppliedValue: __expectString(output.AppliedValue),
     LastRequestedDateTime:
-      output.LastRequestedDateTime !== undefined && output.LastRequestedDateTime !== null
+      output.LastRequestedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRequestedDateTime)))
         : undefined,
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
     Name: __expectString(output.Name),
     RequestDetailedStatus:
-      output.RequestDetailedStatus !== undefined && output.RequestDetailedStatus !== null
+      output.RequestDetailedStatus != null
         ? deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus(
             output.RequestDetailedStatus,
             context
@@ -7741,11 +7639,11 @@ const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeCo
 const deserializeAws_json1_1SharedDirectory = (output: any, context: __SerdeContext): SharedDirectory => {
   return {
     CreatedDateTime:
-      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+      output.CreatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
         : undefined,
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
     OwnerAccountId: __expectString(output.OwnerAccountId),
@@ -7780,9 +7678,7 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
     Name: __expectString(output.Name),
     SnapshotId: __expectString(output.SnapshotId),
     StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
   } as any;
@@ -7871,18 +7767,18 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trust => {
   return {
     CreatedDateTime:
-      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+      output.CreatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDateTime)))
         : undefined,
     DirectoryId: __expectString(output.DirectoryId),
     LastUpdatedDateTime:
-      output.LastUpdatedDateTime !== undefined && output.LastUpdatedDateTime !== null
+      output.LastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDateTime)))
         : undefined,
     RemoteDomainName: __expectString(output.RemoteDomainName),
     SelectiveAuth: __expectString(output.SelectiveAuth),
     StateLastUpdatedDateTime:
-      output.StateLastUpdatedDateTime !== undefined && output.StateLastUpdatedDateTime !== null
+      output.StateLastUpdatedDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StateLastUpdatedDateTime)))
         : undefined,
     TrustDirection: __expectString(output.TrustDirection),

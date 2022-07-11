@@ -1937,14 +1937,12 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 const serializeAws_json1_0CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.DatasetSchema !== undefined &&
-      input.DatasetSchema !== null && {
-        DatasetSchema: serializeAws_json1_0DatasetSchema(input.DatasetSchema, context),
-      }),
-    ...(input.ServerSideKmsKeyId !== undefined &&
-      input.ServerSideKmsKeyId !== null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetSchema != null && {
+      DatasetSchema: serializeAws_json1_0DatasetSchema(input.DatasetSchema, context),
+    }),
+    ...(input.ServerSideKmsKeyId != null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -1954,72 +1952,55 @@ const serializeAws_json1_0CreateInferenceSchedulerRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataDelayOffsetInMinutes !== undefined &&
-      input.DataDelayOffsetInMinutes !== null && { DataDelayOffsetInMinutes: input.DataDelayOffsetInMinutes }),
-    ...(input.DataInputConfiguration !== undefined &&
-      input.DataInputConfiguration !== null && {
-        DataInputConfiguration: serializeAws_json1_0InferenceInputConfiguration(input.DataInputConfiguration, context),
-      }),
-    ...(input.DataOutputConfiguration !== undefined &&
-      input.DataOutputConfiguration !== null && {
-        DataOutputConfiguration: serializeAws_json1_0InferenceOutputConfiguration(
-          input.DataOutputConfiguration,
-          context
-        ),
-      }),
-    ...(input.DataUploadFrequency !== undefined &&
-      input.DataUploadFrequency !== null && { DataUploadFrequency: input.DataUploadFrequency }),
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
-    ...(input.ServerSideKmsKeyId !== undefined &&
-      input.ServerSideKmsKeyId !== null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.DataDelayOffsetInMinutes != null && { DataDelayOffsetInMinutes: input.DataDelayOffsetInMinutes }),
+    ...(input.DataInputConfiguration != null && {
+      DataInputConfiguration: serializeAws_json1_0InferenceInputConfiguration(input.DataInputConfiguration, context),
+    }),
+    ...(input.DataOutputConfiguration != null && {
+      DataOutputConfiguration: serializeAws_json1_0InferenceOutputConfiguration(input.DataOutputConfiguration, context),
+    }),
+    ...(input.DataUploadFrequency != null && { DataUploadFrequency: input.DataUploadFrequency }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.ServerSideKmsKeyId != null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateModelRequest = (input: CreateModelRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataPreProcessingConfiguration !== undefined &&
-      input.DataPreProcessingConfiguration !== null && {
-        DataPreProcessingConfiguration: serializeAws_json1_0DataPreProcessingConfiguration(
-          input.DataPreProcessingConfiguration,
-          context
-        ),
-      }),
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.DatasetSchema !== undefined &&
-      input.DatasetSchema !== null && {
-        DatasetSchema: serializeAws_json1_0DatasetSchema(input.DatasetSchema, context),
-      }),
-    ...(input.EvaluationDataEndTime !== undefined &&
-      input.EvaluationDataEndTime !== null && {
-        EvaluationDataEndTime: Math.round(input.EvaluationDataEndTime.getTime() / 1000),
-      }),
-    ...(input.EvaluationDataStartTime !== undefined &&
-      input.EvaluationDataStartTime !== null && {
-        EvaluationDataStartTime: Math.round(input.EvaluationDataStartTime.getTime() / 1000),
-      }),
-    ...(input.LabelsInputConfiguration !== undefined &&
-      input.LabelsInputConfiguration !== null && {
-        LabelsInputConfiguration: serializeAws_json1_0LabelsInputConfiguration(input.LabelsInputConfiguration, context),
-      }),
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
-    ...(input.OffCondition !== undefined && input.OffCondition !== null && { OffCondition: input.OffCondition }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
-    ...(input.ServerSideKmsKeyId !== undefined &&
-      input.ServerSideKmsKeyId !== null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.TrainingDataEndTime !== undefined &&
-      input.TrainingDataEndTime !== null && {
-        TrainingDataEndTime: Math.round(input.TrainingDataEndTime.getTime() / 1000),
-      }),
-    ...(input.TrainingDataStartTime !== undefined &&
-      input.TrainingDataStartTime !== null && {
-        TrainingDataStartTime: Math.round(input.TrainingDataStartTime.getTime() / 1000),
-      }),
+    ...(input.DataPreProcessingConfiguration != null && {
+      DataPreProcessingConfiguration: serializeAws_json1_0DataPreProcessingConfiguration(
+        input.DataPreProcessingConfiguration,
+        context
+      ),
+    }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetSchema != null && {
+      DatasetSchema: serializeAws_json1_0DatasetSchema(input.DatasetSchema, context),
+    }),
+    ...(input.EvaluationDataEndTime != null && {
+      EvaluationDataEndTime: Math.round(input.EvaluationDataEndTime.getTime() / 1000),
+    }),
+    ...(input.EvaluationDataStartTime != null && {
+      EvaluationDataStartTime: Math.round(input.EvaluationDataStartTime.getTime() / 1000),
+    }),
+    ...(input.LabelsInputConfiguration != null && {
+      LabelsInputConfiguration: serializeAws_json1_0LabelsInputConfiguration(input.LabelsInputConfiguration, context),
+    }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.OffCondition != null && { OffCondition: input.OffCondition }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.ServerSideKmsKeyId != null && { ServerSideKmsKeyId: input.ServerSideKmsKeyId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.TrainingDataEndTime != null && {
+      TrainingDataEndTime: Math.round(input.TrainingDataEndTime.getTime() / 1000),
+    }),
+    ...(input.TrainingDataStartTime != null && {
+      TrainingDataStartTime: Math.round(input.TrainingDataStartTime.getTime() / 1000),
+    }),
   };
 };
 
@@ -2028,21 +2009,19 @@ const serializeAws_json1_0DataPreProcessingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TargetSamplingRate !== undefined &&
-      input.TargetSamplingRate !== null && { TargetSamplingRate: input.TargetSamplingRate }),
+    ...(input.TargetSamplingRate != null && { TargetSamplingRate: input.TargetSamplingRate }),
   };
 };
 
 const serializeAws_json1_0DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any => {
   return {
-    ...(input.InlineDataSchema !== undefined &&
-      input.InlineDataSchema !== null && { InlineDataSchema: __LazyJsonString.fromObject(input.InlineDataSchema) }),
+    ...(input.InlineDataSchema != null && { InlineDataSchema: __LazyJsonString.fromObject(input.InlineDataSchema) }),
   };
 };
 
 const serializeAws_json1_0DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
   };
 };
 
@@ -2051,14 +2030,13 @@ const serializeAws_json1_0DeleteInferenceSchedulerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
   };
 };
 
 const serializeAws_json1_0DeleteModelRequest = (input: DeleteModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
   };
 };
 
@@ -2067,13 +2045,13 @@ const serializeAws_json1_0DescribeDataIngestionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_0DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
   };
 };
 
@@ -2082,14 +2060,13 @@ const serializeAws_json1_0DescribeInferenceSchedulerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
   };
 };
 
 const serializeAws_json1_0DescribeModelRequest = (input: DescribeModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
   };
 };
 
@@ -2098,19 +2075,16 @@ const serializeAws_json1_0InferenceInputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceInputNameConfiguration !== undefined &&
-      input.InferenceInputNameConfiguration !== null && {
-        InferenceInputNameConfiguration: serializeAws_json1_0InferenceInputNameConfiguration(
-          input.InferenceInputNameConfiguration,
-          context
-        ),
-      }),
-    ...(input.InputTimeZoneOffset !== undefined &&
-      input.InputTimeZoneOffset !== null && { InputTimeZoneOffset: input.InputTimeZoneOffset }),
-    ...(input.S3InputConfiguration !== undefined &&
-      input.S3InputConfiguration !== null && {
-        S3InputConfiguration: serializeAws_json1_0InferenceS3InputConfiguration(input.S3InputConfiguration, context),
-      }),
+    ...(input.InferenceInputNameConfiguration != null && {
+      InferenceInputNameConfiguration: serializeAws_json1_0InferenceInputNameConfiguration(
+        input.InferenceInputNameConfiguration,
+        context
+      ),
+    }),
+    ...(input.InputTimeZoneOffset != null && { InputTimeZoneOffset: input.InputTimeZoneOffset }),
+    ...(input.S3InputConfiguration != null && {
+      S3InputConfiguration: serializeAws_json1_0InferenceS3InputConfiguration(input.S3InputConfiguration, context),
+    }),
   };
 };
 
@@ -2119,10 +2093,10 @@ const serializeAws_json1_0InferenceInputNameConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComponentTimestampDelimiter !== undefined &&
-      input.ComponentTimestampDelimiter !== null && { ComponentTimestampDelimiter: input.ComponentTimestampDelimiter }),
-    ...(input.TimestampFormat !== undefined &&
-      input.TimestampFormat !== null && { TimestampFormat: input.TimestampFormat }),
+    ...(input.ComponentTimestampDelimiter != null && {
+      ComponentTimestampDelimiter: input.ComponentTimestampDelimiter,
+    }),
+    ...(input.TimestampFormat != null && { TimestampFormat: input.TimestampFormat }),
   };
 };
 
@@ -2131,11 +2105,10 @@ const serializeAws_json1_0InferenceOutputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3OutputConfiguration !== undefined &&
-      input.S3OutputConfiguration !== null && {
-        S3OutputConfiguration: serializeAws_json1_0InferenceS3OutputConfiguration(input.S3OutputConfiguration, context),
-      }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.S3OutputConfiguration != null && {
+      S3OutputConfiguration: serializeAws_json1_0InferenceS3OutputConfiguration(input.S3OutputConfiguration, context),
+    }),
   };
 };
 
@@ -2144,8 +2117,8 @@ const serializeAws_json1_0InferenceS3InputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
@@ -2154,8 +2127,8 @@ const serializeAws_json1_0InferenceS3OutputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
@@ -2164,10 +2137,9 @@ const serializeAws_json1_0IngestionInputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3InputConfiguration !== undefined &&
-      input.S3InputConfiguration !== null && {
-        S3InputConfiguration: serializeAws_json1_0IngestionS3InputConfiguration(input.S3InputConfiguration, context),
-      }),
+    ...(input.S3InputConfiguration != null && {
+      S3InputConfiguration: serializeAws_json1_0IngestionS3InputConfiguration(input.S3InputConfiguration, context),
+    }),
   };
 };
 
@@ -2176,9 +2148,9 @@ const serializeAws_json1_0IngestionS3InputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern != null && { KeyPattern: input.KeyPattern }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
@@ -2187,10 +2159,9 @@ const serializeAws_json1_0LabelsInputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3InputConfiguration !== undefined &&
-      input.S3InputConfiguration !== null && {
-        S3InputConfiguration: serializeAws_json1_0LabelsS3InputConfiguration(input.S3InputConfiguration, context),
-      }),
+    ...(input.S3InputConfiguration != null && {
+      S3InputConfiguration: serializeAws_json1_0LabelsS3InputConfiguration(input.S3InputConfiguration, context),
+    }),
   };
 };
 
@@ -2199,8 +2170,8 @@ const serializeAws_json1_0LabelsS3InputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
@@ -2209,19 +2180,18 @@ const serializeAws_json1_0ListDataIngestionJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_0ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetNameBeginsWith !== undefined &&
-      input.DatasetNameBeginsWith !== null && { DatasetNameBeginsWith: input.DatasetNameBeginsWith }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DatasetNameBeginsWith != null && { DatasetNameBeginsWith: input.DatasetNameBeginsWith }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2230,14 +2200,11 @@ const serializeAws_json1_0ListInferenceEventsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
-    ...(input.IntervalEndTime !== undefined &&
-      input.IntervalEndTime !== null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
-    ...(input.IntervalStartTime !== undefined &&
-      input.IntervalStartTime !== null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.IntervalEndTime != null && { IntervalEndTime: Math.round(input.IntervalEndTime.getTime() / 1000) }),
+    ...(input.IntervalStartTime != null && { IntervalStartTime: Math.round(input.IntervalStartTime.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2246,17 +2213,14 @@ const serializeAws_json1_0ListInferenceExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataEndTimeBefore !== undefined &&
-      input.DataEndTimeBefore !== null && { DataEndTimeBefore: Math.round(input.DataEndTimeBefore.getTime() / 1000) }),
-    ...(input.DataStartTimeAfter !== undefined &&
-      input.DataStartTimeAfter !== null && {
-        DataStartTimeAfter: Math.round(input.DataStartTimeAfter.getTime() / 1000),
-      }),
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.DataEndTimeBefore != null && { DataEndTimeBefore: Math.round(input.DataEndTimeBefore.getTime() / 1000) }),
+    ...(input.DataStartTimeAfter != null && {
+      DataStartTimeAfter: Math.round(input.DataStartTimeAfter.getTime() / 1000),
+    }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
@@ -2265,25 +2229,22 @@ const serializeAws_json1_0ListInferenceSchedulersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerNameBeginsWith !== undefined &&
-      input.InferenceSchedulerNameBeginsWith !== null && {
-        InferenceSchedulerNameBeginsWith: input.InferenceSchedulerNameBeginsWith,
-      }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.InferenceSchedulerNameBeginsWith != null && {
+      InferenceSchedulerNameBeginsWith: input.InferenceSchedulerNameBeginsWith,
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0ListModelsRequest = (input: ListModelsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetNameBeginsWith !== undefined &&
-      input.DatasetNameBeginsWith !== null && { DatasetNameBeginsWith: input.DatasetNameBeginsWith }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.ModelNameBeginsWith !== undefined &&
-      input.ModelNameBeginsWith !== null && { ModelNameBeginsWith: input.ModelNameBeginsWith }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.DatasetNameBeginsWith != null && { DatasetNameBeginsWith: input.DatasetNameBeginsWith }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.ModelNameBeginsWith != null && { ModelNameBeginsWith: input.ModelNameBeginsWith }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
@@ -2292,11 +2253,10 @@ const serializeAws_json1_0ListSensorStatisticsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.IngestionJobId !== undefined &&
-      input.IngestionJobId !== null && { IngestionJobId: input.IngestionJobId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.IngestionJobId != null && { IngestionJobId: input.IngestionJobId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2305,7 +2265,7 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2315,15 +2275,14 @@ const serializeAws_json1_0StartDataIngestionJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.IngestionInputConfiguration !== undefined &&
-      input.IngestionInputConfiguration !== null && {
-        IngestionInputConfiguration: serializeAws_json1_0IngestionInputConfiguration(
-          input.IngestionInputConfiguration,
-          context
-        ),
-      }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.DatasetName != null && { DatasetName: input.DatasetName }),
+    ...(input.IngestionInputConfiguration != null && {
+      IngestionInputConfiguration: serializeAws_json1_0IngestionInputConfiguration(
+        input.IngestionInputConfiguration,
+        context
+      ),
+    }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -2332,8 +2291,7 @@ const serializeAws_json1_0StartInferenceSchedulerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
   };
 };
 
@@ -2342,15 +2300,14 @@ const serializeAws_json1_0StopInferenceSchedulerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2378,16 +2335,15 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2396,24 +2352,16 @@ const serializeAws_json1_0UpdateInferenceSchedulerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataDelayOffsetInMinutes !== undefined &&
-      input.DataDelayOffsetInMinutes !== null && { DataDelayOffsetInMinutes: input.DataDelayOffsetInMinutes }),
-    ...(input.DataInputConfiguration !== undefined &&
-      input.DataInputConfiguration !== null && {
-        DataInputConfiguration: serializeAws_json1_0InferenceInputConfiguration(input.DataInputConfiguration, context),
-      }),
-    ...(input.DataOutputConfiguration !== undefined &&
-      input.DataOutputConfiguration !== null && {
-        DataOutputConfiguration: serializeAws_json1_0InferenceOutputConfiguration(
-          input.DataOutputConfiguration,
-          context
-        ),
-      }),
-    ...(input.DataUploadFrequency !== undefined &&
-      input.DataUploadFrequency !== null && { DataUploadFrequency: input.DataUploadFrequency }),
-    ...(input.InferenceSchedulerName !== undefined &&
-      input.InferenceSchedulerName !== null && { InferenceSchedulerName: input.InferenceSchedulerName }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.DataDelayOffsetInMinutes != null && { DataDelayOffsetInMinutes: input.DataDelayOffsetInMinutes }),
+    ...(input.DataInputConfiguration != null && {
+      DataInputConfiguration: serializeAws_json1_0InferenceInputConfiguration(input.DataInputConfiguration, context),
+    }),
+    ...(input.DataOutputConfiguration != null && {
+      DataOutputConfiguration: serializeAws_json1_0InferenceOutputConfiguration(input.DataOutputConfiguration, context),
+    }),
+    ...(input.DataUploadFrequency != null && { DataUploadFrequency: input.DataUploadFrequency }),
+    ...(input.InferenceSchedulerName != null && { InferenceSchedulerName: input.InferenceSchedulerName }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -2492,7 +2440,7 @@ const deserializeAws_json1_0DataIngestionJobSummary = (
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
     IngestionInputConfiguration:
-      output.IngestionInputConfiguration !== undefined && output.IngestionInputConfiguration !== null
+      output.IngestionInputConfiguration != null
         ? deserializeAws_json1_0IngestionInputConfiguration(output.IngestionInputConfiguration, context)
         : undefined,
     JobId: __expectString(output.JobId),
@@ -2512,23 +2460,23 @@ const deserializeAws_json1_0DataPreProcessingConfiguration = (
 const deserializeAws_json1_0DataQualitySummary = (output: any, context: __SerdeContext): DataQualitySummary => {
   return {
     DuplicateTimestamps:
-      output.DuplicateTimestamps !== undefined && output.DuplicateTimestamps !== null
+      output.DuplicateTimestamps != null
         ? deserializeAws_json1_0DuplicateTimestamps(output.DuplicateTimestamps, context)
         : undefined,
     InsufficientSensorData:
-      output.InsufficientSensorData !== undefined && output.InsufficientSensorData !== null
+      output.InsufficientSensorData != null
         ? deserializeAws_json1_0InsufficientSensorData(output.InsufficientSensorData, context)
         : undefined,
     InvalidSensorData:
-      output.InvalidSensorData !== undefined && output.InvalidSensorData !== null
+      output.InvalidSensorData != null
         ? deserializeAws_json1_0InvalidSensorData(output.InvalidSensorData, context)
         : undefined,
     MissingSensorData:
-      output.MissingSensorData !== undefined && output.MissingSensorData !== null
+      output.MissingSensorData != null
         ? deserializeAws_json1_0MissingSensorData(output.MissingSensorData, context)
         : undefined,
     UnsupportedTimestamps:
-      output.UnsupportedTimestamps !== undefined && output.UnsupportedTimestamps !== null
+      output.UnsupportedTimestamps != null
         ? deserializeAws_json1_0UnsupportedTimestamps(output.UnsupportedTimestamps, context)
         : undefined,
   } as any;
@@ -2549,9 +2497,7 @@ const deserializeAws_json1_0DatasetSummaries = (output: any, context: __SerdeCon
 const deserializeAws_json1_0DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
     Status: __expectString(output.Status),
@@ -2564,30 +2510,28 @@ const deserializeAws_json1_0DescribeDataIngestionJobResponse = (
 ): DescribeDataIngestionJobResponse => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataEndTime:
-      output.DataEndTime !== undefined && output.DataEndTime !== null
+      output.DataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
         : undefined,
     DataQualitySummary:
-      output.DataQualitySummary !== undefined && output.DataQualitySummary !== null
+      output.DataQualitySummary != null
         ? deserializeAws_json1_0DataQualitySummary(output.DataQualitySummary, context)
         : undefined,
     DataStartTime:
-      output.DataStartTime !== undefined && output.DataStartTime !== null
+      output.DataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
         : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     FailedReason: __expectString(output.FailedReason),
     IngestedDataSize: __expectLong(output.IngestedDataSize),
     IngestedFilesSummary:
-      output.IngestedFilesSummary !== undefined && output.IngestedFilesSummary !== null
+      output.IngestedFilesSummary != null
         ? deserializeAws_json1_0IngestedFilesSummary(output.IngestedFilesSummary, context)
         : undefined,
     IngestionInputConfiguration:
-      output.IngestionInputConfiguration !== undefined && output.IngestionInputConfiguration !== null
+      output.IngestionInputConfiguration != null
         ? deserializeAws_json1_0IngestionInputConfiguration(output.IngestionInputConfiguration, context)
         : undefined,
     JobId: __expectString(output.JobId),
@@ -2603,37 +2547,35 @@ const deserializeAws_json1_0DescribeDatasetResponse = (
 ): DescribeDatasetResponse => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataEndTime:
-      output.DataEndTime !== undefined && output.DataEndTime !== null
+      output.DataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
         : undefined,
     DataQualitySummary:
-      output.DataQualitySummary !== undefined && output.DataQualitySummary !== null
+      output.DataQualitySummary != null
         ? deserializeAws_json1_0DataQualitySummary(output.DataQualitySummary, context)
         : undefined,
     DataStartTime:
-      output.DataStartTime !== undefined && output.DataStartTime !== null
+      output.DataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
         : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
     IngestedFilesSummary:
-      output.IngestedFilesSummary !== undefined && output.IngestedFilesSummary !== null
+      output.IngestedFilesSummary != null
         ? deserializeAws_json1_0IngestedFilesSummary(output.IngestedFilesSummary, context)
         : undefined,
     IngestionInputConfiguration:
-      output.IngestionInputConfiguration !== undefined && output.IngestionInputConfiguration !== null
+      output.IngestionInputConfiguration != null
         ? deserializeAws_json1_0IngestionInputConfiguration(output.IngestionInputConfiguration, context)
         : undefined,
     LastUpdatedAt:
-      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+      output.LastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
     RoleArn: __expectString(output.RoleArn),
-    Schema: output.Schema !== undefined && output.Schema !== null ? new __LazyJsonString(output.Schema) : undefined,
+    Schema: output.Schema != null ? new __LazyJsonString(output.Schema) : undefined,
     ServerSideKmsKeyId: __expectString(output.ServerSideKmsKeyId),
     Status: __expectString(output.Status),
   } as any;
@@ -2645,16 +2587,14 @@ const deserializeAws_json1_0DescribeInferenceSchedulerResponse = (
 ): DescribeInferenceSchedulerResponse => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataDelayOffsetInMinutes: __expectLong(output.DataDelayOffsetInMinutes),
     DataInputConfiguration:
-      output.DataInputConfiguration !== undefined && output.DataInputConfiguration !== null
+      output.DataInputConfiguration != null
         ? deserializeAws_json1_0InferenceInputConfiguration(output.DataInputConfiguration, context)
         : undefined,
     DataOutputConfiguration:
-      output.DataOutputConfiguration !== undefined && output.DataOutputConfiguration !== null
+      output.DataOutputConfiguration != null
         ? deserializeAws_json1_0InferenceOutputConfiguration(output.DataOutputConfiguration, context)
         : undefined,
     DataUploadFrequency: __expectString(output.DataUploadFrequency),
@@ -2666,66 +2606,59 @@ const deserializeAws_json1_0DescribeInferenceSchedulerResponse = (
     ServerSideKmsKeyId: __expectString(output.ServerSideKmsKeyId),
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DescribeModelResponse = (output: any, context: __SerdeContext): DescribeModelResponse => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataPreProcessingConfiguration:
-      output.DataPreProcessingConfiguration !== undefined && output.DataPreProcessingConfiguration !== null
+      output.DataPreProcessingConfiguration != null
         ? deserializeAws_json1_0DataPreProcessingConfiguration(output.DataPreProcessingConfiguration, context)
         : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
     EvaluationDataEndTime:
-      output.EvaluationDataEndTime !== undefined && output.EvaluationDataEndTime !== null
+      output.EvaluationDataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationDataEndTime)))
         : undefined,
     EvaluationDataStartTime:
-      output.EvaluationDataStartTime !== undefined && output.EvaluationDataStartTime !== null
+      output.EvaluationDataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EvaluationDataStartTime)))
         : undefined,
     FailedReason: __expectString(output.FailedReason),
     LabelsInputConfiguration:
-      output.LabelsInputConfiguration !== undefined && output.LabelsInputConfiguration !== null
+      output.LabelsInputConfiguration != null
         ? deserializeAws_json1_0LabelsInputConfiguration(output.LabelsInputConfiguration, context)
         : undefined,
     LastUpdatedTime:
-      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     ModelArn: __expectString(output.ModelArn),
-    ModelMetrics:
-      output.ModelMetrics !== undefined && output.ModelMetrics !== null
-        ? new __LazyJsonString(output.ModelMetrics)
-        : undefined,
+    ModelMetrics: output.ModelMetrics != null ? new __LazyJsonString(output.ModelMetrics) : undefined,
     ModelName: __expectString(output.ModelName),
     OffCondition: __expectString(output.OffCondition),
     RoleArn: __expectString(output.RoleArn),
-    Schema: output.Schema !== undefined && output.Schema !== null ? new __LazyJsonString(output.Schema) : undefined,
+    Schema: output.Schema != null ? new __LazyJsonString(output.Schema) : undefined,
     ServerSideKmsKeyId: __expectString(output.ServerSideKmsKeyId),
     Status: __expectString(output.Status),
     TrainingDataEndTime:
-      output.TrainingDataEndTime !== undefined && output.TrainingDataEndTime !== null
+      output.TrainingDataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingDataEndTime)))
         : undefined,
     TrainingDataStartTime:
-      output.TrainingDataStartTime !== undefined && output.TrainingDataStartTime !== null
+      output.TrainingDataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingDataStartTime)))
         : undefined,
     TrainingExecutionEndTime:
-      output.TrainingExecutionEndTime !== undefined && output.TrainingExecutionEndTime !== null
+      output.TrainingExecutionEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingExecutionEndTime)))
         : undefined,
     TrainingExecutionStartTime:
-      output.TrainingExecutionStartTime !== undefined && output.TrainingExecutionStartTime !== null
+      output.TrainingExecutionStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingExecutionStartTime)))
         : undefined,
   } as any;
@@ -2757,11 +2690,11 @@ const deserializeAws_json1_0InferenceEventSummary = (output: any, context: __Ser
     Diagnostics: __expectString(output.Diagnostics),
     EventDurationInSeconds: __expectLong(output.EventDurationInSeconds),
     EventEndTime:
-      output.EventEndTime !== undefined && output.EventEndTime !== null
+      output.EventEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventEndTime)))
         : undefined,
     EventStartTime:
-      output.EventStartTime !== undefined && output.EventStartTime !== null
+      output.EventStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventStartTime)))
         : undefined,
     InferenceSchedulerArn: __expectString(output.InferenceSchedulerArn),
@@ -2790,23 +2723,23 @@ const deserializeAws_json1_0InferenceExecutionSummary = (
 ): InferenceExecutionSummary => {
   return {
     CustomerResultObject:
-      output.CustomerResultObject !== undefined && output.CustomerResultObject !== null
+      output.CustomerResultObject != null
         ? deserializeAws_json1_0S3Object(output.CustomerResultObject, context)
         : undefined,
     DataEndTime:
-      output.DataEndTime !== undefined && output.DataEndTime !== null
+      output.DataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
         : undefined,
     DataInputConfiguration:
-      output.DataInputConfiguration !== undefined && output.DataInputConfiguration !== null
+      output.DataInputConfiguration != null
         ? deserializeAws_json1_0InferenceInputConfiguration(output.DataInputConfiguration, context)
         : undefined,
     DataOutputConfiguration:
-      output.DataOutputConfiguration !== undefined && output.DataOutputConfiguration !== null
+      output.DataOutputConfiguration != null
         ? deserializeAws_json1_0InferenceOutputConfiguration(output.DataOutputConfiguration, context)
         : undefined,
     DataStartTime:
-      output.DataStartTime !== undefined && output.DataStartTime !== null
+      output.DataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
         : undefined,
     FailedReason: __expectString(output.FailedReason),
@@ -2815,7 +2748,7 @@ const deserializeAws_json1_0InferenceExecutionSummary = (
     ModelArn: __expectString(output.ModelArn),
     ModelName: __expectString(output.ModelName),
     ScheduledStartTime:
-      output.ScheduledStartTime !== undefined && output.ScheduledStartTime !== null
+      output.ScheduledStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ScheduledStartTime)))
         : undefined,
     Status: __expectString(output.Status),
@@ -2828,12 +2761,12 @@ const deserializeAws_json1_0InferenceInputConfiguration = (
 ): InferenceInputConfiguration => {
   return {
     InferenceInputNameConfiguration:
-      output.InferenceInputNameConfiguration !== undefined && output.InferenceInputNameConfiguration !== null
+      output.InferenceInputNameConfiguration != null
         ? deserializeAws_json1_0InferenceInputNameConfiguration(output.InferenceInputNameConfiguration, context)
         : undefined,
     InputTimeZoneOffset: __expectString(output.InputTimeZoneOffset),
     S3InputConfiguration:
-      output.S3InputConfiguration !== undefined && output.S3InputConfiguration !== null
+      output.S3InputConfiguration != null
         ? deserializeAws_json1_0InferenceS3InputConfiguration(output.S3InputConfiguration, context)
         : undefined,
   } as any;
@@ -2856,7 +2789,7 @@ const deserializeAws_json1_0InferenceOutputConfiguration = (
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
     S3OutputConfiguration:
-      output.S3OutputConfiguration !== undefined && output.S3OutputConfiguration !== null
+      output.S3OutputConfiguration != null
         ? deserializeAws_json1_0InferenceS3OutputConfiguration(output.S3OutputConfiguration, context)
         : undefined,
   } as any;
@@ -2915,7 +2848,7 @@ const deserializeAws_json1_0InferenceSchedulerSummary = (
 const deserializeAws_json1_0IngestedFilesSummary = (output: any, context: __SerdeContext): IngestedFilesSummary => {
   return {
     DiscardedFiles:
-      output.DiscardedFiles !== undefined && output.DiscardedFiles !== null
+      output.DiscardedFiles != null
         ? deserializeAws_json1_0ListOfDiscardedFiles(output.DiscardedFiles, context)
         : undefined,
     IngestedNumberOfFiles: __expectInt32(output.IngestedNumberOfFiles),
@@ -2929,7 +2862,7 @@ const deserializeAws_json1_0IngestionInputConfiguration = (
 ): IngestionInputConfiguration => {
   return {
     S3InputConfiguration:
-      output.S3InputConfiguration !== undefined && output.S3InputConfiguration !== null
+      output.S3InputConfiguration != null
         ? deserializeAws_json1_0IngestionS3InputConfiguration(output.S3InputConfiguration, context)
         : undefined,
   } as any;
@@ -2949,11 +2882,11 @@ const deserializeAws_json1_0IngestionS3InputConfiguration = (
 const deserializeAws_json1_0InsufficientSensorData = (output: any, context: __SerdeContext): InsufficientSensorData => {
   return {
     MissingCompleteSensorData:
-      output.MissingCompleteSensorData !== undefined && output.MissingCompleteSensorData !== null
+      output.MissingCompleteSensorData != null
         ? deserializeAws_json1_0MissingCompleteSensorData(output.MissingCompleteSensorData, context)
         : undefined,
     SensorsWithShortDateRange:
-      output.SensorsWithShortDateRange !== undefined && output.SensorsWithShortDateRange !== null
+      output.SensorsWithShortDateRange != null
         ? deserializeAws_json1_0SensorsWithShortDateRange(output.SensorsWithShortDateRange, context)
         : undefined,
   } as any;
@@ -2981,7 +2914,7 @@ const deserializeAws_json1_0LabelsInputConfiguration = (
 ): LabelsInputConfiguration => {
   return {
     S3InputConfiguration:
-      output.S3InputConfiguration !== undefined && output.S3InputConfiguration !== null
+      output.S3InputConfiguration != null
         ? deserializeAws_json1_0LabelsS3InputConfiguration(output.S3InputConfiguration, context)
         : undefined,
   } as any;
@@ -3011,7 +2944,7 @@ const deserializeAws_json1_0ListDataIngestionJobsResponse = (
 ): ListDataIngestionJobsResponse => {
   return {
     DataIngestionJobSummaries:
-      output.DataIngestionJobSummaries !== undefined && output.DataIngestionJobSummaries !== null
+      output.DataIngestionJobSummaries != null
         ? deserializeAws_json1_0DataIngestionJobSummaries(output.DataIngestionJobSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3021,7 +2954,7 @@ const deserializeAws_json1_0ListDataIngestionJobsResponse = (
 const deserializeAws_json1_0ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
   return {
     DatasetSummaries:
-      output.DatasetSummaries !== undefined && output.DatasetSummaries !== null
+      output.DatasetSummaries != null
         ? deserializeAws_json1_0DatasetSummaries(output.DatasetSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3034,7 +2967,7 @@ const deserializeAws_json1_0ListInferenceEventsResponse = (
 ): ListInferenceEventsResponse => {
   return {
     InferenceEventSummaries:
-      output.InferenceEventSummaries !== undefined && output.InferenceEventSummaries !== null
+      output.InferenceEventSummaries != null
         ? deserializeAws_json1_0InferenceEventSummaries(output.InferenceEventSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3047,7 +2980,7 @@ const deserializeAws_json1_0ListInferenceExecutionsResponse = (
 ): ListInferenceExecutionsResponse => {
   return {
     InferenceExecutionSummaries:
-      output.InferenceExecutionSummaries !== undefined && output.InferenceExecutionSummaries !== null
+      output.InferenceExecutionSummaries != null
         ? deserializeAws_json1_0InferenceExecutionSummaries(output.InferenceExecutionSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3060,7 +2993,7 @@ const deserializeAws_json1_0ListInferenceSchedulersResponse = (
 ): ListInferenceSchedulersResponse => {
   return {
     InferenceSchedulerSummaries:
-      output.InferenceSchedulerSummaries !== undefined && output.InferenceSchedulerSummaries !== null
+      output.InferenceSchedulerSummaries != null
         ? deserializeAws_json1_0InferenceSchedulerSummaries(output.InferenceSchedulerSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3070,9 +3003,7 @@ const deserializeAws_json1_0ListInferenceSchedulersResponse = (
 const deserializeAws_json1_0ListModelsResponse = (output: any, context: __SerdeContext): ListModelsResponse => {
   return {
     ModelSummaries:
-      output.ModelSummaries !== undefined && output.ModelSummaries !== null
-        ? deserializeAws_json1_0ModelSummaries(output.ModelSummaries, context)
-        : undefined,
+      output.ModelSummaries != null ? deserializeAws_json1_0ModelSummaries(output.ModelSummaries, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -3096,7 +3027,7 @@ const deserializeAws_json1_0ListSensorStatisticsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     SensorStatisticsSummaries:
-      output.SensorStatisticsSummaries !== undefined && output.SensorStatisticsSummaries !== null
+      output.SensorStatisticsSummaries != null
         ? deserializeAws_json1_0SensorStatisticsSummaries(output.SensorStatisticsSummaries, context)
         : undefined,
   } as any;
@@ -3107,10 +3038,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3145,9 +3073,7 @@ const deserializeAws_json1_0ModelSummaries = (output: any, context: __SerdeConte
 const deserializeAws_json1_0ModelSummary = (output: any, context: __SerdeContext): ModelSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
     ModelArn: __expectString(output.ModelArn),
@@ -3206,45 +3132,41 @@ const deserializeAws_json1_0SensorStatisticsSummary = (
 ): SensorStatisticsSummary => {
   return {
     CategoricalValues:
-      output.CategoricalValues !== undefined && output.CategoricalValues !== null
+      output.CategoricalValues != null
         ? deserializeAws_json1_0CategoricalValues(output.CategoricalValues, context)
         : undefined,
     ComponentName: __expectString(output.ComponentName),
     DataEndTime:
-      output.DataEndTime !== undefined && output.DataEndTime !== null
+      output.DataEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
         : undefined,
     DataExists: __expectBoolean(output.DataExists),
     DataStartTime:
-      output.DataStartTime !== undefined && output.DataStartTime !== null
+      output.DataStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
         : undefined,
     DuplicateTimestamps:
-      output.DuplicateTimestamps !== undefined && output.DuplicateTimestamps !== null
+      output.DuplicateTimestamps != null
         ? deserializeAws_json1_0CountPercent(output.DuplicateTimestamps, context)
         : undefined,
     InvalidDateEntries:
-      output.InvalidDateEntries !== undefined && output.InvalidDateEntries !== null
+      output.InvalidDateEntries != null
         ? deserializeAws_json1_0CountPercent(output.InvalidDateEntries, context)
         : undefined,
     InvalidValues:
-      output.InvalidValues !== undefined && output.InvalidValues !== null
-        ? deserializeAws_json1_0CountPercent(output.InvalidValues, context)
-        : undefined,
+      output.InvalidValues != null ? deserializeAws_json1_0CountPercent(output.InvalidValues, context) : undefined,
     LargeTimestampGaps:
-      output.LargeTimestampGaps !== undefined && output.LargeTimestampGaps !== null
+      output.LargeTimestampGaps != null
         ? deserializeAws_json1_0LargeTimestampGaps(output.LargeTimestampGaps, context)
         : undefined,
     MissingValues:
-      output.MissingValues !== undefined && output.MissingValues !== null
-        ? deserializeAws_json1_0CountPercent(output.MissingValues, context)
-        : undefined,
+      output.MissingValues != null ? deserializeAws_json1_0CountPercent(output.MissingValues, context) : undefined,
     MonotonicValues:
-      output.MonotonicValues !== undefined && output.MonotonicValues !== null
+      output.MonotonicValues != null
         ? deserializeAws_json1_0MonotonicValues(output.MonotonicValues, context)
         : undefined,
     MultipleOperatingModes:
-      output.MultipleOperatingModes !== undefined && output.MultipleOperatingModes !== null
+      output.MultipleOperatingModes != null
         ? deserializeAws_json1_0MultipleOperatingModes(output.MultipleOperatingModes, context)
         : undefined,
     SensorName: __expectString(output.SensorName),

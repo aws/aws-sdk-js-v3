@@ -236,12 +236,9 @@ export const serializeAws_restJson1CreateBackupPlanCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPlan !== undefined &&
-      input.BackupPlan !== null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
-    ...(input.BackupPlanTags !== undefined &&
-      input.BackupPlanTags !== null && { BackupPlanTags: serializeAws_restJson1Tags(input.BackupPlanTags, context) }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.BackupPlan != null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
+    ...(input.BackupPlanTags != null && { BackupPlanTags: serializeAws_restJson1Tags(input.BackupPlanTags, context) }),
+    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
   });
   return new __HttpRequest({
     protocol,
@@ -275,12 +272,10 @@ export const serializeAws_restJson1CreateBackupSelectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupSelection !== undefined &&
-      input.BackupSelection !== null && {
-        BackupSelection: serializeAws_restJson1BackupSelection(input.BackupSelection, context),
-      }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.BackupSelection != null && {
+      BackupSelection: serializeAws_restJson1BackupSelection(input.BackupSelection, context),
+    }),
+    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
   });
   return new __HttpRequest({
     protocol,
@@ -314,14 +309,11 @@ export const serializeAws_restJson1CreateBackupVaultCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupVaultTags !== undefined &&
-      input.BackupVaultTags !== null && {
-        BackupVaultTags: serializeAws_restJson1Tags(input.BackupVaultTags, context),
-      }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.EncryptionKeyArn !== undefined &&
-      input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
+    ...(input.BackupVaultTags != null && {
+      BackupVaultTags: serializeAws_restJson1Tags(input.BackupVaultTags, context),
+    }),
+    ...(input.CreatorRequestId != null && { CreatorRequestId: input.CreatorRequestId }),
+    ...(input.EncryptionKeyArn != null && { EncryptionKeyArn: input.EncryptionKeyArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -345,15 +337,14 @@ export const serializeAws_restJson1CreateFrameworkCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
   let body: any;
   body = JSON.stringify({
-    ...(input.FrameworkControls !== undefined &&
-      input.FrameworkControls !== null && {
-        FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
-      }),
-    ...(input.FrameworkDescription !== undefined &&
-      input.FrameworkDescription !== null && { FrameworkDescription: input.FrameworkDescription }),
-    ...(input.FrameworkName !== undefined && input.FrameworkName !== null && { FrameworkName: input.FrameworkName }),
-    ...(input.FrameworkTags !== undefined &&
-      input.FrameworkTags !== null && { FrameworkTags: serializeAws_restJson1stringMap(input.FrameworkTags, context) }),
+    ...(input.FrameworkControls != null && {
+      FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
+    }),
+    ...(input.FrameworkDescription != null && { FrameworkDescription: input.FrameworkDescription }),
+    ...(input.FrameworkName != null && { FrameworkName: input.FrameworkName }),
+    ...(input.FrameworkTags != null && {
+      FrameworkTags: serializeAws_restJson1stringMap(input.FrameworkTags, context),
+    }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({
@@ -379,22 +370,17 @@ export const serializeAws_restJson1CreateReportPlanCommand = async (
   let body: any;
   body = JSON.stringify({
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel !== undefined &&
-      input.ReportDeliveryChannel !== null && {
-        ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-      }),
-    ...(input.ReportPlanDescription !== undefined &&
-      input.ReportPlanDescription !== null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportPlanName !== undefined &&
-      input.ReportPlanName !== null && { ReportPlanName: input.ReportPlanName }),
-    ...(input.ReportPlanTags !== undefined &&
-      input.ReportPlanTags !== null && {
-        ReportPlanTags: serializeAws_restJson1stringMap(input.ReportPlanTags, context),
-      }),
-    ...(input.ReportSetting !== undefined &&
-      input.ReportSetting !== null && {
-        ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
-      }),
+    ...(input.ReportDeliveryChannel != null && {
+      ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
+    }),
+    ...(input.ReportPlanDescription != null && { ReportPlanDescription: input.ReportPlanDescription }),
+    ...(input.ReportPlanName != null && { ReportPlanName: input.ReportPlanName }),
+    ...(input.ReportPlanTags != null && {
+      ReportPlanTags: serializeAws_restJson1stringMap(input.ReportPlanTags, context),
+    }),
+    ...(input.ReportSetting != null && {
+      ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1117,8 +1103,7 @@ export const serializeAws_restJson1GetBackupPlanFromJSONCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/json/toPlan";
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPlanTemplateJson !== undefined &&
-      input.BackupPlanTemplateJson !== null && { BackupPlanTemplateJson: input.BackupPlanTemplateJson }),
+    ...(input.BackupPlanTemplateJson != null && { BackupPlanTemplateJson: input.BackupPlanTemplateJson }),
   });
   return new __HttpRequest({
     protocol,
@@ -1820,7 +1805,7 @@ export const serializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.Policy != null && { Policy: input.Policy }),
   });
   return new __HttpRequest({
     protocol,
@@ -1855,12 +1840,9 @@ export const serializeAws_restJson1PutBackupVaultLockConfigurationCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ChangeableForDays !== undefined &&
-      input.ChangeableForDays !== null && { ChangeableForDays: input.ChangeableForDays }),
-    ...(input.MaxRetentionDays !== undefined &&
-      input.MaxRetentionDays !== null && { MaxRetentionDays: input.MaxRetentionDays }),
-    ...(input.MinRetentionDays !== undefined &&
-      input.MinRetentionDays !== null && { MinRetentionDays: input.MinRetentionDays }),
+    ...(input.ChangeableForDays != null && { ChangeableForDays: input.ChangeableForDays }),
+    ...(input.MaxRetentionDays != null && { MaxRetentionDays: input.MaxRetentionDays }),
+    ...(input.MinRetentionDays != null && { MinRetentionDays: input.MinRetentionDays }),
   });
   return new __HttpRequest({
     protocol,
@@ -1895,11 +1877,10 @@ export const serializeAws_restJson1PutBackupVaultNotificationsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupVaultEvents !== undefined &&
-      input.BackupVaultEvents !== null && {
-        BackupVaultEvents: serializeAws_restJson1BackupVaultEvents(input.BackupVaultEvents, context),
-      }),
-    ...(input.SNSTopicArn !== undefined && input.SNSTopicArn !== null && { SNSTopicArn: input.SNSTopicArn }),
+    ...(input.BackupVaultEvents != null && {
+      BackupVaultEvents: serializeAws_restJson1BackupVaultEvents(input.BackupVaultEvents, context),
+    }),
+    ...(input.SNSTopicArn != null && { SNSTopicArn: input.SNSTopicArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1923,26 +1904,19 @@ export const serializeAws_restJson1StartBackupJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupOptions !== undefined &&
-      input.BackupOptions !== null && {
-        BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
-      }),
-    ...(input.BackupVaultName !== undefined &&
-      input.BackupVaultName !== null && { BackupVaultName: input.BackupVaultName }),
-    ...(input.CompleteWindowMinutes !== undefined &&
-      input.CompleteWindowMinutes !== null && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags !== undefined &&
-      input.RecoveryPointTags !== null && {
-        RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
-      }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.StartWindowMinutes !== undefined &&
-      input.StartWindowMinutes !== null && { StartWindowMinutes: input.StartWindowMinutes }),
+    ...(input.BackupOptions != null && {
+      BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
+    }),
+    ...(input.BackupVaultName != null && { BackupVaultName: input.BackupVaultName }),
+    ...(input.CompleteWindowMinutes != null && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Lifecycle != null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.RecoveryPointTags != null && {
+      RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
+    }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.StartWindowMinutes != null && { StartWindowMinutes: input.StartWindowMinutes }),
   });
   return new __HttpRequest({
     protocol,
@@ -1966,17 +1940,12 @@ export const serializeAws_restJson1StartCopyJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.DestinationBackupVaultArn !== undefined &&
-      input.DestinationBackupVaultArn !== null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointArn !== undefined &&
-      input.RecoveryPointArn !== null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.SourceBackupVaultName !== undefined &&
-      input.SourceBackupVaultName !== null && { SourceBackupVaultName: input.SourceBackupVaultName }),
+    ...(input.DestinationBackupVaultArn != null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Lifecycle != null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.RecoveryPointArn != null && { RecoveryPointArn: input.RecoveryPointArn }),
+    ...(input.SourceBackupVaultName != null && { SourceBackupVaultName: input.SourceBackupVaultName }),
   });
   return new __HttpRequest({
     protocol,
@@ -2034,14 +2003,11 @@ export const serializeAws_restJson1StartRestoreJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Metadata !== undefined &&
-      input.Metadata !== null && { Metadata: serializeAws_restJson1Metadata(input.Metadata, context) }),
-    ...(input.RecoveryPointArn !== undefined &&
-      input.RecoveryPointArn !== null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Metadata != null && { Metadata: serializeAws_restJson1Metadata(input.Metadata, context) }),
+    ...(input.RecoveryPointArn != null && { RecoveryPointArn: input.RecoveryPointArn }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -2103,7 +2069,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2136,8 +2102,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
+    ...(input.TagKeyList != null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2171,8 +2136,7 @@ export const serializeAws_restJson1UpdateBackupPlanCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPlan !== undefined &&
-      input.BackupPlan !== null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
+    ...(input.BackupPlan != null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2206,12 +2170,10 @@ export const serializeAws_restJson1UpdateFrameworkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FrameworkControls !== undefined &&
-      input.FrameworkControls !== null && {
-        FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
-      }),
-    ...(input.FrameworkDescription !== undefined &&
-      input.FrameworkDescription !== null && { FrameworkDescription: input.FrameworkDescription }),
+    ...(input.FrameworkControls != null && {
+      FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
+    }),
+    ...(input.FrameworkDescription != null && { FrameworkDescription: input.FrameworkDescription }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({
@@ -2236,10 +2198,9 @@ export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
   let body: any;
   body = JSON.stringify({
-    ...(input.GlobalSettings !== undefined &&
-      input.GlobalSettings !== null && {
-        GlobalSettings: serializeAws_restJson1GlobalSettings(input.GlobalSettings, context),
-      }),
+    ...(input.GlobalSettings != null && {
+      GlobalSettings: serializeAws_restJson1GlobalSettings(input.GlobalSettings, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -2283,8 +2244,7 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.Lifecycle != null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2308,20 +2268,18 @@ export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceTypeManagementPreference !== undefined &&
-      input.ResourceTypeManagementPreference !== null && {
-        ResourceTypeManagementPreference: serializeAws_restJson1ResourceTypeManagementPreference(
-          input.ResourceTypeManagementPreference,
-          context
-        ),
-      }),
-    ...(input.ResourceTypeOptInPreference !== undefined &&
-      input.ResourceTypeOptInPreference !== null && {
-        ResourceTypeOptInPreference: serializeAws_restJson1ResourceTypeOptInPreference(
-          input.ResourceTypeOptInPreference,
-          context
-        ),
-      }),
+    ...(input.ResourceTypeManagementPreference != null && {
+      ResourceTypeManagementPreference: serializeAws_restJson1ResourceTypeManagementPreference(
+        input.ResourceTypeManagementPreference,
+        context
+      ),
+    }),
+    ...(input.ResourceTypeOptInPreference != null && {
+      ResourceTypeOptInPreference: serializeAws_restJson1ResourceTypeOptInPreference(
+        input.ResourceTypeOptInPreference,
+        context
+      ),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -2356,16 +2314,13 @@ export const serializeAws_restJson1UpdateReportPlanCommand = async (
   let body: any;
   body = JSON.stringify({
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel !== undefined &&
-      input.ReportDeliveryChannel !== null && {
-        ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-      }),
-    ...(input.ReportPlanDescription !== undefined &&
-      input.ReportPlanDescription !== null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportSetting !== undefined &&
-      input.ReportSetting !== null && {
-        ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
-      }),
+    ...(input.ReportDeliveryChannel != null && {
+      ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
+    }),
+    ...(input.ReportPlanDescription != null && { ReportPlanDescription: input.ReportPlanDescription }),
+    ...(input.ReportSetting != null && {
+      ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -6700,11 +6655,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
 
 const serializeAws_restJson1AdvancedBackupSetting = (input: AdvancedBackupSetting, context: __SerdeContext): any => {
   return {
-    ...(input.BackupOptions !== undefined &&
-      input.BackupOptions !== null && {
-        BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
-      }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.BackupOptions != null && {
+      BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
+    }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -6733,38 +6687,27 @@ const serializeAws_restJson1BackupOptions = (input: Record<string, string>, cont
 
 const serializeAws_restJson1BackupPlanInput = (input: BackupPlanInput, context: __SerdeContext): any => {
   return {
-    ...(input.AdvancedBackupSettings !== undefined &&
-      input.AdvancedBackupSettings !== null && {
-        AdvancedBackupSettings: serializeAws_restJson1AdvancedBackupSettings(input.AdvancedBackupSettings, context),
-      }),
-    ...(input.BackupPlanName !== undefined &&
-      input.BackupPlanName !== null && { BackupPlanName: input.BackupPlanName }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context) }),
+    ...(input.AdvancedBackupSettings != null && {
+      AdvancedBackupSettings: serializeAws_restJson1AdvancedBackupSettings(input.AdvancedBackupSettings, context),
+    }),
+    ...(input.BackupPlanName != null && { BackupPlanName: input.BackupPlanName }),
+    ...(input.Rules != null && { Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context) }),
   };
 };
 
 const serializeAws_restJson1BackupRuleInput = (input: BackupRuleInput, context: __SerdeContext): any => {
   return {
-    ...(input.CompletionWindowMinutes !== undefined &&
-      input.CompletionWindowMinutes !== null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
-    ...(input.CopyActions !== undefined &&
-      input.CopyActions !== null && { CopyActions: serializeAws_restJson1CopyActions(input.CopyActions, context) }),
-    ...(input.EnableContinuousBackup !== undefined &&
-      input.EnableContinuousBackup !== null && { EnableContinuousBackup: input.EnableContinuousBackup }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags !== undefined &&
-      input.RecoveryPointTags !== null && {
-        RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
-      }),
-    ...(input.RuleName !== undefined && input.RuleName !== null && { RuleName: input.RuleName }),
-    ...(input.ScheduleExpression !== undefined &&
-      input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
-    ...(input.StartWindowMinutes !== undefined &&
-      input.StartWindowMinutes !== null && { StartWindowMinutes: input.StartWindowMinutes }),
-    ...(input.TargetBackupVaultName !== undefined &&
-      input.TargetBackupVaultName !== null && { TargetBackupVaultName: input.TargetBackupVaultName }),
+    ...(input.CompletionWindowMinutes != null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
+    ...(input.CopyActions != null && { CopyActions: serializeAws_restJson1CopyActions(input.CopyActions, context) }),
+    ...(input.EnableContinuousBackup != null && { EnableContinuousBackup: input.EnableContinuousBackup }),
+    ...(input.Lifecycle != null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.RecoveryPointTags != null && {
+      RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
+    }),
+    ...(input.RuleName != null && { RuleName: input.RuleName }),
+    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.StartWindowMinutes != null && { StartWindowMinutes: input.StartWindowMinutes }),
+    ...(input.TargetBackupVaultName != null && { TargetBackupVaultName: input.TargetBackupVaultName }),
   };
 };
 
@@ -6781,16 +6724,14 @@ const serializeAws_restJson1BackupRulesInput = (input: BackupRuleInput[], contex
 
 const serializeAws_restJson1BackupSelection = (input: BackupSelection, context: __SerdeContext): any => {
   return {
-    ...(input.Conditions !== undefined &&
-      input.Conditions !== null && { Conditions: serializeAws_restJson1Conditions(input.Conditions, context) }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.ListOfTags !== undefined &&
-      input.ListOfTags !== null && { ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context) }),
-    ...(input.NotResources !== undefined &&
-      input.NotResources !== null && { NotResources: serializeAws_restJson1ResourceArns(input.NotResources, context) }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_restJson1ResourceArns(input.Resources, context) }),
-    ...(input.SelectionName !== undefined && input.SelectionName !== null && { SelectionName: input.SelectionName }),
+    ...(input.Conditions != null && { Conditions: serializeAws_restJson1Conditions(input.Conditions, context) }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.ListOfTags != null && { ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context) }),
+    ...(input.NotResources != null && {
+      NotResources: serializeAws_restJson1ResourceArns(input.NotResources, context),
+    }),
+    ...(input.Resources != null && { Resources: serializeAws_restJson1ResourceArns(input.Resources, context) }),
+    ...(input.SelectionName != null && { SelectionName: input.SelectionName }),
   };
 };
 
@@ -6821,18 +6762,16 @@ const serializeAws_restJson1ComplianceResourceIdList = (input: string[], context
 
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionKey !== undefined && input.ConditionKey !== null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionType !== undefined && input.ConditionType !== null && { ConditionType: input.ConditionType }),
-    ...(input.ConditionValue !== undefined &&
-      input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
+    ...(input.ConditionKey != null && { ConditionKey: input.ConditionKey }),
+    ...(input.ConditionType != null && { ConditionType: input.ConditionType }),
+    ...(input.ConditionValue != null && { ConditionValue: input.ConditionValue }),
   };
 };
 
 const serializeAws_restJson1ConditionParameter = (input: ConditionParameter, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionKey !== undefined && input.ConditionKey !== null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionValue !== undefined &&
-      input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
+    ...(input.ConditionKey != null && { ConditionKey: input.ConditionKey }),
+    ...(input.ConditionValue != null && { ConditionValue: input.ConditionValue }),
   };
 };
 
@@ -6849,30 +6788,25 @@ const serializeAws_restJson1ConditionParameters = (input: ConditionParameter[], 
 
 const serializeAws_restJson1Conditions = (input: Conditions, context: __SerdeContext): any => {
   return {
-    ...(input.StringEquals !== undefined &&
-      input.StringEquals !== null && {
-        StringEquals: serializeAws_restJson1ConditionParameters(input.StringEquals, context),
-      }),
-    ...(input.StringLike !== undefined &&
-      input.StringLike !== null && {
-        StringLike: serializeAws_restJson1ConditionParameters(input.StringLike, context),
-      }),
-    ...(input.StringNotEquals !== undefined &&
-      input.StringNotEquals !== null && {
-        StringNotEquals: serializeAws_restJson1ConditionParameters(input.StringNotEquals, context),
-      }),
-    ...(input.StringNotLike !== undefined &&
-      input.StringNotLike !== null && {
-        StringNotLike: serializeAws_restJson1ConditionParameters(input.StringNotLike, context),
-      }),
+    ...(input.StringEquals != null && {
+      StringEquals: serializeAws_restJson1ConditionParameters(input.StringEquals, context),
+    }),
+    ...(input.StringLike != null && {
+      StringLike: serializeAws_restJson1ConditionParameters(input.StringLike, context),
+    }),
+    ...(input.StringNotEquals != null && {
+      StringNotEquals: serializeAws_restJson1ConditionParameters(input.StringNotEquals, context),
+    }),
+    ...(input.StringNotLike != null && {
+      StringNotLike: serializeAws_restJson1ConditionParameters(input.StringNotLike, context),
+    }),
   };
 };
 
 const serializeAws_restJson1ControlInputParameter = (input: ControlInputParameter, context: __SerdeContext): any => {
   return {
-    ...(input.ParameterName !== undefined && input.ParameterName !== null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue !== undefined &&
-      input.ParameterValue !== null && { ParameterValue: input.ParameterValue }),
+    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
+    ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
   };
 };
 
@@ -6889,25 +6823,20 @@ const serializeAws_restJson1ControlInputParameters = (input: ControlInputParamet
 
 const serializeAws_restJson1ControlScope = (input: ControlScope, context: __SerdeContext): any => {
   return {
-    ...(input.ComplianceResourceIds !== undefined &&
-      input.ComplianceResourceIds !== null && {
-        ComplianceResourceIds: serializeAws_restJson1ComplianceResourceIdList(input.ComplianceResourceIds, context),
-      }),
-    ...(input.ComplianceResourceTypes !== undefined &&
-      input.ComplianceResourceTypes !== null && {
-        ComplianceResourceTypes: serializeAws_restJson1ResourceTypeList(input.ComplianceResourceTypes, context),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1stringMap(input.Tags, context) }),
+    ...(input.ComplianceResourceIds != null && {
+      ComplianceResourceIds: serializeAws_restJson1ComplianceResourceIdList(input.ComplianceResourceIds, context),
+    }),
+    ...(input.ComplianceResourceTypes != null && {
+      ComplianceResourceTypes: serializeAws_restJson1ResourceTypeList(input.ComplianceResourceTypes, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1stringMap(input.Tags, context) }),
   };
 };
 
 const serializeAws_restJson1CopyAction = (input: CopyAction, context: __SerdeContext): any => {
   return {
-    ...(input.DestinationBackupVaultArn !== undefined &&
-      input.DestinationBackupVaultArn !== null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
+    ...(input.DestinationBackupVaultArn != null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
+    ...(input.Lifecycle != null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
   };
 };
 
@@ -6935,13 +6864,13 @@ const serializeAws_restJson1FormatList = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1FrameworkControl = (input: FrameworkControl, context: __SerdeContext): any => {
   return {
-    ...(input.ControlInputParameters !== undefined &&
-      input.ControlInputParameters !== null && {
-        ControlInputParameters: serializeAws_restJson1ControlInputParameters(input.ControlInputParameters, context),
-      }),
-    ...(input.ControlName !== undefined && input.ControlName !== null && { ControlName: input.ControlName }),
-    ...(input.ControlScope !== undefined &&
-      input.ControlScope !== null && { ControlScope: serializeAws_restJson1ControlScope(input.ControlScope, context) }),
+    ...(input.ControlInputParameters != null && {
+      ControlInputParameters: serializeAws_restJson1ControlInputParameters(input.ControlInputParameters, context),
+    }),
+    ...(input.ControlName != null && { ControlName: input.ControlName }),
+    ...(input.ControlScope != null && {
+      ControlScope: serializeAws_restJson1ControlScope(input.ControlScope, context),
+    }),
   };
 };
 
@@ -6970,10 +6899,8 @@ const serializeAws_restJson1GlobalSettings = (input: Record<string, string>, con
 
 const serializeAws_restJson1Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAfterDays !== undefined &&
-      input.DeleteAfterDays !== null && { DeleteAfterDays: input.DeleteAfterDays }),
-    ...(input.MoveToColdStorageAfterDays !== undefined &&
-      input.MoveToColdStorageAfterDays !== null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
+    ...(input.DeleteAfterDays != null && { DeleteAfterDays: input.DeleteAfterDays }),
+    ...(input.MoveToColdStorageAfterDays != null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
   };
 };
 
@@ -7002,23 +6929,19 @@ const serializeAws_restJson1Metadata = (input: Record<string, string>, context: 
 
 const serializeAws_restJson1ReportDeliveryChannel = (input: ReportDeliveryChannel, context: __SerdeContext): any => {
   return {
-    ...(input.Formats !== undefined &&
-      input.Formats !== null && { Formats: serializeAws_restJson1FormatList(input.Formats, context) }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.Formats != null && { Formats: serializeAws_restJson1FormatList(input.Formats, context) }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
   };
 };
 
 const serializeAws_restJson1ReportSetting = (input: ReportSetting, context: __SerdeContext): any => {
   return {
-    ...(input.FrameworkArns !== undefined &&
-      input.FrameworkArns !== null && {
-        FrameworkArns: serializeAws_restJson1stringList(input.FrameworkArns, context),
-      }),
-    ...(input.NumberOfFrameworks !== undefined &&
-      input.NumberOfFrameworks !== null && { NumberOfFrameworks: input.NumberOfFrameworks }),
-    ...(input.ReportTemplate !== undefined &&
-      input.ReportTemplate !== null && { ReportTemplate: input.ReportTemplate }),
+    ...(input.FrameworkArns != null && {
+      FrameworkArns: serializeAws_restJson1stringList(input.FrameworkArns, context),
+    }),
+    ...(input.NumberOfFrameworks != null && { NumberOfFrameworks: input.NumberOfFrameworks }),
+    ...(input.ReportTemplate != null && { ReportTemplate: input.ReportTemplate }),
   };
 };
 
@@ -7123,9 +7046,7 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 const deserializeAws_restJson1AdvancedBackupSetting = (output: any, context: __SerdeContext): AdvancedBackupSetting => {
   return {
     BackupOptions:
-      output.BackupOptions !== undefined && output.BackupOptions !== null
-        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
-        : undefined,
+      output.BackupOptions != null ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context) : undefined,
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
@@ -7150,28 +7071,24 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     AccountId: __expectString(output.AccountId),
     BackupJobId: __expectString(output.BackupJobId),
     BackupOptions:
-      output.BackupOptions !== undefined && output.BackupOptions !== null
-        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
-        : undefined,
+      output.BackupOptions != null ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context) : undefined,
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     BackupType: __expectString(output.BackupType),
     BackupVaultArn: __expectString(output.BackupVaultArn),
     BackupVaultName: __expectString(output.BackupVaultName),
     BytesTransferred: __expectLong(output.BytesTransferred),
     CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
+      output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
+      output.CreatedBy != null ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context) : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ExpectedCompletionDate:
-      output.ExpectedCompletionDate !== undefined && output.ExpectedCompletionDate !== null
+      output.ExpectedCompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpectedCompletionDate)))
         : undefined,
     IamRoleArn: __expectString(output.IamRoleArn),
@@ -7180,9 +7097,7 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
     StartBy:
-      output.StartBy !== undefined && output.StartBy !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy)))
-        : undefined,
+      output.StartBy != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy))) : undefined,
     State: __expectString(output.State),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
@@ -7215,14 +7130,11 @@ const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeCont
 const deserializeAws_restJson1BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
   return {
     AdvancedBackupSettings:
-      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
+      output.AdvancedBackupSettings != null
         ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
         : undefined,
     BackupPlanName: __expectString(output.BackupPlanName),
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_restJson1BackupRules(output.Rules, context)
-        : undefined,
+    Rules: output.Rules != null ? deserializeAws_restJson1BackupRules(output.Rules, context) : undefined,
   } as any;
 };
 
@@ -7241,23 +7153,23 @@ const deserializeAws_restJson1BackupPlansList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
   return {
     AdvancedBackupSettings:
-      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
+      output.AdvancedBackupSettings != null
         ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
         : undefined,
     BackupPlanArn: __expectString(output.BackupPlanArn),
     BackupPlanId: __expectString(output.BackupPlanId),
     BackupPlanName: __expectString(output.BackupPlanName),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     DeletionDate:
-      output.DeletionDate !== undefined && output.DeletionDate !== null
+      output.DeletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
         : undefined,
     LastExecutionDate:
-      output.LastExecutionDate !== undefined && output.LastExecutionDate !== null
+      output.LastExecutionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastExecutionDate)))
         : undefined,
     VersionId: __expectString(output.VersionId),
@@ -7308,18 +7220,11 @@ const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext
   return {
     CompletionWindowMinutes: __expectLong(output.CompletionWindowMinutes),
     CopyActions:
-      output.CopyActions !== undefined && output.CopyActions !== null
-        ? deserializeAws_restJson1CopyActions(output.CopyActions, context)
-        : undefined,
+      output.CopyActions != null ? deserializeAws_restJson1CopyActions(output.CopyActions, context) : undefined,
     EnableContinuousBackup: __expectBoolean(output.EnableContinuousBackup),
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
+    Lifecycle: output.Lifecycle != null ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context) : undefined,
     RecoveryPointTags:
-      output.RecoveryPointTags !== undefined && output.RecoveryPointTags !== null
-        ? deserializeAws_restJson1Tags(output.RecoveryPointTags, context)
-        : undefined,
+      output.RecoveryPointTags != null ? deserializeAws_restJson1Tags(output.RecoveryPointTags, context) : undefined,
     RuleId: __expectString(output.RuleId),
     RuleName: __expectString(output.RuleName),
     ScheduleExpression: __expectString(output.ScheduleExpression),
@@ -7342,23 +7247,12 @@ const deserializeAws_restJson1BackupRules = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1BackupSelection = (output: any, context: __SerdeContext): BackupSelection => {
   return {
-    Conditions:
-      output.Conditions !== undefined && output.Conditions !== null
-        ? deserializeAws_restJson1Conditions(output.Conditions, context)
-        : undefined,
+    Conditions: output.Conditions != null ? deserializeAws_restJson1Conditions(output.Conditions, context) : undefined,
     IamRoleArn: __expectString(output.IamRoleArn),
-    ListOfTags:
-      output.ListOfTags !== undefined && output.ListOfTags !== null
-        ? deserializeAws_restJson1ListOfTags(output.ListOfTags, context)
-        : undefined,
+    ListOfTags: output.ListOfTags != null ? deserializeAws_restJson1ListOfTags(output.ListOfTags, context) : undefined,
     NotResources:
-      output.NotResources !== undefined && output.NotResources !== null
-        ? deserializeAws_restJson1ResourceArns(output.NotResources, context)
-        : undefined,
-    Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_restJson1ResourceArns(output.Resources, context)
-        : undefined,
+      output.NotResources != null ? deserializeAws_restJson1ResourceArns(output.NotResources, context) : undefined,
+    Resources: output.Resources != null ? deserializeAws_restJson1ResourceArns(output.Resources, context) : undefined,
     SelectionName: __expectString(output.SelectionName),
   } as any;
 };
@@ -7385,7 +7279,7 @@ const deserializeAws_restJson1BackupSelectionsListMember = (
   return {
     BackupPlanId: __expectString(output.BackupPlanId),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
@@ -7427,15 +7321,13 @@ const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __S
     BackupVaultArn: __expectString(output.BackupVaultArn),
     BackupVaultName: __expectString(output.BackupVaultName),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     CreatorRequestId: __expectString(output.CreatorRequestId),
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     LockDate:
-      output.LockDate !== undefined && output.LockDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LockDate)))
-        : undefined,
+      output.LockDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LockDate))) : undefined,
     Locked: __expectBoolean(output.Locked),
     MaxRetentionDays: __expectLong(output.MaxRetentionDays),
     MinRetentionDays: __expectLong(output.MinRetentionDays),
@@ -7446,11 +7338,9 @@ const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __S
 const deserializeAws_restJson1CalculatedLifecycle = (output: any, context: __SerdeContext): CalculatedLifecycle => {
   return {
     DeleteAt:
-      output.DeleteAt !== undefined && output.DeleteAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteAt)))
-        : undefined,
+      output.DeleteAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteAt))) : undefined,
     MoveToColdStorageAt:
-      output.MoveToColdStorageAt !== undefined && output.MoveToColdStorageAt !== null
+      output.MoveToColdStorageAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MoveToColdStorageAt)))
         : undefined,
   } as any;
@@ -7498,19 +7388,17 @@ const deserializeAws_restJson1ConditionParameters = (output: any, context: __Ser
 const deserializeAws_restJson1Conditions = (output: any, context: __SerdeContext): Conditions => {
   return {
     StringEquals:
-      output.StringEquals !== undefined && output.StringEquals !== null
+      output.StringEquals != null
         ? deserializeAws_restJson1ConditionParameters(output.StringEquals, context)
         : undefined,
     StringLike:
-      output.StringLike !== undefined && output.StringLike !== null
-        ? deserializeAws_restJson1ConditionParameters(output.StringLike, context)
-        : undefined,
+      output.StringLike != null ? deserializeAws_restJson1ConditionParameters(output.StringLike, context) : undefined,
     StringNotEquals:
-      output.StringNotEquals !== undefined && output.StringNotEquals !== null
+      output.StringNotEquals != null
         ? deserializeAws_restJson1ConditionParameters(output.StringNotEquals, context)
         : undefined,
     StringNotLike:
-      output.StringNotLike !== undefined && output.StringNotLike !== null
+      output.StringNotLike != null
         ? deserializeAws_restJson1ConditionParameters(output.StringNotLike, context)
         : undefined,
   } as any;
@@ -7541,27 +7429,21 @@ const deserializeAws_restJson1ControlInputParameters = (
 const deserializeAws_restJson1ControlScope = (output: any, context: __SerdeContext): ControlScope => {
   return {
     ComplianceResourceIds:
-      output.ComplianceResourceIds !== undefined && output.ComplianceResourceIds !== null
+      output.ComplianceResourceIds != null
         ? deserializeAws_restJson1ComplianceResourceIdList(output.ComplianceResourceIds, context)
         : undefined,
     ComplianceResourceTypes:
-      output.ComplianceResourceTypes !== undefined && output.ComplianceResourceTypes !== null
+      output.ComplianceResourceTypes != null
         ? deserializeAws_restJson1ResourceTypeList(output.ComplianceResourceTypes, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1stringMap(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1stringMap(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1CopyAction = (output: any, context: __SerdeContext): CopyAction => {
   return {
     DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
+    Lifecycle: output.Lifecycle != null ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context) : undefined,
   } as any;
 };
 
@@ -7582,16 +7464,14 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
     AccountId: __expectString(output.AccountId),
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
+      output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CopyJobId: __expectString(output.CopyJobId),
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
+      output.CreatedBy != null ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context) : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
@@ -7633,7 +7513,7 @@ const deserializeAws_restJson1FormatList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext): Framework => {
   return {
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DeploymentStatus: __expectString(output.DeploymentStatus),
@@ -7647,14 +7527,12 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1FrameworkControl = (output: any, context: __SerdeContext): FrameworkControl => {
   return {
     ControlInputParameters:
-      output.ControlInputParameters !== undefined && output.ControlInputParameters !== null
+      output.ControlInputParameters != null
         ? deserializeAws_restJson1ControlInputParameters(output.ControlInputParameters, context)
         : undefined,
     ControlName: __expectString(output.ControlName),
     ControlScope:
-      output.ControlScope !== undefined && output.ControlScope !== null
-        ? deserializeAws_restJson1ControlScope(output.ControlScope, context)
-        : undefined,
+      output.ControlScope != null ? deserializeAws_restJson1ControlScope(output.ControlScope, context) : undefined,
   } as any;
 };
 
@@ -7728,7 +7606,7 @@ const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
   return {
     LastBackupTime:
-      output.LastBackupTime !== undefined && output.LastBackupTime !== null
+      output.LastBackupTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
@@ -7757,32 +7635,27 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
     BackupVaultArn: __expectString(output.BackupVaultArn),
     BackupVaultName: __expectString(output.BackupVaultName),
     CalculatedLifecycle:
-      output.CalculatedLifecycle !== undefined && output.CalculatedLifecycle !== null
+      output.CalculatedLifecycle != null
         ? deserializeAws_restJson1CalculatedLifecycle(output.CalculatedLifecycle, context)
         : undefined,
     CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
+      output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
+      output.CreatedBy != null ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context) : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     IamRoleArn: __expectString(output.IamRoleArn),
     IsEncrypted: __expectBoolean(output.IsEncrypted),
     LastRestoreTime:
-      output.LastRestoreTime !== undefined && output.LastRestoreTime !== null
+      output.LastRestoreTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRestoreTime)))
         : undefined,
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
+    Lifecycle: output.Lifecycle != null ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context) : undefined,
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
@@ -7815,7 +7688,7 @@ const deserializeAws_restJson1RecoveryPointByResource = (
     BackupSizeBytes: __expectLong(output.BackupSizeBytes),
     BackupVaultName: __expectString(output.BackupVaultName),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
@@ -7851,10 +7724,7 @@ const deserializeAws_restJson1RecoveryPointCreator = (output: any, context: __Se
 
 const deserializeAws_restJson1ReportDeliveryChannel = (output: any, context: __SerdeContext): ReportDeliveryChannel => {
   return {
-    Formats:
-      output.Formats !== undefined && output.Formats !== null
-        ? deserializeAws_restJson1FormatList(output.Formats, context)
-        : undefined,
+    Formats: output.Formats != null ? deserializeAws_restJson1FormatList(output.Formats, context) : undefined,
     S3BucketName: __expectString(output.S3BucketName),
     S3KeyPrefix: __expectString(output.S3KeyPrefix),
   } as any;
@@ -7863,25 +7733,22 @@ const deserializeAws_restJson1ReportDeliveryChannel = (output: any, context: __S
 const deserializeAws_restJson1ReportDestination = (output: any, context: __SerdeContext): ReportDestination => {
   return {
     S3BucketName: __expectString(output.S3BucketName),
-    S3Keys:
-      output.S3Keys !== undefined && output.S3Keys !== null
-        ? deserializeAws_restJson1stringList(output.S3Keys, context)
-        : undefined,
+    S3Keys: output.S3Keys != null ? deserializeAws_restJson1stringList(output.S3Keys, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ReportJob = (output: any, context: __SerdeContext): ReportJob => {
   return {
     CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
+      output.CompletionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
         : undefined,
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ReportDestination:
-      output.ReportDestination !== undefined && output.ReportDestination !== null
+      output.ReportDestination != null
         ? deserializeAws_restJson1ReportDestination(output.ReportDestination, context)
         : undefined,
     ReportJobId: __expectString(output.ReportJobId),
@@ -7907,29 +7774,27 @@ const deserializeAws_restJson1ReportJobList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ReportPlan = (output: any, context: __SerdeContext): ReportPlan => {
   return {
     CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DeploymentStatus: __expectString(output.DeploymentStatus),
     LastAttemptedExecutionTime:
-      output.LastAttemptedExecutionTime !== undefined && output.LastAttemptedExecutionTime !== null
+      output.LastAttemptedExecutionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAttemptedExecutionTime)))
         : undefined,
     LastSuccessfulExecutionTime:
-      output.LastSuccessfulExecutionTime !== undefined && output.LastSuccessfulExecutionTime !== null
+      output.LastSuccessfulExecutionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulExecutionTime)))
         : undefined,
     ReportDeliveryChannel:
-      output.ReportDeliveryChannel !== undefined && output.ReportDeliveryChannel !== null
+      output.ReportDeliveryChannel != null
         ? deserializeAws_restJson1ReportDeliveryChannel(output.ReportDeliveryChannel, context)
         : undefined,
     ReportPlanArn: __expectString(output.ReportPlanArn),
     ReportPlanDescription: __expectString(output.ReportPlanDescription),
     ReportPlanName: __expectString(output.ReportPlanName),
     ReportSetting:
-      output.ReportSetting !== undefined && output.ReportSetting !== null
-        ? deserializeAws_restJson1ReportSetting(output.ReportSetting, context)
-        : undefined,
+      output.ReportSetting != null ? deserializeAws_restJson1ReportSetting(output.ReportSetting, context) : undefined,
   } as any;
 };
 
@@ -7948,9 +7813,7 @@ const deserializeAws_restJson1ReportPlanList = (output: any, context: __SerdeCon
 const deserializeAws_restJson1ReportSetting = (output: any, context: __SerdeContext): ReportSetting => {
   return {
     FrameworkArns:
-      output.FrameworkArns !== undefined && output.FrameworkArns !== null
-        ? deserializeAws_restJson1stringList(output.FrameworkArns, context)
-        : undefined,
+      output.FrameworkArns != null ? deserializeAws_restJson1stringList(output.FrameworkArns, context) : undefined,
     NumberOfFrameworks: __expectInt32(output.NumberOfFrameworks),
     ReportTemplate: __expectString(output.ReportTemplate),
   } as any;
@@ -8039,12 +7902,12 @@ const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __S
     AccountId: __expectString(output.AccountId),
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
     CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
+      output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
     CreatedResourceArn: __expectString(output.CreatedResourceArn),
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     ExpectedCompletionTimeMinutes: __expectLong(output.ExpectedCompletionTimeMinutes),

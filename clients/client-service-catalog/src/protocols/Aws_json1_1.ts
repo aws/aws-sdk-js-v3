@@ -5957,18 +5957,16 @@ const serializeAws_json1_1AcceptPortfolioShareInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.PortfolioShareType !== undefined &&
-      input.PortfolioShareType !== null && { PortfolioShareType: input.PortfolioShareType }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
   };
 };
 
 const serializeAws_json1_1AccessLevelFilter = (input: AccessLevelFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5988,8 +5986,8 @@ const serializeAws_json1_1AssociateBudgetWithResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5998,11 +5996,10 @@ const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.PrincipalARN !== undefined && input.PrincipalARN !== null && { PrincipalARN: input.PrincipalARN }),
-    ...(input.PrincipalType !== undefined && input.PrincipalType !== null && { PrincipalType: input.PrincipalType }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
+    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
   };
 };
 
@@ -6011,12 +6008,10 @@ const serializeAws_json1_1AssociateProductWithPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.SourcePortfolioId !== undefined &&
-      input.SourcePortfolioId !== null && { SourcePortfolioId: input.SourcePortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.SourcePortfolioId != null && { SourcePortfolioId: input.SourcePortfolioId }),
   };
 };
 
@@ -6025,13 +6020,10 @@ const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = 
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -6040,8 +6032,8 @@ const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId !== undefined && input.TagOptionId !== null && { TagOptionId: input.TagOptionId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
   };
 };
 
@@ -6050,15 +6042,13 @@ const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInp
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ServiceActionAssociations !== undefined &&
-      input.ServiceActionAssociations !== null && {
-        ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
-          input.ServiceActionAssociations,
-          context
-        ),
-      }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ServiceActionAssociations != null && {
+      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
+        input.ServiceActionAssociations,
+        context
+      ),
+    }),
   };
 };
 
@@ -6067,15 +6057,13 @@ const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifact
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ServiceActionAssociations !== undefined &&
-      input.ServiceActionAssociations !== null && {
-        ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
-          input.ServiceActionAssociations,
-          context
-        ),
-      }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ServiceActionAssociations != null && {
+      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
+        input.ServiceActionAssociations,
+        context
+      ),
+    }),
   };
 };
 
@@ -6092,49 +6080,41 @@ const serializeAws_json1_1CopyOptions = (input: (CopyOption | string)[], context
 
 const serializeAws_json1_1CopyProductInput = (input: CopyProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.CopyOptions !== undefined &&
-      input.CopyOptions !== null && { CopyOptions: serializeAws_json1_1CopyOptions(input.CopyOptions, context) }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.CopyOptions != null && { CopyOptions: serializeAws_json1_1CopyOptions(input.CopyOptions, context) }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.SourceProductArn !== undefined &&
-      input.SourceProductArn !== null && { SourceProductArn: input.SourceProductArn }),
-    ...(input.SourceProvisioningArtifactIdentifiers !== undefined &&
-      input.SourceProvisioningArtifactIdentifiers !== null && {
-        SourceProvisioningArtifactIdentifiers: serializeAws_json1_1SourceProvisioningArtifactProperties(
-          input.SourceProvisioningArtifactIdentifiers,
-          context
-        ),
-      }),
-    ...(input.TargetProductId !== undefined &&
-      input.TargetProductId !== null && { TargetProductId: input.TargetProductId }),
-    ...(input.TargetProductName !== undefined &&
-      input.TargetProductName !== null && { TargetProductName: input.TargetProductName }),
+    ...(input.SourceProductArn != null && { SourceProductArn: input.SourceProductArn }),
+    ...(input.SourceProvisioningArtifactIdentifiers != null && {
+      SourceProvisioningArtifactIdentifiers: serializeAws_json1_1SourceProvisioningArtifactProperties(
+        input.SourceProvisioningArtifactIdentifiers,
+        context
+      ),
+    }),
+    ...(input.TargetProductId != null && { TargetProductId: input.TargetProductId }),
+    ...(input.TargetProductName != null && { TargetProductName: input.TargetProductName }),
   };
 };
 
 const serializeAws_json1_1CreateConstraintInput = (input: CreateConstraintInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Description != null && { Description: input.Description }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Parameters !== undefined && input.Parameters !== null && { Parameters: input.Parameters }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Parameters != null && { Parameters: input.Parameters }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ProviderName !== undefined && input.ProviderName !== null && { ProviderName: input.ProviderName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
+    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
   };
 };
 
@@ -6143,41 +6123,35 @@ const serializeAws_json1_1CreatePortfolioShareInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode !== undefined &&
-      input.OrganizationNode !== null && {
-        OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-      }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ShareTagOptions !== undefined &&
-      input.ShareTagOptions !== null && { ShareTagOptions: input.ShareTagOptions }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode != null && {
+      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
+    }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
 
 const serializeAws_json1_1CreateProductInput = (input: CreateProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Distributor !== undefined && input.Distributor !== null && { Distributor: input.Distributor }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Distributor != null && { Distributor: input.Distributor }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
-    ...(input.ProductType !== undefined && input.ProductType !== null && { ProductType: input.ProductType }),
-    ...(input.ProvisioningArtifactParameters !== undefined &&
-      input.ProvisioningArtifactParameters !== null && {
-        ProvisioningArtifactParameters: serializeAws_json1_1ProvisioningArtifactProperties(
-          input.ProvisioningArtifactParameters,
-          context
-        ),
-      }),
-    ...(input.SupportDescription !== undefined &&
-      input.SupportDescription !== null && { SupportDescription: input.SupportDescription }),
-    ...(input.SupportEmail !== undefined && input.SupportEmail !== null && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportUrl !== undefined && input.SupportUrl !== null && { SupportUrl: input.SupportUrl }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Owner != null && { Owner: input.Owner }),
+    ...(input.ProductType != null && { ProductType: input.ProductType }),
+    ...(input.ProvisioningArtifactParameters != null && {
+      ProvisioningArtifactParameters: serializeAws_json1_1ProvisioningArtifactProperties(
+        input.ProvisioningArtifactParameters,
+        context
+      ),
+    }),
+    ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
+    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
   };
 };
 
@@ -6186,26 +6160,21 @@ const serializeAws_json1_1CreateProvisionedProductPlanInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.NotificationArns !== undefined &&
-      input.NotificationArns !== null && {
-        NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
-      }),
-    ...(input.PathId !== undefined && input.PathId !== null && { PathId: input.PathId }),
-    ...(input.PlanName !== undefined && input.PlanName !== null && { PlanName: input.PlanName }),
-    ...(input.PlanType !== undefined && input.PlanType !== null && { PlanType: input.PlanType }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningParameters !== undefined &&
-      input.ProvisioningParameters !== null && {
-        ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.NotificationArns != null && {
+      NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
+    }),
+    ...(input.PathId != null && { PathId: input.PathId }),
+    ...(input.PlanName != null && { PlanName: input.PlanName }),
+    ...(input.PlanType != null && { PlanType: input.PlanType }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningParameters != null && {
+      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -6214,14 +6183,12 @@ const serializeAws_json1_1CreateProvisioningArtifactInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && {
-        Parameters: serializeAws_json1_1ProvisioningArtifactProperties(input.Parameters, context),
-      }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.Parameters != null && {
+      Parameters: serializeAws_json1_1ProvisioningArtifactProperties(input.Parameters, context),
+    }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
@@ -6230,40 +6197,35 @@ const serializeAws_json1_1CreateServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition !== undefined &&
-      input.Definition !== null && {
-        Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
-      }),
-    ...(input.DefinitionType !== undefined &&
-      input.DefinitionType !== null && { DefinitionType: input.DefinitionType }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Definition != null && {
+      Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
+    }),
+    ...(input.DefinitionType != null && { DefinitionType: input.DefinitionType }),
+    ...(input.Description != null && { Description: input.Description }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1CreateTagOptionInput = (input: CreateTagOptionInput, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1DeleteConstraintInput = (input: DeleteConstraintInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DeletePortfolioInput = (input: DeletePortfolioInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6272,22 +6234,19 @@ const serializeAws_json1_1DeletePortfolioShareInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode !== undefined &&
-      input.OrganizationNode !== null && {
-        OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-      }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode != null && {
+      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
+    }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
   };
 };
 
 const serializeAws_json1_1DeleteProductInput = (input: DeleteProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6296,10 +6255,9 @@ const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.IgnoreErrors !== undefined && input.IgnoreErrors !== null && { IgnoreErrors: input.IgnoreErrors }),
-    ...(input.PlanId !== undefined && input.PlanId !== null && { PlanId: input.PlanId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.IgnoreErrors != null && { IgnoreErrors: input.IgnoreErrors }),
+    ...(input.PlanId != null && { PlanId: input.PlanId }),
   };
 };
 
@@ -6308,11 +6266,9 @@ const serializeAws_json1_1DeleteProvisioningArtifactInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
   };
 };
 
@@ -6321,23 +6277,21 @@ const serializeAws_json1_1DeleteServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DeleteTagOptionInput = (input: DeleteTagOptionInput, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DescribeConstraintInput = (input: DescribeConstraintInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6346,18 +6300,15 @@ const serializeAws_json1_1DescribeCopyProductStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.CopyProductToken !== undefined &&
-      input.CopyProductToken !== null && { CopyProductToken: input.CopyProductToken }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.CopyProductToken != null && { CopyProductToken: input.CopyProductToken }),
   };
 };
 
 const serializeAws_json1_1DescribePortfolioInput = (input: DescribePortfolioInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6366,10 +6317,10 @@ const serializeAws_json1_1DescribePortfolioSharesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -6378,8 +6329,7 @@ const serializeAws_json1_1DescribePortfolioShareStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PortfolioShareToken !== undefined &&
-      input.PortfolioShareToken !== null && { PortfolioShareToken: input.PortfolioShareToken }),
+    ...(input.PortfolioShareToken != null && { PortfolioShareToken: input.PortfolioShareToken }),
   };
 };
 
@@ -6388,21 +6338,18 @@ const serializeAws_json1_1DescribeProductAsAdminInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.SourcePortfolioId !== undefined &&
-      input.SourcePortfolioId !== null && { SourcePortfolioId: input.SourcePortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SourcePortfolioId != null && { SourcePortfolioId: input.SourcePortfolioId }),
   };
 };
 
 const serializeAws_json1_1DescribeProductInput = (input: DescribeProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -6411,9 +6358,8 @@ const serializeAws_json1_1DescribeProductViewInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6422,10 +6368,9 @@ const serializeAws_json1_1DescribeProvisionedProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -6434,11 +6379,10 @@ const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PlanId !== undefined && input.PlanId !== null && { PlanId: input.PlanId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PlanId != null && { PlanId: input.PlanId }),
   };
 };
 
@@ -6447,15 +6391,12 @@ const serializeAws_json1_1DescribeProvisioningArtifactInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName !== undefined &&
-      input.ProvisioningArtifactName !== null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.Verbose !== undefined && input.Verbose !== null && { Verbose: input.Verbose }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
+    ...(input.Verbose != null && { Verbose: input.Verbose }),
   };
 };
 
@@ -6464,26 +6405,22 @@ const serializeAws_json1_1DescribeProvisioningParametersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PathId !== undefined && input.PathId !== null && { PathId: input.PathId }),
-    ...(input.PathName !== undefined && input.PathName !== null && { PathName: input.PathName }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName !== undefined &&
-      input.ProvisioningArtifactName !== null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PathId != null && { PathId: input.PathId }),
+    ...(input.PathName != null && { PathName: input.PathName }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
   };
 };
 
 const serializeAws_json1_1DescribeRecordInput = (input: DescribeRecordInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
@@ -6492,12 +6429,9 @@ const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -6506,15 +6440,14 @@ const serializeAws_json1_1DescribeServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DescribeTagOptionInput = (input: DescribeTagOptionInput, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
@@ -6530,8 +6463,8 @@ const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BudgetName !== undefined && input.BudgetName !== null && { BudgetName: input.BudgetName }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -6540,10 +6473,9 @@ const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.PrincipalARN !== undefined && input.PrincipalARN !== null && { PrincipalARN: input.PrincipalARN }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.PrincipalARN != null && { PrincipalARN: input.PrincipalARN }),
   };
 };
 
@@ -6552,10 +6484,9 @@ const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
@@ -6564,13 +6495,10 @@ const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -6579,8 +6507,8 @@ const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
-    ...(input.TagOptionId !== undefined && input.TagOptionId !== null && { TagOptionId: input.TagOptionId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
   };
 };
 
@@ -6596,10 +6524,9 @@ const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PlanId !== undefined && input.PlanId !== null && { PlanId: input.PlanId }),
+    ...(input.PlanId != null && { PlanId: input.PlanId }),
   };
 };
 
@@ -6608,17 +6535,13 @@ const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ExecuteToken: input.ExecuteToken ?? generateIdempotencyToken(),
-    ...(input.Parameters !== undefined &&
-      input.Parameters !== null && {
-        Parameters: serializeAws_json1_1ExecutionParameterMap(input.Parameters, context),
-      }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.Parameters != null && {
+      Parameters: serializeAws_json1_1ExecutionParameterMap(input.Parameters, context),
+    }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -6657,16 +6580,12 @@ const serializeAws_json1_1GetProvisionedProductOutputsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OutputKeys !== undefined &&
-      input.OutputKeys !== null && { OutputKeys: serializeAws_json1_1OutputKeys(input.OutputKeys, context) }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OutputKeys != null && { OutputKeys: serializeAws_json1_1OutputKeys(input.OutputKeys, context) }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
   };
 };
 
@@ -6675,15 +6594,12 @@ const serializeAws_json1_1ImportAsProvisionedProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PhysicalId !== undefined && input.PhysicalId !== null && { PhysicalId: input.PhysicalId }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.PhysicalId != null && { PhysicalId: input.PhysicalId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
   };
 };
 
@@ -6692,12 +6608,10 @@ const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioShareType !== undefined &&
-      input.PortfolioShareType !== null && { PortfolioShareType: input.PortfolioShareType }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
   };
 };
 
@@ -6706,11 +6620,10 @@ const serializeAws_json1_1ListBudgetsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -6719,22 +6632,20 @@ const serializeAws_json1_1ListConstraintsForPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
 const serializeAws_json1_1ListLaunchPathsInput = (input: ListLaunchPathsInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
@@ -6743,13 +6654,11 @@ const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OrganizationNodeType !== undefined &&
-      input.OrganizationNodeType !== null && { OrganizationNodeType: input.OrganizationNodeType }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OrganizationNodeType != null && { OrganizationNodeType: input.OrganizationNodeType }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
   };
 };
 
@@ -6758,13 +6667,11 @@ const serializeAws_json1_1ListPortfolioAccessInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OrganizationParentId !== undefined &&
-      input.OrganizationParentId !== null && { OrganizationParentId: input.OrganizationParentId }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OrganizationParentId != null && { OrganizationParentId: input.OrganizationParentId }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
   };
 };
 
@@ -6773,20 +6680,18 @@ const serializeAws_json1_1ListPortfoliosForProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
 const serializeAws_json1_1ListPortfoliosInput = (input: ListPortfoliosInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
@@ -6795,11 +6700,10 @@ const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
   };
 };
 
@@ -6808,16 +6712,13 @@ const serializeAws_json1_1ListProvisionedProductPlansInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter !== undefined &&
-      input.AccessLevelFilter !== null && {
-        AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
-      }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProvisionProductId !== undefined &&
-      input.ProvisionProductId !== null && { ProvisionProductId: input.ProvisionProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccessLevelFilter != null && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+    }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProvisionProductId != null && { ProvisionProductId: input.ProvisionProductId }),
   };
 };
 
@@ -6826,12 +6727,10 @@ const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -6840,26 +6739,22 @@ const serializeAws_json1_1ListProvisioningArtifactsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
 const serializeAws_json1_1ListRecordHistoryInput = (input: ListRecordHistoryInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter !== undefined &&
-      input.AccessLevelFilter !== null && {
-        AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
-      }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.SearchFilter !== undefined &&
-      input.SearchFilter !== null && {
-        SearchFilter: serializeAws_json1_1ListRecordHistorySearchFilter(input.SearchFilter, context),
-      }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccessLevelFilter != null && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+    }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.SearchFilter != null && {
+      SearchFilter: serializeAws_json1_1ListRecordHistorySearchFilter(input.SearchFilter, context),
+    }),
   };
 };
 
@@ -6868,8 +6763,8 @@ const serializeAws_json1_1ListRecordHistorySearchFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -6878,10 +6773,10 @@ const serializeAws_json1_1ListResourcesForTagOptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-    ...(input.TagOptionId !== undefined && input.TagOptionId !== null && { TagOptionId: input.TagOptionId }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.TagOptionId != null && { TagOptionId: input.TagOptionId }),
   };
 };
 
@@ -6890,22 +6785,19 @@ const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
   };
 };
 
 const serializeAws_json1_1ListServiceActionsInput = (input: ListServiceActionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
@@ -6914,29 +6806,26 @@ const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
   };
 };
 
 const serializeAws_json1_1ListTagOptionsFilters = (input: ListTagOptionsFilters, context: __SerdeContext): any => {
   return {
-    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Active != null && { Active: input.Active }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1ListTagOptionsInput = (input: ListTagOptionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context) }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context) }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
@@ -6953,8 +6842,8 @@ const serializeAws_json1_1NotificationArns = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1OrganizationNode = (input: OrganizationNode, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -7053,20 +6942,18 @@ const serializeAws_json1_1ProvisioningArtifactProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DisableTemplateValidation !== undefined &&
-      input.DisableTemplateValidation !== null && { DisableTemplateValidation: input.DisableTemplateValidation }),
-    ...(input.Info !== undefined &&
-      input.Info !== null && { Info: serializeAws_json1_1ProvisioningArtifactInfo(input.Info, context) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DisableTemplateValidation != null && { DisableTemplateValidation: input.DisableTemplateValidation }),
+    ...(input.Info != null && { Info: serializeAws_json1_1ProvisioningArtifactInfo(input.Info, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1ProvisioningParameter = (input: ProvisioningParameter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -7083,59 +6970,48 @@ const serializeAws_json1_1ProvisioningParameters = (input: ProvisioningParameter
 
 const serializeAws_json1_1ProvisioningPreferences = (input: ProvisioningPreferences, context: __SerdeContext): any => {
   return {
-    ...(input.StackSetAccounts !== undefined &&
-      input.StackSetAccounts !== null && {
-        StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
-      }),
-    ...(input.StackSetFailureToleranceCount !== undefined &&
-      input.StackSetFailureToleranceCount !== null && {
-        StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
-      }),
-    ...(input.StackSetFailureTolerancePercentage !== undefined &&
-      input.StackSetFailureTolerancePercentage !== null && {
-        StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
-      }),
-    ...(input.StackSetMaxConcurrencyCount !== undefined &&
-      input.StackSetMaxConcurrencyCount !== null && { StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount }),
-    ...(input.StackSetMaxConcurrencyPercentage !== undefined &&
-      input.StackSetMaxConcurrencyPercentage !== null && {
-        StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
-      }),
-    ...(input.StackSetRegions !== undefined &&
-      input.StackSetRegions !== null && {
-        StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
-      }),
+    ...(input.StackSetAccounts != null && {
+      StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
+    }),
+    ...(input.StackSetFailureToleranceCount != null && {
+      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
+    }),
+    ...(input.StackSetFailureTolerancePercentage != null && {
+      StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
+    }),
+    ...(input.StackSetMaxConcurrencyCount != null && {
+      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount,
+    }),
+    ...(input.StackSetMaxConcurrencyPercentage != null && {
+      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
+    }),
+    ...(input.StackSetRegions != null && {
+      StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
+    }),
   };
 };
 
 const serializeAws_json1_1ProvisionProductInput = (input: ProvisionProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.NotificationArns !== undefined &&
-      input.NotificationArns !== null && {
-        NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
-      }),
-    ...(input.PathId !== undefined && input.PathId !== null && { PathId: input.PathId }),
-    ...(input.PathName !== undefined && input.PathName !== null && { PathName: input.PathName }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.NotificationArns != null && {
+      NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
+    }),
+    ...(input.PathId != null && { PathId: input.PathId }),
+    ...(input.PathName != null && { PathName: input.PathName }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
     ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName !== undefined &&
-      input.ProvisioningArtifactName !== null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.ProvisioningParameters !== undefined &&
-      input.ProvisioningParameters !== null && {
-        ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(input.ProvisioningParameters, context),
-      }),
-    ...(input.ProvisioningPreferences !== undefined &&
-      input.ProvisioningPreferences !== null && {
-        ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(input.ProvisioningPreferences, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
+    ...(input.ProvisioningParameters != null && {
+      ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(input.ProvisioningParameters, context),
+    }),
+    ...(input.ProvisioningPreferences != null && {
+      ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(input.ProvisioningPreferences, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7144,11 +7020,9 @@ const serializeAws_json1_1RejectPortfolioShareInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.PortfolioShareType !== undefined &&
-      input.PortfolioShareType !== null && { PortfolioShareType: input.PortfolioShareType }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.PortfolioShareType != null && { PortfolioShareType: input.PortfolioShareType }),
   };
 };
 
@@ -7157,14 +7031,12 @@ const serializeAws_json1_1ScanProvisionedProductsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter !== undefined &&
-      input.AccessLevelFilter !== null && {
-        AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
-      }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccessLevelFilter != null && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+    }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
@@ -7173,29 +7045,25 @@ const serializeAws_json1_1SearchProductsAsAdminInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ProductSource !== undefined && input.ProductSource !== null && { ProductSource: input.ProductSource }),
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductSource != null && { ProductSource: input.ProductSource }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1SearchProductsInput = (input: SearchProductsInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -7204,18 +7072,15 @@ const serializeAws_json1_1SearchProvisionedProductsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccessLevelFilter !== undefined &&
-      input.AccessLevelFilter !== null && {
-        AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
-      }),
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1ProvisionedProductFilters(input.Filters, context) }),
-    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
-    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
-    ...(input.SortBy !== undefined && input.SortBy !== null && { SortBy: input.SortBy }),
-    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccessLevelFilter != null && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+    }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1ProvisionedProductFilters(input.Filters, context) }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.PageToken != null && { PageToken: input.PageToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -7224,11 +7089,9 @@ const serializeAws_json1_1ServiceActionAssociation = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ServiceActionId !== undefined &&
-      input.ServiceActionId !== null && { ServiceActionId: input.ServiceActionId }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
@@ -7320,8 +7183,8 @@ const serializeAws_json1_1StackSetRegions = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -7352,41 +7215,33 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.IgnoreErrors !== undefined && input.IgnoreErrors !== null && { IgnoreErrors: input.IgnoreErrors }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.RetainPhysicalResources !== undefined &&
-      input.RetainPhysicalResources !== null && { RetainPhysicalResources: input.RetainPhysicalResources }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.IgnoreErrors != null && { IgnoreErrors: input.IgnoreErrors }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.RetainPhysicalResources != null && { RetainPhysicalResources: input.RetainPhysicalResources }),
     TerminateToken: input.TerminateToken ?? generateIdempotencyToken(),
   };
 };
 
 const serializeAws_json1_1UpdateConstraintInput = (input: UpdateConstraintInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Parameters !== undefined && input.Parameters !== null && { Parameters: input.Parameters }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Parameters != null && { Parameters: input.Parameters }),
   };
 };
 
 const serializeAws_json1_1UpdatePortfolioInput = (input: UpdatePortfolioInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags !== undefined &&
-      input.AddTags !== null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.ProviderName !== undefined && input.ProviderName !== null && { ProviderName: input.ProviderName }),
-    ...(input.RemoveTags !== undefined &&
-      input.RemoveTags !== null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AddTags != null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
+    ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
   };
 };
 
@@ -7395,36 +7250,29 @@ const serializeAws_json1_1UpdatePortfolioShareInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode !== undefined &&
-      input.OrganizationNode !== null && {
-        OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-      }),
-    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
-    ...(input.ShareTagOptions !== undefined &&
-      input.ShareTagOptions !== null && { ShareTagOptions: input.ShareTagOptions }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode != null && {
+      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
+    }),
+    ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
+    ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
 
 const serializeAws_json1_1UpdateProductInput = (input: UpdateProductInput, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags !== undefined &&
-      input.AddTags !== null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Distributor !== undefined && input.Distributor !== null && { Distributor: input.Distributor }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
-    ...(input.RemoveTags !== undefined &&
-      input.RemoveTags !== null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
-    ...(input.SupportDescription !== undefined &&
-      input.SupportDescription !== null && { SupportDescription: input.SupportDescription }),
-    ...(input.SupportEmail !== undefined && input.SupportEmail !== null && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportUrl !== undefined && input.SupportUrl !== null && { SupportUrl: input.SupportUrl }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AddTags != null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Distributor != null && { Distributor: input.Distributor }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Owner != null && { Owner: input.Owner }),
+    ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
+    ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
+    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
   };
 };
 
@@ -7433,32 +7281,25 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.PathId !== undefined && input.PathId !== null && { PathId: input.PathId }),
-    ...(input.PathName !== undefined && input.PathName !== null && { PathName: input.PathName }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProductName !== undefined && input.ProductName !== null && { ProductName: input.ProductName }),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductName !== undefined &&
-      input.ProvisionedProductName !== null && { ProvisionedProductName: input.ProvisionedProductName }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
-    ...(input.ProvisioningArtifactName !== undefined &&
-      input.ProvisioningArtifactName !== null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
-    ...(input.ProvisioningParameters !== undefined &&
-      input.ProvisioningParameters !== null && {
-        ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
-      }),
-    ...(input.ProvisioningPreferences !== undefined &&
-      input.ProvisioningPreferences !== null && {
-        ProvisioningPreferences: serializeAws_json1_1UpdateProvisioningPreferences(
-          input.ProvisioningPreferences,
-          context
-        ),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.PathId != null && { PathId: input.PathId }),
+    ...(input.PathName != null && { PathName: input.PathName }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
+    ...(input.ProvisioningParameters != null && {
+      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
+    }),
+    ...(input.ProvisioningPreferences != null && {
+      ProvisioningPreferences: serializeAws_json1_1UpdateProvisioningPreferences(
+        input.ProvisioningPreferences,
+        context
+      ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     UpdateToken: input.UpdateToken ?? generateIdempotencyToken(),
   };
 };
@@ -7468,18 +7309,15 @@ const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ProvisionedProductId !== undefined &&
-      input.ProvisionedProductId !== null && { ProvisionedProductId: input.ProvisionedProductId }),
-    ...(input.ProvisionedProductProperties !== undefined &&
-      input.ProvisionedProductProperties !== null && {
-        ProvisionedProductProperties: serializeAws_json1_1ProvisionedProductProperties(
-          input.ProvisionedProductProperties,
-          context
-        ),
-      }),
+    ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductProperties != null && {
+      ProvisionedProductProperties: serializeAws_json1_1ProvisionedProductProperties(
+        input.ProvisionedProductProperties,
+        context
+      ),
+    }),
   };
 };
 
@@ -7488,15 +7326,13 @@ const serializeAws_json1_1UpdateProvisioningArtifactInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Guidance !== undefined && input.Guidance !== null && { Guidance: input.Guidance }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
-    ...(input.ProvisioningArtifactId !== undefined &&
-      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Active != null && { Active: input.Active }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Guidance != null && { Guidance: input.Guidance }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ProductId != null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
   };
 };
 
@@ -7505,10 +7341,9 @@ const serializeAws_json1_1UpdateProvisioningParameter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.UsePreviousValue !== undefined &&
-      input.UsePreviousValue !== null && { UsePreviousValue: input.UsePreviousValue }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.UsePreviousValue != null && { UsePreviousValue: input.UsePreviousValue }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -7531,30 +7366,25 @@ const serializeAws_json1_1UpdateProvisioningPreferences = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StackSetAccounts !== undefined &&
-      input.StackSetAccounts !== null && {
-        StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
-      }),
-    ...(input.StackSetFailureToleranceCount !== undefined &&
-      input.StackSetFailureToleranceCount !== null && {
-        StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
-      }),
-    ...(input.StackSetFailureTolerancePercentage !== undefined &&
-      input.StackSetFailureTolerancePercentage !== null && {
-        StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
-      }),
-    ...(input.StackSetMaxConcurrencyCount !== undefined &&
-      input.StackSetMaxConcurrencyCount !== null && { StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount }),
-    ...(input.StackSetMaxConcurrencyPercentage !== undefined &&
-      input.StackSetMaxConcurrencyPercentage !== null && {
-        StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
-      }),
-    ...(input.StackSetOperationType !== undefined &&
-      input.StackSetOperationType !== null && { StackSetOperationType: input.StackSetOperationType }),
-    ...(input.StackSetRegions !== undefined &&
-      input.StackSetRegions !== null && {
-        StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
-      }),
+    ...(input.StackSetAccounts != null && {
+      StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
+    }),
+    ...(input.StackSetFailureToleranceCount != null && {
+      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
+    }),
+    ...(input.StackSetFailureTolerancePercentage != null && {
+      StackSetFailureTolerancePercentage: input.StackSetFailureTolerancePercentage,
+    }),
+    ...(input.StackSetMaxConcurrencyCount != null && {
+      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount,
+    }),
+    ...(input.StackSetMaxConcurrencyPercentage != null && {
+      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
+    }),
+    ...(input.StackSetOperationType != null && { StackSetOperationType: input.StackSetOperationType }),
+    ...(input.StackSetRegions != null && {
+      StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
+    }),
   };
 };
 
@@ -7563,23 +7393,21 @@ const serializeAws_json1_1UpdateServiceActionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceptLanguage !== undefined &&
-      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition !== undefined &&
-      input.Definition !== null && {
-        Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
-      }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.Definition != null && {
+      Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1UpdateTagOptionInput = (input: UpdateTagOptionInput, context: __SerdeContext): any => {
   return {
-    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
-    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Active != null && { Active: input.Active }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -7655,7 +7483,7 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactO
 ): BatchAssociateServiceActionWithProvisioningArtifactOutput => {
   return {
     FailedServiceActionAssociations:
-      output.FailedServiceActionAssociations !== undefined && output.FailedServiceActionAssociations !== null
+      output.FailedServiceActionAssociations != null
         ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
         : undefined,
   } as any;
@@ -7667,7 +7495,7 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
 ): BatchDisassociateServiceActionFromProvisioningArtifactOutput => {
   return {
     FailedServiceActionAssociations:
-      output.FailedServiceActionAssociations !== undefined && output.FailedServiceActionAssociations !== null
+      output.FailedServiceActionAssociations != null
         ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
         : undefined,
   } as any;
@@ -7760,7 +7588,7 @@ const deserializeAws_json1_1CopyProductOutput = (output: any, context: __SerdeCo
 const deserializeAws_json1_1CreateConstraintOutput = (output: any, context: __SerdeContext): CreateConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
+      output.ConstraintDetail != null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
         : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
@@ -7771,11 +7599,10 @@ const deserializeAws_json1_1CreateConstraintOutput = (output: any, context: __Se
 const deserializeAws_json1_1CreatePortfolioOutput = (output: any, context: __SerdeContext): CreatePortfolioOutput => {
   return {
     PortfolioDetail:
-      output.PortfolioDetail !== undefined && output.PortfolioDetail !== null
+      output.PortfolioDetail != null
         ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -7791,15 +7618,14 @@ const deserializeAws_json1_1CreatePortfolioShareOutput = (
 const deserializeAws_json1_1CreateProductOutput = (output: any, context: __SerdeContext): CreateProductOutput => {
   return {
     ProductViewDetail:
-      output.ProductViewDetail !== undefined && output.ProductViewDetail !== null
+      output.ProductViewDetail != null
         ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
         : undefined,
     ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail !== undefined && output.ProvisioningArtifactDetail !== null
+      output.ProvisioningArtifactDetail != null
         ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -7821,12 +7647,9 @@ const deserializeAws_json1_1CreateProvisioningArtifactOutput = (
   context: __SerdeContext
 ): CreateProvisioningArtifactOutput => {
   return {
-    Info:
-      output.Info !== undefined && output.Info !== null
-        ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
-        : undefined,
+    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail !== undefined && output.ProvisioningArtifactDetail !== null
+      output.ProvisioningArtifactDetail != null
         ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -7839,7 +7662,7 @@ const deserializeAws_json1_1CreateServiceActionOutput = (
 ): CreateServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
+      output.ServiceActionDetail != null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
         : undefined,
   } as any;
@@ -7848,7 +7671,7 @@ const deserializeAws_json1_1CreateServiceActionOutput = (
 const deserializeAws_json1_1CreateTagOptionOutput = (output: any, context: __SerdeContext): CreateTagOptionOutput => {
   return {
     TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+      output.TagOptionDetail != null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
         : undefined,
   } as any;
@@ -7906,7 +7729,7 @@ const deserializeAws_json1_1DescribeConstraintOutput = (
 ): DescribeConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
+      output.ConstraintDetail != null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
         : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
@@ -7930,20 +7753,14 @@ const deserializeAws_json1_1DescribePortfolioOutput = (
   context: __SerdeContext
 ): DescribePortfolioOutput => {
   return {
-    Budgets:
-      output.Budgets !== undefined && output.Budgets !== null
-        ? deserializeAws_json1_1Budgets(output.Budgets, context)
-        : undefined,
+    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
     PortfolioDetail:
-      output.PortfolioDetail !== undefined && output.PortfolioDetail !== null
+      output.PortfolioDetail != null
         ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
         : undefined,
     TagOptions:
-      output.TagOptions !== undefined && output.TagOptions !== null
-        ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+      output.TagOptions != null ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -7954,7 +7771,7 @@ const deserializeAws_json1_1DescribePortfolioSharesOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioShareDetails:
-      output.PortfolioShareDetails !== undefined && output.PortfolioShareDetails !== null
+      output.PortfolioShareDetails != null
         ? deserializeAws_json1_1PortfolioShareDetails(output.PortfolioShareDetails, context)
         : undefined,
   } as any;
@@ -7969,9 +7786,7 @@ const deserializeAws_json1_1DescribePortfolioShareStatusOutput = (
     PortfolioId: __expectString(output.PortfolioId),
     PortfolioShareToken: __expectString(output.PortfolioShareToken),
     ShareDetails:
-      output.ShareDetails !== undefined && output.ShareDetails !== null
-        ? deserializeAws_json1_1ShareDetails(output.ShareDetails, context)
-        : undefined,
+      output.ShareDetails != null ? deserializeAws_json1_1ShareDetails(output.ShareDetails, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
@@ -7981,43 +7796,32 @@ const deserializeAws_json1_1DescribeProductAsAdminOutput = (
   context: __SerdeContext
 ): DescribeProductAsAdminOutput => {
   return {
-    Budgets:
-      output.Budgets !== undefined && output.Budgets !== null
-        ? deserializeAws_json1_1Budgets(output.Budgets, context)
-        : undefined,
+    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
     ProductViewDetail:
-      output.ProductViewDetail !== undefined && output.ProductViewDetail !== null
+      output.ProductViewDetail != null
         ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
         : undefined,
     ProvisioningArtifactSummaries:
-      output.ProvisioningArtifactSummaries !== undefined && output.ProvisioningArtifactSummaries !== null
+      output.ProvisioningArtifactSummaries != null
         ? deserializeAws_json1_1ProvisioningArtifactSummaries(output.ProvisioningArtifactSummaries, context)
         : undefined,
     TagOptions:
-      output.TagOptions !== undefined && output.TagOptions !== null
-        ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+      output.TagOptions != null ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeProductOutput = (output: any, context: __SerdeContext): DescribeProductOutput => {
   return {
-    Budgets:
-      output.Budgets !== undefined && output.Budgets !== null
-        ? deserializeAws_json1_1Budgets(output.Budgets, context)
-        : undefined,
+    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
     LaunchPaths:
-      output.LaunchPaths !== undefined && output.LaunchPaths !== null
-        ? deserializeAws_json1_1LaunchPaths(output.LaunchPaths, context)
-        : undefined,
+      output.LaunchPaths != null ? deserializeAws_json1_1LaunchPaths(output.LaunchPaths, context) : undefined,
     ProductViewSummary:
-      output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
+      output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
         : undefined,
     ProvisioningArtifacts:
-      output.ProvisioningArtifacts !== undefined && output.ProvisioningArtifacts !== null
+      output.ProvisioningArtifacts != null
         ? deserializeAws_json1_1ProvisioningArtifacts(output.ProvisioningArtifacts, context)
         : undefined,
   } as any;
@@ -8029,11 +7833,11 @@ const deserializeAws_json1_1DescribeProductViewOutput = (
 ): DescribeProductViewOutput => {
   return {
     ProductViewSummary:
-      output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
+      output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
         : undefined,
     ProvisioningArtifacts:
-      output.ProvisioningArtifacts !== undefined && output.ProvisioningArtifacts !== null
+      output.ProvisioningArtifacts != null
         ? deserializeAws_json1_1ProvisioningArtifacts(output.ProvisioningArtifacts, context)
         : undefined,
   } as any;
@@ -8045,11 +7849,11 @@ const deserializeAws_json1_1DescribeProvisionedProductOutput = (
 ): DescribeProvisionedProductOutput => {
   return {
     CloudWatchDashboards:
-      output.CloudWatchDashboards !== undefined && output.CloudWatchDashboards !== null
+      output.CloudWatchDashboards != null
         ? deserializeAws_json1_1CloudWatchDashboards(output.CloudWatchDashboards, context)
         : undefined,
     ProvisionedProductDetail:
-      output.ProvisionedProductDetail !== undefined && output.ProvisionedProductDetail !== null
+      output.ProvisionedProductDetail != null
         ? deserializeAws_json1_1ProvisionedProductDetail(output.ProvisionedProductDetail, context)
         : undefined,
   } as any;
@@ -8062,11 +7866,11 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProductPlanDetails:
-      output.ProvisionedProductPlanDetails !== undefined && output.ProvisionedProductPlanDetails !== null
+      output.ProvisionedProductPlanDetails != null
         ? deserializeAws_json1_1ProvisionedProductPlanDetails(output.ProvisionedProductPlanDetails, context)
         : undefined,
     ResourceChanges:
-      output.ResourceChanges !== undefined && output.ResourceChanges !== null
+      output.ResourceChanges != null
         ? deserializeAws_json1_1ResourceChanges(output.ResourceChanges, context)
         : undefined,
   } as any;
@@ -8077,12 +7881,9 @@ const deserializeAws_json1_1DescribeProvisioningArtifactOutput = (
   context: __SerdeContext
 ): DescribeProvisioningArtifactOutput => {
   return {
-    Info:
-      output.Info !== undefined && output.Info !== null
-        ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
-        : undefined,
+    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail !== undefined && output.ProvisioningArtifactDetail !== null
+      output.ProvisioningArtifactDetail != null
         ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -8095,31 +7896,29 @@ const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
 ): DescribeProvisioningParametersOutput => {
   return {
     ConstraintSummaries:
-      output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
+      output.ConstraintSummaries != null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
         : undefined,
     ProvisioningArtifactOutputKeys:
-      output.ProvisioningArtifactOutputKeys !== undefined && output.ProvisioningArtifactOutputKeys !== null
+      output.ProvisioningArtifactOutputKeys != null
         ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputKeys, context)
         : undefined,
     ProvisioningArtifactOutputs:
-      output.ProvisioningArtifactOutputs !== undefined && output.ProvisioningArtifactOutputs !== null
+      output.ProvisioningArtifactOutputs != null
         ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
         : undefined,
     ProvisioningArtifactParameters:
-      output.ProvisioningArtifactParameters !== undefined && output.ProvisioningArtifactParameters !== null
+      output.ProvisioningArtifactParameters != null
         ? deserializeAws_json1_1ProvisioningArtifactParameters(output.ProvisioningArtifactParameters, context)
         : undefined,
     ProvisioningArtifactPreferences:
-      output.ProvisioningArtifactPreferences !== undefined && output.ProvisioningArtifactPreferences !== null
+      output.ProvisioningArtifactPreferences != null
         ? deserializeAws_json1_1ProvisioningArtifactPreferences(output.ProvisioningArtifactPreferences, context)
         : undefined,
     TagOptions:
-      output.TagOptions !== undefined && output.TagOptions !== null
-        ? deserializeAws_json1_1TagOptionSummaries(output.TagOptions, context)
-        : undefined,
+      output.TagOptions != null ? deserializeAws_json1_1TagOptionSummaries(output.TagOptions, context) : undefined,
     UsageInstructions:
-      output.UsageInstructions !== undefined && output.UsageInstructions !== null
+      output.UsageInstructions != null
         ? deserializeAws_json1_1UsageInstructions(output.UsageInstructions, context)
         : undefined,
   } as any;
@@ -8129,13 +7928,9 @@ const deserializeAws_json1_1DescribeRecordOutput = (output: any, context: __Serd
   return {
     NextPageToken: __expectString(output.NextPageToken),
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
     RecordOutputs:
-      output.RecordOutputs !== undefined && output.RecordOutputs !== null
-        ? deserializeAws_json1_1RecordOutputs(output.RecordOutputs, context)
-        : undefined,
+      output.RecordOutputs != null ? deserializeAws_json1_1RecordOutputs(output.RecordOutputs, context) : undefined,
   } as any;
 };
 
@@ -8145,7 +7940,7 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput = (
 ): DescribeServiceActionExecutionParametersOutput => {
   return {
     ServiceActionParameters:
-      output.ServiceActionParameters !== undefined && output.ServiceActionParameters !== null
+      output.ServiceActionParameters != null
         ? deserializeAws_json1_1ExecutionParameters(output.ServiceActionParameters, context)
         : undefined,
   } as any;
@@ -8157,7 +7952,7 @@ const deserializeAws_json1_1DescribeServiceActionOutput = (
 ): DescribeServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
+      output.ServiceActionDetail != null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
         : undefined,
   } as any;
@@ -8169,7 +7964,7 @@ const deserializeAws_json1_1DescribeTagOptionOutput = (
 ): DescribeTagOptionOutput => {
   return {
     TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+      output.TagOptionDetail != null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
         : undefined,
   } as any;
@@ -8239,9 +8034,7 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanOutput = (
 ): ExecuteProvisionedProductPlanOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
@@ -8251,16 +8044,14 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput = (
 ): ExecuteProvisionedProductServiceActionOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ExecutionParameter = (output: any, context: __SerdeContext): ExecutionParameter => {
   return {
     DefaultValues:
-      output.DefaultValues !== undefined && output.DefaultValues !== null
+      output.DefaultValues != null
         ? deserializeAws_json1_1ExecutionParameterValueList(output.DefaultValues, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -8335,10 +8126,7 @@ const deserializeAws_json1_1GetProvisionedProductOutputsOutput = (
 ): GetProvisionedProductOutputsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Outputs:
-      output.Outputs !== undefined && output.Outputs !== null
-        ? deserializeAws_json1_1RecordOutputs(output.Outputs, context)
-        : undefined,
+    Outputs: output.Outputs != null ? deserializeAws_json1_1RecordOutputs(output.Outputs, context) : undefined,
   } as any;
 };
 
@@ -8348,9 +8136,7 @@ const deserializeAws_json1_1ImportAsProvisionedProductOutput = (
 ): ImportAsProvisionedProductOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
@@ -8403,13 +8189,12 @@ const deserializeAws_json1_1LaunchPathSummaries = (output: any, context: __Serde
 const deserializeAws_json1_1LaunchPathSummary = (output: any, context: __SerdeContext): LaunchPathSummary => {
   return {
     ConstraintSummaries:
-      output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
+      output.ConstraintSummaries != null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
         : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8426,7 +8211,7 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails !== undefined && output.PortfolioDetails !== null
+      output.PortfolioDetails != null
         ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
         : undefined,
   } as any;
@@ -8437,10 +8222,7 @@ const deserializeAws_json1_1ListBudgetsForResourceOutput = (
   context: __SerdeContext
 ): ListBudgetsForResourceOutput => {
   return {
-    Budgets:
-      output.Budgets !== undefined && output.Budgets !== null
-        ? deserializeAws_json1_1Budgets(output.Budgets, context)
-        : undefined,
+    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
@@ -8451,7 +8233,7 @@ const deserializeAws_json1_1ListConstraintsForPortfolioOutput = (
 ): ListConstraintsForPortfolioOutput => {
   return {
     ConstraintDetails:
-      output.ConstraintDetails !== undefined && output.ConstraintDetails !== null
+      output.ConstraintDetails != null
         ? deserializeAws_json1_1ConstraintDetails(output.ConstraintDetails, context)
         : undefined,
     NextPageToken: __expectString(output.NextPageToken),
@@ -8461,7 +8243,7 @@ const deserializeAws_json1_1ListConstraintsForPortfolioOutput = (
 const deserializeAws_json1_1ListLaunchPathsOutput = (output: any, context: __SerdeContext): ListLaunchPathsOutput => {
   return {
     LaunchPathSummaries:
-      output.LaunchPathSummaries !== undefined && output.LaunchPathSummaries !== null
+      output.LaunchPathSummaries != null
         ? deserializeAws_json1_1LaunchPathSummaries(output.LaunchPathSummaries, context)
         : undefined,
     NextPageToken: __expectString(output.NextPageToken),
@@ -8475,7 +8257,7 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     OrganizationNodes:
-      output.OrganizationNodes !== undefined && output.OrganizationNodes !== null
+      output.OrganizationNodes != null
         ? deserializeAws_json1_1OrganizationNodes(output.OrganizationNodes, context)
         : undefined,
   } as any;
@@ -8486,10 +8268,7 @@ const deserializeAws_json1_1ListPortfolioAccessOutput = (
   context: __SerdeContext
 ): ListPortfolioAccessOutput => {
   return {
-    AccountIds:
-      output.AccountIds !== undefined && output.AccountIds !== null
-        ? deserializeAws_json1_1AccountIds(output.AccountIds, context)
-        : undefined,
+    AccountIds: output.AccountIds != null ? deserializeAws_json1_1AccountIds(output.AccountIds, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
@@ -8501,7 +8280,7 @@ const deserializeAws_json1_1ListPortfoliosForProductOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails !== undefined && output.PortfolioDetails !== null
+      output.PortfolioDetails != null
         ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
         : undefined,
   } as any;
@@ -8511,7 +8290,7 @@ const deserializeAws_json1_1ListPortfoliosOutput = (output: any, context: __Serd
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails !== undefined && output.PortfolioDetails !== null
+      output.PortfolioDetails != null
         ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
         : undefined,
   } as any;
@@ -8523,10 +8302,7 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioOutput = (
 ): ListPrincipalsForPortfolioOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Principals:
-      output.Principals !== undefined && output.Principals !== null
-        ? deserializeAws_json1_1Principals(output.Principals, context)
-        : undefined,
+    Principals: output.Principals != null ? deserializeAws_json1_1Principals(output.Principals, context) : undefined,
   } as any;
 };
 
@@ -8537,7 +8313,7 @@ const deserializeAws_json1_1ListProvisionedProductPlansOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProductPlans:
-      output.ProvisionedProductPlans !== undefined && output.ProvisionedProductPlans !== null
+      output.ProvisionedProductPlans != null
         ? deserializeAws_json1_1ProvisionedProductPlans(output.ProvisionedProductPlans, context)
         : undefined,
   } as any;
@@ -8550,7 +8326,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisioningArtifactViews:
-      output.ProvisioningArtifactViews !== undefined && output.ProvisioningArtifactViews !== null
+      output.ProvisioningArtifactViews != null
         ? deserializeAws_json1_1ProvisioningArtifactViews(output.ProvisioningArtifactViews, context)
         : undefined,
   } as any;
@@ -8563,7 +8339,7 @@ const deserializeAws_json1_1ListProvisioningArtifactsOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisioningArtifactDetails:
-      output.ProvisioningArtifactDetails !== undefined && output.ProvisioningArtifactDetails !== null
+      output.ProvisioningArtifactDetails != null
         ? deserializeAws_json1_1ProvisioningArtifactDetails(output.ProvisioningArtifactDetails, context)
         : undefined,
   } as any;
@@ -8576,9 +8352,7 @@ const deserializeAws_json1_1ListRecordHistoryOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     RecordDetails:
-      output.RecordDetails !== undefined && output.RecordDetails !== null
-        ? deserializeAws_json1_1RecordDetails(output.RecordDetails, context)
-        : undefined,
+      output.RecordDetails != null ? deserializeAws_json1_1RecordDetails(output.RecordDetails, context) : undefined,
   } as any;
 };
 
@@ -8589,7 +8363,7 @@ const deserializeAws_json1_1ListResourcesForTagOptionOutput = (
   return {
     PageToken: __expectString(output.PageToken),
     ResourceDetails:
-      output.ResourceDetails !== undefined && output.ResourceDetails !== null
+      output.ResourceDetails != null
         ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
         : undefined,
   } as any;
@@ -8602,7 +8376,7 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ServiceActionSummaries:
-      output.ServiceActionSummaries !== undefined && output.ServiceActionSummaries !== null
+      output.ServiceActionSummaries != null
         ? deserializeAws_json1_1ServiceActionSummaries(output.ServiceActionSummaries, context)
         : undefined,
   } as any;
@@ -8615,7 +8389,7 @@ const deserializeAws_json1_1ListServiceActionsOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ServiceActionSummaries:
-      output.ServiceActionSummaries !== undefined && output.ServiceActionSummaries !== null
+      output.ServiceActionSummaries != null
         ? deserializeAws_json1_1ServiceActionSummaries(output.ServiceActionSummaries, context)
         : undefined,
   } as any;
@@ -8628,9 +8402,7 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     StackInstances:
-      output.StackInstances !== undefined && output.StackInstances !== null
-        ? deserializeAws_json1_1StackInstances(output.StackInstances, context)
-        : undefined,
+      output.StackInstances != null ? deserializeAws_json1_1StackInstances(output.StackInstances, context) : undefined,
   } as any;
 };
 
@@ -8638,7 +8410,7 @@ const deserializeAws_json1_1ListTagOptionsOutput = (output: any, context: __Serd
   return {
     PageToken: __expectString(output.PageToken),
     TagOptionDetails:
-      output.TagOptionDetails !== undefined && output.TagOptionDetails !== null
+      output.TagOptionDetails != null
         ? deserializeAws_json1_1TagOptionDetails(output.TagOptionDetails, context)
         : undefined,
   } as any;
@@ -8700,9 +8472,7 @@ const deserializeAws_json1_1ParameterConstraints = (output: any, context: __Serd
   return {
     AllowedPattern: __expectString(output.AllowedPattern),
     AllowedValues:
-      output.AllowedValues !== undefined && output.AllowedValues !== null
-        ? deserializeAws_json1_1AllowedValues(output.AllowedValues, context)
-        : undefined,
+      output.AllowedValues != null ? deserializeAws_json1_1AllowedValues(output.AllowedValues, context) : undefined,
     ConstraintDescription: __expectString(output.ConstraintDescription),
     MaxLength: __expectString(output.MaxLength),
     MaxValue: __expectString(output.MaxValue),
@@ -8715,7 +8485,7 @@ const deserializeAws_json1_1PortfolioDetail = (output: any, context: __SerdeCont
   return {
     ARN: __expectString(output.ARN),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
@@ -8823,12 +8593,12 @@ const deserializeAws_json1_1ProductViewAggregationValues = (
 const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeContext): ProductViewDetail => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     ProductARN: __expectString(output.ProductARN),
     ProductViewSummary:
-      output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
+      output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -8882,7 +8652,7 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
@@ -8898,8 +8668,7 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     ProvisioningArtifactName: __expectString(output.ProvisioningArtifactName),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
     UserArn: __expectString(output.UserArn),
     UserArnSession: __expectString(output.UserArnSession),
@@ -8928,7 +8697,7 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Id: __expectString(output.Id),
@@ -8967,11 +8736,11 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
 ): ProvisionedProductPlanDetails => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     NotificationArns:
-      output.NotificationArns !== undefined && output.NotificationArns !== null
+      output.NotificationArns != null
         ? deserializeAws_json1_1NotificationArns(output.NotificationArns, context)
         : undefined,
     PathId: __expectString(output.PathId),
@@ -8983,15 +8752,14 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
     ProvisionProductName: __expectString(output.ProvisionProductName),
     ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
     ProvisioningParameters:
-      output.ProvisioningParameters !== undefined && output.ProvisioningParameters !== null
+      output.ProvisioningParameters != null
         ? deserializeAws_json1_1UpdateProvisioningParameters(output.ProvisioningParameters, context)
         : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     UpdatedTime:
-      output.UpdatedTime !== undefined && output.UpdatedTime !== null
+      output.UpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
         : undefined,
   } as any;
@@ -9044,7 +8812,7 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
 const deserializeAws_json1_1ProvisioningArtifact = (output: any, context: __SerdeContext): ProvisioningArtifact => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
@@ -9061,7 +8829,7 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
   return {
     Active: __expectBoolean(output.Active),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
@@ -9136,7 +8904,7 @@ const deserializeAws_json1_1ProvisioningArtifactParameter = (
     Description: __expectString(output.Description),
     IsNoEcho: __expectBoolean(output.IsNoEcho),
     ParameterConstraints:
-      output.ParameterConstraints !== undefined && output.ParameterConstraints !== null
+      output.ParameterConstraints != null
         ? deserializeAws_json1_1ParameterConstraints(output.ParameterConstraints, context)
         : undefined,
     ParameterKey: __expectString(output.ParameterKey),
@@ -9165,11 +8933,11 @@ const deserializeAws_json1_1ProvisioningArtifactPreferences = (
 ): ProvisioningArtifactPreferences => {
   return {
     StackSetAccounts:
-      output.StackSetAccounts !== undefined && output.StackSetAccounts !== null
+      output.StackSetAccounts != null
         ? deserializeAws_json1_1StackSetAccounts(output.StackSetAccounts, context)
         : undefined,
     StackSetRegions:
-      output.StackSetRegions !== undefined && output.StackSetRegions !== null
+      output.StackSetRegions != null
         ? deserializeAws_json1_1StackSetRegions(output.StackSetRegions, context)
         : undefined,
   } as any;
@@ -9208,14 +8976,14 @@ const deserializeAws_json1_1ProvisioningArtifactSummary = (
 ): ProvisioningArtifactSummary => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     ProvisioningArtifactMetadata:
-      output.ProvisioningArtifactMetadata !== undefined && output.ProvisioningArtifactMetadata !== null
+      output.ProvisioningArtifactMetadata != null
         ? deserializeAws_json1_1ProvisioningArtifactInfo(output.ProvisioningArtifactMetadata, context)
         : undefined,
   } as any;
@@ -9227,11 +8995,11 @@ const deserializeAws_json1_1ProvisioningArtifactView = (
 ): ProvisioningArtifactView => {
   return {
     ProductViewSummary:
-      output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
+      output.ProductViewSummary != null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
         : undefined,
     ProvisioningArtifact:
-      output.ProvisioningArtifact !== undefined && output.ProvisioningArtifact !== null
+      output.ProvisioningArtifact != null
         ? deserializeAws_json1_1ProvisioningArtifact(output.ProvisioningArtifact, context)
         : undefined,
   } as any;
@@ -9255,16 +9023,14 @@ const deserializeAws_json1_1ProvisioningArtifactViews = (
 const deserializeAws_json1_1ProvisionProductOutput = (output: any, context: __SerdeContext): ProvisionProductOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext): RecordDetail => {
   return {
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     LaunchRoleArn: __expectString(output.LaunchRoleArn),
@@ -9275,18 +9041,13 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
     ProvisionedProductType: __expectString(output.ProvisionedProductType),
     ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
     RecordErrors:
-      output.RecordErrors !== undefined && output.RecordErrors !== null
-        ? deserializeAws_json1_1RecordErrors(output.RecordErrors, context)
-        : undefined,
+      output.RecordErrors != null ? deserializeAws_json1_1RecordErrors(output.RecordErrors, context) : undefined,
     RecordId: __expectString(output.RecordId),
-    RecordTags:
-      output.RecordTags !== undefined && output.RecordTags !== null
-        ? deserializeAws_json1_1RecordTags(output.RecordTags, context)
-        : undefined,
+    RecordTags: output.RecordTags != null ? deserializeAws_json1_1RecordTags(output.RecordTags, context) : undefined,
     RecordType: __expectString(output.RecordType),
     Status: __expectString(output.Status),
     UpdatedTime:
-      output.UpdatedTime !== undefined && output.UpdatedTime !== null
+      output.UpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
         : undefined,
   } as any;
@@ -9372,18 +9133,12 @@ const deserializeAws_json1_1RejectPortfolioShareOutput = (
 const deserializeAws_json1_1ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   return {
     Action: __expectString(output.Action),
-    Details:
-      output.Details !== undefined && output.Details !== null
-        ? deserializeAws_json1_1ResourceChangeDetails(output.Details, context)
-        : undefined,
+    Details: output.Details != null ? deserializeAws_json1_1ResourceChangeDetails(output.Details, context) : undefined,
     LogicalResourceId: __expectString(output.LogicalResourceId),
     PhysicalResourceId: __expectString(output.PhysicalResourceId),
     Replacement: __expectString(output.Replacement),
     ResourceType: __expectString(output.ResourceType),
-    Scope:
-      output.Scope !== undefined && output.Scope !== null
-        ? deserializeAws_json1_1Scope(output.Scope, context)
-        : undefined,
+    Scope: output.Scope != null ? deserializeAws_json1_1Scope(output.Scope, context) : undefined,
   } as any;
 };
 
@@ -9391,10 +9146,7 @@ const deserializeAws_json1_1ResourceChangeDetail = (output: any, context: __Serd
   return {
     CausingEntity: __expectString(output.CausingEntity),
     Evaluation: __expectString(output.Evaluation),
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? deserializeAws_json1_1ResourceTargetDefinition(output.Target, context)
-        : undefined,
+    Target: output.Target != null ? deserializeAws_json1_1ResourceTargetDefinition(output.Target, context) : undefined,
   } as any;
 };
 
@@ -9426,7 +9178,7 @@ const deserializeAws_json1_1ResourceDetail = (output: any, context: __SerdeConte
   return {
     ARN: __expectString(output.ARN),
     CreatedTime:
-      output.CreatedTime !== undefined && output.CreatedTime !== null
+      output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     Description: __expectString(output.Description),
@@ -9480,7 +9232,7 @@ const deserializeAws_json1_1ScanProvisionedProductsOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProducts:
-      output.ProvisionedProducts !== undefined && output.ProvisionedProducts !== null
+      output.ProvisionedProducts != null
         ? deserializeAws_json1_1ProvisionedProductDetails(output.ProvisionedProducts, context)
         : undefined,
   } as any;
@@ -9505,7 +9257,7 @@ const deserializeAws_json1_1SearchProductsAsAdminOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProductViewDetails:
-      output.ProductViewDetails !== undefined && output.ProductViewDetails !== null
+      output.ProductViewDetails != null
         ? deserializeAws_json1_1ProductViewDetails(output.ProductViewDetails, context)
         : undefined,
   } as any;
@@ -9515,11 +9267,11 @@ const deserializeAws_json1_1SearchProductsOutput = (output: any, context: __Serd
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProductViewAggregations:
-      output.ProductViewAggregations !== undefined && output.ProductViewAggregations !== null
+      output.ProductViewAggregations != null
         ? deserializeAws_json1_1ProductViewAggregations(output.ProductViewAggregations, context)
         : undefined,
     ProductViewSummaries:
-      output.ProductViewSummaries !== undefined && output.ProductViewSummaries !== null
+      output.ProductViewSummaries != null
         ? deserializeAws_json1_1ProductViewSummaries(output.ProductViewSummaries, context)
         : undefined,
   } as any;
@@ -9532,7 +9284,7 @@ const deserializeAws_json1_1SearchProvisionedProductsOutput = (
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProducts:
-      output.ProvisionedProducts !== undefined && output.ProvisionedProducts !== null
+      output.ProvisionedProducts != null
         ? deserializeAws_json1_1ProvisionedProductAttributes(output.ProvisionedProducts, context)
         : undefined,
     TotalResultsCount: __expectInt32(output.TotalResultsCount),
@@ -9560,11 +9312,11 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
 const deserializeAws_json1_1ServiceActionDetail = (output: any, context: __SerdeContext): ServiceActionDetail => {
   return {
     Definition:
-      output.Definition !== undefined && output.Definition !== null
+      output.Definition != null
         ? deserializeAws_json1_1ServiceActionDefinitionMap(output.Definition, context)
         : undefined,
     ServiceActionSummary:
-      output.ServiceActionSummary !== undefined && output.ServiceActionSummary !== null
+      output.ServiceActionSummary != null
         ? deserializeAws_json1_1ServiceActionSummary(output.ServiceActionSummary, context)
         : undefined,
   } as any;
@@ -9594,11 +9346,9 @@ const deserializeAws_json1_1ServiceActionSummary = (output: any, context: __Serd
 const deserializeAws_json1_1ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
   return {
     ShareErrors:
-      output.ShareErrors !== undefined && output.ShareErrors !== null
-        ? deserializeAws_json1_1ShareErrors(output.ShareErrors, context)
-        : undefined,
+      output.ShareErrors != null ? deserializeAws_json1_1ShareErrors(output.ShareErrors, context) : undefined,
     SuccessfulShares:
-      output.SuccessfulShares !== undefined && output.SuccessfulShares !== null
+      output.SuccessfulShares != null
         ? deserializeAws_json1_1SuccessfulShares(output.SuccessfulShares, context)
         : undefined,
   } as any;
@@ -9606,10 +9356,7 @@ const deserializeAws_json1_1ShareDetails = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ShareError = (output: any, context: __SerdeContext): ShareError => {
   return {
-    Accounts:
-      output.Accounts !== undefined && output.Accounts !== null
-        ? deserializeAws_json1_1Namespaces(output.Accounts, context)
-        : undefined,
+    Accounts: output.Accounts != null ? deserializeAws_json1_1Namespaces(output.Accounts, context) : undefined,
     Error: __expectString(output.Error),
     Message: __expectString(output.Message),
   } as any;
@@ -9736,10 +9483,7 @@ const deserializeAws_json1_1TagOptionSummaries = (output: any, context: __SerdeC
 const deserializeAws_json1_1TagOptionSummary = (output: any, context: __SerdeContext): TagOptionSummary => {
   return {
     Key: __expectString(output.Key),
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1TagOptionValues(output.Values, context)
-        : undefined,
+    Values: output.Values != null ? deserializeAws_json1_1TagOptionValues(output.Values, context) : undefined,
   } as any;
 };
 
@@ -9773,16 +9517,14 @@ const deserializeAws_json1_1TerminateProvisionedProductOutput = (
 ): TerminateProvisionedProductOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateConstraintOutput = (output: any, context: __SerdeContext): UpdateConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
+      output.ConstraintDetail != null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
         : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
@@ -9793,11 +9535,10 @@ const deserializeAws_json1_1UpdateConstraintOutput = (output: any, context: __Se
 const deserializeAws_json1_1UpdatePortfolioOutput = (output: any, context: __SerdeContext): UpdatePortfolioOutput => {
   return {
     PortfolioDetail:
-      output.PortfolioDetail !== undefined && output.PortfolioDetail !== null
+      output.PortfolioDetail != null
         ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -9814,11 +9555,10 @@ const deserializeAws_json1_1UpdatePortfolioShareOutput = (
 const deserializeAws_json1_1UpdateProductOutput = (output: any, context: __SerdeContext): UpdateProductOutput => {
   return {
     ProductViewDetail:
-      output.ProductViewDetail !== undefined && output.ProductViewDetail !== null
+      output.ProductViewDetail != null
         ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
         : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -9828,9 +9568,7 @@ const deserializeAws_json1_1UpdateProvisionedProductOutput = (
 ): UpdateProvisionedProductOutput => {
   return {
     RecordDetail:
-      output.RecordDetail !== undefined && output.RecordDetail !== null
-        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
-        : undefined,
+      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
@@ -9841,7 +9579,7 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput = (
   return {
     ProvisionedProductId: __expectString(output.ProvisionedProductId),
     ProvisionedProductProperties:
-      output.ProvisionedProductProperties !== undefined && output.ProvisionedProductProperties !== null
+      output.ProvisionedProductProperties != null
         ? deserializeAws_json1_1ProvisionedProductProperties(output.ProvisionedProductProperties, context)
         : undefined,
     RecordId: __expectString(output.RecordId),
@@ -9854,12 +9592,9 @@ const deserializeAws_json1_1UpdateProvisioningArtifactOutput = (
   context: __SerdeContext
 ): UpdateProvisioningArtifactOutput => {
   return {
-    Info:
-      output.Info !== undefined && output.Info !== null
-        ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
-        : undefined,
+    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
-      output.ProvisioningArtifactDetail !== undefined && output.ProvisioningArtifactDetail !== null
+      output.ProvisioningArtifactDetail != null
         ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -9898,7 +9633,7 @@ const deserializeAws_json1_1UpdateServiceActionOutput = (
 ): UpdateServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
+      output.ServiceActionDetail != null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
         : undefined,
   } as any;
@@ -9907,7 +9642,7 @@ const deserializeAws_json1_1UpdateServiceActionOutput = (
 const deserializeAws_json1_1UpdateTagOptionOutput = (output: any, context: __SerdeContext): UpdateTagOptionOutput => {
   return {
     TagOptionDetail:
-      output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
+      output.TagOptionDetail != null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
         : undefined,
   } as any;

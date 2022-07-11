@@ -46,9 +46,8 @@ export const serializeAws_restJson1DeleteAlternateContactCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteAlternateContact";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType !== undefined &&
-      input.AlternateContactType !== null && { AlternateContactType: input.AlternateContactType }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
   });
   return new __HttpRequest({
     protocol,
@@ -72,9 +71,8 @@ export const serializeAws_restJson1GetAlternateContactCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getAlternateContact";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType !== undefined &&
-      input.AlternateContactType !== null && { AlternateContactType: input.AlternateContactType }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
   });
   return new __HttpRequest({
     protocol,
@@ -98,13 +96,12 @@ export const serializeAws_restJson1PutAlternateContactCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/putAlternateContact";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
-    ...(input.AlternateContactType !== undefined &&
-      input.AlternateContactType !== null && { AlternateContactType: input.AlternateContactType }),
-    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.AlternateContactType != null && { AlternateContactType: input.AlternateContactType }),
+    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.Title != null && { Title: input.Title }),
   });
   return new __HttpRequest({
     protocol,

@@ -378,25 +378,22 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
-    ...(input.IdentityStoreId !== undefined &&
-      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
 const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityStoreId !== undefined &&
-      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+    ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.AttributePath !== undefined && input.AttributePath !== null && { AttributePath: input.AttributePath }),
-    ...(input.AttributeValue !== undefined &&
-      input.AttributeValue !== null && { AttributeValue: input.AttributeValue }),
+    ...(input.AttributePath != null && { AttributePath: input.AttributePath }),
+    ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
   };
 };
 
@@ -413,23 +410,19 @@ const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): 
 
 const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.IdentityStoreId !== undefined &&
-      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.IdentityStoreId !== undefined &&
-      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -485,10 +478,7 @@ const deserializeAws_json1_1InternalServerException = (
 
 const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    Groups:
-      output.Groups !== undefined && output.Groups !== null
-        ? deserializeAws_json1_1Groups(output.Groups, context)
-        : undefined,
+    Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -496,10 +486,7 @@ const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeC
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Users:
-      output.Users !== undefined && output.Users !== null
-        ? deserializeAws_json1_1Users(output.Users, context)
-        : undefined,
+    Users: output.Users != null ? deserializeAws_json1_1Users(output.Users, context) : undefined,
   } as any;
 };
 

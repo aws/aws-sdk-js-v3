@@ -1707,42 +1707,41 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 const serializeAws_json1_0CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration !== undefined &&
-      input.ServerSideEncryptionConfiguration !== null && {
-        ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
-          input.ServerSideEncryptionConfiguration,
-          context
-        ),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ServerSideEncryptionConfiguration != null && {
+      ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
+        input.ServerSideEncryptionConfiguration,
+        context
+      ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
   };
 };
 
 const serializeAws_json1_0DeleteFraudsterRequest = (input: DeleteFraudsterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId !== undefined && input.FraudsterId !== null && { FraudsterId: input.FraudsterId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
   };
 };
 
 const serializeAws_json1_0DeleteSpeakerRequest = (input: DeleteSpeakerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId !== undefined && input.SpeakerId !== null && { SpeakerId: input.SpeakerId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
   };
 };
 
 const serializeAws_json1_0DescribeDomainRequest = (input: DescribeDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
   };
 };
 
@@ -1751,8 +1750,8 @@ const serializeAws_json1_0DescribeFraudsterRegistrationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
   };
 };
 
@@ -1761,8 +1760,8 @@ const serializeAws_json1_0DescribeFraudsterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId !== undefined && input.FraudsterId !== null && { FraudsterId: input.FraudsterId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
   };
 };
 
@@ -1771,29 +1770,24 @@ const serializeAws_json1_0DescribeSpeakerEnrollmentJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_0DescribeSpeakerRequest = (input: DescribeSpeakerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId !== undefined && input.SpeakerId !== null && { SpeakerId: input.SpeakerId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
   };
 };
 
 const serializeAws_json1_0EnrollmentConfig = (input: EnrollmentConfig, context: __SerdeContext): any => {
   return {
-    ...(input.ExistingEnrollmentAction !== undefined &&
-      input.ExistingEnrollmentAction !== null && { ExistingEnrollmentAction: input.ExistingEnrollmentAction }),
-    ...(input.FraudDetectionConfig !== undefined &&
-      input.FraudDetectionConfig !== null && {
-        FraudDetectionConfig: serializeAws_json1_0EnrollmentJobFraudDetectionConfig(
-          input.FraudDetectionConfig,
-          context
-        ),
-      }),
+    ...(input.ExistingEnrollmentAction != null && { ExistingEnrollmentAction: input.ExistingEnrollmentAction }),
+    ...(input.FraudDetectionConfig != null && {
+      FraudDetectionConfig: serializeAws_json1_0EnrollmentJobFraudDetectionConfig(input.FraudDetectionConfig, context),
+    }),
   };
 };
 
@@ -1802,30 +1796,28 @@ const serializeAws_json1_0EnrollmentJobFraudDetectionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FraudDetectionAction !== undefined &&
-      input.FraudDetectionAction !== null && { FraudDetectionAction: input.FraudDetectionAction }),
-    ...(input.RiskThreshold !== undefined && input.RiskThreshold !== null && { RiskThreshold: input.RiskThreshold }),
+    ...(input.FraudDetectionAction != null && { FraudDetectionAction: input.FraudDetectionAction }),
+    ...(input.RiskThreshold != null && { RiskThreshold: input.RiskThreshold }),
   };
 };
 
 const serializeAws_json1_0EvaluateSessionRequest = (input: EvaluateSessionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.SessionNameOrId !== undefined &&
-      input.SessionNameOrId !== null && { SessionNameOrId: input.SessionNameOrId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SessionNameOrId != null && { SessionNameOrId: input.SessionNameOrId }),
   };
 };
 
 const serializeAws_json1_0InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_0ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1834,10 +1826,10 @@ const serializeAws_json1_0ListFraudsterRegistrationJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1846,18 +1838,18 @@ const serializeAws_json1_0ListSpeakerEnrollmentJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0ListSpeakersRequest = (input: ListSpeakersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1866,32 +1858,32 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_0OptOutSpeakerRequest = (input: OptOutSpeakerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId !== undefined && input.SpeakerId !== null && { SpeakerId: input.SpeakerId }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
   };
 };
 
 const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_0RegistrationConfig = (input: RegistrationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DuplicateRegistrationAction !== undefined &&
-      input.DuplicateRegistrationAction !== null && { DuplicateRegistrationAction: input.DuplicateRegistrationAction }),
-    ...(input.FraudsterSimilarityThreshold !== undefined &&
-      input.FraudsterSimilarityThreshold !== null && {
-        FraudsterSimilarityThreshold: input.FraudsterSimilarityThreshold,
-      }),
+    ...(input.DuplicateRegistrationAction != null && {
+      DuplicateRegistrationAction: input.DuplicateRegistrationAction,
+    }),
+    ...(input.FraudsterSimilarityThreshold != null && {
+      FraudsterSimilarityThreshold: input.FraudsterSimilarityThreshold,
+    }),
   };
 };
 
@@ -1900,7 +1892,7 @@ const serializeAws_json1_0ServerSideEncryptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
@@ -1910,22 +1902,18 @@ const serializeAws_json1_0StartFraudsterRegistrationJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig !== undefined &&
-      input.OutputDataConfig !== null && {
-        OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-      }),
-    ...(input.RegistrationConfig !== undefined &&
-      input.RegistrationConfig !== null && {
-        RegistrationConfig: serializeAws_json1_0RegistrationConfig(input.RegistrationConfig, context),
-      }),
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.InputDataConfig != null && {
+      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.OutputDataConfig != null && {
+      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
+    }),
+    ...(input.RegistrationConfig != null && {
+      RegistrationConfig: serializeAws_json1_0RegistrationConfig(input.RegistrationConfig, context),
+    }),
   };
 };
 
@@ -1935,29 +1923,25 @@ const serializeAws_json1_0StartSpeakerEnrollmentJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined &&
-      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.EnrollmentConfig !== undefined &&
-      input.EnrollmentConfig !== null && {
-        EnrollmentConfig: serializeAws_json1_0EnrollmentConfig(input.EnrollmentConfig, context),
-      }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig !== undefined &&
-      input.OutputDataConfig !== null && {
-        OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-      }),
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.EnrollmentConfig != null && {
+      EnrollmentConfig: serializeAws_json1_0EnrollmentConfig(input.EnrollmentConfig, context),
+    }),
+    ...(input.InputDataConfig != null && {
+      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.JobName != null && { JobName: input.JobName }),
+    ...(input.OutputDataConfig != null && {
+      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
+    }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1985,31 +1969,29 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration !== undefined &&
-      input.ServerSideEncryptionConfiguration !== null && {
-        ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
-          input.ServerSideEncryptionConfiguration,
-          context
-        ),
-      }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DomainId != null && { DomainId: input.DomainId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ServerSideEncryptionConfiguration != null && {
+      ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
+        input.ServerSideEncryptionConfiguration,
+        context
+      ),
+    }),
   };
 };
 
@@ -2031,16 +2013,16 @@ const deserializeAws_json1_0AuthenticationConfiguration = (
 const deserializeAws_json1_0AuthenticationResult = (output: any, context: __SerdeContext): AuthenticationResult => {
   return {
     AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt !== undefined && output.AudioAggregationEndedAt !== null
+      output.AudioAggregationEndedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
         : undefined,
     AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt !== undefined && output.AudioAggregationStartedAt !== null
+      output.AudioAggregationStartedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
         : undefined,
     AuthenticationResultId: __expectString(output.AuthenticationResultId),
     Configuration:
-      output.Configuration !== undefined && output.Configuration !== null
+      output.Configuration != null
         ? deserializeAws_json1_0AuthenticationConfiguration(output.Configuration, context)
         : undefined,
     CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
@@ -2059,19 +2041,13 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
   return {
-    Domain:
-      output.Domain !== undefined && output.Domain !== null
-        ? deserializeAws_json1_0Domain(output.Domain, context)
-        : undefined,
+    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
   return {
-    Domain:
-      output.Domain !== undefined && output.Domain !== null
-        ? deserializeAws_json1_0Domain(output.Domain, context)
-        : undefined,
+    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
   } as any;
 };
 
@@ -2080,10 +2056,7 @@ const deserializeAws_json1_0DescribeFraudsterRegistrationJobResponse = (
   context: __SerdeContext
 ): DescribeFraudsterRegistrationJobResponse => {
   return {
-    Job:
-      output.Job !== undefined && output.Job !== null
-        ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context)
-        : undefined,
+    Job: output.Job != null ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context) : undefined,
   } as any;
 };
 
@@ -2092,10 +2065,7 @@ const deserializeAws_json1_0DescribeFraudsterResponse = (
   context: __SerdeContext
 ): DescribeFraudsterResponse => {
   return {
-    Fraudster:
-      output.Fraudster !== undefined && output.Fraudster !== null
-        ? deserializeAws_json1_0Fraudster(output.Fraudster, context)
-        : undefined,
+    Fraudster: output.Fraudster != null ? deserializeAws_json1_0Fraudster(output.Fraudster, context) : undefined,
   } as any;
 };
 
@@ -2104,10 +2074,7 @@ const deserializeAws_json1_0DescribeSpeakerEnrollmentJobResponse = (
   context: __SerdeContext
 ): DescribeSpeakerEnrollmentJobResponse => {
   return {
-    Job:
-      output.Job !== undefined && output.Job !== null
-        ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context)
-        : undefined,
+    Job: output.Job != null ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context) : undefined,
   } as any;
 };
 
@@ -2116,10 +2083,7 @@ const deserializeAws_json1_0DescribeSpeakerResponse = (
   context: __SerdeContext
 ): DescribeSpeakerResponse => {
   return {
-    Speaker:
-      output.Speaker !== undefined && output.Speaker !== null
-        ? deserializeAws_json1_0Speaker(output.Speaker, context)
-        : undefined,
+    Speaker: output.Speaker != null ? deserializeAws_json1_0Speaker(output.Speaker, context) : undefined,
   } as any;
 };
 
@@ -2127,25 +2091,21 @@ const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Dom
   return {
     Arn: __expectString(output.Arn),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     DomainId: __expectString(output.DomainId),
     DomainStatus: __expectString(output.DomainStatus),
     Name: __expectString(output.Name),
     ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration !== undefined && output.ServerSideEncryptionConfiguration !== null
+      output.ServerSideEncryptionConfiguration != null
         ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
         : undefined,
     ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails !== undefined && output.ServerSideEncryptionUpdateDetails !== null
+      output.ServerSideEncryptionUpdateDetails != null
         ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
         : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -2165,25 +2125,21 @@ const deserializeAws_json1_0DomainSummary = (output: any, context: __SerdeContex
   return {
     Arn: __expectString(output.Arn),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     DomainId: __expectString(output.DomainId),
     DomainStatus: __expectString(output.DomainStatus),
     Name: __expectString(output.Name),
     ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration !== undefined && output.ServerSideEncryptionConfiguration !== null
+      output.ServerSideEncryptionConfiguration != null
         ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
         : undefined,
     ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails !== undefined && output.ServerSideEncryptionUpdateDetails !== null
+      output.ServerSideEncryptionUpdateDetails != null
         ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
         : undefined,
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -2191,7 +2147,7 @@ const deserializeAws_json1_0EnrollmentConfig = (output: any, context: __SerdeCon
   return {
     ExistingEnrollmentAction: __expectString(output.ExistingEnrollmentAction),
     FraudDetectionConfig:
-      output.FraudDetectionConfig !== undefined && output.FraudDetectionConfig !== null
+      output.FraudDetectionConfig != null
         ? deserializeAws_json1_0EnrollmentJobFraudDetectionConfig(output.FraudDetectionConfig, context)
         : undefined,
   } as any;
@@ -2213,12 +2169,12 @@ const deserializeAws_json1_0EvaluateSessionResponse = (
 ): EvaluateSessionResponse => {
   return {
     AuthenticationResult:
-      output.AuthenticationResult !== undefined && output.AuthenticationResult !== null
+      output.AuthenticationResult != null
         ? deserializeAws_json1_0AuthenticationResult(output.AuthenticationResult, context)
         : undefined,
     DomainId: __expectString(output.DomainId),
     FraudDetectionResult:
-      output.FraudDetectionResult !== undefined && output.FraudDetectionResult !== null
+      output.FraudDetectionResult != null
         ? deserializeAws_json1_0FraudDetectionResult(output.FraudDetectionResult, context)
         : undefined,
     SessionId: __expectString(output.SessionId),
@@ -2261,34 +2217,29 @@ const deserializeAws_json1_0FraudDetectionReasons = (
 const deserializeAws_json1_0FraudDetectionResult = (output: any, context: __SerdeContext): FraudDetectionResult => {
   return {
     AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt !== undefined && output.AudioAggregationEndedAt !== null
+      output.AudioAggregationEndedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
         : undefined,
     AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt !== undefined && output.AudioAggregationStartedAt !== null
+      output.AudioAggregationStartedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
         : undefined,
     Configuration:
-      output.Configuration !== undefined && output.Configuration !== null
+      output.Configuration != null
         ? deserializeAws_json1_0FraudDetectionConfiguration(output.Configuration, context)
         : undefined,
     Decision: __expectString(output.Decision),
     FraudDetectionResultId: __expectString(output.FraudDetectionResultId),
-    Reasons:
-      output.Reasons !== undefined && output.Reasons !== null
-        ? deserializeAws_json1_0FraudDetectionReasons(output.Reasons, context)
-        : undefined,
+    Reasons: output.Reasons != null ? deserializeAws_json1_0FraudDetectionReasons(output.Reasons, context) : undefined,
     RiskDetails:
-      output.RiskDetails !== undefined && output.RiskDetails !== null
-        ? deserializeAws_json1_0FraudRiskDetails(output.RiskDetails, context)
-        : undefined,
+      output.RiskDetails != null ? deserializeAws_json1_0FraudRiskDetails(output.RiskDetails, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0FraudRiskDetails = (output: any, context: __SerdeContext): FraudRiskDetails => {
   return {
     KnownFraudsterRisk:
-      output.KnownFraudsterRisk !== undefined && output.KnownFraudsterRisk !== null
+      output.KnownFraudsterRisk != null
         ? deserializeAws_json1_0KnownFraudsterRisk(output.KnownFraudsterRisk, context)
         : undefined,
   } as any;
@@ -2297,9 +2248,7 @@ const deserializeAws_json1_0FraudRiskDetails = (output: any, context: __SerdeCon
 const deserializeAws_json1_0Fraudster = (output: any, context: __SerdeContext): Fraudster => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainId: __expectString(output.DomainId),
     GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
   } as any;
@@ -2311,36 +2260,28 @@ const deserializeAws_json1_0FraudsterRegistrationJob = (
 ): FraudsterRegistrationJob => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DomainId: __expectString(output.DomainId),
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
-        : undefined,
+      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
     FailureDetails:
-      output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context)
-        : undefined,
+      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != null
         ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobProgress:
-      output.JobProgress !== undefined && output.JobProgress !== null
-        ? deserializeAws_json1_0JobProgress(output.JobProgress, context)
-        : undefined,
+      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     OutputDataConfig:
-      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+      output.OutputDataConfig != null
         ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
         : undefined,
     RegistrationConfig:
-      output.RegistrationConfig !== undefined && output.RegistrationConfig !== null
+      output.RegistrationConfig != null
         ? deserializeAws_json1_0RegistrationConfig(output.RegistrationConfig, context)
         : undefined,
   } as any;
@@ -2367,24 +2308,16 @@ const deserializeAws_json1_0FraudsterRegistrationJobSummary = (
 ): FraudsterRegistrationJobSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainId: __expectString(output.DomainId),
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
-        : undefined,
+      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
     FailureDetails:
-      output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context)
-        : undefined,
+      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobProgress:
-      output.JobProgress !== undefined && output.JobProgress !== null
-        ? deserializeAws_json1_0JobProgress(output.JobProgress, context)
-        : undefined,
+      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
   } as any;
 };
@@ -2420,7 +2353,7 @@ const deserializeAws_json1_0KnownFraudsterRisk = (output: any, context: __SerdeC
 const deserializeAws_json1_0ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
   return {
     DomainSummaries:
-      output.DomainSummaries !== undefined && output.DomainSummaries !== null
+      output.DomainSummaries != null
         ? deserializeAws_json1_0DomainSummaries(output.DomainSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2433,7 +2366,7 @@ const deserializeAws_json1_0ListFraudsterRegistrationJobsResponse = (
 ): ListFraudsterRegistrationJobsResponse => {
   return {
     JobSummaries:
-      output.JobSummaries !== undefined && output.JobSummaries !== null
+      output.JobSummaries != null
         ? deserializeAws_json1_0FraudsterRegistrationJobSummaries(output.JobSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2446,7 +2379,7 @@ const deserializeAws_json1_0ListSpeakerEnrollmentJobsResponse = (
 ): ListSpeakerEnrollmentJobsResponse => {
   return {
     JobSummaries:
-      output.JobSummaries !== undefined && output.JobSummaries !== null
+      output.JobSummaries != null
         ? deserializeAws_json1_0SpeakerEnrollmentJobSummaries(output.JobSummaries, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2457,7 +2390,7 @@ const deserializeAws_json1_0ListSpeakersResponse = (output: any, context: __Serd
   return {
     NextToken: __expectString(output.NextToken),
     SpeakerSummaries:
-      output.SpeakerSummaries !== undefined && output.SpeakerSummaries !== null
+      output.SpeakerSummaries != null
         ? deserializeAws_json1_0SpeakerSummaries(output.SpeakerSummaries, context)
         : undefined,
   } as any;
@@ -2468,19 +2401,13 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_0TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0OptOutSpeakerResponse = (output: any, context: __SerdeContext): OptOutSpeakerResponse => {
   return {
-    Speaker:
-      output.Speaker !== undefined && output.Speaker !== null
-        ? deserializeAws_json1_0Speaker(output.Speaker, context)
-        : undefined,
+    Speaker: output.Speaker != null ? deserializeAws_json1_0Speaker(output.Speaker, context) : undefined,
   } as any;
 };
 
@@ -2540,57 +2467,45 @@ const deserializeAws_json1_0ServiceQuotaExceededException = (
 const deserializeAws_json1_0Speaker = (output: any, context: __SerdeContext): Speaker => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
     DomainId: __expectString(output.DomainId),
     GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
     LastAccessedAt:
-      output.LastAccessedAt !== undefined && output.LastAccessedAt !== null
+      output.LastAccessedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
         : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0SpeakerEnrollmentJob = (output: any, context: __SerdeContext): SpeakerEnrollmentJob => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
     DomainId: __expectString(output.DomainId),
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
-        : undefined,
+      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
     EnrollmentConfig:
-      output.EnrollmentConfig !== undefined && output.EnrollmentConfig !== null
+      output.EnrollmentConfig != null
         ? deserializeAws_json1_0EnrollmentConfig(output.EnrollmentConfig, context)
         : undefined,
     FailureDetails:
-      output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context)
-        : undefined,
+      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
     InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+      output.InputDataConfig != null
         ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
         : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobProgress:
-      output.JobProgress !== undefined && output.JobProgress !== null
-        ? deserializeAws_json1_0JobProgress(output.JobProgress, context)
-        : undefined,
+      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
     OutputDataConfig:
-      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+      output.OutputDataConfig != null
         ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
         : undefined,
   } as any;
@@ -2617,24 +2532,16 @@ const deserializeAws_json1_0SpeakerEnrollmentJobSummary = (
 ): SpeakerEnrollmentJobSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DomainId: __expectString(output.DomainId),
     EndedAt:
-      output.EndedAt !== undefined && output.EndedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt)))
-        : undefined,
+      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
     FailureDetails:
-      output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context)
-        : undefined,
+      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
     JobId: __expectString(output.JobId),
     JobName: __expectString(output.JobName),
     JobProgress:
-      output.JobProgress !== undefined && output.JobProgress !== null
-        ? deserializeAws_json1_0JobProgress(output.JobProgress, context)
-        : undefined,
+      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
     JobStatus: __expectString(output.JobStatus),
   } as any;
 };
@@ -2654,21 +2561,17 @@ const deserializeAws_json1_0SpeakerSummaries = (output: any, context: __SerdeCon
 const deserializeAws_json1_0SpeakerSummary = (output: any, context: __SerdeContext): SpeakerSummary => {
   return {
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
     DomainId: __expectString(output.DomainId),
     GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
     LastAccessedAt:
-      output.LastAccessedAt !== undefined && output.LastAccessedAt !== null
+      output.LastAccessedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
         : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -2677,10 +2580,7 @@ const deserializeAws_json1_0StartFraudsterRegistrationJobResponse = (
   context: __SerdeContext
 ): StartFraudsterRegistrationJobResponse => {
   return {
-    Job:
-      output.Job !== undefined && output.Job !== null
-        ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context)
-        : undefined,
+    Job: output.Job != null ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context) : undefined,
   } as any;
 };
 
@@ -2689,10 +2589,7 @@ const deserializeAws_json1_0StartSpeakerEnrollmentJobResponse = (
   context: __SerdeContext
 ): StartSpeakerEnrollmentJobResponse => {
   return {
-    Job:
-      output.Job !== undefined && output.Job !== null
-        ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context)
-        : undefined,
+    Job: output.Job != null ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context) : undefined,
   } as any;
 };
 
@@ -2731,10 +2628,7 @@ const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_0UpdateDomainResponse = (output: any, context: __SerdeContext): UpdateDomainResponse => {
   return {
-    Domain:
-      output.Domain !== undefined && output.Domain !== null
-        ? deserializeAws_json1_0Domain(output.Domain, context)
-        : undefined,
+    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
   } as any;
 };
 

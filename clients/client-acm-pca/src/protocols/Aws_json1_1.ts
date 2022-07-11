@@ -1949,12 +1949,10 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 
 const serializeAws_json1_1AccessDescription = (input: AccessDescription, context: __SerdeContext): any => {
   return {
-    ...(input.AccessLocation !== undefined &&
-      input.AccessLocation !== null && {
-        AccessLocation: serializeAws_json1_1GeneralName(input.AccessLocation, context),
-      }),
-    ...(input.AccessMethod !== undefined &&
-      input.AccessMethod !== null && { AccessMethod: serializeAws_json1_1AccessMethod(input.AccessMethod, context) }),
+    ...(input.AccessLocation != null && {
+      AccessLocation: serializeAws_json1_1GeneralName(input.AccessLocation, context),
+    }),
+    ...(input.AccessMethod != null && { AccessMethod: serializeAws_json1_1AccessMethod(input.AccessMethod, context) }),
   };
 };
 
@@ -1971,10 +1969,8 @@ const serializeAws_json1_1AccessDescriptionList = (input: AccessDescription[], c
 
 const serializeAws_json1_1AccessMethod = (input: AccessMethod, context: __SerdeContext): any => {
   return {
-    ...(input.AccessMethodType !== undefined &&
-      input.AccessMethodType !== null && { AccessMethodType: input.AccessMethodType }),
-    ...(input.CustomObjectIdentifier !== undefined &&
-      input.CustomObjectIdentifier !== null && { CustomObjectIdentifier: input.CustomObjectIdentifier }),
+    ...(input.AccessMethodType != null && { AccessMethodType: input.AccessMethodType }),
+    ...(input.CustomObjectIdentifier != null && { CustomObjectIdentifier: input.CustomObjectIdentifier }),
   };
 };
 
@@ -1991,36 +1987,30 @@ const serializeAws_json1_1ActionList = (input: (ActionType | string)[], context:
 
 const serializeAws_json1_1ApiPassthrough = (input: ApiPassthrough, context: __SerdeContext): any => {
   return {
-    ...(input.Extensions !== undefined &&
-      input.Extensions !== null && { Extensions: serializeAws_json1_1Extensions(input.Extensions, context) }),
-    ...(input.Subject !== undefined &&
-      input.Subject !== null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
+    ...(input.Extensions != null && { Extensions: serializeAws_json1_1Extensions(input.Extensions, context) }),
+    ...(input.Subject != null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
   };
 };
 
 const serializeAws_json1_1ASN1Subject = (input: ASN1Subject, context: __SerdeContext): any => {
   return {
-    ...(input.CommonName !== undefined && input.CommonName !== null && { CommonName: input.CommonName }),
-    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
-    ...(input.CustomAttributes !== undefined &&
-      input.CustomAttributes !== null && {
-        CustomAttributes: serializeAws_json1_1CustomAttributeList(input.CustomAttributes, context),
-      }),
-    ...(input.DistinguishedNameQualifier !== undefined &&
-      input.DistinguishedNameQualifier !== null && { DistinguishedNameQualifier: input.DistinguishedNameQualifier }),
-    ...(input.GenerationQualifier !== undefined &&
-      input.GenerationQualifier !== null && { GenerationQualifier: input.GenerationQualifier }),
-    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
-    ...(input.Initials !== undefined && input.Initials !== null && { Initials: input.Initials }),
-    ...(input.Locality !== undefined && input.Locality !== null && { Locality: input.Locality }),
-    ...(input.Organization !== undefined && input.Organization !== null && { Organization: input.Organization }),
-    ...(input.OrganizationalUnit !== undefined &&
-      input.OrganizationalUnit !== null && { OrganizationalUnit: input.OrganizationalUnit }),
-    ...(input.Pseudonym !== undefined && input.Pseudonym !== null && { Pseudonym: input.Pseudonym }),
-    ...(input.SerialNumber !== undefined && input.SerialNumber !== null && { SerialNumber: input.SerialNumber }),
-    ...(input.State !== undefined && input.State !== null && { State: input.State }),
-    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
-    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
+    ...(input.CommonName != null && { CommonName: input.CommonName }),
+    ...(input.Country != null && { Country: input.Country }),
+    ...(input.CustomAttributes != null && {
+      CustomAttributes: serializeAws_json1_1CustomAttributeList(input.CustomAttributes, context),
+    }),
+    ...(input.DistinguishedNameQualifier != null && { DistinguishedNameQualifier: input.DistinguishedNameQualifier }),
+    ...(input.GenerationQualifier != null && { GenerationQualifier: input.GenerationQualifier }),
+    ...(input.GivenName != null && { GivenName: input.GivenName }),
+    ...(input.Initials != null && { Initials: input.Initials }),
+    ...(input.Locality != null && { Locality: input.Locality }),
+    ...(input.Organization != null && { Organization: input.Organization }),
+    ...(input.OrganizationalUnit != null && { OrganizationalUnit: input.OrganizationalUnit }),
+    ...(input.Pseudonym != null && { Pseudonym: input.Pseudonym }),
+    ...(input.SerialNumber != null && { SerialNumber: input.SerialNumber }),
+    ...(input.State != null && { State: input.State }),
+    ...(input.Surname != null && { Surname: input.Surname }),
+    ...(input.Title != null && { Title: input.Title }),
   };
 };
 
@@ -2029,15 +2019,12 @@ const serializeAws_json1_1CertificateAuthorityConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CsrExtensions !== undefined &&
-      input.CsrExtensions !== null && {
-        CsrExtensions: serializeAws_json1_1CsrExtensions(input.CsrExtensions, context),
-      }),
-    ...(input.KeyAlgorithm !== undefined && input.KeyAlgorithm !== null && { KeyAlgorithm: input.KeyAlgorithm }),
-    ...(input.SigningAlgorithm !== undefined &&
-      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
-    ...(input.Subject !== undefined &&
-      input.Subject !== null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
+    ...(input.CsrExtensions != null && {
+      CsrExtensions: serializeAws_json1_1CsrExtensions(input.CsrExtensions, context),
+    }),
+    ...(input.KeyAlgorithm != null && { KeyAlgorithm: input.KeyAlgorithm }),
+    ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
+    ...(input.Subject != null && { Subject: serializeAws_json1_1ASN1Subject(input.Subject, context) }),
   };
 };
 
@@ -2057,11 +2044,9 @@ const serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuditReportResponseFormat !== undefined &&
-      input.AuditReportResponseFormat !== null && { AuditReportResponseFormat: input.AuditReportResponseFormat }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.AuditReportResponseFormat != null && { AuditReportResponseFormat: input.AuditReportResponseFormat }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
   };
 };
 
@@ -2070,65 +2055,54 @@ const serializeAws_json1_1CreateCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityConfiguration !== undefined &&
-      input.CertificateAuthorityConfiguration !== null && {
-        CertificateAuthorityConfiguration: serializeAws_json1_1CertificateAuthorityConfiguration(
-          input.CertificateAuthorityConfiguration,
-          context
-        ),
-      }),
-    ...(input.CertificateAuthorityType !== undefined &&
-      input.CertificateAuthorityType !== null && { CertificateAuthorityType: input.CertificateAuthorityType }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.KeyStorageSecurityStandard !== undefined &&
-      input.KeyStorageSecurityStandard !== null && { KeyStorageSecurityStandard: input.KeyStorageSecurityStandard }),
-    ...(input.RevocationConfiguration !== undefined &&
-      input.RevocationConfiguration !== null && {
-        RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.CertificateAuthorityConfiguration != null && {
+      CertificateAuthorityConfiguration: serializeAws_json1_1CertificateAuthorityConfiguration(
+        input.CertificateAuthorityConfiguration,
+        context
+      ),
+    }),
+    ...(input.CertificateAuthorityType != null && { CertificateAuthorityType: input.CertificateAuthorityType }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.KeyStorageSecurityStandard != null && { KeyStorageSecurityStandard: input.KeyStorageSecurityStandard }),
+    ...(input.RevocationConfiguration != null && {
+      RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreatePermissionRequest = (input: CreatePermissionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Actions !== undefined &&
-      input.Actions !== null && { Actions: serializeAws_json1_1ActionList(input.Actions, context) }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
-    ...(input.SourceAccount !== undefined && input.SourceAccount !== null && { SourceAccount: input.SourceAccount }),
+    ...(input.Actions != null && { Actions: serializeAws_json1_1ActionList(input.Actions, context) }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Principal != null && { Principal: input.Principal }),
+    ...(input.SourceAccount != null && { SourceAccount: input.SourceAccount }),
   };
 };
 
 const serializeAws_json1_1CrlConfiguration = (input: CrlConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.CustomCname !== undefined && input.CustomCname !== null && { CustomCname: input.CustomCname }),
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.ExpirationInDays !== undefined &&
-      input.ExpirationInDays !== null && { ExpirationInDays: input.ExpirationInDays }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3ObjectAcl !== undefined && input.S3ObjectAcl !== null && { S3ObjectAcl: input.S3ObjectAcl }),
+    ...(input.CustomCname != null && { CustomCname: input.CustomCname }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.ExpirationInDays != null && { ExpirationInDays: input.ExpirationInDays }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3ObjectAcl != null && { S3ObjectAcl: input.S3ObjectAcl }),
   };
 };
 
 const serializeAws_json1_1CsrExtensions = (input: CsrExtensions, context: __SerdeContext): any => {
   return {
-    ...(input.KeyUsage !== undefined &&
-      input.KeyUsage !== null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
-    ...(input.SubjectInformationAccess !== undefined &&
-      input.SubjectInformationAccess !== null && {
-        SubjectInformationAccess: serializeAws_json1_1AccessDescriptionList(input.SubjectInformationAccess, context),
-      }),
+    ...(input.KeyUsage != null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
+    ...(input.SubjectInformationAccess != null && {
+      SubjectInformationAccess: serializeAws_json1_1AccessDescriptionList(input.SubjectInformationAccess, context),
+    }),
   };
 };
 
 const serializeAws_json1_1CustomAttribute = (input: CustomAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.ObjectIdentifier !== undefined &&
-      input.ObjectIdentifier !== null && { ObjectIdentifier: input.ObjectIdentifier }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.ObjectIdentifier != null && { ObjectIdentifier: input.ObjectIdentifier }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2145,10 +2119,9 @@ const serializeAws_json1_1CustomAttributeList = (input: CustomAttribute[], conte
 
 const serializeAws_json1_1CustomExtension = (input: CustomExtension, context: __SerdeContext): any => {
   return {
-    ...(input.Critical !== undefined && input.Critical !== null && { Critical: input.Critical }),
-    ...(input.ObjectIdentifier !== undefined &&
-      input.ObjectIdentifier !== null && { ObjectIdentifier: input.ObjectIdentifier }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Critical != null && { Critical: input.Critical }),
+    ...(input.ObjectIdentifier != null && { ObjectIdentifier: input.ObjectIdentifier }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2168,25 +2141,24 @@ const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.PermanentDeletionTimeInDays !== undefined &&
-      input.PermanentDeletionTimeInDays !== null && { PermanentDeletionTimeInDays: input.PermanentDeletionTimeInDays }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.PermanentDeletionTimeInDays != null && {
+      PermanentDeletionTimeInDays: input.PermanentDeletionTimeInDays,
+    }),
   };
 };
 
 const serializeAws_json1_1DeletePermissionRequest = (input: DeletePermissionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
-    ...(input.SourceAccount !== undefined && input.SourceAccount !== null && { SourceAccount: input.SourceAccount }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Principal != null && { Principal: input.Principal }),
+    ...(input.SourceAccount != null && { SourceAccount: input.SourceAccount }),
   };
 };
 
 const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2195,9 +2167,8 @@ const serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuditReportId !== undefined && input.AuditReportId !== null && { AuditReportId: input.AuditReportId }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.AuditReportId != null && { AuditReportId: input.AuditReportId }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
@@ -2206,26 +2177,23 @@ const serializeAws_json1_1DescribeCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
 const serializeAws_json1_1EdiPartyName = (input: EdiPartyName, context: __SerdeContext): any => {
   return {
-    ...(input.NameAssigner !== undefined && input.NameAssigner !== null && { NameAssigner: input.NameAssigner }),
-    ...(input.PartyName !== undefined && input.PartyName !== null && { PartyName: input.PartyName }),
+    ...(input.NameAssigner != null && { NameAssigner: input.NameAssigner }),
+    ...(input.PartyName != null && { PartyName: input.PartyName }),
   };
 };
 
 const serializeAws_json1_1ExtendedKeyUsage = (input: ExtendedKeyUsage, context: __SerdeContext): any => {
   return {
-    ...(input.ExtendedKeyUsageObjectIdentifier !== undefined &&
-      input.ExtendedKeyUsageObjectIdentifier !== null && {
-        ExtendedKeyUsageObjectIdentifier: input.ExtendedKeyUsageObjectIdentifier,
-      }),
-    ...(input.ExtendedKeyUsageType !== undefined &&
-      input.ExtendedKeyUsageType !== null && { ExtendedKeyUsageType: input.ExtendedKeyUsageType }),
+    ...(input.ExtendedKeyUsageObjectIdentifier != null && {
+      ExtendedKeyUsageObjectIdentifier: input.ExtendedKeyUsageObjectIdentifier,
+    }),
+    ...(input.ExtendedKeyUsageType != null && { ExtendedKeyUsageType: input.ExtendedKeyUsageType }),
   };
 };
 
@@ -2242,41 +2210,34 @@ const serializeAws_json1_1ExtendedKeyUsageList = (input: ExtendedKeyUsage[], con
 
 const serializeAws_json1_1Extensions = (input: Extensions, context: __SerdeContext): any => {
   return {
-    ...(input.CertificatePolicies !== undefined &&
-      input.CertificatePolicies !== null && {
-        CertificatePolicies: serializeAws_json1_1CertificatePolicyList(input.CertificatePolicies, context),
-      }),
-    ...(input.CustomExtensions !== undefined &&
-      input.CustomExtensions !== null && {
-        CustomExtensions: serializeAws_json1_1CustomExtensionList(input.CustomExtensions, context),
-      }),
-    ...(input.ExtendedKeyUsage !== undefined &&
-      input.ExtendedKeyUsage !== null && {
-        ExtendedKeyUsage: serializeAws_json1_1ExtendedKeyUsageList(input.ExtendedKeyUsage, context),
-      }),
-    ...(input.KeyUsage !== undefined &&
-      input.KeyUsage !== null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
-    ...(input.SubjectAlternativeNames !== undefined &&
-      input.SubjectAlternativeNames !== null && {
-        SubjectAlternativeNames: serializeAws_json1_1GeneralNameList(input.SubjectAlternativeNames, context),
-      }),
+    ...(input.CertificatePolicies != null && {
+      CertificatePolicies: serializeAws_json1_1CertificatePolicyList(input.CertificatePolicies, context),
+    }),
+    ...(input.CustomExtensions != null && {
+      CustomExtensions: serializeAws_json1_1CustomExtensionList(input.CustomExtensions, context),
+    }),
+    ...(input.ExtendedKeyUsage != null && {
+      ExtendedKeyUsage: serializeAws_json1_1ExtendedKeyUsageList(input.ExtendedKeyUsage, context),
+    }),
+    ...(input.KeyUsage != null && { KeyUsage: serializeAws_json1_1KeyUsage(input.KeyUsage, context) }),
+    ...(input.SubjectAlternativeNames != null && {
+      SubjectAlternativeNames: serializeAws_json1_1GeneralNameList(input.SubjectAlternativeNames, context),
+    }),
   };
 };
 
 const serializeAws_json1_1GeneralName = (input: GeneralName, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryName !== undefined &&
-      input.DirectoryName !== null && { DirectoryName: serializeAws_json1_1ASN1Subject(input.DirectoryName, context) }),
-    ...(input.DnsName !== undefined && input.DnsName !== null && { DnsName: input.DnsName }),
-    ...(input.EdiPartyName !== undefined &&
-      input.EdiPartyName !== null && { EdiPartyName: serializeAws_json1_1EdiPartyName(input.EdiPartyName, context) }),
-    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
-    ...(input.OtherName !== undefined &&
-      input.OtherName !== null && { OtherName: serializeAws_json1_1OtherName(input.OtherName, context) }),
-    ...(input.RegisteredId !== undefined && input.RegisteredId !== null && { RegisteredId: input.RegisteredId }),
-    ...(input.Rfc822Name !== undefined && input.Rfc822Name !== null && { Rfc822Name: input.Rfc822Name }),
-    ...(input.UniformResourceIdentifier !== undefined &&
-      input.UniformResourceIdentifier !== null && { UniformResourceIdentifier: input.UniformResourceIdentifier }),
+    ...(input.DirectoryName != null && {
+      DirectoryName: serializeAws_json1_1ASN1Subject(input.DirectoryName, context),
+    }),
+    ...(input.DnsName != null && { DnsName: input.DnsName }),
+    ...(input.EdiPartyName != null && { EdiPartyName: serializeAws_json1_1EdiPartyName(input.EdiPartyName, context) }),
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
+    ...(input.OtherName != null && { OtherName: serializeAws_json1_1OtherName(input.OtherName, context) }),
+    ...(input.RegisteredId != null && { RegisteredId: input.RegisteredId }),
+    ...(input.Rfc822Name != null && { Rfc822Name: input.Rfc822Name }),
+    ...(input.UniformResourceIdentifier != null && { UniformResourceIdentifier: input.UniformResourceIdentifier }),
   };
 };
 
@@ -2296,8 +2257,7 @@ const serializeAws_json1_1GetCertificateAuthorityCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
@@ -2306,23 +2266,20 @@ const serializeAws_json1_1GetCertificateAuthorityCsrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
 const serializeAws_json1_1GetCertificateRequest = (input: GetCertificateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn !== undefined &&
-      input.CertificateArn !== null && { CertificateArn: input.CertificateArn }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
 const serializeAws_json1_1GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2331,53 +2288,40 @@ const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Certificate !== undefined &&
-      input.Certificate !== null && { Certificate: context.base64Encoder(input.Certificate) }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.CertificateChain !== undefined &&
-      input.CertificateChain !== null && { CertificateChain: context.base64Encoder(input.CertificateChain) }),
+    ...(input.Certificate != null && { Certificate: context.base64Encoder(input.Certificate) }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateChain != null && { CertificateChain: context.base64Encoder(input.CertificateChain) }),
   };
 };
 
 const serializeAws_json1_1IssueCertificateRequest = (input: IssueCertificateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ApiPassthrough !== undefined &&
-      input.ApiPassthrough !== null && {
-        ApiPassthrough: serializeAws_json1_1ApiPassthrough(input.ApiPassthrough, context),
-      }),
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Csr !== undefined && input.Csr !== null && { Csr: context.base64Encoder(input.Csr) }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.SigningAlgorithm !== undefined &&
-      input.SigningAlgorithm !== null && { SigningAlgorithm: input.SigningAlgorithm }),
-    ...(input.TemplateArn !== undefined && input.TemplateArn !== null && { TemplateArn: input.TemplateArn }),
-    ...(input.Validity !== undefined &&
-      input.Validity !== null && { Validity: serializeAws_json1_1Validity(input.Validity, context) }),
-    ...(input.ValidityNotBefore !== undefined &&
-      input.ValidityNotBefore !== null && {
-        ValidityNotBefore: serializeAws_json1_1Validity(input.ValidityNotBefore, context),
-      }),
+    ...(input.ApiPassthrough != null && {
+      ApiPassthrough: serializeAws_json1_1ApiPassthrough(input.ApiPassthrough, context),
+    }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Csr != null && { Csr: context.base64Encoder(input.Csr) }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
+    ...(input.TemplateArn != null && { TemplateArn: input.TemplateArn }),
+    ...(input.Validity != null && { Validity: serializeAws_json1_1Validity(input.Validity, context) }),
+    ...(input.ValidityNotBefore != null && {
+      ValidityNotBefore: serializeAws_json1_1Validity(input.ValidityNotBefore, context),
+    }),
   };
 };
 
 const serializeAws_json1_1KeyUsage = (input: KeyUsage, context: __SerdeContext): any => {
   return {
-    ...(input.CRLSign !== undefined && input.CRLSign !== null && { CRLSign: input.CRLSign }),
-    ...(input.DataEncipherment !== undefined &&
-      input.DataEncipherment !== null && { DataEncipherment: input.DataEncipherment }),
-    ...(input.DecipherOnly !== undefined && input.DecipherOnly !== null && { DecipherOnly: input.DecipherOnly }),
-    ...(input.DigitalSignature !== undefined &&
-      input.DigitalSignature !== null && { DigitalSignature: input.DigitalSignature }),
-    ...(input.EncipherOnly !== undefined && input.EncipherOnly !== null && { EncipherOnly: input.EncipherOnly }),
-    ...(input.KeyAgreement !== undefined && input.KeyAgreement !== null && { KeyAgreement: input.KeyAgreement }),
-    ...(input.KeyCertSign !== undefined && input.KeyCertSign !== null && { KeyCertSign: input.KeyCertSign }),
-    ...(input.KeyEncipherment !== undefined &&
-      input.KeyEncipherment !== null && { KeyEncipherment: input.KeyEncipherment }),
-    ...(input.NonRepudiation !== undefined &&
-      input.NonRepudiation !== null && { NonRepudiation: input.NonRepudiation }),
+    ...(input.CRLSign != null && { CRLSign: input.CRLSign }),
+    ...(input.DataEncipherment != null && { DataEncipherment: input.DataEncipherment }),
+    ...(input.DecipherOnly != null && { DecipherOnly: input.DecipherOnly }),
+    ...(input.DigitalSignature != null && { DigitalSignature: input.DigitalSignature }),
+    ...(input.EncipherOnly != null && { EncipherOnly: input.EncipherOnly }),
+    ...(input.KeyAgreement != null && { KeyAgreement: input.KeyAgreement }),
+    ...(input.KeyCertSign != null && { KeyCertSign: input.KeyCertSign }),
+    ...(input.KeyEncipherment != null && { KeyEncipherment: input.KeyEncipherment }),
+    ...(input.NonRepudiation != null && { NonRepudiation: input.NonRepudiation }),
   };
 };
 
@@ -2386,61 +2330,55 @@ const serializeAws_json1_1ListCertificateAuthoritiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.ResourceOwner !== undefined && input.ResourceOwner !== null && { ResourceOwner: input.ResourceOwner }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceOwner != null && { ResourceOwner: input.ResourceOwner }),
   };
 };
 
 const serializeAws_json1_1ListPermissionsRequest = (input: ListPermissionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1OcspConfiguration = (input: OcspConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-    ...(input.OcspCustomCname !== undefined &&
-      input.OcspCustomCname !== null && { OcspCustomCname: input.OcspCustomCname }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.OcspCustomCname != null && { OcspCustomCname: input.OcspCustomCname }),
   };
 };
 
 const serializeAws_json1_1OtherName = (input: OtherName, context: __SerdeContext): any => {
   return {
-    ...(input.TypeId !== undefined && input.TypeId !== null && { TypeId: input.TypeId }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.TypeId != null && { TypeId: input.TypeId }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1PolicyInformation = (input: PolicyInformation, context: __SerdeContext): any => {
   return {
-    ...(input.CertPolicyId !== undefined && input.CertPolicyId !== null && { CertPolicyId: input.CertPolicyId }),
-    ...(input.PolicyQualifiers !== undefined &&
-      input.PolicyQualifiers !== null && {
-        PolicyQualifiers: serializeAws_json1_1PolicyQualifierInfoList(input.PolicyQualifiers, context),
-      }),
+    ...(input.CertPolicyId != null && { CertPolicyId: input.CertPolicyId }),
+    ...(input.PolicyQualifiers != null && {
+      PolicyQualifiers: serializeAws_json1_1PolicyQualifierInfoList(input.PolicyQualifiers, context),
+    }),
   };
 };
 
 const serializeAws_json1_1PolicyQualifierInfo = (input: PolicyQualifierInfo, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyQualifierId !== undefined &&
-      input.PolicyQualifierId !== null && { PolicyQualifierId: input.PolicyQualifierId }),
-    ...(input.Qualifier !== undefined &&
-      input.Qualifier !== null && { Qualifier: serializeAws_json1_1Qualifier(input.Qualifier, context) }),
+    ...(input.PolicyQualifierId != null && { PolicyQualifierId: input.PolicyQualifierId }),
+    ...(input.Qualifier != null && { Qualifier: serializeAws_json1_1Qualifier(input.Qualifier, context) }),
   };
 };
 
@@ -2457,14 +2395,14 @@ const serializeAws_json1_1PolicyQualifierInfoList = (input: PolicyQualifierInfo[
 
 const serializeAws_json1_1PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Policy != null && { Policy: input.Policy }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1Qualifier = (input: Qualifier, context: __SerdeContext): any => {
   return {
-    ...(input.CpsUri !== undefined && input.CpsUri !== null && { CpsUri: input.CpsUri }),
+    ...(input.CpsUri != null && { CpsUri: input.CpsUri }),
   };
 };
 
@@ -2473,21 +2411,18 @@ const serializeAws_json1_1RestoreCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
   };
 };
 
 const serializeAws_json1_1RevocationConfiguration = (input: RevocationConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.CrlConfiguration !== undefined &&
-      input.CrlConfiguration !== null && {
-        CrlConfiguration: serializeAws_json1_1CrlConfiguration(input.CrlConfiguration, context),
-      }),
-    ...(input.OcspConfiguration !== undefined &&
-      input.OcspConfiguration !== null && {
-        OcspConfiguration: serializeAws_json1_1OcspConfiguration(input.OcspConfiguration, context),
-      }),
+    ...(input.CrlConfiguration != null && {
+      CrlConfiguration: serializeAws_json1_1CrlConfiguration(input.CrlConfiguration, context),
+    }),
+    ...(input.OcspConfiguration != null && {
+      OcspConfiguration: serializeAws_json1_1OcspConfiguration(input.OcspConfiguration, context),
+    }),
   };
 };
 
@@ -2496,19 +2431,16 @@ const serializeAws_json1_1RevokeCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.CertificateSerial !== undefined &&
-      input.CertificateSerial !== null && { CertificateSerial: input.CertificateSerial }),
-    ...(input.RevocationReason !== undefined &&
-      input.RevocationReason !== null && { RevocationReason: input.RevocationReason }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CertificateSerial != null && { CertificateSerial: input.CertificateSerial }),
+    ...(input.RevocationReason != null && { RevocationReason: input.RevocationReason }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2517,9 +2449,8 @@ const serializeAws_json1_1TagCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2539,9 +2470,8 @@ const serializeAws_json1_1UntagCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2550,33 +2480,27 @@ const serializeAws_json1_1UpdateCertificateAuthorityRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateAuthorityArn !== undefined &&
-      input.CertificateAuthorityArn !== null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
-    ...(input.RevocationConfiguration !== undefined &&
-      input.RevocationConfiguration !== null && {
-        RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
-      }),
-    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.RevocationConfiguration != null && {
+      RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1Validity = (input: Validity, context: __SerdeContext): any => {
   return {
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const deserializeAws_json1_1AccessDescription = (output: any, context: __SerdeContext): AccessDescription => {
   return {
     AccessLocation:
-      output.AccessLocation !== undefined && output.AccessLocation !== null
-        ? deserializeAws_json1_1GeneralName(output.AccessLocation, context)
-        : undefined,
+      output.AccessLocation != null ? deserializeAws_json1_1GeneralName(output.AccessLocation, context) : undefined,
     AccessMethod:
-      output.AccessMethod !== undefined && output.AccessMethod !== null
-        ? deserializeAws_json1_1AccessMethod(output.AccessMethod, context)
-        : undefined,
+      output.AccessMethod != null ? deserializeAws_json1_1AccessMethod(output.AccessMethod, context) : undefined,
   } as any;
 };
 
@@ -2616,7 +2540,7 @@ const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext)
     CommonName: __expectString(output.CommonName),
     Country: __expectString(output.Country),
     CustomAttributes:
-      output.CustomAttributes !== undefined && output.CustomAttributes !== null
+      output.CustomAttributes != null
         ? deserializeAws_json1_1CustomAttributeList(output.CustomAttributes, context)
         : undefined,
     DistinguishedNameQualifier: __expectString(output.DistinguishedNameQualifier),
@@ -2650,34 +2574,28 @@ const deserializeAws_json1_1CertificateAuthority = (output: any, context: __Serd
   return {
     Arn: __expectString(output.Arn),
     CertificateAuthorityConfiguration:
-      output.CertificateAuthorityConfiguration !== undefined && output.CertificateAuthorityConfiguration !== null
+      output.CertificateAuthorityConfiguration != null
         ? deserializeAws_json1_1CertificateAuthorityConfiguration(output.CertificateAuthorityConfiguration, context)
         : undefined,
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     FailureReason: __expectString(output.FailureReason),
     KeyStorageSecurityStandard: __expectString(output.KeyStorageSecurityStandard),
     LastStateChangeAt:
-      output.LastStateChangeAt !== undefined && output.LastStateChangeAt !== null
+      output.LastStateChangeAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastStateChangeAt)))
         : undefined,
     NotAfter:
-      output.NotAfter !== undefined && output.NotAfter !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter)))
-        : undefined,
+      output.NotAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotAfter))) : undefined,
     NotBefore:
-      output.NotBefore !== undefined && output.NotBefore !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore)))
-        : undefined,
+      output.NotBefore != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NotBefore))) : undefined,
     OwnerAccount: __expectString(output.OwnerAccount),
     RestorableUntil:
-      output.RestorableUntil !== undefined && output.RestorableUntil !== null
+      output.RestorableUntil != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RestorableUntil)))
         : undefined,
     RevocationConfiguration:
-      output.RevocationConfiguration !== undefined && output.RevocationConfiguration !== null
+      output.RevocationConfiguration != null
         ? deserializeAws_json1_1RevocationConfiguration(output.RevocationConfiguration, context)
         : undefined,
     Serial: __expectString(output.Serial),
@@ -2692,15 +2610,10 @@ const deserializeAws_json1_1CertificateAuthorityConfiguration = (
 ): CertificateAuthorityConfiguration => {
   return {
     CsrExtensions:
-      output.CsrExtensions !== undefined && output.CsrExtensions !== null
-        ? deserializeAws_json1_1CsrExtensions(output.CsrExtensions, context)
-        : undefined,
+      output.CsrExtensions != null ? deserializeAws_json1_1CsrExtensions(output.CsrExtensions, context) : undefined,
     KeyAlgorithm: __expectString(output.KeyAlgorithm),
     SigningAlgorithm: __expectString(output.SigningAlgorithm),
-    Subject:
-      output.Subject !== undefined && output.Subject !== null
-        ? deserializeAws_json1_1ASN1Subject(output.Subject, context)
-        : undefined,
+    Subject: output.Subject != null ? deserializeAws_json1_1ASN1Subject(output.Subject, context) : undefined,
   } as any;
 };
 
@@ -2753,12 +2666,9 @@ const deserializeAws_json1_1CrlConfiguration = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1CsrExtensions = (output: any, context: __SerdeContext): CsrExtensions => {
   return {
-    KeyUsage:
-      output.KeyUsage !== undefined && output.KeyUsage !== null
-        ? deserializeAws_json1_1KeyUsage(output.KeyUsage, context)
-        : undefined,
+    KeyUsage: output.KeyUsage != null ? deserializeAws_json1_1KeyUsage(output.KeyUsage, context) : undefined,
     SubjectInformationAccess:
-      output.SubjectInformationAccess !== undefined && output.SubjectInformationAccess !== null
+      output.SubjectInformationAccess != null
         ? deserializeAws_json1_1AccessDescriptionList(output.SubjectInformationAccess, context)
         : undefined,
   } as any;
@@ -2790,9 +2700,7 @@ const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
   return {
     AuditReportStatus: __expectString(output.AuditReportStatus),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     S3BucketName: __expectString(output.S3BucketName),
     S3Key: __expectString(output.S3Key),
   } as any;
@@ -2804,7 +2712,7 @@ const deserializeAws_json1_1DescribeCertificateAuthorityResponse = (
 ): DescribeCertificateAuthorityResponse => {
   return {
     CertificateAuthority:
-      output.CertificateAuthority !== undefined && output.CertificateAuthority !== null
+      output.CertificateAuthority != null
         ? deserializeAws_json1_1CertificateAuthority(output.CertificateAuthority, context)
         : undefined,
   } as any;
@@ -2820,19 +2728,12 @@ const deserializeAws_json1_1EdiPartyName = (output: any, context: __SerdeContext
 const deserializeAws_json1_1GeneralName = (output: any, context: __SerdeContext): GeneralName => {
   return {
     DirectoryName:
-      output.DirectoryName !== undefined && output.DirectoryName !== null
-        ? deserializeAws_json1_1ASN1Subject(output.DirectoryName, context)
-        : undefined,
+      output.DirectoryName != null ? deserializeAws_json1_1ASN1Subject(output.DirectoryName, context) : undefined,
     DnsName: __expectString(output.DnsName),
     EdiPartyName:
-      output.EdiPartyName !== undefined && output.EdiPartyName !== null
-        ? deserializeAws_json1_1EdiPartyName(output.EdiPartyName, context)
-        : undefined,
+      output.EdiPartyName != null ? deserializeAws_json1_1EdiPartyName(output.EdiPartyName, context) : undefined,
     IpAddress: __expectString(output.IpAddress),
-    OtherName:
-      output.OtherName !== undefined && output.OtherName !== null
-        ? deserializeAws_json1_1OtherName(output.OtherName, context)
-        : undefined,
+    OtherName: output.OtherName != null ? deserializeAws_json1_1OtherName(output.OtherName, context) : undefined,
     RegisteredId: __expectString(output.RegisteredId),
     Rfc822Name: __expectString(output.Rfc822Name),
     UniformResourceIdentifier: __expectString(output.UniformResourceIdentifier),
@@ -2954,7 +2855,7 @@ const deserializeAws_json1_1ListCertificateAuthoritiesResponse = (
 ): ListCertificateAuthoritiesResponse => {
   return {
     CertificateAuthorities:
-      output.CertificateAuthorities !== undefined && output.CertificateAuthorities !== null
+      output.CertificateAuthorities != null
         ? deserializeAws_json1_1CertificateAuthorities(output.CertificateAuthorities, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2968,19 +2869,14 @@ const deserializeAws_json1_1ListPermissionsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Permissions:
-      output.Permissions !== undefined && output.Permissions !== null
-        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
-        : undefined,
+      output.Permissions != null ? deserializeAws_json1_1PermissionList(output.Permissions, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3024,15 +2920,10 @@ const deserializeAws_json1_1OtherName = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    Actions:
-      output.Actions !== undefined && output.Actions !== null
-        ? deserializeAws_json1_1ActionList(output.Actions, context)
-        : undefined,
+    Actions: output.Actions != null ? deserializeAws_json1_1ActionList(output.Actions, context) : undefined,
     CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
     CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Policy: __expectString(output.Policy),
     Principal: __expectString(output.Principal),
     SourceAccount: __expectString(output.SourceAccount),
@@ -3099,11 +2990,11 @@ const deserializeAws_json1_1RevocationConfiguration = (
 ): RevocationConfiguration => {
   return {
     CrlConfiguration:
-      output.CrlConfiguration !== undefined && output.CrlConfiguration !== null
+      output.CrlConfiguration != null
         ? deserializeAws_json1_1CrlConfiguration(output.CrlConfiguration, context)
         : undefined,
     OcspConfiguration:
-      output.OcspConfiguration !== undefined && output.OcspConfiguration !== null
+      output.OcspConfiguration != null
         ? deserializeAws_json1_1OcspConfiguration(output.OcspConfiguration, context)
         : undefined,
   } as any;

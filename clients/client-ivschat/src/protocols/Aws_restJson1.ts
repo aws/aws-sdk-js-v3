@@ -57,19 +57,15 @@ export const serializeAws_restJson1CreateChatTokenCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateChatToken";
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && {
-        attributes: serializeAws_restJson1ChatTokenAttributes(input.attributes, context),
-      }),
-    ...(input.capabilities !== undefined &&
-      input.capabilities !== null && {
-        capabilities: serializeAws_restJson1ChatTokenCapabilities(input.capabilities, context),
-      }),
-    ...(input.roomIdentifier !== undefined &&
-      input.roomIdentifier !== null && { roomIdentifier: input.roomIdentifier }),
-    ...(input.sessionDurationInMinutes !== undefined &&
-      input.sessionDurationInMinutes !== null && { sessionDurationInMinutes: input.sessionDurationInMinutes }),
-    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
+    ...(input.attributes != null && {
+      attributes: serializeAws_restJson1ChatTokenAttributes(input.attributes, context),
+    }),
+    ...(input.capabilities != null && {
+      capabilities: serializeAws_restJson1ChatTokenCapabilities(input.capabilities, context),
+    }),
+    ...(input.roomIdentifier != null && { roomIdentifier: input.roomIdentifier }),
+    ...(input.sessionDurationInMinutes != null && { sessionDurationInMinutes: input.sessionDurationInMinutes }),
+    ...(input.userId != null && { userId: input.userId }),
   });
   return new __HttpRequest({
     protocol,
@@ -93,16 +89,15 @@ export const serializeAws_restJson1CreateRoomCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateRoom";
   let body: any;
   body = JSON.stringify({
-    ...(input.maximumMessageLength !== undefined &&
-      input.maximumMessageLength !== null && { maximumMessageLength: input.maximumMessageLength }),
-    ...(input.maximumMessageRatePerSecond !== undefined &&
-      input.maximumMessageRatePerSecond !== null && { maximumMessageRatePerSecond: input.maximumMessageRatePerSecond }),
-    ...(input.messageReviewHandler !== undefined &&
-      input.messageReviewHandler !== null && {
-        messageReviewHandler: serializeAws_restJson1MessageReviewHandler(input.messageReviewHandler, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.maximumMessageLength != null && { maximumMessageLength: input.maximumMessageLength }),
+    ...(input.maximumMessageRatePerSecond != null && {
+      maximumMessageRatePerSecond: input.maximumMessageRatePerSecond,
+    }),
+    ...(input.messageReviewHandler != null && {
+      messageReviewHandler: serializeAws_restJson1MessageReviewHandler(input.messageReviewHandler, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -126,10 +121,9 @@ export const serializeAws_restJson1DeleteMessageCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteMessage";
   let body: any;
   body = JSON.stringify({
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-    ...(input.roomIdentifier !== undefined &&
-      input.roomIdentifier !== null && { roomIdentifier: input.roomIdentifier }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.reason != null && { reason: input.reason }),
+    ...(input.roomIdentifier != null && { roomIdentifier: input.roomIdentifier }),
   });
   return new __HttpRequest({
     protocol,
@@ -153,7 +147,7 @@ export const serializeAws_restJson1DeleteRoomCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteRoom";
   let body: any;
   body = JSON.stringify({
-    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
+    ...(input.identifier != null && { identifier: input.identifier }),
   });
   return new __HttpRequest({
     protocol,
@@ -177,10 +171,9 @@ export const serializeAws_restJson1DisconnectUserCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DisconnectUser";
   let body: any;
   body = JSON.stringify({
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-    ...(input.roomIdentifier !== undefined &&
-      input.roomIdentifier !== null && { roomIdentifier: input.roomIdentifier }),
-    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
+    ...(input.reason != null && { reason: input.reason }),
+    ...(input.roomIdentifier != null && { roomIdentifier: input.roomIdentifier }),
+    ...(input.userId != null && { userId: input.userId }),
   });
   return new __HttpRequest({
     protocol,
@@ -204,7 +197,7 @@ export const serializeAws_restJson1GetRoomCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetRoom";
   let body: any;
   body = JSON.stringify({
-    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
+    ...(input.identifier != null && { identifier: input.identifier }),
   });
   return new __HttpRequest({
     protocol,
@@ -228,11 +221,10 @@ export const serializeAws_restJson1ListRoomsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListRooms";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.messageReviewHandlerUri !== undefined &&
-      input.messageReviewHandlerUri !== null && { messageReviewHandlerUri: input.messageReviewHandlerUri }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.messageReviewHandlerUri != null && { messageReviewHandlerUri: input.messageReviewHandlerUri }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -284,11 +276,9 @@ export const serializeAws_restJson1SendEventCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendEvent";
   let body: any;
   body = JSON.stringify({
-    ...(input.attributes !== undefined &&
-      input.attributes !== null && { attributes: serializeAws_restJson1EventAttributes(input.attributes, context) }),
-    ...(input.eventName !== undefined && input.eventName !== null && { eventName: input.eventName }),
-    ...(input.roomIdentifier !== undefined &&
-      input.roomIdentifier !== null && { roomIdentifier: input.roomIdentifier }),
+    ...(input.attributes != null && { attributes: serializeAws_restJson1EventAttributes(input.attributes, context) }),
+    ...(input.eventName != null && { eventName: input.eventName }),
+    ...(input.roomIdentifier != null && { roomIdentifier: input.roomIdentifier }),
   });
   return new __HttpRequest({
     protocol,
@@ -321,7 +311,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -377,16 +367,15 @@ export const serializeAws_restJson1UpdateRoomCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateRoom";
   let body: any;
   body = JSON.stringify({
-    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
-    ...(input.maximumMessageLength !== undefined &&
-      input.maximumMessageLength !== null && { maximumMessageLength: input.maximumMessageLength }),
-    ...(input.maximumMessageRatePerSecond !== undefined &&
-      input.maximumMessageRatePerSecond !== null && { maximumMessageRatePerSecond: input.maximumMessageRatePerSecond }),
-    ...(input.messageReviewHandler !== undefined &&
-      input.messageReviewHandler !== null && {
-        messageReviewHandler: serializeAws_restJson1MessageReviewHandler(input.messageReviewHandler, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.identifier != null && { identifier: input.identifier }),
+    ...(input.maximumMessageLength != null && { maximumMessageLength: input.maximumMessageLength }),
+    ...(input.maximumMessageRatePerSecond != null && {
+      maximumMessageRatePerSecond: input.maximumMessageRatePerSecond,
+    }),
+    ...(input.messageReviewHandler != null && {
+      messageReviewHandler: serializeAws_restJson1MessageReviewHandler(input.messageReviewHandler, context),
+    }),
+    ...(input.name != null && { name: input.name }),
   });
   return new __HttpRequest({
     protocol,
@@ -1334,9 +1323,8 @@ const serializeAws_restJson1EventAttributes = (input: Record<string, string>, co
 
 const serializeAws_restJson1MessageReviewHandler = (input: MessageReviewHandler, context: __SerdeContext): any => {
   return {
-    ...(input.fallbackResult !== undefined &&
-      input.fallbackResult !== null && { fallbackResult: input.fallbackResult }),
-    ...(input.uri !== undefined && input.uri !== null && { uri: input.uri }),
+    ...(input.fallbackResult != null && { fallbackResult: input.fallbackResult }),
+    ...(input.uri != null && { uri: input.uri }),
   };
 };
 
@@ -1374,24 +1362,15 @@ const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1RoomSummary = (output: any, context: __SerdeContext): RoomSummary => {
   return {
     arn: __expectString(output.arn),
-    createTime:
-      output.createTime !== undefined && output.createTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createTime))
-        : undefined,
+    createTime: output.createTime != null ? __expectNonNull(__parseRfc3339DateTime(output.createTime)) : undefined,
     id: __expectString(output.id),
     messageReviewHandler:
-      output.messageReviewHandler !== undefined && output.messageReviewHandler !== null
+      output.messageReviewHandler != null
         ? deserializeAws_restJson1MessageReviewHandler(output.messageReviewHandler, context)
         : undefined,
     name: __expectString(output.name),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1Tags(output.tags, context)
-        : undefined,
-    updateTime:
-      output.updateTime !== undefined && output.updateTime !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.updateTime))
-        : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    updateTime: output.updateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.updateTime)) : undefined,
   } as any;
 };
 

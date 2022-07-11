@@ -144,11 +144,10 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets";
   let body: any;
   body = JSON.stringify({
-    ...(input.AssetType !== undefined && input.AssetType !== null && { AssetType: input.AssetType }),
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
+    ...(input.AssetType != null && { AssetType: input.AssetType }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,10 +171,8 @@ export const serializeAws_restJson1CreateEventActionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
   let body: any;
   body = JSON.stringify({
-    ...(input.Action !== undefined &&
-      input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
-    ...(input.Event !== undefined &&
-      input.Event !== null && { Event: serializeAws_restJson1Event(input.Event, context) }),
+    ...(input.Action != null && { Action: serializeAws_restJson1Action(input.Action, context) }),
+    ...(input.Event != null && { Event: serializeAws_restJson1Event(input.Event, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -199,9 +196,8 @@ export const serializeAws_restJson1CreateJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.Details !== undefined &&
-      input.Details !== null && { Details: serializeAws_restJson1RequestDetails(input.Details, context) }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Details != null && { Details: serializeAws_restJson1RequestDetails(input.Details, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -235,9 +231,8 @@ export const serializeAws_restJson1CreateRevisionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Comment !== undefined && input.Comment !== null && { Comment: input.Comment }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
+    ...(input.Comment != null && { Comment: input.Comment }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -781,8 +776,7 @@ export const serializeAws_restJson1RevokeRevisionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.RevocationComment !== undefined &&
-      input.RevocationComment !== null && { RevocationComment: input.RevocationComment }),
+    ...(input.RevocationComment != null && { RevocationComment: input.RevocationComment }),
   });
   return new __HttpRequest({
     protocol,
@@ -891,8 +885,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -977,7 +970,7 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -1011,8 +1004,8 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -1046,8 +1039,7 @@ export const serializeAws_restJson1UpdateEventActionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Action !== undefined &&
-      input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
+    ...(input.Action != null && { Action: serializeAws_restJson1Action(input.Action, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1091,8 +1083,8 @@ export const serializeAws_restJson1UpdateRevisionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Comment !== undefined && input.Comment !== null && { Comment: input.Comment }),
-    ...(input.Finalized !== undefined && input.Finalized !== null && { Finalized: input.Finalized }),
+    ...(input.Comment != null && { Comment: input.Comment }),
+    ...(input.Finalized != null && { Finalized: input.Finalized }),
   });
   return new __HttpRequest({
     protocol,
@@ -3306,28 +3298,24 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): any => {
   return {
-    ...(input.ExportRevisionToS3 !== undefined &&
-      input.ExportRevisionToS3 !== null && {
-        ExportRevisionToS3: serializeAws_restJson1AutoExportRevisionToS3RequestDetails(
-          input.ExportRevisionToS3,
-          context
-        ),
-      }),
+    ...(input.ExportRevisionToS3 != null && {
+      ExportRevisionToS3: serializeAws_restJson1AutoExportRevisionToS3RequestDetails(input.ExportRevisionToS3, context),
+    }),
   };
 };
 
 const serializeAws_restJson1AssetDestinationEntry = (input: AssetDestinationEntry, context: __SerdeContext): any => {
   return {
-    ...(input.AssetId !== undefined && input.AssetId !== null && { AssetId: input.AssetId }),
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.AssetId != null && { AssetId: input.AssetId }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.Key != null && { Key: input.Key }),
   };
 };
 
 const serializeAws_restJson1AssetSourceEntry = (input: AssetSourceEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.Key != null && { Key: input.Key }),
   };
 };
 
@@ -3336,8 +3324,8 @@ const serializeAws_restJson1AutoExportRevisionDestinationEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern != null && { KeyPattern: input.KeyPattern }),
   };
 };
 
@@ -3346,26 +3334,20 @@ const serializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Encryption !== undefined &&
-      input.Encryption !== null && {
-        Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
-      }),
-    ...(input.RevisionDestination !== undefined &&
-      input.RevisionDestination !== null && {
-        RevisionDestination: serializeAws_restJson1AutoExportRevisionDestinationEntry(
-          input.RevisionDestination,
-          context
-        ),
-      }),
+    ...(input.Encryption != null && {
+      Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+    }),
+    ...(input.RevisionDestination != null && {
+      RevisionDestination: serializeAws_restJson1AutoExportRevisionDestinationEntry(input.RevisionDestination, context),
+    }),
   };
 };
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.RevisionPublished !== undefined &&
-      input.RevisionPublished !== null && {
-        RevisionPublished: serializeAws_restJson1RevisionPublished(input.RevisionPublished, context),
-      }),
+    ...(input.RevisionPublished != null && {
+      RevisionPublished: serializeAws_restJson1RevisionPublished(input.RevisionPublished, context),
+    }),
   };
 };
 
@@ -3374,16 +3356,14 @@ const serializeAws_restJson1ExportAssetsToS3RequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssetDestinations !== undefined &&
-      input.AssetDestinations !== null && {
-        AssetDestinations: serializeAws_restJson1ListOfAssetDestinationEntry(input.AssetDestinations, context),
-      }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.Encryption !== undefined &&
-      input.Encryption !== null && {
-        Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
-      }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.AssetDestinations != null && {
+      AssetDestinations: serializeAws_restJson1ListOfAssetDestinationEntry(input.AssetDestinations, context),
+    }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.Encryption != null && {
+      Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+    }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3392,9 +3372,9 @@ const serializeAws_restJson1ExportAssetToSignedUrlRequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssetId !== undefined && input.AssetId !== null && { AssetId: input.AssetId }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.AssetId != null && { AssetId: input.AssetId }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3403,15 +3383,13 @@ const serializeAws_restJson1ExportRevisionsToS3RequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.Encryption !== undefined &&
-      input.Encryption !== null && {
-        Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
-      }),
-    ...(input.RevisionDestinations !== undefined &&
-      input.RevisionDestinations !== null && {
-        RevisionDestinations: serializeAws_restJson1ListOfRevisionDestinationEntry(input.RevisionDestinations, context),
-      }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.Encryption != null && {
+      Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+    }),
+    ...(input.RevisionDestinations != null && {
+      RevisionDestinations: serializeAws_restJson1ListOfRevisionDestinationEntry(input.RevisionDestinations, context),
+    }),
   };
 };
 
@@ -3420,8 +3398,8 @@ const serializeAws_restJson1ExportServerSideEncryption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -3430,17 +3408,15 @@ const serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApiDescription !== undefined &&
-      input.ApiDescription !== null && { ApiDescription: input.ApiDescription }),
-    ...(input.ApiId !== undefined && input.ApiId !== null && { ApiId: input.ApiId }),
-    ...(input.ApiKey !== undefined && input.ApiKey !== null && { ApiKey: input.ApiKey }),
-    ...(input.ApiName !== undefined && input.ApiName !== null && { ApiName: input.ApiName }),
-    ...(input.ApiSpecificationMd5Hash !== undefined &&
-      input.ApiSpecificationMd5Hash !== null && { ApiSpecificationMd5Hash: input.ApiSpecificationMd5Hash }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.ProtocolType !== undefined && input.ProtocolType !== null && { ProtocolType: input.ProtocolType }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
-    ...(input.Stage !== undefined && input.Stage !== null && { Stage: input.Stage }),
+    ...(input.ApiDescription != null && { ApiDescription: input.ApiDescription }),
+    ...(input.ApiId != null && { ApiId: input.ApiId }),
+    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
+    ...(input.ApiName != null && { ApiName: input.ApiName }),
+    ...(input.ApiSpecificationMd5Hash != null && { ApiSpecificationMd5Hash: input.ApiSpecificationMd5Hash }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.ProtocolType != null && { ProtocolType: input.ProtocolType }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
+    ...(input.Stage != null && { Stage: input.Stage }),
   };
 };
 
@@ -3449,10 +3425,10 @@ const serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssetName !== undefined && input.AssetName !== null && { AssetName: input.AssetName }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.Md5Hash !== undefined && input.Md5Hash !== null && { Md5Hash: input.Md5Hash }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.AssetName != null && { AssetName: input.AssetName }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.Md5Hash != null && { Md5Hash: input.Md5Hash }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3461,12 +3437,11 @@ const serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssetSources !== undefined &&
-      input.AssetSources !== null && {
-        AssetSources: serializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry(input.AssetSources, context),
-      }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.AssetSources != null && {
+      AssetSources: serializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry(input.AssetSources, context),
+    }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3475,12 +3450,11 @@ const serializeAws_restJson1ImportAssetsFromS3RequestDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssetSources !== undefined &&
-      input.AssetSources !== null && {
-        AssetSources: serializeAws_restJson1ListOfAssetSourceEntry(input.AssetSources, context),
-      }),
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.AssetSources != null && {
+      AssetSources: serializeAws_restJson1ListOfAssetSourceEntry(input.AssetSources, context),
+    }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3554,55 +3528,45 @@ const serializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataShareArn !== undefined && input.DataShareArn !== null && { DataShareArn: input.DataShareArn }),
+    ...(input.DataShareArn != null && { DataShareArn: input.DataShareArn }),
   };
 };
 
 const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __SerdeContext): any => {
   return {
-    ...(input.ExportAssetToSignedUrl !== undefined &&
-      input.ExportAssetToSignedUrl !== null && {
-        ExportAssetToSignedUrl: serializeAws_restJson1ExportAssetToSignedUrlRequestDetails(
-          input.ExportAssetToSignedUrl,
-          context
-        ),
-      }),
-    ...(input.ExportAssetsToS3 !== undefined &&
-      input.ExportAssetsToS3 !== null && {
-        ExportAssetsToS3: serializeAws_restJson1ExportAssetsToS3RequestDetails(input.ExportAssetsToS3, context),
-      }),
-    ...(input.ExportRevisionsToS3 !== undefined &&
-      input.ExportRevisionsToS3 !== null && {
-        ExportRevisionsToS3: serializeAws_restJson1ExportRevisionsToS3RequestDetails(
-          input.ExportRevisionsToS3,
-          context
-        ),
-      }),
-    ...(input.ImportAssetFromApiGatewayApi !== undefined &&
-      input.ImportAssetFromApiGatewayApi !== null && {
-        ImportAssetFromApiGatewayApi: serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails(
-          input.ImportAssetFromApiGatewayApi,
-          context
-        ),
-      }),
-    ...(input.ImportAssetFromSignedUrl !== undefined &&
-      input.ImportAssetFromSignedUrl !== null && {
-        ImportAssetFromSignedUrl: serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails(
-          input.ImportAssetFromSignedUrl,
-          context
-        ),
-      }),
-    ...(input.ImportAssetsFromRedshiftDataShares !== undefined &&
-      input.ImportAssetsFromRedshiftDataShares !== null && {
-        ImportAssetsFromRedshiftDataShares: serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails(
-          input.ImportAssetsFromRedshiftDataShares,
-          context
-        ),
-      }),
-    ...(input.ImportAssetsFromS3 !== undefined &&
-      input.ImportAssetsFromS3 !== null && {
-        ImportAssetsFromS3: serializeAws_restJson1ImportAssetsFromS3RequestDetails(input.ImportAssetsFromS3, context),
-      }),
+    ...(input.ExportAssetToSignedUrl != null && {
+      ExportAssetToSignedUrl: serializeAws_restJson1ExportAssetToSignedUrlRequestDetails(
+        input.ExportAssetToSignedUrl,
+        context
+      ),
+    }),
+    ...(input.ExportAssetsToS3 != null && {
+      ExportAssetsToS3: serializeAws_restJson1ExportAssetsToS3RequestDetails(input.ExportAssetsToS3, context),
+    }),
+    ...(input.ExportRevisionsToS3 != null && {
+      ExportRevisionsToS3: serializeAws_restJson1ExportRevisionsToS3RequestDetails(input.ExportRevisionsToS3, context),
+    }),
+    ...(input.ImportAssetFromApiGatewayApi != null && {
+      ImportAssetFromApiGatewayApi: serializeAws_restJson1ImportAssetFromApiGatewayApiRequestDetails(
+        input.ImportAssetFromApiGatewayApi,
+        context
+      ),
+    }),
+    ...(input.ImportAssetFromSignedUrl != null && {
+      ImportAssetFromSignedUrl: serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails(
+        input.ImportAssetFromSignedUrl,
+        context
+      ),
+    }),
+    ...(input.ImportAssetsFromRedshiftDataShares != null && {
+      ImportAssetsFromRedshiftDataShares: serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails(
+        input.ImportAssetsFromRedshiftDataShares,
+        context
+      ),
+    }),
+    ...(input.ImportAssetsFromS3 != null && {
+      ImportAssetsFromS3: serializeAws_restJson1ImportAssetsFromS3RequestDetails(input.ImportAssetsFromS3, context),
+    }),
   };
 };
 
@@ -3611,22 +3575,22 @@ const serializeAws_restJson1RevisionDestinationEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
-    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
-    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern != null && { KeyPattern: input.KeyPattern }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   };
 };
 
 const serializeAws_restJson1RevisionPublished = (input: RevisionPublished, context: __SerdeContext): any => {
   return {
-    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
   };
 };
 
 const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
   return {
     ExportRevisionToS3:
-      output.ExportRevisionToS3 !== undefined && output.ExportRevisionToS3 !== null
+      output.ExportRevisionToS3 != null
         ? deserializeAws_restJson1AutoExportRevisionToS3RequestDetails(output.ExportRevisionToS3, context)
         : undefined,
   } as any;
@@ -3641,7 +3605,7 @@ const deserializeAws_restJson1ApiGatewayApiAsset = (output: any, context: __Serd
     ApiName: __expectString(output.ApiName),
     ApiSpecificationDownloadUrl: __expectString(output.ApiSpecificationDownloadUrl),
     ApiSpecificationDownloadUrlExpiresAt:
-      output.ApiSpecificationDownloadUrlExpiresAt !== undefined && output.ApiSpecificationDownloadUrlExpiresAt !== null
+      output.ApiSpecificationDownloadUrlExpiresAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.ApiSpecificationDownloadUrlExpiresAt))
         : undefined,
     ProtocolType: __expectString(output.ProtocolType),
@@ -3660,15 +3624,15 @@ const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __S
 const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeContext): AssetDetails => {
   return {
     ApiGatewayApiAsset:
-      output.ApiGatewayApiAsset !== undefined && output.ApiGatewayApiAsset !== null
+      output.ApiGatewayApiAsset != null
         ? deserializeAws_restJson1ApiGatewayApiAsset(output.ApiGatewayApiAsset, context)
         : undefined,
     RedshiftDataShareAsset:
-      output.RedshiftDataShareAsset !== undefined && output.RedshiftDataShareAsset !== null
+      output.RedshiftDataShareAsset != null
         ? deserializeAws_restJson1RedshiftDataShareAsset(output.RedshiftDataShareAsset, context)
         : undefined,
     S3SnapshotAsset:
-      output.S3SnapshotAsset !== undefined && output.S3SnapshotAsset !== null
+      output.S3SnapshotAsset != null
         ? deserializeAws_restJson1S3SnapshotAsset(output.S3SnapshotAsset, context)
         : undefined,
   } as any;
@@ -3678,23 +3642,15 @@ const deserializeAws_restJson1AssetEntry = (output: any, context: __SerdeContext
   return {
     Arn: __expectString(output.Arn),
     AssetDetails:
-      output.AssetDetails !== undefined && output.AssetDetails !== null
-        ? deserializeAws_restJson1AssetDetails(output.AssetDetails, context)
-        : undefined,
+      output.AssetDetails != null ? deserializeAws_restJson1AssetDetails(output.AssetDetails, context) : undefined,
     AssetType: __expectString(output.AssetType),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
-        : undefined,
+    CreatedAt: output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt)) : undefined,
     DataSetId: __expectString(output.DataSetId),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     RevisionId: __expectString(output.RevisionId),
     SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
-        : undefined,
+    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
   } as any;
 };
 
@@ -3721,11 +3677,11 @@ const deserializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
 ): AutoExportRevisionToS3RequestDetails => {
   return {
     Encryption:
-      output.Encryption !== undefined && output.Encryption !== null
+      output.Encryption != null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
         : undefined,
     RevisionDestination:
-      output.RevisionDestination !== undefined && output.RevisionDestination !== null
+      output.RevisionDestination != null
         ? deserializeAws_restJson1AutoExportRevisionDestinationEntry(output.RevisionDestination, context)
         : undefined,
   } as any;
@@ -3735,38 +3691,29 @@ const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeConte
   return {
     Arn: __expectString(output.Arn),
     AssetType: __expectString(output.AssetType),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
-        : undefined,
+    CreatedAt: output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Origin: __expectString(output.Origin),
     OriginDetails:
-      output.OriginDetails !== undefined && output.OriginDetails !== null
-        ? deserializeAws_restJson1OriginDetails(output.OriginDetails, context)
-        : undefined,
+      output.OriginDetails != null ? deserializeAws_restJson1OriginDetails(output.OriginDetails, context) : undefined,
     SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
-        : undefined,
+    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Details = (output: any, context: __SerdeContext): Details => {
   return {
     ImportAssetFromSignedUrlJobErrorDetails:
-      output.ImportAssetFromSignedUrlJobErrorDetails !== undefined &&
-      output.ImportAssetFromSignedUrlJobErrorDetails !== null
+      output.ImportAssetFromSignedUrlJobErrorDetails != null
         ? deserializeAws_restJson1ImportAssetFromSignedUrlJobErrorDetails(
             output.ImportAssetFromSignedUrlJobErrorDetails,
             context
           )
         : undefined,
     ImportAssetsFromS3JobErrorDetails:
-      output.ImportAssetsFromS3JobErrorDetails !== undefined && output.ImportAssetsFromS3JobErrorDetails !== null
+      output.ImportAssetsFromS3JobErrorDetails != null
         ? deserializeAws_restJson1ListOfAssetSourceEntry(output.ImportAssetsFromS3JobErrorDetails, context)
         : undefined,
   } as any;
@@ -3775,7 +3722,7 @@ const deserializeAws_restJson1Details = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Event => {
   return {
     RevisionPublished:
-      output.RevisionPublished !== undefined && output.RevisionPublished !== null
+      output.RevisionPublished != null
         ? deserializeAws_restJson1RevisionPublished(output.RevisionPublished, context)
         : undefined,
   } as any;
@@ -3783,24 +3730,12 @@ const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Ev
 
 const deserializeAws_restJson1EventActionEntry = (output: any, context: __SerdeContext): EventActionEntry => {
   return {
-    Action:
-      output.Action !== undefined && output.Action !== null
-        ? deserializeAws_restJson1Action(output.Action, context)
-        : undefined,
+    Action: output.Action != null ? deserializeAws_restJson1Action(output.Action, context) : undefined,
     Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
-        : undefined,
-    Event:
-      output.Event !== undefined && output.Event !== null
-        ? deserializeAws_restJson1Event(output.Event, context)
-        : undefined,
+    CreatedAt: output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt)) : undefined,
+    Event: output.Event != null ? deserializeAws_restJson1Event(output.Event, context) : undefined,
     Id: __expectString(output.Id),
-    UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
-        : undefined,
+    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
   } as any;
 };
 
@@ -3810,12 +3745,12 @@ const deserializeAws_restJson1ExportAssetsToS3ResponseDetails = (
 ): ExportAssetsToS3ResponseDetails => {
   return {
     AssetDestinations:
-      output.AssetDestinations !== undefined && output.AssetDestinations !== null
+      output.AssetDestinations != null
         ? deserializeAws_restJson1ListOfAssetDestinationEntry(output.AssetDestinations, context)
         : undefined,
     DataSetId: __expectString(output.DataSetId),
     Encryption:
-      output.Encryption !== undefined && output.Encryption !== null
+      output.Encryption != null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
         : undefined,
     RevisionId: __expectString(output.RevisionId),
@@ -3832,7 +3767,7 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
     RevisionId: __expectString(output.RevisionId),
     SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
-      output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
+      output.SignedUrlExpiresAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.SignedUrlExpiresAt))
         : undefined,
   } as any;
@@ -3845,12 +3780,12 @@ const deserializeAws_restJson1ExportRevisionsToS3ResponseDetails = (
   return {
     DataSetId: __expectString(output.DataSetId),
     Encryption:
-      output.Encryption !== undefined && output.Encryption !== null
+      output.Encryption != null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
         : undefined,
     EventActionArn: __expectString(output.EventActionArn),
     RevisionDestinations:
-      output.RevisionDestinations !== undefined && output.RevisionDestinations !== null
+      output.RevisionDestinations != null
         ? deserializeAws_restJson1ListOfRevisionDestinationEntry(output.RevisionDestinations, context)
         : undefined,
   } as any;
@@ -3878,7 +3813,7 @@ const deserializeAws_restJson1ImportAssetFromApiGatewayApiResponseDetails = (
     ApiSpecificationMd5Hash: __expectString(output.ApiSpecificationMd5Hash),
     ApiSpecificationUploadUrl: __expectString(output.ApiSpecificationUploadUrl),
     ApiSpecificationUploadUrlExpiresAt:
-      output.ApiSpecificationUploadUrlExpiresAt !== undefined && output.ApiSpecificationUploadUrlExpiresAt !== null
+      output.ApiSpecificationUploadUrlExpiresAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.ApiSpecificationUploadUrlExpiresAt))
         : undefined,
     DataSetId: __expectString(output.DataSetId),
@@ -3908,7 +3843,7 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
     RevisionId: __expectString(output.RevisionId),
     SignedUrl: __expectString(output.SignedUrl),
     SignedUrlExpiresAt:
-      output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
+      output.SignedUrlExpiresAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.SignedUrlExpiresAt))
         : undefined,
   } as any;
@@ -3920,7 +3855,7 @@ const deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails 
 ): ImportAssetsFromRedshiftDataSharesResponseDetails => {
   return {
     AssetSources:
-      output.AssetSources !== undefined && output.AssetSources !== null
+      output.AssetSources != null
         ? deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry(output.AssetSources, context)
         : undefined,
     DataSetId: __expectString(output.DataSetId),
@@ -3934,7 +3869,7 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
 ): ImportAssetsFromS3ResponseDetails => {
   return {
     AssetSources:
-      output.AssetSources !== undefined && output.AssetSources !== null
+      output.AssetSources != null
         ? deserializeAws_restJson1ListOfAssetSourceEntry(output.AssetSources, context)
         : undefined,
     DataSetId: __expectString(output.DataSetId),
@@ -3945,35 +3880,20 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
 const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext): JobEntry => {
   return {
     Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
-        : undefined,
-    Details:
-      output.Details !== undefined && output.Details !== null
-        ? deserializeAws_restJson1ResponseDetails(output.Details, context)
-        : undefined,
-    Errors:
-      output.Errors !== undefined && output.Errors !== null
-        ? deserializeAws_restJson1ListOfJobError(output.Errors, context)
-        : undefined,
+    CreatedAt: output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt)) : undefined,
+    Details: output.Details != null ? deserializeAws_restJson1ResponseDetails(output.Details, context) : undefined,
+    Errors: output.Errors != null ? deserializeAws_restJson1ListOfJobError(output.Errors, context) : undefined,
     Id: __expectString(output.Id),
     State: __expectString(output.State),
     Type: __expectString(output.Type),
-    UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
-        : undefined,
+    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext): JobError => {
   return {
     Code: __expectString(output.Code),
-    Details:
-      output.Details !== undefined && output.Details !== null
-        ? deserializeAws_restJson1Details(output.Details, context)
-        : undefined,
+    Details: output.Details != null ? deserializeAws_restJson1Details(output.Details, context) : undefined,
     LimitName: __expectString(output.LimitName),
     LimitValue: __limitedParseDouble(output.LimitValue),
     Message: __expectString(output.Message),
@@ -4150,37 +4070,37 @@ const deserializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
 const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeContext): ResponseDetails => {
   return {
     ExportAssetToSignedUrl:
-      output.ExportAssetToSignedUrl !== undefined && output.ExportAssetToSignedUrl !== null
+      output.ExportAssetToSignedUrl != null
         ? deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails(output.ExportAssetToSignedUrl, context)
         : undefined,
     ExportAssetsToS3:
-      output.ExportAssetsToS3 !== undefined && output.ExportAssetsToS3 !== null
+      output.ExportAssetsToS3 != null
         ? deserializeAws_restJson1ExportAssetsToS3ResponseDetails(output.ExportAssetsToS3, context)
         : undefined,
     ExportRevisionsToS3:
-      output.ExportRevisionsToS3 !== undefined && output.ExportRevisionsToS3 !== null
+      output.ExportRevisionsToS3 != null
         ? deserializeAws_restJson1ExportRevisionsToS3ResponseDetails(output.ExportRevisionsToS3, context)
         : undefined,
     ImportAssetFromApiGatewayApi:
-      output.ImportAssetFromApiGatewayApi !== undefined && output.ImportAssetFromApiGatewayApi !== null
+      output.ImportAssetFromApiGatewayApi != null
         ? deserializeAws_restJson1ImportAssetFromApiGatewayApiResponseDetails(
             output.ImportAssetFromApiGatewayApi,
             context
           )
         : undefined,
     ImportAssetFromSignedUrl:
-      output.ImportAssetFromSignedUrl !== undefined && output.ImportAssetFromSignedUrl !== null
+      output.ImportAssetFromSignedUrl != null
         ? deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails(output.ImportAssetFromSignedUrl, context)
         : undefined,
     ImportAssetsFromRedshiftDataShares:
-      output.ImportAssetsFromRedshiftDataShares !== undefined && output.ImportAssetsFromRedshiftDataShares !== null
+      output.ImportAssetsFromRedshiftDataShares != null
         ? deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails(
             output.ImportAssetsFromRedshiftDataShares,
             context
           )
         : undefined,
     ImportAssetsFromS3:
-      output.ImportAssetsFromS3 !== undefined && output.ImportAssetsFromS3 !== null
+      output.ImportAssetsFromS3 != null
         ? deserializeAws_restJson1ImportAssetsFromS3ResponseDetails(output.ImportAssetsFromS3, context)
         : undefined,
   } as any;
@@ -4201,24 +4121,15 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
   return {
     Arn: __expectString(output.Arn),
     Comment: __expectString(output.Comment),
-    CreatedAt:
-      output.CreatedAt !== undefined && output.CreatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
-        : undefined,
+    CreatedAt: output.CreatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt)) : undefined,
     DataSetId: __expectString(output.DataSetId),
     Finalized: __expectBoolean(output.Finalized),
     Id: __expectString(output.Id),
     RevocationComment: __expectString(output.RevocationComment),
     Revoked: __expectBoolean(output.Revoked),
-    RevokedAt:
-      output.RevokedAt !== undefined && output.RevokedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.RevokedAt))
-        : undefined,
+    RevokedAt: output.RevokedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.RevokedAt)) : undefined,
     SourceId: __expectString(output.SourceId),
-    UpdatedAt:
-      output.UpdatedAt !== undefined && output.UpdatedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
-        : undefined,
+    UpdatedAt: output.UpdatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt)) : undefined,
   } as any;
 };
 

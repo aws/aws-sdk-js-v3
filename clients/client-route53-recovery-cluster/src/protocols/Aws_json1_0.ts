@@ -468,8 +468,7 @@ const serializeAws_json1_0GetRoutingControlStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RoutingControlArn !== undefined &&
-      input.RoutingControlArn !== null && { RoutingControlArn: input.RoutingControlArn }),
+    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
   };
 };
 
@@ -478,10 +477,9 @@ const serializeAws_json1_0ListRoutingControlsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ControlPanelArn !== undefined &&
-      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ControlPanelArn != null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -504,10 +502,8 @@ const serializeAws_json1_0UpdateRoutingControlStateEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RoutingControlArn !== undefined &&
-      input.RoutingControlArn !== null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlState !== undefined &&
-      input.RoutingControlState !== null && { RoutingControlState: input.RoutingControlState }),
+    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
+    ...(input.RoutingControlState != null && { RoutingControlState: input.RoutingControlState }),
   };
 };
 
@@ -516,14 +512,11 @@ const serializeAws_json1_0UpdateRoutingControlStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RoutingControlArn !== undefined &&
-      input.RoutingControlArn !== null && { RoutingControlArn: input.RoutingControlArn }),
-    ...(input.RoutingControlState !== undefined &&
-      input.RoutingControlState !== null && { RoutingControlState: input.RoutingControlState }),
-    ...(input.SafetyRulesToOverride !== undefined &&
-      input.SafetyRulesToOverride !== null && {
-        SafetyRulesToOverride: serializeAws_json1_0Arns(input.SafetyRulesToOverride, context),
-      }),
+    ...(input.RoutingControlArn != null && { RoutingControlArn: input.RoutingControlArn }),
+    ...(input.RoutingControlState != null && { RoutingControlState: input.RoutingControlState }),
+    ...(input.SafetyRulesToOverride != null && {
+      SafetyRulesToOverride: serializeAws_json1_0Arns(input.SafetyRulesToOverride, context),
+    }),
   };
 };
 
@@ -532,17 +525,15 @@ const serializeAws_json1_0UpdateRoutingControlStatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SafetyRulesToOverride !== undefined &&
-      input.SafetyRulesToOverride !== null && {
-        SafetyRulesToOverride: serializeAws_json1_0Arns(input.SafetyRulesToOverride, context),
-      }),
-    ...(input.UpdateRoutingControlStateEntries !== undefined &&
-      input.UpdateRoutingControlStateEntries !== null && {
-        UpdateRoutingControlStateEntries: serializeAws_json1_0UpdateRoutingControlStateEntries(
-          input.UpdateRoutingControlStateEntries,
-          context
-        ),
-      }),
+    ...(input.SafetyRulesToOverride != null && {
+      SafetyRulesToOverride: serializeAws_json1_0Arns(input.SafetyRulesToOverride, context),
+    }),
+    ...(input.UpdateRoutingControlStateEntries != null && {
+      UpdateRoutingControlStateEntries: serializeAws_json1_0UpdateRoutingControlStateEntries(
+        input.UpdateRoutingControlStateEntries,
+        context
+      ),
+    }),
   };
 };
 
@@ -597,7 +588,7 @@ const deserializeAws_json1_0ListRoutingControlsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     RoutingControls:
-      output.RoutingControls !== undefined && output.RoutingControls !== null
+      output.RoutingControls != null
         ? deserializeAws_json1_0RoutingControls(output.RoutingControls, context)
         : undefined,
   } as any;
@@ -673,9 +664,7 @@ const deserializeAws_json1_0UpdateRoutingControlStatesResponse = (
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     fields:
-      output.fields !== undefined && output.fields !== null
-        ? deserializeAws_json1_0ValidationExceptionFieldList(output.fields, context)
-        : undefined,
+      output.fields != null ? deserializeAws_json1_0ValidationExceptionFieldList(output.fields, context) : undefined,
     message: __expectString(output.message),
     reason: __expectString(output.reason),
   } as any;

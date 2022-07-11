@@ -140,19 +140,16 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.certificateArn !== undefined &&
-      input.certificateArn !== null && { certificateArn: input.certificateArn }),
+    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides !== undefined &&
-      input.configurationOverrides !== null && {
-        configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
-      }),
-    ...(input.executionRoleArn !== undefined &&
-      input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.releaseLabel !== undefined && input.releaseLabel !== null && { releaseLabel: input.releaseLabel }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.configurationOverrides != null && {
+      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+    }),
+    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -177,12 +174,11 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.containerProvider !== undefined &&
-      input.containerProvider !== null && {
-        containerProvider: serializeAws_restJson1ContainerProvider(input.containerProvider, context),
-      }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.containerProvider != null && {
+      containerProvider: serializeAws_restJson1ContainerProvider(input.containerProvider, context),
+    }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -538,17 +534,14 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides !== undefined &&
-      input.configurationOverrides !== null && {
-        configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
-      }),
-    ...(input.executionRoleArn !== undefined &&
-      input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver !== undefined &&
-      input.jobDriver !== null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.releaseLabel !== undefined && input.releaseLabel !== null && { releaseLabel: input.releaseLabel }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.configurationOverrides != null && {
+      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+    }),
+    ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
+    ...(input.jobDriver != null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -581,7 +574,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1470,24 +1463,20 @@ const serializeAws_restJson1CloudWatchMonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix !== undefined &&
-      input.logStreamNamePrefix !== null && { logStreamNamePrefix: input.logStreamNamePrefix }),
+    ...(input.logGroupName != null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix != null && { logStreamNamePrefix: input.logStreamNamePrefix }),
   };
 };
 
 const serializeAws_restJson1Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.classification !== undefined &&
-      input.classification !== null && { classification: input.classification }),
-    ...(input.configurations !== undefined &&
-      input.configurations !== null && {
-        configurations: serializeAws_restJson1ConfigurationList(input.configurations, context),
-      }),
-    ...(input.properties !== undefined &&
-      input.properties !== null && {
-        properties: serializeAws_restJson1SensitivePropertiesMap(input.properties, context),
-      }),
+    ...(input.classification != null && { classification: input.classification }),
+    ...(input.configurations != null && {
+      configurations: serializeAws_restJson1ConfigurationList(input.configurations, context),
+    }),
+    ...(input.properties != null && {
+      properties: serializeAws_restJson1SensitivePropertiesMap(input.properties, context),
+    }),
   };
 };
 
@@ -1504,14 +1493,12 @@ const serializeAws_restJson1ConfigurationList = (input: Configuration[], context
 
 const serializeAws_restJson1ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
   return {
-    ...(input.applicationConfiguration !== undefined &&
-      input.applicationConfiguration !== null && {
-        applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
-      }),
-    ...(input.monitoringConfiguration !== undefined &&
-      input.monitoringConfiguration !== null && {
-        monitoringConfiguration: serializeAws_restJson1MonitoringConfiguration(input.monitoringConfiguration, context),
-      }),
+    ...(input.applicationConfiguration != null && {
+      applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
+    }),
+    ...(input.monitoringConfiguration != null && {
+      monitoringConfiguration: serializeAws_restJson1MonitoringConfiguration(input.monitoringConfiguration, context),
+    }),
   };
 };
 
@@ -1524,16 +1511,15 @@ const serializeAws_restJson1ContainerInfo = (input: ContainerInfo, context: __Se
 
 const serializeAws_restJson1ContainerProvider = (input: ContainerProvider, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && input.id !== null && { id: input.id }),
-    ...(input.info !== undefined &&
-      input.info !== null && { info: serializeAws_restJson1ContainerInfo(input.info, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.info != null && { info: serializeAws_restJson1ContainerInfo(input.info, context) }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1EksInfo = (input: EksInfo, context: __SerdeContext): any => {
   return {
-    ...(input.namespace !== undefined && input.namespace !== null && { namespace: input.namespace }),
+    ...(input.namespace != null && { namespace: input.namespace }),
   };
 };
 
@@ -1550,10 +1536,9 @@ const serializeAws_restJson1EntryPointArguments = (input: string[], context: __S
 
 const serializeAws_restJson1JobDriver = (input: JobDriver, context: __SerdeContext): any => {
   return {
-    ...(input.sparkSubmitJobDriver !== undefined &&
-      input.sparkSubmitJobDriver !== null && {
-        sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
-      }),
+    ...(input.sparkSubmitJobDriver != null && {
+      sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
+    }),
   };
 };
 
@@ -1562,22 +1547,19 @@ const serializeAws_restJson1MonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.cloudWatchMonitoringConfiguration !== undefined &&
-      input.cloudWatchMonitoringConfiguration !== null && {
-        cloudWatchMonitoringConfiguration: serializeAws_restJson1CloudWatchMonitoringConfiguration(
-          input.cloudWatchMonitoringConfiguration,
-          context
-        ),
-      }),
-    ...(input.persistentAppUI !== undefined &&
-      input.persistentAppUI !== null && { persistentAppUI: input.persistentAppUI }),
-    ...(input.s3MonitoringConfiguration !== undefined &&
-      input.s3MonitoringConfiguration !== null && {
-        s3MonitoringConfiguration: serializeAws_restJson1S3MonitoringConfiguration(
-          input.s3MonitoringConfiguration,
-          context
-        ),
-      }),
+    ...(input.cloudWatchMonitoringConfiguration != null && {
+      cloudWatchMonitoringConfiguration: serializeAws_restJson1CloudWatchMonitoringConfiguration(
+        input.cloudWatchMonitoringConfiguration,
+        context
+      ),
+    }),
+    ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
+    ...(input.s3MonitoringConfiguration != null && {
+      s3MonitoringConfiguration: serializeAws_restJson1S3MonitoringConfiguration(
+        input.s3MonitoringConfiguration,
+        context
+      ),
+    }),
   };
 };
 
@@ -1586,7 +1568,7 @@ const serializeAws_restJson1S3MonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logUri !== undefined && input.logUri !== null && { logUri: input.logUri }),
+    ...(input.logUri != null && { logUri: input.logUri }),
   };
 };
 
@@ -1604,13 +1586,11 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
 
 const serializeAws_restJson1SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
   return {
-    ...(input.entryPoint !== undefined && input.entryPoint !== null && { entryPoint: input.entryPoint }),
-    ...(input.entryPointArguments !== undefined &&
-      input.entryPointArguments !== null && {
-        entryPointArguments: serializeAws_restJson1EntryPointArguments(input.entryPointArguments, context),
-      }),
-    ...(input.sparkSubmitParameters !== undefined &&
-      input.sparkSubmitParameters !== null && { sparkSubmitParameters: input.sparkSubmitParameters }),
+    ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
+    ...(input.entryPointArguments != null && {
+      entryPointArguments: serializeAws_restJson1EntryPointArguments(input.entryPointArguments, context),
+    }),
+    ...(input.sparkSubmitParameters != null && { sparkSubmitParameters: input.sparkSubmitParameters }),
   };
 };
 
@@ -1647,11 +1627,11 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
   return {
     classification: __expectString(output.classification),
     configurations:
-      output.configurations !== undefined && output.configurations !== null
+      output.configurations != null
         ? deserializeAws_restJson1ConfigurationList(output.configurations, context)
         : undefined,
     properties:
-      output.properties !== undefined && output.properties !== null
+      output.properties != null
         ? deserializeAws_restJson1SensitivePropertiesMap(output.properties, context)
         : undefined,
   } as any;
@@ -1675,11 +1655,11 @@ const deserializeAws_restJson1ConfigurationOverrides = (
 ): ConfigurationOverrides => {
   return {
     applicationConfiguration:
-      output.applicationConfiguration !== undefined && output.applicationConfiguration !== null
+      output.applicationConfiguration != null
         ? deserializeAws_restJson1ConfigurationList(output.applicationConfiguration, context)
         : undefined,
     monitoringConfiguration:
-      output.monitoringConfiguration !== undefined && output.monitoringConfiguration !== null
+      output.monitoringConfiguration != null
         ? deserializeAws_restJson1MonitoringConfiguration(output.monitoringConfiguration, context)
         : undefined,
   } as any;
@@ -1697,10 +1677,7 @@ const deserializeAws_restJson1ContainerInfo = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ContainerProvider = (output: any, context: __SerdeContext): ContainerProvider => {
   return {
     id: __expectString(output.id),
-    info:
-      output.info !== undefined && output.info !== null
-        ? deserializeAws_restJson1ContainerInfo(__expectUnion(output.info), context)
-        : undefined,
+    info: output.info != null ? deserializeAws_restJson1ContainerInfo(__expectUnion(output.info), context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -1716,17 +1693,14 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
     arn: __expectString(output.arn),
     certificateArn: __expectString(output.certificateArn),
     certificateAuthority:
-      output.certificateAuthority !== undefined && output.certificateAuthority !== null
+      output.certificateAuthority != null
         ? deserializeAws_restJson1Certificate(output.certificateAuthority, context)
         : undefined,
     configurationOverrides:
-      output.configurationOverrides !== undefined && output.configurationOverrides !== null
+      output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
     id: __expectString(output.id),
@@ -1736,14 +1710,8 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
     serverUrl: __expectString(output.serverUrl),
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
-    subnetIds:
-      output.subnetIds !== undefined && output.subnetIds !== null
-        ? deserializeAws_restJson1SubnetIds(output.subnetIds, context)
-        : undefined,
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    subnetIds: output.subnetIds != null ? deserializeAws_restJson1SubnetIds(output.subnetIds, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
     virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
@@ -1776,7 +1744,7 @@ const deserializeAws_restJson1EntryPointArguments = (output: any, context: __Ser
 const deserializeAws_restJson1JobDriver = (output: any, context: __SerdeContext): JobDriver => {
   return {
     sparkSubmitJobDriver:
-      output.sparkSubmitJobDriver !== undefined && output.sparkSubmitJobDriver !== null
+      output.sparkSubmitJobDriver != null
         ? deserializeAws_restJson1SparkSubmitJobDriver(output.sparkSubmitJobDriver, context)
         : undefined,
   } as any;
@@ -1787,33 +1755,21 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
     arn: __expectString(output.arn),
     clientToken: __expectString(output.clientToken),
     configurationOverrides:
-      output.configurationOverrides !== undefined && output.configurationOverrides !== null
+      output.configurationOverrides != null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     executionRoleArn: __expectString(output.executionRoleArn),
     failureReason: __expectString(output.failureReason),
-    finishedAt:
-      output.finishedAt !== undefined && output.finishedAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.finishedAt))
-        : undefined,
+    finishedAt: output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.finishedAt)) : undefined,
     id: __expectString(output.id),
-    jobDriver:
-      output.jobDriver !== undefined && output.jobDriver !== null
-        ? deserializeAws_restJson1JobDriver(output.jobDriver, context)
-        : undefined,
+    jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
     name: __expectString(output.name),
     releaseLabel: __expectString(output.releaseLabel),
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
 };
@@ -1836,12 +1792,12 @@ const deserializeAws_restJson1MonitoringConfiguration = (
 ): MonitoringConfiguration => {
   return {
     cloudWatchMonitoringConfiguration:
-      output.cloudWatchMonitoringConfiguration !== undefined && output.cloudWatchMonitoringConfiguration !== null
+      output.cloudWatchMonitoringConfiguration != null
         ? deserializeAws_restJson1CloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
         : undefined,
     persistentAppUI: __expectString(output.persistentAppUI),
     s3MonitoringConfiguration:
-      output.s3MonitoringConfiguration !== undefined && output.s3MonitoringConfiguration !== null
+      output.s3MonitoringConfiguration != null
         ? deserializeAws_restJson1S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
         : undefined,
   } as any;
@@ -1875,7 +1831,7 @@ const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __Se
   return {
     entryPoint: __expectString(output.entryPoint),
     entryPointArguments:
-      output.entryPointArguments !== undefined && output.entryPointArguments !== null
+      output.entryPointArguments != null
         ? deserializeAws_restJson1EntryPointArguments(output.entryPointArguments, context)
         : undefined,
     sparkSubmitParameters: __expectString(output.sparkSubmitParameters),
@@ -1910,20 +1866,14 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
   return {
     arn: __expectString(output.arn),
     containerProvider:
-      output.containerProvider !== undefined && output.containerProvider !== null
+      output.containerProvider != null
         ? deserializeAws_restJson1ContainerProvider(output.containerProvider, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseRfc3339DateTime(output.createdAt))
-        : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     state: __expectString(output.state),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
