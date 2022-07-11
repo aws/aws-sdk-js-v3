@@ -12,6 +12,10 @@ export const getCanonicalHeaders = (
 ): HeaderBag => {
   const canonical: HeaderBag = {};
   for (const headerName of Object.keys(headers).sort()) {
+    if (!headers[headerName]) {
+      continue;
+    }
+
     const canonicalHeaderName = headerName.toLowerCase();
     if (
       canonicalHeaderName in ALWAYS_UNSIGNABLE_HEADERS ||
