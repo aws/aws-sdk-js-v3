@@ -38,6 +38,16 @@ describe(sdkStreamMixin.name, () => {
     passThrough = new PassThrough();
   });
 
+  it("should throw if unexpected stream implementation is supplied", () => {
+    try {
+      const payload = {};
+      sdkStreamMixin(payload);
+      fail("should throw when unexpected stream is supplied");
+    } catch (error) {
+      expect(error.message).toContain("Unexpected stream implementation");
+    }
+  });
+
   describe("transformToByteArray", () => {
     it("should transform binary stream to byte array", async () => {
       const mockData = [Buffer.from("foo"), Buffer.from("bar"), Buffer.from("buzz")];

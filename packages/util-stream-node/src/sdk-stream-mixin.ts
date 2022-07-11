@@ -5,7 +5,13 @@ import { Readable } from "stream";
 
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 
-export const sdkStreamMixin = (stream: Readable): SdkStream<Readable> => {
+export const sdkStreamMixin = (stream: unknown): SdkStream<Readable> => {
+  if (!(stream instanceof Readable)) {
+    // @ts-ignore
+    const name = stream?.__proto__?.constructor?.name || stream;
+    throw new Error(`Unexpected stream implementation, expect Stream.Readable instance, got ${name}`);
+  }
+
   let transformed = false;
   const transformToByteArray = async () => {
     if (transformed) {
