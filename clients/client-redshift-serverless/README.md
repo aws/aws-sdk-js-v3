@@ -9,12 +9,6 @@
 
 AWS SDK for JavaScript RedshiftServerless Client for Node.js, Browser and React Native.
 
-<p>
-<i>This is prerelease documentation for Amazon Redshift Serverless, which is in preview release.
-The documentation and the feature are both subject to change. We recommend that you use this feature only in test environments,
-and not in production environments. For preview terms and conditions, see Beta Service Participation in
-<a href="https://docs.aws.amazon.com/https:/aws.amazon.com/service-terms">Amazon Web Services Service Terms</a>.</i>
-</p>
 <p>This is an interface reference for Amazon Redshift Serverless.
 It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
 </p>
