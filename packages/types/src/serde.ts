@@ -85,3 +85,20 @@ export interface SdkStreamMixin {
  * utility functions.
  */
 export type SdkStream<BaseStream> = BaseStream & SdkStreamMixin;
+
+/**
+ * Interface for internal function to inject stream utility functions
+ * implementation
+ *
+ * @internal
+ */
+export interface SdkStreamMixinInjector {
+  (stream: unknown): SdkStreamMixin;
+}
+
+/**
+ * @internal
+ */
+export interface SdkStreamSerdeContext {
+  sdkStreamMixin: SdkStreamMixinInjector;
+}
