@@ -87,7 +87,7 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -111,7 +111,7 @@ export const serializeAws_restJson1CreateGraphCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph";
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -135,10 +135,10 @@ export const serializeAws_restJson1CreateMembersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members";
   let body: any;
   body = JSON.stringify({
-    ...(input.Accounts != undefined && { Accounts: serializeAws_restJson1AccountList(input.Accounts, context) }),
-    ...(input.DisableEmailNotification != undefined && { DisableEmailNotification: input.DisableEmailNotification }),
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
-    ...(input.Message != undefined && { Message: input.Message }),
+    ...(input.Accounts != null && { Accounts: serializeAws_restJson1AccountList(input.Accounts, context) }),
+    ...(input.DisableEmailNotification != null && { DisableEmailNotification: input.DisableEmailNotification }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+    ...(input.Message != null && { Message: input.Message }),
   });
   return new __HttpRequest({
     protocol,
@@ -162,7 +162,7 @@ export const serializeAws_restJson1DeleteGraphCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -186,10 +186,8 @@ export const serializeAws_restJson1DeleteMembersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds != undefined && {
-      AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context),
-    }),
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -214,7 +212,7 @@ export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/describeOrganizationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -261,7 +259,7 @@ export const serializeAws_restJson1DisassociateMembershipCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -286,7 +284,7 @@ export const serializeAws_restJson1EnableOrganizationAdminAccountCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/enableAdminAccount";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
   });
   return new __HttpRequest({
     protocol,
@@ -310,10 +308,8 @@ export const serializeAws_restJson1GetMembersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/get";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds != undefined && {
-      AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context),
-    }),
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -337,8 +333,8 @@ export const serializeAws_restJson1ListGraphsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -362,8 +358,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -387,9 +383,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -414,8 +410,8 @@ export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/adminAccountslist";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -467,7 +463,7 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -492,8 +488,8 @@ export const serializeAws_restJson1StartMonitoringMemberCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/member/monitoringstate";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -526,7 +522,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -583,8 +579,8 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/updateOrganizationConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.AutoEnable != undefined && { AutoEnable: input.AutoEnable }),
-    ...(input.GraphArn != undefined && { GraphArn: input.GraphArn }),
+    ...(input.AutoEnable != null && { AutoEnable: input.AutoEnable }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1718,8 +1714,8 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Account = (input: Account, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.EmailAddress != undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
   };
 };
 
@@ -1773,7 +1769,7 @@ const deserializeAws_restJson1Administrator = (output: any, context: __SerdeCont
   return {
     AccountId: __expectString(output.AccountId),
     DelegationTime:
-      output.DelegationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.DelegationTime)) : undefined,
+      output.DelegationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.DelegationTime)) : undefined,
     GraphArn: __expectString(output.GraphArn),
   } as any;
 };
@@ -1793,8 +1789,7 @@ const deserializeAws_restJson1AdministratorList = (output: any, context: __Serde
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
     Arn: __expectString(output.Arn),
-    CreatedTime:
-      output.CreatedTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTime)) : undefined,
+    CreatedTime: output.CreatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTime)) : undefined,
   } as any;
 };
 
@@ -1818,20 +1813,18 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     EmailAddress: __expectString(output.EmailAddress),
     GraphArn: __expectString(output.GraphArn),
     InvitationType: __expectString(output.InvitationType),
-    InvitedTime:
-      output.InvitedTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.InvitedTime)) : undefined,
+    InvitedTime: output.InvitedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.InvitedTime)) : undefined,
     MasterId: __expectString(output.MasterId),
     PercentOfGraphUtilization: __limitedParseDouble(output.PercentOfGraphUtilization),
     PercentOfGraphUtilizationUpdatedTime:
-      output.PercentOfGraphUtilizationUpdatedTime != undefined
+      output.PercentOfGraphUtilizationUpdatedTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.PercentOfGraphUtilizationUpdatedTime))
         : undefined,
     Status: __expectString(output.Status),
-    UpdatedTime:
-      output.UpdatedTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime)) : undefined,
+    UpdatedTime: output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime)) : undefined,
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
-      output.VolumeUsageUpdatedTime != undefined
+      output.VolumeUsageUpdatedTime != null
         ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdatedTime))
         : undefined,
   } as any;

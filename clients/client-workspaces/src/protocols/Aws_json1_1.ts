@@ -4513,8 +4513,8 @@ const serializeAws_json1_1AssociateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId != undefined && { AliasId: input.AliasId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.AliasId != null && { AliasId: input.AliasId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4523,15 +4523,15 @@ const serializeAws_json1_1AssociateIpGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds != undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.GroupIds != null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
 const serializeAws_json1_1AuthorizeIpRulesRequest = (input: AuthorizeIpRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules != undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.UserRules != null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
@@ -4562,13 +4562,13 @@ const serializeAws_json1_1ClientDeviceTypeList = (
 
 const serializeAws_json1_1ClientProperties = (input: ClientProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ReconnectEnabled != undefined && { ReconnectEnabled: input.ReconnectEnabled }),
+    ...(input.ReconnectEnabled != null && { ReconnectEnabled: input.ReconnectEnabled }),
   };
 };
 
 const serializeAws_json1_1ComputeType = (input: ComputeType, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -4588,8 +4588,8 @@ const serializeAws_json1_1ConnectionAliasPermission = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowAssociation != undefined && { AllowAssociation: input.AllowAssociation }),
-    ...(input.SharedAccountId != undefined && { SharedAccountId: input.SharedAccountId }),
+    ...(input.AllowAssociation != null && { AllowAssociation: input.AllowAssociation }),
+    ...(input.SharedAccountId != null && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
@@ -4598,11 +4598,11 @@ const serializeAws_json1_1CopyWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SourceImageId != undefined && { SourceImageId: input.SourceImageId }),
-    ...(input.SourceRegion != undefined && { SourceRegion: input.SourceRegion }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SourceImageId != null && { SourceImageId: input.SourceImageId }),
+    ...(input.SourceRegion != null && { SourceRegion: input.SourceRegion }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4611,9 +4611,9 @@ const serializeAws_json1_1CreateConnectClientAddInRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.URL != undefined && { URL: input.URL }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.URL != null && { URL: input.URL }),
   };
 };
 
@@ -4622,24 +4622,24 @@ const serializeAws_json1_1CreateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConnectionString != undefined && { ConnectionString: input.ConnectionString }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ConnectionString != null && { ConnectionString: input.ConnectionString }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateIpGroupRequest = (input: CreateIpGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupDesc != undefined && { GroupDesc: input.GroupDesc }),
-    ...(input.GroupName != undefined && { GroupName: input.GroupName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserRules != undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupDesc != null && { GroupDesc: input.GroupDesc }),
+    ...(input.GroupName != null && { GroupName: input.GroupName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserRules != null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4648,10 +4648,10 @@ const serializeAws_json1_1CreateUpdatedWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SourceImageId != undefined && { SourceImageId: input.SourceImageId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SourceImageId != null && { SourceImageId: input.SourceImageId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4660,19 +4660,19 @@ const serializeAws_json1_1CreateWorkspaceBundleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleDescription != undefined && { BundleDescription: input.BundleDescription }),
-    ...(input.BundleName != undefined && { BundleName: input.BundleName }),
-    ...(input.ComputeType != undefined && { ComputeType: serializeAws_json1_1ComputeType(input.ComputeType, context) }),
-    ...(input.ImageId != undefined && { ImageId: input.ImageId }),
-    ...(input.RootStorage != undefined && { RootStorage: serializeAws_json1_1RootStorage(input.RootStorage, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserStorage != undefined && { UserStorage: serializeAws_json1_1UserStorage(input.UserStorage, context) }),
+    ...(input.BundleDescription != null && { BundleDescription: input.BundleDescription }),
+    ...(input.BundleName != null && { BundleName: input.BundleName }),
+    ...(input.ComputeType != null && { ComputeType: serializeAws_json1_1ComputeType(input.ComputeType, context) }),
+    ...(input.ImageId != null && { ImageId: input.ImageId }),
+    ...(input.RootStorage != null && { RootStorage: serializeAws_json1_1RootStorage(input.RootStorage, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserStorage != null && { UserStorage: serializeAws_json1_1UserStorage(input.UserStorage, context) }),
   };
 };
 
 const serializeAws_json1_1CreateWorkspacesRequest = (input: CreateWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Workspaces != undefined && {
+    ...(input.Workspaces != null && {
       Workspaces: serializeAws_json1_1WorkspaceRequestList(input.Workspaces, context),
     }),
   };
@@ -4683,13 +4683,11 @@ const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPasswordLink != undefined && { ForgotPasswordLink: input.ForgotPasswordLink }),
-    ...(input.LoginMessage != undefined && {
-      LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context),
-    }),
-    ...(input.Logo != undefined && { Logo: context.base64Encoder(input.Logo) }),
-    ...(input.SupportEmail != undefined && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportLink != undefined && { SupportLink: input.SupportLink }),
+    ...(input.ForgotPasswordLink != null && { ForgotPasswordLink: input.ForgotPasswordLink }),
+    ...(input.LoginMessage != null && { LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context) }),
+    ...(input.Logo != null && { Logo: context.base64Encoder(input.Logo) }),
+    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportLink != null && { SupportLink: input.SupportLink }),
   };
 };
 
@@ -4698,10 +4696,8 @@ const serializeAws_json1_1DeleteClientBrandingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Platforms != undefined && {
-      Platforms: serializeAws_json1_1ClientDeviceTypeList(input.Platforms, context),
-    }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.Platforms != null && { Platforms: serializeAws_json1_1ClientDeviceTypeList(input.Platforms, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4710,8 +4706,8 @@ const serializeAws_json1_1DeleteConnectClientAddInRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AddInId != undefined && { AddInId: input.AddInId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.AddInId != null && { AddInId: input.AddInId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4720,20 +4716,20 @@ const serializeAws_json1_1DeleteConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId != undefined && { AliasId: input.AliasId }),
+    ...(input.AliasId != null && { AliasId: input.AliasId }),
   };
 };
 
 const serializeAws_json1_1DeleteIpGroupRequest = (input: DeleteIpGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
   };
 };
 
 const serializeAws_json1_1DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4742,7 +4738,7 @@ const serializeAws_json1_1DeleteWorkspaceBundleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
   };
 };
 
@@ -4751,7 +4747,7 @@ const serializeAws_json1_1DeleteWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageId != undefined && { ImageId: input.ImageId }),
+    ...(input.ImageId != null && { ImageId: input.ImageId }),
   };
 };
 
@@ -4760,7 +4756,7 @@ const serializeAws_json1_1DeregisterWorkspaceDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -4769,7 +4765,7 @@ const serializeAws_json1_1DescribeAccountModificationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4782,7 +4778,7 @@ const serializeAws_json1_1DescribeClientBrandingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4791,9 +4787,7 @@ const serializeAws_json1_1DescribeClientPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceIds != undefined && {
-      ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context),
-    }),
+    ...(input.ResourceIds != null && { ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context) }),
   };
 };
 
@@ -4802,9 +4796,9 @@ const serializeAws_json1_1DescribeConnectClientAddInsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4813,12 +4807,10 @@ const serializeAws_json1_1DescribeConnectionAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasIds != undefined && {
-      AliasIds: serializeAws_json1_1ConnectionAliasIdList(input.AliasIds, context),
-    }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.AliasIds != null && { AliasIds: serializeAws_json1_1ConnectionAliasIdList(input.AliasIds, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4827,23 +4819,23 @@ const serializeAws_json1_1DescribeConnectionAliasPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId != undefined && { AliasId: input.AliasId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AliasId != null && { AliasId: input.AliasId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeIpGroupsRequest = (input: DescribeIpGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupIds != undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.GroupIds != null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4852,9 +4844,9 @@ const serializeAws_json1_1DescribeWorkspaceBundlesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleIds != undefined && { BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context) }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.Owner != undefined && { Owner: input.Owner }),
+    ...(input.BundleIds != null && { BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Owner != null && { Owner: input.Owner }),
   };
 };
 
@@ -4863,11 +4855,11 @@ const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryIds != undefined && {
+    ...(input.DirectoryIds != null && {
       DirectoryIds: serializeAws_json1_1DirectoryIdList(input.DirectoryIds, context),
     }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4876,9 +4868,9 @@ const serializeAws_json1_1DescribeWorkspaceImagePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageId != undefined && { ImageId: input.ImageId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ImageId != null && { ImageId: input.ImageId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4887,10 +4879,10 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageIds != undefined && { ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context) }),
-    ...(input.ImageType != undefined && { ImageType: input.ImageType }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ImageIds != null && { ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context) }),
+    ...(input.ImageType != null && { ImageType: input.ImageType }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4899,8 +4891,8 @@ const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.WorkspaceIds != undefined && {
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.WorkspaceIds != null && {
       WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
     }),
   };
@@ -4911,7 +4903,7 @@ const serializeAws_json1_1DescribeWorkspaceSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -4920,12 +4912,12 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.UserName != undefined && { UserName: input.UserName }),
-    ...(input.WorkspaceIds != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.UserName != null && { UserName: input.UserName }),
+    ...(input.WorkspaceIds != null && {
       WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
     }),
   };
@@ -4947,7 +4939,7 @@ const serializeAws_json1_1DisassociateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId != undefined && { AliasId: input.AliasId }),
+    ...(input.AliasId != null && { AliasId: input.AliasId }),
   };
 };
 
@@ -4956,8 +4948,8 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds != undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.GroupIds != null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
@@ -4966,25 +4958,25 @@ const serializeAws_json1_1ImportClientBrandingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceTypeAndroid != undefined && {
+    ...(input.DeviceTypeAndroid != null && {
       DeviceTypeAndroid: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeAndroid, context),
     }),
-    ...(input.DeviceTypeIos != undefined && {
+    ...(input.DeviceTypeIos != null && {
       DeviceTypeIos: serializeAws_json1_1IosImportClientBrandingAttributes(input.DeviceTypeIos, context),
     }),
-    ...(input.DeviceTypeLinux != undefined && {
+    ...(input.DeviceTypeLinux != null && {
       DeviceTypeLinux: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeLinux, context),
     }),
-    ...(input.DeviceTypeOsx != undefined && {
+    ...(input.DeviceTypeOsx != null && {
       DeviceTypeOsx: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeOsx, context),
     }),
-    ...(input.DeviceTypeWeb != undefined && {
+    ...(input.DeviceTypeWeb != null && {
       DeviceTypeWeb: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeWeb, context),
     }),
-    ...(input.DeviceTypeWindows != undefined && {
+    ...(input.DeviceTypeWindows != null && {
       DeviceTypeWindows: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeWindows, context),
     }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4993,14 +4985,14 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Applications != undefined && {
+    ...(input.Applications != null && {
       Applications: serializeAws_json1_1ApplicationList(input.Applications, context),
     }),
-    ...(input.Ec2ImageId != undefined && { Ec2ImageId: input.Ec2ImageId }),
-    ...(input.ImageDescription != undefined && { ImageDescription: input.ImageDescription }),
-    ...(input.ImageName != undefined && { ImageName: input.ImageName }),
-    ...(input.IngestionProcess != undefined && { IngestionProcess: input.IngestionProcess }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Ec2ImageId != null && { Ec2ImageId: input.Ec2ImageId }),
+    ...(input.ImageDescription != null && { ImageDescription: input.ImageDescription }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.IngestionProcess != null && { IngestionProcess: input.IngestionProcess }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -5009,15 +5001,13 @@ const serializeAws_json1_1IosImportClientBrandingAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForgotPasswordLink != undefined && { ForgotPasswordLink: input.ForgotPasswordLink }),
-    ...(input.LoginMessage != undefined && {
-      LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context),
-    }),
-    ...(input.Logo != undefined && { Logo: context.base64Encoder(input.Logo) }),
-    ...(input.Logo2x != undefined && { Logo2x: context.base64Encoder(input.Logo2x) }),
-    ...(input.Logo3x != undefined && { Logo3x: context.base64Encoder(input.Logo3x) }),
-    ...(input.SupportEmail != undefined && { SupportEmail: input.SupportEmail }),
-    ...(input.SupportLink != undefined && { SupportLink: input.SupportLink }),
+    ...(input.ForgotPasswordLink != null && { ForgotPasswordLink: input.ForgotPasswordLink }),
+    ...(input.LoginMessage != null && { LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context) }),
+    ...(input.Logo != null && { Logo: context.base64Encoder(input.Logo) }),
+    ...(input.Logo2x != null && { Logo2x: context.base64Encoder(input.Logo2x) }),
+    ...(input.Logo3x != null && { Logo3x: context.base64Encoder(input.Logo3x) }),
+    ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportLink != null && { SupportLink: input.SupportLink }),
   };
 };
 
@@ -5045,8 +5035,8 @@ const serializeAws_json1_1IpRevokedRuleList = (input: string[], context: __Serde
 
 const serializeAws_json1_1IpRuleItem = (input: IpRuleItem, context: __SerdeContext): any => {
   return {
-    ...(input.ipRule != undefined && { ipRule: input.ipRule }),
-    ...(input.ruleDesc != undefined && { ruleDesc: input.ruleDesc }),
+    ...(input.ipRule != null && { ipRule: input.ipRule }),
+    ...(input.ruleDesc != null && { ruleDesc: input.ruleDesc }),
   };
 };
 
@@ -5066,11 +5056,11 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ManagementCidrRangeConstraint != undefined && {
+    ...(input.ManagementCidrRangeConstraint != null && {
       ManagementCidrRangeConstraint: input.ManagementCidrRangeConstraint,
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5088,17 +5078,17 @@ const serializeAws_json1_1LoginMessage = (input: Record<string, string>, context
 
 const serializeAws_json1_1MigrateWorkspaceRequest = (input: MigrateWorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.SourceWorkspaceId != undefined && { SourceWorkspaceId: input.SourceWorkspaceId }),
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.SourceWorkspaceId != null && { SourceWorkspaceId: input.SourceWorkspaceId }),
   };
 };
 
 const serializeAws_json1_1ModifyAccountRequest = (input: ModifyAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DedicatedTenancyManagementCidrRange != undefined && {
+    ...(input.DedicatedTenancyManagementCidrRange != null && {
       DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
     }),
-    ...(input.DedicatedTenancySupport != undefined && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
+    ...(input.DedicatedTenancySupport != null && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
   };
 };
 
@@ -5107,10 +5097,10 @@ const serializeAws_json1_1ModifyClientPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientProperties != undefined && {
+    ...(input.ClientProperties != null && {
       ClientProperties: serializeAws_json1_1ClientProperties(input.ClientProperties, context),
     }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5119,8 +5109,8 @@ const serializeAws_json1_1ModifySelfservicePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.SelfservicePermissions != undefined && {
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.SelfservicePermissions != null && {
       SelfservicePermissions: serializeAws_json1_1SelfservicePermissions(input.SelfservicePermissions, context),
     }),
   };
@@ -5131,8 +5121,8 @@ const serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.WorkspaceAccessProperties != undefined && {
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.WorkspaceAccessProperties != null && {
       WorkspaceAccessProperties: serializeAws_json1_1WorkspaceAccessProperties(
         input.WorkspaceAccessProperties,
         context
@@ -5146,8 +5136,8 @@ const serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.WorkspaceCreationProperties != undefined && {
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.WorkspaceCreationProperties != null && {
       WorkspaceCreationProperties: serializeAws_json1_1WorkspaceCreationProperties(
         input.WorkspaceCreationProperties,
         context
@@ -5161,8 +5151,8 @@ const serializeAws_json1_1ModifyWorkspacePropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
-    ...(input.WorkspaceProperties != undefined && {
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceProperties != null && {
       WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
     }),
   };
@@ -5173,14 +5163,14 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
-    ...(input.WorkspaceState != undefined && { WorkspaceState: input.WorkspaceState }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceState != null && { WorkspaceState: input.WorkspaceState }),
   };
 };
 
 const serializeAws_json1_1RebootRequest = (input: RebootRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5197,7 +5187,7 @@ const serializeAws_json1_1RebootWorkspaceRequests = (input: RebootRequest[], con
 
 const serializeAws_json1_1RebootWorkspacesRequest = (input: RebootWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RebootWorkspaceRequests != undefined && {
+    ...(input.RebootWorkspaceRequests != null && {
       RebootWorkspaceRequests: serializeAws_json1_1RebootWorkspaceRequests(input.RebootWorkspaceRequests, context),
     }),
   };
@@ -5205,7 +5195,7 @@ const serializeAws_json1_1RebootWorkspacesRequest = (input: RebootWorkspacesRequ
 
 const serializeAws_json1_1RebuildRequest = (input: RebuildRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5225,7 +5215,7 @@ const serializeAws_json1_1RebuildWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RebuildWorkspaceRequests != undefined && {
+    ...(input.RebuildWorkspaceRequests != null && {
       RebuildWorkspaceRequests: serializeAws_json1_1RebuildWorkspaceRequests(input.RebuildWorkspaceRequests, context),
     }),
   };
@@ -5236,12 +5226,12 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.EnableSelfService != undefined && { EnableSelfService: input.EnableSelfService }),
-    ...(input.EnableWorkDocs != undefined && { EnableWorkDocs: input.EnableWorkDocs }),
-    ...(input.SubnetIds != undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Tenancy != undefined && { Tenancy: input.Tenancy }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.EnableSelfService != null && { EnableSelfService: input.EnableSelfService }),
+    ...(input.EnableWorkDocs != null && { EnableWorkDocs: input.EnableWorkDocs }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tenancy != null && { Tenancy: input.Tenancy }),
   };
 };
 
@@ -5258,36 +5248,36 @@ const serializeAws_json1_1ResourceIdList = (input: string[], context: __SerdeCon
 
 const serializeAws_json1_1RestoreWorkspaceRequest = (input: RestoreWorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1RevokeIpRulesRequest = (input: RevokeIpRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules != undefined && { UserRules: serializeAws_json1_1IpRevokedRuleList(input.UserRules, context) }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.UserRules != null && { UserRules: serializeAws_json1_1IpRevokedRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1RootStorage = (input: RootStorage, context: __SerdeContext): any => {
   return {
-    ...(input.Capacity != undefined && { Capacity: input.Capacity }),
+    ...(input.Capacity != null && { Capacity: input.Capacity }),
   };
 };
 
 const serializeAws_json1_1SelfservicePermissions = (input: SelfservicePermissions, context: __SerdeContext): any => {
   return {
-    ...(input.ChangeComputeType != undefined && { ChangeComputeType: input.ChangeComputeType }),
-    ...(input.IncreaseVolumeSize != undefined && { IncreaseVolumeSize: input.IncreaseVolumeSize }),
-    ...(input.RebuildWorkspace != undefined && { RebuildWorkspace: input.RebuildWorkspace }),
-    ...(input.RestartWorkspace != undefined && { RestartWorkspace: input.RestartWorkspace }),
-    ...(input.SwitchRunningMode != undefined && { SwitchRunningMode: input.SwitchRunningMode }),
+    ...(input.ChangeComputeType != null && { ChangeComputeType: input.ChangeComputeType }),
+    ...(input.IncreaseVolumeSize != null && { IncreaseVolumeSize: input.IncreaseVolumeSize }),
+    ...(input.RebuildWorkspace != null && { RebuildWorkspace: input.RebuildWorkspace }),
+    ...(input.RestartWorkspace != null && { RestartWorkspace: input.RestartWorkspace }),
+    ...(input.SwitchRunningMode != null && { SwitchRunningMode: input.SwitchRunningMode }),
   };
 };
 
 const serializeAws_json1_1StartRequest = (input: StartRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5304,7 +5294,7 @@ const serializeAws_json1_1StartWorkspaceRequests = (input: StartRequest[], conte
 
 const serializeAws_json1_1StartWorkspacesRequest = (input: StartWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.StartWorkspaceRequests != undefined && {
+    ...(input.StartWorkspaceRequests != null && {
       StartWorkspaceRequests: serializeAws_json1_1StartWorkspaceRequests(input.StartWorkspaceRequests, context),
     }),
   };
@@ -5312,7 +5302,7 @@ const serializeAws_json1_1StartWorkspacesRequest = (input: StartWorkspacesReques
 
 const serializeAws_json1_1StopRequest = (input: StopRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5329,7 +5319,7 @@ const serializeAws_json1_1StopWorkspaceRequests = (input: StopRequest[], context
 
 const serializeAws_json1_1StopWorkspacesRequest = (input: StopWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.StopWorkspaceRequests != undefined && {
+    ...(input.StopWorkspaceRequests != null && {
       StopWorkspaceRequests: serializeAws_json1_1StopWorkspaceRequests(input.StopWorkspaceRequests, context),
     }),
   };
@@ -5348,8 +5338,8 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5377,7 +5367,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TerminateRequest = (input: TerminateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId != undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5397,7 +5387,7 @@ const serializeAws_json1_1TerminateWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TerminateWorkspaceRequests != undefined && {
+    ...(input.TerminateWorkspaceRequests != null && {
       TerminateWorkspaceRequests: serializeAws_json1_1TerminateWorkspaceRequests(
         input.TerminateWorkspaceRequests,
         context
@@ -5411,10 +5401,10 @@ const serializeAws_json1_1UpdateConnectClientAddInRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AddInId != undefined && { AddInId: input.AddInId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.URL != undefined && { URL: input.URL }),
+    ...(input.AddInId != null && { AddInId: input.AddInId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.URL != null && { URL: input.URL }),
   };
 };
 
@@ -5423,8 +5413,8 @@ const serializeAws_json1_1UpdateConnectionAliasPermissionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId != undefined && { AliasId: input.AliasId }),
-    ...(input.ConnectionAliasPermission != undefined && {
+    ...(input.AliasId != null && { AliasId: input.AliasId }),
+    ...(input.ConnectionAliasPermission != null && {
       ConnectionAliasPermission: serializeAws_json1_1ConnectionAliasPermission(
         input.ConnectionAliasPermission,
         context
@@ -5438,8 +5428,8 @@ const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules != undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.UserRules != null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
@@ -5448,8 +5438,8 @@ const serializeAws_json1_1UpdateWorkspaceBundleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.ImageId != undefined && { ImageId: input.ImageId }),
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.ImageId != null && { ImageId: input.ImageId }),
   };
 };
 
@@ -5458,15 +5448,15 @@ const serializeAws_json1_1UpdateWorkspaceImagePermissionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowCopyImage != undefined && { AllowCopyImage: input.AllowCopyImage }),
-    ...(input.ImageId != undefined && { ImageId: input.ImageId }),
-    ...(input.SharedAccountId != undefined && { SharedAccountId: input.SharedAccountId }),
+    ...(input.AllowCopyImage != null && { AllowCopyImage: input.AllowCopyImage }),
+    ...(input.ImageId != null && { ImageId: input.ImageId }),
+    ...(input.SharedAccountId != null && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
 const serializeAws_json1_1UserStorage = (input: UserStorage, context: __SerdeContext): any => {
   return {
-    ...(input.Capacity != undefined && { Capacity: input.Capacity }),
+    ...(input.Capacity != null && { Capacity: input.Capacity }),
   };
 };
 
@@ -5475,14 +5465,14 @@ const serializeAws_json1_1WorkspaceAccessProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceTypeAndroid != undefined && { DeviceTypeAndroid: input.DeviceTypeAndroid }),
-    ...(input.DeviceTypeChromeOs != undefined && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
-    ...(input.DeviceTypeIos != undefined && { DeviceTypeIos: input.DeviceTypeIos }),
-    ...(input.DeviceTypeLinux != undefined && { DeviceTypeLinux: input.DeviceTypeLinux }),
-    ...(input.DeviceTypeOsx != undefined && { DeviceTypeOsx: input.DeviceTypeOsx }),
-    ...(input.DeviceTypeWeb != undefined && { DeviceTypeWeb: input.DeviceTypeWeb }),
-    ...(input.DeviceTypeWindows != undefined && { DeviceTypeWindows: input.DeviceTypeWindows }),
-    ...(input.DeviceTypeZeroClient != undefined && { DeviceTypeZeroClient: input.DeviceTypeZeroClient }),
+    ...(input.DeviceTypeAndroid != null && { DeviceTypeAndroid: input.DeviceTypeAndroid }),
+    ...(input.DeviceTypeChromeOs != null && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
+    ...(input.DeviceTypeIos != null && { DeviceTypeIos: input.DeviceTypeIos }),
+    ...(input.DeviceTypeLinux != null && { DeviceTypeLinux: input.DeviceTypeLinux }),
+    ...(input.DeviceTypeOsx != null && { DeviceTypeOsx: input.DeviceTypeOsx }),
+    ...(input.DeviceTypeWeb != null && { DeviceTypeWeb: input.DeviceTypeWeb }),
+    ...(input.DeviceTypeWindows != null && { DeviceTypeWindows: input.DeviceTypeWindows }),
+    ...(input.DeviceTypeZeroClient != null && { DeviceTypeZeroClient: input.DeviceTypeZeroClient }),
   };
 };
 
@@ -5491,12 +5481,12 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomSecurityGroupId != undefined && { CustomSecurityGroupId: input.CustomSecurityGroupId }),
-    ...(input.DefaultOu != undefined && { DefaultOu: input.DefaultOu }),
-    ...(input.EnableInternetAccess != undefined && { EnableInternetAccess: input.EnableInternetAccess }),
-    ...(input.EnableMaintenanceMode != undefined && { EnableMaintenanceMode: input.EnableMaintenanceMode }),
-    ...(input.EnableWorkDocs != undefined && { EnableWorkDocs: input.EnableWorkDocs }),
-    ...(input.UserEnabledAsLocalAdministrator != undefined && {
+    ...(input.CustomSecurityGroupId != null && { CustomSecurityGroupId: input.CustomSecurityGroupId }),
+    ...(input.DefaultOu != null && { DefaultOu: input.DefaultOu }),
+    ...(input.EnableInternetAccess != null && { EnableInternetAccess: input.EnableInternetAccess }),
+    ...(input.EnableMaintenanceMode != null && { EnableMaintenanceMode: input.EnableMaintenanceMode }),
+    ...(input.EnableWorkDocs != null && { EnableWorkDocs: input.EnableWorkDocs }),
+    ...(input.UserEnabledAsLocalAdministrator != null && {
       UserEnabledAsLocalAdministrator: input.UserEnabledAsLocalAdministrator,
     }),
   };
@@ -5526,30 +5516,30 @@ const serializeAws_json1_1WorkspaceImageIdList = (input: string[], context: __Se
 
 const serializeAws_json1_1WorkspaceProperties = (input: WorkspaceProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ComputeTypeName != undefined && { ComputeTypeName: input.ComputeTypeName }),
-    ...(input.RootVolumeSizeGib != undefined && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
-    ...(input.RunningMode != undefined && { RunningMode: input.RunningMode }),
-    ...(input.RunningModeAutoStopTimeoutInMinutes != undefined && {
+    ...(input.ComputeTypeName != null && { ComputeTypeName: input.ComputeTypeName }),
+    ...(input.RootVolumeSizeGib != null && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
+    ...(input.RunningMode != null && { RunningMode: input.RunningMode }),
+    ...(input.RunningModeAutoStopTimeoutInMinutes != null && {
       RunningModeAutoStopTimeoutInMinutes: input.RunningModeAutoStopTimeoutInMinutes,
     }),
-    ...(input.UserVolumeSizeGib != undefined && { UserVolumeSizeGib: input.UserVolumeSizeGib }),
+    ...(input.UserVolumeSizeGib != null && { UserVolumeSizeGib: input.UserVolumeSizeGib }),
   };
 };
 
 const serializeAws_json1_1WorkspaceRequest = (input: WorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RootVolumeEncryptionEnabled != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.RootVolumeEncryptionEnabled != null && {
       RootVolumeEncryptionEnabled: input.RootVolumeEncryptionEnabled,
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserName != undefined && { UserName: input.UserName }),
-    ...(input.UserVolumeEncryptionEnabled != undefined && {
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserName != null && { UserName: input.UserName }),
+    ...(input.UserVolumeEncryptionEnabled != null && {
       UserVolumeEncryptionEnabled: input.UserVolumeEncryptionEnabled,
     }),
-    ...(input.VolumeEncryptionKey != undefined && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
-    ...(input.WorkspaceProperties != undefined && {
+    ...(input.VolumeEncryptionKey != null && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
+    ...(input.WorkspaceProperties != null && {
       WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
     }),
   };
@@ -5580,9 +5570,7 @@ const deserializeAws_json1_1AccountModification = (output: any, context: __Serde
     ErrorMessage: __expectString(output.ErrorMessage),
     ModificationState: __expectString(output.ModificationState),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
 };
 
@@ -5651,7 +5639,7 @@ const deserializeAws_json1_1ClientPropertiesList = (output: any, context: __Serd
 const deserializeAws_json1_1ClientPropertiesResult = (output: any, context: __SerdeContext): ClientPropertiesResult => {
   return {
     ClientProperties:
-      output.ClientProperties != undefined
+      output.ClientProperties != null
         ? deserializeAws_json1_1ClientProperties(output.ClientProperties, context)
         : undefined,
     ResourceId: __expectString(output.ResourceId),
@@ -5689,7 +5677,7 @@ const deserializeAws_json1_1ConnectionAlias = (output: any, context: __SerdeCont
   return {
     AliasId: __expectString(output.AliasId),
     Associations:
-      output.Associations != undefined
+      output.Associations != null
         ? deserializeAws_json1_1ConnectionAliasAssociationList(output.Associations, context)
         : undefined,
     ConnectionString: __expectString(output.ConnectionString),
@@ -5814,7 +5802,7 @@ const deserializeAws_json1_1CreateWorkspaceBundleResult = (
 ): CreateWorkspaceBundleResult => {
   return {
     WorkspaceBundle:
-      output.WorkspaceBundle != undefined
+      output.WorkspaceBundle != null
         ? deserializeAws_json1_1WorkspaceBundle(output.WorkspaceBundle, context)
         : undefined,
   } as any;
@@ -5823,13 +5811,11 @@ const deserializeAws_json1_1CreateWorkspaceBundleResult = (
 const deserializeAws_json1_1CreateWorkspacesResult = (output: any, context: __SerdeContext): CreateWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedCreateWorkspaceRequests(output.FailedRequests, context)
         : undefined,
     PendingRequests:
-      output.PendingRequests != undefined
-        ? deserializeAws_json1_1WorkspaceList(output.PendingRequests, context)
-        : undefined,
+      output.PendingRequests != null ? deserializeAws_json1_1WorkspaceList(output.PendingRequests, context) : undefined,
   } as any;
 };
 
@@ -5852,7 +5838,7 @@ const deserializeAws_json1_1DefaultClientBrandingAttributes = (
   return {
     ForgotPasswordLink: __expectString(output.ForgotPasswordLink),
     LoginMessage:
-      output.LoginMessage != undefined ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context) : undefined,
+      output.LoginMessage != null ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context) : undefined,
     LogoUrl: __expectString(output.LogoUrl),
     SupportEmail: __expectString(output.SupportEmail),
     SupportLink: __expectString(output.SupportLink),
@@ -5929,7 +5915,7 @@ const deserializeAws_json1_1DescribeAccountModificationsResult = (
 ): DescribeAccountModificationsResult => {
   return {
     AccountModifications:
-      output.AccountModifications != undefined
+      output.AccountModifications != null
         ? deserializeAws_json1_1AccountModificationList(output.AccountModifications, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5949,27 +5935,27 @@ const deserializeAws_json1_1DescribeClientBrandingResult = (
 ): DescribeClientBrandingResult => {
   return {
     DeviceTypeAndroid:
-      output.DeviceTypeAndroid != undefined
+      output.DeviceTypeAndroid != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeAndroid, context)
         : undefined,
     DeviceTypeIos:
-      output.DeviceTypeIos != undefined
+      output.DeviceTypeIos != null
         ? deserializeAws_json1_1IosClientBrandingAttributes(output.DeviceTypeIos, context)
         : undefined,
     DeviceTypeLinux:
-      output.DeviceTypeLinux != undefined
+      output.DeviceTypeLinux != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeLinux, context)
         : undefined,
     DeviceTypeOsx:
-      output.DeviceTypeOsx != undefined
+      output.DeviceTypeOsx != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeOsx, context)
         : undefined,
     DeviceTypeWeb:
-      output.DeviceTypeWeb != undefined
+      output.DeviceTypeWeb != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWeb, context)
         : undefined,
     DeviceTypeWindows:
-      output.DeviceTypeWindows != undefined
+      output.DeviceTypeWindows != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWindows, context)
         : undefined,
   } as any;
@@ -5981,7 +5967,7 @@ const deserializeAws_json1_1DescribeClientPropertiesResult = (
 ): DescribeClientPropertiesResult => {
   return {
     ClientPropertiesList:
-      output.ClientPropertiesList != undefined
+      output.ClientPropertiesList != null
         ? deserializeAws_json1_1ClientPropertiesList(output.ClientPropertiesList, context)
         : undefined,
   } as any;
@@ -5992,8 +5978,7 @@ const deserializeAws_json1_1DescribeConnectClientAddInsResult = (
   context: __SerdeContext
 ): DescribeConnectClientAddInsResult => {
   return {
-    AddIns:
-      output.AddIns != undefined ? deserializeAws_json1_1ConnectClientAddInList(output.AddIns, context) : undefined,
+    AddIns: output.AddIns != null ? deserializeAws_json1_1ConnectClientAddInList(output.AddIns, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6004,7 +5989,7 @@ const deserializeAws_json1_1DescribeConnectionAliasesResult = (
 ): DescribeConnectionAliasesResult => {
   return {
     ConnectionAliases:
-      output.ConnectionAliases != undefined
+      output.ConnectionAliases != null
         ? deserializeAws_json1_1ConnectionAliasList(output.ConnectionAliases, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6018,7 +6003,7 @@ const deserializeAws_json1_1DescribeConnectionAliasPermissionsResult = (
   return {
     AliasId: __expectString(output.AliasId),
     ConnectionAliasPermissions:
-      output.ConnectionAliasPermissions != undefined
+      output.ConnectionAliasPermissions != null
         ? deserializeAws_json1_1ConnectionAliasPermissions(output.ConnectionAliasPermissions, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6028,14 +6013,13 @@ const deserializeAws_json1_1DescribeConnectionAliasPermissionsResult = (
 const deserializeAws_json1_1DescribeIpGroupsResult = (output: any, context: __SerdeContext): DescribeIpGroupsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Result:
-      output.Result != undefined ? deserializeAws_json1_1WorkspacesIpGroupsList(output.Result, context) : undefined,
+    Result: output.Result != null ? deserializeAws_json1_1WorkspacesIpGroupsList(output.Result, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTagsResult => {
   return {
-    TagList: output.TagList != undefined ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
+    TagList: output.TagList != null ? deserializeAws_json1_1TagList(output.TagList, context) : undefined,
   } as any;
 };
 
@@ -6044,7 +6028,7 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesResult = (
   context: __SerdeContext
 ): DescribeWorkspaceBundlesResult => {
   return {
-    Bundles: output.Bundles != undefined ? deserializeAws_json1_1BundleList(output.Bundles, context) : undefined,
+    Bundles: output.Bundles != null ? deserializeAws_json1_1BundleList(output.Bundles, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6055,7 +6039,7 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesResult = (
 ): DescribeWorkspaceDirectoriesResult => {
   return {
     Directories:
-      output.Directories != undefined ? deserializeAws_json1_1DirectoryList(output.Directories, context) : undefined,
+      output.Directories != null ? deserializeAws_json1_1DirectoryList(output.Directories, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6067,7 +6051,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagePermissionsResult = (
   return {
     ImageId: __expectString(output.ImageId),
     ImagePermissions:
-      output.ImagePermissions != undefined
+      output.ImagePermissions != null
         ? deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6079,7 +6063,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
   context: __SerdeContext
 ): DescribeWorkspaceImagesResult => {
   return {
-    Images: output.Images != undefined ? deserializeAws_json1_1WorkspaceImageList(output.Images, context) : undefined,
+    Images: output.Images != null ? deserializeAws_json1_1WorkspaceImageList(output.Images, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -6091,7 +6075,7 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
   return {
     NextToken: __expectString(output.NextToken),
     WorkspacesConnectionStatus:
-      output.WorkspacesConnectionStatus != undefined
+      output.WorkspacesConnectionStatus != null
         ? deserializeAws_json1_1WorkspaceConnectionStatusList(output.WorkspacesConnectionStatus, context)
         : undefined,
   } as any;
@@ -6103,11 +6087,11 @@ const deserializeAws_json1_1DescribeWorkspaceSnapshotsResult = (
 ): DescribeWorkspaceSnapshotsResult => {
   return {
     RebuildSnapshots:
-      output.RebuildSnapshots != undefined
+      output.RebuildSnapshots != null
         ? deserializeAws_json1_1SnapshotList(output.RebuildSnapshots, context)
         : undefined,
     RestoreSnapshots:
-      output.RestoreSnapshots != undefined
+      output.RestoreSnapshots != null
         ? deserializeAws_json1_1SnapshotList(output.RestoreSnapshots, context)
         : undefined,
   } as any;
@@ -6119,8 +6103,7 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
 ): DescribeWorkspacesResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Workspaces:
-      output.Workspaces != undefined ? deserializeAws_json1_1WorkspaceList(output.Workspaces, context) : undefined,
+    Workspaces: output.Workspaces != null ? deserializeAws_json1_1WorkspaceList(output.Workspaces, context) : undefined,
   } as any;
 };
 
@@ -6170,7 +6153,7 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
     WorkspaceRequest:
-      output.WorkspaceRequest != undefined
+      output.WorkspaceRequest != null
         ? deserializeAws_json1_1WorkspaceRequest(output.WorkspaceRequest, context)
         : undefined,
   } as any;
@@ -6301,27 +6284,27 @@ const deserializeAws_json1_1ImportClientBrandingResult = (
 ): ImportClientBrandingResult => {
   return {
     DeviceTypeAndroid:
-      output.DeviceTypeAndroid != undefined
+      output.DeviceTypeAndroid != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeAndroid, context)
         : undefined,
     DeviceTypeIos:
-      output.DeviceTypeIos != undefined
+      output.DeviceTypeIos != null
         ? deserializeAws_json1_1IosClientBrandingAttributes(output.DeviceTypeIos, context)
         : undefined,
     DeviceTypeLinux:
-      output.DeviceTypeLinux != undefined
+      output.DeviceTypeLinux != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeLinux, context)
         : undefined,
     DeviceTypeOsx:
-      output.DeviceTypeOsx != undefined
+      output.DeviceTypeOsx != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeOsx, context)
         : undefined,
     DeviceTypeWeb:
-      output.DeviceTypeWeb != undefined
+      output.DeviceTypeWeb != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWeb, context)
         : undefined,
     DeviceTypeWindows:
-      output.DeviceTypeWindows != undefined
+      output.DeviceTypeWindows != null
         ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWindows, context)
         : undefined,
   } as any;
@@ -6361,7 +6344,7 @@ const deserializeAws_json1_1IosClientBrandingAttributes = (
   return {
     ForgotPasswordLink: __expectString(output.ForgotPasswordLink),
     LoginMessage:
-      output.LoginMessage != undefined ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context) : undefined,
+      output.LoginMessage != null ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context) : undefined,
     Logo2xUrl: __expectString(output.Logo2xUrl),
     Logo3xUrl: __expectString(output.Logo3xUrl),
     LogoUrl: __expectString(output.LogoUrl),
@@ -6407,7 +6390,7 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
 ): ListAvailableManagementCidrRangesResult => {
   return {
     ManagementCidrRanges:
-      output.ManagementCidrRanges != undefined
+      output.ManagementCidrRanges != null
         ? deserializeAws_json1_1DedicatedTenancyCidrRangeList(output.ManagementCidrRanges, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6526,7 +6509,7 @@ const deserializeAws_json1_1OperationNotSupportedException = (
 const deserializeAws_json1_1RebootWorkspacesResult = (output: any, context: __SerdeContext): RebootWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedRebootWorkspaceRequests(output.FailedRequests, context)
         : undefined,
   } as any;
@@ -6538,7 +6521,7 @@ const deserializeAws_json1_1RebuildWorkspacesResult = (
 ): RebuildWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedRebuildWorkspaceRequests(output.FailedRequests, context)
         : undefined,
   } as any;
@@ -6634,7 +6617,7 @@ const deserializeAws_json1_1SelfservicePermissions = (output: any, context: __Se
 const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
     SnapshotTime:
-      output.SnapshotTime != undefined
+      output.SnapshotTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SnapshotTime)))
         : undefined,
   } as any;
@@ -6655,7 +6638,7 @@ const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __SerdeContext): StartWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedStartWorkspaceRequests(output.FailedRequests, context)
         : undefined,
   } as any;
@@ -6664,7 +6647,7 @@ const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __Ser
 const deserializeAws_json1_1StopWorkspacesResult = (output: any, context: __SerdeContext): StopWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedStopWorkspaceRequests(output.FailedRequests, context)
         : undefined,
   } as any;
@@ -6707,7 +6690,7 @@ const deserializeAws_json1_1TerminateWorkspacesResult = (
 ): TerminateWorkspacesResult => {
   return {
     FailedRequests:
-      output.FailedRequests != undefined
+      output.FailedRequests != null
         ? deserializeAws_json1_1FailedTerminateWorkspaceRequests(output.FailedRequests, context)
         : undefined,
   } as any;
@@ -6788,7 +6771,7 @@ const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): 
     ErrorMessage: __expectString(output.ErrorMessage),
     IpAddress: __expectString(output.IpAddress),
     ModificationStates:
-      output.ModificationStates != undefined
+      output.ModificationStates != null
         ? deserializeAws_json1_1ModificationStateList(output.ModificationStates, context)
         : undefined,
     RootVolumeEncryptionEnabled: __expectBoolean(output.RootVolumeEncryptionEnabled),
@@ -6799,7 +6782,7 @@ const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): 
     VolumeEncryptionKey: __expectString(output.VolumeEncryptionKey),
     WorkspaceId: __expectString(output.WorkspaceId),
     WorkspaceProperties:
-      output.WorkspaceProperties != undefined
+      output.WorkspaceProperties != null
         ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
         : undefined,
   } as any;
@@ -6825,23 +6808,23 @@ const deserializeAws_json1_1WorkspaceBundle = (output: any, context: __SerdeCont
   return {
     BundleId: __expectString(output.BundleId),
     ComputeType:
-      output.ComputeType != undefined ? deserializeAws_json1_1ComputeType(output.ComputeType, context) : undefined,
+      output.ComputeType != null ? deserializeAws_json1_1ComputeType(output.ComputeType, context) : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Description: __expectString(output.Description),
     ImageId: __expectString(output.ImageId),
     LastUpdatedTime:
-      output.LastUpdatedTime != undefined
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     Name: __expectString(output.Name),
     Owner: __expectString(output.Owner),
     RootStorage:
-      output.RootStorage != undefined ? deserializeAws_json1_1RootStorage(output.RootStorage, context) : undefined,
+      output.RootStorage != null ? deserializeAws_json1_1RootStorage(output.RootStorage, context) : undefined,
     UserStorage:
-      output.UserStorage != undefined ? deserializeAws_json1_1UserStorage(output.UserStorage, context) : undefined,
+      output.UserStorage != null ? deserializeAws_json1_1UserStorage(output.UserStorage, context) : undefined,
   } as any;
 };
 
@@ -6852,11 +6835,11 @@ const deserializeAws_json1_1WorkspaceConnectionStatus = (
   return {
     ConnectionState: __expectString(output.ConnectionState),
     ConnectionStateCheckTimestamp:
-      output.ConnectionStateCheckTimestamp != undefined
+      output.ConnectionStateCheckTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConnectionStateCheckTimestamp)))
         : undefined,
     LastKnownUserConnectionTimestamp:
-      output.LastKnownUserConnectionTimestamp != undefined
+      output.LastKnownUserConnectionTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastKnownUserConnectionTimestamp)))
         : undefined,
     WorkspaceId: __expectString(output.WorkspaceId),
@@ -6886,49 +6869,46 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
     DirectoryName: __expectString(output.DirectoryName),
     DirectoryType: __expectString(output.DirectoryType),
     DnsIpAddresses:
-      output.DnsIpAddresses != undefined
-        ? deserializeAws_json1_1DnsIpAddresses(output.DnsIpAddresses, context)
-        : undefined,
+      output.DnsIpAddresses != null ? deserializeAws_json1_1DnsIpAddresses(output.DnsIpAddresses, context) : undefined,
     IamRoleId: __expectString(output.IamRoleId),
     RegistrationCode: __expectString(output.RegistrationCode),
     SelfservicePermissions:
-      output.SelfservicePermissions != undefined
+      output.SelfservicePermissions != null
         ? deserializeAws_json1_1SelfservicePermissions(output.SelfservicePermissions, context)
         : undefined,
     State: __expectString(output.State),
-    SubnetIds: output.SubnetIds != undefined ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
     Tenancy: __expectString(output.Tenancy),
     WorkspaceAccessProperties:
-      output.WorkspaceAccessProperties != undefined
+      output.WorkspaceAccessProperties != null
         ? deserializeAws_json1_1WorkspaceAccessProperties(output.WorkspaceAccessProperties, context)
         : undefined,
     WorkspaceCreationProperties:
-      output.WorkspaceCreationProperties != undefined
+      output.WorkspaceCreationProperties != null
         ? deserializeAws_json1_1DefaultWorkspaceCreationProperties(output.WorkspaceCreationProperties, context)
         : undefined,
     WorkspaceSecurityGroupId: __expectString(output.WorkspaceSecurityGroupId),
-    ipGroupIds:
-      output.ipGroupIds != undefined ? deserializeAws_json1_1IpGroupIdList(output.ipGroupIds, context) : undefined,
+    ipGroupIds: output.ipGroupIds != null ? deserializeAws_json1_1IpGroupIdList(output.ipGroupIds, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeContext): WorkspaceImage => {
   return {
     Created:
-      output.Created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
+      output.Created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
     Description: __expectString(output.Description),
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
     ImageId: __expectString(output.ImageId),
     Name: __expectString(output.Name),
     OperatingSystem:
-      output.OperatingSystem != undefined
+      output.OperatingSystem != null
         ? deserializeAws_json1_1OperatingSystem(output.OperatingSystem, context)
         : undefined,
     OwnerAccountId: __expectString(output.OwnerAccountId),
     RequiredTenancy: __expectString(output.RequiredTenancy),
     State: __expectString(output.State),
-    Updates: output.Updates != undefined ? deserializeAws_json1_1UpdateResult(output.Updates, context) : undefined,
+    Updates: output.Updates != null ? deserializeAws_json1_1UpdateResult(output.Updates, context) : undefined,
   } as any;
 };
 
@@ -6971,12 +6951,12 @@ const deserializeAws_json1_1WorkspaceRequest = (output: any, context: __SerdeCon
     BundleId: __expectString(output.BundleId),
     DirectoryId: __expectString(output.DirectoryId),
     RootVolumeEncryptionEnabled: __expectBoolean(output.RootVolumeEncryptionEnabled),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
     UserName: __expectString(output.UserName),
     UserVolumeEncryptionEnabled: __expectBoolean(output.UserVolumeEncryptionEnabled),
     VolumeEncryptionKey: __expectString(output.VolumeEncryptionKey),
     WorkspaceProperties:
-      output.WorkspaceProperties != undefined
+      output.WorkspaceProperties != null
         ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
         : undefined,
   } as any;
@@ -6996,7 +6976,7 @@ const deserializeAws_json1_1WorkspacesIpGroup = (output: any, context: __SerdeCo
     groupDesc: __expectString(output.groupDesc),
     groupId: __expectString(output.groupId),
     groupName: __expectString(output.groupName),
-    userRules: output.userRules != undefined ? deserializeAws_json1_1IpRuleList(output.userRules, context) : undefined,
+    userRules: output.userRules != null ? deserializeAws_json1_1IpRuleList(output.userRules, context) : undefined,
   } as any;
 };
 

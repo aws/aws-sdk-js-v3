@@ -326,18 +326,18 @@ const serializeAws_json1_1SendSerialConsoleSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceId != undefined && { InstanceId: input.InstanceId }),
-    ...(input.SSHPublicKey != undefined && { SSHPublicKey: input.SSHPublicKey }),
-    ...(input.SerialPort != undefined && { SerialPort: input.SerialPort }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.SSHPublicKey != null && { SSHPublicKey: input.SSHPublicKey }),
+    ...(input.SerialPort != null && { SerialPort: input.SerialPort }),
   };
 };
 
 const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AvailabilityZone != undefined && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.InstanceId != undefined && { InstanceId: input.InstanceId }),
-    ...(input.InstanceOSUser != undefined && { InstanceOSUser: input.InstanceOSUser }),
-    ...(input.SSHPublicKey != undefined && { SSHPublicKey: input.SSHPublicKey }),
+    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.InstanceOSUser != null && { InstanceOSUser: input.InstanceOSUser }),
+    ...(input.SSHPublicKey != null && { SSHPublicKey: input.SSHPublicKey }),
   };
 };
 

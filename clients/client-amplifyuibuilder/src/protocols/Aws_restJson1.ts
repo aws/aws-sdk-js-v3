@@ -1522,17 +1522,15 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
 
 const serializeAws_restJson1ActionParameters = (input: ActionParameters, context: __SerdeContext): any => {
   return {
-    ...(input.anchor != undefined && { anchor: serializeAws_restJson1ComponentProperty(input.anchor, context) }),
-    ...(input.fields != undefined && { fields: serializeAws_restJson1ComponentProperties(input.fields, context) }),
-    ...(input.global != undefined && { global: serializeAws_restJson1ComponentProperty(input.global, context) }),
-    ...(input.id != undefined && { id: serializeAws_restJson1ComponentProperty(input.id, context) }),
-    ...(input.model != undefined && { model: input.model }),
-    ...(input.state != undefined && {
-      state: serializeAws_restJson1MutationActionSetStateParameter(input.state, context),
-    }),
-    ...(input.target != undefined && { target: serializeAws_restJson1ComponentProperty(input.target, context) }),
-    ...(input.type != undefined && { type: serializeAws_restJson1ComponentProperty(input.type, context) }),
-    ...(input.url != undefined && { url: serializeAws_restJson1ComponentProperty(input.url, context) }),
+    ...(input.anchor != null && { anchor: serializeAws_restJson1ComponentProperty(input.anchor, context) }),
+    ...(input.fields != null && { fields: serializeAws_restJson1ComponentProperties(input.fields, context) }),
+    ...(input.global != null && { global: serializeAws_restJson1ComponentProperty(input.global, context) }),
+    ...(input.id != null && { id: serializeAws_restJson1ComponentProperty(input.id, context) }),
+    ...(input.model != null && { model: input.model }),
+    ...(input.state != null && { state: serializeAws_restJson1MutationActionSetStateParameter(input.state, context) }),
+    ...(input.target != null && { target: serializeAws_restJson1ComponentProperty(input.target, context) }),
+    ...(input.type != null && { type: serializeAws_restJson1ComponentProperty(input.type, context) }),
+    ...(input.url != null && { url: serializeAws_restJson1ComponentProperty(input.url, context) }),
   };
 };
 
@@ -1556,14 +1554,14 @@ const serializeAws_restJson1ComponentBindingPropertiesValue = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bindingProperties != undefined && {
+    ...(input.bindingProperties != null && {
       bindingProperties: serializeAws_restJson1ComponentBindingPropertiesValueProperties(
         input.bindingProperties,
         context
       ),
     }),
-    ...(input.defaultValue != undefined && { defaultValue: input.defaultValue }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -1572,28 +1570,26 @@ const serializeAws_restJson1ComponentBindingPropertiesValueProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucket != undefined && { bucket: input.bucket }),
-    ...(input.defaultValue != undefined && { defaultValue: input.defaultValue }),
-    ...(input.field != undefined && { field: input.field }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.model != undefined && { model: input.model }),
-    ...(input.predicates != undefined && {
-      predicates: serializeAws_restJson1PredicateList(input.predicates, context),
-    }),
-    ...(input.userAttribute != undefined && { userAttribute: input.userAttribute }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
+    ...(input.field != null && { field: input.field }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.model != null && { model: input.model }),
+    ...(input.predicates != null && { predicates: serializeAws_restJson1PredicateList(input.predicates, context) }),
+    ...(input.userAttribute != null && { userAttribute: input.userAttribute }),
   };
 };
 
 const serializeAws_restJson1ComponentChild = (input: ComponentChild, context: __SerdeContext): any => {
   return {
-    ...(input.children != undefined && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
-    ...(input.componentType != undefined && { componentType: input.componentType }),
-    ...(input.events != undefined && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.properties != undefined && {
+    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.componentType != null && { componentType: input.componentType }),
+    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.properties != null && {
       properties: serializeAws_restJson1ComponentProperties(input.properties, context),
     }),
-    ...(input.sourceId != undefined && { sourceId: input.sourceId }),
+    ...(input.sourceId != null && { sourceId: input.sourceId }),
   };
 };
 
@@ -1628,13 +1624,13 @@ const serializeAws_restJson1ComponentConditionProperty = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.else != undefined && { else: serializeAws_restJson1ComponentProperty(input.else, context) }),
-    ...(input.field != undefined && { field: input.field }),
-    ...(input.operand != undefined && { operand: input.operand }),
-    ...(input.operandType != undefined && { operandType: input.operandType }),
-    ...(input.operator != undefined && { operator: input.operator }),
-    ...(input.property != undefined && { property: input.property }),
-    ...(input.then != undefined && { then: serializeAws_restJson1ComponentProperty(input.then, context) }),
+    ...(input.else != null && { else: serializeAws_restJson1ComponentProperty(input.else, context) }),
+    ...(input.field != null && { field: input.field }),
+    ...(input.operand != null && { operand: input.operand }),
+    ...(input.operandType != null && { operandType: input.operandType }),
+    ...(input.operator != null && { operator: input.operator }),
+    ...(input.property != null && { property: input.property }),
+    ...(input.then != null && { then: serializeAws_restJson1ComponentProperty(input.then, context) }),
   };
 };
 
@@ -1643,22 +1639,18 @@ const serializeAws_restJson1ComponentDataConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.identifiers != undefined && {
-      identifiers: serializeAws_restJson1IdentifierList(input.identifiers, context),
-    }),
-    ...(input.model != undefined && { model: input.model }),
-    ...(input.predicate != undefined && { predicate: serializeAws_restJson1Predicate(input.predicate, context) }),
-    ...(input.sort != undefined && { sort: serializeAws_restJson1SortPropertyList(input.sort, context) }),
+    ...(input.identifiers != null && { identifiers: serializeAws_restJson1IdentifierList(input.identifiers, context) }),
+    ...(input.model != null && { model: input.model }),
+    ...(input.predicate != null && { predicate: serializeAws_restJson1Predicate(input.predicate, context) }),
+    ...(input.sort != null && { sort: serializeAws_restJson1SortPropertyList(input.sort, context) }),
   };
 };
 
 const serializeAws_restJson1ComponentEvent = (input: ComponentEvent, context: __SerdeContext): any => {
   return {
-    ...(input.action != undefined && { action: input.action }),
-    ...(input.bindingEvent != undefined && { bindingEvent: input.bindingEvent }),
-    ...(input.parameters != undefined && {
-      parameters: serializeAws_restJson1ActionParameters(input.parameters, context),
-    }),
+    ...(input.action != null && { action: input.action }),
+    ...(input.bindingEvent != null && { bindingEvent: input.bindingEvent }),
+    ...(input.parameters != null && { parameters: serializeAws_restJson1ActionParameters(input.parameters, context) }),
   };
 };
 
@@ -1718,30 +1710,30 @@ const serializeAws_restJson1ComponentProperties = (
 
 const serializeAws_restJson1ComponentProperty = (input: ComponentProperty, context: __SerdeContext): any => {
   return {
-    ...(input.bindingProperties != undefined && {
+    ...(input.bindingProperties != null && {
       bindingProperties: serializeAws_restJson1ComponentPropertyBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.bindings != undefined && { bindings: serializeAws_restJson1FormBindings(input.bindings, context) }),
-    ...(input.collectionBindingProperties != undefined && {
+    ...(input.bindings != null && { bindings: serializeAws_restJson1FormBindings(input.bindings, context) }),
+    ...(input.collectionBindingProperties != null && {
       collectionBindingProperties: serializeAws_restJson1ComponentPropertyBindingProperties(
         input.collectionBindingProperties,
         context
       ),
     }),
-    ...(input.componentName != undefined && { componentName: input.componentName }),
-    ...(input.concat != undefined && { concat: serializeAws_restJson1ComponentPropertyList(input.concat, context) }),
-    ...(input.condition != undefined && {
+    ...(input.componentName != null && { componentName: input.componentName }),
+    ...(input.concat != null && { concat: serializeAws_restJson1ComponentPropertyList(input.concat, context) }),
+    ...(input.condition != null && {
       condition: serializeAws_restJson1ComponentConditionProperty(input.condition, context),
     }),
-    ...(input.configured != undefined && { configured: input.configured }),
-    ...(input.defaultValue != undefined && { defaultValue: input.defaultValue }),
-    ...(input.event != undefined && { event: input.event }),
-    ...(input.importedValue != undefined && { importedValue: input.importedValue }),
-    ...(input.model != undefined && { model: input.model }),
-    ...(input.property != undefined && { property: input.property }),
-    ...(input.type != undefined && { type: input.type }),
-    ...(input.userAttribute != undefined && { userAttribute: input.userAttribute }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.configured != null && { configured: input.configured }),
+    ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
+    ...(input.event != null && { event: input.event }),
+    ...(input.importedValue != null && { importedValue: input.importedValue }),
+    ...(input.model != null && { model: input.model }),
+    ...(input.property != null && { property: input.property }),
+    ...(input.type != null && { type: input.type }),
+    ...(input.userAttribute != null && { userAttribute: input.userAttribute }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -1750,8 +1742,8 @@ const serializeAws_restJson1ComponentPropertyBindingProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.field != undefined && { field: input.field }),
-    ...(input.property != undefined && { property: input.property }),
+    ...(input.field != null && { field: input.field }),
+    ...(input.property != null && { property: input.property }),
   };
 };
 
@@ -1768,10 +1760,8 @@ const serializeAws_restJson1ComponentPropertyList = (input: ComponentProperty[],
 
 const serializeAws_restJson1ComponentVariant = (input: ComponentVariant, context: __SerdeContext): any => {
   return {
-    ...(input.overrides != undefined && {
-      overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context),
-    }),
-    ...(input.variantValues != undefined && {
+    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
+    ...(input.variantValues != null && {
       variantValues: serializeAws_restJson1ComponentVariantValues(input.variantValues, context),
     }),
   };
@@ -1802,35 +1792,33 @@ const serializeAws_restJson1ComponentVariantValues = (input: Record<string, stri
 
 const serializeAws_restJson1CreateComponentData = (input: CreateComponentData, context: __SerdeContext): any => {
   return {
-    ...(input.bindingProperties != undefined && {
+    ...(input.bindingProperties != null && {
       bindingProperties: serializeAws_restJson1ComponentBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.children != undefined && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
-    ...(input.collectionProperties != undefined && {
+    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.collectionProperties != null && {
       collectionProperties: serializeAws_restJson1ComponentCollectionProperties(input.collectionProperties, context),
     }),
-    ...(input.componentType != undefined && { componentType: input.componentType }),
-    ...(input.events != undefined && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.overrides != undefined && {
-      overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context),
-    }),
-    ...(input.properties != undefined && {
+    ...(input.componentType != null && { componentType: input.componentType }),
+    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
+    ...(input.properties != null && {
       properties: serializeAws_restJson1ComponentProperties(input.properties, context),
     }),
-    ...(input.schemaVersion != undefined && { schemaVersion: input.schemaVersion }),
-    ...(input.sourceId != undefined && { sourceId: input.sourceId }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.variants != undefined && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
+    ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
+    ...(input.sourceId != null && { sourceId: input.sourceId }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.variants != null && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
   };
 };
 
 const serializeAws_restJson1CreateThemeData = (input: CreateThemeData, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.overrides != undefined && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.values != undefined && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.overrides != null && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.values != null && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
   };
 };
 
@@ -1839,15 +1827,15 @@ const serializeAws_restJson1ExchangeCodeForTokenRequestBody = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.code != undefined && { code: input.code }),
-    ...(input.redirectUri != undefined && { redirectUri: input.redirectUri }),
+    ...(input.code != null && { code: input.code }),
+    ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
   };
 };
 
 const serializeAws_restJson1FormBindingElement = (input: FormBindingElement, context: __SerdeContext): any => {
   return {
-    ...(input.element != undefined && { element: input.element }),
-    ...(input.property != undefined && { property: input.property }),
+    ...(input.element != null && { element: input.element }),
+    ...(input.property != null && { property: input.property }),
   };
 };
 
@@ -1882,19 +1870,19 @@ const serializeAws_restJson1MutationActionSetStateParameter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.componentName != undefined && { componentName: input.componentName }),
-    ...(input.property != undefined && { property: input.property }),
-    ...(input.set != undefined && { set: serializeAws_restJson1ComponentProperty(input.set, context) }),
+    ...(input.componentName != null && { componentName: input.componentName }),
+    ...(input.property != null && { property: input.property }),
+    ...(input.set != null && { set: serializeAws_restJson1ComponentProperty(input.set, context) }),
   };
 };
 
 const serializeAws_restJson1Predicate = (input: Predicate, context: __SerdeContext): any => {
   return {
-    ...(input.and != undefined && { and: serializeAws_restJson1PredicateList(input.and, context) }),
-    ...(input.field != undefined && { field: input.field }),
-    ...(input.operand != undefined && { operand: input.operand }),
-    ...(input.operator != undefined && { operator: input.operator }),
-    ...(input.or != undefined && { or: serializeAws_restJson1PredicateList(input.or, context) }),
+    ...(input.and != null && { and: serializeAws_restJson1PredicateList(input.and, context) }),
+    ...(input.field != null && { field: input.field }),
+    ...(input.operand != null && { operand: input.operand }),
+    ...(input.operator != null && { operator: input.operator }),
+    ...(input.or != null && { or: serializeAws_restJson1PredicateList(input.or, context) }),
   };
 };
 
@@ -1914,14 +1902,14 @@ const serializeAws_restJson1RefreshTokenRequestBody = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.token != undefined && { token: input.token }),
+    ...(input.token != null && { token: input.token }),
   };
 };
 
 const serializeAws_restJson1SortProperty = (input: SortProperty, context: __SerdeContext): any => {
   return {
-    ...(input.direction != undefined && { direction: input.direction }),
-    ...(input.field != undefined && { field: input.field }),
+    ...(input.direction != null && { direction: input.direction }),
+    ...(input.field != null && { field: input.field }),
   };
 };
 
@@ -1950,15 +1938,15 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 
 const serializeAws_restJson1ThemeValue = (input: ThemeValue, context: __SerdeContext): any => {
   return {
-    ...(input.children != undefined && { children: serializeAws_restJson1ThemeValuesList(input.children, context) }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.children != null && { children: serializeAws_restJson1ThemeValuesList(input.children, context) }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
 const serializeAws_restJson1ThemeValues = (input: ThemeValues, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: serializeAws_restJson1ThemeValue(input.value, context) }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: serializeAws_restJson1ThemeValue(input.value, context) }),
   };
 };
 
@@ -1975,53 +1963,48 @@ const serializeAws_restJson1ThemeValuesList = (input: ThemeValues[], context: __
 
 const serializeAws_restJson1UpdateComponentData = (input: UpdateComponentData, context: __SerdeContext): any => {
   return {
-    ...(input.bindingProperties != undefined && {
+    ...(input.bindingProperties != null && {
       bindingProperties: serializeAws_restJson1ComponentBindingProperties(input.bindingProperties, context),
     }),
-    ...(input.children != undefined && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
-    ...(input.collectionProperties != undefined && {
+    ...(input.children != null && { children: serializeAws_restJson1ComponentChildList(input.children, context) }),
+    ...(input.collectionProperties != null && {
       collectionProperties: serializeAws_restJson1ComponentCollectionProperties(input.collectionProperties, context),
     }),
-    ...(input.componentType != undefined && { componentType: input.componentType }),
-    ...(input.events != undefined && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.overrides != undefined && {
-      overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context),
-    }),
-    ...(input.properties != undefined && {
+    ...(input.componentType != null && { componentType: input.componentType }),
+    ...(input.events != null && { events: serializeAws_restJson1ComponentEvents(input.events, context) }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.overrides != null && { overrides: serializeAws_restJson1ComponentOverrides(input.overrides, context) }),
+    ...(input.properties != null && {
       properties: serializeAws_restJson1ComponentProperties(input.properties, context),
     }),
-    ...(input.schemaVersion != undefined && { schemaVersion: input.schemaVersion }),
-    ...(input.sourceId != undefined && { sourceId: input.sourceId }),
-    ...(input.variants != undefined && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
+    ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
+    ...(input.sourceId != null && { sourceId: input.sourceId }),
+    ...(input.variants != null && { variants: serializeAws_restJson1ComponentVariants(input.variants, context) }),
   };
 };
 
 const serializeAws_restJson1UpdateThemeData = (input: UpdateThemeData, context: __SerdeContext): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.overrides != undefined && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
-    ...(input.values != undefined && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.overrides != null && { overrides: serializeAws_restJson1ThemeValuesList(input.overrides, context) }),
+    ...(input.values != null && { values: serializeAws_restJson1ThemeValuesList(input.values, context) }),
   };
 };
 
 const deserializeAws_restJson1ActionParameters = (output: any, context: __SerdeContext): ActionParameters => {
   return {
-    anchor: output.anchor != undefined ? deserializeAws_restJson1ComponentProperty(output.anchor, context) : undefined,
-    fields:
-      output.fields != undefined ? deserializeAws_restJson1ComponentProperties(output.fields, context) : undefined,
-    global: output.global != undefined ? deserializeAws_restJson1ComponentProperty(output.global, context) : undefined,
-    id: output.id != undefined ? deserializeAws_restJson1ComponentProperty(output.id, context) : undefined,
+    anchor: output.anchor != null ? deserializeAws_restJson1ComponentProperty(output.anchor, context) : undefined,
+    fields: output.fields != null ? deserializeAws_restJson1ComponentProperties(output.fields, context) : undefined,
+    global: output.global != null ? deserializeAws_restJson1ComponentProperty(output.global, context) : undefined,
+    id: output.id != null ? deserializeAws_restJson1ComponentProperty(output.id, context) : undefined,
     model: __expectString(output.model),
     state:
-      output.state != undefined
-        ? deserializeAws_restJson1MutationActionSetStateParameter(output.state, context)
-        : undefined,
-    target: output.target != undefined ? deserializeAws_restJson1ComponentProperty(output.target, context) : undefined,
-    type: output.type != undefined ? deserializeAws_restJson1ComponentProperty(output.type, context) : undefined,
-    url: output.url != undefined ? deserializeAws_restJson1ComponentProperty(output.url, context) : undefined,
+      output.state != null ? deserializeAws_restJson1MutationActionSetStateParameter(output.state, context) : undefined,
+    target: output.target != null ? deserializeAws_restJson1ComponentProperty(output.target, context) : undefined,
+    type: output.type != null ? deserializeAws_restJson1ComponentProperty(output.type, context) : undefined,
+    url: output.url != null ? deserializeAws_restJson1ComponentProperty(output.url, context) : undefined,
   } as any;
 };
 
@@ -2029,33 +2012,30 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
   return {
     appId: __expectString(output.appId),
     bindingProperties:
-      output.bindingProperties != undefined
+      output.bindingProperties != null
         ? deserializeAws_restJson1ComponentBindingProperties(output.bindingProperties, context)
         : undefined,
     children:
-      output.children != undefined ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
+      output.children != null ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
     collectionProperties:
-      output.collectionProperties != undefined
+      output.collectionProperties != null
         ? deserializeAws_restJson1ComponentCollectionProperties(output.collectionProperties, context)
         : undefined,
     componentType: __expectString(output.componentType),
-    createdAt: output.createdAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     environmentName: __expectString(output.environmentName),
-    events: output.events != undefined ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
+    events: output.events != null ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
     id: __expectString(output.id),
-    modifiedAt: output.modifiedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
+    modifiedAt: output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
     overrides:
-      output.overrides != undefined ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
+      output.overrides != null ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
     properties:
-      output.properties != undefined
-        ? deserializeAws_restJson1ComponentProperties(output.properties, context)
-        : undefined,
+      output.properties != null ? deserializeAws_restJson1ComponentProperties(output.properties, context) : undefined,
     schemaVersion: __expectString(output.schemaVersion),
     sourceId: __expectString(output.sourceId),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    variants:
-      output.variants != undefined ? deserializeAws_restJson1ComponentVariants(output.variants, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    variants: output.variants != null ? deserializeAws_restJson1ComponentVariants(output.variants, context) : undefined,
   } as any;
 };
 
@@ -2083,7 +2063,7 @@ const deserializeAws_restJson1ComponentBindingPropertiesValue = (
 ): ComponentBindingPropertiesValue => {
   return {
     bindingProperties:
-      output.bindingProperties != undefined
+      output.bindingProperties != null
         ? deserializeAws_restJson1ComponentBindingPropertiesValueProperties(output.bindingProperties, context)
         : undefined,
     defaultValue: __expectString(output.defaultValue),
@@ -2102,7 +2082,7 @@ const deserializeAws_restJson1ComponentBindingPropertiesValueProperties = (
     key: __expectString(output.key),
     model: __expectString(output.model),
     predicates:
-      output.predicates != undefined ? deserializeAws_restJson1PredicateList(output.predicates, context) : undefined,
+      output.predicates != null ? deserializeAws_restJson1PredicateList(output.predicates, context) : undefined,
     userAttribute: __expectString(output.userAttribute),
   } as any;
 };
@@ -2110,14 +2090,12 @@ const deserializeAws_restJson1ComponentBindingPropertiesValueProperties = (
 const deserializeAws_restJson1ComponentChild = (output: any, context: __SerdeContext): ComponentChild => {
   return {
     children:
-      output.children != undefined ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
+      output.children != null ? deserializeAws_restJson1ComponentChildList(output.children, context) : undefined,
     componentType: __expectString(output.componentType),
-    events: output.events != undefined ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
+    events: output.events != null ? deserializeAws_restJson1ComponentEvents(output.events, context) : undefined,
     name: __expectString(output.name),
     properties:
-      output.properties != undefined
-        ? deserializeAws_restJson1ComponentProperties(output.properties, context)
-        : undefined,
+      output.properties != null ? deserializeAws_restJson1ComponentProperties(output.properties, context) : undefined,
     sourceId: __expectString(output.sourceId),
   } as any;
 };
@@ -2157,13 +2135,13 @@ const deserializeAws_restJson1ComponentConditionProperty = (
   context: __SerdeContext
 ): ComponentConditionProperty => {
   return {
-    else: output.else != undefined ? deserializeAws_restJson1ComponentProperty(output.else, context) : undefined,
+    else: output.else != null ? deserializeAws_restJson1ComponentProperty(output.else, context) : undefined,
     field: __expectString(output.field),
     operand: __expectString(output.operand),
     operandType: __expectString(output.operandType),
     operator: __expectString(output.operator),
     property: __expectString(output.property),
-    then: output.then != undefined ? deserializeAws_restJson1ComponentProperty(output.then, context) : undefined,
+    then: output.then != null ? deserializeAws_restJson1ComponentProperty(output.then, context) : undefined,
   } as any;
 };
 
@@ -2173,10 +2151,10 @@ const deserializeAws_restJson1ComponentDataConfiguration = (
 ): ComponentDataConfiguration => {
   return {
     identifiers:
-      output.identifiers != undefined ? deserializeAws_restJson1IdentifierList(output.identifiers, context) : undefined,
+      output.identifiers != null ? deserializeAws_restJson1IdentifierList(output.identifiers, context) : undefined,
     model: __expectString(output.model),
-    predicate: output.predicate != undefined ? deserializeAws_restJson1Predicate(output.predicate, context) : undefined,
-    sort: output.sort != undefined ? deserializeAws_restJson1SortPropertyList(output.sort, context) : undefined,
+    predicate: output.predicate != null ? deserializeAws_restJson1Predicate(output.predicate, context) : undefined,
+    sort: output.sort != null ? deserializeAws_restJson1SortPropertyList(output.sort, context) : undefined,
   } as any;
 };
 
@@ -2185,7 +2163,7 @@ const deserializeAws_restJson1ComponentEvent = (output: any, context: __SerdeCon
     action: __expectString(output.action),
     bindingEvent: __expectString(output.bindingEvent),
     parameters:
-      output.parameters != undefined ? deserializeAws_restJson1ActionParameters(output.parameters, context) : undefined,
+      output.parameters != null ? deserializeAws_restJson1ActionParameters(output.parameters, context) : undefined,
   } as any;
 };
 
@@ -2264,19 +2242,18 @@ const deserializeAws_restJson1ComponentProperties = (
 const deserializeAws_restJson1ComponentProperty = (output: any, context: __SerdeContext): ComponentProperty => {
   return {
     bindingProperties:
-      output.bindingProperties != undefined
+      output.bindingProperties != null
         ? deserializeAws_restJson1ComponentPropertyBindingProperties(output.bindingProperties, context)
         : undefined,
-    bindings: output.bindings != undefined ? deserializeAws_restJson1FormBindings(output.bindings, context) : undefined,
+    bindings: output.bindings != null ? deserializeAws_restJson1FormBindings(output.bindings, context) : undefined,
     collectionBindingProperties:
-      output.collectionBindingProperties != undefined
+      output.collectionBindingProperties != null
         ? deserializeAws_restJson1ComponentPropertyBindingProperties(output.collectionBindingProperties, context)
         : undefined,
     componentName: __expectString(output.componentName),
-    concat:
-      output.concat != undefined ? deserializeAws_restJson1ComponentPropertyList(output.concat, context) : undefined,
+    concat: output.concat != null ? deserializeAws_restJson1ComponentPropertyList(output.concat, context) : undefined,
     condition:
-      output.condition != undefined
+      output.condition != null
         ? deserializeAws_restJson1ComponentConditionProperty(output.condition, context)
         : undefined,
     configured: __expectBoolean(output.configured),
@@ -2338,9 +2315,9 @@ const deserializeAws_restJson1ComponentSummaryList = (output: any, context: __Se
 const deserializeAws_restJson1ComponentVariant = (output: any, context: __SerdeContext): ComponentVariant => {
   return {
     overrides:
-      output.overrides != undefined ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
+      output.overrides != null ? deserializeAws_restJson1ComponentOverrides(output.overrides, context) : undefined,
     variantValues:
-      output.variantValues != undefined
+      output.variantValues != null
         ? deserializeAws_restJson1ComponentVariantValues(output.variantValues, context)
         : undefined,
   } as any;
@@ -2414,17 +2391,17 @@ const deserializeAws_restJson1MutationActionSetStateParameter = (
   return {
     componentName: __expectString(output.componentName),
     property: __expectString(output.property),
-    set: output.set != undefined ? deserializeAws_restJson1ComponentProperty(output.set, context) : undefined,
+    set: output.set != null ? deserializeAws_restJson1ComponentProperty(output.set, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Predicate = (output: any, context: __SerdeContext): Predicate => {
   return {
-    and: output.and != undefined ? deserializeAws_restJson1PredicateList(output.and, context) : undefined,
+    and: output.and != null ? deserializeAws_restJson1PredicateList(output.and, context) : undefined,
     field: __expectString(output.field),
     operand: __expectString(output.operand),
     operator: __expectString(output.operator),
-    or: output.or != undefined ? deserializeAws_restJson1PredicateList(output.or, context) : undefined,
+    or: output.or != null ? deserializeAws_restJson1PredicateList(output.or, context) : undefined,
   } as any;
 };
 
@@ -2474,15 +2451,15 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
 const deserializeAws_restJson1Theme = (output: any, context: __SerdeContext): Theme => {
   return {
     appId: __expectString(output.appId),
-    createdAt: output.createdAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     environmentName: __expectString(output.environmentName),
     id: __expectString(output.id),
-    modifiedAt: output.modifiedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
+    modifiedAt: output.modifiedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.modifiedAt)) : undefined,
     name: __expectString(output.name),
     overrides:
-      output.overrides != undefined ? deserializeAws_restJson1ThemeValuesList(output.overrides, context) : undefined,
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
-    values: output.values != undefined ? deserializeAws_restJson1ThemeValuesList(output.values, context) : undefined,
+      output.overrides != null ? deserializeAws_restJson1ThemeValuesList(output.overrides, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    values: output.values != null ? deserializeAws_restJson1ThemeValuesList(output.values, context) : undefined,
   } as any;
 };
 
@@ -2521,8 +2498,7 @@ const deserializeAws_restJson1ThemeSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ThemeValue = (output: any, context: __SerdeContext): ThemeValue => {
   return {
-    children:
-      output.children != undefined ? deserializeAws_restJson1ThemeValuesList(output.children, context) : undefined,
+    children: output.children != null ? deserializeAws_restJson1ThemeValuesList(output.children, context) : undefined,
     value: __expectString(output.value),
   } as any;
 };
@@ -2530,7 +2506,7 @@ const deserializeAws_restJson1ThemeValue = (output: any, context: __SerdeContext
 const deserializeAws_restJson1ThemeValues = (output: any, context: __SerdeContext): ThemeValues => {
   return {
     key: __expectString(output.key),
-    value: output.value != undefined ? deserializeAws_restJson1ThemeValue(output.value, context) : undefined,
+    value: output.value != null ? deserializeAws_restJson1ThemeValue(output.value, context) : undefined,
   } as any;
 };
 

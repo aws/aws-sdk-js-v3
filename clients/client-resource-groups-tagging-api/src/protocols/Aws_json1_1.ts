@@ -679,19 +679,19 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupBy != undefined && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.PaginationToken != undefined && { PaginationToken: input.PaginationToken }),
-    ...(input.RegionFilters != undefined && {
+    ...(input.GroupBy != null && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
+    ...(input.RegionFilters != null && {
       RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context),
     }),
-    ...(input.ResourceTypeFilters != undefined && {
+    ...(input.ResourceTypeFilters != null && {
       ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
     }),
-    ...(input.TagKeyFilters != undefined && {
+    ...(input.TagKeyFilters != null && {
       TagKeyFilters: serializeAws_json1_1TagKeyFilterList(input.TagKeyFilters, context),
     }),
-    ...(input.TargetIdFilters != undefined && {
+    ...(input.TargetIdFilters != null && {
       TargetIdFilters: serializeAws_json1_1TargetIdFilterList(input.TargetIdFilters, context),
     }),
   };
@@ -699,31 +699,31 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
 
 const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludeCompliantResources != undefined && { ExcludeCompliantResources: input.ExcludeCompliantResources }),
-    ...(input.IncludeComplianceDetails != undefined && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
-    ...(input.PaginationToken != undefined && { PaginationToken: input.PaginationToken }),
-    ...(input.ResourceARNList != undefined && {
+    ...(input.ExcludeCompliantResources != null && { ExcludeCompliantResources: input.ExcludeCompliantResources }),
+    ...(input.IncludeComplianceDetails != null && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
+    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
+    ...(input.ResourceARNList != null && {
       ResourceARNList: serializeAws_json1_1ResourceARNListForGet(input.ResourceARNList, context),
     }),
-    ...(input.ResourceTypeFilters != undefined && {
+    ...(input.ResourceTypeFilters != null && {
       ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
     }),
-    ...(input.ResourcesPerPage != undefined && { ResourcesPerPage: input.ResourcesPerPage }),
-    ...(input.TagFilters != undefined && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
-    ...(input.TagsPerPage != undefined && { TagsPerPage: input.TagsPerPage }),
+    ...(input.ResourcesPerPage != null && { ResourcesPerPage: input.ResourcesPerPage }),
+    ...(input.TagFilters != null && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
+    ...(input.TagsPerPage != null && { TagsPerPage: input.TagsPerPage }),
   };
 };
 
 const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
   return {
-    ...(input.PaginationToken != undefined && { PaginationToken: input.PaginationToken }),
+    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
   };
 };
 
 const serializeAws_json1_1GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.PaginationToken != undefined && { PaginationToken: input.PaginationToken }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
   };
 };
 
@@ -787,14 +787,14 @@ const serializeAws_json1_1StartReportCreationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3Bucket != undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
   };
 };
 
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Values != null && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
   };
 };
 
@@ -845,10 +845,10 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
 
 const serializeAws_json1_1TagResourcesInput = (input: TagResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARNList != undefined && {
+    ...(input.ResourceARNList != null && {
       ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
 };
 
@@ -876,10 +876,10 @@ const serializeAws_json1_1TargetIdFilterList = (input: string[], context: __Serd
 
 const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARNList != undefined && {
+    ...(input.ResourceARNList != null && {
       ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
     }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
   };
 };
 
@@ -887,13 +887,11 @@ const deserializeAws_json1_1ComplianceDetails = (output: any, context: __SerdeCo
   return {
     ComplianceStatus: __expectBoolean(output.ComplianceStatus),
     KeysWithNoncompliantValues:
-      output.KeysWithNoncompliantValues != undefined
+      output.KeysWithNoncompliantValues != null
         ? deserializeAws_json1_1TagKeyList(output.KeysWithNoncompliantValues, context)
         : undefined,
     NoncompliantKeys:
-      output.NoncompliantKeys != undefined
-        ? deserializeAws_json1_1TagKeyList(output.NoncompliantKeys, context)
-        : undefined,
+      output.NoncompliantKeys != null ? deserializeAws_json1_1TagKeyList(output.NoncompliantKeys, context) : undefined,
   } as any;
 };
 
@@ -957,7 +955,7 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
   return {
     PaginationToken: __expectString(output.PaginationToken),
     SummaryList:
-      output.SummaryList != undefined ? deserializeAws_json1_1SummaryList(output.SummaryList, context) : undefined,
+      output.SummaryList != null ? deserializeAws_json1_1SummaryList(output.SummaryList, context) : undefined,
   } as any;
 };
 
@@ -965,7 +963,7 @@ const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeC
   return {
     PaginationToken: __expectString(output.PaginationToken),
     ResourceTagMappingList:
-      output.ResourceTagMappingList != undefined
+      output.ResourceTagMappingList != null
         ? deserializeAws_json1_1ResourceTagMappingList(output.ResourceTagMappingList, context)
         : undefined,
   } as any;
@@ -974,7 +972,7 @@ const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeC
 const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
-    TagKeys: output.TagKeys != undefined ? deserializeAws_json1_1TagKeyList(output.TagKeys, context) : undefined,
+    TagKeys: output.TagKeys != null ? deserializeAws_json1_1TagKeyList(output.TagKeys, context) : undefined,
   } as any;
 };
 
@@ -982,7 +980,7 @@ const deserializeAws_json1_1GetTagValuesOutput = (output: any, context: __SerdeC
   return {
     PaginationToken: __expectString(output.PaginationToken),
     TagValues:
-      output.TagValues != undefined ? deserializeAws_json1_1TagValuesOutputList(output.TagValues, context) : undefined,
+      output.TagValues != null ? deserializeAws_json1_1TagValuesOutputList(output.TagValues, context) : undefined,
   } as any;
 };
 
@@ -1016,11 +1014,11 @@ const deserializeAws_json1_1PaginationTokenExpiredException = (
 const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeContext): ResourceTagMapping => {
   return {
     ComplianceDetails:
-      output.ComplianceDetails != undefined
+      output.ComplianceDetails != null
         ? deserializeAws_json1_1ComplianceDetails(output.ComplianceDetails, context)
         : undefined,
     ResourceARN: __expectString(output.ResourceARN),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1100,7 +1098,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
   return {
     FailedResourcesMap:
-      output.FailedResourcesMap != undefined
+      output.FailedResourcesMap != null
         ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
         : undefined,
   } as any;
@@ -1127,7 +1125,7 @@ const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeC
 const deserializeAws_json1_1UntagResourcesOutput = (output: any, context: __SerdeContext): UntagResourcesOutput => {
   return {
     FailedResourcesMap:
-      output.FailedResourcesMap != undefined
+      output.FailedResourcesMap != null
         ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
         : undefined,
   } as any;

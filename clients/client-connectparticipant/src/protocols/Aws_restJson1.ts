@@ -63,7 +63,7 @@ export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
   let body: any;
   body = JSON.stringify({
-    ...(input.AttachmentIds != undefined && {
+    ...(input.AttachmentIds != null && {
       AttachmentIds: serializeAws_restJson1AttachmentIdList(input.AttachmentIds, context),
     }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -92,8 +92,8 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectParticipant != undefined && { ConnectParticipant: input.ConnectParticipant }),
-    ...(input.Type != undefined && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
+    ...(input.ConnectParticipant != null && { ConnectParticipant: input.ConnectParticipant }),
+    ...(input.Type != null && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -145,7 +145,7 @@ export const serializeAws_restJson1GetAttachmentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
   let body: any;
   body = JSON.stringify({
-    ...(input.AttachmentId != undefined && { AttachmentId: input.AttachmentId }),
+    ...(input.AttachmentId != null && { AttachmentId: input.AttachmentId }),
   });
   return new __HttpRequest({
     protocol,
@@ -171,12 +171,12 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ScanDirection != undefined && { ScanDirection: input.ScanDirection }),
-    ...(input.SortOrder != undefined && { SortOrder: input.SortOrder }),
-    ...(input.StartPosition != undefined && {
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ScanDirection != null && { ScanDirection: input.ScanDirection }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.StartPosition != null && {
       StartPosition: serializeAws_restJson1StartPosition(input.StartPosition, context),
     }),
   });
@@ -204,8 +204,8 @@ export const serializeAws_restJson1SendEventCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content != undefined && { Content: input.Content }),
-    ...(input.ContentType != undefined && { ContentType: input.ContentType }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
   });
   return new __HttpRequest({
     protocol,
@@ -231,8 +231,8 @@ export const serializeAws_restJson1SendMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Content != undefined && { Content: input.Content }),
-    ...(input.ContentType != undefined && { ContentType: input.ContentType }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
   });
   return new __HttpRequest({
     protocol,
@@ -258,10 +258,10 @@ export const serializeAws_restJson1StartAttachmentUploadCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
   let body: any;
   body = JSON.stringify({
-    ...(input.AttachmentName != undefined && { AttachmentName: input.AttachmentName }),
-    ...(input.AttachmentSizeInBytes != undefined && { AttachmentSizeInBytes: input.AttachmentSizeInBytes }),
+    ...(input.AttachmentName != null && { AttachmentName: input.AttachmentName }),
+    ...(input.AttachmentSizeInBytes != null && { AttachmentSizeInBytes: input.AttachmentSizeInBytes }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ContentType != undefined && { ContentType: input.ContentType }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
   });
   return new __HttpRequest({
     protocol,
@@ -855,9 +855,9 @@ const serializeAws_restJson1ConnectionTypeList = (input: (ConnectionType | strin
 
 const serializeAws_restJson1StartPosition = (input: StartPosition, context: __SerdeContext): any => {
   return {
-    ...(input.AbsoluteTime != undefined && { AbsoluteTime: input.AbsoluteTime }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.MostRecent != undefined && { MostRecent: input.MostRecent }),
+    ...(input.AbsoluteTime != null && { AbsoluteTime: input.AbsoluteTime }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.MostRecent != null && { MostRecent: input.MostRecent }),
   };
 };
 
@@ -893,7 +893,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
   return {
     AbsoluteTime: __expectString(output.AbsoluteTime),
     Attachments:
-      output.Attachments != undefined ? deserializeAws_restJson1Attachments(output.Attachments, context) : undefined,
+      output.Attachments != null ? deserializeAws_restJson1Attachments(output.Attachments, context) : undefined,
     Content: __expectString(output.Content),
     ContentType: __expectString(output.ContentType),
     DisplayName: __expectString(output.DisplayName),
@@ -919,7 +919,7 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
   return {
     HeadersToInclude:
-      output.HeadersToInclude != undefined
+      output.HeadersToInclude != null
         ? deserializeAws_restJson1UploadMetadataSignedHeaders(output.HeadersToInclude, context)
         : undefined,
     Url: __expectString(output.Url),

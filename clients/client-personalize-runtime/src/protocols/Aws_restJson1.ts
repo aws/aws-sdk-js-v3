@@ -32,14 +32,14 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/personalize-ranking";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignArn != undefined && { campaignArn: input.campaignArn }),
-    ...(input.context != undefined && { context: serializeAws_restJson1Context(input.context, context) }),
-    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
-    ...(input.filterValues != undefined && {
+    ...(input.campaignArn != null && { campaignArn: input.campaignArn }),
+    ...(input.context != null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn != null && { filterArn: input.filterArn }),
+    ...(input.filterValues != null && {
       filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
     }),
-    ...(input.inputList != undefined && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
-    ...(input.userId != undefined && { userId: input.userId }),
+    ...(input.inputList != null && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
+    ...(input.userId != null && { userId: input.userId }),
   });
   return new __HttpRequest({
     protocol,
@@ -63,16 +63,16 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recommendations";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignArn != undefined && { campaignArn: input.campaignArn }),
-    ...(input.context != undefined && { context: serializeAws_restJson1Context(input.context, context) }),
-    ...(input.filterArn != undefined && { filterArn: input.filterArn }),
-    ...(input.filterValues != undefined && {
+    ...(input.campaignArn != null && { campaignArn: input.campaignArn }),
+    ...(input.context != null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn != null && { filterArn: input.filterArn }),
+    ...(input.filterValues != null && {
       filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
     }),
-    ...(input.itemId != undefined && { itemId: input.itemId }),
-    ...(input.numResults != undefined && { numResults: input.numResults }),
-    ...(input.recommenderArn != undefined && { recommenderArn: input.recommenderArn }),
-    ...(input.userId != undefined && { userId: input.userId }),
+    ...(input.itemId != null && { itemId: input.itemId }),
+    ...(input.numResults != null && { numResults: input.numResults }),
+    ...(input.recommenderArn != null && { recommenderArn: input.recommenderArn }),
+    ...(input.userId != null && { userId: input.userId }),
   });
   return new __HttpRequest({
     protocol,

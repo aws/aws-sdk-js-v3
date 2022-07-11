@@ -546,7 +546,7 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -555,8 +555,8 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.s3Resources != undefined && {
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
+    ...(input.s3Resources != null && {
       s3Resources: serializeAws_json1_1S3ResourcesClassification(input.s3Resources, context),
     }),
   };
@@ -564,8 +564,8 @@ const serializeAws_json1_1AssociateS3ResourcesRequest = (
 
 const serializeAws_json1_1ClassificationType = (input: ClassificationType, context: __SerdeContext): any => {
   return {
-    ...(input.continuous != undefined && { continuous: input.continuous }),
-    ...(input.oneTime != undefined && { oneTime: input.oneTime }),
+    ...(input.continuous != null && { continuous: input.continuous }),
+    ...(input.oneTime != null && { oneTime: input.oneTime }),
   };
 };
 
@@ -574,8 +574,8 @@ const serializeAws_json1_1ClassificationTypeUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.continuous != undefined && { continuous: input.continuous }),
-    ...(input.oneTime != undefined && { oneTime: input.oneTime }),
+    ...(input.continuous != null && { continuous: input.continuous }),
+    ...(input.oneTime != null && { oneTime: input.oneTime }),
   };
 };
 
@@ -584,7 +584,7 @@ const serializeAws_json1_1DisassociateMemberAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -593,10 +593,10 @@ const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.associatedS3Resources != undefined && {
+    ...(input.associatedS3Resources != null && {
       associatedS3Resources: serializeAws_json1_1S3Resources(input.associatedS3Resources, context),
     }),
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
   };
 };
 
@@ -605,23 +605,23 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListS3ResourcesRequest = (input: ListS3ResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
-    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
-    ...(input.prefix != undefined && { prefix: input.prefix }),
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
@@ -630,11 +630,11 @@ const serializeAws_json1_1S3ResourceClassification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
-    ...(input.classificationType != undefined && {
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
+    ...(input.classificationType != null && {
       classificationType: serializeAws_json1_1ClassificationType(input.classificationType, context),
     }),
-    ...(input.prefix != undefined && { prefix: input.prefix }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
@@ -643,11 +643,11 @@ const serializeAws_json1_1S3ResourceClassificationUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
-    ...(input.classificationTypeUpdate != undefined && {
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
+    ...(input.classificationTypeUpdate != null && {
       classificationTypeUpdate: serializeAws_json1_1ClassificationTypeUpdate(input.classificationTypeUpdate, context),
     }),
-    ...(input.prefix != undefined && { prefix: input.prefix }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
@@ -695,8 +695,8 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.memberAccountId != undefined && { memberAccountId: input.memberAccountId }),
-    ...(input.s3ResourcesUpdate != undefined && {
+    ...(input.memberAccountId != null && { memberAccountId: input.memberAccountId }),
+    ...(input.s3ResourcesUpdate != null && {
       s3ResourcesUpdate: serializeAws_json1_1S3ResourcesClassificationUpdate(input.s3ResourcesUpdate, context),
     }),
   };
@@ -715,7 +715,7 @@ const deserializeAws_json1_1AssociateS3ResourcesResult = (
 ): AssociateS3ResourcesResult => {
   return {
     failedS3Resources:
-      output.failedS3Resources != undefined
+      output.failedS3Resources != null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)
         : undefined,
   } as any;
@@ -734,7 +734,7 @@ const deserializeAws_json1_1DisassociateS3ResourcesResult = (
 ): DisassociateS3ResourcesResult => {
   return {
     failedS3Resources:
-      output.failedS3Resources != undefined
+      output.failedS3Resources != null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)
         : undefined,
   } as any;
@@ -744,8 +744,7 @@ const deserializeAws_json1_1FailedS3Resource = (output: any, context: __SerdeCon
   return {
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
-    failedItem:
-      output.failedItem != undefined ? deserializeAws_json1_1S3Resource(output.failedItem, context) : undefined,
+    failedItem: output.failedItem != null ? deserializeAws_json1_1S3Resource(output.failedItem, context) : undefined,
   } as any;
 };
 
@@ -790,9 +789,7 @@ const deserializeAws_json1_1ListMemberAccountsResult = (
 ): ListMemberAccountsResult => {
   return {
     memberAccounts:
-      output.memberAccounts != undefined
-        ? deserializeAws_json1_1MemberAccounts(output.memberAccounts, context)
-        : undefined,
+      output.memberAccounts != null ? deserializeAws_json1_1MemberAccounts(output.memberAccounts, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -801,7 +798,7 @@ const deserializeAws_json1_1ListS3ResourcesResult = (output: any, context: __Ser
   return {
     nextToken: __expectString(output.nextToken),
     s3Resources:
-      output.s3Resources != undefined
+      output.s3Resources != null
         ? deserializeAws_json1_1S3ResourcesClassification(output.s3Resources, context)
         : undefined,
   } as any;
@@ -839,7 +836,7 @@ const deserializeAws_json1_1S3ResourceClassification = (
   return {
     bucketName: __expectString(output.bucketName),
     classificationType:
-      output.classificationType != undefined
+      output.classificationType != null
         ? deserializeAws_json1_1ClassificationType(output.classificationType, context)
         : undefined,
     prefix: __expectString(output.prefix),
@@ -867,7 +864,7 @@ const deserializeAws_json1_1UpdateS3ResourcesResult = (
 ): UpdateS3ResourcesResult => {
   return {
     failedS3Resources:
-      output.failedS3Resources != undefined
+      output.failedS3Resources != null
         ? deserializeAws_json1_1FailedS3Resources(output.failedS3Resources, context)
         : undefined,
   } as any;

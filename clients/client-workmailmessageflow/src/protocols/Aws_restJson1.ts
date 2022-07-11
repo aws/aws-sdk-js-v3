@@ -77,7 +77,7 @@ export const serializeAws_restJson1PutRawMessageContentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.content != undefined && { content: serializeAws_restJson1RawMessageContent(input.content, context) }),
+    ...(input.content != null && { content: serializeAws_restJson1RawMessageContent(input.content, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -249,17 +249,15 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1RawMessageContent = (input: RawMessageContent, context: __SerdeContext): any => {
   return {
-    ...(input.s3Reference != undefined && {
-      s3Reference: serializeAws_restJson1S3Reference(input.s3Reference, context),
-    }),
+    ...(input.s3Reference != null && { s3Reference: serializeAws_restJson1S3Reference(input.s3Reference, context) }),
   };
 };
 
 const serializeAws_restJson1S3Reference = (input: S3Reference, context: __SerdeContext): any => {
   return {
-    ...(input.bucket != undefined && { bucket: input.bucket }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.objectVersion != undefined && { objectVersion: input.objectVersion }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.objectVersion != null && { objectVersion: input.objectVersion }),
   };
 };
 

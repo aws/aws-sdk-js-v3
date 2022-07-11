@@ -1136,7 +1136,7 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 
 const serializeAws_json1_0CancelQueryRequest = (input: CancelQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   };
 };
 
@@ -1146,26 +1146,26 @@ const serializeAws_json1_0CreateScheduledQueryRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ErrorReportConfiguration != undefined && {
+    ...(input.ErrorReportConfiguration != null && {
       ErrorReportConfiguration: serializeAws_json1_0ErrorReportConfiguration(input.ErrorReportConfiguration, context),
     }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.NotificationConfiguration != undefined && {
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NotificationConfiguration != null && {
       NotificationConfiguration: serializeAws_json1_0NotificationConfiguration(
         input.NotificationConfiguration,
         context
       ),
     }),
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
-    ...(input.ScheduleConfiguration != undefined && {
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
+    ...(input.ScheduleConfiguration != null && {
       ScheduleConfiguration: serializeAws_json1_0ScheduleConfiguration(input.ScheduleConfiguration, context),
     }),
-    ...(input.ScheduledQueryExecutionRoleArn != undefined && {
+    ...(input.ScheduledQueryExecutionRoleArn != null && {
       ScheduledQueryExecutionRoleArn: input.ScheduledQueryExecutionRoleArn,
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.TargetConfiguration != undefined && {
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.TargetConfiguration != null && {
       TargetConfiguration: serializeAws_json1_0TargetConfiguration(input.TargetConfiguration, context),
     }),
   };
@@ -1176,7 +1176,7 @@ const serializeAws_json1_0DeleteScheduledQueryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ScheduledQueryArn != undefined && { ScheduledQueryArn: input.ScheduledQueryArn }),
+    ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
 
@@ -1192,14 +1192,14 @@ const serializeAws_json1_0DescribeScheduledQueryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ScheduledQueryArn != undefined && { ScheduledQueryArn: input.ScheduledQueryArn }),
+    ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
 
 const serializeAws_json1_0DimensionMapping = (input: DimensionMapping, context: __SerdeContext): any => {
   return {
-    ...(input.DimensionValueType != undefined && { DimensionValueType: input.DimensionValueType }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.DimensionValueType != null && { DimensionValueType: input.DimensionValueType }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -1219,7 +1219,7 @@ const serializeAws_json1_0ErrorReportConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3Configuration != undefined && {
+    ...(input.S3Configuration != null && {
       S3Configuration: serializeAws_json1_0S3Configuration(input.S3Configuration, context),
     }),
   };
@@ -1231,8 +1231,8 @@ const serializeAws_json1_0ExecuteScheduledQueryRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.InvocationTime != undefined && { InvocationTime: Math.round(input.InvocationTime.getTime() / 1000) }),
-    ...(input.ScheduledQueryArn != undefined && { ScheduledQueryArn: input.ScheduledQueryArn }),
+    ...(input.InvocationTime != null && { InvocationTime: Math.round(input.InvocationTime.getTime() / 1000) }),
+    ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
   };
 };
 
@@ -1241,8 +1241,8 @@ const serializeAws_json1_0ListScheduledQueriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1251,24 +1251,24 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_0MixedMeasureMapping = (input: MixedMeasureMapping, context: __SerdeContext): any => {
   return {
-    ...(input.MeasureName != undefined && { MeasureName: input.MeasureName }),
-    ...(input.MeasureValueType != undefined && { MeasureValueType: input.MeasureValueType }),
-    ...(input.MultiMeasureAttributeMappings != undefined && {
+    ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
+    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
+    ...(input.MultiMeasureAttributeMappings != null && {
       MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
         input.MultiMeasureAttributeMappings,
         context
       ),
     }),
-    ...(input.SourceColumn != undefined && { SourceColumn: input.SourceColumn }),
-    ...(input.TargetMeasureName != undefined && { TargetMeasureName: input.TargetMeasureName }),
+    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
+    ...(input.TargetMeasureName != null && { TargetMeasureName: input.TargetMeasureName }),
   };
 };
 
@@ -1288,9 +1288,9 @@ const serializeAws_json1_0MultiMeasureAttributeMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MeasureValueType != undefined && { MeasureValueType: input.MeasureValueType }),
-    ...(input.SourceColumn != undefined && { SourceColumn: input.SourceColumn }),
-    ...(input.TargetMultiMeasureAttributeName != undefined && {
+    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
+    ...(input.SourceColumn != null && { SourceColumn: input.SourceColumn }),
+    ...(input.TargetMultiMeasureAttributeName != null && {
       TargetMultiMeasureAttributeName: input.TargetMultiMeasureAttributeName,
     }),
   };
@@ -1312,13 +1312,13 @@ const serializeAws_json1_0MultiMeasureAttributeMappingList = (
 
 const serializeAws_json1_0MultiMeasureMappings = (input: MultiMeasureMappings, context: __SerdeContext): any => {
   return {
-    ...(input.MultiMeasureAttributeMappings != undefined && {
+    ...(input.MultiMeasureAttributeMappings != null && {
       MultiMeasureAttributeMappings: serializeAws_json1_0MultiMeasureAttributeMappingList(
         input.MultiMeasureAttributeMappings,
         context
       ),
     }),
-    ...(input.TargetMultiMeasureName != undefined && { TargetMultiMeasureName: input.TargetMultiMeasureName }),
+    ...(input.TargetMultiMeasureName != null && { TargetMultiMeasureName: input.TargetMultiMeasureName }),
   };
 };
 
@@ -1327,7 +1327,7 @@ const serializeAws_json1_0NotificationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnsConfiguration != undefined && {
+    ...(input.SnsConfiguration != null && {
       SnsConfiguration: serializeAws_json1_0SnsConfiguration(input.SnsConfiguration, context),
     }),
   };
@@ -1335,44 +1335,44 @@ const serializeAws_json1_0NotificationConfiguration = (
 
 const serializeAws_json1_0PrepareQueryRequest = (input: PrepareQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
-    ...(input.ValidateOnly != undefined && { ValidateOnly: input.ValidateOnly }),
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
+    ...(input.ValidateOnly != null && { ValidateOnly: input.ValidateOnly }),
   };
 };
 
 const serializeAws_json1_0QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.MaxRows != undefined && { MaxRows: input.MaxRows }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
+    ...(input.MaxRows != null && { MaxRows: input.MaxRows }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
   };
 };
 
 const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.BucketName != undefined && { BucketName: input.BucketName }),
-    ...(input.EncryptionOption != undefined && { EncryptionOption: input.EncryptionOption }),
-    ...(input.ObjectKeyPrefix != undefined && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
+    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
   };
 };
 
 const serializeAws_json1_0ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ScheduleExpression != undefined && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
 const serializeAws_json1_0SnsConfiguration = (input: SnsConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.TopicArn != undefined && { TopicArn: input.TopicArn }),
+    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1400,14 +1400,14 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0TargetConfiguration = (input: TargetConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.TimestreamConfiguration != undefined && {
+    ...(input.TimestreamConfiguration != null && {
       TimestreamConfiguration: serializeAws_json1_0TimestreamConfiguration(input.TimestreamConfiguration, context),
     }),
   };
@@ -1415,26 +1415,26 @@ const serializeAws_json1_0TargetConfiguration = (input: TargetConfiguration, con
 
 const serializeAws_json1_0TimestreamConfiguration = (input: TimestreamConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.DimensionMappings != undefined && {
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.DimensionMappings != null && {
       DimensionMappings: serializeAws_json1_0DimensionMappingList(input.DimensionMappings, context),
     }),
-    ...(input.MeasureNameColumn != undefined && { MeasureNameColumn: input.MeasureNameColumn }),
-    ...(input.MixedMeasureMappings != undefined && {
+    ...(input.MeasureNameColumn != null && { MeasureNameColumn: input.MeasureNameColumn }),
+    ...(input.MixedMeasureMappings != null && {
       MixedMeasureMappings: serializeAws_json1_0MixedMeasureMappingList(input.MixedMeasureMappings, context),
     }),
-    ...(input.MultiMeasureMappings != undefined && {
+    ...(input.MultiMeasureMappings != null && {
       MultiMeasureMappings: serializeAws_json1_0MultiMeasureMappings(input.MultiMeasureMappings, context),
     }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
-    ...(input.TimeColumn != undefined && { TimeColumn: input.TimeColumn }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+    ...(input.TimeColumn != null && { TimeColumn: input.TimeColumn }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -1443,8 +1443,8 @@ const serializeAws_json1_0UpdateScheduledQueryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ScheduledQueryArn != undefined && { ScheduledQueryArn: input.ScheduledQueryArn }),
-    ...(input.State != undefined && { State: input.State }),
+    ...(input.ScheduledQueryArn != null && { ScheduledQueryArn: input.ScheduledQueryArn }),
+    ...(input.State != null && { State: input.State }),
   };
 };
 
@@ -1463,7 +1463,7 @@ const deserializeAws_json1_0CancelQueryResponse = (output: any, context: __Serde
 const deserializeAws_json1_0ColumnInfo = (output: any, context: __SerdeContext): ColumnInfo => {
   return {
     Name: __expectString(output.Name),
-    Type: output.Type != undefined ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
   } as any;
 };
 
@@ -1496,13 +1496,12 @@ const deserializeAws_json1_0CreateScheduledQueryResponse = (
 
 const deserializeAws_json1_0Datum = (output: any, context: __SerdeContext): Datum => {
   return {
-    ArrayValue:
-      output.ArrayValue != undefined ? deserializeAws_json1_0DatumList(output.ArrayValue, context) : undefined,
+    ArrayValue: output.ArrayValue != null ? deserializeAws_json1_0DatumList(output.ArrayValue, context) : undefined,
     NullValue: __expectBoolean(output.NullValue),
-    RowValue: output.RowValue != undefined ? deserializeAws_json1_0Row(output.RowValue, context) : undefined,
+    RowValue: output.RowValue != null ? deserializeAws_json1_0Row(output.RowValue, context) : undefined,
     ScalarValue: __expectString(output.ScalarValue),
     TimeSeriesValue:
-      output.TimeSeriesValue != undefined
+      output.TimeSeriesValue != null
         ? deserializeAws_json1_0TimeSeriesDataPointList(output.TimeSeriesValue, context)
         : undefined,
   } as any;
@@ -1525,7 +1524,7 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
   context: __SerdeContext
 ): DescribeEndpointsResponse => {
   return {
-    Endpoints: output.Endpoints != undefined ? deserializeAws_json1_0Endpoints(output.Endpoints, context) : undefined,
+    Endpoints: output.Endpoints != null ? deserializeAws_json1_0Endpoints(output.Endpoints, context) : undefined,
   } as any;
 };
 
@@ -1535,7 +1534,7 @@ const deserializeAws_json1_0DescribeScheduledQueryResponse = (
 ): DescribeScheduledQueryResponse => {
   return {
     ScheduledQuery:
-      output.ScheduledQuery != undefined
+      output.ScheduledQuery != null
         ? deserializeAws_json1_0ScheduledQueryDescription(output.ScheduledQuery, context)
         : undefined,
   } as any;
@@ -1585,7 +1584,7 @@ const deserializeAws_json1_0ErrorReportConfiguration = (
 ): ErrorReportConfiguration => {
   return {
     S3Configuration:
-      output.S3Configuration != undefined
+      output.S3Configuration != null
         ? deserializeAws_json1_0S3Configuration(output.S3Configuration, context)
         : undefined,
   } as any;
@@ -1594,7 +1593,7 @@ const deserializeAws_json1_0ErrorReportConfiguration = (
 const deserializeAws_json1_0ErrorReportLocation = (output: any, context: __SerdeContext): ErrorReportLocation => {
   return {
     S3ReportLocation:
-      output.S3ReportLocation != undefined
+      output.S3ReportLocation != null
         ? deserializeAws_json1_0S3ReportLocation(output.S3ReportLocation, context)
         : undefined,
   } as any;
@@ -1635,7 +1634,7 @@ const deserializeAws_json1_0ListScheduledQueriesResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ScheduledQueries:
-      output.ScheduledQueries != undefined
+      output.ScheduledQueries != null
         ? deserializeAws_json1_0ScheduledQueryList(output.ScheduledQueries, context)
         : undefined,
   } as any;
@@ -1647,7 +1646,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1656,7 +1655,7 @@ const deserializeAws_json1_0MixedMeasureMapping = (output: any, context: __Serde
     MeasureName: __expectString(output.MeasureName),
     MeasureValueType: __expectString(output.MeasureValueType),
     MultiMeasureAttributeMappings:
-      output.MultiMeasureAttributeMappings != undefined
+      output.MultiMeasureAttributeMappings != null
         ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
         : undefined,
     SourceColumn: __expectString(output.SourceColumn),
@@ -1705,7 +1704,7 @@ const deserializeAws_json1_0MultiMeasureAttributeMappingList = (
 const deserializeAws_json1_0MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
   return {
     MultiMeasureAttributeMappings:
-      output.MultiMeasureAttributeMappings != undefined
+      output.MultiMeasureAttributeMappings != null
         ? deserializeAws_json1_0MultiMeasureAttributeMappingList(output.MultiMeasureAttributeMappings, context)
         : undefined,
     TargetMultiMeasureName: __expectString(output.TargetMultiMeasureName),
@@ -1718,7 +1717,7 @@ const deserializeAws_json1_0NotificationConfiguration = (
 ): NotificationConfiguration => {
   return {
     SnsConfiguration:
-      output.SnsConfiguration != undefined
+      output.SnsConfiguration != null
         ? deserializeAws_json1_0SnsConfiguration(output.SnsConfiguration, context)
         : undefined,
   } as any;
@@ -1727,7 +1726,7 @@ const deserializeAws_json1_0NotificationConfiguration = (
 const deserializeAws_json1_0ParameterMapping = (output: any, context: __SerdeContext): ParameterMapping => {
   return {
     Name: __expectString(output.Name),
-    Type: output.Type != undefined ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
   } as any;
 };
 
@@ -1745,11 +1744,9 @@ const deserializeAws_json1_0ParameterMappingList = (output: any, context: __Serd
 
 const deserializeAws_json1_0PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQueryResponse => {
   return {
-    Columns: output.Columns != undefined ? deserializeAws_json1_0SelectColumnList(output.Columns, context) : undefined,
+    Columns: output.Columns != null ? deserializeAws_json1_0SelectColumnList(output.Columns, context) : undefined,
     Parameters:
-      output.Parameters != undefined
-        ? deserializeAws_json1_0ParameterMappingList(output.Parameters, context)
-        : undefined,
+      output.Parameters != null ? deserializeAws_json1_0ParameterMappingList(output.Parameters, context) : undefined,
     QueryString: __expectString(output.QueryString),
   } as any;
 };
@@ -1766,12 +1763,12 @@ const deserializeAws_json1_0QueryExecutionException = (
 const deserializeAws_json1_0QueryResponse = (output: any, context: __SerdeContext): QueryResponse => {
   return {
     ColumnInfo:
-      output.ColumnInfo != undefined ? deserializeAws_json1_0ColumnInfoList(output.ColumnInfo, context) : undefined,
+      output.ColumnInfo != null ? deserializeAws_json1_0ColumnInfoList(output.ColumnInfo, context) : undefined,
     NextToken: __expectString(output.NextToken),
     QueryId: __expectString(output.QueryId),
     QueryStatus:
-      output.QueryStatus != undefined ? deserializeAws_json1_0QueryStatus(output.QueryStatus, context) : undefined,
-    Rows: output.Rows != undefined ? deserializeAws_json1_0RowList(output.Rows, context) : undefined,
+      output.QueryStatus != null ? deserializeAws_json1_0QueryStatus(output.QueryStatus, context) : undefined,
+    Rows: output.Rows != null ? deserializeAws_json1_0RowList(output.Rows, context) : undefined,
   } as any;
 };
 
@@ -1795,7 +1792,7 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 
 const deserializeAws_json1_0Row = (output: any, context: __SerdeContext): Row => {
   return {
-    Data: output.Data != undefined ? deserializeAws_json1_0DatumList(output.Data, context) : undefined,
+    Data: output.Data != null ? deserializeAws_json1_0DatumList(output.Data, context) : undefined,
   } as any;
 };
 
@@ -1836,26 +1833,26 @@ const deserializeAws_json1_0ScheduledQuery = (output: any, context: __SerdeConte
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ErrorReportConfiguration:
-      output.ErrorReportConfiguration != undefined
+      output.ErrorReportConfiguration != null
         ? deserializeAws_json1_0ErrorReportConfiguration(output.ErrorReportConfiguration, context)
         : undefined,
     LastRunStatus: __expectString(output.LastRunStatus),
     Name: __expectString(output.Name),
     NextInvocationTime:
-      output.NextInvocationTime != undefined
+      output.NextInvocationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextInvocationTime)))
         : undefined,
     PreviousInvocationTime:
-      output.PreviousInvocationTime != undefined
+      output.PreviousInvocationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PreviousInvocationTime)))
         : undefined,
     State: __expectString(output.State),
     TargetDestination:
-      output.TargetDestination != undefined
+      output.TargetDestination != null
         ? deserializeAws_json1_0TargetDestination(output.TargetDestination, context)
         : undefined,
   } as any;
@@ -1868,44 +1865,44 @@ const deserializeAws_json1_0ScheduledQueryDescription = (
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ErrorReportConfiguration:
-      output.ErrorReportConfiguration != undefined
+      output.ErrorReportConfiguration != null
         ? deserializeAws_json1_0ErrorReportConfiguration(output.ErrorReportConfiguration, context)
         : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     LastRunSummary:
-      output.LastRunSummary != undefined
+      output.LastRunSummary != null
         ? deserializeAws_json1_0ScheduledQueryRunSummary(output.LastRunSummary, context)
         : undefined,
     Name: __expectString(output.Name),
     NextInvocationTime:
-      output.NextInvocationTime != undefined
+      output.NextInvocationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NextInvocationTime)))
         : undefined,
     NotificationConfiguration:
-      output.NotificationConfiguration != undefined
+      output.NotificationConfiguration != null
         ? deserializeAws_json1_0NotificationConfiguration(output.NotificationConfiguration, context)
         : undefined,
     PreviousInvocationTime:
-      output.PreviousInvocationTime != undefined
+      output.PreviousInvocationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.PreviousInvocationTime)))
         : undefined,
     QueryString: __expectString(output.QueryString),
     RecentlyFailedRuns:
-      output.RecentlyFailedRuns != undefined
+      output.RecentlyFailedRuns != null
         ? deserializeAws_json1_0ScheduledQueryRunSummaryList(output.RecentlyFailedRuns, context)
         : undefined,
     ScheduleConfiguration:
-      output.ScheduleConfiguration != undefined
+      output.ScheduleConfiguration != null
         ? deserializeAws_json1_0ScheduleConfiguration(output.ScheduleConfiguration, context)
         : undefined,
     ScheduledQueryExecutionRoleArn: __expectString(output.ScheduledQueryExecutionRoleArn),
     State: __expectString(output.State),
     TargetConfiguration:
-      output.TargetConfiguration != undefined
+      output.TargetConfiguration != null
         ? deserializeAws_json1_0TargetConfiguration(output.TargetConfiguration, context)
         : undefined,
   } as any;
@@ -1929,21 +1926,19 @@ const deserializeAws_json1_0ScheduledQueryRunSummary = (
 ): ScheduledQueryRunSummary => {
   return {
     ErrorReportLocation:
-      output.ErrorReportLocation != undefined
+      output.ErrorReportLocation != null
         ? deserializeAws_json1_0ErrorReportLocation(output.ErrorReportLocation, context)
         : undefined,
     ExecutionStats:
-      output.ExecutionStats != undefined
-        ? deserializeAws_json1_0ExecutionStats(output.ExecutionStats, context)
-        : undefined,
+      output.ExecutionStats != null ? deserializeAws_json1_0ExecutionStats(output.ExecutionStats, context) : undefined,
     FailureReason: __expectString(output.FailureReason),
     InvocationTime:
-      output.InvocationTime != undefined
+      output.InvocationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InvocationTime)))
         : undefined,
     RunStatus: __expectString(output.RunStatus),
     TriggerTime:
-      output.TriggerTime != undefined
+      output.TriggerTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TriggerTime)))
         : undefined,
   } as any;
@@ -1970,7 +1965,7 @@ const deserializeAws_json1_0SelectColumn = (output: any, context: __SerdeContext
     DatabaseName: __expectString(output.DatabaseName),
     Name: __expectString(output.Name),
     TableName: __expectString(output.TableName),
-    Type: output.Type != undefined ? deserializeAws_json1_0Type(output.Type, context) : undefined,
+    Type: output.Type != null ? deserializeAws_json1_0Type(output.Type, context) : undefined,
   } as any;
 };
 
@@ -2027,7 +2022,7 @@ const deserializeAws_json1_0TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_0TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   return {
     TimestreamConfiguration:
-      output.TimestreamConfiguration != undefined
+      output.TimestreamConfiguration != null
         ? deserializeAws_json1_0TimestreamConfiguration(output.TimestreamConfiguration, context)
         : undefined,
   } as any;
@@ -2036,7 +2031,7 @@ const deserializeAws_json1_0TargetConfiguration = (output: any, context: __Serde
 const deserializeAws_json1_0TargetDestination = (output: any, context: __SerdeContext): TargetDestination => {
   return {
     TimestreamDestination:
-      output.TimestreamDestination != undefined
+      output.TimestreamDestination != null
         ? deserializeAws_json1_0TimestreamDestination(output.TimestreamDestination, context)
         : undefined,
   } as any;
@@ -2051,7 +2046,7 @@ const deserializeAws_json1_0ThrottlingException = (output: any, context: __Serde
 const deserializeAws_json1_0TimeSeriesDataPoint = (output: any, context: __SerdeContext): TimeSeriesDataPoint => {
   return {
     Time: __expectString(output.Time),
-    Value: output.Value != undefined ? deserializeAws_json1_0Datum(output.Value, context) : undefined,
+    Value: output.Value != null ? deserializeAws_json1_0Datum(output.Value, context) : undefined,
   } as any;
 };
 
@@ -2074,16 +2069,16 @@ const deserializeAws_json1_0TimestreamConfiguration = (
   return {
     DatabaseName: __expectString(output.DatabaseName),
     DimensionMappings:
-      output.DimensionMappings != undefined
+      output.DimensionMappings != null
         ? deserializeAws_json1_0DimensionMappingList(output.DimensionMappings, context)
         : undefined,
     MeasureNameColumn: __expectString(output.MeasureNameColumn),
     MixedMeasureMappings:
-      output.MixedMeasureMappings != undefined
+      output.MixedMeasureMappings != null
         ? deserializeAws_json1_0MixedMeasureMappingList(output.MixedMeasureMappings, context)
         : undefined,
     MultiMeasureMappings:
-      output.MultiMeasureMappings != undefined
+      output.MultiMeasureMappings != null
         ? deserializeAws_json1_0MultiMeasureMappings(output.MultiMeasureMappings, context)
         : undefined,
     TableName: __expectString(output.TableName),
@@ -2101,16 +2096,12 @@ const deserializeAws_json1_0TimestreamDestination = (output: any, context: __Ser
 const deserializeAws_json1_0Type = (output: any, context: __SerdeContext): Type => {
   return {
     ArrayColumnInfo:
-      output.ArrayColumnInfo != undefined
-        ? deserializeAws_json1_0ColumnInfo(output.ArrayColumnInfo, context)
-        : undefined,
+      output.ArrayColumnInfo != null ? deserializeAws_json1_0ColumnInfo(output.ArrayColumnInfo, context) : undefined,
     RowColumnInfo:
-      output.RowColumnInfo != undefined
-        ? deserializeAws_json1_0ColumnInfoList(output.RowColumnInfo, context)
-        : undefined,
+      output.RowColumnInfo != null ? deserializeAws_json1_0ColumnInfoList(output.RowColumnInfo, context) : undefined,
     ScalarType: __expectString(output.ScalarType),
     TimeSeriesMeasureValueColumnInfo:
-      output.TimeSeriesMeasureValueColumnInfo != undefined
+      output.TimeSeriesMeasureValueColumnInfo != null
         ? deserializeAws_json1_0ColumnInfo(output.TimeSeriesMeasureValueColumnInfo, context)
         : undefined,
   } as any;

@@ -166,17 +166,17 @@ const serializeAws_json1_1CustomerDefinedValues = (input: Record<string, string>
 
 const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.customerDefinedValues != undefined && {
+    ...(input.customerDefinedValues != null && {
       customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
     }),
-    ...(input.dataSetPublicationDate != undefined && {
+    ...(input.dataSetPublicationDate != null && {
       dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
     }),
-    ...(input.dataSetType != undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName != undefined && { destinationS3BucketName: input.destinationS3BucketName }),
-    ...(input.destinationS3Prefix != undefined && { destinationS3Prefix: input.destinationS3Prefix }),
-    ...(input.roleNameArn != undefined && { roleNameArn: input.roleNameArn }),
-    ...(input.snsTopicArn != undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.dataSetType != null && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName != null && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix != null && { destinationS3Prefix: input.destinationS3Prefix }),
+    ...(input.roleNameArn != null && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn != null && { snsTopicArn: input.snsTopicArn }),
   };
 };
 
@@ -185,15 +185,15 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.customerDefinedValues != undefined && {
+    ...(input.customerDefinedValues != null && {
       customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
     }),
-    ...(input.dataSetType != undefined && { dataSetType: input.dataSetType }),
-    ...(input.destinationS3BucketName != undefined && { destinationS3BucketName: input.destinationS3BucketName }),
-    ...(input.destinationS3Prefix != undefined && { destinationS3Prefix: input.destinationS3Prefix }),
-    ...(input.fromDate != undefined && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
-    ...(input.roleNameArn != undefined && { roleNameArn: input.roleNameArn }),
-    ...(input.snsTopicArn != undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.dataSetType != null && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName != null && { destinationS3BucketName: input.destinationS3BucketName }),
+    ...(input.destinationS3Prefix != null && { destinationS3Prefix: input.destinationS3Prefix }),
+    ...(input.fromDate != null && { fromDate: Math.round(input.fromDate.getTime() / 1000) }),
+    ...(input.roleNameArn != null && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn != null && { snsTopicArn: input.snsTopicArn }),
   };
 };
 

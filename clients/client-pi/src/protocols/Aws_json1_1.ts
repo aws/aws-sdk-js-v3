@@ -501,32 +501,28 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdditionalMetrics != undefined && {
+    ...(input.AdditionalMetrics != null && {
       AdditionalMetrics: serializeAws_json1_1AdditionalMetricsList(input.AdditionalMetrics, context),
     }),
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy != undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.Metric != undefined && { Metric: input.Metric }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PartitionBy != undefined && {
-      PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context),
-    }),
-    ...(input.PeriodInSeconds != undefined && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy != null && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Metric != null && { Metric: input.Metric }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PartitionBy != null && { PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context) }),
+    ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1DimensionGroup = (input: DimensionGroup, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_json1_1RequestStringList(input.Dimensions, context),
-    }),
-    ...(input.Group != undefined && { Group: input.Group }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1RequestStringList(input.Dimensions, context) }),
+    ...(input.Group != null && { Group: input.Group }),
+    ...(input.Limit != null && { Limit: input.Limit }),
   };
 };
 
@@ -546,13 +542,13 @@ const serializeAws_json1_1GetDimensionKeyDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Group != undefined && { Group: input.Group }),
-    ...(input.GroupIdentifier != undefined && { GroupIdentifier: input.GroupIdentifier }),
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.RequestedDimensions != undefined && {
+    ...(input.Group != null && { Group: input.Group }),
+    ...(input.GroupIdentifier != null && { GroupIdentifier: input.GroupIdentifier }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.RequestedDimensions != null && {
       RequestedDimensions: serializeAws_json1_1RequestedDimensionList(input.RequestedDimensions, context),
     }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
   };
 };
 
@@ -561,8 +557,8 @@ const serializeAws_json1_1GetResourceMetadataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
   };
 };
 
@@ -571,16 +567,16 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.MetricQueries != undefined && {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MetricQueries != null && {
       MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context),
     }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PeriodInSeconds != undefined && { PeriodInSeconds: input.PeriodInSeconds }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PeriodInSeconds != null && { PeriodInSeconds: input.PeriodInSeconds }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -589,11 +585,11 @@ const serializeAws_json1_1ListAvailableResourceDimensionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_json1_1DimensionsMetricList(input.Metrics, context) }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Metrics != null && { Metrics: serializeAws_json1_1DimensionsMetricList(input.Metrics, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
   };
 };
 
@@ -602,21 +598,19 @@ const serializeAws_json1_1ListAvailableResourceMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.MetricTypes != undefined && {
-      MetricTypes: serializeAws_json1_1MetricTypeList(input.MetricTypes, context),
-    }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ServiceType != undefined && { ServiceType: input.ServiceType }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MetricTypes != null && { MetricTypes: serializeAws_json1_1MetricTypeList(input.MetricTypes, context) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServiceType != null && { ServiceType: input.ServiceType }),
   };
 };
 
 const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
-    ...(input.GroupBy != undefined && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
-    ...(input.Metric != undefined && { Metric: input.Metric }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context) }),
+    ...(input.GroupBy != null && { GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context) }),
+    ...(input.Metric != null && { Metric: input.Metric }),
   };
 };
 
@@ -691,9 +685,7 @@ const deserializeAws_json1_1AdditionalMetricsMap = (output: any, context: __Serd
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     Timestamp:
-      output.Timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
     Value: __limitedParseDouble(output.Value),
   } as any;
 };
@@ -716,18 +708,17 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
 ): DescribeDimensionKeysResponse => {
   return {
     AlignedEndTime:
-      output.AlignedEndTime != undefined
+      output.AlignedEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
         : undefined,
     AlignedStartTime:
-      output.AlignedStartTime != undefined
+      output.AlignedStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
         : undefined,
-    Keys:
-      output.Keys != undefined ? deserializeAws_json1_1DimensionKeyDescriptionList(output.Keys, context) : undefined,
+    Keys: output.Keys != null ? deserializeAws_json1_1DimensionKeyDescriptionList(output.Keys, context) : undefined,
     NextToken: __expectString(output.NextToken),
     PartitionKeys:
-      output.PartitionKeys != undefined
+      output.PartitionKeys != null
         ? deserializeAws_json1_1ResponsePartitionKeyList(output.PartitionKeys, context)
         : undefined,
   } as any;
@@ -754,9 +745,7 @@ const deserializeAws_json1_1DimensionDetailList = (output: any, context: __Serde
 const deserializeAws_json1_1DimensionGroupDetail = (output: any, context: __SerdeContext): DimensionGroupDetail => {
   return {
     Dimensions:
-      output.Dimensions != undefined
-        ? deserializeAws_json1_1DimensionDetailList(output.Dimensions, context)
-        : undefined,
+      output.Dimensions != null ? deserializeAws_json1_1DimensionDetailList(output.Dimensions, context) : undefined,
     Group: __expectString(output.Group),
   } as any;
 };
@@ -782,13 +771,12 @@ const deserializeAws_json1_1DimensionKeyDescription = (
 ): DimensionKeyDescription => {
   return {
     AdditionalMetrics:
-      output.AdditionalMetrics != undefined
+      output.AdditionalMetrics != null
         ? deserializeAws_json1_1AdditionalMetricsMap(output.AdditionalMetrics, context)
         : undefined,
-    Dimensions:
-      output.Dimensions != undefined ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
+    Dimensions: output.Dimensions != null ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
     Partitions:
-      output.Partitions != undefined ? deserializeAws_json1_1MetricValuesList(output.Partitions, context) : undefined,
+      output.Partitions != null ? deserializeAws_json1_1MetricValuesList(output.Partitions, context) : undefined,
     Total: __limitedParseDouble(output.Total),
   } as any;
 };
@@ -867,9 +855,7 @@ const deserializeAws_json1_1GetDimensionKeyDetailsResponse = (
 ): GetDimensionKeyDetailsResponse => {
   return {
     Dimensions:
-      output.Dimensions != undefined
-        ? deserializeAws_json1_1DimensionKeyDetailList(output.Dimensions, context)
-        : undefined,
+      output.Dimensions != null ? deserializeAws_json1_1DimensionKeyDetailList(output.Dimensions, context) : undefined,
   } as any;
 };
 
@@ -878,8 +864,7 @@ const deserializeAws_json1_1GetResourceMetadataResponse = (
   context: __SerdeContext
 ): GetResourceMetadataResponse => {
   return {
-    Features:
-      output.Features != undefined ? deserializeAws_json1_1FeatureMetadataMap(output.Features, context) : undefined,
+    Features: output.Features != null ? deserializeAws_json1_1FeatureMetadataMap(output.Features, context) : undefined,
     Identifier: __expectString(output.Identifier),
   } as any;
 };
@@ -890,18 +875,16 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
 ): GetResourceMetricsResponse => {
   return {
     AlignedEndTime:
-      output.AlignedEndTime != undefined
+      output.AlignedEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedEndTime)))
         : undefined,
     AlignedStartTime:
-      output.AlignedStartTime != undefined
+      output.AlignedStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AlignedStartTime)))
         : undefined,
     Identifier: __expectString(output.Identifier),
     MetricList:
-      output.MetricList != undefined
-        ? deserializeAws_json1_1MetricKeyDataPointsList(output.MetricList, context)
-        : undefined,
+      output.MetricList != null ? deserializeAws_json1_1MetricKeyDataPointsList(output.MetricList, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -927,7 +910,7 @@ const deserializeAws_json1_1ListAvailableResourceDimensionsResponse = (
 ): ListAvailableResourceDimensionsResponse => {
   return {
     MetricDimensions:
-      output.MetricDimensions != undefined
+      output.MetricDimensions != null
         ? deserializeAws_json1_1MetricDimensionsList(output.MetricDimensions, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -940,17 +923,14 @@ const deserializeAws_json1_1ListAvailableResourceMetricsResponse = (
 ): ListAvailableResourceMetricsResponse => {
   return {
     Metrics:
-      output.Metrics != undefined
-        ? deserializeAws_json1_1ResponseResourceMetricList(output.Metrics, context)
-        : undefined,
+      output.Metrics != null ? deserializeAws_json1_1ResponseResourceMetricList(output.Metrics, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1MetricDimensionGroups = (output: any, context: __SerdeContext): MetricDimensionGroups => {
   return {
-    Groups:
-      output.Groups != undefined ? deserializeAws_json1_1DimensionGroupDetailList(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? deserializeAws_json1_1DimensionGroupDetailList(output.Groups, context) : undefined,
     Metric: __expectString(output.Metric),
   } as any;
 };
@@ -970,8 +950,8 @@ const deserializeAws_json1_1MetricDimensionsList = (output: any, context: __Serd
 const deserializeAws_json1_1MetricKeyDataPoints = (output: any, context: __SerdeContext): MetricKeyDataPoints => {
   return {
     DataPoints:
-      output.DataPoints != undefined ? deserializeAws_json1_1DataPointsList(output.DataPoints, context) : undefined,
-    Key: output.Key != undefined ? deserializeAws_json1_1ResponseResourceMetricKey(output.Key, context) : undefined,
+      output.DataPoints != null ? deserializeAws_json1_1DataPointsList(output.DataPoints, context) : undefined,
+    Key: output.Key != null ? deserializeAws_json1_1ResponseResourceMetricKey(output.Key, context) : undefined,
   } as any;
 };
 
@@ -1007,8 +987,7 @@ const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __Se
 
 const deserializeAws_json1_1ResponsePartitionKey = (output: any, context: __SerdeContext): ResponsePartitionKey => {
   return {
-    Dimensions:
-      output.Dimensions != undefined ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
+    Dimensions: output.Dimensions != null ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
   } as any;
 };
 
@@ -1040,8 +1019,7 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
   context: __SerdeContext
 ): ResponseResourceMetricKey => {
   return {
-    Dimensions:
-      output.Dimensions != undefined ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
+    Dimensions: output.Dimensions != null ? deserializeAws_json1_1DimensionMap(output.Dimensions, context) : undefined,
     Metric: __expectString(output.Metric),
   } as any;
 };

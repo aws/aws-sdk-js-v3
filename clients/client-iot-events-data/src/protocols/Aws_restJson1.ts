@@ -92,7 +92,7 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/acknowledge";
   let body: any;
   body = JSON.stringify({
-    ...(input.acknowledgeActionRequests != undefined && {
+    ...(input.acknowledgeActionRequests != null && {
       acknowledgeActionRequests: serializeAws_restJson1AcknowledgeAlarmActionRequests(
         input.acknowledgeActionRequests,
         context
@@ -121,7 +121,7 @@ export const serializeAws_restJson1BatchDeleteDetectorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/delete";
   let body: any;
   body = JSON.stringify({
-    ...(input.detectors != undefined && {
+    ...(input.detectors != null && {
       detectors: serializeAws_restJson1DeleteDetectorRequests(input.detectors, context),
     }),
   });
@@ -147,7 +147,7 @@ export const serializeAws_restJson1BatchDisableAlarmCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/disable";
   let body: any;
   body = JSON.stringify({
-    ...(input.disableActionRequests != undefined && {
+    ...(input.disableActionRequests != null && {
       disableActionRequests: serializeAws_restJson1DisableAlarmActionRequests(input.disableActionRequests, context),
     }),
   });
@@ -173,7 +173,7 @@ export const serializeAws_restJson1BatchEnableAlarmCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/enable";
   let body: any;
   body = JSON.stringify({
-    ...(input.enableActionRequests != undefined && {
+    ...(input.enableActionRequests != null && {
       enableActionRequests: serializeAws_restJson1EnableAlarmActionRequests(input.enableActionRequests, context),
     }),
   });
@@ -199,7 +199,7 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/inputs/messages";
   let body: any;
   body = JSON.stringify({
-    ...(input.messages != undefined && { messages: serializeAws_restJson1Messages(input.messages, context) }),
+    ...(input.messages != null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -223,7 +223,7 @@ export const serializeAws_restJson1BatchResetAlarmCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/reset";
   let body: any;
   body = JSON.stringify({
-    ...(input.resetActionRequests != undefined && {
+    ...(input.resetActionRequests != null && {
       resetActionRequests: serializeAws_restJson1ResetAlarmActionRequests(input.resetActionRequests, context),
     }),
   });
@@ -249,7 +249,7 @@ export const serializeAws_restJson1BatchSnoozeAlarmCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/snooze";
   let body: any;
   body = JSON.stringify({
-    ...(input.snoozeActionRequests != undefined && {
+    ...(input.snoozeActionRequests != null && {
       snoozeActionRequests: serializeAws_restJson1SnoozeAlarmActionRequests(input.snoozeActionRequests, context),
     }),
   });
@@ -275,7 +275,7 @@ export const serializeAws_restJson1BatchUpdateDetectorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors";
   let body: any;
   body = JSON.stringify({
-    ...(input.detectors != undefined && {
+    ...(input.detectors != null && {
       detectors: serializeAws_restJson1UpdateDetectorRequests(input.detectors, context),
     }),
   });
@@ -1186,10 +1186,10 @@ const serializeAws_restJson1AcknowledgeAlarmActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmModelName != undefined && { alarmModelName: input.alarmModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.note != undefined && { note: input.note }),
-    ...(input.requestId != undefined && { requestId: input.requestId }),
+    ...(input.alarmModelName != null && { alarmModelName: input.alarmModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.note != null && { note: input.note }),
+    ...(input.requestId != null && { requestId: input.requestId }),
   };
 };
 
@@ -1209,9 +1209,9 @@ const serializeAws_restJson1AcknowledgeAlarmActionRequests = (
 
 const serializeAws_restJson1DeleteDetectorRequest = (input: DeleteDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorModelName != undefined && { detectorModelName: input.detectorModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.messageId != undefined && { messageId: input.messageId }),
+    ...(input.detectorModelName != null && { detectorModelName: input.detectorModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.messageId != null && { messageId: input.messageId }),
   };
 };
 
@@ -1231,11 +1231,9 @@ const serializeAws_restJson1DetectorStateDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.stateName != undefined && { stateName: input.stateName }),
-    ...(input.timers != undefined && { timers: serializeAws_restJson1TimerDefinitions(input.timers, context) }),
-    ...(input.variables != undefined && {
-      variables: serializeAws_restJson1VariableDefinitions(input.variables, context),
-    }),
+    ...(input.stateName != null && { stateName: input.stateName }),
+    ...(input.timers != null && { timers: serializeAws_restJson1TimerDefinitions(input.timers, context) }),
+    ...(input.variables != null && { variables: serializeAws_restJson1VariableDefinitions(input.variables, context) }),
   };
 };
 
@@ -1244,10 +1242,10 @@ const serializeAws_restJson1DisableAlarmActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmModelName != undefined && { alarmModelName: input.alarmModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.note != undefined && { note: input.note }),
-    ...(input.requestId != undefined && { requestId: input.requestId }),
+    ...(input.alarmModelName != null && { alarmModelName: input.alarmModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.note != null && { note: input.note }),
+    ...(input.requestId != null && { requestId: input.requestId }),
   };
 };
 
@@ -1270,10 +1268,10 @@ const serializeAws_restJson1EnableAlarmActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmModelName != undefined && { alarmModelName: input.alarmModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.note != undefined && { note: input.note }),
-    ...(input.requestId != undefined && { requestId: input.requestId }),
+    ...(input.alarmModelName != null && { alarmModelName: input.alarmModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.note != null && { note: input.note }),
+    ...(input.requestId != null && { requestId: input.requestId }),
   };
 };
 
@@ -1293,10 +1291,10 @@ const serializeAws_restJson1EnableAlarmActionRequests = (
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
-    ...(input.inputName != undefined && { inputName: input.inputName }),
-    ...(input.messageId != undefined && { messageId: input.messageId }),
-    ...(input.payload != undefined && { payload: context.base64Encoder(input.payload) }),
-    ...(input.timestamp != undefined && { timestamp: serializeAws_restJson1TimestampValue(input.timestamp, context) }),
+    ...(input.inputName != null && { inputName: input.inputName }),
+    ...(input.messageId != null && { messageId: input.messageId }),
+    ...(input.payload != null && { payload: context.base64Encoder(input.payload) }),
+    ...(input.timestamp != null && { timestamp: serializeAws_restJson1TimestampValue(input.timestamp, context) }),
   };
 };
 
@@ -1316,10 +1314,10 @@ const serializeAws_restJson1ResetAlarmActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmModelName != undefined && { alarmModelName: input.alarmModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.note != undefined && { note: input.note }),
-    ...(input.requestId != undefined && { requestId: input.requestId }),
+    ...(input.alarmModelName != null && { alarmModelName: input.alarmModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.note != null && { note: input.note }),
+    ...(input.requestId != null && { requestId: input.requestId }),
   };
 };
 
@@ -1342,11 +1340,11 @@ const serializeAws_restJson1SnoozeAlarmActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmModelName != undefined && { alarmModelName: input.alarmModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.note != undefined && { note: input.note }),
-    ...(input.requestId != undefined && { requestId: input.requestId }),
-    ...(input.snoozeDuration != undefined && { snoozeDuration: input.snoozeDuration }),
+    ...(input.alarmModelName != null && { alarmModelName: input.alarmModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.note != null && { note: input.note }),
+    ...(input.requestId != null && { requestId: input.requestId }),
+    ...(input.snoozeDuration != null && { snoozeDuration: input.snoozeDuration }),
   };
 };
 
@@ -1366,8 +1364,8 @@ const serializeAws_restJson1SnoozeAlarmActionRequests = (
 
 const serializeAws_restJson1TimerDefinition = (input: TimerDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.seconds != undefined && { seconds: input.seconds }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.seconds != null && { seconds: input.seconds }),
   };
 };
 
@@ -1384,16 +1382,16 @@ const serializeAws_restJson1TimerDefinitions = (input: TimerDefinition[], contex
 
 const serializeAws_restJson1TimestampValue = (input: TimestampValue, context: __SerdeContext): any => {
   return {
-    ...(input.timeInMillis != undefined && { timeInMillis: input.timeInMillis }),
+    ...(input.timeInMillis != null && { timeInMillis: input.timeInMillis }),
   };
 };
 
 const serializeAws_restJson1UpdateDetectorRequest = (input: UpdateDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorModelName != undefined && { detectorModelName: input.detectorModelName }),
-    ...(input.keyValue != undefined && { keyValue: input.keyValue }),
-    ...(input.messageId != undefined && { messageId: input.messageId }),
-    ...(input.state != undefined && { state: serializeAws_restJson1DetectorStateDefinition(input.state, context) }),
+    ...(input.detectorModelName != null && { detectorModelName: input.detectorModelName }),
+    ...(input.keyValue != null && { keyValue: input.keyValue }),
+    ...(input.messageId != null && { messageId: input.messageId }),
+    ...(input.state != null && { state: serializeAws_restJson1DetectorStateDefinition(input.state, context) }),
   };
 };
 
@@ -1410,8 +1408,8 @@ const serializeAws_restJson1UpdateDetectorRequests = (input: UpdateDetectorReque
 
 const serializeAws_restJson1VariableDefinition = (input: VariableDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -1439,15 +1437,14 @@ const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Al
   return {
     alarmModelName: __expectString(output.alarmModelName),
     alarmModelVersion: __expectString(output.alarmModelVersion),
-    alarmState:
-      output.alarmState != undefined ? deserializeAws_restJson1AlarmState(output.alarmState, context) : undefined,
+    alarmState: output.alarmState != null ? deserializeAws_restJson1AlarmState(output.alarmState, context) : undefined,
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     severity: __expectInt32(output.severity),
@@ -1457,16 +1454,16 @@ const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Al
 const deserializeAws_restJson1AlarmState = (output: any, context: __SerdeContext): AlarmState => {
   return {
     customerAction:
-      output.customerAction != undefined
+      output.customerAction != null
         ? deserializeAws_restJson1CustomerAction(output.customerAction, context)
         : undefined,
     ruleEvaluation:
-      output.ruleEvaluation != undefined
+      output.ruleEvaluation != null
         ? deserializeAws_restJson1RuleEvaluation(output.ruleEvaluation, context)
         : undefined,
     stateName: __expectString(output.stateName),
     systemEvent:
-      output.systemEvent != undefined ? deserializeAws_restJson1SystemEvent(output.systemEvent, context) : undefined,
+      output.systemEvent != null ? deserializeAws_restJson1SystemEvent(output.systemEvent, context) : undefined,
   } as any;
 };
 
@@ -1487,12 +1484,12 @@ const deserializeAws_restJson1AlarmSummary = (output: any, context: __SerdeConte
     alarmModelName: __expectString(output.alarmModelName),
     alarmModelVersion: __expectString(output.alarmModelVersion),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     stateName: __expectString(output.stateName),
@@ -1606,24 +1603,24 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntry = (
 const deserializeAws_restJson1CustomerAction = (output: any, context: __SerdeContext): CustomerAction => {
   return {
     acknowledgeActionConfiguration:
-      output.acknowledgeActionConfiguration != undefined
+      output.acknowledgeActionConfiguration != null
         ? deserializeAws_restJson1AcknowledgeActionConfiguration(output.acknowledgeActionConfiguration, context)
         : undefined,
     actionName: __expectString(output.actionName),
     disableActionConfiguration:
-      output.disableActionConfiguration != undefined
+      output.disableActionConfiguration != null
         ? deserializeAws_restJson1DisableActionConfiguration(output.disableActionConfiguration, context)
         : undefined,
     enableActionConfiguration:
-      output.enableActionConfiguration != undefined
+      output.enableActionConfiguration != null
         ? deserializeAws_restJson1EnableActionConfiguration(output.enableActionConfiguration, context)
         : undefined,
     resetActionConfiguration:
-      output.resetActionConfiguration != undefined
+      output.resetActionConfiguration != null
         ? deserializeAws_restJson1ResetActionConfiguration(output.resetActionConfiguration, context)
         : undefined,
     snoozeActionConfiguration:
-      output.snoozeActionConfiguration != undefined
+      output.snoozeActionConfiguration != null
         ? deserializeAws_restJson1SnoozeActionConfiguration(output.snoozeActionConfiguration, context)
         : undefined,
   } as any;
@@ -1632,25 +1629,25 @@ const deserializeAws_restJson1CustomerAction = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext): Detector => {
   return {
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelName: __expectString(output.detectorModelName),
     detectorModelVersion: __expectString(output.detectorModelVersion),
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
-    state: output.state != undefined ? deserializeAws_restJson1DetectorState(output.state, context) : undefined,
+    state: output.state != null ? deserializeAws_restJson1DetectorState(output.state, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1DetectorState = (output: any, context: __SerdeContext): DetectorState => {
   return {
     stateName: __expectString(output.stateName),
-    timers: output.timers != undefined ? deserializeAws_restJson1Timers(output.timers, context) : undefined,
-    variables: output.variables != undefined ? deserializeAws_restJson1Variables(output.variables, context) : undefined,
+    timers: output.timers != null ? deserializeAws_restJson1Timers(output.timers, context) : undefined,
+    variables: output.variables != null ? deserializeAws_restJson1Variables(output.variables, context) : undefined,
   } as any;
 };
 
@@ -1675,17 +1672,17 @@ const deserializeAws_restJson1DetectorSummaries = (output: any, context: __Serde
 const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeContext): DetectorSummary => {
   return {
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     detectorModelName: __expectString(output.detectorModelName),
     detectorModelVersion: __expectString(output.detectorModelVersion),
     keyValue: __expectString(output.keyValue),
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
-    state: output.state != undefined ? deserializeAws_restJson1DetectorStateSummary(output.state, context) : undefined,
+    state: output.state != null ? deserializeAws_restJson1DetectorStateSummary(output.state, context) : undefined,
   } as any;
 };
 
@@ -1719,7 +1716,7 @@ const deserializeAws_restJson1ResetActionConfiguration = (
 const deserializeAws_restJson1RuleEvaluation = (output: any, context: __SerdeContext): RuleEvaluation => {
   return {
     simpleRuleEvaluation:
-      output.simpleRuleEvaluation != undefined
+      output.simpleRuleEvaluation != null
         ? deserializeAws_restJson1SimpleRuleEvaluation(output.simpleRuleEvaluation, context)
         : undefined,
   } as any;
@@ -1756,7 +1753,7 @@ const deserializeAws_restJson1SystemEvent = (output: any, context: __SerdeContex
   return {
     eventType: __expectString(output.eventType),
     stateChangeConfiguration:
-      output.stateChangeConfiguration != undefined
+      output.stateChangeConfiguration != null
         ? deserializeAws_restJson1StateChangeConfiguration(output.stateChangeConfiguration, context)
         : undefined,
   } as any;
@@ -1766,9 +1763,7 @@ const deserializeAws_restJson1Timer = (output: any, context: __SerdeContext): Ti
   return {
     name: __expectString(output.name),
     timestamp:
-      output.timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
-        : undefined,
+      output.timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp))) : undefined,
   } as any;
 };
 

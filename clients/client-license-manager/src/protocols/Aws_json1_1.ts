@@ -4059,7 +4059,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AcceptGrantRequest = (input: AcceptGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn != undefined && { GrantArn: input.GrantArn }),
+    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
   };
 };
 
@@ -4090,15 +4090,15 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1BorrowConfiguration = (input: BorrowConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AllowEarlyCheckIn != undefined && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
-    ...(input.MaxTimeToLiveInMinutes != undefined && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
+    ...(input.AllowEarlyCheckIn != null && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
+    ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
 const serializeAws_json1_1CheckInLicenseRequest = (input: CheckInLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary != undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.LicenseConsumptionToken != undefined && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
+    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
+    ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
@@ -4107,30 +4107,30 @@ const serializeAws_json1_1CheckoutBorrowLicenseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CheckoutMetadata != undefined && {
+    ...(input.CheckoutMetadata != null && {
       CheckoutMetadata: serializeAws_json1_1MetadataList(input.CheckoutMetadata, context),
     }),
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.DigitalSignatureMethod != undefined && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
-    ...(input.Entitlements != undefined && {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.DigitalSignatureMethod != null && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
+    ...(input.Entitlements != null && {
       Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
     }),
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.NodeId != undefined && { NodeId: input.NodeId }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.NodeId != null && { NodeId: input.NodeId }),
   };
 };
 
 const serializeAws_json1_1CheckoutLicenseRequest = (input: CheckoutLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary != undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.CheckoutType != undefined && { CheckoutType: input.CheckoutType }),
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.Entitlements != undefined && {
+    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
+    ...(input.CheckoutType != null && { CheckoutType: input.CheckoutType }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Entitlements != null && {
       Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
     }),
-    ...(input.KeyFingerprint != undefined && { KeyFingerprint: input.KeyFingerprint }),
-    ...(input.NodeId != undefined && { NodeId: input.NodeId }),
-    ...(input.ProductSKU != undefined && { ProductSKU: input.ProductSKU }),
+    ...(input.KeyFingerprint != null && { KeyFingerprint: input.KeyFingerprint }),
+    ...(input.NodeId != null && { NodeId: input.NodeId }),
+    ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
   };
 };
 
@@ -4139,28 +4139,26 @@ const serializeAws_json1_1ConsumptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BorrowConfiguration != undefined && {
+    ...(input.BorrowConfiguration != null && {
       BorrowConfiguration: serializeAws_json1_1BorrowConfiguration(input.BorrowConfiguration, context),
     }),
-    ...(input.ProvisionalConfiguration != undefined && {
+    ...(input.ProvisionalConfiguration != null && {
       ProvisionalConfiguration: serializeAws_json1_1ProvisionalConfiguration(input.ProvisionalConfiguration, context),
     }),
-    ...(input.RenewType != undefined && { RenewType: input.RenewType }),
+    ...(input.RenewType != null && { RenewType: input.RenewType }),
   };
 };
 
 const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedOperations != undefined && {
+    ...(input.AllowedOperations != null && {
       AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
     }),
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.GrantName != undefined && { GrantName: input.GrantName }),
-    ...(input.HomeRegion != undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.Principals != undefined && {
-      Principals: serializeAws_json1_1PrincipalArnList(input.Principals, context),
-    }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.GrantName != null && { GrantName: input.GrantName }),
+    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.Principals != null && { Principals: serializeAws_json1_1PrincipalArnList(input.Principals, context) }),
   };
 };
 
@@ -4169,15 +4167,15 @@ const serializeAws_json1_1CreateGrantVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowedOperations != undefined && {
+    ...(input.AllowedOperations != null && {
       AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
     }),
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.GrantArn != undefined && { GrantArn: input.GrantArn }),
-    ...(input.GrantName != undefined && { GrantName: input.GrantName }),
-    ...(input.SourceVersion != undefined && { SourceVersion: input.SourceVersion }),
-    ...(input.Status != undefined && { Status: input.Status }),
-    ...(input.StatusReason != undefined && { StatusReason: input.StatusReason }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
+    ...(input.GrantName != null && { GrantName: input.GrantName }),
+    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
   };
 };
 
@@ -4186,19 +4184,17 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound != undefined && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseCount != undefined && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit != undefined && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseCountingType != undefined && { LicenseCountingType: input.LicenseCountingType }),
-    ...(input.LicenseRules != undefined && {
-      LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context),
-    }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.ProductInformationList != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DisassociateWhenNotFound != null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
+    ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
+    ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
+    ...(input.LicenseCountingType != null && { LicenseCountingType: input.LicenseCountingType }),
+    ...(input.LicenseRules != null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ProductInformationList != null && {
       ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4207,11 +4203,11 @@ const serializeAws_json1_1CreateLicenseConversionTaskForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationLicenseContext != undefined && {
+    ...(input.DestinationLicenseContext != null && {
       DestinationLicenseContext: serializeAws_json1_1LicenseConversionContext(input.DestinationLicenseContext, context),
     }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.SourceLicenseContext != undefined && {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.SourceLicenseContext != null && {
       SourceLicenseContext: serializeAws_json1_1LicenseConversionContext(input.SourceLicenseContext, context),
     }),
   };
@@ -4222,39 +4218,39 @@ const serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.ReportContext != undefined && {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ReportContext != null && {
       ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
     }),
-    ...(input.ReportFrequency != undefined && {
+    ...(input.ReportFrequency != null && {
       ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
     }),
-    ...(input.ReportGeneratorName != undefined && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
+    ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
   };
 };
 
 const serializeAws_json1_1CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Beneficiary != undefined && { Beneficiary: input.Beneficiary }),
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration != undefined && {
+    ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.ConsumptionConfiguration != null && {
       ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
     }),
-    ...(input.Entitlements != undefined && {
+    ...(input.Entitlements != null && {
       Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
     }),
-    ...(input.HomeRegion != undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != undefined && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
-    ...(input.LicenseMetadata != undefined && {
+    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
+    ...(input.Issuer != null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
+    ...(input.LicenseMetadata != null && {
       LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
     }),
-    ...(input.LicenseName != undefined && { LicenseName: input.LicenseName }),
-    ...(input.ProductName != undefined && { ProductName: input.ProductName }),
-    ...(input.ProductSKU != undefined && { ProductSKU: input.ProductSKU }),
-    ...(input.Validity != undefined && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
+    ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
+    ...(input.Validity != null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
   };
 };
 
@@ -4263,34 +4259,34 @@ const serializeAws_json1_1CreateLicenseVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.ConsumptionConfiguration != undefined && {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.ConsumptionConfiguration != null && {
       ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
     }),
-    ...(input.Entitlements != undefined && {
+    ...(input.Entitlements != null && {
       Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
     }),
-    ...(input.HomeRegion != undefined && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != undefined && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.LicenseMetadata != undefined && {
+    ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
+    ...(input.Issuer != null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.LicenseMetadata != null && {
       LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
     }),
-    ...(input.LicenseName != undefined && { LicenseName: input.LicenseName }),
-    ...(input.ProductName != undefined && { ProductName: input.ProductName }),
-    ...(input.SourceVersion != undefined && { SourceVersion: input.SourceVersion }),
-    ...(input.Status != undefined && { Status: input.Status }),
-    ...(input.Validity != undefined && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
+    ...(input.ProductName != null && { ProductName: input.ProductName }),
+    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.Validity != null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTokenRequest = (input: CreateTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.ExpirationInDays != undefined && { ExpirationInDays: input.ExpirationInDays }),
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.RoleArns != undefined && { RoleArns: serializeAws_json1_1ArnList(input.RoleArns, context) }),
-    ...(input.TokenProperties != undefined && {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.ExpirationInDays != null && { ExpirationInDays: input.ExpirationInDays }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.RoleArns != null && { RoleArns: serializeAws_json1_1ArnList(input.RoleArns, context) }),
+    ...(input.TokenProperties != null && {
       TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
     }),
   };
@@ -4298,16 +4294,16 @@ const serializeAws_json1_1CreateTokenRequest = (input: CreateTokenRequest, conte
 
 const serializeAws_json1_1DatetimeRange = (input: DatetimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.Begin != undefined && { Begin: input.Begin }),
-    ...(input.End != undefined && { End: input.End }),
+    ...(input.Begin != null && { Begin: input.Begin }),
+    ...(input.End != null && { End: input.End }),
   };
 };
 
 const serializeAws_json1_1DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn != undefined && { GrantArn: input.GrantArn }),
-    ...(input.StatusReason != undefined && { StatusReason: input.StatusReason }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
+    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -4316,7 +4312,7 @@ const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
@@ -4325,7 +4321,7 @@ const serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseManagerReportGeneratorArn != undefined && {
+    ...(input.LicenseManagerReportGeneratorArn != null && {
       LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
     }),
   };
@@ -4333,33 +4329,33 @@ const serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest = (
 
 const serializeAws_json1_1DeleteLicenseRequest = (input: DeleteLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.SourceVersion != undefined && { SourceVersion: input.SourceVersion }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
   };
 };
 
 const serializeAws_json1_1DeleteTokenRequest = (input: DeleteTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.TokenId != undefined && { TokenId: input.TokenId }),
+    ...(input.TokenId != null && { TokenId: input.TokenId }),
   };
 };
 
 const serializeAws_json1_1Entitlement = (input: Entitlement, context: __SerdeContext): any => {
   return {
-    ...(input.AllowCheckIn != undefined && { AllowCheckIn: input.AllowCheckIn }),
-    ...(input.MaxCount != undefined && { MaxCount: input.MaxCount }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Overage != undefined && { Overage: input.Overage }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.AllowCheckIn != null && { AllowCheckIn: input.AllowCheckIn }),
+    ...(input.MaxCount != null && { MaxCount: input.MaxCount }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Overage != null && { Overage: input.Overage }),
+    ...(input.Unit != null && { Unit: input.Unit }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1EntitlementData = (input: EntitlementData, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Unit != null && { Unit: input.Unit }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4390,15 +4386,15 @@ const serializeAws_json1_1ExtendLicenseConsumptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DryRun != undefined && { DryRun: input.DryRun }),
-    ...(input.LicenseConsumptionToken != undefined && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
+    ...(input.DryRun != null && { DryRun: input.DryRun }),
+    ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
@@ -4437,8 +4433,8 @@ const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1GetAccessTokenRequest = (input: GetAccessTokenRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Token != undefined && { Token: input.Token }),
-    ...(input.TokenProperties != undefined && {
+    ...(input.Token != null && { Token: input.Token }),
+    ...(input.TokenProperties != null && {
       TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
     }),
   };
@@ -4446,8 +4442,8 @@ const serializeAws_json1_1GetAccessTokenRequest = (input: GetAccessTokenRequest,
 
 const serializeAws_json1_1GetGrantRequest = (input: GetGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn != undefined && { GrantArn: input.GrantArn }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -4456,7 +4452,7 @@ const serializeAws_json1_1GetLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
@@ -4465,7 +4461,7 @@ const serializeAws_json1_1GetLicenseConversionTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConversionTaskId != undefined && { LicenseConversionTaskId: input.LicenseConversionTaskId }),
+    ...(input.LicenseConversionTaskId != null && { LicenseConversionTaskId: input.LicenseConversionTaskId }),
   };
 };
 
@@ -4474,7 +4470,7 @@ const serializeAws_json1_1GetLicenseManagerReportGeneratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseManagerReportGeneratorArn != undefined && {
+    ...(input.LicenseManagerReportGeneratorArn != null && {
       LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
     }),
   };
@@ -4482,14 +4478,14 @@ const serializeAws_json1_1GetLicenseManagerReportGeneratorRequest = (
 
 const serializeAws_json1_1GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
 const serializeAws_json1_1GetLicenseUsageRequest = (input: GetLicenseUsageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
   };
 };
 
@@ -4502,9 +4498,9 @@ const serializeAws_json1_1GetServiceSettingsRequest = (
 
 const serializeAws_json1_1InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Condition != undefined && { Condition: input.Condition }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Condition != null && { Condition: input.Condition }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4521,8 +4517,8 @@ const serializeAws_json1_1InventoryFilterList = (input: InventoryFilter[], conte
 
 const serializeAws_json1_1Issuer = (input: Issuer, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SignKey != undefined && { SignKey: input.SignKey }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SignKey != null && { SignKey: input.SignKey }),
   };
 };
 
@@ -4531,14 +4527,14 @@ const serializeAws_json1_1LicenseConversionContext = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.UsageOperation != undefined && { UsageOperation: input.UsageOperation }),
+    ...(input.UsageOperation != null && { UsageOperation: input.UsageOperation }),
   };
 };
 
 const serializeAws_json1_1LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
   return {
-    ...(input.AmiAssociationScope != undefined && { AmiAssociationScope: input.AmiAssociationScope }),
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.AmiAssociationScope != null && { AmiAssociationScope: input.AmiAssociationScope }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
@@ -4558,9 +4554,9 @@ const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4569,10 +4565,10 @@ const serializeAws_json1_1ListDistributedGrantsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns != undefined && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4581,9 +4577,9 @@ const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest =
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4592,12 +4588,12 @@ const serializeAws_json1_1ListLicenseConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArns != undefined && {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.LicenseConfigurationArns != null && {
       LicenseConfigurationArns: serializeAws_json1_1StringList(input.LicenseConfigurationArns, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4606,9 +4602,9 @@ const serializeAws_json1_1ListLicenseConversionTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4617,9 +4613,9 @@ const serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4628,18 +4624,18 @@ const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ListLicensesRequest = (input: ListLicensesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != undefined && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArns != null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4648,9 +4644,9 @@ const serializeAws_json1_1ListLicenseVersionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LicenseArn != undefined && { LicenseArn: input.LicenseArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4659,10 +4655,10 @@ const serializeAws_json1_1ListReceivedGrantsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns != undefined && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4671,10 +4667,10 @@ const serializeAws_json1_1ListReceivedLicensesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != undefined && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArns != null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4683,9 +4679,9 @@ const serializeAws_json1_1ListResourceInventoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4694,16 +4690,16 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ListTokensRequest = (input: ListTokensRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TokenIds != undefined && { TokenIds: serializeAws_json1_1StringList(input.TokenIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TokenIds != null && { TokenIds: serializeAws_json1_1StringList(input.TokenIds, context) }),
   };
 };
 
@@ -4712,10 +4708,10 @@ const serializeAws_json1_1ListUsageForLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4732,8 +4728,8 @@ const serializeAws_json1_1MaxSize3StringList = (input: string[], context: __Serd
 
 const serializeAws_json1_1Metadata = (input: Metadata, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4753,7 +4749,7 @@ const serializeAws_json1_1OrganizationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableIntegration != undefined && { EnableIntegration: input.EnableIntegration }),
+    ...(input.EnableIntegration != null && { EnableIntegration: input.EnableIntegration }),
   };
 };
 
@@ -4770,13 +4766,13 @@ const serializeAws_json1_1PrincipalArnList = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1ProductInformation = (input: ProductInformation, context: __SerdeContext): any => {
   return {
-    ...(input.ProductInformationFilterList != undefined && {
+    ...(input.ProductInformationFilterList != null && {
       ProductInformationFilterList: serializeAws_json1_1ProductInformationFilterList(
         input.ProductInformationFilterList,
         context
       ),
     }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -4785,13 +4781,13 @@ const serializeAws_json1_1ProductInformationFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ProductInformationFilterComparator != undefined && {
+    ...(input.ProductInformationFilterComparator != null && {
       ProductInformationFilterComparator: input.ProductInformationFilterComparator,
     }),
-    ...(input.ProductInformationFilterName != undefined && {
+    ...(input.ProductInformationFilterName != null && {
       ProductInformationFilterName: input.ProductInformationFilterName,
     }),
-    ...(input.ProductInformationFilterValue != undefined && {
+    ...(input.ProductInformationFilterValue != null && {
       ProductInformationFilterValue: serializeAws_json1_1StringList(input.ProductInformationFilterValue, context),
     }),
   };
@@ -4827,19 +4823,19 @@ const serializeAws_json1_1ProvisionalConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxTimeToLiveInMinutes != undefined && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
+    ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
 const serializeAws_json1_1RejectGrantRequest = (input: RejectGrantRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GrantArn != undefined && { GrantArn: input.GrantArn }),
+    ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
   };
 };
 
 const serializeAws_json1_1ReportContext = (input: ReportContext, context: __SerdeContext): any => {
   return {
-    ...(input.licenseConfigurationArns != undefined && {
+    ...(input.licenseConfigurationArns != null && {
       licenseConfigurationArns: serializeAws_json1_1ArnList(input.licenseConfigurationArns, context),
     }),
   };
@@ -4847,8 +4843,8 @@ const serializeAws_json1_1ReportContext = (input: ReportContext, context: __Serd
 
 const serializeAws_json1_1ReportFrequency = (input: ReportFrequency, context: __SerdeContext): any => {
   return {
-    ...(input.period != undefined && { period: input.period }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.period != null && { period: input.period }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -4876,8 +4872,8 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4905,15 +4901,15 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4922,19 +4918,15 @@ const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DisassociateWhenNotFound != undefined && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
-    ...(input.LicenseConfigurationArn != undefined && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
-    ...(input.LicenseConfigurationStatus != undefined && {
-      LicenseConfigurationStatus: input.LicenseConfigurationStatus,
-    }),
-    ...(input.LicenseCount != undefined && { LicenseCount: input.LicenseCount }),
-    ...(input.LicenseCountHardLimit != undefined && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseRules != undefined && {
-      LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context),
-    }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.ProductInformationList != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DisassociateWhenNotFound != null && { DisassociateWhenNotFound: input.DisassociateWhenNotFound }),
+    ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+    ...(input.LicenseConfigurationStatus != null && { LicenseConfigurationStatus: input.LicenseConfigurationStatus }),
+    ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
+    ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
+    ...(input.LicenseRules != null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ProductInformationList != null && {
       ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
     }),
   };
@@ -4945,19 +4937,19 @@ const serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LicenseManagerReportGeneratorArn != undefined && {
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LicenseManagerReportGeneratorArn != null && {
       LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
     }),
-    ...(input.ReportContext != undefined && {
+    ...(input.ReportContext != null && {
       ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
     }),
-    ...(input.ReportFrequency != undefined && {
+    ...(input.ReportFrequency != null && {
       ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
     }),
-    ...(input.ReportGeneratorName != undefined && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Type != undefined && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
+    ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
+    ...(input.Type != null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
   };
 };
 
@@ -4966,16 +4958,16 @@ const serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AddLicenseSpecifications != undefined && {
+    ...(input.AddLicenseSpecifications != null && {
       AddLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(input.AddLicenseSpecifications, context),
     }),
-    ...(input.RemoveLicenseSpecifications != undefined && {
+    ...(input.RemoveLicenseSpecifications != null && {
       RemoveLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(
         input.RemoveLicenseSpecifications,
         context
       ),
     }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -4984,17 +4976,17 @@ const serializeAws_json1_1UpdateServiceSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableCrossAccountsDiscovery != undefined && {
+    ...(input.EnableCrossAccountsDiscovery != null && {
       EnableCrossAccountsDiscovery: input.EnableCrossAccountsDiscovery,
     }),
-    ...(input.OrganizationConfiguration != undefined && {
+    ...(input.OrganizationConfiguration != null && {
       OrganizationConfiguration: serializeAws_json1_1OrganizationConfiguration(
         input.OrganizationConfiguration,
         context
       ),
     }),
-    ...(input.S3BucketArn != undefined && { S3BucketArn: input.S3BucketArn }),
-    ...(input.SnsTopicArn != undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.S3BucketArn != null && { S3BucketArn: input.S3BucketArn }),
+    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
@@ -5051,7 +5043,7 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
 ): AutomatedDiscoveryInformation => {
   return {
     LastRunTime:
-      output.LastRunTime != undefined
+      output.LastRunTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRunTime)))
         : undefined,
   } as any;
@@ -5074,11 +5066,11 @@ const deserializeAws_json1_1CheckoutBorrowLicenseResponse = (
 ): CheckoutBorrowLicenseResponse => {
   return {
     CheckoutMetadata:
-      output.CheckoutMetadata != undefined
+      output.CheckoutMetadata != null
         ? deserializeAws_json1_1MetadataList(output.CheckoutMetadata, context)
         : undefined,
     EntitlementsAllowed:
-      output.EntitlementsAllowed != undefined
+      output.EntitlementsAllowed != null
         ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
         : undefined,
     Expiration: __expectString(output.Expiration),
@@ -5097,7 +5089,7 @@ const deserializeAws_json1_1CheckoutLicenseResponse = (
   return {
     CheckoutType: __expectString(output.CheckoutType),
     EntitlementsAllowed:
-      output.EntitlementsAllowed != undefined
+      output.EntitlementsAllowed != null
         ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
         : undefined,
     Expiration: __expectString(output.Expiration),
@@ -5143,11 +5135,11 @@ const deserializeAws_json1_1ConsumptionConfiguration = (
 ): ConsumptionConfiguration => {
   return {
     BorrowConfiguration:
-      output.BorrowConfiguration != undefined
+      output.BorrowConfiguration != null
         ? deserializeAws_json1_1BorrowConfiguration(output.BorrowConfiguration, context)
         : undefined,
     ProvisionalConfiguration:
-      output.ProvisionalConfiguration != undefined
+      output.ProvisionalConfiguration != null
         ? deserializeAws_json1_1ProvisionalConfiguration(output.ProvisionalConfiguration, context)
         : undefined,
     RenewType: __expectString(output.RenewType),
@@ -5377,7 +5369,7 @@ const deserializeAws_json1_1GetAccessTokenResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1GetGrantResponse = (output: any, context: __SerdeContext): GetGrantResponse => {
   return {
-    Grant: output.Grant != undefined ? deserializeAws_json1_1Grant(output.Grant, context) : undefined,
+    Grant: output.Grant != null ? deserializeAws_json1_1Grant(output.Grant, context) : undefined,
   } as any;
 };
 
@@ -5387,11 +5379,11 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
 ): GetLicenseConfigurationResponse => {
   return {
     AutomatedDiscoveryInformation:
-      output.AutomatedDiscoveryInformation != undefined
+      output.AutomatedDiscoveryInformation != null
         ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
         : undefined,
     ConsumedLicenseSummaryList:
-      output.ConsumedLicenseSummaryList != undefined
+      output.ConsumedLicenseSummaryList != null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
@@ -5403,19 +5395,19 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
-      output.LicenseRules != undefined ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
+      output.LicenseRules != null ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
     ManagedResourceSummaryList:
-      output.ManagedResourceSummaryList != undefined
+      output.ManagedResourceSummaryList != null
         ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
-      output.ProductInformationList != undefined
+      output.ProductInformationList != null
         ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
         : undefined,
     Status: __expectString(output.Status),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -5425,25 +5417,23 @@ const deserializeAws_json1_1GetLicenseConversionTaskResponse = (
 ): GetLicenseConversionTaskResponse => {
   return {
     DestinationLicenseContext:
-      output.DestinationLicenseContext != undefined
+      output.DestinationLicenseContext != null
         ? deserializeAws_json1_1LicenseConversionContext(output.DestinationLicenseContext, context)
         : undefined,
     EndTime:
-      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     LicenseConversionTaskId: __expectString(output.LicenseConversionTaskId),
     LicenseConversionTime:
-      output.LicenseConversionTime != undefined
+      output.LicenseConversionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LicenseConversionTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     SourceLicenseContext:
-      output.SourceLicenseContext != undefined
+      output.SourceLicenseContext != null
         ? deserializeAws_json1_1LicenseConversionContext(output.SourceLicenseContext, context)
         : undefined,
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
@@ -5455,7 +5445,7 @@ const deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse = (
 ): GetLicenseManagerReportGeneratorResponse => {
   return {
     ReportGenerator:
-      output.ReportGenerator != undefined
+      output.ReportGenerator != null
         ? deserializeAws_json1_1ReportGenerator(output.ReportGenerator, context)
         : undefined,
   } as any;
@@ -5463,7 +5453,7 @@ const deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse = (
 
 const deserializeAws_json1_1GetLicenseResponse = (output: any, context: __SerdeContext): GetLicenseResponse => {
   return {
-    License: output.License != undefined ? deserializeAws_json1_1License(output.License, context) : undefined,
+    License: output.License != null ? deserializeAws_json1_1License(output.License, context) : undefined,
   } as any;
 };
 
@@ -5473,7 +5463,7 @@ const deserializeAws_json1_1GetLicenseUsageResponse = (
 ): GetLicenseUsageResponse => {
   return {
     LicenseUsage:
-      output.LicenseUsage != undefined ? deserializeAws_json1_1LicenseUsage(output.LicenseUsage, context) : undefined,
+      output.LicenseUsage != null ? deserializeAws_json1_1LicenseUsage(output.LicenseUsage, context) : undefined,
   } as any;
 };
 
@@ -5485,7 +5475,7 @@ const deserializeAws_json1_1GetServiceSettingsResponse = (
     EnableCrossAccountsDiscovery: __expectBoolean(output.EnableCrossAccountsDiscovery),
     LicenseManagerResourceShareArn: __expectString(output.LicenseManagerResourceShareArn),
     OrganizationConfiguration:
-      output.OrganizationConfiguration != undefined
+      output.OrganizationConfiguration != null
         ? deserializeAws_json1_1OrganizationConfiguration(output.OrganizationConfiguration, context)
         : undefined,
     S3BucketArn: __expectString(output.S3BucketArn),
@@ -5499,7 +5489,7 @@ const deserializeAws_json1_1Grant = (output: any, context: __SerdeContext): Gran
     GrantName: __expectString(output.GrantName),
     GrantStatus: __expectString(output.GrantStatus),
     GrantedOperations:
-      output.GrantedOperations != undefined
+      output.GrantedOperations != null
         ? deserializeAws_json1_1AllowedOperationList(output.GrantedOperations, context)
         : undefined,
     GranteePrincipalArn: __expectString(output.GranteePrincipalArn),
@@ -5515,30 +5505,26 @@ const deserializeAws_json1_1GrantedLicense = (output: any, context: __SerdeConte
   return {
     Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
-      output.ConsumptionConfiguration != undefined
+      output.ConsumptionConfiguration != null
         ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
     CreateTime: __expectString(output.CreateTime),
     Entitlements:
-      output.Entitlements != undefined
-        ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
-        : undefined,
+      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
     HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != undefined ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
+    Issuer: output.Issuer != null ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
     LicenseArn: __expectString(output.LicenseArn),
     LicenseMetadata:
-      output.LicenseMetadata != undefined
-        ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context)
-        : undefined,
+      output.LicenseMetadata != null ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context) : undefined,
     LicenseName: __expectString(output.LicenseName),
     ProductName: __expectString(output.ProductName),
     ProductSKU: __expectString(output.ProductSKU),
     ReceivedMetadata:
-      output.ReceivedMetadata != undefined
+      output.ReceivedMetadata != null
         ? deserializeAws_json1_1ReceivedMetadata(output.ReceivedMetadata, context)
         : undefined,
     Status: __expectString(output.Status),
-    Validity: output.Validity != undefined ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
+    Validity: output.Validity != null ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
     Version: __expectString(output.Version),
   } as any;
 };
@@ -5597,26 +5583,22 @@ const deserializeAws_json1_1License = (output: any, context: __SerdeContext): Li
   return {
     Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
-      output.ConsumptionConfiguration != undefined
+      output.ConsumptionConfiguration != null
         ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
     CreateTime: __expectString(output.CreateTime),
     Entitlements:
-      output.Entitlements != undefined
-        ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
-        : undefined,
+      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
     HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != undefined ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
+    Issuer: output.Issuer != null ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
     LicenseArn: __expectString(output.LicenseArn),
     LicenseMetadata:
-      output.LicenseMetadata != undefined
-        ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context)
-        : undefined,
+      output.LicenseMetadata != null ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context) : undefined,
     LicenseName: __expectString(output.LicenseName),
     ProductName: __expectString(output.ProductName),
     ProductSKU: __expectString(output.ProductSKU),
     Status: __expectString(output.Status),
-    Validity: output.Validity != undefined ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
+    Validity: output.Validity != null ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
     Version: __expectString(output.Version),
   } as any;
 };
@@ -5624,11 +5606,11 @@ const deserializeAws_json1_1License = (output: any, context: __SerdeContext): Li
 const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
   return {
     AutomatedDiscoveryInformation:
-      output.AutomatedDiscoveryInformation != undefined
+      output.AutomatedDiscoveryInformation != null
         ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
         : undefined,
     ConsumedLicenseSummaryList:
-      output.ConsumedLicenseSummaryList != undefined
+      output.ConsumedLicenseSummaryList != null
         ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
@@ -5640,15 +5622,15 @@ const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __Serd
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
     LicenseRules:
-      output.LicenseRules != undefined ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
+      output.LicenseRules != null ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
     ManagedResourceSummaryList:
-      output.ManagedResourceSummaryList != undefined
+      output.ManagedResourceSummaryList != null
         ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
-      output.ProductInformationList != undefined
+      output.ProductInformationList != null
         ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -5662,7 +5644,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   return {
     AmiAssociationScope: __expectString(output.AmiAssociationScope),
     AssociationTime:
-      output.AssociationTime != undefined
+      output.AssociationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
@@ -5704,7 +5686,7 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
 ): LicenseConfigurationUsage => {
   return {
     AssociationTime:
-      output.AssociationTime != undefined
+      output.AssociationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AssociationTime)))
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
@@ -5742,25 +5724,23 @@ const deserializeAws_json1_1LicenseConversionContext = (
 const deserializeAws_json1_1LicenseConversionTask = (output: any, context: __SerdeContext): LicenseConversionTask => {
   return {
     DestinationLicenseContext:
-      output.DestinationLicenseContext != undefined
+      output.DestinationLicenseContext != null
         ? deserializeAws_json1_1LicenseConversionContext(output.DestinationLicenseContext, context)
         : undefined,
     EndTime:
-      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     LicenseConversionTaskId: __expectString(output.LicenseConversionTaskId),
     LicenseConversionTime:
-      output.LicenseConversionTime != undefined
+      output.LicenseConversionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LicenseConversionTime)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     SourceLicenseContext:
-      output.SourceLicenseContext != undefined
+      output.SourceLicenseContext != null
         ? deserializeAws_json1_1LicenseConversionContext(output.SourceLicenseContext, context)
         : undefined,
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
@@ -5800,11 +5780,11 @@ const deserializeAws_json1_1LicenseOperationFailure = (
   return {
     ErrorMessage: __expectString(output.ErrorMessage),
     FailureTime:
-      output.FailureTime != undefined
+      output.FailureTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FailureTime)))
         : undefined,
     MetadataList:
-      output.MetadataList != undefined ? deserializeAws_json1_1MetadataList(output.MetadataList, context) : undefined,
+      output.MetadataList != null ? deserializeAws_json1_1MetadataList(output.MetadataList, context) : undefined,
     OperationName: __expectString(output.OperationName),
     OperationRequestedBy: __expectString(output.OperationRequestedBy),
     ResourceArn: __expectString(output.ResourceArn),
@@ -5850,7 +5830,7 @@ const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __Ser
 const deserializeAws_json1_1LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
   return {
     EntitlementUsages:
-      output.EntitlementUsages != undefined
+      output.EntitlementUsages != null
         ? deserializeAws_json1_1EntitlementUsageList(output.EntitlementUsages, context)
         : undefined,
   } as any;
@@ -5868,7 +5848,7 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse = (
 ): ListAssociationsForLicenseConfigurationResponse => {
   return {
     LicenseConfigurationAssociations:
-      output.LicenseConfigurationAssociations != undefined
+      output.LicenseConfigurationAssociations != null
         ? deserializeAws_json1_1LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5880,7 +5860,7 @@ const deserializeAws_json1_1ListDistributedGrantsResponse = (
   context: __SerdeContext
 ): ListDistributedGrantsResponse => {
   return {
-    Grants: output.Grants != undefined ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5891,7 +5871,7 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRespons
 ): ListFailuresForLicenseConfigurationOperationsResponse => {
   return {
     LicenseOperationFailureList:
-      output.LicenseOperationFailureList != undefined
+      output.LicenseOperationFailureList != null
         ? deserializeAws_json1_1LicenseOperationFailureList(output.LicenseOperationFailureList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5904,7 +5884,7 @@ const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
 ): ListLicenseConfigurationsResponse => {
   return {
     LicenseConfigurations:
-      output.LicenseConfigurations != undefined
+      output.LicenseConfigurations != null
         ? deserializeAws_json1_1LicenseConfigurations(output.LicenseConfigurations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5917,7 +5897,7 @@ const deserializeAws_json1_1ListLicenseConversionTasksResponse = (
 ): ListLicenseConversionTasksResponse => {
   return {
     LicenseConversionTasks:
-      output.LicenseConversionTasks != undefined
+      output.LicenseConversionTasks != null
         ? deserializeAws_json1_1LicenseConversionTasks(output.LicenseConversionTasks, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5931,7 +5911,7 @@ const deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ReportGenerators:
-      output.ReportGenerators != undefined
+      output.ReportGenerators != null
         ? deserializeAws_json1_1ReportGeneratorList(output.ReportGenerators, context)
         : undefined,
   } as any;
@@ -5943,7 +5923,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
 ): ListLicenseSpecificationsForResourceResponse => {
   return {
     LicenseSpecifications:
-      output.LicenseSpecifications != undefined
+      output.LicenseSpecifications != null
         ? deserializeAws_json1_1LicenseSpecifications(output.LicenseSpecifications, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5952,7 +5932,7 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
 
 const deserializeAws_json1_1ListLicensesResponse = (output: any, context: __SerdeContext): ListLicensesResponse => {
   return {
-    Licenses: output.Licenses != undefined ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5962,7 +5942,7 @@ const deserializeAws_json1_1ListLicenseVersionsResponse = (
   context: __SerdeContext
 ): ListLicenseVersionsResponse => {
   return {
-    Licenses: output.Licenses != undefined ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5972,7 +5952,7 @@ const deserializeAws_json1_1ListReceivedGrantsResponse = (
   context: __SerdeContext
 ): ListReceivedGrantsResponse => {
   return {
-    Grants: output.Grants != undefined ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5982,8 +5962,7 @@ const deserializeAws_json1_1ListReceivedLicensesResponse = (
   context: __SerdeContext
 ): ListReceivedLicensesResponse => {
   return {
-    Licenses:
-      output.Licenses != undefined ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5995,7 +5974,7 @@ const deserializeAws_json1_1ListResourceInventoryResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ResourceInventoryList:
-      output.ResourceInventoryList != undefined
+      output.ResourceInventoryList != null
         ? deserializeAws_json1_1ResourceInventoryList(output.ResourceInventoryList, context)
         : undefined,
   } as any;
@@ -6006,14 +5985,14 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListTokensResponse = (output: any, context: __SerdeContext): ListTokensResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tokens: output.Tokens != undefined ? deserializeAws_json1_1TokenList(output.Tokens, context) : undefined,
+    Tokens: output.Tokens != null ? deserializeAws_json1_1TokenList(output.Tokens, context) : undefined,
   } as any;
 };
 
@@ -6023,7 +6002,7 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
 ): ListUsageForLicenseConfigurationResponse => {
   return {
     LicenseConfigurationUsageList:
-      output.LicenseConfigurationUsageList != undefined
+      output.LicenseConfigurationUsageList != null
         ? deserializeAws_json1_1LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -6104,7 +6083,7 @@ const deserializeAws_json1_1OrganizationConfiguration = (
 const deserializeAws_json1_1ProductInformation = (output: any, context: __SerdeContext): ProductInformation => {
   return {
     ProductInformationFilterList:
-      output.ProductInformationFilterList != undefined
+      output.ProductInformationFilterList != null
         ? deserializeAws_json1_1ProductInformationFilterList(output.ProductInformationFilterList, context)
         : undefined,
     ResourceType: __expectString(output.ResourceType),
@@ -6119,7 +6098,7 @@ const deserializeAws_json1_1ProductInformationFilter = (
     ProductInformationFilterComparator: __expectString(output.ProductInformationFilterComparator),
     ProductInformationFilterName: __expectString(output.ProductInformationFilterName),
     ProductInformationFilterValue:
-      output.ProductInformationFilterValue != undefined
+      output.ProductInformationFilterValue != null
         ? deserializeAws_json1_1StringList(output.ProductInformationFilterValue, context)
         : undefined,
   } as any;
@@ -6173,7 +6152,7 @@ const deserializeAws_json1_1RateLimitExceededException = (
 const deserializeAws_json1_1ReceivedMetadata = (output: any, context: __SerdeContext): ReceivedMetadata => {
   return {
     AllowedOperations:
-      output.AllowedOperations != undefined
+      output.AllowedOperations != null
         ? deserializeAws_json1_1AllowedOperationList(output.AllowedOperations, context)
         : undefined,
     ReceivedStatus: __expectString(output.ReceivedStatus),
@@ -6199,7 +6178,7 @@ const deserializeAws_json1_1RejectGrantResponse = (output: any, context: __Serde
 const deserializeAws_json1_1ReportContext = (output: any, context: __SerdeContext): ReportContext => {
   return {
     licenseConfigurationArns:
-      output.licenseConfigurationArns != undefined
+      output.licenseConfigurationArns != null
         ? deserializeAws_json1_1ArnList(output.licenseConfigurationArns, context)
         : undefined,
   } as any;
@@ -6221,20 +6200,17 @@ const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeCont
     LastRunStatus: __expectString(output.LastRunStatus),
     LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
     ReportContext:
-      output.ReportContext != undefined
-        ? deserializeAws_json1_1ReportContext(output.ReportContext, context)
-        : undefined,
+      output.ReportContext != null ? deserializeAws_json1_1ReportContext(output.ReportContext, context) : undefined,
     ReportCreatorAccount: __expectString(output.ReportCreatorAccount),
     ReportFrequency:
-      output.ReportFrequency != undefined
+      output.ReportFrequency != null
         ? deserializeAws_json1_1ReportFrequency(output.ReportFrequency, context)
         : undefined,
     ReportGeneratorName: __expectString(output.ReportGeneratorName),
     ReportType:
-      output.ReportType != undefined ? deserializeAws_json1_1ReportTypeList(output.ReportType, context) : undefined,
-    S3Location:
-      output.S3Location != undefined ? deserializeAws_json1_1S3Location(output.S3Location, context) : undefined,
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+      output.ReportType != null ? deserializeAws_json1_1ReportTypeList(output.ReportType, context) : undefined,
+    S3Location: output.S3Location != null ? deserializeAws_json1_1S3Location(output.S3Location, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -6358,11 +6334,11 @@ const deserializeAws_json1_1TokenData = (output: any, context: __SerdeContext): 
   return {
     ExpirationTime: __expectString(output.ExpirationTime),
     LicenseArn: __expectString(output.LicenseArn),
-    RoleArns: output.RoleArns != undefined ? deserializeAws_json1_1ArnList(output.RoleArns, context) : undefined,
+    RoleArns: output.RoleArns != null ? deserializeAws_json1_1ArnList(output.RoleArns, context) : undefined,
     Status: __expectString(output.Status),
     TokenId: __expectString(output.TokenId),
     TokenProperties:
-      output.TokenProperties != undefined
+      output.TokenProperties != null
         ? deserializeAws_json1_1MaxSize3StringList(output.TokenProperties, context)
         : undefined,
     TokenType: __expectString(output.TokenType),

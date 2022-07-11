@@ -199,9 +199,9 @@ export const serializeAws_restJson1AddLFTagsToResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AddLFTagsToResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.LFTags != undefined && { LFTags: serializeAws_restJson1LFTagsList(input.LFTags, context) }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.LFTags != null && { LFTags: serializeAws_restJson1LFTagsList(input.LFTags, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -225,8 +225,8 @@ export const serializeAws_restJson1BatchGrantPermissionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGrantPermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Entries != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Entries != null && {
       Entries: serializeAws_restJson1BatchPermissionsRequestEntryList(input.Entries, context),
     }),
   });
@@ -253,8 +253,8 @@ export const serializeAws_restJson1BatchRevokePermissionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchRevokePermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Entries != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Entries != null && {
       Entries: serializeAws_restJson1BatchPermissionsRequestEntryList(input.Entries, context),
     }),
   });
@@ -280,7 +280,7 @@ export const serializeAws_restJson1CancelTransactionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -304,7 +304,7 @@ export const serializeAws_restJson1CommitTransactionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -328,7 +328,7 @@ export const serializeAws_restJson1CreateDataCellsFilterCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateDataCellsFilter";
   let body: any;
   body = JSON.stringify({
-    ...(input.TableData != undefined && { TableData: serializeAws_restJson1DataCellsFilter(input.TableData, context) }),
+    ...(input.TableData != null && { TableData: serializeAws_restJson1DataCellsFilter(input.TableData, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -352,9 +352,9 @@ export const serializeAws_restJson1CreateLFTagCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLFTag";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
-    ...(input.TagValues != undefined && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValues != null && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -378,10 +378,10 @@ export const serializeAws_restJson1DeleteDataCellsFilterCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDataCellsFilter";
   let body: any;
   body = JSON.stringify({
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.TableCatalogId != undefined && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   });
   return new __HttpRequest({
     protocol,
@@ -405,8 +405,8 @@ export const serializeAws_restJson1DeleteLFTagCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLFTag";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
   });
   return new __HttpRequest({
     protocol,
@@ -430,11 +430,11 @@ export const serializeAws_restJson1DeleteObjectsOnCancelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteObjectsOnCancel";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Objects != undefined && { Objects: serializeAws_restJson1VirtualObjectList(input.Objects, context) }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Objects != null && { Objects: serializeAws_restJson1VirtualObjectList(input.Objects, context) }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -458,7 +458,7 @@ export const serializeAws_restJson1DeregisterResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeregisterResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -482,7 +482,7 @@ export const serializeAws_restJson1DescribeResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -506,7 +506,7 @@ export const serializeAws_restJson1DescribeTransactionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -530,7 +530,7 @@ export const serializeAws_restJson1ExtendTransactionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExtendTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -554,7 +554,7 @@ export const serializeAws_restJson1GetDataLakeSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataLakeSettings";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
   });
   return new __HttpRequest({
     protocol,
@@ -579,10 +579,10 @@ export const serializeAws_restJson1GetEffectivePermissionsForPathCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetEffectivePermissionsForPath";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -606,8 +606,8 @@ export const serializeAws_restJson1GetLFTagCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLFTag";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
   });
   return new __HttpRequest({
     protocol,
@@ -631,7 +631,7 @@ export const serializeAws_restJson1GetQueryStateCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryState";
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -662,7 +662,7 @@ export const serializeAws_restJson1GetQueryStatisticsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryStatistics";
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -693,9 +693,9 @@ export const serializeAws_restJson1GetResourceLFTagsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetResourceLFTags";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
-    ...(input.ShowAssignedLFTags != undefined && { ShowAssignedLFTags: input.ShowAssignedLFTags }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.ShowAssignedLFTags != null && { ShowAssignedLFTags: input.ShowAssignedLFTags }),
   });
   return new __HttpRequest({
     protocol,
@@ -719,14 +719,14 @@ export const serializeAws_restJson1GetTableObjectsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTableObjects";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PartitionPredicate != undefined && { PartitionPredicate: input.PartitionPredicate }),
-    ...(input.QueryAsOfTime != undefined && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PartitionPredicate != null && { PartitionPredicate: input.PartitionPredicate }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -751,20 +751,16 @@ export const serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGluePartitionCredentials";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuditContext != undefined && {
+    ...(input.AuditContext != null && {
       AuditContext: serializeAws_restJson1AuditContext(input.AuditContext, context),
     }),
-    ...(input.DurationSeconds != undefined && { DurationSeconds: input.DurationSeconds }),
-    ...(input.Partition != undefined && {
-      Partition: serializeAws_restJson1PartitionValueList(input.Partition, context),
-    }),
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.SupportedPermissionTypes != undefined && {
+    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
+    ...(input.Partition != null && { Partition: serializeAws_restJson1PartitionValueList(input.Partition, context) }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.SupportedPermissionTypes != null && {
       SupportedPermissionTypes: serializeAws_restJson1PermissionTypeList(input.SupportedPermissionTypes, context),
     }),
-    ...(input.TableArn != undefined && { TableArn: input.TableArn }),
+    ...(input.TableArn != null && { TableArn: input.TableArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -789,17 +785,15 @@ export const serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGlueTableCredentials";
   let body: any;
   body = JSON.stringify({
-    ...(input.AuditContext != undefined && {
+    ...(input.AuditContext != null && {
       AuditContext: serializeAws_restJson1AuditContext(input.AuditContext, context),
     }),
-    ...(input.DurationSeconds != undefined && { DurationSeconds: input.DurationSeconds }),
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.SupportedPermissionTypes != undefined && {
+    ...(input.DurationSeconds != null && { DurationSeconds: input.DurationSeconds }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.SupportedPermissionTypes != null && {
       SupportedPermissionTypes: serializeAws_restJson1PermissionTypeList(input.SupportedPermissionTypes, context),
     }),
-    ...(input.TableArn != undefined && { TableArn: input.TableArn }),
+    ...(input.TableArn != null && { TableArn: input.TableArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -823,9 +817,9 @@ export const serializeAws_restJson1GetWorkUnitResultsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnitResults";
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
-    ...(input.WorkUnitId != undefined && { WorkUnitId: input.WorkUnitId }),
-    ...(input.WorkUnitToken != undefined && { WorkUnitToken: input.WorkUnitToken }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
+    ...(input.WorkUnitId != null && { WorkUnitId: input.WorkUnitId }),
+    ...(input.WorkUnitToken != null && { WorkUnitToken: input.WorkUnitToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -856,9 +850,9 @@ export const serializeAws_restJson1GetWorkUnitsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnits";
   let body: any;
   body = JSON.stringify({
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize != undefined && { PageSize: input.PageSize }),
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageSize != null && { PageSize: input.PageSize }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -889,17 +883,13 @@ export const serializeAws_restJson1GrantPermissionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GrantPermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption != null && {
       PermissionsWithGrantOption: serializeAws_restJson1PermissionList(input.PermissionsWithGrantOption, context),
     }),
-    ...(input.Principal != undefined && {
-      Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.Principal != null && { Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -923,9 +913,9 @@ export const serializeAws_restJson1ListDataCellsFilterCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListDataCellsFilter";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.Table != undefined && { Table: serializeAws_restJson1TableResource(input.Table, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Table != null && { Table: serializeAws_restJson1TableResource(input.Table, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -949,10 +939,10 @@ export const serializeAws_restJson1ListLFTagsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLFTags";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceShareType != undefined && { ResourceShareType: input.ResourceShareType }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceShareType != null && { ResourceShareType: input.ResourceShareType }),
   });
   return new __HttpRequest({
     protocol,
@@ -976,15 +966,13 @@ export const serializeAws_restJson1ListPermissionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListPermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.IncludeRelated != undefined && { IncludeRelated: input.IncludeRelated }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.Principal != undefined && {
-      Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.IncludeRelated != null && { IncludeRelated: input.IncludeRelated }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Principal != null && { Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -1008,11 +996,11 @@ export const serializeAws_restJson1ListResourcesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResources";
   let body: any;
   body = JSON.stringify({
-    ...(input.FilterConditionList != undefined && {
+    ...(input.FilterConditionList != null && {
       FilterConditionList: serializeAws_restJson1FilterConditionList(input.FilterConditionList, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1037,12 +1025,12 @@ export const serializeAws_restJson1ListTableStorageOptimizersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTableStorageOptimizers";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StorageOptimizerType != undefined && { StorageOptimizerType: input.StorageOptimizerType }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StorageOptimizerType != null && { StorageOptimizerType: input.StorageOptimizerType }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1066,10 +1054,10 @@ export const serializeAws_restJson1ListTransactionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTransactions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StatusFilter != undefined && { StatusFilter: input.StatusFilter }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StatusFilter != null && { StatusFilter: input.StatusFilter }),
   });
   return new __HttpRequest({
     protocol,
@@ -1093,8 +1081,8 @@ export const serializeAws_restJson1PutDataLakeSettingsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutDataLakeSettings";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DataLakeSettings != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DataLakeSettings != null && {
       DataLakeSettings: serializeAws_restJson1DataLakeSettings(input.DataLakeSettings, context),
     }),
   });
@@ -1120,9 +1108,9 @@ export const serializeAws_restJson1RegisterResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RegisterResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.UseServiceLinkedRole != undefined && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.UseServiceLinkedRole != null && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
   });
   return new __HttpRequest({
     protocol,
@@ -1147,9 +1135,9 @@ export const serializeAws_restJson1RemoveLFTagsFromResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RemoveLFTagsFromResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.LFTags != undefined && { LFTags: serializeAws_restJson1LFTagsList(input.LFTags, context) }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.LFTags != null && { LFTags: serializeAws_restJson1LFTagsList(input.LFTags, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1173,17 +1161,13 @@ export const serializeAws_restJson1RevokePermissionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RevokePermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption != null && {
       PermissionsWithGrantOption: serializeAws_restJson1PermissionList(input.PermissionsWithGrantOption, context),
     }),
-    ...(input.Principal != undefined && {
-      Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.Principal != null && { Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1208,10 +1192,10 @@ export const serializeAws_restJson1SearchDatabasesByLFTagsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchDatabasesByLFTags";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Expression != undefined && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Expression != null && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1235,10 +1219,10 @@ export const serializeAws_restJson1SearchTablesByLFTagsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchTablesByLFTags";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Expression != undefined && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Expression != null && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1262,10 +1246,10 @@ export const serializeAws_restJson1StartQueryPlanningCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartQueryPlanning";
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryPlanningContext != undefined && {
+    ...(input.QueryPlanningContext != null && {
       QueryPlanningContext: serializeAws_restJson1QueryPlanningContext(input.QueryPlanningContext, context),
     }),
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1296,7 +1280,7 @@ export const serializeAws_restJson1StartTransactionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartTransaction";
   let body: any;
   body = JSON.stringify({
-    ...(input.TransactionType != undefined && { TransactionType: input.TransactionType }),
+    ...(input.TransactionType != null && { TransactionType: input.TransactionType }),
   });
   return new __HttpRequest({
     protocol,
@@ -1320,12 +1304,12 @@ export const serializeAws_restJson1UpdateLFTagCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLFTag";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
-    ...(input.TagValuesToAdd != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValuesToAdd != null && {
       TagValuesToAdd: serializeAws_restJson1TagValueList(input.TagValuesToAdd, context),
     }),
-    ...(input.TagValuesToDelete != undefined && {
+    ...(input.TagValuesToDelete != null && {
       TagValuesToDelete: serializeAws_restJson1TagValueList(input.TagValuesToDelete, context),
     }),
   });
@@ -1351,8 +1335,8 @@ export const serializeAws_restJson1UpdateResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateResource";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1376,11 +1360,11 @@ export const serializeAws_restJson1UpdateTableObjectsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableObjects";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
-    ...(input.WriteOperations != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
+    ...(input.WriteOperations != null && {
       WriteOperations: serializeAws_restJson1WriteOperationList(input.WriteOperations, context),
     }),
   });
@@ -1407,12 +1391,12 @@ export const serializeAws_restJson1UpdateTableStorageOptimizerCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableStorageOptimizer";
   let body: any;
   body = JSON.stringify({
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.StorageOptimizerConfig != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.StorageOptimizerConfig != null && {
       StorageOptimizerConfig: serializeAws_restJson1StorageOptimizerConfigMap(input.StorageOptimizerConfig, context),
     }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   });
   return new __HttpRequest({
     protocol,
@@ -4249,12 +4233,12 @@ const deserializeAws_restJson1WorkUnitsNotReadyYetExceptionResponse = async (
 
 const serializeAws_restJson1AddObjectInput = (input: AddObjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.ETag != undefined && { ETag: input.ETag }),
-    ...(input.PartitionValues != undefined && {
+    ...(input.ETag != null && { ETag: input.ETag }),
+    ...(input.PartitionValues != null && {
       PartitionValues: serializeAws_restJson1PartitionValuesList(input.PartitionValues, context),
     }),
-    ...(input.Size != undefined && { Size: input.Size }),
-    ...(input.Uri != undefined && { Uri: input.Uri }),
+    ...(input.Size != null && { Size: input.Size }),
+    ...(input.Uri != null && { Uri: input.Uri }),
   };
 };
 
@@ -4264,7 +4248,7 @@ const serializeAws_restJson1AllRowsWildcard = (input: AllRowsWildcard, context: 
 
 const serializeAws_restJson1AuditContext = (input: AuditContext, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalAuditContext != undefined && { AdditionalAuditContext: input.AdditionalAuditContext }),
+    ...(input.AdditionalAuditContext != null && { AdditionalAuditContext: input.AdditionalAuditContext }),
   };
 };
 
@@ -4284,17 +4268,13 @@ const serializeAws_restJson1BatchPermissionsRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption != undefined && {
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption != null && {
       PermissionsWithGrantOption: serializeAws_restJson1PermissionList(input.PermissionsWithGrantOption, context),
     }),
-    ...(input.Principal != undefined && {
-      Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource != undefined && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
+    ...(input.Principal != null && { Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource != null && { Resource: serializeAws_restJson1Resource(input.Resource, context) }),
   };
 };
 
@@ -4329,7 +4309,7 @@ const serializeAws_restJson1ColumnNames = (input: string[], context: __SerdeCont
 
 const serializeAws_restJson1ColumnWildcard = (input: ColumnWildcard, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludedColumnNames != undefined && {
+    ...(input.ExcludedColumnNames != null && {
       ExcludedColumnNames: serializeAws_restJson1ColumnNames(input.ExcludedColumnNames, context),
     }),
   };
@@ -4337,24 +4317,22 @@ const serializeAws_restJson1ColumnWildcard = (input: ColumnWildcard, context: __
 
 const serializeAws_restJson1DatabaseResource = (input: DatabaseResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_restJson1DataCellsFilter = (input: DataCellsFilter, context: __SerdeContext): any => {
   return {
-    ...(input.ColumnNames != undefined && {
-      ColumnNames: serializeAws_restJson1ColumnNames(input.ColumnNames, context),
-    }),
-    ...(input.ColumnWildcard != undefined && {
+    ...(input.ColumnNames != null && { ColumnNames: serializeAws_restJson1ColumnNames(input.ColumnNames, context) }),
+    ...(input.ColumnWildcard != null && {
       ColumnWildcard: serializeAws_restJson1ColumnWildcard(input.ColumnWildcard, context),
     }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RowFilter != undefined && { RowFilter: serializeAws_restJson1RowFilter(input.RowFilter, context) }),
-    ...(input.TableCatalogId != undefined && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RowFilter != null && { RowFilter: serializeAws_restJson1RowFilter(input.RowFilter, context) }),
+    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
@@ -4363,16 +4341,16 @@ const serializeAws_restJson1DataCellsFilterResource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.TableCatalogId != undefined && { TableCatalogId: input.TableCatalogId }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.TableCatalogId != null && { TableCatalogId: input.TableCatalogId }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
 const serializeAws_restJson1DataLakePrincipal = (input: DataLakePrincipal, context: __SerdeContext): any => {
   return {
-    ...(input.DataLakePrincipalIdentifier != undefined && {
+    ...(input.DataLakePrincipalIdentifier != null && {
       DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier,
     }),
   };
@@ -4391,37 +4369,35 @@ const serializeAws_restJson1DataLakePrincipalList = (input: DataLakePrincipal[],
 
 const serializeAws_restJson1DataLakeSettings = (input: DataLakeSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AllowExternalDataFiltering != undefined && {
-      AllowExternalDataFiltering: input.AllowExternalDataFiltering,
-    }),
-    ...(input.AuthorizedSessionTagValueList != undefined && {
+    ...(input.AllowExternalDataFiltering != null && { AllowExternalDataFiltering: input.AllowExternalDataFiltering }),
+    ...(input.AuthorizedSessionTagValueList != null && {
       AuthorizedSessionTagValueList: serializeAws_restJson1AuthorizedSessionTagValueList(
         input.AuthorizedSessionTagValueList,
         context
       ),
     }),
-    ...(input.CreateDatabaseDefaultPermissions != undefined && {
+    ...(input.CreateDatabaseDefaultPermissions != null && {
       CreateDatabaseDefaultPermissions: serializeAws_restJson1PrincipalPermissionsList(
         input.CreateDatabaseDefaultPermissions,
         context
       ),
     }),
-    ...(input.CreateTableDefaultPermissions != undefined && {
+    ...(input.CreateTableDefaultPermissions != null && {
       CreateTableDefaultPermissions: serializeAws_restJson1PrincipalPermissionsList(
         input.CreateTableDefaultPermissions,
         context
       ),
     }),
-    ...(input.DataLakeAdmins != undefined && {
+    ...(input.DataLakeAdmins != null && {
       DataLakeAdmins: serializeAws_restJson1DataLakePrincipalList(input.DataLakeAdmins, context),
     }),
-    ...(input.ExternalDataFilteringAllowList != undefined && {
+    ...(input.ExternalDataFilteringAllowList != null && {
       ExternalDataFilteringAllowList: serializeAws_restJson1DataLakePrincipalList(
         input.ExternalDataFilteringAllowList,
         context
       ),
     }),
-    ...(input.TrustedResourceOwners != undefined && {
+    ...(input.TrustedResourceOwners != null && {
       TrustedResourceOwners: serializeAws_restJson1TrustedResourceOwners(input.TrustedResourceOwners, context),
     }),
   };
@@ -4429,18 +4405,18 @@ const serializeAws_restJson1DataLakeSettings = (input: DataLakeSettings, context
 
 const serializeAws_restJson1DataLocationResource = (input: DataLocationResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_restJson1DeleteObjectInput = (input: DeleteObjectInput, context: __SerdeContext): any => {
   return {
-    ...(input.ETag != undefined && { ETag: input.ETag }),
-    ...(input.PartitionValues != undefined && {
+    ...(input.ETag != null && { ETag: input.ETag }),
+    ...(input.PartitionValues != null && {
       PartitionValues: serializeAws_restJson1PartitionValuesList(input.PartitionValues, context),
     }),
-    ...(input.Uri != undefined && { Uri: input.Uri }),
+    ...(input.Uri != null && { Uri: input.Uri }),
   };
 };
 
@@ -4457,9 +4433,9 @@ const serializeAws_restJson1Expression = (input: LFTag[], context: __SerdeContex
 
 const serializeAws_restJson1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator != undefined && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Field != undefined && { Field: input.Field }),
-    ...(input.StringValueList != undefined && {
+    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.Field != null && { Field: input.Field }),
+    ...(input.StringValueList != null && {
       StringValueList: serializeAws_restJson1StringValueList(input.StringValueList, context),
     }),
   };
@@ -4478,32 +4454,32 @@ const serializeAws_restJson1FilterConditionList = (input: FilterCondition[], con
 
 const serializeAws_restJson1LFTag = (input: LFTag, context: __SerdeContext): any => {
   return {
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
-    ...(input.TagValues != undefined && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValues != null && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
   };
 };
 
 const serializeAws_restJson1LFTagKeyResource = (input: LFTagKeyResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
-    ...(input.TagValues != undefined && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValues != null && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
   };
 };
 
 const serializeAws_restJson1LFTagPair = (input: LFTagPair, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.TagKey != undefined && { TagKey: input.TagKey }),
-    ...(input.TagValues != undefined && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValues != null && { TagValues: serializeAws_restJson1TagValueList(input.TagValues, context) }),
   };
 };
 
 const serializeAws_restJson1LFTagPolicyResource = (input: LFTagPolicyResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.Expression != undefined && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.Expression != null && { Expression: serializeAws_restJson1Expression(input.Expression, context) }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -4520,7 +4496,7 @@ const serializeAws_restJson1LFTagsList = (input: LFTagPair[], context: __SerdeCo
 
 const serializeAws_restJson1PartitionValueList = (input: PartitionValueList, context: __SerdeContext): any => {
   return {
-    ...(input.Values != undefined && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
+    ...(input.Values != null && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
   };
 };
 
@@ -4559,12 +4535,8 @@ const serializeAws_restJson1PermissionTypeList = (input: (PermissionType | strin
 
 const serializeAws_restJson1PrincipalPermissions = (input: PrincipalPermissions, context: __SerdeContext): any => {
   return {
-    ...(input.Permissions != undefined && {
-      Permissions: serializeAws_restJson1PermissionList(input.Permissions, context),
-    }),
-    ...(input.Principal != undefined && {
-      Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context),
-    }),
+    ...(input.Permissions != null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.Principal != null && { Principal: serializeAws_restJson1DataLakePrincipal(input.Principal, context) }),
   };
 };
 
@@ -4596,32 +4568,32 @@ const serializeAws_restJson1QueryParameterMap = (input: Record<string, string>, 
 
 const serializeAws_restJson1QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.QueryAsOfTime != undefined && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
-    ...(input.QueryParameters != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.QueryAsOfTime != null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
+    ...(input.QueryParameters != null && {
       QueryParameters: serializeAws_restJson1QueryParameterMap(input.QueryParameters, context),
     }),
-    ...(input.TransactionId != undefined && { TransactionId: input.TransactionId }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
   };
 };
 
 const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.Catalog != undefined && { Catalog: serializeAws_restJson1CatalogResource(input.Catalog, context) }),
-    ...(input.DataCellsFilter != undefined && {
+    ...(input.Catalog != null && { Catalog: serializeAws_restJson1CatalogResource(input.Catalog, context) }),
+    ...(input.DataCellsFilter != null && {
       DataCellsFilter: serializeAws_restJson1DataCellsFilterResource(input.DataCellsFilter, context),
     }),
-    ...(input.DataLocation != undefined && {
+    ...(input.DataLocation != null && {
       DataLocation: serializeAws_restJson1DataLocationResource(input.DataLocation, context),
     }),
-    ...(input.Database != undefined && { Database: serializeAws_restJson1DatabaseResource(input.Database, context) }),
-    ...(input.LFTag != undefined && { LFTag: serializeAws_restJson1LFTagKeyResource(input.LFTag, context) }),
-    ...(input.LFTagPolicy != undefined && {
+    ...(input.Database != null && { Database: serializeAws_restJson1DatabaseResource(input.Database, context) }),
+    ...(input.LFTag != null && { LFTag: serializeAws_restJson1LFTagKeyResource(input.LFTag, context) }),
+    ...(input.LFTagPolicy != null && {
       LFTagPolicy: serializeAws_restJson1LFTagPolicyResource(input.LFTagPolicy, context),
     }),
-    ...(input.Table != undefined && { Table: serializeAws_restJson1TableResource(input.Table, context) }),
-    ...(input.TableWithColumns != undefined && {
+    ...(input.Table != null && { Table: serializeAws_restJson1TableResource(input.Table, context) }),
+    ...(input.TableWithColumns != null && {
       TableWithColumns: serializeAws_restJson1TableWithColumnsResource(input.TableWithColumns, context),
     }),
   };
@@ -4629,10 +4601,10 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
 
 const serializeAws_restJson1RowFilter = (input: RowFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AllRowsWildcard != undefined && {
+    ...(input.AllRowsWildcard != null && {
       AllRowsWildcard: serializeAws_restJson1AllRowsWildcard(input.AllRowsWildcard, context),
     }),
-    ...(input.FilterExpression != undefined && { FilterExpression: input.FilterExpression }),
+    ...(input.FilterExpression != null && { FilterExpression: input.FilterExpression }),
   };
 };
 
@@ -4676,10 +4648,10 @@ const serializeAws_restJson1StringValueList = (input: string[], context: __Serde
 
 const serializeAws_restJson1TableResource = (input: TableResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.TableWildcard != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.TableWildcard != null && {
       TableWildcard: serializeAws_restJson1TableWildcard(input.TableWildcard, context),
     }),
   };
@@ -4694,15 +4666,13 @@ const serializeAws_restJson1TableWithColumnsResource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId != undefined && { CatalogId: input.CatalogId }),
-    ...(input.ColumnNames != undefined && {
-      ColumnNames: serializeAws_restJson1ColumnNames(input.ColumnNames, context),
-    }),
-    ...(input.ColumnWildcard != undefined && {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.ColumnNames != null && { ColumnNames: serializeAws_restJson1ColumnNames(input.ColumnNames, context) }),
+    ...(input.ColumnWildcard != null && {
       ColumnWildcard: serializeAws_restJson1ColumnWildcard(input.ColumnWildcard, context),
     }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -4741,8 +4711,8 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
 
 const serializeAws_restJson1VirtualObject = (input: VirtualObject, context: __SerdeContext): any => {
   return {
-    ...(input.ETag != undefined && { ETag: input.ETag }),
-    ...(input.Uri != undefined && { Uri: input.Uri }),
+    ...(input.ETag != null && { ETag: input.ETag }),
+    ...(input.Uri != null && { Uri: input.Uri }),
   };
 };
 
@@ -4759,8 +4729,8 @@ const serializeAws_restJson1VirtualObjectList = (input: VirtualObject[], context
 
 const serializeAws_restJson1WriteOperation = (input: WriteOperation, context: __SerdeContext): any => {
   return {
-    ...(input.AddObject != undefined && { AddObject: serializeAws_restJson1AddObjectInput(input.AddObject, context) }),
-    ...(input.DeleteObject != undefined && {
+    ...(input.AddObject != null && { AddObject: serializeAws_restJson1AddObjectInput(input.AddObject, context) }),
+    ...(input.DeleteObject != null && {
       DeleteObject: serializeAws_restJson1DeleteObjectInput(input.DeleteObject, context),
     }),
   };
@@ -4798,9 +4768,9 @@ const deserializeAws_restJson1BatchPermissionsFailureEntry = (
   context: __SerdeContext
 ): BatchPermissionsFailureEntry => {
   return {
-    Error: output.Error != undefined ? deserializeAws_restJson1ErrorDetail(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorDetail(output.Error, context) : undefined,
     RequestEntry:
-      output.RequestEntry != undefined
+      output.RequestEntry != null
         ? deserializeAws_restJson1BatchPermissionsRequestEntry(output.RequestEntry, context)
         : undefined,
   } as any;
@@ -4828,14 +4798,14 @@ const deserializeAws_restJson1BatchPermissionsRequestEntry = (
   return {
     Id: __expectString(output.Id),
     Permissions:
-      output.Permissions != undefined ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
+      output.Permissions != null ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
     PermissionsWithGrantOption:
-      output.PermissionsWithGrantOption != undefined
+      output.PermissionsWithGrantOption != null
         ? deserializeAws_restJson1PermissionList(output.PermissionsWithGrantOption, context)
         : undefined,
     Principal:
-      output.Principal != undefined ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
-    Resource: output.Resource != undefined ? deserializeAws_restJson1Resource(output.Resource, context) : undefined,
+      output.Principal != null ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
+    Resource: output.Resource != null ? deserializeAws_restJson1Resource(output.Resource, context) : undefined,
   } as any;
 };
 
@@ -4845,7 +4815,7 @@ const deserializeAws_restJson1CatalogResource = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ColumnLFTag = (output: any, context: __SerdeContext): ColumnLFTag => {
   return {
-    LFTags: output.LFTags != undefined ? deserializeAws_restJson1LFTagsList(output.LFTags, context) : undefined,
+    LFTags: output.LFTags != null ? deserializeAws_restJson1LFTagsList(output.LFTags, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
@@ -4877,7 +4847,7 @@ const deserializeAws_restJson1ColumnNames = (output: any, context: __SerdeContex
 const deserializeAws_restJson1ColumnWildcard = (output: any, context: __SerdeContext): ColumnWildcard => {
   return {
     ExcludedColumnNames:
-      output.ExcludedColumnNames != undefined
+      output.ExcludedColumnNames != null
         ? deserializeAws_restJson1ColumnNames(output.ExcludedColumnNames, context)
         : undefined,
   } as any;
@@ -4905,14 +4875,14 @@ const deserializeAws_restJson1DatabaseResource = (output: any, context: __SerdeC
 const deserializeAws_restJson1DataCellsFilter = (output: any, context: __SerdeContext): DataCellsFilter => {
   return {
     ColumnNames:
-      output.ColumnNames != undefined ? deserializeAws_restJson1ColumnNames(output.ColumnNames, context) : undefined,
+      output.ColumnNames != null ? deserializeAws_restJson1ColumnNames(output.ColumnNames, context) : undefined,
     ColumnWildcard:
-      output.ColumnWildcard != undefined
+      output.ColumnWildcard != null
         ? deserializeAws_restJson1ColumnWildcard(output.ColumnWildcard, context)
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     Name: __expectString(output.Name),
-    RowFilter: output.RowFilter != undefined ? deserializeAws_restJson1RowFilter(output.RowFilter, context) : undefined,
+    RowFilter: output.RowFilter != null ? deserializeAws_restJson1RowFilter(output.RowFilter, context) : undefined,
     TableCatalogId: __expectString(output.TableCatalogId),
     TableName: __expectString(output.TableName),
   } as any;
@@ -4964,27 +4934,27 @@ const deserializeAws_restJson1DataLakeSettings = (output: any, context: __SerdeC
   return {
     AllowExternalDataFiltering: __expectBoolean(output.AllowExternalDataFiltering),
     AuthorizedSessionTagValueList:
-      output.AuthorizedSessionTagValueList != undefined
+      output.AuthorizedSessionTagValueList != null
         ? deserializeAws_restJson1AuthorizedSessionTagValueList(output.AuthorizedSessionTagValueList, context)
         : undefined,
     CreateDatabaseDefaultPermissions:
-      output.CreateDatabaseDefaultPermissions != undefined
+      output.CreateDatabaseDefaultPermissions != null
         ? deserializeAws_restJson1PrincipalPermissionsList(output.CreateDatabaseDefaultPermissions, context)
         : undefined,
     CreateTableDefaultPermissions:
-      output.CreateTableDefaultPermissions != undefined
+      output.CreateTableDefaultPermissions != null
         ? deserializeAws_restJson1PrincipalPermissionsList(output.CreateTableDefaultPermissions, context)
         : undefined,
     DataLakeAdmins:
-      output.DataLakeAdmins != undefined
+      output.DataLakeAdmins != null
         ? deserializeAws_restJson1DataLakePrincipalList(output.DataLakeAdmins, context)
         : undefined,
     ExternalDataFilteringAllowList:
-      output.ExternalDataFilteringAllowList != undefined
+      output.ExternalDataFilteringAllowList != null
         ? deserializeAws_restJson1DataLakePrincipalList(output.ExternalDataFilteringAllowList, context)
         : undefined,
     TrustedResourceOwners:
-      output.TrustedResourceOwners != undefined
+      output.TrustedResourceOwners != null
         ? deserializeAws_restJson1TrustedResourceOwners(output.TrustedResourceOwners, context)
         : undefined,
   } as any;
@@ -5000,7 +4970,7 @@ const deserializeAws_restJson1DataLocationResource = (output: any, context: __Se
 const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext): DetailsMap => {
   return {
     ResourceShare:
-      output.ResourceShare != undefined
+      output.ResourceShare != null
         ? deserializeAws_restJson1ResourceShareList(output.ResourceShare, context)
         : undefined,
   } as any;
@@ -5036,15 +5006,14 @@ const deserializeAws_restJson1Expression = (output: any, context: __SerdeContext
 const deserializeAws_restJson1LFTag = (output: any, context: __SerdeContext): LFTag => {
   return {
     TagKey: __expectString(output.TagKey),
-    TagValues:
-      output.TagValues != undefined ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
+    TagValues: output.TagValues != null ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LFTagError = (output: any, context: __SerdeContext): LFTagError => {
   return {
-    Error: output.Error != undefined ? deserializeAws_restJson1ErrorDetail(output.Error, context) : undefined,
-    LFTag: output.LFTag != undefined ? deserializeAws_restJson1LFTagPair(output.LFTag, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1ErrorDetail(output.Error, context) : undefined,
+    LFTag: output.LFTag != null ? deserializeAws_restJson1LFTagPair(output.LFTag, context) : undefined,
   } as any;
 };
 
@@ -5064,8 +5033,7 @@ const deserializeAws_restJson1LFTagKeyResource = (output: any, context: __SerdeC
   return {
     CatalogId: __expectString(output.CatalogId),
     TagKey: __expectString(output.TagKey),
-    TagValues:
-      output.TagValues != undefined ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
+    TagValues: output.TagValues != null ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
   } as any;
 };
 
@@ -5073,16 +5041,14 @@ const deserializeAws_restJson1LFTagPair = (output: any, context: __SerdeContext)
   return {
     CatalogId: __expectString(output.CatalogId),
     TagKey: __expectString(output.TagKey),
-    TagValues:
-      output.TagValues != undefined ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
+    TagValues: output.TagValues != null ? deserializeAws_restJson1TagValueList(output.TagValues, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LFTagPolicyResource = (output: any, context: __SerdeContext): LFTagPolicyResource => {
   return {
     CatalogId: __expectString(output.CatalogId),
-    Expression:
-      output.Expression != undefined ? deserializeAws_restJson1Expression(output.Expression, context) : undefined,
+    Expression: output.Expression != null ? deserializeAws_restJson1Expression(output.Expression, context) : undefined,
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
@@ -5116,9 +5082,9 @@ const deserializeAws_restJson1PartitionedTableObjectsList = (
 
 const deserializeAws_restJson1PartitionObjects = (output: any, context: __SerdeContext): PartitionObjects => {
   return {
-    Objects: output.Objects != undefined ? deserializeAws_restJson1TableObjectList(output.Objects, context) : undefined,
+    Objects: output.Objects != null ? deserializeAws_restJson1TableObjectList(output.Objects, context) : undefined,
     PartitionValues:
-      output.PartitionValues != undefined
+      output.PartitionValues != null
         ? deserializeAws_restJson1PartitionValuesList(output.PartitionValues, context)
         : undefined,
   } as any;
@@ -5160,9 +5126,9 @@ const deserializeAws_restJson1PlanningStatistics = (output: any, context: __Serd
 const deserializeAws_restJson1PrincipalPermissions = (output: any, context: __SerdeContext): PrincipalPermissions => {
   return {
     Permissions:
-      output.Permissions != undefined ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
+      output.Permissions != null ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
     Principal:
-      output.Principal != undefined ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
+      output.Principal != null ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
   } as any;
 };
 
@@ -5187,18 +5153,18 @@ const deserializeAws_restJson1PrincipalResourcePermissions = (
 ): PrincipalResourcePermissions => {
   return {
     AdditionalDetails:
-      output.AdditionalDetails != undefined
+      output.AdditionalDetails != null
         ? deserializeAws_restJson1DetailsMap(output.AdditionalDetails, context)
         : undefined,
     Permissions:
-      output.Permissions != undefined ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
+      output.Permissions != null ? deserializeAws_restJson1PermissionList(output.Permissions, context) : undefined,
     PermissionsWithGrantOption:
-      output.PermissionsWithGrantOption != undefined
+      output.PermissionsWithGrantOption != null
         ? deserializeAws_restJson1PermissionList(output.PermissionsWithGrantOption, context)
         : undefined,
     Principal:
-      output.Principal != undefined ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
-    Resource: output.Resource != undefined ? deserializeAws_restJson1Resource(output.Resource, context) : undefined,
+      output.Principal != null ? deserializeAws_restJson1DataLakePrincipal(output.Principal, context) : undefined,
+    Resource: output.Resource != null ? deserializeAws_restJson1Resource(output.Resource, context) : undefined,
   } as any;
 };
 
@@ -5219,25 +5185,22 @@ const deserializeAws_restJson1PrincipalResourcePermissionsList = (
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    Catalog: output.Catalog != undefined ? deserializeAws_restJson1CatalogResource(output.Catalog, context) : undefined,
+    Catalog: output.Catalog != null ? deserializeAws_restJson1CatalogResource(output.Catalog, context) : undefined,
     DataCellsFilter:
-      output.DataCellsFilter != undefined
+      output.DataCellsFilter != null
         ? deserializeAws_restJson1DataCellsFilterResource(output.DataCellsFilter, context)
         : undefined,
     DataLocation:
-      output.DataLocation != undefined
+      output.DataLocation != null
         ? deserializeAws_restJson1DataLocationResource(output.DataLocation, context)
         : undefined,
-    Database:
-      output.Database != undefined ? deserializeAws_restJson1DatabaseResource(output.Database, context) : undefined,
-    LFTag: output.LFTag != undefined ? deserializeAws_restJson1LFTagKeyResource(output.LFTag, context) : undefined,
+    Database: output.Database != null ? deserializeAws_restJson1DatabaseResource(output.Database, context) : undefined,
+    LFTag: output.LFTag != null ? deserializeAws_restJson1LFTagKeyResource(output.LFTag, context) : undefined,
     LFTagPolicy:
-      output.LFTagPolicy != undefined
-        ? deserializeAws_restJson1LFTagPolicyResource(output.LFTagPolicy, context)
-        : undefined,
-    Table: output.Table != undefined ? deserializeAws_restJson1TableResource(output.Table, context) : undefined,
+      output.LFTagPolicy != null ? deserializeAws_restJson1LFTagPolicyResource(output.LFTagPolicy, context) : undefined,
+    Table: output.Table != null ? deserializeAws_restJson1TableResource(output.Table, context) : undefined,
     TableWithColumns:
-      output.TableWithColumns != undefined
+      output.TableWithColumns != null
         ? deserializeAws_restJson1TableWithColumnsResource(output.TableWithColumns, context)
         : undefined,
   } as any;
@@ -5246,7 +5209,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeContext): ResourceInfo => {
   return {
     LastModified:
-      output.LastModified != undefined
+      output.LastModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
@@ -5281,7 +5244,7 @@ const deserializeAws_restJson1ResourceShareList = (output: any, context: __Serde
 const deserializeAws_restJson1RowFilter = (output: any, context: __SerdeContext): RowFilter => {
   return {
     AllRowsWildcard:
-      output.AllRowsWildcard != undefined
+      output.AllRowsWildcard != null
         ? deserializeAws_restJson1AllRowsWildcard(output.AllRowsWildcard, context)
         : undefined,
     FilterExpression: __expectString(output.FilterExpression),
@@ -5290,8 +5253,7 @@ const deserializeAws_restJson1RowFilter = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1StorageOptimizer = (output: any, context: __SerdeContext): StorageOptimizer => {
   return {
-    Config:
-      output.Config != undefined ? deserializeAws_restJson1StorageOptimizerConfig(output.Config, context) : undefined,
+    Config: output.Config != null ? deserializeAws_restJson1StorageOptimizerConfig(output.Config, context) : undefined,
     ErrorMessage: __expectString(output.ErrorMessage),
     LastRunDetails: __expectString(output.LastRunDetails),
     StorageOptimizerType: __expectString(output.StorageOptimizerType),
@@ -5364,9 +5326,7 @@ const deserializeAws_restJson1TableResource = (output: any, context: __SerdeCont
     DatabaseName: __expectString(output.DatabaseName),
     Name: __expectString(output.Name),
     TableWildcard:
-      output.TableWildcard != undefined
-        ? deserializeAws_restJson1TableWildcard(output.TableWildcard, context)
-        : undefined,
+      output.TableWildcard != null ? deserializeAws_restJson1TableWildcard(output.TableWildcard, context) : undefined,
   } as any;
 };
 
@@ -5381,9 +5341,9 @@ const deserializeAws_restJson1TableWithColumnsResource = (
   return {
     CatalogId: __expectString(output.CatalogId),
     ColumnNames:
-      output.ColumnNames != undefined ? deserializeAws_restJson1ColumnNames(output.ColumnNames, context) : undefined,
+      output.ColumnNames != null ? deserializeAws_restJson1ColumnNames(output.ColumnNames, context) : undefined,
     ColumnWildcard:
-      output.ColumnWildcard != undefined
+      output.ColumnWildcard != null
         ? deserializeAws_restJson1ColumnWildcard(output.ColumnWildcard, context)
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
@@ -5393,25 +5353,22 @@ const deserializeAws_restJson1TableWithColumnsResource = (
 
 const deserializeAws_restJson1TaggedDatabase = (output: any, context: __SerdeContext): TaggedDatabase => {
   return {
-    Database:
-      output.Database != undefined ? deserializeAws_restJson1DatabaseResource(output.Database, context) : undefined,
-    LFTags: output.LFTags != undefined ? deserializeAws_restJson1LFTagsList(output.LFTags, context) : undefined,
+    Database: output.Database != null ? deserializeAws_restJson1DatabaseResource(output.Database, context) : undefined,
+    LFTags: output.LFTags != null ? deserializeAws_restJson1LFTagsList(output.LFTags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1TaggedTable = (output: any, context: __SerdeContext): TaggedTable => {
   return {
     LFTagOnDatabase:
-      output.LFTagOnDatabase != undefined
-        ? deserializeAws_restJson1LFTagsList(output.LFTagOnDatabase, context)
-        : undefined,
+      output.LFTagOnDatabase != null ? deserializeAws_restJson1LFTagsList(output.LFTagOnDatabase, context) : undefined,
     LFTagsOnColumns:
-      output.LFTagsOnColumns != undefined
+      output.LFTagsOnColumns != null
         ? deserializeAws_restJson1ColumnLFTagsList(output.LFTagsOnColumns, context)
         : undefined,
     LFTagsOnTable:
-      output.LFTagsOnTable != undefined ? deserializeAws_restJson1LFTagsList(output.LFTagsOnTable, context) : undefined,
-    Table: output.Table != undefined ? deserializeAws_restJson1TableResource(output.Table, context) : undefined,
+      output.LFTagsOnTable != null ? deserializeAws_restJson1LFTagsList(output.LFTagsOnTable, context) : undefined,
+    Table: output.Table != null ? deserializeAws_restJson1TableResource(output.Table, context) : undefined,
   } as any;
 };
 
@@ -5433,12 +5390,12 @@ const deserializeAws_restJson1TransactionDescription = (
 ): TransactionDescription => {
   return {
     TransactionEndTime:
-      output.TransactionEndTime != undefined
+      output.TransactionEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TransactionEndTime)))
         : undefined,
     TransactionId: __expectString(output.TransactionId),
     TransactionStartTime:
-      output.TransactionStartTime != undefined
+      output.TransactionStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TransactionStartTime)))
         : undefined,
     TransactionStatus: __expectString(output.TransactionStatus),

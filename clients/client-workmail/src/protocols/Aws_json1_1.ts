@@ -5655,9 +5655,9 @@ const serializeAws_json1_1AssociateDelegateToResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5666,19 +5666,19 @@ const serializeAws_json1_1AssociateMemberToGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.MemberId != undefined && { MemberId: input.MemberId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1BookingOptions = (input: BookingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAcceptRequests != undefined && { AutoAcceptRequests: input.AutoAcceptRequests }),
-    ...(input.AutoDeclineConflictingRequests != undefined && {
+    ...(input.AutoAcceptRequests != null && { AutoAcceptRequests: input.AutoAcceptRequests }),
+    ...(input.AutoDeclineConflictingRequests != null && {
       AutoDeclineConflictingRequests: input.AutoDeclineConflictingRequests,
     }),
-    ...(input.AutoDeclineRecurringRequests != undefined && {
+    ...(input.AutoDeclineRecurringRequests != null && {
       AutoDeclineRecurringRequests: input.AutoDeclineRecurringRequests,
     }),
   };
@@ -5690,16 +5690,16 @@ const serializeAws_json1_1CancelMailboxExportJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.JobId != undefined && { JobId: input.JobId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias != undefined && { Alias: input.Alias }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5709,21 +5709,21 @@ const serializeAws_json1_1CreateAvailabilityConfigurationRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != undefined && {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider != null && {
       EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
     }),
-    ...(input.LambdaProvider != undefined && {
+    ...(input.LambdaProvider != null && {
       LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5733,37 +5733,35 @@ const serializeAws_json1_1CreateMobileDeviceAccessRuleRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DeviceModels != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DeviceModels != null && {
       DeviceModels: serializeAws_json1_1DeviceModelList(input.DeviceModels, context),
     }),
-    ...(input.DeviceOperatingSystems != undefined && {
+    ...(input.DeviceOperatingSystems != null && {
       DeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
     }),
-    ...(input.DeviceTypes != undefined && {
-      DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context),
-    }),
-    ...(input.DeviceUserAgents != undefined && {
+    ...(input.DeviceTypes != null && { DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context) }),
+    ...(input.DeviceUserAgents != null && {
       DeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.DeviceUserAgents, context),
     }),
-    ...(input.Effect != undefined && { Effect: input.Effect }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.NotDeviceModels != undefined && {
+    ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NotDeviceModels != null && {
       NotDeviceModels: serializeAws_json1_1DeviceModelList(input.NotDeviceModels, context),
     }),
-    ...(input.NotDeviceOperatingSystems != undefined && {
+    ...(input.NotDeviceOperatingSystems != null && {
       NotDeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(
         input.NotDeviceOperatingSystems,
         context
       ),
     }),
-    ...(input.NotDeviceTypes != undefined && {
+    ...(input.NotDeviceTypes != null && {
       NotDeviceTypes: serializeAws_json1_1DeviceTypeList(input.NotDeviceTypes, context),
     }),
-    ...(input.NotDeviceUserAgents != undefined && {
+    ...(input.NotDeviceUserAgents != null && {
       NotDeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.NotDeviceUserAgents, context),
     }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5772,29 +5770,29 @@ const serializeAws_json1_1CreateOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Alias != undefined && { Alias: input.Alias }),
+    ...(input.Alias != null && { Alias: input.Alias }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DirectoryId != undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Domains != undefined && { Domains: serializeAws_json1_1Domains(input.Domains, context) }),
-    ...(input.EnableInteroperability != undefined && { EnableInteroperability: input.EnableInteroperability }),
-    ...(input.KmsKeyArn != undefined && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
+    ...(input.Domains != null && { Domains: serializeAws_json1_1Domains(input.Domains, context) }),
+    ...(input.EnableInteroperability != null && { EnableInteroperability: input.EnableInteroperability }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
   };
 };
 
 const serializeAws_json1_1CreateResourceRequest = (input: CreateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Password != undefined && { Password: input.Password }),
+    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.Password != null && { Password: input.Password }),
   };
 };
 
@@ -5803,16 +5801,16 @@ const serializeAws_json1_1DeleteAccessControlRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias != undefined && { Alias: input.Alias }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5821,8 +5819,8 @@ const serializeAws_json1_1DeleteAvailabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5831,14 +5829,14 @@ const serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5847,9 +5845,9 @@ const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.GranteeId != undefined && { GranteeId: input.GranteeId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.GranteeId != null && { GranteeId: input.GranteeId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5858,9 +5856,9 @@ const serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -5869,8 +5867,8 @@ const serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MobileDeviceAccessRuleId != undefined && { MobileDeviceAccessRuleId: input.MobileDeviceAccessRuleId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MobileDeviceAccessRuleId != null && { MobileDeviceAccessRuleId: input.MobileDeviceAccessRuleId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5880,15 +5878,15 @@ const serializeAws_json1_1DeleteOrganizationRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeleteDirectory != undefined && { DeleteDirectory: input.DeleteDirectory }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DeleteDirectory != null && { DeleteDirectory: input.DeleteDirectory }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteResourceRequest = (input: DeleteResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5897,15 +5895,15 @@ const serializeAws_json1_1DeleteRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -5914,8 +5912,8 @@ const serializeAws_json1_1DeregisterFromWorkMailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5924,8 +5922,8 @@ const serializeAws_json1_1DeregisterMailDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5934,14 +5932,14 @@ const serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5950,7 +5948,7 @@ const serializeAws_json1_1DescribeInboundDmarcSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5959,8 +5957,8 @@ const serializeAws_json1_1DescribeMailboxExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId != undefined && { JobId: input.JobId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.JobId != null && { JobId: input.JobId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5969,21 +5967,21 @@ const serializeAws_json1_1DescribeOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6036,9 +6034,9 @@ const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -6047,16 +6045,16 @@ const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.MemberId != undefined && { MemberId: input.MemberId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.MemberId != null && { MemberId: input.MemberId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1Domain = (input: Domain, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.HostedZoneId != undefined && { HostedZoneId: input.HostedZoneId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.HostedZoneId != null && { HostedZoneId: input.HostedZoneId }),
   };
 };
 
@@ -6073,17 +6071,17 @@ const serializeAws_json1_1Domains = (input: Domain[], context: __SerdeContext): 
 
 const serializeAws_json1_1EwsAvailabilityProvider = (input: EwsAvailabilityProvider, context: __SerdeContext): any => {
   return {
-    ...(input.EwsEndpoint != undefined && { EwsEndpoint: input.EwsEndpoint }),
-    ...(input.EwsPassword != undefined && { EwsPassword: input.EwsPassword }),
-    ...(input.EwsUsername != undefined && { EwsUsername: input.EwsUsername }),
+    ...(input.EwsEndpoint != null && { EwsEndpoint: input.EwsEndpoint }),
+    ...(input.EwsPassword != null && { EwsPassword: input.EwsPassword }),
+    ...(input.EwsUsername != null && { EwsUsername: input.EwsUsername }),
   };
 };
 
 const serializeAws_json1_1FolderConfiguration = (input: FolderConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Period != undefined && { Period: input.Period }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Period != null && { Period: input.Period }),
   };
 };
 
@@ -6103,10 +6101,10 @@ const serializeAws_json1_1GetAccessControlEffectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.IpAddress != undefined && { IpAddress: input.IpAddress }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6115,7 +6113,7 @@ const serializeAws_json1_1GetDefaultRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6124,15 +6122,15 @@ const serializeAws_json1_1GetMailboxDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
 const serializeAws_json1_1GetMailDomainRequest = (input: GetMailDomainRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6141,11 +6139,11 @@ const serializeAws_json1_1GetMobileDeviceAccessEffectRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceModel != undefined && { DeviceModel: input.DeviceModel }),
-    ...(input.DeviceOperatingSystem != undefined && { DeviceOperatingSystem: input.DeviceOperatingSystem }),
-    ...(input.DeviceType != undefined && { DeviceType: input.DeviceType }),
-    ...(input.DeviceUserAgent != undefined && { DeviceUserAgent: input.DeviceUserAgent }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DeviceModel != null && { DeviceModel: input.DeviceModel }),
+    ...(input.DeviceOperatingSystem != null && { DeviceOperatingSystem: input.DeviceOperatingSystem }),
+    ...(input.DeviceType != null && { DeviceType: input.DeviceType }),
+    ...(input.DeviceUserAgent != null && { DeviceUserAgent: input.DeviceUserAgent }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6154,9 +6152,9 @@ const serializeAws_json1_1GetMobileDeviceAccessOverrideRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6176,7 +6174,7 @@ const serializeAws_json1_1LambdaAvailabilityProvider = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LambdaArn != undefined && { LambdaArn: input.LambdaArn }),
+    ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
   };
 };
 
@@ -6185,16 +6183,16 @@ const serializeAws_json1_1ListAccessControlRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6203,26 +6201,26 @@ const serializeAws_json1_1ListAvailabilityConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListGroupMembersRequest = (input: ListGroupMembersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId != undefined && { GroupId: input.GroupId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId != null && { GroupId: input.GroupId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6231,9 +6229,9 @@ const serializeAws_json1_1ListMailboxExportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6242,18 +6240,18 @@ const serializeAws_json1_1ListMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListMailDomainsRequest = (input: ListMailDomainsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6262,11 +6260,11 @@ const serializeAws_json1_1ListMobileDeviceAccessOverridesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6275,7 +6273,7 @@ const serializeAws_json1_1ListMobileDeviceAccessRulesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6284,8 +6282,8 @@ const serializeAws_json1_1ListOrganizationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -6294,18 +6292,18 @@ const serializeAws_json1_1ListResourceDelegatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6314,15 +6312,15 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6342,16 +6340,16 @@ const serializeAws_json1_1PutAccessControlRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Actions != undefined && { Actions: serializeAws_json1_1ActionsList(input.Actions, context) }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Effect != undefined && { Effect: input.Effect }),
-    ...(input.IpRanges != undefined && { IpRanges: serializeAws_json1_1IpRangeList(input.IpRanges, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.NotActions != undefined && { NotActions: serializeAws_json1_1ActionsList(input.NotActions, context) }),
-    ...(input.NotIpRanges != undefined && { NotIpRanges: serializeAws_json1_1IpRangeList(input.NotIpRanges, context) }),
-    ...(input.NotUserIds != undefined && { NotUserIds: serializeAws_json1_1UserIdList(input.NotUserIds, context) }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserIds != undefined && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
+    ...(input.Actions != null && { Actions: serializeAws_json1_1ActionsList(input.Actions, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.IpRanges != null && { IpRanges: serializeAws_json1_1IpRangeList(input.IpRanges, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NotActions != null && { NotActions: serializeAws_json1_1ActionsList(input.NotActions, context) }),
+    ...(input.NotIpRanges != null && { NotIpRanges: serializeAws_json1_1IpRangeList(input.NotIpRanges, context) }),
+    ...(input.NotUserIds != null && { NotUserIds: serializeAws_json1_1UserIdList(input.NotUserIds, context) }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserIds != null && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
   };
 };
 
@@ -6360,9 +6358,9 @@ const serializeAws_json1_1PutEmailMonitoringConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LogGroupArn != undefined && { LogGroupArn: input.LogGroupArn }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -6371,8 +6369,8 @@ const serializeAws_json1_1PutInboundDmarcSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enforced != undefined && { Enforced: input.Enforced }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Enforced != null && { Enforced: input.Enforced }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6381,10 +6379,10 @@ const serializeAws_json1_1PutMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.GranteeId != undefined && { GranteeId: input.GranteeId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.PermissionValues != undefined && {
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.GranteeId != null && { GranteeId: input.GranteeId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.PermissionValues != null && {
       PermissionValues: serializeAws_json1_1PermissionValues(input.PermissionValues, context),
     }),
   };
@@ -6395,11 +6393,11 @@ const serializeAws_json1_1PutMobileDeviceAccessOverrideRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.Effect != undefined && { Effect: input.Effect }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6408,13 +6406,13 @@ const serializeAws_json1_1PutRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.FolderConfigurations != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FolderConfigurations != null && {
       FolderConfigurations: serializeAws_json1_1FolderConfigurations(input.FolderConfigurations, context),
     }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6424,8 +6422,8 @@ const serializeAws_json1_1RegisterMailDomainRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6434,17 +6432,17 @@ const serializeAws_json1_1RegisterToWorkMailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Email != undefined && { Email: input.Email }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Email != null && { Email: input.Email }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ResetPasswordRequest = (input: ResetPasswordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Password != undefined && { Password: input.Password }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6454,20 +6452,20 @@ const serializeAws_json1_1StartMailboxExportJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.KmsKeyArn != undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3BucketName != undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3Prefix != undefined && { S3Prefix: input.S3Prefix }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3Prefix != null && { S3Prefix: input.S3Prefix }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -6495,8 +6493,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -6505,21 +6503,21 @@ const serializeAws_json1_1TestAvailabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != undefined && {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider != null && {
       EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
     }),
-    ...(input.LambdaProvider != undefined && {
+    ...(input.LambdaProvider != null && {
       LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -6528,14 +6526,14 @@ const serializeAws_json1_1UpdateAvailabilityConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != undefined && {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.EwsProvider != null && {
       EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
     }),
-    ...(input.LambdaProvider != undefined && {
+    ...(input.LambdaProvider != null && {
       LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6544,8 +6542,8 @@ const serializeAws_json1_1UpdateDefaultMailDomainRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6554,9 +6552,9 @@ const serializeAws_json1_1UpdateMailboxQuotaRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MailboxQuota != undefined && { MailboxQuota: input.MailboxQuota }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.MailboxQuota != null && { MailboxQuota: input.MailboxQuota }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
@@ -6565,38 +6563,36 @@ const serializeAws_json1_1UpdateMobileDeviceAccessRuleRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DeviceModels != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DeviceModels != null && {
       DeviceModels: serializeAws_json1_1DeviceModelList(input.DeviceModels, context),
     }),
-    ...(input.DeviceOperatingSystems != undefined && {
+    ...(input.DeviceOperatingSystems != null && {
       DeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
     }),
-    ...(input.DeviceTypes != undefined && {
-      DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context),
-    }),
-    ...(input.DeviceUserAgents != undefined && {
+    ...(input.DeviceTypes != null && { DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context) }),
+    ...(input.DeviceUserAgents != null && {
       DeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.DeviceUserAgents, context),
     }),
-    ...(input.Effect != undefined && { Effect: input.Effect }),
-    ...(input.MobileDeviceAccessRuleId != undefined && { MobileDeviceAccessRuleId: input.MobileDeviceAccessRuleId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.NotDeviceModels != undefined && {
+    ...(input.Effect != null && { Effect: input.Effect }),
+    ...(input.MobileDeviceAccessRuleId != null && { MobileDeviceAccessRuleId: input.MobileDeviceAccessRuleId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NotDeviceModels != null && {
       NotDeviceModels: serializeAws_json1_1DeviceModelList(input.NotDeviceModels, context),
     }),
-    ...(input.NotDeviceOperatingSystems != undefined && {
+    ...(input.NotDeviceOperatingSystems != null && {
       NotDeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(
         input.NotDeviceOperatingSystems,
         context
       ),
     }),
-    ...(input.NotDeviceTypes != undefined && {
+    ...(input.NotDeviceTypes != null && {
       NotDeviceTypes: serializeAws_json1_1DeviceTypeList(input.NotDeviceTypes, context),
     }),
-    ...(input.NotDeviceUserAgents != undefined && {
+    ...(input.NotDeviceUserAgents != null && {
       NotDeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.NotDeviceUserAgents, context),
     }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -6605,20 +6601,20 @@ const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Email != undefined && { Email: input.Email }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Email != null && { Email: input.Email }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BookingOptions != undefined && {
+    ...(input.BookingOptions != null && {
       BookingOptions: serializeAws_json1_1BookingOptions(input.BookingOptions, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationId != undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -6635,26 +6631,24 @@ const serializeAws_json1_1UserIdList = (input: string[], context: __SerdeContext
 
 const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeContext): AccessControlRule => {
   return {
-    Actions: output.Actions != undefined ? deserializeAws_json1_1ActionsList(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? deserializeAws_json1_1ActionsList(output.Actions, context) : undefined,
     DateCreated:
-      output.DateCreated != undefined
+      output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
-      output.DateModified != undefined
+      output.DateModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
     Effect: __expectString(output.Effect),
-    IpRanges: output.IpRanges != undefined ? deserializeAws_json1_1IpRangeList(output.IpRanges, context) : undefined,
+    IpRanges: output.IpRanges != null ? deserializeAws_json1_1IpRangeList(output.IpRanges, context) : undefined,
     Name: __expectString(output.Name),
-    NotActions:
-      output.NotActions != undefined ? deserializeAws_json1_1ActionsList(output.NotActions, context) : undefined,
+    NotActions: output.NotActions != null ? deserializeAws_json1_1ActionsList(output.NotActions, context) : undefined,
     NotIpRanges:
-      output.NotIpRanges != undefined ? deserializeAws_json1_1IpRangeList(output.NotIpRanges, context) : undefined,
-    NotUserIds:
-      output.NotUserIds != undefined ? deserializeAws_json1_1UserIdList(output.NotUserIds, context) : undefined,
-    UserIds: output.UserIds != undefined ? deserializeAws_json1_1UserIdList(output.UserIds, context) : undefined,
+      output.NotIpRanges != null ? deserializeAws_json1_1IpRangeList(output.NotIpRanges, context) : undefined,
+    NotUserIds: output.NotUserIds != null ? deserializeAws_json1_1UserIdList(output.NotUserIds, context) : undefined,
+    UserIds: output.UserIds != null ? deserializeAws_json1_1UserIdList(output.UserIds, context) : undefined,
   } as any;
 };
 
@@ -6726,20 +6720,20 @@ const deserializeAws_json1_1AvailabilityConfiguration = (
 ): AvailabilityConfiguration => {
   return {
     DateCreated:
-      output.DateCreated != undefined
+      output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
-      output.DateModified != undefined
+      output.DateModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     DomainName: __expectString(output.DomainName),
     EwsProvider:
-      output.EwsProvider != undefined
+      output.EwsProvider != null
         ? deserializeAws_json1_1RedactedEwsAvailabilityProvider(output.EwsProvider, context)
         : undefined,
     LambdaProvider:
-      output.LambdaProvider != undefined
+      output.LambdaProvider != null
         ? deserializeAws_json1_1LambdaAvailabilityProvider(output.LambdaProvider, context)
         : undefined,
     ProviderType: __expectString(output.ProviderType),
@@ -6932,12 +6926,12 @@ const deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse = (
 const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     GroupId: __expectString(output.GroupId),
@@ -6962,7 +6956,7 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
   return {
     Description: __expectString(output.Description),
     EndTime:
-      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     EntityId: __expectString(output.EntityId),
     ErrorInfo: __expectString(output.ErrorInfo),
     EstimatedProgress: __expectInt32(output.EstimatedProgress),
@@ -6972,9 +6966,7 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
     S3Path: __expectString(output.S3Path),
     S3Prefix: __expectString(output.S3Prefix),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     State: __expectString(output.State),
   } as any;
 };
@@ -6987,7 +6979,7 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
     ARN: __expectString(output.ARN),
     Alias: __expectString(output.Alias),
     CompletedDate:
-      output.CompletedDate != undefined
+      output.CompletedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedDate)))
         : undefined,
     DefaultMailDomain: __expectString(output.DefaultMailDomain),
@@ -7005,16 +6997,14 @@ const deserializeAws_json1_1DescribeResourceResponse = (
 ): DescribeResourceResponse => {
   return {
     BookingOptions:
-      output.BookingOptions != undefined
-        ? deserializeAws_json1_1BookingOptions(output.BookingOptions, context)
-        : undefined,
+      output.BookingOptions != null ? deserializeAws_json1_1BookingOptions(output.BookingOptions, context) : undefined,
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Name: __expectString(output.Name),
@@ -7027,13 +7017,13 @@ const deserializeAws_json1_1DescribeResourceResponse = (
 const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Name: __expectString(output.Name),
@@ -7212,7 +7202,7 @@ const deserializeAws_json1_1GetAccessControlEffectResponse = (
   return {
     Effect: __expectString(output.Effect),
     MatchedRules:
-      output.MatchedRules != undefined
+      output.MatchedRules != null
         ? deserializeAws_json1_1AccessControlRuleNameList(output.MatchedRules, context)
         : undefined,
   } as any;
@@ -7225,7 +7215,7 @@ const deserializeAws_json1_1GetDefaultRetentionPolicyResponse = (
   return {
     Description: __expectString(output.Description),
     FolderConfigurations:
-      output.FolderConfigurations != undefined
+      output.FolderConfigurations != null
         ? deserializeAws_json1_1FolderConfigurations(output.FolderConfigurations, context)
         : undefined,
     Id: __expectString(output.Id),
@@ -7249,7 +7239,7 @@ const deserializeAws_json1_1GetMailDomainResponse = (output: any, context: __Ser
     IsDefault: __expectBoolean(output.IsDefault),
     IsTestDomain: __expectBoolean(output.IsTestDomain),
     OwnershipVerificationStatus: __expectString(output.OwnershipVerificationStatus),
-    Records: output.Records != undefined ? deserializeAws_json1_1DnsRecords(output.Records, context) : undefined,
+    Records: output.Records != null ? deserializeAws_json1_1DnsRecords(output.Records, context) : undefined,
   } as any;
 };
 
@@ -7260,7 +7250,7 @@ const deserializeAws_json1_1GetMobileDeviceAccessEffectResponse = (
   return {
     Effect: __expectString(output.Effect),
     MatchedRules:
-      output.MatchedRules != undefined
+      output.MatchedRules != null
         ? deserializeAws_json1_1MobileDeviceAccessMatchedRuleList(output.MatchedRules, context)
         : undefined,
   } as any;
@@ -7272,11 +7262,11 @@ const deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse = (
 ): GetMobileDeviceAccessOverrideResponse => {
   return {
     DateCreated:
-      output.DateCreated != undefined
+      output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
-      output.DateModified != undefined
+      output.DateModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
@@ -7289,12 +7279,12 @@ const deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse = (
 const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
@@ -7395,13 +7385,13 @@ const deserializeAws_json1_1ListAccessControlRulesResponse = (
   context: __SerdeContext
 ): ListAccessControlRulesResponse => {
   return {
-    Rules: output.Rules != undefined ? deserializeAws_json1_1AccessControlRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? deserializeAws_json1_1AccessControlRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
   return {
-    Aliases: output.Aliases != undefined ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7412,7 +7402,7 @@ const deserializeAws_json1_1ListAvailabilityConfigurationsResponse = (
 ): ListAvailabilityConfigurationsResponse => {
   return {
     AvailabilityConfigurations:
-      output.AvailabilityConfigurations != undefined
+      output.AvailabilityConfigurations != null
         ? deserializeAws_json1_1AvailabilityConfigurationList(output.AvailabilityConfigurations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -7424,14 +7414,14 @@ const deserializeAws_json1_1ListGroupMembersResponse = (
   context: __SerdeContext
 ): ListGroupMembersResponse => {
   return {
-    Members: output.Members != undefined ? deserializeAws_json1_1Members(output.Members, context) : undefined,
+    Members: output.Members != null ? deserializeAws_json1_1Members(output.Members, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    Groups: output.Groups != undefined ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7441,7 +7431,7 @@ const deserializeAws_json1_1ListMailboxExportJobsResponse = (
   context: __SerdeContext
 ): ListMailboxExportJobsResponse => {
   return {
-    Jobs: output.Jobs != undefined ? deserializeAws_json1_1Jobs(output.Jobs, context) : undefined,
+    Jobs: output.Jobs != null ? deserializeAws_json1_1Jobs(output.Jobs, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7453,7 +7443,7 @@ const deserializeAws_json1_1ListMailboxPermissionsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Permissions:
-      output.Permissions != undefined ? deserializeAws_json1_1Permissions(output.Permissions, context) : undefined,
+      output.Permissions != null ? deserializeAws_json1_1Permissions(output.Permissions, context) : undefined,
   } as any;
 };
 
@@ -7463,7 +7453,7 @@ const deserializeAws_json1_1ListMailDomainsResponse = (
 ): ListMailDomainsResponse => {
   return {
     MailDomains:
-      output.MailDomains != undefined ? deserializeAws_json1_1MailDomains(output.MailDomains, context) : undefined,
+      output.MailDomains != null ? deserializeAws_json1_1MailDomains(output.MailDomains, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7475,7 +7465,7 @@ const deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Overrides:
-      output.Overrides != undefined
+      output.Overrides != null
         ? deserializeAws_json1_1MobileDeviceAccessOverridesList(output.Overrides, context)
         : undefined,
   } as any;
@@ -7486,8 +7476,7 @@ const deserializeAws_json1_1ListMobileDeviceAccessRulesResponse = (
   context: __SerdeContext
 ): ListMobileDeviceAccessRulesResponse => {
   return {
-    Rules:
-      output.Rules != undefined ? deserializeAws_json1_1MobileDeviceAccessRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? deserializeAws_json1_1MobileDeviceAccessRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
@@ -7498,7 +7487,7 @@ const deserializeAws_json1_1ListOrganizationsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     OrganizationSummaries:
-      output.OrganizationSummaries != undefined
+      output.OrganizationSummaries != null
         ? deserializeAws_json1_1OrganizationSummaries(output.OrganizationSummaries, context)
         : undefined,
   } as any;
@@ -7510,7 +7499,7 @@ const deserializeAws_json1_1ListResourceDelegatesResponse = (
 ): ListResourceDelegatesResponse => {
   return {
     Delegates:
-      output.Delegates != undefined ? deserializeAws_json1_1ResourceDelegates(output.Delegates, context) : undefined,
+      output.Delegates != null ? deserializeAws_json1_1ResourceDelegates(output.Delegates, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -7518,7 +7507,7 @@ const deserializeAws_json1_1ListResourceDelegatesResponse = (
 const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Resources: output.Resources != undefined ? deserializeAws_json1_1Resources(output.Resources, context) : undefined,
+    Resources: output.Resources != null ? deserializeAws_json1_1Resources(output.Resources, context) : undefined,
   } as any;
 };
 
@@ -7527,14 +7516,14 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Users: output.Users != undefined ? deserializeAws_json1_1Users(output.Users, context) : undefined,
+    Users: output.Users != null ? deserializeAws_json1_1Users(output.Users, context) : undefined,
   } as any;
 };
 
@@ -7542,16 +7531,14 @@ const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeCon
   return {
     Description: __expectString(output.Description),
     EndTime:
-      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     EntityId: __expectString(output.EntityId),
     EstimatedProgress: __expectInt32(output.EstimatedProgress),
     JobId: __expectString(output.JobId),
     S3BucketName: __expectString(output.S3BucketName),
     S3Path: __expectString(output.S3Path),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     State: __expectString(output.State),
   } as any;
 };
@@ -7605,11 +7592,11 @@ const deserializeAws_json1_1MailDomainSummary = (output: any, context: __SerdeCo
 const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Member => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
@@ -7662,11 +7649,11 @@ const deserializeAws_json1_1MobileDeviceAccessOverride = (
 ): MobileDeviceAccessOverride => {
   return {
     DateCreated:
-      output.DateCreated != undefined
+      output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
-      output.DateModified != undefined
+      output.DateModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
@@ -7694,45 +7681,41 @@ const deserializeAws_json1_1MobileDeviceAccessOverridesList = (
 const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __SerdeContext): MobileDeviceAccessRule => {
   return {
     DateCreated:
-      output.DateCreated != undefined
+      output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
         : undefined,
     DateModified:
-      output.DateModified != undefined
+      output.DateModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
     DeviceModels:
-      output.DeviceModels != undefined
-        ? deserializeAws_json1_1DeviceModelList(output.DeviceModels, context)
-        : undefined,
+      output.DeviceModels != null ? deserializeAws_json1_1DeviceModelList(output.DeviceModels, context) : undefined,
     DeviceOperatingSystems:
-      output.DeviceOperatingSystems != undefined
+      output.DeviceOperatingSystems != null
         ? deserializeAws_json1_1DeviceOperatingSystemList(output.DeviceOperatingSystems, context)
         : undefined,
     DeviceTypes:
-      output.DeviceTypes != undefined ? deserializeAws_json1_1DeviceTypeList(output.DeviceTypes, context) : undefined,
+      output.DeviceTypes != null ? deserializeAws_json1_1DeviceTypeList(output.DeviceTypes, context) : undefined,
     DeviceUserAgents:
-      output.DeviceUserAgents != undefined
+      output.DeviceUserAgents != null
         ? deserializeAws_json1_1DeviceUserAgentList(output.DeviceUserAgents, context)
         : undefined,
     Effect: __expectString(output.Effect),
     MobileDeviceAccessRuleId: __expectString(output.MobileDeviceAccessRuleId),
     Name: __expectString(output.Name),
     NotDeviceModels:
-      output.NotDeviceModels != undefined
+      output.NotDeviceModels != null
         ? deserializeAws_json1_1DeviceModelList(output.NotDeviceModels, context)
         : undefined,
     NotDeviceOperatingSystems:
-      output.NotDeviceOperatingSystems != undefined
+      output.NotDeviceOperatingSystems != null
         ? deserializeAws_json1_1DeviceOperatingSystemList(output.NotDeviceOperatingSystems, context)
         : undefined,
     NotDeviceTypes:
-      output.NotDeviceTypes != undefined
-        ? deserializeAws_json1_1DeviceTypeList(output.NotDeviceTypes, context)
-        : undefined,
+      output.NotDeviceTypes != null ? deserializeAws_json1_1DeviceTypeList(output.NotDeviceTypes, context) : undefined,
     NotDeviceUserAgents:
-      output.NotDeviceUserAgents != undefined
+      output.NotDeviceUserAgents != null
         ? deserializeAws_json1_1DeviceUserAgentList(output.NotDeviceUserAgents, context)
         : undefined,
   } as any;
@@ -7807,7 +7790,7 @@ const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext):
     GranteeId: __expectString(output.GranteeId),
     GranteeType: __expectString(output.GranteeType),
     PermissionValues:
-      output.PermissionValues != undefined
+      output.PermissionValues != null
         ? deserializeAws_json1_1PermissionValues(output.PermissionValues, context)
         : undefined,
   } as any;
@@ -7916,12 +7899,12 @@ const deserializeAws_json1_1ResetPasswordResponse = (output: any, context: __Ser
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),
@@ -8067,13 +8050,13 @@ const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __Se
 const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
   return {
     DisabledDate:
-      output.DisabledDate != undefined
+      output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
         : undefined,
     DisplayName: __expectString(output.DisplayName),
     Email: __expectString(output.Email),
     EnabledDate:
-      output.EnabledDate != undefined
+      output.EnabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EnabledDate)))
         : undefined,
     Id: __expectString(output.Id),

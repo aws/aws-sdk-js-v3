@@ -114,36 +114,36 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AirflowConfigurationOptions != undefined && {
+    ...(input.AirflowConfigurationOptions != null && {
       AirflowConfigurationOptions: serializeAws_restJson1AirflowConfigurationOptions(
         input.AirflowConfigurationOptions,
         context
       ),
     }),
-    ...(input.AirflowVersion != undefined && { AirflowVersion: input.AirflowVersion }),
-    ...(input.DagS3Path != undefined && { DagS3Path: input.DagS3Path }),
-    ...(input.EnvironmentClass != undefined && { EnvironmentClass: input.EnvironmentClass }),
-    ...(input.ExecutionRoleArn != undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.KmsKey != undefined && { KmsKey: input.KmsKey }),
-    ...(input.LoggingConfiguration != undefined && {
+    ...(input.AirflowVersion != null && { AirflowVersion: input.AirflowVersion }),
+    ...(input.DagS3Path != null && { DagS3Path: input.DagS3Path }),
+    ...(input.EnvironmentClass != null && { EnvironmentClass: input.EnvironmentClass }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+    ...(input.LoggingConfiguration != null && {
       LoggingConfiguration: serializeAws_restJson1LoggingConfigurationInput(input.LoggingConfiguration, context),
     }),
-    ...(input.MaxWorkers != undefined && { MaxWorkers: input.MaxWorkers }),
-    ...(input.MinWorkers != undefined && { MinWorkers: input.MinWorkers }),
-    ...(input.NetworkConfiguration != undefined && {
+    ...(input.MaxWorkers != null && { MaxWorkers: input.MaxWorkers }),
+    ...(input.MinWorkers != null && { MinWorkers: input.MinWorkers }),
+    ...(input.NetworkConfiguration != null && {
       NetworkConfiguration: serializeAws_restJson1NetworkConfiguration(input.NetworkConfiguration, context),
     }),
-    ...(input.PluginsS3ObjectVersion != undefined && { PluginsS3ObjectVersion: input.PluginsS3ObjectVersion }),
-    ...(input.PluginsS3Path != undefined && { PluginsS3Path: input.PluginsS3Path }),
-    ...(input.RequirementsS3ObjectVersion != undefined && {
+    ...(input.PluginsS3ObjectVersion != null && { PluginsS3ObjectVersion: input.PluginsS3ObjectVersion }),
+    ...(input.PluginsS3Path != null && { PluginsS3Path: input.PluginsS3Path }),
+    ...(input.RequirementsS3ObjectVersion != null && {
       RequirementsS3ObjectVersion: input.RequirementsS3ObjectVersion,
     }),
-    ...(input.RequirementsS3Path != undefined && { RequirementsS3Path: input.RequirementsS3Path }),
-    ...(input.Schedulers != undefined && { Schedulers: input.Schedulers }),
-    ...(input.SourceBucketArn != undefined && { SourceBucketArn: input.SourceBucketArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.WebserverAccessMode != undefined && { WebserverAccessMode: input.WebserverAccessMode }),
-    ...(input.WeeklyMaintenanceWindowStart != undefined && {
+    ...(input.RequirementsS3Path != null && { RequirementsS3Path: input.RequirementsS3Path }),
+    ...(input.Schedulers != null && { Schedulers: input.Schedulers }),
+    ...(input.SourceBucketArn != null && { SourceBucketArn: input.SourceBucketArn }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.WebserverAccessMode != null && { WebserverAccessMode: input.WebserverAccessMode }),
+    ...(input.WeeklyMaintenanceWindowStart != null && {
       WeeklyMaintenanceWindowStart: input.WeeklyMaintenanceWindowStart,
     }),
   });
@@ -357,7 +357,7 @@ export const serializeAws_restJson1PublishMetricsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MetricData != undefined && { MetricData: serializeAws_restJson1MetricData(input.MetricData, context) }),
+    ...(input.MetricData != null && { MetricData: serializeAws_restJson1MetricData(input.MetricData, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -397,7 +397,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -476,34 +476,34 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AirflowConfigurationOptions != undefined && {
+    ...(input.AirflowConfigurationOptions != null && {
       AirflowConfigurationOptions: serializeAws_restJson1AirflowConfigurationOptions(
         input.AirflowConfigurationOptions,
         context
       ),
     }),
-    ...(input.AirflowVersion != undefined && { AirflowVersion: input.AirflowVersion }),
-    ...(input.DagS3Path != undefined && { DagS3Path: input.DagS3Path }),
-    ...(input.EnvironmentClass != undefined && { EnvironmentClass: input.EnvironmentClass }),
-    ...(input.ExecutionRoleArn != undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.LoggingConfiguration != undefined && {
+    ...(input.AirflowVersion != null && { AirflowVersion: input.AirflowVersion }),
+    ...(input.DagS3Path != null && { DagS3Path: input.DagS3Path }),
+    ...(input.EnvironmentClass != null && { EnvironmentClass: input.EnvironmentClass }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.LoggingConfiguration != null && {
       LoggingConfiguration: serializeAws_restJson1LoggingConfigurationInput(input.LoggingConfiguration, context),
     }),
-    ...(input.MaxWorkers != undefined && { MaxWorkers: input.MaxWorkers }),
-    ...(input.MinWorkers != undefined && { MinWorkers: input.MinWorkers }),
-    ...(input.NetworkConfiguration != undefined && {
+    ...(input.MaxWorkers != null && { MaxWorkers: input.MaxWorkers }),
+    ...(input.MinWorkers != null && { MinWorkers: input.MinWorkers }),
+    ...(input.NetworkConfiguration != null && {
       NetworkConfiguration: serializeAws_restJson1UpdateNetworkConfigurationInput(input.NetworkConfiguration, context),
     }),
-    ...(input.PluginsS3ObjectVersion != undefined && { PluginsS3ObjectVersion: input.PluginsS3ObjectVersion }),
-    ...(input.PluginsS3Path != undefined && { PluginsS3Path: input.PluginsS3Path }),
-    ...(input.RequirementsS3ObjectVersion != undefined && {
+    ...(input.PluginsS3ObjectVersion != null && { PluginsS3ObjectVersion: input.PluginsS3ObjectVersion }),
+    ...(input.PluginsS3Path != null && { PluginsS3Path: input.PluginsS3Path }),
+    ...(input.RequirementsS3ObjectVersion != null && {
       RequirementsS3ObjectVersion: input.RequirementsS3ObjectVersion,
     }),
-    ...(input.RequirementsS3Path != undefined && { RequirementsS3Path: input.RequirementsS3Path }),
-    ...(input.Schedulers != undefined && { Schedulers: input.Schedulers }),
-    ...(input.SourceBucketArn != undefined && { SourceBucketArn: input.SourceBucketArn }),
-    ...(input.WebserverAccessMode != undefined && { WebserverAccessMode: input.WebserverAccessMode }),
-    ...(input.WeeklyMaintenanceWindowStart != undefined && {
+    ...(input.RequirementsS3Path != null && { RequirementsS3Path: input.RequirementsS3Path }),
+    ...(input.Schedulers != null && { Schedulers: input.Schedulers }),
+    ...(input.SourceBucketArn != null && { SourceBucketArn: input.SourceBucketArn }),
+    ...(input.WebserverAccessMode != null && { WebserverAccessMode: input.WebserverAccessMode }),
+    ...(input.WeeklyMaintenanceWindowStart != null && {
       WeeklyMaintenanceWindowStart: input.WeeklyMaintenanceWindowStart,
     }),
   });
@@ -1151,8 +1151,8 @@ const serializeAws_restJson1AirflowConfigurationOptions = (
 
 const serializeAws_restJson1Dimension = (input: Dimension, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1172,19 +1172,19 @@ const serializeAws_restJson1LoggingConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DagProcessingLogs != undefined && {
+    ...(input.DagProcessingLogs != null && {
       DagProcessingLogs: serializeAws_restJson1ModuleLoggingConfigurationInput(input.DagProcessingLogs, context),
     }),
-    ...(input.SchedulerLogs != undefined && {
+    ...(input.SchedulerLogs != null && {
       SchedulerLogs: serializeAws_restJson1ModuleLoggingConfigurationInput(input.SchedulerLogs, context),
     }),
-    ...(input.TaskLogs != undefined && {
+    ...(input.TaskLogs != null && {
       TaskLogs: serializeAws_restJson1ModuleLoggingConfigurationInput(input.TaskLogs, context),
     }),
-    ...(input.WebserverLogs != undefined && {
+    ...(input.WebserverLogs != null && {
       WebserverLogs: serializeAws_restJson1ModuleLoggingConfigurationInput(input.WebserverLogs, context),
     }),
-    ...(input.WorkerLogs != undefined && {
+    ...(input.WorkerLogs != null && {
       WorkerLogs: serializeAws_restJson1ModuleLoggingConfigurationInput(input.WorkerLogs, context),
     }),
   };
@@ -1203,14 +1203,14 @@ const serializeAws_restJson1MetricData = (input: MetricDatum[], context: __Serde
 
 const serializeAws_restJson1MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && { Dimensions: serializeAws_restJson1Dimensions(input.Dimensions, context) }),
-    ...(input.MetricName != undefined && { MetricName: input.MetricName }),
-    ...(input.StatisticValues != undefined && {
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1Dimensions(input.Dimensions, context) }),
+    ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.StatisticValues != null && {
       StatisticValues: serializeAws_restJson1StatisticSet(input.StatisticValues, context),
     }),
-    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
-    ...(input.Value != undefined && { Value: __serializeFloat(input.Value) }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Unit != null && { Unit: input.Unit }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -1219,17 +1219,17 @@ const serializeAws_restJson1ModuleLoggingConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
   };
 };
 
 const serializeAws_restJson1NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroupIds != undefined && {
+    ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_restJson1SecurityGroupList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds != undefined && { SubnetIds: serializeAws_restJson1SubnetList(input.SubnetIds, context) }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_restJson1SubnetList(input.SubnetIds, context) }),
   };
 };
 
@@ -1246,10 +1246,10 @@ const serializeAws_restJson1SecurityGroupList = (input: string[], context: __Ser
 
 const serializeAws_restJson1StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   return {
-    ...(input.Maximum != undefined && { Maximum: __serializeFloat(input.Maximum) }),
-    ...(input.Minimum != undefined && { Minimum: __serializeFloat(input.Minimum) }),
-    ...(input.SampleCount != undefined && { SampleCount: input.SampleCount }),
-    ...(input.Sum != undefined && { Sum: __serializeFloat(input.Sum) }),
+    ...(input.Maximum != null && { Maximum: __serializeFloat(input.Maximum) }),
+    ...(input.Minimum != null && { Minimum: __serializeFloat(input.Minimum) }),
+    ...(input.SampleCount != null && { SampleCount: input.SampleCount }),
+    ...(input.Sum != null && { Sum: __serializeFloat(input.Sum) }),
   };
 };
 
@@ -1281,7 +1281,7 @@ const serializeAws_restJson1UpdateNetworkConfigurationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecurityGroupIds != undefined && {
+    ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_restJson1SecurityGroupList(input.SecurityGroupIds, context),
     }),
   };
@@ -1305,30 +1305,27 @@ const deserializeAws_restJson1AirflowConfigurationOptions = (
 const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     AirflowConfigurationOptions:
-      output.AirflowConfigurationOptions != undefined
+      output.AirflowConfigurationOptions != null
         ? deserializeAws_restJson1AirflowConfigurationOptions(output.AirflowConfigurationOptions, context)
         : undefined,
     AirflowVersion: __expectString(output.AirflowVersion),
     Arn: __expectString(output.Arn),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DagS3Path: __expectString(output.DagS3Path),
     EnvironmentClass: __expectString(output.EnvironmentClass),
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     KmsKey: __expectString(output.KmsKey),
-    LastUpdate:
-      output.LastUpdate != undefined ? deserializeAws_restJson1LastUpdate(output.LastUpdate, context) : undefined,
+    LastUpdate: output.LastUpdate != null ? deserializeAws_restJson1LastUpdate(output.LastUpdate, context) : undefined,
     LoggingConfiguration:
-      output.LoggingConfiguration != undefined
+      output.LoggingConfiguration != null
         ? deserializeAws_restJson1LoggingConfiguration(output.LoggingConfiguration, context)
         : undefined,
     MaxWorkers: __expectInt32(output.MaxWorkers),
     MinWorkers: __expectInt32(output.MinWorkers),
     Name: __expectString(output.Name),
     NetworkConfiguration:
-      output.NetworkConfiguration != undefined
+      output.NetworkConfiguration != null
         ? deserializeAws_restJson1NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
     PluginsS3ObjectVersion: __expectString(output.PluginsS3ObjectVersion),
@@ -1339,7 +1336,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     SourceBucketArn: __expectString(output.SourceBucketArn),
     Status: __expectString(output.Status),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     WebserverAccessMode: __expectString(output.WebserverAccessMode),
     WebserverUrl: __expectString(output.WebserverUrl),
     WeeklyMaintenanceWindowStart: __expectString(output.WeeklyMaintenanceWindowStart),
@@ -1361,10 +1358,8 @@ const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1LastUpdate = (output: any, context: __SerdeContext): LastUpdate => {
   return {
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
-    Error: output.Error != undefined ? deserializeAws_restJson1UpdateError(output.Error, context) : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1UpdateError(output.Error, context) : undefined,
     Source: __expectString(output.Source),
     Status: __expectString(output.Status),
   } as any;
@@ -1373,23 +1368,23 @@ const deserializeAws_restJson1LastUpdate = (output: any, context: __SerdeContext
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
     DagProcessingLogs:
-      output.DagProcessingLogs != undefined
+      output.DagProcessingLogs != null
         ? deserializeAws_restJson1ModuleLoggingConfiguration(output.DagProcessingLogs, context)
         : undefined,
     SchedulerLogs:
-      output.SchedulerLogs != undefined
+      output.SchedulerLogs != null
         ? deserializeAws_restJson1ModuleLoggingConfiguration(output.SchedulerLogs, context)
         : undefined,
     TaskLogs:
-      output.TaskLogs != undefined
+      output.TaskLogs != null
         ? deserializeAws_restJson1ModuleLoggingConfiguration(output.TaskLogs, context)
         : undefined,
     WebserverLogs:
-      output.WebserverLogs != undefined
+      output.WebserverLogs != null
         ? deserializeAws_restJson1ModuleLoggingConfiguration(output.WebserverLogs, context)
         : undefined,
     WorkerLogs:
-      output.WorkerLogs != undefined
+      output.WorkerLogs != null
         ? deserializeAws_restJson1ModuleLoggingConfiguration(output.WorkerLogs, context)
         : undefined,
   } as any;
@@ -1409,11 +1404,10 @@ const deserializeAws_restJson1ModuleLoggingConfiguration = (
 const deserializeAws_restJson1NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
   return {
     SecurityGroupIds:
-      output.SecurityGroupIds != undefined
+      output.SecurityGroupIds != null
         ? deserializeAws_restJson1SecurityGroupList(output.SecurityGroupIds, context)
         : undefined,
-    SubnetIds:
-      output.SubnetIds != undefined ? deserializeAws_restJson1SubnetList(output.SubnetIds, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_restJson1SubnetList(output.SubnetIds, context) : undefined,
   } as any;
 };
 

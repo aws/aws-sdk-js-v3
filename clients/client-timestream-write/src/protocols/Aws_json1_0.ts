@@ -1273,45 +1273,45 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 
 const serializeAws_json1_0CreateDatabaseRequest = (input: CreateDatabaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.MagneticStoreWriteProperties != undefined && {
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.MagneticStoreWriteProperties != null && {
       MagneticStoreWriteProperties: serializeAws_json1_0MagneticStoreWriteProperties(
         input.MagneticStoreWriteProperties,
         context
       ),
     }),
-    ...(input.RetentionProperties != undefined && {
+    ...(input.RetentionProperties != null && {
       RetentionProperties: serializeAws_json1_0RetentionProperties(input.RetentionProperties, context),
     }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.TableName != null && { TableName: input.TableName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0DeleteDatabaseRequest = (input: DeleteDatabaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
   };
 };
 
 const serializeAws_json1_0DeleteTableRequest = (input: DeleteTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
 const serializeAws_json1_0DescribeDatabaseRequest = (input: DescribeDatabaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
   };
 };
 
@@ -1324,16 +1324,16 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
 
 const serializeAws_json1_0DescribeTableRequest = (input: DescribeTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
 const serializeAws_json1_0Dimension = (input: Dimension, context: __SerdeContext): any => {
   return {
-    ...(input.DimensionValueType != undefined && { DimensionValueType: input.DimensionValueType }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.DimensionValueType != null && { DimensionValueType: input.DimensionValueType }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1350,16 +1350,16 @@ const serializeAws_json1_0Dimensions = (input: Dimension[], context: __SerdeCont
 
 const serializeAws_json1_0ListDatabasesRequest = (input: ListDatabasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0ListTablesRequest = (input: ListTablesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1368,7 +1368,7 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -1377,7 +1377,7 @@ const serializeAws_json1_0MagneticStoreRejectedDataLocation = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3Configuration != undefined && {
+    ...(input.S3Configuration != null && {
       S3Configuration: serializeAws_json1_0S3Configuration(input.S3Configuration, context),
     }),
   };
@@ -1388,8 +1388,8 @@ const serializeAws_json1_0MagneticStoreWriteProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EnableMagneticStoreWrites != undefined && { EnableMagneticStoreWrites: input.EnableMagneticStoreWrites }),
-    ...(input.MagneticStoreRejectedDataLocation != undefined && {
+    ...(input.EnableMagneticStoreWrites != null && { EnableMagneticStoreWrites: input.EnableMagneticStoreWrites }),
+    ...(input.MagneticStoreRejectedDataLocation != null && {
       MagneticStoreRejectedDataLocation: serializeAws_json1_0MagneticStoreRejectedDataLocation(
         input.MagneticStoreRejectedDataLocation,
         context
@@ -1400,9 +1400,9 @@ const serializeAws_json1_0MagneticStoreWriteProperties = (
 
 const serializeAws_json1_0MeasureValue = (input: MeasureValue, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1419,16 +1419,16 @@ const serializeAws_json1_0MeasureValues = (input: MeasureValue[], context: __Ser
 
 const serializeAws_json1_0_Record = (input: _Record, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && { Dimensions: serializeAws_json1_0Dimensions(input.Dimensions, context) }),
-    ...(input.MeasureName != undefined && { MeasureName: input.MeasureName }),
-    ...(input.MeasureValue != undefined && { MeasureValue: input.MeasureValue }),
-    ...(input.MeasureValueType != undefined && { MeasureValueType: input.MeasureValueType }),
-    ...(input.MeasureValues != undefined && {
+    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_0Dimensions(input.Dimensions, context) }),
+    ...(input.MeasureName != null && { MeasureName: input.MeasureName }),
+    ...(input.MeasureValue != null && { MeasureValue: input.MeasureValue }),
+    ...(input.MeasureValueType != null && { MeasureValueType: input.MeasureValueType }),
+    ...(input.MeasureValues != null && {
       MeasureValues: serializeAws_json1_0MeasureValues(input.MeasureValues, context),
     }),
-    ...(input.Time != undefined && { Time: input.Time }),
-    ...(input.TimeUnit != undefined && { TimeUnit: input.TimeUnit }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.Time != null && { Time: input.Time }),
+    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -1445,10 +1445,10 @@ const serializeAws_json1_0Records = (input: _Record[], context: __SerdeContext):
 
 const serializeAws_json1_0RetentionProperties = (input: RetentionProperties, context: __SerdeContext): any => {
   return {
-    ...(input.MagneticStoreRetentionPeriodInDays != undefined && {
+    ...(input.MagneticStoreRetentionPeriodInDays != null && {
       MagneticStoreRetentionPeriodInDays: input.MagneticStoreRetentionPeriodInDays,
     }),
-    ...(input.MemoryStoreRetentionPeriodInHours != undefined && {
+    ...(input.MemoryStoreRetentionPeriodInHours != null && {
       MemoryStoreRetentionPeriodInHours: input.MemoryStoreRetentionPeriodInHours,
     }),
   };
@@ -1456,17 +1456,17 @@ const serializeAws_json1_0RetentionProperties = (input: RetentionProperties, con
 
 const serializeAws_json1_0S3Configuration = (input: S3Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.BucketName != undefined && { BucketName: input.BucketName }),
-    ...(input.EncryptionOption != undefined && { EncryptionOption: input.EncryptionOption }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.ObjectKeyPrefix != undefined && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.EncryptionOption != null && { EncryptionOption: input.EncryptionOption }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.ObjectKeyPrefix != null && { ObjectKeyPrefix: input.ObjectKeyPrefix }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -1494,49 +1494,49 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateDatabaseRequest = (input: UpdateDatabaseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
 const serializeAws_json1_0UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.MagneticStoreWriteProperties != undefined && {
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.MagneticStoreWriteProperties != null && {
       MagneticStoreWriteProperties: serializeAws_json1_0MagneticStoreWriteProperties(
         input.MagneticStoreWriteProperties,
         context
       ),
     }),
-    ...(input.RetentionProperties != undefined && {
+    ...(input.RetentionProperties != null && {
       RetentionProperties: serializeAws_json1_0RetentionProperties(input.RetentionProperties, context),
     }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
 const serializeAws_json1_0WriteRecordsRequest = (input: WriteRecordsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CommonAttributes != undefined && {
+    ...(input.CommonAttributes != null && {
       CommonAttributes: serializeAws_json1_0_Record(input.CommonAttributes, context),
     }),
-    ...(input.DatabaseName != undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Records != undefined && { Records: serializeAws_json1_0Records(input.Records, context) }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
+    ...(input.Records != null && { Records: serializeAws_json1_0Records(input.Records, context) }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
@@ -1554,13 +1554,13 @@ const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0CreateDatabaseResponse = (output: any, context: __SerdeContext): CreateDatabaseResponse => {
   return {
-    Database: output.Database != undefined ? deserializeAws_json1_0Database(output.Database, context) : undefined,
+    Database: output.Database != null ? deserializeAws_json1_0Database(output.Database, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
   return {
-    Table: output.Table != undefined ? deserializeAws_json1_0Table(output.Table, context) : undefined,
+    Table: output.Table != null ? deserializeAws_json1_0Table(output.Table, context) : undefined,
   } as any;
 };
 
@@ -1568,13 +1568,13 @@ const deserializeAws_json1_0Database = (output: any, context: __SerdeContext): D
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     KmsKeyId: __expectString(output.KmsKeyId),
     LastUpdatedTime:
-      output.LastUpdatedTime != undefined
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     TableCount: __expectLong(output.TableCount),
@@ -1598,7 +1598,7 @@ const deserializeAws_json1_0DescribeDatabaseResponse = (
   context: __SerdeContext
 ): DescribeDatabaseResponse => {
   return {
-    Database: output.Database != undefined ? deserializeAws_json1_0Database(output.Database, context) : undefined,
+    Database: output.Database != null ? deserializeAws_json1_0Database(output.Database, context) : undefined,
   } as any;
 };
 
@@ -1607,13 +1607,13 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
   context: __SerdeContext
 ): DescribeEndpointsResponse => {
   return {
-    Endpoints: output.Endpoints != undefined ? deserializeAws_json1_0Endpoints(output.Endpoints, context) : undefined,
+    Endpoints: output.Endpoints != null ? deserializeAws_json1_0Endpoints(output.Endpoints, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DescribeTableResponse = (output: any, context: __SerdeContext): DescribeTableResponse => {
   return {
-    Table: output.Table != undefined ? deserializeAws_json1_0Table(output.Table, context) : undefined,
+    Table: output.Table != null ? deserializeAws_json1_0Table(output.Table, context) : undefined,
   } as any;
 };
 
@@ -1656,8 +1656,7 @@ const deserializeAws_json1_0InvalidEndpointException = (
 
 const deserializeAws_json1_0ListDatabasesResponse = (output: any, context: __SerdeContext): ListDatabasesResponse => {
   return {
-    Databases:
-      output.Databases != undefined ? deserializeAws_json1_0DatabaseList(output.Databases, context) : undefined,
+    Databases: output.Databases != null ? deserializeAws_json1_0DatabaseList(output.Databases, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -1665,7 +1664,7 @@ const deserializeAws_json1_0ListDatabasesResponse = (output: any, context: __Ser
 const deserializeAws_json1_0ListTablesResponse = (output: any, context: __SerdeContext): ListTablesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tables: output.Tables != undefined ? deserializeAws_json1_0TableList(output.Tables, context) : undefined,
+    Tables: output.Tables != null ? deserializeAws_json1_0TableList(output.Tables, context) : undefined,
   } as any;
 };
 
@@ -1674,7 +1673,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1684,7 +1683,7 @@ const deserializeAws_json1_0MagneticStoreRejectedDataLocation = (
 ): MagneticStoreRejectedDataLocation => {
   return {
     S3Configuration:
-      output.S3Configuration != undefined
+      output.S3Configuration != null
         ? deserializeAws_json1_0S3Configuration(output.S3Configuration, context)
         : undefined,
   } as any;
@@ -1697,7 +1696,7 @@ const deserializeAws_json1_0MagneticStoreWriteProperties = (
   return {
     EnableMagneticStoreWrites: __expectBoolean(output.EnableMagneticStoreWrites),
     MagneticStoreRejectedDataLocation:
-      output.MagneticStoreRejectedDataLocation != undefined
+      output.MagneticStoreRejectedDataLocation != null
         ? deserializeAws_json1_0MagneticStoreRejectedDataLocation(output.MagneticStoreRejectedDataLocation, context)
         : undefined,
   } as any;
@@ -1738,7 +1737,7 @@ const deserializeAws_json1_0RejectedRecordsException = (
   return {
     Message: __expectString(output.Message),
     RejectedRecords:
-      output.RejectedRecords != undefined
+      output.RejectedRecords != null
         ? deserializeAws_json1_0RejectedRecords(output.RejectedRecords, context)
         : undefined,
   } as any;
@@ -1782,20 +1781,20 @@ const deserializeAws_json1_0Table = (output: any, context: __SerdeContext): Tabl
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DatabaseName: __expectString(output.DatabaseName),
     LastUpdatedTime:
-      output.LastUpdatedTime != undefined
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     MagneticStoreWriteProperties:
-      output.MagneticStoreWriteProperties != undefined
+      output.MagneticStoreWriteProperties != null
         ? deserializeAws_json1_0MagneticStoreWriteProperties(output.MagneticStoreWriteProperties, context)
         : undefined,
     RetentionProperties:
-      output.RetentionProperties != undefined
+      output.RetentionProperties != null
         ? deserializeAws_json1_0RetentionProperties(output.RetentionProperties, context)
         : undefined,
     TableName: __expectString(output.TableName),
@@ -1850,13 +1849,13 @@ const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_0UpdateDatabaseResponse = (output: any, context: __SerdeContext): UpdateDatabaseResponse => {
   return {
-    Database: output.Database != undefined ? deserializeAws_json1_0Database(output.Database, context) : undefined,
+    Database: output.Database != null ? deserializeAws_json1_0Database(output.Database, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0UpdateTableResponse = (output: any, context: __SerdeContext): UpdateTableResponse => {
   return {
-    Table: output.Table != undefined ? deserializeAws_json1_0Table(output.Table, context) : undefined,
+    Table: output.Table != null ? deserializeAws_json1_0Table(output.Table, context) : undefined,
   } as any;
 };
 
@@ -1869,7 +1868,7 @@ const deserializeAws_json1_0ValidationException = (output: any, context: __Serde
 const deserializeAws_json1_0WriteRecordsResponse = (output: any, context: __SerdeContext): WriteRecordsResponse => {
   return {
     RecordsIngested:
-      output.RecordsIngested != undefined
+      output.RecordsIngested != null
         ? deserializeAws_json1_0RecordsIngested(output.RecordsIngested, context)
         : undefined,
   } as any;

@@ -229,18 +229,18 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/configuration-sets";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.DeliveryOptions != undefined && {
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.DeliveryOptions != null && {
       DeliveryOptions: serializeAws_restJson1DeliveryOptions(input.DeliveryOptions, context),
     }),
-    ...(input.ReputationOptions != undefined && {
+    ...(input.ReputationOptions != null && {
       ReputationOptions: serializeAws_restJson1ReputationOptions(input.ReputationOptions, context),
     }),
-    ...(input.SendingOptions != undefined && {
+    ...(input.SendingOptions != null && {
       SendingOptions: serializeAws_restJson1SendingOptions(input.SendingOptions, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TrackingOptions != undefined && {
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TrackingOptions != null && {
       TrackingOptions: serializeAws_restJson1TrackingOptions(input.TrackingOptions, context),
     }),
   });
@@ -277,10 +277,10 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination != undefined && {
+    ...(input.EventDestination != null && {
       EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
     }),
-    ...(input.EventDestinationName != undefined && { EventDestinationName: input.EventDestinationName }),
+    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
   });
   return new __HttpRequest({
     protocol,
@@ -305,8 +305,8 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools";
   let body: any;
   body = JSON.stringify({
-    ...(input.PoolName != undefined && { PoolName: input.PoolName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.PoolName != null && { PoolName: input.PoolName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -331,10 +331,10 @@ export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard/test";
   let body: any;
   body = JSON.stringify({
-    ...(input.Content != undefined && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
-    ...(input.FromEmailAddress != undefined && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.ReportName != undefined && { ReportName: input.ReportName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Content != null && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
+    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
+    ...(input.ReportName != null && { ReportName: input.ReportName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -358,8 +358,8 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities";
   let body: any;
   body = JSON.stringify({
-    ...(input.EmailIdentity != undefined && { EmailIdentity: input.EmailIdentity }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.EmailIdentity != null && { EmailIdentity: input.EmailIdentity }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -982,7 +982,7 @@ export const serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/dedicated-ips/warmup";
   let body: any;
   body = JSON.stringify({
-    ...(input.AutoWarmupEnabled != undefined && { AutoWarmupEnabled: input.AutoWarmupEnabled }),
+    ...(input.AutoWarmupEnabled != null && { AutoWarmupEnabled: input.AutoWarmupEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1007,7 +1007,7 @@ export const serializeAws_restJson1PutAccountSendingAttributesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/sending";
   let body: any;
   body = JSON.stringify({
-    ...(input.SendingEnabled != undefined && { SendingEnabled: input.SendingEnabled }),
+    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1042,8 +1042,8 @@ export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SendingPoolName != undefined && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy != undefined && { TlsPolicy: input.TlsPolicy }),
+    ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
+    ...(input.TlsPolicy != null && { TlsPolicy: input.TlsPolicy }),
   });
   return new __HttpRequest({
     protocol,
@@ -1078,7 +1078,7 @@ export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand =
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ReputationMetricsEnabled != undefined && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
+    ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1113,7 +1113,7 @@ export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = as
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SendingEnabled != undefined && { SendingEnabled: input.SendingEnabled }),
+    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1148,7 +1148,7 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomRedirectDomain != undefined && { CustomRedirectDomain: input.CustomRedirectDomain }),
+    ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
   });
   return new __HttpRequest({
     protocol,
@@ -1182,7 +1182,7 @@ export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DestinationPoolName != undefined && { DestinationPoolName: input.DestinationPoolName }),
+    ...(input.DestinationPoolName != null && { DestinationPoolName: input.DestinationPoolName }),
   });
   return new __HttpRequest({
     protocol,
@@ -1216,7 +1216,7 @@ export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.WarmupPercentage != undefined && { WarmupPercentage: input.WarmupPercentage }),
+    ...(input.WarmupPercentage != null && { WarmupPercentage: input.WarmupPercentage }),
   });
   return new __HttpRequest({
     protocol,
@@ -1241,8 +1241,8 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard";
   let body: any;
   body = JSON.stringify({
-    ...(input.DashboardEnabled != undefined && { DashboardEnabled: input.DashboardEnabled }),
-    ...(input.SubscribedDomains != undefined && {
+    ...(input.DashboardEnabled != null && { DashboardEnabled: input.DashboardEnabled }),
+    ...(input.SubscribedDomains != null && {
       SubscribedDomains: serializeAws_restJson1DomainDeliverabilityTrackingOptions(input.SubscribedDomains, context),
     }),
   });
@@ -1278,7 +1278,7 @@ export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SigningEnabled != undefined && { SigningEnabled: input.SigningEnabled }),
+    ...(input.SigningEnabled != null && { SigningEnabled: input.SigningEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1313,7 +1313,7 @@ export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EmailForwardingEnabled != undefined && { EmailForwardingEnabled: input.EmailForwardingEnabled }),
+    ...(input.EmailForwardingEnabled != null && { EmailForwardingEnabled: input.EmailForwardingEnabled }),
   });
   return new __HttpRequest({
     protocol,
@@ -1348,8 +1348,8 @@ export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BehaviorOnMxFailure != undefined && { BehaviorOnMxFailure: input.BehaviorOnMxFailure }),
-    ...(input.MailFromDomain != undefined && { MailFromDomain: input.MailFromDomain }),
+    ...(input.BehaviorOnMxFailure != null && { BehaviorOnMxFailure: input.BehaviorOnMxFailure }),
+    ...(input.MailFromDomain != null && { MailFromDomain: input.MailFromDomain }),
   });
   return new __HttpRequest({
     protocol,
@@ -1374,17 +1374,15 @@ export const serializeAws_restJson1SendEmailCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/outbound-emails";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content != undefined && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
-    ...(input.Destination != undefined && {
-      Destination: serializeAws_restJson1Destination(input.Destination, context),
-    }),
-    ...(input.EmailTags != undefined && { EmailTags: serializeAws_restJson1MessageTagList(input.EmailTags, context) }),
-    ...(input.FeedbackForwardingEmailAddress != undefined && {
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Content != null && { Content: serializeAws_restJson1EmailContent(input.Content, context) }),
+    ...(input.Destination != null && { Destination: serializeAws_restJson1Destination(input.Destination, context) }),
+    ...(input.EmailTags != null && { EmailTags: serializeAws_restJson1MessageTagList(input.EmailTags, context) }),
+    ...(input.FeedbackForwardingEmailAddress != null && {
       FeedbackForwardingEmailAddress: input.FeedbackForwardingEmailAddress,
     }),
-    ...(input.FromEmailAddress != undefined && { FromEmailAddress: input.FromEmailAddress }),
-    ...(input.ReplyToAddresses != undefined && {
+    ...(input.FromEmailAddress != null && { FromEmailAddress: input.FromEmailAddress }),
+    ...(input.ReplyToAddresses != null && {
       ReplyToAddresses: serializeAws_restJson1EmailAddressList(input.ReplyToAddresses, context),
     }),
   });
@@ -1410,8 +1408,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
   let body: any;
   body = JSON.stringify({
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1479,7 +1477,7 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination != undefined && {
+    ...(input.EventDestination != null && {
       EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
     }),
   });
@@ -3918,14 +3916,14 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 
 const serializeAws_restJson1Body = (input: Body, context: __SerdeContext): any => {
   return {
-    ...(input.Html != undefined && { Html: serializeAws_restJson1Content(input.Html, context) }),
-    ...(input.Text != undefined && { Text: serializeAws_restJson1Content(input.Text, context) }),
+    ...(input.Html != null && { Html: serializeAws_restJson1Content(input.Html, context) }),
+    ...(input.Text != null && { Text: serializeAws_restJson1Content(input.Text, context) }),
   };
 };
 
 const serializeAws_restJson1CloudWatchDestination = (input: CloudWatchDestination, context: __SerdeContext): any => {
   return {
-    ...(input.DimensionConfigurations != undefined && {
+    ...(input.DimensionConfigurations != null && {
       DimensionConfigurations: serializeAws_restJson1CloudWatchDimensionConfigurations(
         input.DimensionConfigurations,
         context
@@ -3939,9 +3937,9 @@ const serializeAws_restJson1CloudWatchDimensionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DefaultDimensionValue != undefined && { DefaultDimensionValue: input.DefaultDimensionValue }),
-    ...(input.DimensionName != undefined && { DimensionName: input.DimensionName }),
-    ...(input.DimensionValueSource != undefined && { DimensionValueSource: input.DimensionValueSource }),
+    ...(input.DefaultDimensionValue != null && { DefaultDimensionValue: input.DefaultDimensionValue }),
+    ...(input.DimensionName != null && { DimensionName: input.DimensionName }),
+    ...(input.DimensionValueSource != null && { DimensionValueSource: input.DimensionValueSource }),
   };
 };
 
@@ -3961,27 +3959,27 @@ const serializeAws_restJson1CloudWatchDimensionConfigurations = (
 
 const serializeAws_restJson1Content = (input: Content, context: __SerdeContext): any => {
   return {
-    ...(input.Charset != undefined && { Charset: input.Charset }),
-    ...(input.Data != undefined && { Data: input.Data }),
+    ...(input.Charset != null && { Charset: input.Charset }),
+    ...(input.Data != null && { Data: input.Data }),
   };
 };
 
 const serializeAws_restJson1DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
   return {
-    ...(input.SendingPoolName != undefined && { SendingPoolName: input.SendingPoolName }),
-    ...(input.TlsPolicy != undefined && { TlsPolicy: input.TlsPolicy }),
+    ...(input.SendingPoolName != null && { SendingPoolName: input.SendingPoolName }),
+    ...(input.TlsPolicy != null && { TlsPolicy: input.TlsPolicy }),
   };
 };
 
 const serializeAws_restJson1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
-    ...(input.BccAddresses != undefined && {
+    ...(input.BccAddresses != null && {
       BccAddresses: serializeAws_restJson1EmailAddressList(input.BccAddresses, context),
     }),
-    ...(input.CcAddresses != undefined && {
+    ...(input.CcAddresses != null && {
       CcAddresses: serializeAws_restJson1EmailAddressList(input.CcAddresses, context),
     }),
-    ...(input.ToAddresses != undefined && {
+    ...(input.ToAddresses != null && {
       ToAddresses: serializeAws_restJson1EmailAddressList(input.ToAddresses, context),
     }),
   };
@@ -3992,14 +3990,14 @@ const serializeAws_restJson1DomainDeliverabilityTrackingOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Domain != undefined && { Domain: input.Domain }),
-    ...(input.InboxPlacementTrackingOption != undefined && {
+    ...(input.Domain != null && { Domain: input.Domain }),
+    ...(input.InboxPlacementTrackingOption != null && {
       InboxPlacementTrackingOption: serializeAws_restJson1InboxPlacementTrackingOption(
         input.InboxPlacementTrackingOption,
         context
       ),
     }),
-    ...(input.SubscriptionStartDate != undefined && {
+    ...(input.SubscriptionStartDate != null && {
       SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000),
     }),
   };
@@ -4032,9 +4030,9 @@ const serializeAws_restJson1EmailAddressList = (input: string[], context: __Serd
 
 const serializeAws_restJson1EmailContent = (input: EmailContent, context: __SerdeContext): any => {
   return {
-    ...(input.Raw != undefined && { Raw: serializeAws_restJson1RawMessage(input.Raw, context) }),
-    ...(input.Simple != undefined && { Simple: serializeAws_restJson1Message(input.Simple, context) }),
-    ...(input.Template != undefined && { Template: serializeAws_restJson1Template(input.Template, context) }),
+    ...(input.Raw != null && { Raw: serializeAws_restJson1RawMessage(input.Raw, context) }),
+    ...(input.Simple != null && { Simple: serializeAws_restJson1Message(input.Simple, context) }),
+    ...(input.Template != null && { Template: serializeAws_restJson1Template(input.Template, context) }),
   };
 };
 
@@ -4043,23 +4041,23 @@ const serializeAws_restJson1EventDestinationDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchDestination != undefined && {
+    ...(input.CloudWatchDestination != null && {
       CloudWatchDestination: serializeAws_restJson1CloudWatchDestination(input.CloudWatchDestination, context),
     }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination != undefined && {
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.KinesisFirehoseDestination != null && {
       KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
         input.KinesisFirehoseDestination,
         context
       ),
     }),
-    ...(input.MatchingEventTypes != undefined && {
+    ...(input.MatchingEventTypes != null && {
       MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
     }),
-    ...(input.PinpointDestination != undefined && {
+    ...(input.PinpointDestination != null && {
       PinpointDestination: serializeAws_restJson1PinpointDestination(input.PinpointDestination, context),
     }),
-    ...(input.SnsDestination != undefined && {
+    ...(input.SnsDestination != null && {
       SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
     }),
   };
@@ -4081,10 +4079,8 @@ const serializeAws_restJson1InboxPlacementTrackingOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Global != undefined && { Global: input.Global }),
-    ...(input.TrackedIsps != undefined && {
-      TrackedIsps: serializeAws_restJson1IspNameList(input.TrackedIsps, context),
-    }),
+    ...(input.Global != null && { Global: input.Global }),
+    ...(input.TrackedIsps != null && { TrackedIsps: serializeAws_restJson1IspNameList(input.TrackedIsps, context) }),
   };
 };
 
@@ -4104,22 +4100,22 @@ const serializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryStreamArn != undefined && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn != undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: serializeAws_restJson1Body(input.Body, context) }),
-    ...(input.Subject != undefined && { Subject: serializeAws_restJson1Content(input.Subject, context) }),
+    ...(input.Body != null && { Body: serializeAws_restJson1Body(input.Body, context) }),
+    ...(input.Subject != null && { Subject: serializeAws_restJson1Content(input.Subject, context) }),
   };
 };
 
 const serializeAws_restJson1MessageTag = (input: MessageTag, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4136,39 +4132,39 @@ const serializeAws_restJson1MessageTagList = (input: MessageTag[], context: __Se
 
 const serializeAws_restJson1PinpointDestination = (input: PinpointDestination, context: __SerdeContext): any => {
   return {
-    ...(input.ApplicationArn != undefined && { ApplicationArn: input.ApplicationArn }),
+    ...(input.ApplicationArn != null && { ApplicationArn: input.ApplicationArn }),
   };
 };
 
 const serializeAws_restJson1RawMessage = (input: RawMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: context.base64Encoder(input.Data) }),
+    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
   };
 };
 
 const serializeAws_restJson1ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.LastFreshStart != undefined && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
-    ...(input.ReputationMetricsEnabled != undefined && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
+    ...(input.LastFreshStart != null && { LastFreshStart: Math.round(input.LastFreshStart.getTime() / 1000) }),
+    ...(input.ReputationMetricsEnabled != null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
   };
 };
 
 const serializeAws_restJson1SendingOptions = (input: SendingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.SendingEnabled != undefined && { SendingEnabled: input.SendingEnabled }),
+    ...(input.SendingEnabled != null && { SendingEnabled: input.SendingEnabled }),
   };
 };
 
 const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
-    ...(input.TopicArn != undefined && { TopicArn: input.TopicArn }),
+    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4185,14 +4181,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1Template = (input: Template, context: __SerdeContext): any => {
   return {
-    ...(input.TemplateArn != undefined && { TemplateArn: input.TemplateArn }),
-    ...(input.TemplateData != undefined && { TemplateData: input.TemplateData }),
+    ...(input.TemplateArn != null && { TemplateArn: input.TemplateArn }),
+    ...(input.TemplateData != null && { TemplateData: input.TemplateData }),
   };
 };
 
 const serializeAws_restJson1TrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.CustomRedirectDomain != undefined && { CustomRedirectDomain: input.CustomRedirectDomain }),
+    ...(input.CustomRedirectDomain != null && { CustomRedirectDomain: input.CustomRedirectDomain }),
   };
 };
 
@@ -4212,7 +4208,7 @@ const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeCon
   return {
     Description: __expectString(output.Description),
     ListingTime:
-      output.ListingTime != undefined
+      output.ListingTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ListingTime)))
         : undefined,
     RblName: __expectString(output.RblName),
@@ -4237,7 +4233,7 @@ const deserializeAws_restJson1BlacklistReport = (
 const deserializeAws_restJson1CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
   return {
     DimensionConfigurations:
-      output.DimensionConfigurations != undefined
+      output.DimensionConfigurations != null
         ? deserializeAws_restJson1CloudWatchDimensionConfigurations(output.DimensionConfigurations, context)
         : undefined,
   } as any;
@@ -4284,15 +4280,13 @@ const deserializeAws_restJson1ConfigurationSetNameList = (output: any, context: 
 const deserializeAws_restJson1DailyVolume = (output: any, context: __SerdeContext): DailyVolume => {
   return {
     DomainIspPlacements:
-      output.DomainIspPlacements != undefined
+      output.DomainIspPlacements != null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
     StartDate:
-      output.StartDate != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate)))
-        : undefined,
+      output.StartDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartDate))) : undefined,
     VolumeStatistics:
-      output.VolumeStatistics != undefined
+      output.VolumeStatistics != null
         ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
         : undefined,
   } as any;
@@ -4337,9 +4331,7 @@ const deserializeAws_restJson1DeliverabilityTestReport = (
 ): DeliverabilityTestReport => {
   return {
     CreateDate:
-      output.CreateDate != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate)))
-        : undefined,
+      output.CreateDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateDate))) : undefined,
     DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
     FromEmailAddress: __expectString(output.FromEmailAddress),
     ReportId: __expectString(output.ReportId),
@@ -4374,7 +4366,7 @@ const deserializeAws_restJson1DkimAttributes = (output: any, context: __SerdeCon
   return {
     SigningEnabled: __expectBoolean(output.SigningEnabled),
     Status: __expectString(output.Status),
-    Tokens: output.Tokens != undefined ? deserializeAws_restJson1DnsTokenList(output.Tokens, context) : undefined,
+    Tokens: output.Tokens != null ? deserializeAws_restJson1DnsTokenList(output.Tokens, context) : undefined,
   } as any;
 };
 
@@ -4397,22 +4389,22 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
   return {
     CampaignId: __expectString(output.CampaignId),
     DeleteRate: __limitedParseDouble(output.DeleteRate),
-    Esps: output.Esps != undefined ? deserializeAws_restJson1Esps(output.Esps, context) : undefined,
+    Esps: output.Esps != null ? deserializeAws_restJson1Esps(output.Esps, context) : undefined,
     FirstSeenDateTime:
-      output.FirstSeenDateTime != undefined
+      output.FirstSeenDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FirstSeenDateTime)))
         : undefined,
     FromAddress: __expectString(output.FromAddress),
     ImageUrl: __expectString(output.ImageUrl),
     InboxCount: __expectLong(output.InboxCount),
     LastSeenDateTime:
-      output.LastSeenDateTime != undefined
+      output.LastSeenDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSeenDateTime)))
         : undefined,
     ProjectedVolume: __expectLong(output.ProjectedVolume),
     ReadDeleteRate: __limitedParseDouble(output.ReadDeleteRate),
     ReadRate: __limitedParseDouble(output.ReadRate),
-    SendingIps: output.SendingIps != undefined ? deserializeAws_restJson1IpList(output.SendingIps, context) : undefined,
+    SendingIps: output.SendingIps != null ? deserializeAws_restJson1IpList(output.SendingIps, context) : undefined,
     SpamCount: __expectLong(output.SpamCount),
     Subject: __expectString(output.Subject),
   } as any;
@@ -4440,11 +4432,11 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
   return {
     Domain: __expectString(output.Domain),
     InboxPlacementTrackingOption:
-      output.InboxPlacementTrackingOption != undefined
+      output.InboxPlacementTrackingOption != null
         ? deserializeAws_restJson1InboxPlacementTrackingOption(output.InboxPlacementTrackingOption, context)
         : undefined,
     SubscriptionStartDate:
-      output.SubscriptionStartDate != undefined
+      output.SubscriptionStartDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubscriptionStartDate)))
         : undefined,
   } as any;
@@ -4502,25 +4494,25 @@ const deserializeAws_restJson1Esps = (output: any, context: __SerdeContext): str
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
     CloudWatchDestination:
-      output.CloudWatchDestination != undefined
+      output.CloudWatchDestination != null
         ? deserializeAws_restJson1CloudWatchDestination(output.CloudWatchDestination, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination != undefined
+      output.KinesisFirehoseDestination != null
         ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes != undefined
+      output.MatchingEventTypes != null
         ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
         : undefined,
     Name: __expectString(output.Name),
     PinpointDestination:
-      output.PinpointDestination != undefined
+      output.PinpointDestination != null
         ? deserializeAws_restJson1PinpointDestination(output.PinpointDestination, context)
         : undefined,
     SnsDestination:
-      output.SnsDestination != undefined
+      output.SnsDestination != null
         ? deserializeAws_restJson1SnsDestination(output.SnsDestination, context)
         : undefined,
   } as any;
@@ -4577,7 +4569,7 @@ const deserializeAws_restJson1InboxPlacementTrackingOption = (
   return {
     Global: __expectBoolean(output.Global),
     TrackedIsps:
-      output.TrackedIsps != undefined ? deserializeAws_restJson1IspNameList(output.TrackedIsps, context) : undefined,
+      output.TrackedIsps != null ? deserializeAws_restJson1IspNameList(output.TrackedIsps, context) : undefined,
   } as any;
 };
 
@@ -4609,7 +4601,7 @@ const deserializeAws_restJson1IspPlacement = (output: any, context: __SerdeConte
   return {
     IspName: __expectString(output.IspName),
     PlacementStatistics:
-      output.PlacementStatistics != undefined
+      output.PlacementStatistics != null
         ? deserializeAws_restJson1PlacementStatistics(output.PlacementStatistics, context)
         : undefined,
   } as any;
@@ -4660,12 +4652,12 @@ const deserializeAws_restJson1MailFromAttributes = (output: any, context: __Serd
 const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
   return {
     DomainIspPlacements:
-      output.DomainIspPlacements != undefined
+      output.DomainIspPlacements != null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
     ReadRatePercent: __limitedParseDouble(output.ReadRatePercent),
     VolumeStatistics:
-      output.VolumeStatistics != undefined
+      output.VolumeStatistics != null
         ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
         : undefined,
   } as any;
@@ -4690,7 +4682,7 @@ const deserializeAws_restJson1PlacementStatistics = (output: any, context: __Ser
 const deserializeAws_restJson1ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
   return {
     LastFreshStart:
-      output.LastFreshStart != undefined
+      output.LastFreshStart != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastFreshStart)))
         : undefined,
     ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),

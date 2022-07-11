@@ -614,19 +614,19 @@ const serializeAws_json1_0EndpointWithHostLabelOperationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.label != undefined && { label: input.label }),
+    ...(input.label != null && { label: input.label }),
   };
 };
 
 const serializeAws_json1_0GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
   return {
-    ...(input.greeting != undefined && { greeting: input.greeting }),
+    ...(input.greeting != null && { greeting: input.greeting }),
   };
 };
 
 const serializeAws_json1_0JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.contents != undefined && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
+    ...(input.contents != null && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
   };
 };
 
@@ -650,14 +650,14 @@ const serializeAws_json1_0SimpleScalarPropertiesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.doubleValue != undefined && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue != undefined && { floatValue: __serializeFloat(input.floatValue) }),
+    ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
+    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
   };
 };
 
 const serializeAws_json1_0GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   return {
-    ...(input.hi != undefined && { hi: input.hi }),
+    ...(input.hi != null && { hi: input.hi }),
   };
 };
 
@@ -686,8 +686,7 @@ const serializeAws_json1_0StringMap = (input: Record<string, string>, context: _
 
 const deserializeAws_json1_0ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   return {
-    Nested:
-      output.Nested != undefined ? deserializeAws_json1_0ComplexNestedErrorData(output.Nested, context) : undefined,
+    Nested: output.Nested != null ? deserializeAws_json1_0ComplexNestedErrorData(output.Nested, context) : undefined,
     TopLevel: __expectString(output.TopLevel),
   } as any;
 };
@@ -727,7 +726,7 @@ const deserializeAws_json1_0InvalidGreeting = (output: any, context: __SerdeCont
 const deserializeAws_json1_0JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
   return {
     contents:
-      output.contents != undefined ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context) : undefined,
+      output.contents != null ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context) : undefined,
   } as any;
 };
 

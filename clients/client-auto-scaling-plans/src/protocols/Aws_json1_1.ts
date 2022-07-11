@@ -539,8 +539,8 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1ApplicationSource = (input: ApplicationSource, context: __SerdeContext): any => {
   return {
-    ...(input.CloudFormationStackARN != undefined && { CloudFormationStackARN: input.CloudFormationStackARN }),
-    ...(input.TagFilters != undefined && { TagFilters: serializeAws_json1_1TagFilters(input.TagFilters, context) }),
+    ...(input.CloudFormationStackARN != null && { CloudFormationStackARN: input.CloudFormationStackARN }),
+    ...(input.TagFilters != null && { TagFilters: serializeAws_json1_1TagFilters(input.TagFilters, context) }),
   };
 };
 
@@ -560,13 +560,13 @@ const serializeAws_json1_1CreateScalingPlanRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationSource != undefined && {
+    ...(input.ApplicationSource != null && {
       ApplicationSource: serializeAws_json1_1ApplicationSource(input.ApplicationSource, context),
     }),
-    ...(input.ScalingInstructions != undefined && {
+    ...(input.ScalingInstructions != null && {
       ScalingInstructions: serializeAws_json1_1ScalingInstructions(input.ScalingInstructions, context),
     }),
-    ...(input.ScalingPlanName != undefined && { ScalingPlanName: input.ScalingPlanName }),
+    ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
   };
 };
 
@@ -575,13 +575,11 @@ const serializeAws_json1_1CustomizedLoadMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context),
-    }),
-    ...(input.MetricName != undefined && { MetricName: input.MetricName }),
-    ...(input.Namespace != undefined && { Namespace: input.Namespace }),
-    ...(input.Statistic != undefined && { Statistic: input.Statistic }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context) }),
+    ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
+    ...(input.Statistic != null && { Statistic: input.Statistic }),
+    ...(input.Unit != null && { Unit: input.Unit }),
   };
 };
 
@@ -590,13 +588,11 @@ const serializeAws_json1_1CustomizedScalingMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context),
-    }),
-    ...(input.MetricName != undefined && { MetricName: input.MetricName }),
-    ...(input.Namespace != undefined && { Namespace: input.Namespace }),
-    ...(input.Statistic != undefined && { Statistic: input.Statistic }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context) }),
+    ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
+    ...(input.Statistic != null && { Statistic: input.Statistic }),
+    ...(input.Unit != null && { Unit: input.Unit }),
   };
 };
 
@@ -605,8 +601,8 @@ const serializeAws_json1_1DeleteScalingPlanRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ScalingPlanName != undefined && { ScalingPlanName: input.ScalingPlanName }),
-    ...(input.ScalingPlanVersion != undefined && { ScalingPlanVersion: input.ScalingPlanVersion }),
+    ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
+    ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
   };
 };
 
@@ -615,10 +611,10 @@ const serializeAws_json1_1DescribeScalingPlanResourcesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ScalingPlanName != undefined && { ScalingPlanName: input.ScalingPlanName }),
-    ...(input.ScalingPlanVersion != undefined && { ScalingPlanVersion: input.ScalingPlanVersion }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
+    ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
   };
 };
 
@@ -627,15 +623,15 @@ const serializeAws_json1_1DescribeScalingPlansRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationSources != undefined && {
+    ...(input.ApplicationSources != null && {
       ApplicationSources: serializeAws_json1_1ApplicationSources(input.ApplicationSources, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ScalingPlanNames != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ScalingPlanNames != null && {
       ScalingPlanNames: serializeAws_json1_1ScalingPlanNames(input.ScalingPlanNames, context),
     }),
-    ...(input.ScalingPlanVersion != undefined && { ScalingPlanVersion: input.ScalingPlanVersion }),
+    ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
   };
 };
 
@@ -644,21 +640,21 @@ const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.ForecastDataType != undefined && { ForecastDataType: input.ForecastDataType }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScalingPlanName != undefined && { ScalingPlanName: input.ScalingPlanName }),
-    ...(input.ScalingPlanVersion != undefined && { ScalingPlanVersion: input.ScalingPlanVersion }),
-    ...(input.ServiceNamespace != undefined && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.ForecastDataType != null && { ForecastDataType: input.ForecastDataType }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
+    ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
+    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -678,8 +674,8 @@ const serializeAws_json1_1PredefinedLoadMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredefinedLoadMetricType != undefined && { PredefinedLoadMetricType: input.PredefinedLoadMetricType }),
-    ...(input.ResourceLabel != undefined && { ResourceLabel: input.ResourceLabel }),
+    ...(input.PredefinedLoadMetricType != null && { PredefinedLoadMetricType: input.PredefinedLoadMetricType }),
+    ...(input.ResourceLabel != null && { ResourceLabel: input.ResourceLabel }),
   };
 };
 
@@ -688,45 +684,45 @@ const serializeAws_json1_1PredefinedScalingMetricSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredefinedScalingMetricType != undefined && {
+    ...(input.PredefinedScalingMetricType != null && {
       PredefinedScalingMetricType: input.PredefinedScalingMetricType,
     }),
-    ...(input.ResourceLabel != undefined && { ResourceLabel: input.ResourceLabel }),
+    ...(input.ResourceLabel != null && { ResourceLabel: input.ResourceLabel }),
   };
 };
 
 const serializeAws_json1_1ScalingInstruction = (input: ScalingInstruction, context: __SerdeContext): any => {
   return {
-    ...(input.CustomizedLoadMetricSpecification != undefined && {
+    ...(input.CustomizedLoadMetricSpecification != null && {
       CustomizedLoadMetricSpecification: serializeAws_json1_1CustomizedLoadMetricSpecification(
         input.CustomizedLoadMetricSpecification,
         context
       ),
     }),
-    ...(input.DisableDynamicScaling != undefined && { DisableDynamicScaling: input.DisableDynamicScaling }),
-    ...(input.MaxCapacity != undefined && { MaxCapacity: input.MaxCapacity }),
-    ...(input.MinCapacity != undefined && { MinCapacity: input.MinCapacity }),
-    ...(input.PredefinedLoadMetricSpecification != undefined && {
+    ...(input.DisableDynamicScaling != null && { DisableDynamicScaling: input.DisableDynamicScaling }),
+    ...(input.MaxCapacity != null && { MaxCapacity: input.MaxCapacity }),
+    ...(input.MinCapacity != null && { MinCapacity: input.MinCapacity }),
+    ...(input.PredefinedLoadMetricSpecification != null && {
       PredefinedLoadMetricSpecification: serializeAws_json1_1PredefinedLoadMetricSpecification(
         input.PredefinedLoadMetricSpecification,
         context
       ),
     }),
-    ...(input.PredictiveScalingMaxCapacityBehavior != undefined && {
+    ...(input.PredictiveScalingMaxCapacityBehavior != null && {
       PredictiveScalingMaxCapacityBehavior: input.PredictiveScalingMaxCapacityBehavior,
     }),
-    ...(input.PredictiveScalingMaxCapacityBuffer != undefined && {
+    ...(input.PredictiveScalingMaxCapacityBuffer != null && {
       PredictiveScalingMaxCapacityBuffer: input.PredictiveScalingMaxCapacityBuffer,
     }),
-    ...(input.PredictiveScalingMode != undefined && { PredictiveScalingMode: input.PredictiveScalingMode }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.ScalableDimension != undefined && { ScalableDimension: input.ScalableDimension }),
-    ...(input.ScalingPolicyUpdateBehavior != undefined && {
+    ...(input.PredictiveScalingMode != null && { PredictiveScalingMode: input.PredictiveScalingMode }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.ScalableDimension != null && { ScalableDimension: input.ScalableDimension }),
+    ...(input.ScalingPolicyUpdateBehavior != null && {
       ScalingPolicyUpdateBehavior: input.ScalingPolicyUpdateBehavior,
     }),
-    ...(input.ScheduledActionBufferTime != undefined && { ScheduledActionBufferTime: input.ScheduledActionBufferTime }),
-    ...(input.ServiceNamespace != undefined && { ServiceNamespace: input.ServiceNamespace }),
-    ...(input.TargetTrackingConfigurations != undefined && {
+    ...(input.ScheduledActionBufferTime != null && { ScheduledActionBufferTime: input.ScheduledActionBufferTime }),
+    ...(input.ServiceNamespace != null && { ServiceNamespace: input.ServiceNamespace }),
+    ...(input.TargetTrackingConfigurations != null && {
       TargetTrackingConfigurations: serializeAws_json1_1TargetTrackingConfigurations(
         input.TargetTrackingConfigurations,
         context
@@ -759,8 +755,8 @@ const serializeAws_json1_1ScalingPlanNames = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1TagValues(input.Values, context) }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Values != null && { Values: serializeAws_json1_1TagValues(input.Values, context) }),
   };
 };
 
@@ -791,23 +787,23 @@ const serializeAws_json1_1TargetTrackingConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomizedScalingMetricSpecification != undefined && {
+    ...(input.CustomizedScalingMetricSpecification != null && {
       CustomizedScalingMetricSpecification: serializeAws_json1_1CustomizedScalingMetricSpecification(
         input.CustomizedScalingMetricSpecification,
         context
       ),
     }),
-    ...(input.DisableScaleIn != undefined && { DisableScaleIn: input.DisableScaleIn }),
-    ...(input.EstimatedInstanceWarmup != undefined && { EstimatedInstanceWarmup: input.EstimatedInstanceWarmup }),
-    ...(input.PredefinedScalingMetricSpecification != undefined && {
+    ...(input.DisableScaleIn != null && { DisableScaleIn: input.DisableScaleIn }),
+    ...(input.EstimatedInstanceWarmup != null && { EstimatedInstanceWarmup: input.EstimatedInstanceWarmup }),
+    ...(input.PredefinedScalingMetricSpecification != null && {
       PredefinedScalingMetricSpecification: serializeAws_json1_1PredefinedScalingMetricSpecification(
         input.PredefinedScalingMetricSpecification,
         context
       ),
     }),
-    ...(input.ScaleInCooldown != undefined && { ScaleInCooldown: input.ScaleInCooldown }),
-    ...(input.ScaleOutCooldown != undefined && { ScaleOutCooldown: input.ScaleOutCooldown }),
-    ...(input.TargetValue != undefined && { TargetValue: __serializeFloat(input.TargetValue) }),
+    ...(input.ScaleInCooldown != null && { ScaleInCooldown: input.ScaleInCooldown }),
+    ...(input.ScaleOutCooldown != null && { ScaleOutCooldown: input.ScaleOutCooldown }),
+    ...(input.TargetValue != null && { TargetValue: __serializeFloat(input.TargetValue) }),
   };
 };
 
@@ -830,22 +826,21 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ApplicationSource != undefined && {
+    ...(input.ApplicationSource != null && {
       ApplicationSource: serializeAws_json1_1ApplicationSource(input.ApplicationSource, context),
     }),
-    ...(input.ScalingInstructions != undefined && {
+    ...(input.ScalingInstructions != null && {
       ScalingInstructions: serializeAws_json1_1ScalingInstructions(input.ScalingInstructions, context),
     }),
-    ...(input.ScalingPlanName != undefined && { ScalingPlanName: input.ScalingPlanName }),
-    ...(input.ScalingPlanVersion != undefined && { ScalingPlanVersion: input.ScalingPlanVersion }),
+    ...(input.ScalingPlanName != null && { ScalingPlanName: input.ScalingPlanName }),
+    ...(input.ScalingPlanVersion != null && { ScalingPlanVersion: input.ScalingPlanVersion }),
   };
 };
 
 const deserializeAws_json1_1ApplicationSource = (output: any, context: __SerdeContext): ApplicationSource => {
   return {
     CloudFormationStackARN: __expectString(output.CloudFormationStackARN),
-    TagFilters:
-      output.TagFilters != undefined ? deserializeAws_json1_1TagFilters(output.TagFilters, context) : undefined,
+    TagFilters: output.TagFilters != null ? deserializeAws_json1_1TagFilters(output.TagFilters, context) : undefined,
   } as any;
 };
 
@@ -873,7 +868,7 @@ const deserializeAws_json1_1CustomizedLoadMetricSpecification = (
 ): CustomizedLoadMetricSpecification => {
   return {
     Dimensions:
-      output.Dimensions != undefined ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
+      output.Dimensions != null ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
     Statistic: __expectString(output.Statistic),
@@ -887,7 +882,7 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
 ): CustomizedScalingMetricSpecification => {
   return {
     Dimensions:
-      output.Dimensions != undefined ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
+      output.Dimensions != null ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
     MetricName: __expectString(output.MetricName),
     Namespace: __expectString(output.Namespace),
     Statistic: __expectString(output.Statistic),
@@ -898,9 +893,7 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
 const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): Datapoint => {
   return {
     Timestamp:
-      output.Timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
     Value: __limitedParseDouble(output.Value),
   } as any;
 };
@@ -931,7 +924,7 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ScalingPlanResources:
-      output.ScalingPlanResources != undefined
+      output.ScalingPlanResources != null
         ? deserializeAws_json1_1ScalingPlanResources(output.ScalingPlanResources, context)
         : undefined,
   } as any;
@@ -944,7 +937,7 @@ const deserializeAws_json1_1DescribeScalingPlansResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     ScalingPlans:
-      output.ScalingPlans != undefined ? deserializeAws_json1_1ScalingPlans(output.ScalingPlans, context) : undefined,
+      output.ScalingPlans != null ? deserializeAws_json1_1ScalingPlans(output.ScalingPlans, context) : undefined,
   } as any;
 };
 
@@ -953,8 +946,7 @@ const deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse = (
   context: __SerdeContext
 ): GetScalingPlanResourceForecastDataResponse => {
   return {
-    Datapoints:
-      output.Datapoints != undefined ? deserializeAws_json1_1Datapoints(output.Datapoints, context) : undefined,
+    Datapoints: output.Datapoints != null ? deserializeAws_json1_1Datapoints(output.Datapoints, context) : undefined,
   } as any;
 };
 
@@ -1033,14 +1025,14 @@ const deserializeAws_json1_1PredefinedScalingMetricSpecification = (
 const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeContext): ScalingInstruction => {
   return {
     CustomizedLoadMetricSpecification:
-      output.CustomizedLoadMetricSpecification != undefined
+      output.CustomizedLoadMetricSpecification != null
         ? deserializeAws_json1_1CustomizedLoadMetricSpecification(output.CustomizedLoadMetricSpecification, context)
         : undefined,
     DisableDynamicScaling: __expectBoolean(output.DisableDynamicScaling),
     MaxCapacity: __expectInt32(output.MaxCapacity),
     MinCapacity: __expectInt32(output.MinCapacity),
     PredefinedLoadMetricSpecification:
-      output.PredefinedLoadMetricSpecification != undefined
+      output.PredefinedLoadMetricSpecification != null
         ? deserializeAws_json1_1PredefinedLoadMetricSpecification(output.PredefinedLoadMetricSpecification, context)
         : undefined,
     PredictiveScalingMaxCapacityBehavior: __expectString(output.PredictiveScalingMaxCapacityBehavior),
@@ -1052,7 +1044,7 @@ const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeC
     ScheduledActionBufferTime: __expectInt32(output.ScheduledActionBufferTime),
     ServiceNamespace: __expectString(output.ServiceNamespace),
     TargetTrackingConfigurations:
-      output.TargetTrackingConfigurations != undefined
+      output.TargetTrackingConfigurations != null
         ? deserializeAws_json1_1TargetTrackingConfigurations(output.TargetTrackingConfigurations, context)
         : undefined,
   } as any;
@@ -1073,15 +1065,15 @@ const deserializeAws_json1_1ScalingInstructions = (output: any, context: __Serde
 const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext): ScalingPlan => {
   return {
     ApplicationSource:
-      output.ApplicationSource != undefined
+      output.ApplicationSource != null
         ? deserializeAws_json1_1ApplicationSource(output.ApplicationSource, context)
         : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ScalingInstructions:
-      output.ScalingInstructions != undefined
+      output.ScalingInstructions != null
         ? deserializeAws_json1_1ScalingInstructions(output.ScalingInstructions, context)
         : undefined,
     ScalingPlanName: __expectString(output.ScalingPlanName),
@@ -1089,7 +1081,7 @@ const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext)
     StatusCode: __expectString(output.StatusCode),
     StatusMessage: __expectString(output.StatusMessage),
     StatusStartTime:
-      output.StatusStartTime != undefined
+      output.StatusStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StatusStartTime)))
         : undefined,
   } as any;
@@ -1102,7 +1094,7 @@ const deserializeAws_json1_1ScalingPlanResource = (output: any, context: __Serde
     ScalingPlanName: __expectString(output.ScalingPlanName),
     ScalingPlanVersion: __expectLong(output.ScalingPlanVersion),
     ScalingPolicies:
-      output.ScalingPolicies != undefined
+      output.ScalingPolicies != null
         ? deserializeAws_json1_1ScalingPolicies(output.ScalingPolicies, context)
         : undefined,
     ScalingStatusCode: __expectString(output.ScalingStatusCode),
@@ -1152,7 +1144,7 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
     PolicyName: __expectString(output.PolicyName),
     PolicyType: __expectString(output.PolicyType),
     TargetTrackingConfiguration:
-      output.TargetTrackingConfiguration != undefined
+      output.TargetTrackingConfiguration != null
         ? deserializeAws_json1_1TargetTrackingConfiguration(output.TargetTrackingConfiguration, context)
         : undefined,
   } as any;
@@ -1161,7 +1153,7 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
 const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): TagFilter => {
   return {
     Key: __expectString(output.Key),
-    Values: output.Values != undefined ? deserializeAws_json1_1TagValues(output.Values, context) : undefined,
+    Values: output.Values != null ? deserializeAws_json1_1TagValues(output.Values, context) : undefined,
   } as any;
 };
 
@@ -1195,7 +1187,7 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
 ): TargetTrackingConfiguration => {
   return {
     CustomizedScalingMetricSpecification:
-      output.CustomizedScalingMetricSpecification != undefined
+      output.CustomizedScalingMetricSpecification != null
         ? deserializeAws_json1_1CustomizedScalingMetricSpecification(
             output.CustomizedScalingMetricSpecification,
             context
@@ -1204,7 +1196,7 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
     DisableScaleIn: __expectBoolean(output.DisableScaleIn),
     EstimatedInstanceWarmup: __expectInt32(output.EstimatedInstanceWarmup),
     PredefinedScalingMetricSpecification:
-      output.PredefinedScalingMetricSpecification != undefined
+      output.PredefinedScalingMetricSpecification != null
         ? deserializeAws_json1_1PredefinedScalingMetricSpecification(
             output.PredefinedScalingMetricSpecification,
             context

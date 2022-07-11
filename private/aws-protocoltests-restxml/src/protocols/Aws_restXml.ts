@@ -4956,11 +4956,11 @@ const serializeAws_restXmlNestedMap = (
 
 const serializeAws_restXmlNestedPayload = (input: NestedPayload, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("NestedPayload");
-  if (input.greeting != undefined) {
+  if (input.greeting != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.greeting)).withName("greeting");
     bodyNode.addChildNode(node);
   }
-  if (input.name != undefined) {
+  if (input.name != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
     bodyNode.addChildNode(node);
   }
@@ -4969,7 +4969,7 @@ const serializeAws_restXmlNestedPayload = (input: NestedPayload, context: __Serd
 
 const serializeAws_restXmlPayloadWithXmlName = (input: PayloadWithXmlName, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Hello");
-  if (input.name != undefined) {
+  if (input.name != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
     bodyNode.addChildNode(node);
   }
@@ -4978,7 +4978,7 @@ const serializeAws_restXmlPayloadWithXmlName = (input: PayloadWithXmlName, conte
 
 const serializeAws_restXmlPayloadWithXmlNamespace = (input: PayloadWithXmlNamespace, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("PayloadWithXmlNamespace");
-  if (input.name != undefined) {
+  if (input.name != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
     bodyNode.addChildNode(node);
   }
@@ -4990,7 +4990,7 @@ const serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("PayloadWithXmlNamespaceAndPrefix");
-  if (input.name != undefined) {
+  if (input.name != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.name)).withName("name");
     bodyNode.addChildNode(node);
   }
@@ -5002,11 +5002,11 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested1");
-  if (input.foo != undefined) {
+  if (input.foo != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
     bodyNode.addChildNode(node);
   }
-  if (input.nested != undefined) {
+  if (input.nested != null) {
     const node = serializeAws_restXmlRecursiveShapesInputOutputNested2(input.nested, context).withName("nested");
     bodyNode.addChildNode(node);
   }
@@ -5018,11 +5018,11 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested2");
-  if (input.bar != undefined) {
+  if (input.bar != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.bar)).withName("bar");
     bodyNode.addChildNode(node);
   }
-  if (input.recursiveMember != undefined) {
+  if (input.recursiveMember != null) {
     const node = serializeAws_restXmlRecursiveShapesInputOutputNested1(input.recursiveMember, context).withName(
       "recursiveMember"
     );
@@ -5057,11 +5057,11 @@ const serializeAws_restXmlStructureList = (input: StructureListMember[], context
 
 const serializeAws_restXmlStructureListMember = (input: StructureListMember, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StructureListMember");
-  if (input.a != undefined) {
+  if (input.a != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.a)).withName("value");
     bodyNode.addChildNode(node);
   }
-  if (input.b != undefined) {
+  if (input.b != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.b)).withName("other");
     bodyNode.addChildNode(node);
   }
@@ -5073,11 +5073,11 @@ const serializeAws_restXmlXmlAttributesInputOutput = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("XmlAttributesInputOutput");
-  if (input.foo != undefined) {
+  if (input.foo != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
     bodyNode.addChildNode(node);
   }
-  if (input.attr != undefined) {
+  if (input.attr != null) {
     bodyNode.addAttribute("test", input.attr);
   }
   return bodyNode;
@@ -5132,12 +5132,12 @@ const serializeAws_restXmlXmlNamespacedList = (input: string[], context: __Serde
 
 const serializeAws_restXmlXmlNamespaceNested = (input: XmlNamespaceNested, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("XmlNamespaceNested");
-  if (input.foo != undefined) {
+  if (input.foo != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.foo)).withName("foo");
     node.addAttribute("xmlns:baz", "http://baz.com");
     bodyNode.addChildNode(node);
   }
-  if (input.values != undefined) {
+  if (input.values != null) {
     const nodes = serializeAws_restXmlXmlNamespacedList(input.values, context);
     const containerNode = new __XmlNode("values");
     containerNode.addAttribute("xmlns", "http://qux.com");
@@ -5151,39 +5151,39 @@ const serializeAws_restXmlXmlNamespaceNested = (input: XmlNamespaceNested, conte
 
 const serializeAws_restXmlXmlNestedUnionStruct = (input: XmlNestedUnionStruct, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("XmlNestedUnionStruct");
-  if (input.stringValue != undefined) {
+  if (input.stringValue != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.stringValue)).withName("stringValue");
     bodyNode.addChildNode(node);
   }
-  if (input.booleanValue != undefined) {
+  if (input.booleanValue != null) {
     const node = new __XmlNode("Boolean")
       .addChildNode(new __XmlText(String(input.booleanValue)))
       .withName("booleanValue");
     bodyNode.addChildNode(node);
   }
-  if (input.byteValue != undefined) {
+  if (input.byteValue != null) {
     const node = new __XmlNode("Byte").addChildNode(new __XmlText(String(input.byteValue))).withName("byteValue");
     bodyNode.addChildNode(node);
   }
-  if (input.shortValue != undefined) {
+  if (input.shortValue != null) {
     const node = new __XmlNode("Short").addChildNode(new __XmlText(String(input.shortValue))).withName("shortValue");
     bodyNode.addChildNode(node);
   }
-  if (input.integerValue != undefined) {
+  if (input.integerValue != null) {
     const node = new __XmlNode("Integer")
       .addChildNode(new __XmlText(String(input.integerValue)))
       .withName("integerValue");
     bodyNode.addChildNode(node);
   }
-  if (input.longValue != undefined) {
+  if (input.longValue != null) {
     const node = new __XmlNode("Long").addChildNode(new __XmlText(String(input.longValue))).withName("longValue");
     bodyNode.addChildNode(node);
   }
-  if (input.floatValue != undefined) {
+  if (input.floatValue != null) {
     const node = new __XmlNode("Float").addChildNode(new __XmlText(String(input.floatValue))).withName("floatValue");
     bodyNode.addChildNode(node);
   }
-  if (input.doubleValue != undefined) {
+  if (input.doubleValue != null) {
     const node = new __XmlNode("Double").addChildNode(new __XmlText(String(input.doubleValue))).withName("doubleValue");
     bodyNode.addChildNode(node);
   }
@@ -5295,7 +5295,7 @@ const serializeAws_restXmlFooEnumSet = (input: (FooEnum | string)[], context: __
 
 const serializeAws_restXmlGreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("GreetingStruct");
-  if (input.hi != undefined) {
+  if (input.hi != null) {
     const node = new __XmlNode("String").addChildNode(new __XmlText(input.hi)).withName("hi");
     bodyNode.addChildNode(node);
   }

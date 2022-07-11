@@ -392,16 +392,14 @@ export const serializeAws_restJson1ListApplicationComponentsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-applicationcomponents";
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationComponentCriteria != undefined && {
+    ...(input.applicationComponentCriteria != null && {
       applicationComponentCriteria: input.applicationComponentCriteria,
     }),
-    ...(input.filterValue != undefined && { filterValue: input.filterValue }),
-    ...(input.groupIdFilter != undefined && {
-      groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context),
-    }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.sort != undefined && { sort: input.sort }),
+    ...(input.filterValue != null && { filterValue: input.filterValue }),
+    ...(input.groupIdFilter != null && { groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.sort != null && { sort: input.sort }),
   });
   return new __HttpRequest({
     protocol,
@@ -473,14 +471,12 @@ export const serializeAws_restJson1ListServersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-servers";
   let body: any;
   body = JSON.stringify({
-    ...(input.filterValue != undefined && { filterValue: input.filterValue }),
-    ...(input.groupIdFilter != undefined && {
-      groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context),
-    }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.serverCriteria != undefined && { serverCriteria: input.serverCriteria }),
-    ...(input.sort != undefined && { sort: input.sort }),
+    ...(input.filterValue != null && { filterValue: input.filterValue }),
+    ...(input.groupIdFilter != null && { groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.serverCriteria != null && { serverCriteria: input.serverCriteria }),
+    ...(input.sort != null && { sort: input.sort }),
   });
   return new __HttpRequest({
     protocol,
@@ -505,13 +501,13 @@ export const serializeAws_restJson1PutPortfolioPreferencesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-portfolio-preferences";
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationPreferences != undefined && {
+    ...(input.applicationPreferences != null && {
       applicationPreferences: serializeAws_restJson1ApplicationPreferences(input.applicationPreferences, context),
     }),
-    ...(input.databasePreferences != undefined && {
+    ...(input.databasePreferences != null && {
       databasePreferences: serializeAws_restJson1DatabasePreferences(input.databasePreferences, context),
     }),
-    ...(input.prioritizeBusinessGoals != undefined && {
+    ...(input.prioritizeBusinessGoals != null && {
       prioritizeBusinessGoals: serializeAws_restJson1PrioritizeBusinessGoals(input.prioritizeBusinessGoals, context),
     }),
   });
@@ -537,8 +533,8 @@ export const serializeAws_restJson1StartAssessmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-assessment";
   let body: any;
   body = JSON.stringify({
-    ...(input.s3bucketForAnalysisData != undefined && { s3bucketForAnalysisData: input.s3bucketForAnalysisData }),
-    ...(input.s3bucketForReportData != undefined && { s3bucketForReportData: input.s3bucketForReportData }),
+    ...(input.s3bucketForAnalysisData != null && { s3bucketForAnalysisData: input.s3bucketForAnalysisData }),
+    ...(input.s3bucketForReportData != null && { s3bucketForReportData: input.s3bucketForReportData }),
   });
   return new __HttpRequest({
     protocol,
@@ -563,12 +559,12 @@ export const serializeAws_restJson1StartImportFileTaskCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-import-file-task";
   let body: any;
   body = JSON.stringify({
-    ...(input.S3Bucket != undefined && { S3Bucket: input.S3Bucket }),
-    ...(input.dataSourceType != undefined && { dataSourceType: input.dataSourceType }),
-    ...(input.groupId != undefined && { groupId: serializeAws_restJson1GroupIds(input.groupId, context) }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.s3bucketForReportData != undefined && { s3bucketForReportData: input.s3bucketForReportData }),
-    ...(input.s3key != undefined && { s3key: input.s3key }),
+    ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
+    ...(input.dataSourceType != null && { dataSourceType: input.dataSourceType }),
+    ...(input.groupId != null && { groupId: serializeAws_restJson1GroupIds(input.groupId, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.s3bucketForReportData != null && { s3bucketForReportData: input.s3bucketForReportData }),
+    ...(input.s3key != null && { s3key: input.s3key }),
   });
   return new __HttpRequest({
     protocol,
@@ -593,10 +589,8 @@ export const serializeAws_restJson1StartRecommendationReportGenerationCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-recommendation-report-generation";
   let body: any;
   body = JSON.stringify({
-    ...(input.groupIdFilter != undefined && {
-      groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context),
-    }),
-    ...(input.outputFormat != undefined && { outputFormat: input.outputFormat }),
+    ...(input.groupIdFilter != null && { groupIdFilter: serializeAws_restJson1GroupIds(input.groupIdFilter, context) }),
+    ...(input.outputFormat != null && { outputFormat: input.outputFormat }),
   });
   return new __HttpRequest({
     protocol,
@@ -620,7 +614,7 @@ export const serializeAws_restJson1StopAssessmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stop-assessment";
   let body: any;
   body = JSON.stringify({
-    ...(input.assessmentId != undefined && { assessmentId: input.assessmentId }),
+    ...(input.assessmentId != null && { assessmentId: input.assessmentId }),
   });
   return new __HttpRequest({
     protocol,
@@ -645,13 +639,13 @@ export const serializeAws_restJson1UpdateApplicationComponentConfigCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-applicationcomponent-config";
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationComponentId != undefined && { applicationComponentId: input.applicationComponentId }),
-    ...(input.inclusionStatus != undefined && { inclusionStatus: input.inclusionStatus }),
-    ...(input.secretsManagerKey != undefined && { secretsManagerKey: input.secretsManagerKey }),
-    ...(input.sourceCodeList != undefined && {
+    ...(input.applicationComponentId != null && { applicationComponentId: input.applicationComponentId }),
+    ...(input.inclusionStatus != null && { inclusionStatus: input.inclusionStatus }),
+    ...(input.secretsManagerKey != null && { secretsManagerKey: input.secretsManagerKey }),
+    ...(input.sourceCodeList != null && {
       sourceCodeList: serializeAws_restJson1SourceCodeList(input.sourceCodeList, context),
     }),
-    ...(input.strategyOption != undefined && {
+    ...(input.strategyOption != null && {
       strategyOption: serializeAws_restJson1StrategyOption(input.strategyOption, context),
     }),
   });
@@ -677,8 +671,8 @@ export const serializeAws_restJson1UpdateServerConfigCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-server-config";
   let body: any;
   body = JSON.stringify({
-    ...(input.serverId != undefined && { serverId: input.serverId }),
-    ...(input.strategyOption != undefined && {
+    ...(input.serverId != null && { serverId: input.serverId }),
+    ...(input.strategyOption != null && {
       strategyOption: serializeAws_restJson1StrategyOption(input.strategyOption, context),
     }),
   });
@@ -2015,7 +2009,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ApplicationPreferences = (input: ApplicationPreferences, context: __SerdeContext): any => {
   return {
-    ...(input.managementPreference != undefined && {
+    ...(input.managementPreference != null && {
       managementPreference: serializeAws_restJson1ManagementPreference(input.managementPreference, context),
     }),
   };
@@ -2023,7 +2017,7 @@ const serializeAws_restJson1ApplicationPreferences = (input: ApplicationPreferen
 
 const serializeAws_restJson1AwsManagedResources = (input: AwsManagedResources, context: __SerdeContext): any => {
   return {
-    ...(input.targetDestination != undefined && {
+    ...(input.targetDestination != null && {
       targetDestination: serializeAws_restJson1AwsManagedTargetDestinations(input.targetDestination, context),
     }),
   };
@@ -2045,14 +2039,14 @@ const serializeAws_restJson1AwsManagedTargetDestinations = (
 
 const serializeAws_restJson1BusinessGoals = (input: BusinessGoals, context: __SerdeContext): any => {
   return {
-    ...(input.licenseCostReduction != undefined && { licenseCostReduction: input.licenseCostReduction }),
-    ...(input.modernizeInfrastructureWithCloudNativeTechnologies != undefined && {
+    ...(input.licenseCostReduction != null && { licenseCostReduction: input.licenseCostReduction }),
+    ...(input.modernizeInfrastructureWithCloudNativeTechnologies != null && {
       modernizeInfrastructureWithCloudNativeTechnologies: input.modernizeInfrastructureWithCloudNativeTechnologies,
     }),
-    ...(input.reduceOperationalOverheadWithManagedServices != undefined && {
+    ...(input.reduceOperationalOverheadWithManagedServices != null && {
       reduceOperationalOverheadWithManagedServices: input.reduceOperationalOverheadWithManagedServices,
     }),
-    ...(input.speedOfMigration != undefined && { speedOfMigration: input.speedOfMigration }),
+    ...(input.speedOfMigration != null && { speedOfMigration: input.speedOfMigration }),
   };
 };
 
@@ -2070,10 +2064,10 @@ const serializeAws_restJson1DatabaseMigrationPreference = (
 
 const serializeAws_restJson1DatabasePreferences = (input: DatabasePreferences, context: __SerdeContext): any => {
   return {
-    ...(input.databaseManagementPreference != undefined && {
+    ...(input.databaseManagementPreference != null && {
       databaseManagementPreference: input.databaseManagementPreference,
     }),
-    ...(input.databaseMigrationPreference != undefined && {
+    ...(input.databaseMigrationPreference != null && {
       databaseMigrationPreference: serializeAws_restJson1DatabaseMigrationPreference(
         input.databaseMigrationPreference,
         context
@@ -2084,8 +2078,8 @@ const serializeAws_restJson1DatabasePreferences = (input: DatabasePreferences, c
 
 const serializeAws_restJson1Group = (input: Group, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -2102,7 +2096,7 @@ const serializeAws_restJson1GroupIds = (input: Group[], context: __SerdeContext)
 
 const serializeAws_restJson1Heterogeneous = (input: Heterogeneous, context: __SerdeContext): any => {
   return {
-    ...(input.targetDatabaseEngine != undefined && {
+    ...(input.targetDatabaseEngine != null && {
       targetDatabaseEngine: serializeAws_restJson1HeterogeneousTargetDatabaseEngines(
         input.targetDatabaseEngine,
         context
@@ -2127,7 +2121,7 @@ const serializeAws_restJson1HeterogeneousTargetDatabaseEngines = (
 
 const serializeAws_restJson1Homogeneous = (input: Homogeneous, context: __SerdeContext): any => {
   return {
-    ...(input.targetDatabaseEngine != undefined && {
+    ...(input.targetDatabaseEngine != null && {
       targetDatabaseEngine: serializeAws_restJson1HomogeneousTargetDatabaseEngines(input.targetDatabaseEngine, context),
     }),
   };
@@ -2165,7 +2159,7 @@ const serializeAws_restJson1NoDatabaseMigrationPreference = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.targetDatabaseEngine != undefined && {
+    ...(input.targetDatabaseEngine != null && {
       targetDatabaseEngine: serializeAws_restJson1TargetDatabaseEngines(input.targetDatabaseEngine, context),
     }),
   };
@@ -2173,7 +2167,7 @@ const serializeAws_restJson1NoDatabaseMigrationPreference = (
 
 const serializeAws_restJson1NoManagementPreference = (input: NoManagementPreference, context: __SerdeContext): any => {
   return {
-    ...(input.targetDestination != undefined && {
+    ...(input.targetDestination != null && {
       targetDestination: serializeAws_restJson1NoPreferenceTargetDestinations(input.targetDestination, context),
     }),
   };
@@ -2198,7 +2192,7 @@ const serializeAws_restJson1PrioritizeBusinessGoals = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.businessGoals != undefined && {
+    ...(input.businessGoals != null && {
       businessGoals: serializeAws_restJson1BusinessGoals(input.businessGoals, context),
     }),
   };
@@ -2206,7 +2200,7 @@ const serializeAws_restJson1PrioritizeBusinessGoals = (
 
 const serializeAws_restJson1SelfManageResources = (input: SelfManageResources, context: __SerdeContext): any => {
   return {
-    ...(input.targetDestination != undefined && {
+    ...(input.targetDestination != null && {
       targetDestination: serializeAws_restJson1SelfManageTargetDestinations(input.targetDestination, context),
     }),
   };
@@ -2228,9 +2222,9 @@ const serializeAws_restJson1SelfManageTargetDestinations = (
 
 const serializeAws_restJson1SourceCode = (input: SourceCode, context: __SerdeContext): any => {
   return {
-    ...(input.location != undefined && { location: input.location }),
-    ...(input.sourceVersion != undefined && { sourceVersion: input.sourceVersion }),
-    ...(input.versionControl != undefined && { versionControl: input.versionControl }),
+    ...(input.location != null && { location: input.location }),
+    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
+    ...(input.versionControl != null && { versionControl: input.versionControl }),
   };
 };
 
@@ -2247,10 +2241,10 @@ const serializeAws_restJson1SourceCodeList = (input: SourceCode[], context: __Se
 
 const serializeAws_restJson1StrategyOption = (input: StrategyOption, context: __SerdeContext): any => {
   return {
-    ...(input.isPreferred != undefined && { isPreferred: input.isPreferred }),
-    ...(input.strategy != undefined && { strategy: input.strategy }),
-    ...(input.targetDestination != undefined && { targetDestination: input.targetDestination }),
-    ...(input.toolName != undefined && { toolName: input.toolName }),
+    ...(input.isPreferred != null && { isPreferred: input.isPreferred }),
+    ...(input.strategy != null && { strategy: input.strategy }),
+    ...(input.targetDestination != null && { targetDestination: input.targetDestination }),
+    ...(input.toolName != null && { toolName: input.toolName }),
   };
 };
 
@@ -2285,7 +2279,7 @@ const deserializeAws_restJson1ApplicationComponentDetail = (
   return {
     analysisStatus: __expectString(output.analysisStatus),
     antipatternReportS3Object:
-      output.antipatternReportS3Object != undefined
+      output.antipatternReportS3Object != null
         ? deserializeAws_restJson1S3Object(output.antipatternReportS3Object, context)
         : undefined,
     antipatternReportStatus: __expectString(output.antipatternReportStatus),
@@ -2293,17 +2287,17 @@ const deserializeAws_restJson1ApplicationComponentDetail = (
     appType: __expectString(output.appType),
     associatedServerId: __expectString(output.associatedServerId),
     databaseConfigDetail:
-      output.databaseConfigDetail != undefined
+      output.databaseConfigDetail != null
         ? deserializeAws_restJson1DatabaseConfigDetail(output.databaseConfigDetail, context)
         : undefined,
     id: __expectString(output.id),
     inclusionStatus: __expectString(output.inclusionStatus),
     lastAnalyzedTimestamp:
-      output.lastAnalyzedTimestamp != undefined
+      output.lastAnalyzedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAnalyzedTimestamp)))
         : undefined,
     listAntipatternSeveritySummary:
-      output.listAntipatternSeveritySummary != undefined
+      output.listAntipatternSeveritySummary != null
         ? deserializeAws_restJson1ListAntipatternSeveritySummary(output.listAntipatternSeveritySummary, context)
         : undefined,
     moreServerAssociationExists: __expectBoolean(output.moreServerAssociationExists),
@@ -2311,12 +2305,12 @@ const deserializeAws_restJson1ApplicationComponentDetail = (
     osDriver: __expectString(output.osDriver),
     osVersion: __expectString(output.osVersion),
     recommendationSet:
-      output.recommendationSet != undefined
+      output.recommendationSet != null
         ? deserializeAws_restJson1RecommendationSet(output.recommendationSet, context)
         : undefined,
     resourceSubType: __expectString(output.resourceSubType),
     sourceCodeRepositories:
-      output.sourceCodeRepositories != undefined
+      output.sourceCodeRepositories != null
         ? deserializeAws_restJson1SourceCodeRepositories(output.sourceCodeRepositories, context)
         : undefined,
     statusMessage: __expectString(output.statusMessage),
@@ -2360,7 +2354,7 @@ const deserializeAws_restJson1ApplicationComponentStrategy = (
   return {
     isPreferred: __expectBoolean(output.isPreferred),
     recommendation:
-      output.recommendation != undefined
+      output.recommendation != null
         ? deserializeAws_restJson1RecommendationSet(output.recommendation, context)
         : undefined,
     status: __expectString(output.status),
@@ -2383,7 +2377,7 @@ const deserializeAws_restJson1ApplicationPreferences = (
 ): ApplicationPreferences => {
   return {
     managementPreference:
-      output.managementPreference != undefined
+      output.managementPreference != null
         ? deserializeAws_restJson1ManagementPreference(__expectUnion(output.managementPreference), context)
         : undefined,
   } as any;
@@ -2392,33 +2386,33 @@ const deserializeAws_restJson1ApplicationPreferences = (
 const deserializeAws_restJson1AssessmentSummary = (output: any, context: __SerdeContext): AssessmentSummary => {
   return {
     antipatternReportS3Object:
-      output.antipatternReportS3Object != undefined
+      output.antipatternReportS3Object != null
         ? deserializeAws_restJson1S3Object(output.antipatternReportS3Object, context)
         : undefined,
     antipatternReportStatus: __expectString(output.antipatternReportStatus),
     antipatternReportStatusMessage: __expectString(output.antipatternReportStatusMessage),
     lastAnalyzedTimestamp:
-      output.lastAnalyzedTimestamp != undefined
+      output.lastAnalyzedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAnalyzedTimestamp)))
         : undefined,
     listAntipatternSeveritySummary:
-      output.listAntipatternSeveritySummary != undefined
+      output.listAntipatternSeveritySummary != null
         ? deserializeAws_restJson1ListAntipatternSeveritySummary(output.listAntipatternSeveritySummary, context)
         : undefined,
     listApplicationComponentStrategySummary:
-      output.listApplicationComponentStrategySummary != undefined
+      output.listApplicationComponentStrategySummary != null
         ? deserializeAws_restJson1ListStrategySummary(output.listApplicationComponentStrategySummary, context)
         : undefined,
     listApplicationComponentSummary:
-      output.listApplicationComponentSummary != undefined
+      output.listApplicationComponentSummary != null
         ? deserializeAws_restJson1ListApplicationComponentSummary(output.listApplicationComponentSummary, context)
         : undefined,
     listServerStrategySummary:
-      output.listServerStrategySummary != undefined
+      output.listServerStrategySummary != null
         ? deserializeAws_restJson1ListStrategySummary(output.listServerStrategySummary, context)
         : undefined,
     listServerSummary:
-      output.listServerSummary != undefined
+      output.listServerSummary != null
         ? deserializeAws_restJson1ListServerSummary(output.listServerSummary, context)
         : undefined,
   } as any;
@@ -2461,7 +2455,7 @@ const deserializeAws_restJson1AssociatedServerIDs = (output: any, context: __Ser
 const deserializeAws_restJson1AwsManagedResources = (output: any, context: __SerdeContext): AwsManagedResources => {
   return {
     targetDestination:
-      output.targetDestination != undefined
+      output.targetDestination != null
         ? deserializeAws_restJson1AwsManagedTargetDestinations(output.targetDestination, context)
         : undefined,
   } as any;
@@ -2549,7 +2543,7 @@ const deserializeAws_restJson1DatabasePreferences = (output: any, context: __Ser
   return {
     databaseManagementPreference: __expectString(output.databaseManagementPreference),
     databaseMigrationPreference:
-      output.databaseMigrationPreference != undefined
+      output.databaseMigrationPreference != null
         ? deserializeAws_restJson1DatabaseMigrationPreference(
             __expectUnion(output.databaseMigrationPreference),
             context
@@ -2561,16 +2555,14 @@ const deserializeAws_restJson1DatabasePreferences = (output: any, context: __Ser
 const deserializeAws_restJson1DataCollectionDetails = (output: any, context: __SerdeContext): DataCollectionDetails => {
   return {
     completionTime:
-      output.completionTime != undefined
+      output.completionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completionTime)))
         : undefined,
     failed: __expectInt32(output.failed),
     inProgress: __expectInt32(output.inProgress),
     servers: __expectInt32(output.servers),
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     success: __expectInt32(output.success),
   } as any;
@@ -2579,7 +2571,7 @@ const deserializeAws_restJson1DataCollectionDetails = (output: any, context: __S
 const deserializeAws_restJson1Heterogeneous = (output: any, context: __SerdeContext): Heterogeneous => {
   return {
     targetDatabaseEngine:
-      output.targetDatabaseEngine != undefined
+      output.targetDatabaseEngine != null
         ? deserializeAws_restJson1HeterogeneousTargetDatabaseEngines(output.targetDatabaseEngine, context)
         : undefined,
   } as any;
@@ -2603,7 +2595,7 @@ const deserializeAws_restJson1HeterogeneousTargetDatabaseEngines = (
 const deserializeAws_restJson1Homogeneous = (output: any, context: __SerdeContext): Homogeneous => {
   return {
     targetDatabaseEngine:
-      output.targetDatabaseEngine != undefined
+      output.targetDatabaseEngine != null
         ? deserializeAws_restJson1HomogeneousTargetDatabaseEngines(output.targetDatabaseEngine, context)
         : undefined,
   } as any;
@@ -2630,7 +2622,7 @@ const deserializeAws_restJson1ImportFileTaskInformation = (
 ): ImportFileTaskInformation => {
   return {
     completionTime:
-      output.completionTime != undefined
+      output.completionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completionTime)))
         : undefined,
     id: __expectString(output.id),
@@ -2640,9 +2632,7 @@ const deserializeAws_restJson1ImportFileTaskInformation = (
     numberOfRecordsFailed: __expectInt32(output.numberOfRecordsFailed),
     numberOfRecordsSuccess: __expectInt32(output.numberOfRecordsSuccess),
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     statusReportS3Bucket: __expectString(output.statusReportS3Bucket),
     statusReportS3Key: __expectString(output.statusReportS3Key),
@@ -2764,7 +2754,7 @@ const deserializeAws_restJson1NoDatabaseMigrationPreference = (
 ): NoDatabaseMigrationPreference => {
   return {
     targetDatabaseEngine:
-      output.targetDatabaseEngine != undefined
+      output.targetDatabaseEngine != null
         ? deserializeAws_restJson1TargetDatabaseEngines(output.targetDatabaseEngine, context)
         : undefined,
   } as any;
@@ -2776,7 +2766,7 @@ const deserializeAws_restJson1NoManagementPreference = (
 ): NoManagementPreference => {
   return {
     targetDestination:
-      output.targetDestination != undefined
+      output.targetDestination != null
         ? deserializeAws_restJson1NoPreferenceTargetDestinations(output.targetDestination, context)
         : undefined,
   } as any;
@@ -2810,9 +2800,7 @@ const deserializeAws_restJson1PrioritizeBusinessGoals = (
 ): PrioritizeBusinessGoals => {
   return {
     businessGoals:
-      output.businessGoals != undefined
-        ? deserializeAws_restJson1BusinessGoals(output.businessGoals, context)
-        : undefined,
+      output.businessGoals != null ? deserializeAws_restJson1BusinessGoals(output.businessGoals, context) : undefined,
   } as any;
 };
 
@@ -2822,15 +2810,13 @@ const deserializeAws_restJson1RecommendationReportDetails = (
 ): RecommendationReportDetails => {
   return {
     completionTime:
-      output.completionTime != undefined
+      output.completionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completionTime)))
         : undefined,
     s3Bucket: __expectString(output.s3Bucket),
-    s3Keys: output.s3Keys != undefined ? deserializeAws_restJson1S3Keys(output.s3Keys, context) : undefined,
+    s3Keys: output.s3Keys != null ? deserializeAws_restJson1S3Keys(output.s3Keys, context) : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
   } as any;
@@ -2841,7 +2827,7 @@ const deserializeAws_restJson1RecommendationSet = (output: any, context: __Serde
     strategy: __expectString(output.strategy),
     targetDestination: __expectString(output.targetDestination),
     transformationTool:
-      output.transformationTool != undefined
+      output.transformationTool != null
         ? deserializeAws_restJson1TransformationTool(output.transformationTool, context)
         : undefined,
   } as any;
@@ -2869,7 +2855,7 @@ const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1SelfManageResources = (output: any, context: __SerdeContext): SelfManageResources => {
   return {
     targetDestination:
-      output.targetDestination != undefined
+      output.targetDestination != null
         ? deserializeAws_restJson1SelfManageTargetDestinations(output.targetDestination, context)
         : undefined,
   } as any;
@@ -2893,34 +2879,33 @@ const deserializeAws_restJson1SelfManageTargetDestinations = (
 const deserializeAws_restJson1ServerDetail = (output: any, context: __SerdeContext): ServerDetail => {
   return {
     antipatternReportS3Object:
-      output.antipatternReportS3Object != undefined
+      output.antipatternReportS3Object != null
         ? deserializeAws_restJson1S3Object(output.antipatternReportS3Object, context)
         : undefined,
     antipatternReportStatus: __expectString(output.antipatternReportStatus),
     antipatternReportStatusMessage: __expectString(output.antipatternReportStatusMessage),
     applicationComponentStrategySummary:
-      output.applicationComponentStrategySummary != undefined
+      output.applicationComponentStrategySummary != null
         ? deserializeAws_restJson1ListStrategySummary(output.applicationComponentStrategySummary, context)
         : undefined,
     dataCollectionStatus: __expectString(output.dataCollectionStatus),
     id: __expectString(output.id),
     lastAnalyzedTimestamp:
-      output.lastAnalyzedTimestamp != undefined
+      output.lastAnalyzedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAnalyzedTimestamp)))
         : undefined,
     listAntipatternSeveritySummary:
-      output.listAntipatternSeveritySummary != undefined
+      output.listAntipatternSeveritySummary != null
         ? deserializeAws_restJson1ListAntipatternSeveritySummary(output.listAntipatternSeveritySummary, context)
         : undefined,
     name: __expectString(output.name),
     recommendationSet:
-      output.recommendationSet != undefined
+      output.recommendationSet != null
         ? deserializeAws_restJson1RecommendationSet(output.recommendationSet, context)
         : undefined,
     serverType: __expectString(output.serverType),
     statusMessage: __expectString(output.statusMessage),
-    systemInfo:
-      output.systemInfo != undefined ? deserializeAws_restJson1SystemInfo(output.systemInfo, context) : undefined,
+    systemInfo: output.systemInfo != null ? deserializeAws_restJson1SystemInfo(output.systemInfo, context) : undefined,
   } as any;
 };
 
@@ -2953,7 +2938,7 @@ const deserializeAws_restJson1ServerStrategy = (output: any, context: __SerdeCon
     isPreferred: __expectBoolean(output.isPreferred),
     numberOfApplicationComponents: __expectInt32(output.numberOfApplicationComponents),
     recommendation:
-      output.recommendation != undefined
+      output.recommendation != null
         ? deserializeAws_restJson1RecommendationSet(output.recommendation, context)
         : undefined,
     status: __expectString(output.status),
@@ -3002,10 +2987,10 @@ const deserializeAws_restJson1SystemInfo = (output: any, context: __SerdeContext
     cpuArchitecture: __expectString(output.cpuArchitecture),
     fileSystemType: __expectString(output.fileSystemType),
     networkInfoList:
-      output.networkInfoList != undefined
+      output.networkInfoList != null
         ? deserializeAws_restJson1NetworkInfoList(output.networkInfoList, context)
         : undefined,
-    osInfo: output.osInfo != undefined ? deserializeAws_restJson1OSInfo(output.osInfo, context) : undefined,
+    osInfo: output.osInfo != null ? deserializeAws_restJson1OSInfo(output.osInfo, context) : undefined,
   } as any;
 };
 

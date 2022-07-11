@@ -108,10 +108,10 @@ export const serializeAws_restJson1CreateTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.command != undefined && { command: serializeAws_restJson1Command(input.command, context) }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.targets != undefined && { targets: serializeAws_restJson1TargetList(input.targets, context) }),
+    ...(input.command != null && { command: serializeAws_restJson1Command(input.command, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.targets != null && { targets: serializeAws_restJson1TargetList(input.targets, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -176,7 +176,7 @@ export const serializeAws_restJson1DescribeDeviceEc2InstancesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.instanceIds != undefined && {
+    ...(input.instanceIds != null && {
       instanceIds: serializeAws_restJson1InstanceIdsList(input.instanceIds, context),
     }),
   });
@@ -418,7 +418,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1470,7 +1470,7 @@ const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeCont
     associatedWithJob: __expectString(output.associatedWithJob),
     managedDeviceArn: __expectString(output.managedDeviceArn),
     managedDeviceId: __expectString(output.managedDeviceId),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 
@@ -1492,9 +1492,7 @@ const deserializeAws_restJson1EbsInstanceBlockDevice = (
 ): EbsInstanceBlockDevice => {
   return {
     attachTime:
-      output.attachTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.attachTime)))
-        : undefined,
+      output.attachTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.attachTime))) : undefined,
     deleteOnTermination: __expectBoolean(output.deleteOnTermination),
     status: __expectString(output.status),
     volumeId: __expectString(output.volumeId),
@@ -1526,15 +1524,12 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
   return {
     amiLaunchIndex: __expectInt32(output.amiLaunchIndex),
     blockDeviceMappings:
-      output.blockDeviceMappings != undefined
+      output.blockDeviceMappings != null
         ? deserializeAws_restJson1InstanceBlockDeviceMappingList(output.blockDeviceMappings, context)
         : undefined,
-    cpuOptions:
-      output.cpuOptions != undefined ? deserializeAws_restJson1CpuOptions(output.cpuOptions, context) : undefined,
+    cpuOptions: output.cpuOptions != null ? deserializeAws_restJson1CpuOptions(output.cpuOptions, context) : undefined,
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     imageId: __expectString(output.imageId),
     instanceId: __expectString(output.instanceId),
     instanceType: __expectString(output.instanceType),
@@ -1542,14 +1537,12 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
     publicIpAddress: __expectString(output.publicIpAddress),
     rootDeviceName: __expectString(output.rootDeviceName),
     securityGroups:
-      output.securityGroups != undefined
+      output.securityGroups != null
         ? deserializeAws_restJson1SecurityGroupIdentifierList(output.securityGroups, context)
         : undefined,
-    state: output.state != undefined ? deserializeAws_restJson1InstanceState(output.state, context) : undefined,
+    state: output.state != null ? deserializeAws_restJson1InstanceState(output.state, context) : undefined,
     updatedAt:
-      output.updatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
-        : undefined,
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 
@@ -1559,7 +1552,7 @@ const deserializeAws_restJson1InstanceBlockDeviceMapping = (
 ): InstanceBlockDeviceMapping => {
   return {
     deviceName: __expectString(output.deviceName),
-    ebs: output.ebs != undefined ? deserializeAws_restJson1EbsInstanceBlockDevice(output.ebs, context) : undefined,
+    ebs: output.ebs != null ? deserializeAws_restJson1EbsInstanceBlockDevice(output.ebs, context) : undefined,
   } as any;
 };
 
@@ -1587,9 +1580,9 @@ const deserializeAws_restJson1InstanceState = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
   return {
-    instance: output.instance != undefined ? deserializeAws_restJson1Instance(output.instance, context) : undefined,
+    instance: output.instance != null ? deserializeAws_restJson1Instance(output.instance, context) : undefined,
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
   } as any;
@@ -1717,7 +1710,7 @@ const deserializeAws_restJson1TargetList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1TaskSummary = (output: any, context: __SerdeContext): TaskSummary => {
   return {
     state: __expectString(output.state),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     taskArn: __expectString(output.taskArn),
     taskId: __expectString(output.taskId),
   } as any;

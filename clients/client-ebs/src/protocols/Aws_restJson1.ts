@@ -254,13 +254,13 @@ export const serializeAws_restJson1StartSnapshotCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Encrypted != undefined && { Encrypted: input.Encrypted }),
-    ...(input.KmsKeyArn != undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ParentSnapshotId != undefined && { ParentSnapshotId: input.ParentSnapshotId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.Timeout != undefined && { Timeout: input.Timeout }),
-    ...(input.VolumeSize != undefined && { VolumeSize: input.VolumeSize }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Encrypted != null && { Encrypted: input.Encrypted }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.ParentSnapshotId != null && { ParentSnapshotId: input.ParentSnapshotId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Timeout != null && { Timeout: input.Timeout }),
+    ...(input.VolumeSize != null && { VolumeSize: input.VolumeSize }),
   });
   return new __HttpRequest({
     protocol,
@@ -866,8 +866,8 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 

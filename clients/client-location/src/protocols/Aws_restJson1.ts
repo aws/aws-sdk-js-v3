@@ -228,7 +228,7 @@ export const serializeAws_restJson1AssociateTrackerConsumerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConsumerArn != undefined && { ConsumerArn: input.ConsumerArn }),
+    ...(input.ConsumerArn != null && { ConsumerArn: input.ConsumerArn }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -270,7 +270,7 @@ export const serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceIds != undefined && { DeviceIds: serializeAws_restJson1DeviceIdsList(input.DeviceIds, context) }),
+    ...(input.DeviceIds != null && { DeviceIds: serializeAws_restJson1DeviceIdsList(input.DeviceIds, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -312,7 +312,7 @@ export const serializeAws_restJson1BatchDeleteGeofenceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.GeofenceIds != undefined && { GeofenceIds: serializeAws_restJson1IdList(input.GeofenceIds, context) }),
+    ...(input.GeofenceIds != null && { GeofenceIds: serializeAws_restJson1IdList(input.GeofenceIds, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -354,7 +354,7 @@ export const serializeAws_restJson1BatchEvaluateGeofencesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DevicePositionUpdates != undefined && {
+    ...(input.DevicePositionUpdates != null && {
       DevicePositionUpdates: serializeAws_restJson1DevicePositionUpdateList(input.DevicePositionUpdates, context),
     }),
   });
@@ -398,7 +398,7 @@ export const serializeAws_restJson1BatchGetDevicePositionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceIds != undefined && { DeviceIds: serializeAws_restJson1IdList(input.DeviceIds, context) }),
+    ...(input.DeviceIds != null && { DeviceIds: serializeAws_restJson1IdList(input.DeviceIds, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -440,7 +440,7 @@ export const serializeAws_restJson1BatchPutGeofenceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Entries != undefined && {
+    ...(input.Entries != null && {
       Entries: serializeAws_restJson1BatchPutGeofenceRequestEntryList(input.Entries, context),
     }),
   });
@@ -484,9 +484,7 @@ export const serializeAws_restJson1BatchUpdateDevicePositionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Updates != undefined && {
-      Updates: serializeAws_restJson1DevicePositionUpdateList(input.Updates, context),
-    }),
+    ...(input.Updates != null && { Updates: serializeAws_restJson1DevicePositionUpdateList(input.Updates, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -528,24 +526,24 @@ export const serializeAws_restJson1CalculateRouteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CarModeOptions != undefined && {
+    ...(input.CarModeOptions != null && {
       CarModeOptions: serializeAws_restJson1CalculateRouteCarModeOptions(input.CarModeOptions, context),
     }),
-    ...(input.DepartNow != undefined && { DepartNow: input.DepartNow }),
-    ...(input.DeparturePosition != undefined && {
+    ...(input.DepartNow != null && { DepartNow: input.DepartNow }),
+    ...(input.DeparturePosition != null && {
       DeparturePosition: serializeAws_restJson1Position(input.DeparturePosition, context),
     }),
-    ...(input.DepartureTime != undefined && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.DestinationPosition != undefined && {
+    ...(input.DepartureTime != null && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.DestinationPosition != null && {
       DestinationPosition: serializeAws_restJson1Position(input.DestinationPosition, context),
     }),
-    ...(input.DistanceUnit != undefined && { DistanceUnit: input.DistanceUnit }),
-    ...(input.IncludeLegGeometry != undefined && { IncludeLegGeometry: input.IncludeLegGeometry }),
-    ...(input.TravelMode != undefined && { TravelMode: input.TravelMode }),
-    ...(input.TruckModeOptions != undefined && {
+    ...(input.DistanceUnit != null && { DistanceUnit: input.DistanceUnit }),
+    ...(input.IncludeLegGeometry != null && { IncludeLegGeometry: input.IncludeLegGeometry }),
+    ...(input.TravelMode != null && { TravelMode: input.TravelMode }),
+    ...(input.TruckModeOptions != null && {
       TruckModeOptions: serializeAws_restJson1CalculateRouteTruckModeOptions(input.TruckModeOptions, context),
     }),
-    ...(input.WaypointPositions != undefined && {
+    ...(input.WaypointPositions != null && {
       WaypointPositions: serializeAws_restJson1WaypointPositionList(input.WaypointPositions, context),
     }),
   });
@@ -589,20 +587,20 @@ export const serializeAws_restJson1CalculateRouteMatrixCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CarModeOptions != undefined && {
+    ...(input.CarModeOptions != null && {
       CarModeOptions: serializeAws_restJson1CalculateRouteCarModeOptions(input.CarModeOptions, context),
     }),
-    ...(input.DepartNow != undefined && { DepartNow: input.DepartNow }),
-    ...(input.DeparturePositions != undefined && {
+    ...(input.DepartNow != null && { DepartNow: input.DepartNow }),
+    ...(input.DeparturePositions != null && {
       DeparturePositions: serializeAws_restJson1PositionList(input.DeparturePositions, context),
     }),
-    ...(input.DepartureTime != undefined && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.DestinationPositions != undefined && {
+    ...(input.DepartureTime != null && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.DestinationPositions != null && {
       DestinationPositions: serializeAws_restJson1PositionList(input.DestinationPositions, context),
     }),
-    ...(input.DistanceUnit != undefined && { DistanceUnit: input.DistanceUnit }),
-    ...(input.TravelMode != undefined && { TravelMode: input.TravelMode }),
-    ...(input.TruckModeOptions != undefined && {
+    ...(input.DistanceUnit != null && { DistanceUnit: input.DistanceUnit }),
+    ...(input.TravelMode != null && { TravelMode: input.TravelMode }),
+    ...(input.TruckModeOptions != null && {
       TruckModeOptions: serializeAws_restJson1CalculateRouteTruckModeOptions(input.TruckModeOptions, context),
     }),
   });
@@ -636,12 +634,12 @@ export const serializeAws_restJson1CreateGeofenceCollectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/collections";
   let body: any;
   body = JSON.stringify({
-    ...(input.CollectionName != undefined && { CollectionName: input.CollectionName }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != undefined && { PricingPlanDataSource: input.PricingPlanDataSource }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.CollectionName != null && { CollectionName: input.CollectionName }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -672,13 +670,13 @@ export const serializeAws_restJson1CreateMapCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps";
   let body: any;
   body = JSON.stringify({
-    ...(input.Configuration != undefined && {
+    ...(input.Configuration != null && {
       Configuration: serializeAws_restJson1MapConfiguration(input.Configuration, context),
     }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.MapName != undefined && { MapName: input.MapName }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.MapName != null && { MapName: input.MapName }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -709,14 +707,14 @@ export const serializeAws_restJson1CreatePlaceIndexCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes";
   let body: any;
   body = JSON.stringify({
-    ...(input.DataSource != undefined && { DataSource: input.DataSource }),
-    ...(input.DataSourceConfiguration != undefined && {
+    ...(input.DataSource != null && { DataSource: input.DataSource }),
+    ...(input.DataSourceConfiguration != null && {
       DataSourceConfiguration: serializeAws_restJson1DataSourceConfiguration(input.DataSourceConfiguration, context),
     }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.IndexName != undefined && { IndexName: input.IndexName }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.IndexName != null && { IndexName: input.IndexName }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -747,11 +745,11 @@ export const serializeAws_restJson1CreateRouteCalculatorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators";
   let body: any;
   body = JSON.stringify({
-    ...(input.CalculatorName != undefined && { CalculatorName: input.CalculatorName }),
-    ...(input.DataSource != undefined && { DataSource: input.DataSource }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.CalculatorName != null && { CalculatorName: input.CalculatorName }),
+    ...(input.DataSource != null && { DataSource: input.DataSource }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -782,13 +780,13 @@ export const serializeAws_restJson1CreateTrackerCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PositionFiltering != undefined && { PositionFiltering: input.PositionFiltering }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != undefined && { PricingPlanDataSource: input.PricingPlanDataSource }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
-    ...(input.TrackerName != undefined && { TrackerName: input.TrackerName }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PositionFiltering != null && { PositionFiltering: input.PositionFiltering }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.TrackerName != null && { TrackerName: input.TrackerName }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1291,12 +1289,12 @@ export const serializeAws_restJson1GetDevicePositionHistoryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTimeExclusive != undefined && {
+    ...(input.EndTimeExclusive != null && {
       EndTimeExclusive: input.EndTimeExclusive.toISOString().split(".")[0] + "Z",
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StartTimeInclusive != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StartTimeInclusive != null && {
       StartTimeInclusive: input.StartTimeInclusive.toISOString().split(".")[0] + "Z",
     }),
   });
@@ -1586,8 +1584,8 @@ export const serializeAws_restJson1ListDevicePositionsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1619,8 +1617,8 @@ export const serializeAws_restJson1ListGeofenceCollectionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/list-collections";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1662,8 +1660,8 @@ export const serializeAws_restJson1ListGeofencesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1694,8 +1692,8 @@ export const serializeAws_restJson1ListMapsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/list-maps";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1727,8 +1725,8 @@ export const serializeAws_restJson1ListPlaceIndexesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/list-indexes";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1760,8 +1758,8 @@ export const serializeAws_restJson1ListRouteCalculatorsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/list-calculators";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1838,8 +1836,8 @@ export const serializeAws_restJson1ListTrackerConsumersCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1871,8 +1869,8 @@ export const serializeAws_restJson1ListTrackersCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/list-trackers";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1923,7 +1921,7 @@ export const serializeAws_restJson1PutGeofenceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Geometry != undefined && { Geometry: serializeAws_restJson1GeofenceGeometry(input.Geometry, context) }),
+    ...(input.Geometry != null && { Geometry: serializeAws_restJson1GeofenceGeometry(input.Geometry, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1965,9 +1963,9 @@ export const serializeAws_restJson1SearchPlaceIndexForPositionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Language != undefined && { Language: input.Language }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.Position != undefined && { Position: serializeAws_restJson1Position(input.Position, context) }),
+    ...(input.Language != null && { Language: input.Language }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Position != null && { Position: serializeAws_restJson1Position(input.Position, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2009,16 +2007,14 @@ export const serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BiasPosition != undefined && {
-      BiasPosition: serializeAws_restJson1Position(input.BiasPosition, context),
-    }),
-    ...(input.FilterBBox != undefined && { FilterBBox: serializeAws_restJson1BoundingBox(input.FilterBBox, context) }),
-    ...(input.FilterCountries != undefined && {
+    ...(input.BiasPosition != null && { BiasPosition: serializeAws_restJson1Position(input.BiasPosition, context) }),
+    ...(input.FilterBBox != null && { FilterBBox: serializeAws_restJson1BoundingBox(input.FilterBBox, context) }),
+    ...(input.FilterCountries != null && {
       FilterCountries: serializeAws_restJson1CountryCodeList(input.FilterCountries, context),
     }),
-    ...(input.Language != undefined && { Language: input.Language }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.Text != undefined && { Text: input.Text }),
+    ...(input.Language != null && { Language: input.Language }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Text != null && { Text: input.Text }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2060,16 +2056,14 @@ export const serializeAws_restJson1SearchPlaceIndexForTextCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BiasPosition != undefined && {
-      BiasPosition: serializeAws_restJson1Position(input.BiasPosition, context),
-    }),
-    ...(input.FilterBBox != undefined && { FilterBBox: serializeAws_restJson1BoundingBox(input.FilterBBox, context) }),
-    ...(input.FilterCountries != undefined && {
+    ...(input.BiasPosition != null && { BiasPosition: serializeAws_restJson1Position(input.BiasPosition, context) }),
+    ...(input.FilterBBox != null && { FilterBBox: serializeAws_restJson1BoundingBox(input.FilterBBox, context) }),
+    ...(input.FilterCountries != null && {
       FilterCountries: serializeAws_restJson1CountryCodeList(input.FilterCountries, context),
     }),
-    ...(input.Language != undefined && { Language: input.Language }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.Text != undefined && { Text: input.Text }),
+    ...(input.Language != null && { Language: input.Language }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.Text != null && { Text: input.Text }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2109,7 +2103,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2190,9 +2184,9 @@ export const serializeAws_restJson1UpdateGeofenceCollectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != undefined && { PricingPlanDataSource: input.PricingPlanDataSource }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2232,8 +2226,8 @@ export const serializeAws_restJson1UpdateMapCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2274,11 +2268,11 @@ export const serializeAws_restJson1UpdatePlaceIndexCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DataSourceConfiguration != undefined && {
+    ...(input.DataSourceConfiguration != null && {
       DataSourceConfiguration: serializeAws_restJson1DataSourceConfiguration(input.DataSourceConfiguration, context),
     }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2319,8 +2313,8 @@ export const serializeAws_restJson1UpdateRouteCalculatorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2361,10 +2355,10 @@ export const serializeAws_restJson1UpdateTrackerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.PositionFiltering != undefined && { PositionFiltering: input.PositionFiltering }),
-    ...(input.PricingPlan != undefined && { PricingPlan: input.PricingPlan }),
-    ...(input.PricingPlanDataSource != undefined && { PricingPlanDataSource: input.PricingPlanDataSource }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.PositionFiltering != null && { PositionFiltering: input.PositionFiltering }),
+    ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.PricingPlanDataSource != null && { PricingPlanDataSource: input.PricingPlanDataSource }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -5796,8 +5790,8 @@ const serializeAws_restJson1BatchPutGeofenceRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GeofenceId != undefined && { GeofenceId: input.GeofenceId }),
-    ...(input.Geometry != undefined && { Geometry: serializeAws_restJson1GeofenceGeometry(input.Geometry, context) }),
+    ...(input.GeofenceId != null && { GeofenceId: input.GeofenceId }),
+    ...(input.Geometry != null && { Geometry: serializeAws_restJson1GeofenceGeometry(input.Geometry, context) }),
   };
 };
 
@@ -5831,8 +5825,8 @@ const serializeAws_restJson1CalculateRouteCarModeOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AvoidFerries != undefined && { AvoidFerries: input.AvoidFerries }),
-    ...(input.AvoidTolls != undefined && { AvoidTolls: input.AvoidTolls }),
+    ...(input.AvoidFerries != null && { AvoidFerries: input.AvoidFerries }),
+    ...(input.AvoidTolls != null && { AvoidTolls: input.AvoidTolls }),
   };
 };
 
@@ -5841,12 +5835,10 @@ const serializeAws_restJson1CalculateRouteTruckModeOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AvoidFerries != undefined && { AvoidFerries: input.AvoidFerries }),
-    ...(input.AvoidTolls != undefined && { AvoidTolls: input.AvoidTolls }),
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_restJson1TruckDimensions(input.Dimensions, context),
-    }),
-    ...(input.Weight != undefined && { Weight: serializeAws_restJson1TruckWeight(input.Weight, context) }),
+    ...(input.AvoidFerries != null && { AvoidFerries: input.AvoidFerries }),
+    ...(input.AvoidTolls != null && { AvoidTolls: input.AvoidTolls }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1TruckDimensions(input.Dimensions, context) }),
+    ...(input.Weight != null && { Weight: serializeAws_restJson1TruckWeight(input.Weight, context) }),
   };
 };
 
@@ -5866,7 +5858,7 @@ const serializeAws_restJson1DataSourceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntendedUse != undefined && { IntendedUse: input.IntendedUse }),
+    ...(input.IntendedUse != null && { IntendedUse: input.IntendedUse }),
   };
 };
 
@@ -5883,13 +5875,13 @@ const serializeAws_restJson1DeviceIdsList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1DevicePositionUpdate = (input: DevicePositionUpdate, context: __SerdeContext): any => {
   return {
-    ...(input.Accuracy != undefined && { Accuracy: serializeAws_restJson1PositionalAccuracy(input.Accuracy, context) }),
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.Position != undefined && { Position: serializeAws_restJson1Position(input.Position, context) }),
-    ...(input.PositionProperties != undefined && {
+    ...(input.Accuracy != null && { Accuracy: serializeAws_restJson1PositionalAccuracy(input.Accuracy, context) }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.Position != null && { Position: serializeAws_restJson1Position(input.Position, context) }),
+    ...(input.PositionProperties != null && {
       PositionProperties: serializeAws_restJson1PropertyMap(input.PositionProperties, context),
     }),
-    ...(input.SampleTime != undefined && { SampleTime: input.SampleTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.SampleTime != null && { SampleTime: input.SampleTime.toISOString().split(".")[0] + "Z" }),
   };
 };
 
@@ -5909,7 +5901,7 @@ const serializeAws_restJson1DevicePositionUpdateList = (
 
 const serializeAws_restJson1GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): any => {
   return {
-    ...(input.Polygon != undefined && { Polygon: serializeAws_restJson1LinearRings(input.Polygon, context) }),
+    ...(input.Polygon != null && { Polygon: serializeAws_restJson1LinearRings(input.Polygon, context) }),
   };
 };
 
@@ -5948,7 +5940,7 @@ const serializeAws_restJson1LinearRings = (input: number[][][], context: __Serde
 
 const serializeAws_restJson1MapConfiguration = (input: MapConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Style != undefined && { Style: input.Style }),
+    ...(input.Style != null && { Style: input.Style }),
   };
 };
 
@@ -5965,7 +5957,7 @@ const serializeAws_restJson1Position = (input: number[], context: __SerdeContext
 
 const serializeAws_restJson1PositionalAccuracy = (input: PositionalAccuracy, context: __SerdeContext): any => {
   return {
-    ...(input.Horizontal != undefined && { Horizontal: __serializeFloat(input.Horizontal) }),
+    ...(input.Horizontal != null && { Horizontal: __serializeFloat(input.Horizontal) }),
   };
 };
 
@@ -6006,17 +5998,17 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1TruckDimensions = (input: TruckDimensions, context: __SerdeContext): any => {
   return {
-    ...(input.Height != undefined && { Height: __serializeFloat(input.Height) }),
-    ...(input.Length != undefined && { Length: __serializeFloat(input.Length) }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
-    ...(input.Width != undefined && { Width: __serializeFloat(input.Width) }),
+    ...(input.Height != null && { Height: __serializeFloat(input.Height) }),
+    ...(input.Length != null && { Length: __serializeFloat(input.Length) }),
+    ...(input.Unit != null && { Unit: input.Unit }),
+    ...(input.Width != null && { Width: __serializeFloat(input.Width) }),
   };
 };
 
 const serializeAws_restJson1TruckWeight = (input: TruckWeight, context: __SerdeContext): any => {
   return {
-    ...(input.Total != undefined && { Total: __serializeFloat(input.Total) }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
+    ...(input.Total != null && { Total: __serializeFloat(input.Total) }),
+    ...(input.Unit != null && { Unit: input.Unit }),
   };
 };
 
@@ -6049,7 +6041,7 @@ const deserializeAws_restJson1BatchDeleteDevicePositionHistoryError = (
 ): BatchDeleteDevicePositionHistoryError => {
   return {
     DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
   } as any;
 };
 
@@ -6073,7 +6065,7 @@ const deserializeAws_restJson1BatchDeleteGeofenceError = (
   context: __SerdeContext
 ): BatchDeleteGeofenceError => {
   return {
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
   } as any;
 };
@@ -6099,8 +6091,8 @@ const deserializeAws_restJson1BatchEvaluateGeofencesError = (
 ): BatchEvaluateGeofencesError => {
   return {
     DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
-    SampleTime: output.SampleTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -6125,7 +6117,7 @@ const deserializeAws_restJson1BatchGetDevicePositionError = (
 ): BatchGetDevicePositionError => {
   return {
     DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
   } as any;
 };
 
@@ -6153,7 +6145,7 @@ const deserializeAws_restJson1BatchItemError = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BatchPutGeofenceError = (output: any, context: __SerdeContext): BatchPutGeofenceError => {
   return {
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
   } as any;
 };
@@ -6178,9 +6170,9 @@ const deserializeAws_restJson1BatchPutGeofenceSuccess = (
   context: __SerdeContext
 ): BatchPutGeofenceSuccess => {
   return {
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6205,8 +6197,8 @@ const deserializeAws_restJson1BatchUpdateDevicePositionError = (
 ): BatchUpdateDevicePositionError => {
   return {
     DeviceId: __expectString(output.DeviceId),
-    Error: output.Error != undefined ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
-    SampleTime: output.SampleTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1BatchItemError(output.Error, context) : undefined,
+    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -6255,8 +6247,7 @@ const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __S
     Distance: __limitedParseDouble(output.Distance),
     DistanceUnit: __expectString(output.DistanceUnit),
     DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    RouteBBox:
-      output.RouteBBox != undefined ? deserializeAws_restJson1BoundingBox(output.RouteBBox, context) : undefined,
+    RouteBBox: output.RouteBBox != null ? deserializeAws_restJson1BoundingBox(output.RouteBBox, context) : undefined,
   } as any;
 };
 
@@ -6284,16 +6275,16 @@ const deserializeAws_restJson1DataSourceConfiguration = (
 const deserializeAws_restJson1DevicePosition = (output: any, context: __SerdeContext): DevicePosition => {
   return {
     Accuracy:
-      output.Accuracy != undefined ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context) : undefined,
+      output.Accuracy != null ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context) : undefined,
     DeviceId: __expectString(output.DeviceId),
-    Position: output.Position != undefined ? deserializeAws_restJson1Position(output.Position, context) : undefined,
+    Position: output.Position != null ? deserializeAws_restJson1Position(output.Position, context) : undefined,
     PositionProperties:
-      output.PositionProperties != undefined
+      output.PositionProperties != null
         ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
     ReceivedTime:
-      output.ReceivedTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.ReceivedTime)) : undefined,
-    SampleTime: output.SampleTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+      output.ReceivedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.ReceivedTime)) : undefined,
+    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -6311,7 +6302,7 @@ const deserializeAws_restJson1DevicePositionList = (output: any, context: __Serd
 
 const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
   return {
-    Polygon: output.Polygon != undefined ? deserializeAws_restJson1LinearRings(output.Polygon, context) : undefined,
+    Polygon: output.Polygon != null ? deserializeAws_restJson1LinearRings(output.Polygon, context) : undefined,
   } as any;
 };
 
@@ -6319,19 +6310,17 @@ const deserializeAws_restJson1Leg = (output: any, context: __SerdeContext): Leg 
   return {
     Distance: __limitedParseDouble(output.Distance),
     DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    EndPosition:
-      output.EndPosition != undefined ? deserializeAws_restJson1Position(output.EndPosition, context) : undefined,
-    Geometry: output.Geometry != undefined ? deserializeAws_restJson1LegGeometry(output.Geometry, context) : undefined,
+    EndPosition: output.EndPosition != null ? deserializeAws_restJson1Position(output.EndPosition, context) : undefined,
+    Geometry: output.Geometry != null ? deserializeAws_restJson1LegGeometry(output.Geometry, context) : undefined,
     StartPosition:
-      output.StartPosition != undefined ? deserializeAws_restJson1Position(output.StartPosition, context) : undefined,
-    Steps: output.Steps != undefined ? deserializeAws_restJson1StepList(output.Steps, context) : undefined,
+      output.StartPosition != null ? deserializeAws_restJson1Position(output.StartPosition, context) : undefined,
+    Steps: output.Steps != null ? deserializeAws_restJson1StepList(output.Steps, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LegGeometry = (output: any, context: __SerdeContext): LegGeometry => {
   return {
-    LineString:
-      output.LineString != undefined ? deserializeAws_restJson1LineString(output.LineString, context) : undefined,
+    LineString: output.LineString != null ? deserializeAws_restJson1LineString(output.LineString, context) : undefined,
   } as any;
 };
 
@@ -6389,14 +6378,14 @@ const deserializeAws_restJson1ListDevicePositionsResponseEntry = (
 ): ListDevicePositionsResponseEntry => {
   return {
     Accuracy:
-      output.Accuracy != undefined ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context) : undefined,
+      output.Accuracy != null ? deserializeAws_restJson1PositionalAccuracy(output.Accuracy, context) : undefined,
     DeviceId: __expectString(output.DeviceId),
-    Position: output.Position != undefined ? deserializeAws_restJson1Position(output.Position, context) : undefined,
+    Position: output.Position != null ? deserializeAws_restJson1Position(output.Position, context) : undefined,
     PositionProperties:
-      output.PositionProperties != undefined
+      output.PositionProperties != null
         ? deserializeAws_restJson1PropertyMap(output.PositionProperties, context)
         : undefined,
-    SampleTime: output.SampleTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
+    SampleTime: output.SampleTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SampleTime)) : undefined,
   } as any;
 };
 
@@ -6421,11 +6410,11 @@ const deserializeAws_restJson1ListGeofenceCollectionsResponseEntry = (
 ): ListGeofenceCollectionsResponseEntry => {
   return {
     CollectionName: __expectString(output.CollectionName),
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
     PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6449,12 +6438,11 @@ const deserializeAws_restJson1ListGeofenceResponseEntry = (
   context: __SerdeContext
 ): ListGeofenceResponseEntry => {
   return {
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     GeofenceId: __expectString(output.GeofenceId),
-    Geometry:
-      output.Geometry != undefined ? deserializeAws_restJson1GeofenceGeometry(output.Geometry, context) : undefined,
+    Geometry: output.Geometry != null ? deserializeAws_restJson1GeofenceGeometry(output.Geometry, context) : undefined,
     Status: __expectString(output.Status),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6475,12 +6463,12 @@ const deserializeAws_restJson1ListGeofenceResponseEntryList = (
 
 const deserializeAws_restJson1ListMapsResponseEntry = (output: any, context: __SerdeContext): ListMapsResponseEntry => {
   return {
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     MapName: __expectString(output.MapName),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6504,12 +6492,12 @@ const deserializeAws_restJson1ListPlaceIndexesResponseEntry = (
   context: __SerdeContext
 ): ListPlaceIndexesResponseEntry => {
   return {
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     IndexName: __expectString(output.IndexName),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6534,11 +6522,11 @@ const deserializeAws_restJson1ListRouteCalculatorsResponseEntry = (
 ): ListRouteCalculatorsResponseEntry => {
   return {
     CalculatorName: __expectString(output.CalculatorName),
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     DataSource: __expectString(output.DataSource),
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6562,12 +6550,12 @@ const deserializeAws_restJson1ListTrackersResponseEntry = (
   context: __SerdeContext
 ): ListTrackersResponseEntry => {
   return {
-    CreateTime: output.CreateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
+    CreateTime: output.CreateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.CreateTime)) : undefined,
     Description: __expectString(output.Description),
     PricingPlan: __expectString(output.PricingPlan),
     PricingPlanDataSource: __expectString(output.PricingPlanDataSource),
     TrackerName: __expectString(output.TrackerName),
-    UpdateTime: output.UpdateTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
+    UpdateTime: output.UpdateTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdateTime)) : undefined,
   } as any;
 };
 
@@ -6596,8 +6584,7 @@ const deserializeAws_restJson1Place = (output: any, context: __SerdeContext): Pl
   return {
     AddressNumber: __expectString(output.AddressNumber),
     Country: __expectString(output.Country),
-    Geometry:
-      output.Geometry != undefined ? deserializeAws_restJson1PlaceGeometry(output.Geometry, context) : undefined,
+    Geometry: output.Geometry != null ? deserializeAws_restJson1PlaceGeometry(output.Geometry, context) : undefined,
     Interpolated: __expectBoolean(output.Interpolated),
     Label: __expectString(output.Label),
     Municipality: __expectString(output.Municipality),
@@ -6606,13 +6593,13 @@ const deserializeAws_restJson1Place = (output: any, context: __SerdeContext): Pl
     Region: __expectString(output.Region),
     Street: __expectString(output.Street),
     SubRegion: __expectString(output.SubRegion),
-    TimeZone: output.TimeZone != undefined ? deserializeAws_restJson1TimeZone(output.TimeZone, context) : undefined,
+    TimeZone: output.TimeZone != null ? deserializeAws_restJson1TimeZone(output.TimeZone, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1PlaceGeometry = (output: any, context: __SerdeContext): PlaceGeometry => {
   return {
-    Point: output.Point != undefined ? deserializeAws_restJson1Position(output.Point, context) : undefined,
+    Point: output.Point != null ? deserializeAws_restJson1Position(output.Point, context) : undefined,
   } as any;
 };
 
@@ -6674,7 +6661,7 @@ const deserializeAws_restJson1RouteMatrixEntry = (output: any, context: __SerdeC
   return {
     Distance: __limitedParseDouble(output.Distance),
     DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    Error: output.Error != undefined ? deserializeAws_restJson1RouteMatrixEntryError(output.Error, context) : undefined,
+    Error: output.Error != null ? deserializeAws_restJson1RouteMatrixEntryError(output.Error, context) : undefined,
   } as any;
 };
 
@@ -6703,7 +6690,7 @@ const deserializeAws_restJson1SearchForPositionResult = (
 ): SearchForPositionResult => {
   return {
     Distance: __limitedParseDouble(output.Distance),
-    Place: output.Place != undefined ? deserializeAws_restJson1Place(output.Place, context) : undefined,
+    Place: output.Place != null ? deserializeAws_restJson1Place(output.Place, context) : undefined,
   } as any;
 };
 
@@ -6749,7 +6736,7 @@ const deserializeAws_restJson1SearchForSuggestionsResultList = (
 const deserializeAws_restJson1SearchForTextResult = (output: any, context: __SerdeContext): SearchForTextResult => {
   return {
     Distance: __limitedParseDouble(output.Distance),
-    Place: output.Place != undefined ? deserializeAws_restJson1Place(output.Place, context) : undefined,
+    Place: output.Place != null ? deserializeAws_restJson1Place(output.Place, context) : undefined,
     Relevance: __limitedParseDouble(output.Relevance),
   } as any;
 };
@@ -6777,7 +6764,7 @@ const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
     DataSource: __expectString(output.DataSource),
     Language: __expectString(output.Language),
     MaxResults: __expectInt32(output.MaxResults),
-    Position: output.Position != undefined ? deserializeAws_restJson1Position(output.Position, context) : undefined,
+    Position: output.Position != null ? deserializeAws_restJson1Position(output.Position, context) : undefined,
   } as any;
 };
 
@@ -6787,12 +6774,11 @@ const deserializeAws_restJson1SearchPlaceIndexForSuggestionsSummary = (
 ): SearchPlaceIndexForSuggestionsSummary => {
   return {
     BiasPosition:
-      output.BiasPosition != undefined ? deserializeAws_restJson1Position(output.BiasPosition, context) : undefined,
+      output.BiasPosition != null ? deserializeAws_restJson1Position(output.BiasPosition, context) : undefined,
     DataSource: __expectString(output.DataSource),
-    FilterBBox:
-      output.FilterBBox != undefined ? deserializeAws_restJson1BoundingBox(output.FilterBBox, context) : undefined,
+    FilterBBox: output.FilterBBox != null ? deserializeAws_restJson1BoundingBox(output.FilterBBox, context) : undefined,
     FilterCountries:
-      output.FilterCountries != undefined
+      output.FilterCountries != null
         ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
         : undefined,
     Language: __expectString(output.Language),
@@ -6807,18 +6793,16 @@ const deserializeAws_restJson1SearchPlaceIndexForTextSummary = (
 ): SearchPlaceIndexForTextSummary => {
   return {
     BiasPosition:
-      output.BiasPosition != undefined ? deserializeAws_restJson1Position(output.BiasPosition, context) : undefined,
+      output.BiasPosition != null ? deserializeAws_restJson1Position(output.BiasPosition, context) : undefined,
     DataSource: __expectString(output.DataSource),
-    FilterBBox:
-      output.FilterBBox != undefined ? deserializeAws_restJson1BoundingBox(output.FilterBBox, context) : undefined,
+    FilterBBox: output.FilterBBox != null ? deserializeAws_restJson1BoundingBox(output.FilterBBox, context) : undefined,
     FilterCountries:
-      output.FilterCountries != undefined
+      output.FilterCountries != null
         ? deserializeAws_restJson1CountryCodeList(output.FilterCountries, context)
         : undefined,
     Language: __expectString(output.Language),
     MaxResults: __expectInt32(output.MaxResults),
-    ResultBBox:
-      output.ResultBBox != undefined ? deserializeAws_restJson1BoundingBox(output.ResultBBox, context) : undefined,
+    ResultBBox: output.ResultBBox != null ? deserializeAws_restJson1BoundingBox(output.ResultBBox, context) : undefined,
     Text: __expectString(output.Text),
   } as any;
 };
@@ -6827,11 +6811,10 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
   return {
     Distance: __limitedParseDouble(output.Distance),
     DurationSeconds: __limitedParseDouble(output.DurationSeconds),
-    EndPosition:
-      output.EndPosition != undefined ? deserializeAws_restJson1Position(output.EndPosition, context) : undefined,
+    EndPosition: output.EndPosition != null ? deserializeAws_restJson1Position(output.EndPosition, context) : undefined,
     GeometryOffset: __expectInt32(output.GeometryOffset),
     StartPosition:
-      output.StartPosition != undefined ? deserializeAws_restJson1Position(output.StartPosition, context) : undefined,
+      output.StartPosition != null ? deserializeAws_restJson1Position(output.StartPosition, context) : undefined,
   } as any;
 };
 

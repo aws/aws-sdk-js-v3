@@ -2608,9 +2608,9 @@ const serializeAws_json1_1AssociateEntityToThingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.entityId != undefined && { entityId: input.entityId }),
-    ...(input.namespaceVersion != undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.thingName != undefined && { thingName: input.thingName }),
+    ...(input.entityId != null && { entityId: input.entityId }),
+    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.thingName != null && { thingName: input.thingName }),
   };
 };
 
@@ -2619,12 +2619,8 @@ const serializeAws_json1_1CreateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion != undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition != undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
+    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition != null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
   };
 };
 
@@ -2633,17 +2629,15 @@ const serializeAws_json1_1CreateSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.definition != undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.flowActionsRoleArn != undefined && { flowActionsRoleArn: input.flowActionsRoleArn }),
-    ...(input.greengrassGroupName != undefined && { greengrassGroupName: input.greengrassGroupName }),
-    ...(input.metricsConfiguration != undefined && {
+    ...(input.definition != null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.flowActionsRoleArn != null && { flowActionsRoleArn: input.flowActionsRoleArn }),
+    ...(input.greengrassGroupName != null && { greengrassGroupName: input.greengrassGroupName }),
+    ...(input.metricsConfiguration != null && {
       metricsConfiguration: serializeAws_json1_1MetricsConfiguration(input.metricsConfiguration, context),
     }),
-    ...(input.s3BucketName != undefined && { s3BucketName: input.s3BucketName }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.target != undefined && { target: input.target }),
+    ...(input.s3BucketName != null && { s3BucketName: input.s3BucketName }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.target != null && { target: input.target }),
   };
 };
 
@@ -2652,19 +2646,15 @@ const serializeAws_json1_1CreateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion != undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition != undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
+    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition != null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
   };
 };
 
 const serializeAws_json1_1DefinitionDocument = (input: DefinitionDocument, context: __SerdeContext): any => {
   return {
-    ...(input.language != undefined && { language: input.language }),
-    ...(input.text != undefined && { text: input.text }),
+    ...(input.language != null && { language: input.language }),
+    ...(input.text != null && { text: input.text }),
   };
 };
 
@@ -2673,7 +2663,7 @@ const serializeAws_json1_1DeleteFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2686,7 +2676,7 @@ const serializeAws_json1_1DeleteSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2695,7 +2685,7 @@ const serializeAws_json1_1DeleteSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2704,7 +2694,7 @@ const serializeAws_json1_1DeploySystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2713,7 +2703,7 @@ const serializeAws_json1_1DeprecateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2722,7 +2712,7 @@ const serializeAws_json1_1DeprecateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2731,7 +2721,7 @@ const serializeAws_json1_1DescribeNamespaceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.namespaceName != undefined && { namespaceName: input.namespaceName }),
+    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
   };
 };
 
@@ -2740,15 +2730,15 @@ const serializeAws_json1_1DissociateEntityFromThingRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.entityType != undefined && { entityType: input.entityType }),
-    ...(input.thingName != undefined && { thingName: input.thingName }),
+    ...(input.entityType != null && { entityType: input.entityType }),
+    ...(input.thingName != null && { thingName: input.thingName }),
   };
 };
 
 const serializeAws_json1_1EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: serializeAws_json1_1EntityFilterValues(input.value, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: serializeAws_json1_1EntityFilterValues(input.value, context) }),
   };
 };
 
@@ -2787,8 +2777,8 @@ const serializeAws_json1_1EntityTypes = (input: (EntityType | string)[], context
 
 const serializeAws_json1_1FlowTemplateFilter = (input: FlowTemplateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: serializeAws_json1_1FlowTemplateFilterValues(input.value, context) }),
   };
 };
 
@@ -2816,15 +2806,15 @@ const serializeAws_json1_1FlowTemplateFilterValues = (input: string[], context: 
 
 const serializeAws_json1_1GetEntitiesRequest = (input: GetEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ids != undefined && { ids: serializeAws_json1_1Urns(input.ids, context) }),
-    ...(input.namespaceVersion != undefined && { namespaceVersion: input.namespaceVersion }),
+    ...(input.ids != null && { ids: serializeAws_json1_1Urns(input.ids, context) }),
+    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
   };
 };
 
 const serializeAws_json1_1GetFlowTemplateRequest = (input: GetFlowTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.revisionNumber != undefined && { revisionNumber: input.revisionNumber }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.revisionNumber != null && { revisionNumber: input.revisionNumber }),
   };
 };
 
@@ -2833,9 +2823,9 @@ const serializeAws_json1_1GetFlowTemplateRevisionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2851,7 +2841,7 @@ const serializeAws_json1_1GetSystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -2860,8 +2850,8 @@ const serializeAws_json1_1GetSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.revisionNumber != undefined && { revisionNumber: input.revisionNumber }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.revisionNumber != null && { revisionNumber: input.revisionNumber }),
   };
 };
 
@@ -2870,15 +2860,15 @@ const serializeAws_json1_1GetSystemTemplateRevisionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetUploadStatusRequest = (input: GetUploadStatusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.uploadId != undefined && { uploadId: input.uploadId }),
+    ...(input.uploadId != null && { uploadId: input.uploadId }),
   };
 };
 
@@ -2887,9 +2877,9 @@ const serializeAws_json1_1ListFlowExecutionMessagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.flowExecutionId != undefined && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.flowExecutionId != null && { flowExecutionId: input.flowExecutionId }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2898,26 +2888,26 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1MetricsConfiguration = (input: MetricsConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.cloudMetricEnabled != undefined && { cloudMetricEnabled: input.cloudMetricEnabled }),
-    ...(input.metricRuleRoleArn != undefined && { metricRuleRoleArn: input.metricRuleRoleArn }),
+    ...(input.cloudMetricEnabled != null && { cloudMetricEnabled: input.cloudMetricEnabled }),
+    ...(input.metricRuleRoleArn != null && { metricRuleRoleArn: input.metricRuleRoleArn }),
   };
 };
 
 const serializeAws_json1_1SearchEntitiesRequest = (input: SearchEntitiesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.entityTypes != undefined && { entityTypes: serializeAws_json1_1EntityTypes(input.entityTypes, context) }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1EntityFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion != undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.entityTypes != null && { entityTypes: serializeAws_json1_1EntityTypes(input.entityTypes, context) }),
+    ...(input.filters != null && { filters: serializeAws_json1_1EntityFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2926,12 +2916,12 @@ const serializeAws_json1_1SearchFlowExecutionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.endTime != undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.flowExecutionId != undefined && { flowExecutionId: input.flowExecutionId }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.startTime != undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
-    ...(input.systemInstanceId != undefined && { systemInstanceId: input.systemInstanceId }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.flowExecutionId != null && { flowExecutionId: input.flowExecutionId }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.systemInstanceId != null && { systemInstanceId: input.systemInstanceId }),
   };
 };
 
@@ -2940,9 +2930,9 @@ const serializeAws_json1_1SearchFlowTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters != undefined && { filters: serializeAws_json1_1FlowTemplateFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filters != null && { filters: serializeAws_json1_1FlowTemplateFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2951,9 +2941,9 @@ const serializeAws_json1_1SearchSystemInstancesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters != undefined && { filters: serializeAws_json1_1SystemInstanceFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filters != null && { filters: serializeAws_json1_1SystemInstanceFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2962,25 +2952,25 @@ const serializeAws_json1_1SearchSystemTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters != undefined && { filters: serializeAws_json1_1SystemTemplateFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filters != null && { filters: serializeAws_json1_1SystemTemplateFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1SearchThingsRequest = (input: SearchThingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.entityId != undefined && { entityId: input.entityId }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.namespaceVersion != undefined && { namespaceVersion: input.namespaceVersion }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.entityId != null && { entityId: input.entityId }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespaceVersion != null && { namespaceVersion: input.namespaceVersion }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1SystemInstanceFilter = (input: SystemInstanceFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: serializeAws_json1_1SystemInstanceFilterValues(input.value, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: serializeAws_json1_1SystemInstanceFilterValues(input.value, context) }),
   };
 };
 
@@ -3008,8 +2998,8 @@ const serializeAws_json1_1SystemInstanceFilterValues = (input: string[], context
 
 const serializeAws_json1_1SystemTemplateFilter = (input: SystemTemplateFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.value != undefined && { value: serializeAws_json1_1SystemTemplateFilterValues(input.value, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.value != null && { value: serializeAws_json1_1SystemTemplateFilterValues(input.value, context) }),
   };
 };
 
@@ -3037,8 +3027,8 @@ const serializeAws_json1_1SystemTemplateFilterValues = (input: string[], context
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -3066,8 +3056,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -3076,14 +3066,14 @@ const serializeAws_json1_1UndeploySystemInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3092,13 +3082,9 @@ const serializeAws_json1_1UpdateFlowTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion != undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition != undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition != null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -3107,13 +3093,9 @@ const serializeAws_json1_1UpdateSystemTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.compatibleNamespaceVersion != undefined && {
-      compatibleNamespaceVersion: input.compatibleNamespaceVersion,
-    }),
-    ...(input.definition != undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(input.definition, context),
-    }),
-    ...(input.id != undefined && { id: input.id }),
+    ...(input.compatibleNamespaceVersion != null && { compatibleNamespaceVersion: input.compatibleNamespaceVersion }),
+    ...(input.definition != null && { definition: serializeAws_json1_1DefinitionDocument(input.definition, context) }),
+    ...(input.id != null && { id: input.id }),
   };
 };
 
@@ -3122,9 +3104,9 @@ const serializeAws_json1_1UploadEntityDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deprecateExistingEntities != undefined && { deprecateExistingEntities: input.deprecateExistingEntities }),
-    ...(input.document != undefined && { document: serializeAws_json1_1DefinitionDocument(input.document, context) }),
-    ...(input.syncWithPublicNamespace != undefined && { syncWithPublicNamespace: input.syncWithPublicNamespace }),
+    ...(input.deprecateExistingEntities != null && { deprecateExistingEntities: input.deprecateExistingEntities }),
+    ...(input.document != null && { document: serializeAws_json1_1DefinitionDocument(input.document, context) }),
+    ...(input.syncWithPublicNamespace != null && { syncWithPublicNamespace: input.syncWithPublicNamespace }),
   };
 };
 
@@ -3151,8 +3133,7 @@ const deserializeAws_json1_1CreateFlowTemplateResponse = (
   context: __SerdeContext
 ): CreateFlowTemplateResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3161,8 +3142,7 @@ const deserializeAws_json1_1CreateSystemInstanceResponse = (
   context: __SerdeContext
 ): CreateSystemInstanceResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3171,8 +3151,7 @@ const deserializeAws_json1_1CreateSystemTemplateResponse = (
   context: __SerdeContext
 ): CreateSystemTemplateResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3239,8 +3218,7 @@ const deserializeAws_json1_1DeploySystemInstanceResponse = (
 ): DeploySystemInstanceResponse => {
   return {
     greengrassDeploymentId: __expectString(output.greengrassDeploymentId),
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3282,11 +3260,9 @@ const deserializeAws_json1_1EntityDescription = (output: any, context: __SerdeCo
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     definition:
-      output.definition != undefined ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
+      output.definition != null ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
     id: __expectString(output.id),
     type: __expectString(output.type),
   } as any;
@@ -3310,9 +3286,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __Serd
     messageId: __expectString(output.messageId),
     payload: __expectString(output.payload),
     timestamp:
-      output.timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp)))
-        : undefined,
+      output.timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestamp))) : undefined,
   } as any;
 };
 
@@ -3343,17 +3317,13 @@ const deserializeAws_json1_1FlowExecutionSummaries = (output: any, context: __Se
 const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
   return {
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     flowExecutionId: __expectString(output.flowExecutionId),
     flowTemplateId: __expectString(output.flowTemplateId),
     status: __expectString(output.status),
     systemInstanceId: __expectString(output.systemInstanceId),
     updatedAt:
-      output.updatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
-        : undefined,
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 
@@ -3363,9 +3333,8 @@ const deserializeAws_json1_1FlowTemplateDescription = (
 ): FlowTemplateDescription => {
   return {
     definition:
-      output.definition != undefined ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
+      output.definition != null ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
     validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
   } as any;
 };
@@ -3386,9 +3355,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __Serde
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     id: __expectString(output.id),
     revisionNumber: __expectLong(output.revisionNumber),
   } as any;
@@ -3397,9 +3364,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __Serde
 const deserializeAws_json1_1GetEntitiesResponse = (output: any, context: __SerdeContext): GetEntitiesResponse => {
   return {
     descriptions:
-      output.descriptions != undefined
-        ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
-        : undefined,
+      output.descriptions != null ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context) : undefined,
   } as any;
 };
 
@@ -3409,7 +3374,7 @@ const deserializeAws_json1_1GetFlowTemplateResponse = (
 ): GetFlowTemplateResponse => {
   return {
     description:
-      output.description != undefined
+      output.description != null
         ? deserializeAws_json1_1FlowTemplateDescription(output.description, context)
         : undefined,
   } as any;
@@ -3422,9 +3387,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
@@ -3447,7 +3410,7 @@ const deserializeAws_json1_1GetSystemInstanceResponse = (
 ): GetSystemInstanceResponse => {
   return {
     description:
-      output.description != undefined
+      output.description != null
         ? deserializeAws_json1_1SystemInstanceDescription(output.description, context)
         : undefined,
   } as any;
@@ -3459,7 +3422,7 @@ const deserializeAws_json1_1GetSystemTemplateResponse = (
 ): GetSystemTemplateResponse => {
   return {
     description:
-      output.description != undefined
+      output.description != null
         ? deserializeAws_json1_1SystemTemplateDescription(output.description, context)
         : undefined,
   } as any;
@@ -3472,9 +3435,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
@@ -3484,11 +3445,11 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
 ): GetUploadStatusResponse => {
   return {
     createdDate:
-      output.createdDate != undefined
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     failureReason:
-      output.failureReason != undefined ? deserializeAws_json1_1StringList(output.failureReason, context) : undefined,
+      output.failureReason != null ? deserializeAws_json1_1StringList(output.failureReason, context) : undefined,
     namespaceArn: __expectString(output.namespaceArn),
     namespaceName: __expectString(output.namespaceName),
     namespaceVersion: __expectLong(output.namespaceVersion),
@@ -3527,7 +3488,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesResponse = (
 ): ListFlowExecutionMessagesResponse => {
   return {
     messages:
-      output.messages != undefined ? deserializeAws_json1_1FlowExecutionMessages(output.messages, context) : undefined,
+      output.messages != null ? deserializeAws_json1_1FlowExecutionMessages(output.messages, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -3538,7 +3499,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3576,9 +3537,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1SearchEntitiesResponse = (output: any, context: __SerdeContext): SearchEntitiesResponse => {
   return {
     descriptions:
-      output.descriptions != undefined
-        ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
-        : undefined,
+      output.descriptions != null ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -3590,9 +3549,7 @@ const deserializeAws_json1_1SearchFlowExecutionsResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1FlowExecutionSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1FlowExecutionSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
@@ -3603,9 +3560,7 @@ const deserializeAws_json1_1SearchFlowTemplatesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
@@ -3616,9 +3571,7 @@ const deserializeAws_json1_1SearchSystemInstancesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1SystemInstanceSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1SystemInstanceSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
@@ -3629,16 +3582,14 @@ const deserializeAws_json1_1SearchSystemTemplatesResponse = (
   return {
     nextToken: __expectString(output.nextToken),
     summaries:
-      output.summaries != undefined
-        ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context)
-        : undefined,
+      output.summaries != null ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SearchThingsResponse = (output: any, context: __SerdeContext): SearchThingsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    things: output.things != undefined ? deserializeAws_json1_1Things(output.things, context) : undefined,
+    things: output.things != null ? deserializeAws_json1_1Things(output.things, context) : undefined,
   } as any;
 };
 
@@ -3660,17 +3611,16 @@ const deserializeAws_json1_1SystemInstanceDescription = (
 ): SystemInstanceDescription => {
   return {
     definition:
-      output.definition != undefined ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
+      output.definition != null ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
     flowActionsRoleArn: __expectString(output.flowActionsRoleArn),
     metricsConfiguration:
-      output.metricsConfiguration != undefined
+      output.metricsConfiguration != null
         ? deserializeAws_json1_1MetricsConfiguration(output.metricsConfiguration, context)
         : undefined,
     s3BucketName: __expectString(output.s3BucketName),
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
     validatedDependencyRevisions:
-      output.validatedDependencyRevisions != undefined
+      output.validatedDependencyRevisions != null
         ? deserializeAws_json1_1DependencyRevisions(output.validatedDependencyRevisions, context)
         : undefined,
     validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
@@ -3696,9 +3646,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __Ser
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     greengrassGroupId: __expectString(output.greengrassGroupId),
     greengrassGroupName: __expectString(output.greengrassGroupName),
     greengrassGroupVersionId: __expectString(output.greengrassGroupVersionId),
@@ -3706,9 +3654,7 @@ const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __Ser
     status: __expectString(output.status),
     target: __expectString(output.target),
     updatedAt:
-      output.updatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt)))
-        : undefined,
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 
@@ -3718,9 +3664,8 @@ const deserializeAws_json1_1SystemTemplateDescription = (
 ): SystemTemplateDescription => {
   return {
     definition:
-      output.definition != undefined ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
+      output.definition != null ? deserializeAws_json1_1DefinitionDocument(output.definition, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
     validatedNamespaceVersion: __expectLong(output.validatedNamespaceVersion),
   } as any;
 };
@@ -3744,9 +3689,7 @@ const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __Ser
   return {
     arn: __expectString(output.arn),
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     id: __expectString(output.id),
     revisionNumber: __expectLong(output.revisionNumber),
   } as any;
@@ -3805,8 +3748,7 @@ const deserializeAws_json1_1UndeploySystemInstanceResponse = (
   context: __SerdeContext
 ): UndeploySystemInstanceResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3819,8 +3761,7 @@ const deserializeAws_json1_1UpdateFlowTemplateResponse = (
   context: __SerdeContext
 ): UpdateFlowTemplateResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -3829,8 +3770,7 @@ const deserializeAws_json1_1UpdateSystemTemplateResponse = (
   context: __SerdeContext
 ): UpdateSystemTemplateResponse => {
   return {
-    summary:
-      output.summary != undefined ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context) : undefined,
   } as any;
 };
 

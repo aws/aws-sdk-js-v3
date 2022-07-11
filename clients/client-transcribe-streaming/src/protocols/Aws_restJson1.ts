@@ -731,7 +731,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
 
 const serializeAws_restJson1AudioEvent = (input: AudioEvent, context: __SerdeContext): any => {
   return {
-    ...(input.AudioChunk != undefined && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
+    ...(input.AudioChunk != null && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
   };
 };
 
@@ -744,8 +744,8 @@ const serializeAws_restJson1AudioStream = (input: AudioStream, context: __SerdeC
 
 const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContext): Alternative => {
   return {
-    Entities: output.Entities != undefined ? deserializeAws_restJson1EntityList(output.Entities, context) : undefined,
-    Items: output.Items != undefined ? deserializeAws_restJson1ItemList(output.Items, context) : undefined,
+    Entities: output.Entities != null ? deserializeAws_restJson1EntityList(output.Entities, context) : undefined,
+    Items: output.Items != null ? deserializeAws_restJson1ItemList(output.Items, context) : undefined,
     Transcript: __expectString(output.Transcript),
   } as any;
 };
@@ -861,9 +861,8 @@ const deserializeAws_restJson1LimitExceededException = (
 
 const deserializeAws_restJson1MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
   return {
-    Entities:
-      output.Entities != undefined ? deserializeAws_restJson1MedicalEntityList(output.Entities, context) : undefined,
-    Items: output.Items != undefined ? deserializeAws_restJson1MedicalItemList(output.Items, context) : undefined,
+    Entities: output.Entities != null ? deserializeAws_restJson1MedicalEntityList(output.Entities, context) : undefined,
+    Items: output.Items != null ? deserializeAws_restJson1MedicalItemList(output.Items, context) : undefined,
     Transcript: __expectString(output.Transcript),
   } as any;
 };
@@ -928,7 +927,7 @@ const deserializeAws_restJson1MedicalItemList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeContext): MedicalResult => {
   return {
     Alternatives:
-      output.Alternatives != undefined
+      output.Alternatives != null
         ? deserializeAws_restJson1MedicalAlternativeList(output.Alternatives, context)
         : undefined,
     ChannelId: __expectString(output.ChannelId),
@@ -953,8 +952,7 @@ const deserializeAws_restJson1MedicalResultList = (output: any, context: __Serde
 
 const deserializeAws_restJson1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
   return {
-    Results:
-      output.Results != undefined ? deserializeAws_restJson1MedicalResultList(output.Results, context) : undefined,
+    Results: output.Results != null ? deserializeAws_restJson1MedicalResultList(output.Results, context) : undefined,
   } as any;
 };
 
@@ -964,9 +962,7 @@ const deserializeAws_restJson1MedicalTranscriptEvent = (
 ): MedicalTranscriptEvent => {
   return {
     Transcript:
-      output.Transcript != undefined
-        ? deserializeAws_restJson1MedicalTranscript(output.Transcript, context)
-        : undefined,
+      output.Transcript != null ? deserializeAws_restJson1MedicalTranscript(output.Transcript, context) : undefined,
   } as any;
 };
 
@@ -1016,15 +1012,13 @@ const deserializeAws_restJson1MedicalTranscriptResultStream = (
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
   return {
     Alternatives:
-      output.Alternatives != undefined
-        ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
-        : undefined,
+      output.Alternatives != null ? deserializeAws_restJson1AlternativeList(output.Alternatives, context) : undefined,
     ChannelId: __expectString(output.ChannelId),
     EndTime: __limitedParseDouble(output.EndTime),
     IsPartial: __expectBoolean(output.IsPartial),
     LanguageCode: __expectString(output.LanguageCode),
     LanguageIdentification:
-      output.LanguageIdentification != undefined
+      output.LanguageIdentification != null
         ? deserializeAws_restJson1LanguageIdentification(output.LanguageIdentification, context)
         : undefined,
     ResultId: __expectString(output.ResultId),
@@ -1055,14 +1049,13 @@ const deserializeAws_restJson1ServiceUnavailableException = (
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
-    Results: output.Results != undefined ? deserializeAws_restJson1ResultList(output.Results, context) : undefined,
+    Results: output.Results != null ? deserializeAws_restJson1ResultList(output.Results, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
   return {
-    Transcript:
-      output.Transcript != undefined ? deserializeAws_restJson1Transcript(output.Transcript, context) : undefined,
+    Transcript: output.Transcript != null ? deserializeAws_restJson1Transcript(output.Transcript, context) : undefined,
   } as any;
 };
 

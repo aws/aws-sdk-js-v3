@@ -119,36 +119,34 @@ export const serializeAws_restJson1CreateAppCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/apps";
   let body: any;
   body = JSON.stringify({
-    ...(input.accessToken != undefined && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig != undefined && {
+    ...(input.accessToken != null && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig != null && {
       autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
     }),
-    ...(input.autoBranchCreationPatterns != undefined && {
+    ...(input.autoBranchCreationPatterns != null && {
       autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
         input.autoBranchCreationPatterns,
         context
       ),
     }),
-    ...(input.basicAuthCredentials != undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != undefined && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders != undefined && { customHeaders: input.customHeaders }),
-    ...(input.customRules != undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
-    }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation != undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth != undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild != undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion != undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables != undefined && {
+    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders != null && { customHeaders: input.customHeaders }),
+    ...(input.customRules != null && { customRules: serializeAws_restJson1CustomRules(input.customRules, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.enableAutoBranchCreation != null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild != null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion != null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
+    ...(input.environmentVariables != null && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.iamServiceRoleArn != undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.oauthToken != undefined && { oauthToken: input.oauthToken }),
-    ...(input.platform != undefined && { platform: input.platform }),
-    ...(input.repository != undefined && { repository: input.repository }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.iamServiceRoleArn != null && { iamServiceRoleArn: input.iamServiceRoleArn }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.oauthToken != null && { oauthToken: input.oauthToken }),
+    ...(input.platform != null && { platform: input.platform }),
+    ...(input.repository != null && { repository: input.repository }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -182,9 +180,9 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.deploymentArtifacts != undefined && { deploymentArtifacts: input.deploymentArtifacts }),
-    ...(input.environmentName != undefined && { environmentName: input.environmentName }),
-    ...(input.stackName != undefined && { stackName: input.stackName }),
+    ...(input.deploymentArtifacts != null && { deploymentArtifacts: input.deploymentArtifacts }),
+    ...(input.environmentName != null && { environmentName: input.environmentName }),
+    ...(input.stackName != null && { stackName: input.stackName }),
   });
   return new __HttpRequest({
     protocol,
@@ -217,27 +215,25 @@ export const serializeAws_restJson1CreateBranchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn != undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials != undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.branchName != undefined && { branchName: input.branchName }),
-    ...(input.buildSpec != undefined && { buildSpec: input.buildSpec }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.displayName != undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild != undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification != undefined && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode != undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != undefined && {
+    ...(input.backendEnvironmentArn != null && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.branchName != null && { branchName: input.branchName }),
+    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification != null && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables != null && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.framework != undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage != undefined && { stage: input.stage }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.ttl != undefined && { ttl: input.ttl }),
+    ...(input.framework != null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage != null && { stage: input.stage }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.ttl != null && { ttl: input.ttl }),
   });
   return new __HttpRequest({
     protocol,
@@ -281,7 +277,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fileMap != undefined && { fileMap: serializeAws_restJson1FileMap(input.fileMap, context) }),
+    ...(input.fileMap != null && { fileMap: serializeAws_restJson1FileMap(input.fileMap, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -314,16 +310,16 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns != undefined && {
+    ...(input.autoSubDomainCreationPatterns != null && {
       autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
         input.autoSubDomainCreationPatterns,
         context
       ),
     }),
-    ...(input.autoSubDomainIAMRole != undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.domainName != undefined && { domainName: input.domainName }),
-    ...(input.enableAutoSubDomain != undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings != undefined && {
+    ...(input.autoSubDomainIAMRole != null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
+    ...(input.domainName != null && { domainName: input.domainName }),
+    ...(input.enableAutoSubDomain != null && { enableAutoSubDomain: input.enableAutoSubDomain }),
+    ...(input.subDomainSettings != null && {
       subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
     }),
   });
@@ -358,8 +354,8 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.branchName != undefined && { branchName: input.branchName }),
-    ...(input.description != undefined && { description: input.description }),
+    ...(input.branchName != null && { branchName: input.branchName }),
+    ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
     protocol,
@@ -611,9 +607,9 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.domainName != undefined && { domainName: input.domainName }),
-    ...(input.endTime != undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime != undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.domainName != null && { domainName: input.domainName }),
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1186,8 +1182,8 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.jobId != undefined && { jobId: input.jobId }),
-    ...(input.sourceUrl != undefined && { sourceUrl: input.sourceUrl }),
+    ...(input.jobId != null && { jobId: input.jobId }),
+    ...(input.sourceUrl != null && { sourceUrl: input.sourceUrl }),
   });
   return new __HttpRequest({
     protocol,
@@ -1230,12 +1226,12 @@ export const serializeAws_restJson1StartJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.commitId != undefined && { commitId: input.commitId }),
-    ...(input.commitMessage != undefined && { commitMessage: input.commitMessage }),
-    ...(input.commitTime != undefined && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
-    ...(input.jobReason != undefined && { jobReason: input.jobReason }),
-    ...(input.jobType != undefined && { jobType: input.jobType }),
+    ...(input.commitId != null && { commitId: input.commitId }),
+    ...(input.commitMessage != null && { commitMessage: input.commitMessage }),
+    ...(input.commitTime != null && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
+    ...(input.jobId != null && { jobId: input.jobId }),
+    ...(input.jobReason != null && { jobReason: input.jobReason }),
+    ...(input.jobType != null && { jobType: input.jobType }),
   });
   return new __HttpRequest({
     protocol,
@@ -1316,7 +1312,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1381,35 +1377,33 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.accessToken != undefined && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig != undefined && {
+    ...(input.accessToken != null && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig != null && {
       autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
     }),
-    ...(input.autoBranchCreationPatterns != undefined && {
+    ...(input.autoBranchCreationPatterns != null && {
       autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
         input.autoBranchCreationPatterns,
         context
       ),
     }),
-    ...(input.basicAuthCredentials != undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != undefined && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders != undefined && { customHeaders: input.customHeaders }),
-    ...(input.customRules != undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
-    }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation != undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth != undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild != undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion != undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables != undefined && {
+    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders != null && { customHeaders: input.customHeaders }),
+    ...(input.customRules != null && { customRules: serializeAws_restJson1CustomRules(input.customRules, context) }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.enableAutoBranchCreation != null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild != null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion != null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
+    ...(input.environmentVariables != null && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.iamServiceRoleArn != undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.oauthToken != undefined && { oauthToken: input.oauthToken }),
-    ...(input.platform != undefined && { platform: input.platform }),
-    ...(input.repository != undefined && { repository: input.repository }),
+    ...(input.iamServiceRoleArn != null && { iamServiceRoleArn: input.iamServiceRoleArn }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.oauthToken != null && { oauthToken: input.oauthToken }),
+    ...(input.platform != null && { platform: input.platform }),
+    ...(input.repository != null && { repository: input.repository }),
   });
   return new __HttpRequest({
     protocol,
@@ -1452,25 +1446,23 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn != undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials != undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != undefined && { buildSpec: input.buildSpec }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.displayName != undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild != undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification != undefined && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode != undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != undefined && {
+    ...(input.backendEnvironmentArn != null && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.displayName != null && { displayName: input.displayName }),
+    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification != null && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables != null && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.framework != undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage != undefined && { stage: input.stage }),
-    ...(input.ttl != undefined && { ttl: input.ttl }),
+    ...(input.framework != null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage != null && { stage: input.stage }),
+    ...(input.ttl != null && { ttl: input.ttl }),
   });
   return new __HttpRequest({
     protocol,
@@ -1513,15 +1505,15 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns != undefined && {
+    ...(input.autoSubDomainCreationPatterns != null && {
       autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
         input.autoSubDomainCreationPatterns,
         context
       ),
     }),
-    ...(input.autoSubDomainIAMRole != undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.enableAutoSubDomain != undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings != undefined && {
+    ...(input.autoSubDomainIAMRole != null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
+    ...(input.enableAutoSubDomain != null && { enableAutoSubDomain: input.enableAutoSubDomain }),
+    ...(input.subDomainSettings != null && {
       subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
     }),
   });
@@ -1556,8 +1548,8 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.branchName != undefined && { branchName: input.branchName }),
-    ...(input.description != undefined && { description: input.description }),
+    ...(input.branchName != null && { branchName: input.branchName }),
+    ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
     protocol,
@@ -3768,20 +3760,18 @@ const serializeAws_restJson1AutoBranchCreationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.basicAuthCredentials != undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec != undefined && { buildSpec: input.buildSpec }),
-    ...(input.enableAutoBuild != undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth != undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enablePerformanceMode != undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview != undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables != undefined && {
+    ...(input.basicAuthCredentials != null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec != null && { buildSpec: input.buildSpec }),
+    ...(input.enableAutoBuild != null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth != null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enablePerformanceMode != null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview != null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables != null && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
     }),
-    ...(input.framework != undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName != undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage != undefined && { stage: input.stage }),
+    ...(input.framework != null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName != null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage != null && { stage: input.stage }),
   };
 };
 
@@ -3809,10 +3799,10 @@ const serializeAws_restJson1AutoSubDomainCreationPatterns = (input: string[], co
 
 const serializeAws_restJson1CustomRule = (input: CustomRule, context: __SerdeContext): any => {
   return {
-    ...(input.condition != undefined && { condition: input.condition }),
-    ...(input.source != undefined && { source: input.source }),
-    ...(input.status != undefined && { status: input.status }),
-    ...(input.target != undefined && { target: input.target }),
+    ...(input.condition != null && { condition: input.condition }),
+    ...(input.source != null && { source: input.source }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.target != null && { target: input.target }),
   };
 };
 
@@ -3853,8 +3843,8 @@ const serializeAws_restJson1FileMap = (input: Record<string, string>, context: _
 
 const serializeAws_restJson1SubDomainSetting = (input: SubDomainSetting, context: __SerdeContext): any => {
   return {
-    ...(input.branchName != undefined && { branchName: input.branchName }),
-    ...(input.prefix != undefined && { prefix: input.prefix }),
+    ...(input.branchName != null && { branchName: input.branchName }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
@@ -3886,22 +3876,20 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
     appArn: __expectString(output.appArn),
     appId: __expectString(output.appId),
     autoBranchCreationConfig:
-      output.autoBranchCreationConfig != undefined
+      output.autoBranchCreationConfig != null
         ? deserializeAws_restJson1AutoBranchCreationConfig(output.autoBranchCreationConfig, context)
         : undefined,
     autoBranchCreationPatterns:
-      output.autoBranchCreationPatterns != undefined
+      output.autoBranchCreationPatterns != null
         ? deserializeAws_restJson1AutoBranchCreationPatterns(output.autoBranchCreationPatterns, context)
         : undefined,
     basicAuthCredentials: __expectString(output.basicAuthCredentials),
     buildSpec: __expectString(output.buildSpec),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     customHeaders: __expectString(output.customHeaders),
     customRules:
-      output.customRules != undefined ? deserializeAws_restJson1CustomRules(output.customRules, context) : undefined,
+      output.customRules != null ? deserializeAws_restJson1CustomRules(output.customRules, context) : undefined,
     defaultDomain: __expectString(output.defaultDomain),
     description: __expectString(output.description),
     enableAutoBranchCreation: __expectBoolean(output.enableAutoBranchCreation),
@@ -3909,23 +3897,21 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
     enableBranchAutoBuild: __expectBoolean(output.enableBranchAutoBuild),
     enableBranchAutoDeletion: __expectBoolean(output.enableBranchAutoDeletion),
     environmentVariables:
-      output.environmentVariables != undefined
+      output.environmentVariables != null
         ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
     iamServiceRoleArn: __expectString(output.iamServiceRoleArn),
     name: __expectString(output.name),
     platform: __expectString(output.platform),
     productionBranch:
-      output.productionBranch != undefined
+      output.productionBranch != null
         ? deserializeAws_restJson1ProductionBranch(output.productionBranch, context)
         : undefined,
     repository: __expectString(output.repository),
     repositoryCloneMethod: __expectString(output.repositoryCloneMethod),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     updateTime:
-      output.updateTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
-        : undefined,
+      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
   } as any;
 };
 
@@ -3984,7 +3970,7 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
     enablePerformanceMode: __expectBoolean(output.enablePerformanceMode),
     enablePullRequestPreview: __expectBoolean(output.enablePullRequestPreview),
     environmentVariables:
-      output.environmentVariables != undefined
+      output.environmentVariables != null
         ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
     framework: __expectString(output.framework),
@@ -4021,16 +4007,12 @@ const deserializeAws_restJson1BackendEnvironment = (output: any, context: __Serd
   return {
     backendEnvironmentArn: __expectString(output.backendEnvironmentArn),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     deploymentArtifacts: __expectString(output.deploymentArtifacts),
     environmentName: __expectString(output.environmentName),
     stackName: __expectString(output.stackName),
     updateTime:
-      output.updateTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
-        : undefined,
+      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
   } as any;
 };
 
@@ -4050,7 +4032,7 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
   return {
     activeJobId: __expectString(output.activeJobId),
     associatedResources:
-      output.associatedResources != undefined
+      output.associatedResources != null
         ? deserializeAws_restJson1AssociatedResources(output.associatedResources, context)
         : undefined,
     backendEnvironmentArn: __expectString(output.backendEnvironmentArn),
@@ -4059,13 +4041,9 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
     branchName: __expectString(output.branchName),
     buildSpec: __expectString(output.buildSpec),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     customDomains:
-      output.customDomains != undefined
-        ? deserializeAws_restJson1CustomDomains(output.customDomains, context)
-        : undefined,
+      output.customDomains != null ? deserializeAws_restJson1CustomDomains(output.customDomains, context) : undefined,
     description: __expectString(output.description),
     destinationBranch: __expectString(output.destinationBranch),
     displayName: __expectString(output.displayName),
@@ -4075,21 +4053,19 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
     enablePerformanceMode: __expectBoolean(output.enablePerformanceMode),
     enablePullRequestPreview: __expectBoolean(output.enablePullRequestPreview),
     environmentVariables:
-      output.environmentVariables != undefined
+      output.environmentVariables != null
         ? deserializeAws_restJson1EnvironmentVariables(output.environmentVariables, context)
         : undefined,
     framework: __expectString(output.framework),
     pullRequestEnvironmentName: __expectString(output.pullRequestEnvironmentName),
     sourceBranch: __expectString(output.sourceBranch),
     stage: __expectString(output.stage),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     thumbnailUrl: __expectString(output.thumbnailUrl),
     totalNumberOfJobs: __expectString(output.totalNumberOfJobs),
     ttl: __expectString(output.ttl),
     updateTime:
-      output.updateTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
-        : undefined,
+      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
   } as any;
 };
 
@@ -4141,7 +4117,7 @@ const deserializeAws_restJson1CustomRules = (output: any, context: __SerdeContex
 const deserializeAws_restJson1DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
   return {
     autoSubDomainCreationPatterns:
-      output.autoSubDomainCreationPatterns != undefined
+      output.autoSubDomainCreationPatterns != null
         ? deserializeAws_restJson1AutoSubDomainCreationPatterns(output.autoSubDomainCreationPatterns, context)
         : undefined,
     autoSubDomainIAMRole: __expectString(output.autoSubDomainIAMRole),
@@ -4151,8 +4127,7 @@ const deserializeAws_restJson1DomainAssociation = (output: any, context: __Serde
     domainStatus: __expectString(output.domainStatus),
     enableAutoSubDomain: __expectBoolean(output.enableAutoSubDomain),
     statusReason: __expectString(output.statusReason),
-    subDomains:
-      output.subDomains != undefined ? deserializeAws_restJson1SubDomains(output.subDomains, context) : undefined,
+    subDomains: output.subDomains != null ? deserializeAws_restJson1SubDomains(output.subDomains, context) : undefined,
   } as any;
 };
 
@@ -4194,8 +4169,8 @@ const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
-    steps: output.steps != undefined ? deserializeAws_restJson1Steps(output.steps, context) : undefined,
-    summary: output.summary != undefined ? deserializeAws_restJson1JobSummary(output.summary, context) : undefined,
+    steps: output.steps != null ? deserializeAws_restJson1Steps(output.steps, context) : undefined,
+    summary: output.summary != null ? deserializeAws_restJson1JobSummary(output.summary, context) : undefined,
   } as any;
 };
 
@@ -4216,18 +4191,14 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
     commitId: __expectString(output.commitId),
     commitMessage: __expectString(output.commitMessage),
     commitTime:
-      output.commitTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.commitTime)))
-        : undefined,
+      output.commitTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.commitTime))) : undefined,
     endTime:
-      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
     jobType: __expectString(output.jobType),
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -4236,7 +4207,7 @@ const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeC
   return {
     branchName: __expectString(output.branchName),
     lastDeployTime:
-      output.lastDeployTime != undefined
+      output.lastDeployTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeployTime)))
         : undefined,
     status: __expectString(output.status),
@@ -4261,14 +4232,12 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
     artifactsUrl: __expectString(output.artifactsUrl),
     context: __expectString(output.context),
     endTime:
-      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     logUrl: __expectString(output.logUrl),
     screenshots:
-      output.screenshots != undefined ? deserializeAws_restJson1Screenshots(output.screenshots, context) : undefined,
+      output.screenshots != null ? deserializeAws_restJson1Screenshots(output.screenshots, context) : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
     stepName: __expectString(output.stepName),
@@ -4293,7 +4262,7 @@ const deserializeAws_restJson1SubDomain = (output: any, context: __SerdeContext)
   return {
     dnsRecord: __expectString(output.dnsRecord),
     subDomainSetting:
-      output.subDomainSetting != undefined
+      output.subDomainSetting != null
         ? deserializeAws_restJson1SubDomainSetting(output.subDomainSetting, context)
         : undefined,
     verified: __expectBoolean(output.verified),
@@ -4335,14 +4304,10 @@ const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): 
   return {
     branchName: __expectString(output.branchName),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     description: __expectString(output.description),
     updateTime:
-      output.updateTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime)))
-        : undefined,
+      output.updateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateTime))) : undefined,
     webhookArn: __expectString(output.webhookArn),
     webhookId: __expectString(output.webhookId),
     webhookUrl: __expectString(output.webhookUrl),

@@ -48,15 +48,15 @@ export const serializeAws_restJson1CreateRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.ResourceTags != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_restJson1ResourceTags(input.ResourceTags, context),
     }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
-    ...(input.RetentionPeriod != undefined && {
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.RetentionPeriod != null && {
       RetentionPeriod: serializeAws_restJson1RetentionPeriod(input.RetentionPeriod, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -136,12 +136,12 @@ export const serializeAws_restJson1ListRulesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-rules";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceTags != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_restJson1ResourceTags(input.ResourceTags, context),
     }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -202,7 +202,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -267,12 +267,12 @@ export const serializeAws_restJson1UpdateRuleCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.ResourceTags != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.ResourceTags != null && {
       ResourceTags: serializeAws_restJson1ResourceTags(input.ResourceTags, context),
     }),
-    ...(input.ResourceType != undefined && { ResourceType: input.ResourceType }),
-    ...(input.RetentionPeriod != undefined && {
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+    ...(input.RetentionPeriod != null && {
       RetentionPeriod: serializeAws_restJson1RetentionPeriod(input.RetentionPeriod, context),
     }),
   });
@@ -826,8 +826,8 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceTagKey != undefined && { ResourceTagKey: input.ResourceTagKey }),
-    ...(input.ResourceTagValue != undefined && { ResourceTagValue: input.ResourceTagValue }),
+    ...(input.ResourceTagKey != null && { ResourceTagKey: input.ResourceTagKey }),
+    ...(input.ResourceTagValue != null && { ResourceTagValue: input.ResourceTagValue }),
   };
 };
 
@@ -844,15 +844,15 @@ const serializeAws_restJson1ResourceTags = (input: ResourceTag[], context: __Ser
 
 const serializeAws_restJson1RetentionPeriod = (input: RetentionPeriod, context: __SerdeContext): any => {
   return {
-    ...(input.RetentionPeriodUnit != undefined && { RetentionPeriodUnit: input.RetentionPeriodUnit }),
-    ...(input.RetentionPeriodValue != undefined && { RetentionPeriodValue: input.RetentionPeriodValue }),
+    ...(input.RetentionPeriodUnit != null && { RetentionPeriodUnit: input.RetentionPeriodUnit }),
+    ...(input.RetentionPeriodValue != null && { RetentionPeriodValue: input.RetentionPeriodValue }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -898,7 +898,7 @@ const deserializeAws_restJson1RuleSummary = (output: any, context: __SerdeContex
     Description: __expectString(output.Description),
     Identifier: __expectString(output.Identifier),
     RetentionPeriod:
-      output.RetentionPeriod != undefined
+      output.RetentionPeriod != null
         ? deserializeAws_restJson1RetentionPeriod(output.RetentionPeriod, context)
         : undefined,
   } as any;

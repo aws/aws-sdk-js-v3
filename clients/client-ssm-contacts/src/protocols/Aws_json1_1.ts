@@ -2162,12 +2162,12 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AcceptPageRequest = (input: AcceptPageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceptCode != undefined && { AcceptCode: input.AcceptCode }),
-    ...(input.AcceptCodeValidation != undefined && { AcceptCodeValidation: input.AcceptCodeValidation }),
-    ...(input.AcceptType != undefined && { AcceptType: input.AcceptType }),
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
-    ...(input.Note != undefined && { Note: input.Note }),
-    ...(input.PageId != undefined && { PageId: input.PageId }),
+    ...(input.AcceptCode != null && { AcceptCode: input.AcceptCode }),
+    ...(input.AcceptCodeValidation != null && { AcceptCodeValidation: input.AcceptCodeValidation }),
+    ...(input.AcceptType != null && { AcceptType: input.AcceptType }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
+    ...(input.Note != null && { Note: input.Note }),
+    ...(input.PageId != null && { PageId: input.PageId }),
   };
 };
 
@@ -2176,28 +2176,28 @@ const serializeAws_json1_1ActivateContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActivationCode != undefined && { ActivationCode: input.ActivationCode }),
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
+    ...(input.ActivationCode != null && { ActivationCode: input.ActivationCode }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
 };
 
 const serializeAws_json1_1ChannelTargetInfo = (input: ChannelTargetInfo, context: __SerdeContext): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
-    ...(input.RetryIntervalInMinutes != undefined && { RetryIntervalInMinutes: input.RetryIntervalInMinutes }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
+    ...(input.RetryIntervalInMinutes != null && { RetryIntervalInMinutes: input.RetryIntervalInMinutes }),
   };
 };
 
 const serializeAws_json1_1ContactChannelAddress = (input: ContactChannelAddress, context: __SerdeContext): any => {
   return {
-    ...(input.SimpleAddress != undefined && { SimpleAddress: input.SimpleAddress }),
+    ...(input.SimpleAddress != null && { SimpleAddress: input.SimpleAddress }),
   };
 };
 
 const serializeAws_json1_1ContactTargetInfo = (input: ContactTargetInfo, context: __SerdeContext): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.IsEssential != undefined && { IsEssential: input.IsEssential }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.IsEssential != null && { IsEssential: input.IsEssential }),
   };
 };
 
@@ -2206,25 +2206,25 @@ const serializeAws_json1_1CreateContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.DeferActivation != undefined && { DeferActivation: input.DeferActivation }),
-    ...(input.DeliveryAddress != undefined && {
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.DeferActivation != null && { DeferActivation: input.DeferActivation }),
+    ...(input.DeliveryAddress != null && {
       DeliveryAddress: serializeAws_json1_1ContactChannelAddress(input.DeliveryAddress, context),
     }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1CreateContactRequest = (input: CreateContactRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias != undefined && { Alias: input.Alias }),
-    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Plan != undefined && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Plan != null && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -2233,7 +2233,7 @@ const serializeAws_json1_1DeactivateContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
 };
 
@@ -2242,13 +2242,13 @@ const serializeAws_json1_1DeleteContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
 };
 
 const serializeAws_json1_1DeleteContactRequest = (input: DeleteContactRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
   };
 };
 
@@ -2257,13 +2257,13 @@ const serializeAws_json1_1DescribeEngagementRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EngagementId != undefined && { EngagementId: input.EngagementId }),
+    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
   };
 };
 
 const serializeAws_json1_1DescribePageRequest = (input: DescribePageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PageId != undefined && { PageId: input.PageId }),
+    ...(input.PageId != null && { PageId: input.PageId }),
   };
 };
 
@@ -2272,19 +2272,19 @@ const serializeAws_json1_1GetContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
 };
 
 const serializeAws_json1_1GetContactPolicyRequest = (input: GetContactPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactArn != undefined && { ContactArn: input.ContactArn }),
+    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
   };
 };
 
 const serializeAws_json1_1GetContactRequest = (input: GetContactRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
   };
 };
 
@@ -2293,27 +2293,27 @@ const serializeAws_json1_1ListContactChannelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListContactsRequest = (input: ListContactsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AliasPrefix != undefined && { AliasPrefix: input.AliasPrefix }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.AliasPrefix != null && { AliasPrefix: input.AliasPrefix }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1ListEngagementsRequest = (input: ListEngagementsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IncidentId != undefined && { IncidentId: input.IncidentId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TimeRangeValue != undefined && {
+    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TimeRangeValue != null && {
       TimeRangeValue: serializeAws_json1_1TimeRange(input.TimeRangeValue, context),
     }),
   };
@@ -2321,9 +2321,9 @@ const serializeAws_json1_1ListEngagementsRequest = (input: ListEngagementsReques
 
 const serializeAws_json1_1ListPageReceiptsRequest = (input: ListPageReceiptsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PageId != undefined && { PageId: input.PageId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PageId != null && { PageId: input.PageId }),
   };
 };
 
@@ -2332,9 +2332,9 @@ const serializeAws_json1_1ListPagesByContactRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2343,9 +2343,9 @@ const serializeAws_json1_1ListPagesByEngagementRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EngagementId != undefined && { EngagementId: input.EngagementId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2354,20 +2354,20 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_1Plan = (input: Plan, context: __SerdeContext): any => {
   return {
-    ...(input.Stages != undefined && { Stages: serializeAws_json1_1StagesList(input.Stages, context) }),
+    ...(input.Stages != null && { Stages: serializeAws_json1_1StagesList(input.Stages, context) }),
   };
 };
 
 const serializeAws_json1_1PutContactPolicyRequest = (input: PutContactPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactArn != undefined && { ContactArn: input.ContactArn }),
-    ...(input.Policy != undefined && { Policy: input.Policy }),
+    ...(input.ContactArn != null && { ContactArn: input.ContactArn }),
+    ...(input.Policy != null && { Policy: input.Policy }),
   };
 };
 
@@ -2376,14 +2376,14 @@ const serializeAws_json1_1SendActivationCodeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
   };
 };
 
 const serializeAws_json1_1Stage = (input: Stage, context: __SerdeContext): any => {
   return {
-    ...(input.DurationInMinutes != undefined && { DurationInMinutes: input.DurationInMinutes }),
-    ...(input.Targets != undefined && { Targets: serializeAws_json1_1TargetsList(input.Targets, context) }),
+    ...(input.DurationInMinutes != null && { DurationInMinutes: input.DurationInMinutes }),
+    ...(input.Targets != null && { Targets: serializeAws_json1_1TargetsList(input.Targets, context) }),
   };
 };
 
@@ -2400,28 +2400,28 @@ const serializeAws_json1_1StagesList = (input: Stage[], context: __SerdeContext)
 
 const serializeAws_json1_1StartEngagementRequest = (input: StartEngagementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.Content != null && { Content: input.Content }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IncidentId != undefined && { IncidentId: input.IncidentId }),
-    ...(input.PublicContent != undefined && { PublicContent: input.PublicContent }),
-    ...(input.PublicSubject != undefined && { PublicSubject: input.PublicSubject }),
-    ...(input.Sender != undefined && { Sender: input.Sender }),
-    ...(input.Subject != undefined && { Subject: input.Subject }),
+    ...(input.IncidentId != null && { IncidentId: input.IncidentId }),
+    ...(input.PublicContent != null && { PublicContent: input.PublicContent }),
+    ...(input.PublicSubject != null && { PublicSubject: input.PublicSubject }),
+    ...(input.Sender != null && { Sender: input.Sender }),
+    ...(input.Subject != null && { Subject: input.Subject }),
   };
 };
 
 const serializeAws_json1_1StopEngagementRequest = (input: StopEngagementRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EngagementId != undefined && { EngagementId: input.EngagementId }),
-    ...(input.Reason != undefined && { Reason: input.Reason }),
+    ...(input.EngagementId != null && { EngagementId: input.EngagementId }),
+    ...(input.Reason != null && { Reason: input.Reason }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2438,8 +2438,8 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagsList(input.Tags, context) }),
   };
 };
 
@@ -2456,10 +2456,10 @@ const serializeAws_json1_1TagsList = (input: Tag[], context: __SerdeContext): an
 
 const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
-    ...(input.ChannelTargetInfo != undefined && {
+    ...(input.ChannelTargetInfo != null && {
       ChannelTargetInfo: serializeAws_json1_1ChannelTargetInfo(input.ChannelTargetInfo, context),
     }),
-    ...(input.ContactTargetInfo != undefined && {
+    ...(input.ContactTargetInfo != null && {
       ContactTargetInfo: serializeAws_json1_1ContactTargetInfo(input.ContactTargetInfo, context),
     }),
   };
@@ -2478,15 +2478,15 @@ const serializeAws_json1_1TargetsList = (input: Target[], context: __SerdeContex
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2495,19 +2495,19 @@ const serializeAws_json1_1UpdateContactChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContactChannelId != undefined && { ContactChannelId: input.ContactChannelId }),
-    ...(input.DeliveryAddress != undefined && {
+    ...(input.ContactChannelId != null && { ContactChannelId: input.ContactChannelId }),
+    ...(input.DeliveryAddress != null && {
       DeliveryAddress: serializeAws_json1_1ContactChannelAddress(input.DeliveryAddress, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1UpdateContactRequest = (input: UpdateContactRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ContactId != undefined && { ContactId: input.ContactId }),
-    ...(input.DisplayName != undefined && { DisplayName: input.DisplayName }),
-    ...(input.Plan != undefined && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
+    ...(input.Plan != null && { Plan: serializeAws_json1_1Plan(input.Plan, context) }),
   };
 };
 
@@ -2558,7 +2558,7 @@ const deserializeAws_json1_1ContactChannel = (output: any, context: __SerdeConte
     ContactArn: __expectString(output.ContactArn),
     ContactChannelArn: __expectString(output.ContactChannelArn),
     DeliveryAddress:
-      output.DeliveryAddress != undefined
+      output.DeliveryAddress != null
         ? deserializeAws_json1_1ContactChannelAddress(output.DeliveryAddress, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -2658,13 +2658,9 @@ const deserializeAws_json1_1DescribeEngagementResult = (
     PublicSubject: __expectString(output.PublicSubject),
     Sender: __expectString(output.Sender),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     StopTime:
-      output.StopTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime)))
-        : undefined,
+      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
     Subject: __expectString(output.Subject),
   } as any;
 };
@@ -2674,7 +2670,7 @@ const deserializeAws_json1_1DescribePageResult = (output: any, context: __SerdeC
     ContactArn: __expectString(output.ContactArn),
     Content: __expectString(output.Content),
     DeliveryTime:
-      output.DeliveryTime != undefined
+      output.DeliveryTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
         : undefined,
     EngagementArn: __expectString(output.EngagementArn),
@@ -2683,14 +2679,10 @@ const deserializeAws_json1_1DescribePageResult = (output: any, context: __SerdeC
     PublicContent: __expectString(output.PublicContent),
     PublicSubject: __expectString(output.PublicSubject),
     ReadTime:
-      output.ReadTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime)))
-        : undefined,
+      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
     Sender: __expectString(output.Sender),
     SentTime:
-      output.SentTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime)))
-        : undefined,
+      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
     Subject: __expectString(output.Subject),
   } as any;
 };
@@ -2702,13 +2694,9 @@ const deserializeAws_json1_1Engagement = (output: any, context: __SerdeContext):
     IncidentId: __expectString(output.IncidentId),
     Sender: __expectString(output.Sender),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
     StopTime:
-      output.StopTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime)))
-        : undefined,
+      output.StopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopTime))) : undefined,
   } as any;
 };
 
@@ -2733,7 +2721,7 @@ const deserializeAws_json1_1GetContactChannelResult = (
     ContactArn: __expectString(output.ContactArn),
     ContactChannelArn: __expectString(output.ContactChannelArn),
     DeliveryAddress:
-      output.DeliveryAddress != undefined
+      output.DeliveryAddress != null
         ? deserializeAws_json1_1ContactChannelAddress(output.DeliveryAddress, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -2753,7 +2741,7 @@ const deserializeAws_json1_1GetContactResult = (output: any, context: __SerdeCon
     Alias: __expectString(output.Alias),
     ContactArn: __expectString(output.ContactArn),
     DisplayName: __expectString(output.DisplayName),
-    Plan: output.Plan != undefined ? deserializeAws_json1_1Plan(output.Plan, context) : undefined,
+    Plan: output.Plan != null ? deserializeAws_json1_1Plan(output.Plan, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -2774,7 +2762,7 @@ const deserializeAws_json1_1ListContactChannelsResult = (
 ): ListContactChannelsResult => {
   return {
     ContactChannels:
-      output.ContactChannels != undefined
+      output.ContactChannels != null
         ? deserializeAws_json1_1ContactChannelList(output.ContactChannels, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2783,7 +2771,7 @@ const deserializeAws_json1_1ListContactChannelsResult = (
 
 const deserializeAws_json1_1ListContactsResult = (output: any, context: __SerdeContext): ListContactsResult => {
   return {
-    Contacts: output.Contacts != undefined ? deserializeAws_json1_1ContactsList(output.Contacts, context) : undefined,
+    Contacts: output.Contacts != null ? deserializeAws_json1_1ContactsList(output.Contacts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2791,7 +2779,7 @@ const deserializeAws_json1_1ListContactsResult = (output: any, context: __SerdeC
 const deserializeAws_json1_1ListEngagementsResult = (output: any, context: __SerdeContext): ListEngagementsResult => {
   return {
     Engagements:
-      output.Engagements != undefined ? deserializeAws_json1_1EngagementsList(output.Engagements, context) : undefined,
+      output.Engagements != null ? deserializeAws_json1_1EngagementsList(output.Engagements, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2799,7 +2787,7 @@ const deserializeAws_json1_1ListEngagementsResult = (output: any, context: __Ser
 const deserializeAws_json1_1ListPageReceiptsResult = (output: any, context: __SerdeContext): ListPageReceiptsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Receipts: output.Receipts != undefined ? deserializeAws_json1_1ReceiptsList(output.Receipts, context) : undefined,
+    Receipts: output.Receipts != null ? deserializeAws_json1_1ReceiptsList(output.Receipts, context) : undefined,
   } as any;
 };
 
@@ -2809,7 +2797,7 @@ const deserializeAws_json1_1ListPagesByContactResult = (
 ): ListPagesByContactResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != undefined ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
+    Pages: output.Pages != null ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
   } as any;
 };
 
@@ -2819,7 +2807,7 @@ const deserializeAws_json1_1ListPagesByEngagementResult = (
 ): ListPagesByEngagementResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Pages: output.Pages != undefined ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
+    Pages: output.Pages != null ? deserializeAws_json1_1PagesList(output.Pages, context) : undefined,
   } as any;
 };
 
@@ -2828,7 +2816,7 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
   context: __SerdeContext
 ): ListTagsForResourceResult => {
   return {
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagsList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2836,21 +2824,17 @@ const deserializeAws_json1_1Page = (output: any, context: __SerdeContext): Page 
   return {
     ContactArn: __expectString(output.ContactArn),
     DeliveryTime:
-      output.DeliveryTime != undefined
+      output.DeliveryTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeliveryTime)))
         : undefined,
     EngagementArn: __expectString(output.EngagementArn),
     IncidentId: __expectString(output.IncidentId),
     PageArn: __expectString(output.PageArn),
     ReadTime:
-      output.ReadTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime)))
-        : undefined,
+      output.ReadTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReadTime))) : undefined,
     Sender: __expectString(output.Sender),
     SentTime:
-      output.SentTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime)))
-        : undefined,
+      output.SentTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SentTime))) : undefined,
   } as any;
 };
 
@@ -2868,7 +2852,7 @@ const deserializeAws_json1_1PagesList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Plan = (output: any, context: __SerdeContext): Plan => {
   return {
-    Stages: output.Stages != undefined ? deserializeAws_json1_1StagesList(output.Stages, context) : undefined,
+    Stages: output.Stages != null ? deserializeAws_json1_1StagesList(output.Stages, context) : undefined,
   } as any;
 };
 
@@ -2881,7 +2865,7 @@ const deserializeAws_json1_1Receipt = (output: any, context: __SerdeContext): Re
     ContactChannelArn: __expectString(output.ContactChannelArn),
     ReceiptInfo: __expectString(output.ReceiptInfo),
     ReceiptTime:
-      output.ReceiptTime != undefined
+      output.ReceiptTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ReceiptTime)))
         : undefined,
     ReceiptType: __expectString(output.ReceiptType),
@@ -2934,7 +2918,7 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
 const deserializeAws_json1_1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
     DurationInMinutes: __expectInt32(output.DurationInMinutes),
-    Targets: output.Targets != undefined ? deserializeAws_json1_1TargetsList(output.Targets, context) : undefined,
+    Targets: output.Targets != null ? deserializeAws_json1_1TargetsList(output.Targets, context) : undefined,
   } as any;
 };
 
@@ -2986,11 +2970,11 @@ const deserializeAws_json1_1TagsList = (output: any, context: __SerdeContext): T
 const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
   return {
     ChannelTargetInfo:
-      output.ChannelTargetInfo != undefined
+      output.ChannelTargetInfo != null
         ? deserializeAws_json1_1ChannelTargetInfo(output.ChannelTargetInfo, context)
         : undefined,
     ContactTargetInfo:
-      output.ContactTargetInfo != undefined
+      output.ContactTargetInfo != null
         ? deserializeAws_json1_1ContactTargetInfo(output.ContactTargetInfo, context)
         : undefined,
   } as any;
@@ -3035,9 +3019,7 @@ const deserializeAws_json1_1UpdateContactResult = (output: any, context: __Serde
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Fields:
-      output.Fields != undefined
-        ? deserializeAws_json1_1ValidationExceptionFieldList(output.Fields, context)
-        : undefined,
+      output.Fields != null ? deserializeAws_json1_1ValidationExceptionFieldList(output.Fields, context) : undefined,
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;

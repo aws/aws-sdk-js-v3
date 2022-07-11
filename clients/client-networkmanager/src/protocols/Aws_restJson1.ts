@@ -336,9 +336,9 @@ export const serializeAws_restJson1AssociateConnectPeerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectPeerId != undefined && { ConnectPeerId: input.ConnectPeerId }),
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
+    ...(input.ConnectPeerId != null && { ConnectPeerId: input.ConnectPeerId }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
   });
   return new __HttpRequest({
     protocol,
@@ -373,9 +373,9 @@ export const serializeAws_restJson1AssociateCustomerGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomerGatewayArn != undefined && { CustomerGatewayArn: input.CustomerGatewayArn }),
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
+    ...(input.CustomerGatewayArn != null && { CustomerGatewayArn: input.CustomerGatewayArn }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
   });
   return new __HttpRequest({
     protocol,
@@ -410,8 +410,8 @@ export const serializeAws_restJson1AssociateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
   });
   return new __HttpRequest({
     protocol,
@@ -446,9 +446,9 @@ export const serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
-    ...(input.TransitGatewayConnectPeerArn != undefined && {
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
+    ...(input.TransitGatewayConnectPeerArn != null && {
       TransitGatewayConnectPeerArn: input.TransitGatewayConnectPeerArn,
     }),
   });
@@ -475,13 +475,11 @@ export const serializeAws_restJson1CreateConnectAttachmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.CoreNetworkId != undefined && { CoreNetworkId: input.CoreNetworkId }),
-    ...(input.EdgeLocation != undefined && { EdgeLocation: input.EdgeLocation }),
-    ...(input.Options != undefined && {
-      Options: serializeAws_restJson1ConnectAttachmentOptions(input.Options, context),
-    }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TransportAttachmentId != undefined && { TransportAttachmentId: input.TransportAttachmentId }),
+    ...(input.CoreNetworkId != null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.EdgeLocation != null && { EdgeLocation: input.EdgeLocation }),
+    ...(input.Options != null && { Options: serializeAws_restJson1ConnectAttachmentOptions(input.Options, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TransportAttachmentId != null && { TransportAttachmentId: input.TransportAttachmentId }),
   });
   return new __HttpRequest({
     protocol,
@@ -516,12 +514,12 @@ export const serializeAws_restJson1CreateConnectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectedDeviceId != undefined && { ConnectedDeviceId: input.ConnectedDeviceId }),
-    ...(input.ConnectedLinkId != undefined && { ConnectedLinkId: input.ConnectedLinkId }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ConnectedDeviceId != null && { ConnectedDeviceId: input.ConnectedDeviceId }),
+    ...(input.ConnectedLinkId != null && { ConnectedLinkId: input.ConnectedLinkId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -545,15 +543,15 @@ export const serializeAws_restJson1CreateConnectPeerCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers";
   let body: any;
   body = JSON.stringify({
-    ...(input.BgpOptions != undefined && { BgpOptions: serializeAws_restJson1BgpOptions(input.BgpOptions, context) }),
+    ...(input.BgpOptions != null && { BgpOptions: serializeAws_restJson1BgpOptions(input.BgpOptions, context) }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ConnectAttachmentId != undefined && { ConnectAttachmentId: input.ConnectAttachmentId }),
-    ...(input.CoreNetworkAddress != undefined && { CoreNetworkAddress: input.CoreNetworkAddress }),
-    ...(input.InsideCidrBlocks != undefined && {
+    ...(input.ConnectAttachmentId != null && { ConnectAttachmentId: input.ConnectAttachmentId }),
+    ...(input.CoreNetworkAddress != null && { CoreNetworkAddress: input.CoreNetworkAddress }),
+    ...(input.InsideCidrBlocks != null && {
       InsideCidrBlocks: serializeAws_restJson1ConstrainedStringList(input.InsideCidrBlocks, context),
     }),
-    ...(input.PeerAddress != undefined && { PeerAddress: input.PeerAddress }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.PeerAddress != null && { PeerAddress: input.PeerAddress }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -578,10 +576,10 @@ export const serializeAws_restJson1CreateCoreNetworkCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.GlobalNetworkId != undefined && { GlobalNetworkId: input.GlobalNetworkId }),
-    ...(input.PolicyDocument != undefined && { PolicyDocument: input.PolicyDocument }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.GlobalNetworkId != null && { GlobalNetworkId: input.GlobalNetworkId }),
+    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -616,17 +614,15 @@ export const serializeAws_restJson1CreateDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AWSLocation != undefined && {
-      AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context),
-    }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Model != undefined && { Model: input.Model }),
-    ...(input.SerialNumber != undefined && { SerialNumber: input.SerialNumber }),
-    ...(input.SiteId != undefined && { SiteId: input.SiteId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Vendor != undefined && { Vendor: input.Vendor }),
+    ...(input.AWSLocation != null && { AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Location != null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Model != null && { Model: input.Model }),
+    ...(input.SerialNumber != null && { SerialNumber: input.SerialNumber }),
+    ...(input.SiteId != null && { SiteId: input.SiteId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Vendor != null && { Vendor: input.Vendor }),
   });
   return new __HttpRequest({
     protocol,
@@ -650,8 +646,8 @@ export const serializeAws_restJson1CreateGlobalNetworkCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -685,12 +681,12 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth != undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Provider != undefined && { Provider: input.Provider }),
-    ...(input.SiteId != undefined && { SiteId: input.SiteId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Bandwidth != null && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Provider != null && { Provider: input.Provider }),
+    ...(input.SiteId != null && { SiteId: input.SiteId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -724,9 +720,9 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Location != null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -752,9 +748,9 @@ export const serializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand = async 
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.CoreNetworkId != undefined && { CoreNetworkId: input.CoreNetworkId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.VpnConnectionArn != undefined && { VpnConnectionArn: input.VpnConnectionArn }),
+    ...(input.CoreNetworkId != null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.VpnConnectionArn != null && { VpnConnectionArn: input.VpnConnectionArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -779,13 +775,11 @@ export const serializeAws_restJson1CreateVpcAttachmentCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.CoreNetworkId != undefined && { CoreNetworkId: input.CoreNetworkId }),
-    ...(input.Options != undefined && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
-    ...(input.SubnetArns != undefined && {
-      SubnetArns: serializeAws_restJson1SubnetArnList(input.SubnetArns, context),
-    }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.VpcArn != undefined && { VpcArn: input.VpcArn }),
+    ...(input.CoreNetworkId != null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.Options != null && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
+    ...(input.SubnetArns != null && { SubnetArns: serializeAws_restJson1SubnetArnList(input.SubnetArns, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.VpcArn != null && { VpcArn: input.VpcArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1928,29 +1922,29 @@ export const serializeAws_restJson1GetNetworkRoutesCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DestinationFilters != undefined && {
+    ...(input.DestinationFilters != null && {
       DestinationFilters: serializeAws_restJson1FilterMap(input.DestinationFilters, context),
     }),
-    ...(input.ExactCidrMatches != undefined && {
+    ...(input.ExactCidrMatches != null && {
       ExactCidrMatches: serializeAws_restJson1ConstrainedStringList(input.ExactCidrMatches, context),
     }),
-    ...(input.LongestPrefixMatches != undefined && {
+    ...(input.LongestPrefixMatches != null && {
       LongestPrefixMatches: serializeAws_restJson1ConstrainedStringList(input.LongestPrefixMatches, context),
     }),
-    ...(input.PrefixListIds != undefined && {
+    ...(input.PrefixListIds != null && {
       PrefixListIds: serializeAws_restJson1ConstrainedStringList(input.PrefixListIds, context),
     }),
-    ...(input.RouteTableIdentifier != undefined && {
+    ...(input.RouteTableIdentifier != null && {
       RouteTableIdentifier: serializeAws_restJson1RouteTableIdentifier(input.RouteTableIdentifier, context),
     }),
-    ...(input.States != undefined && { States: serializeAws_restJson1RouteStateList(input.States, context) }),
-    ...(input.SubnetOfMatches != undefined && {
+    ...(input.States != null && { States: serializeAws_restJson1RouteStateList(input.States, context) }),
+    ...(input.SubnetOfMatches != null && {
       SubnetOfMatches: serializeAws_restJson1ConstrainedStringList(input.SubnetOfMatches, context),
     }),
-    ...(input.SupernetOfMatches != undefined && {
+    ...(input.SupernetOfMatches != null && {
       SupernetOfMatches: serializeAws_restJson1ConstrainedStringList(input.SupernetOfMatches, context),
     }),
-    ...(input.Types != undefined && { Types: serializeAws_restJson1RouteTypeList(input.Types, context) }),
+    ...(input.Types != null && { Types: serializeAws_restJson1RouteTypeList(input.Types, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2431,9 +2425,9 @@ export const serializeAws_restJson1PutCoreNetworkPolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LatestVersionId != undefined && { LatestVersionId: input.LatestVersionId }),
-    ...(input.PolicyDocument != undefined && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LatestVersionId != null && { LatestVersionId: input.LatestVersionId }),
+    ...(input.PolicyDocument != null && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2467,7 +2461,7 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.PolicyDocument != undefined && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
+    ...(input.PolicyDocument != null && { PolicyDocument: __LazyJsonString.fromObject(input.PolicyDocument) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2502,7 +2496,7 @@ export const serializeAws_restJson1RegisterTransitGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TransitGatewayArn != undefined && { TransitGatewayArn: input.TransitGatewayArn }),
+    ...(input.TransitGatewayArn != null && { TransitGatewayArn: input.TransitGatewayArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -2595,7 +2589,7 @@ export const serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organizations/service-access";
   let body: any;
   body = JSON.stringify({
-    ...(input.Action != undefined && { Action: input.Action }),
+    ...(input.Action != null && { Action: input.Action }),
   });
   return new __HttpRequest({
     protocol,
@@ -2630,14 +2624,14 @@ export const serializeAws_restJson1StartRouteAnalysisCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Destination != undefined && {
+    ...(input.Destination != null && {
       Destination: serializeAws_restJson1RouteAnalysisEndpointOptionsSpecification(input.Destination, context),
     }),
-    ...(input.IncludeReturnPath != undefined && { IncludeReturnPath: input.IncludeReturnPath }),
-    ...(input.Source != undefined && {
+    ...(input.IncludeReturnPath != null && { IncludeReturnPath: input.IncludeReturnPath }),
+    ...(input.Source != null && {
       Source: serializeAws_restJson1RouteAnalysisEndpointOptionsSpecification(input.Source, context),
     }),
-    ...(input.UseMiddleboxes != undefined && { UseMiddleboxes: input.UseMiddleboxes }),
+    ...(input.UseMiddleboxes != null && { UseMiddleboxes: input.UseMiddleboxes }),
   });
   return new __HttpRequest({
     protocol,
@@ -2670,7 +2664,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2746,9 +2740,9 @@ export const serializeAws_restJson1UpdateConnectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectedLinkId != undefined && { ConnectedLinkId: input.ConnectedLinkId }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LinkId != undefined && { LinkId: input.LinkId }),
+    ...(input.ConnectedLinkId != null && { ConnectedLinkId: input.ConnectedLinkId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LinkId != null && { LinkId: input.LinkId }),
   });
   return new __HttpRequest({
     protocol,
@@ -2782,7 +2776,7 @@ export const serializeAws_restJson1UpdateCoreNetworkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -2826,16 +2820,14 @@ export const serializeAws_restJson1UpdateDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AWSLocation != undefined && {
-      AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context),
-    }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Model != undefined && { Model: input.Model }),
-    ...(input.SerialNumber != undefined && { SerialNumber: input.SerialNumber }),
-    ...(input.SiteId != undefined && { SiteId: input.SiteId }),
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Vendor != undefined && { Vendor: input.Vendor }),
+    ...(input.AWSLocation != null && { AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Location != null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Model != null && { Model: input.Model }),
+    ...(input.SerialNumber != null && { SerialNumber: input.SerialNumber }),
+    ...(input.SiteId != null && { SiteId: input.SiteId }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Vendor != null && { Vendor: input.Vendor }),
   });
   return new __HttpRequest({
     protocol,
@@ -2869,7 +2861,7 @@ export const serializeAws_restJson1UpdateGlobalNetworkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -2913,10 +2905,10 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth != undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Provider != undefined && { Provider: input.Provider }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Bandwidth != null && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Provider != null && { Provider: input.Provider }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -2960,7 +2952,7 @@ export const serializeAws_restJson1UpdateNetworkResourceMetadataCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Metadata != undefined && {
+    ...(input.Metadata != null && {
       Metadata: serializeAws_restJson1NetworkResourceMetadataMap(input.Metadata, context),
     }),
   });
@@ -3006,8 +2998,8 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Location != null && { Location: serializeAws_restJson1Location(input.Location, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3041,11 +3033,11 @@ export const serializeAws_restJson1UpdateVpcAttachmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AddSubnetArns != undefined && {
+    ...(input.AddSubnetArns != null && {
       AddSubnetArns: serializeAws_restJson1SubnetArnList(input.AddSubnetArns, context),
     }),
-    ...(input.Options != undefined && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
-    ...(input.RemoveSubnetArns != undefined && {
+    ...(input.Options != null && { Options: serializeAws_restJson1VpcOptions(input.Options, context) }),
+    ...(input.RemoveSubnetArns != null && {
       RemoveSubnetArns: serializeAws_restJson1SubnetArnList(input.RemoveSubnetArns, context),
     }),
   });
@@ -7962,21 +7954,21 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AWSLocation = (input: AWSLocation, context: __SerdeContext): any => {
   return {
-    ...(input.SubnetArn != undefined && { SubnetArn: input.SubnetArn }),
-    ...(input.Zone != undefined && { Zone: input.Zone }),
+    ...(input.SubnetArn != null && { SubnetArn: input.SubnetArn }),
+    ...(input.Zone != null && { Zone: input.Zone }),
   };
 };
 
 const serializeAws_restJson1Bandwidth = (input: Bandwidth, context: __SerdeContext): any => {
   return {
-    ...(input.DownloadSpeed != undefined && { DownloadSpeed: input.DownloadSpeed }),
-    ...(input.UploadSpeed != undefined && { UploadSpeed: input.UploadSpeed }),
+    ...(input.DownloadSpeed != null && { DownloadSpeed: input.DownloadSpeed }),
+    ...(input.UploadSpeed != null && { UploadSpeed: input.UploadSpeed }),
   };
 };
 
 const serializeAws_restJson1BgpOptions = (input: BgpOptions, context: __SerdeContext): any => {
   return {
-    ...(input.PeerAsn != undefined && { PeerAsn: input.PeerAsn }),
+    ...(input.PeerAsn != null && { PeerAsn: input.PeerAsn }),
   };
 };
 
@@ -7985,7 +7977,7 @@ const serializeAws_restJson1ConnectAttachmentOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Protocol != undefined && { Protocol: input.Protocol }),
+    ...(input.Protocol != null && { Protocol: input.Protocol }),
   };
 };
 
@@ -8005,9 +7997,9 @@ const serializeAws_restJson1CoreNetworkSegmentEdgeIdentifier = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CoreNetworkId != undefined && { CoreNetworkId: input.CoreNetworkId }),
-    ...(input.EdgeLocation != undefined && { EdgeLocation: input.EdgeLocation }),
-    ...(input.SegmentName != undefined && { SegmentName: input.SegmentName }),
+    ...(input.CoreNetworkId != null && { CoreNetworkId: input.CoreNetworkId }),
+    ...(input.EdgeLocation != null && { EdgeLocation: input.EdgeLocation }),
+    ...(input.SegmentName != null && { SegmentName: input.SegmentName }),
   };
 };
 
@@ -8036,9 +8028,9 @@ const serializeAws_restJson1FilterValues = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1Location = (input: Location, context: __SerdeContext): any => {
   return {
-    ...(input.Address != undefined && { Address: input.Address }),
-    ...(input.Latitude != undefined && { Latitude: input.Latitude }),
-    ...(input.Longitude != undefined && { Longitude: input.Longitude }),
+    ...(input.Address != null && { Address: input.Address }),
+    ...(input.Latitude != null && { Latitude: input.Latitude }),
+    ...(input.Longitude != null && { Longitude: input.Longitude }),
   };
 };
 
@@ -8062,8 +8054,8 @@ const serializeAws_restJson1RouteAnalysisEndpointOptionsSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IpAddress != undefined && { IpAddress: input.IpAddress }),
-    ...(input.TransitGatewayAttachmentArn != undefined && {
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
+    ...(input.TransitGatewayAttachmentArn != null && {
       TransitGatewayAttachmentArn: input.TransitGatewayAttachmentArn,
     }),
   };
@@ -8082,13 +8074,13 @@ const serializeAws_restJson1RouteStateList = (input: (RouteState | string)[], co
 
 const serializeAws_restJson1RouteTableIdentifier = (input: RouteTableIdentifier, context: __SerdeContext): any => {
   return {
-    ...(input.CoreNetworkSegmentEdge != undefined && {
+    ...(input.CoreNetworkSegmentEdge != null && {
       CoreNetworkSegmentEdge: serializeAws_restJson1CoreNetworkSegmentEdgeIdentifier(
         input.CoreNetworkSegmentEdge,
         context
       ),
     }),
-    ...(input.TransitGatewayRouteTableArn != undefined && {
+    ...(input.TransitGatewayRouteTableArn != null && {
       TransitGatewayRouteTableArn: input.TransitGatewayRouteTableArn,
     }),
   };
@@ -8118,8 +8110,8 @@ const serializeAws_restJson1SubnetArnList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -8136,7 +8128,7 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1VpcOptions = (input: VpcOptions, context: __SerdeContext): any => {
   return {
-    ...(input.Ipv6Support != undefined && { Ipv6Support: input.Ipv6Support }),
+    ...(input.Ipv6Support != null && { Ipv6Support: input.Ipv6Support }),
   };
 };
 
@@ -8167,23 +8159,19 @@ const deserializeAws_restJson1Attachment = (output: any, context: __SerdeContext
     CoreNetworkArn: __expectString(output.CoreNetworkArn),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     EdgeLocation: __expectString(output.EdgeLocation),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProposedSegmentChange:
-      output.ProposedSegmentChange != undefined
+      output.ProposedSegmentChange != null
         ? deserializeAws_restJson1ProposedSegmentChange(output.ProposedSegmentChange, context)
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     SegmentName: __expectString(output.SegmentName),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
     UpdatedAt:
-      output.UpdatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
-        : undefined,
+      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
@@ -8215,12 +8203,9 @@ const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ConnectAttachment = (output: any, context: __SerdeContext): ConnectAttachment => {
   return {
-    Attachment:
-      output.Attachment != undefined ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
+    Attachment: output.Attachment != null ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
     Options:
-      output.Options != undefined
-        ? deserializeAws_restJson1ConnectAttachmentOptions(output.Options, context)
-        : undefined,
+      output.Options != null ? deserializeAws_restJson1ConnectAttachmentOptions(output.Options, context) : undefined,
     TransportAttachmentId: __expectString(output.TransportAttachmentId),
   } as any;
 };
@@ -8241,15 +8226,13 @@ const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext
     ConnectionArn: __expectString(output.ConnectionArn),
     ConnectionId: __expectString(output.ConnectionId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     DeviceId: __expectString(output.DeviceId),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     LinkId: __expectString(output.LinkId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8257,9 +8240,7 @@ const deserializeAws_restJson1ConnectionHealth = (output: any, context: __SerdeC
   return {
     Status: __expectString(output.Status),
     Timestamp:
-      output.Timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -8279,19 +8260,17 @@ const deserializeAws_restJson1ConnectionList = (output: any, context: __SerdeCon
 const deserializeAws_restJson1ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
   return {
     Configuration:
-      output.Configuration != undefined
+      output.Configuration != null
         ? deserializeAws_restJson1ConnectPeerConfiguration(output.Configuration, context)
         : undefined,
     ConnectAttachmentId: __expectString(output.ConnectAttachmentId),
     ConnectPeerId: __expectString(output.ConnectPeerId),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     EdgeLocation: __expectString(output.EdgeLocation),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8356,12 +8335,12 @@ const deserializeAws_restJson1ConnectPeerConfiguration = (
 ): ConnectPeerConfiguration => {
   return {
     BgpConfigurations:
-      output.BgpConfigurations != undefined
+      output.BgpConfigurations != null
         ? deserializeAws_restJson1ConnectPeerBgpConfigurationList(output.BgpConfigurations, context)
         : undefined,
     CoreNetworkAddress: __expectString(output.CoreNetworkAddress),
     InsideCidrBlocks:
-      output.InsideCidrBlocks != undefined
+      output.InsideCidrBlocks != null
         ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
         : undefined,
     PeerAddress: __expectString(output.PeerAddress),
@@ -8376,11 +8355,9 @@ const deserializeAws_restJson1ConnectPeerSummary = (output: any, context: __Serd
     ConnectPeerState: __expectString(output.ConnectPeerState),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     EdgeLocation: __expectString(output.EdgeLocation),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8413,18 +8390,14 @@ const deserializeAws_restJson1CoreNetwork = (output: any, context: __SerdeContex
     CoreNetworkArn: __expectString(output.CoreNetworkArn),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
-    Edges: output.Edges != undefined ? deserializeAws_restJson1CoreNetworkEdgeList(output.Edges, context) : undefined,
+    Edges: output.Edges != null ? deserializeAws_restJson1CoreNetworkEdgeList(output.Edges, context) : undefined,
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     Segments:
-      output.Segments != undefined
-        ? deserializeAws_restJson1CoreNetworkSegmentList(output.Segments, context)
-        : undefined,
+      output.Segments != null ? deserializeAws_restJson1CoreNetworkSegmentList(output.Segments, context) : undefined,
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8433,11 +8406,9 @@ const deserializeAws_restJson1CoreNetworkChange = (output: any, context: __Serde
     Action: __expectString(output.Action),
     Identifier: __expectString(output.Identifier),
     NewValues:
-      output.NewValues != undefined
-        ? deserializeAws_restJson1CoreNetworkChangeValues(output.NewValues, context)
-        : undefined,
+      output.NewValues != null ? deserializeAws_restJson1CoreNetworkChangeValues(output.NewValues, context) : undefined,
     PreviousValues:
-      output.PreviousValues != undefined
+      output.PreviousValues != null
         ? deserializeAws_restJson1CoreNetworkChangeValues(output.PreviousValues, context)
         : undefined,
     Type: __expectString(output.Type),
@@ -8465,16 +8436,16 @@ const deserializeAws_restJson1CoreNetworkChangeValues = (
     Cidr: __expectString(output.Cidr),
     DestinationIdentifier: __expectString(output.DestinationIdentifier),
     EdgeLocations:
-      output.EdgeLocations != undefined
+      output.EdgeLocations != null
         ? deserializeAws_restJson1ExternalRegionCodeList(output.EdgeLocations, context)
         : undefined,
     InsideCidrBlocks:
-      output.InsideCidrBlocks != undefined
+      output.InsideCidrBlocks != null
         ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
         : undefined,
     SegmentName: __expectString(output.SegmentName),
     SharedSegments:
-      output.SharedSegments != undefined
+      output.SharedSegments != null
         ? deserializeAws_restJson1ConstrainedStringList(output.SharedSegments, context)
         : undefined,
   } as any;
@@ -8485,7 +8456,7 @@ const deserializeAws_restJson1CoreNetworkEdge = (output: any, context: __SerdeCo
     Asn: __expectLong(output.Asn),
     EdgeLocation: __expectString(output.EdgeLocation),
     InsideCidrBlocks:
-      output.InsideCidrBlocks != undefined
+      output.InsideCidrBlocks != null
         ? deserializeAws_restJson1ConstrainedStringList(output.InsideCidrBlocks, context)
         : undefined,
   } as any;
@@ -8509,13 +8480,11 @@ const deserializeAws_restJson1CoreNetworkPolicy = (output: any, context: __Serde
     ChangeSetState: __expectString(output.ChangeSetState),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
-    PolicyDocument: output.PolicyDocument != undefined ? new __LazyJsonString(output.PolicyDocument) : undefined,
+    PolicyDocument: output.PolicyDocument != null ? new __LazyJsonString(output.PolicyDocument) : undefined,
     PolicyErrors:
-      output.PolicyErrors != undefined
+      output.PolicyErrors != null
         ? deserializeAws_restJson1CoreNetworkPolicyErrorList(output.PolicyErrors, context)
         : undefined,
     PolicyVersionId: __expectInt32(output.PolicyVersionId),
@@ -8557,9 +8526,7 @@ const deserializeAws_restJson1CoreNetworkPolicyVersion = (
     ChangeSetState: __expectString(output.ChangeSetState),
     CoreNetworkId: __expectString(output.CoreNetworkId),
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     PolicyVersionId: __expectInt32(output.PolicyVersionId),
   } as any;
@@ -8583,12 +8550,12 @@ const deserializeAws_restJson1CoreNetworkPolicyVersionList = (
 const deserializeAws_restJson1CoreNetworkSegment = (output: any, context: __SerdeContext): CoreNetworkSegment => {
   return {
     EdgeLocations:
-      output.EdgeLocations != undefined
+      output.EdgeLocations != null
         ? deserializeAws_restJson1ExternalRegionCodeList(output.EdgeLocations, context)
         : undefined,
     Name: __expectString(output.Name),
     SharedSegments:
-      output.SharedSegments != undefined
+      output.SharedSegments != null
         ? deserializeAws_restJson1ConstrainedStringList(output.SharedSegments, context)
         : undefined,
   } as any;
@@ -8625,7 +8592,7 @@ const deserializeAws_restJson1CoreNetworkSummary = (output: any, context: __Serd
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8672,21 +8639,19 @@ const deserializeAws_restJson1CustomerGatewayAssociationList = (
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
     AWSLocation:
-      output.AWSLocation != undefined ? deserializeAws_restJson1AWSLocation(output.AWSLocation, context) : undefined,
+      output.AWSLocation != null ? deserializeAws_restJson1AWSLocation(output.AWSLocation, context) : undefined,
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     DeviceArn: __expectString(output.DeviceArn),
     DeviceId: __expectString(output.DeviceId),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
-    Location: output.Location != undefined ? deserializeAws_restJson1Location(output.Location, context) : undefined,
+    Location: output.Location != null ? deserializeAws_restJson1Location(output.Location, context) : undefined,
     Model: __expectString(output.Model),
     SerialNumber: __expectString(output.SerialNumber),
     SiteId: __expectString(output.SiteId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
     Vendor: __expectString(output.Vendor),
   } as any;
@@ -8731,14 +8696,12 @@ const deserializeAws_restJson1ExternalRegionCodeList = (output: any, context: __
 const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeContext): GlobalNetwork => {
   return {
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkArn: __expectString(output.GlobalNetworkArn),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8756,11 +8719,9 @@ const deserializeAws_restJson1GlobalNetworkList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Link => {
   return {
-    Bandwidth: output.Bandwidth != undefined ? deserializeAws_restJson1Bandwidth(output.Bandwidth, context) : undefined,
+    Bandwidth: output.Bandwidth != null ? deserializeAws_restJson1Bandwidth(output.Bandwidth, context) : undefined,
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     LinkArn: __expectString(output.LinkArn),
@@ -8768,7 +8729,7 @@ const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Lin
     Provider: __expectString(output.Provider),
     SiteId: __expectString(output.SiteId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -8821,18 +8782,18 @@ const deserializeAws_restJson1NetworkResource = (output: any, context: __SerdeCo
     CoreNetworkId: __expectString(output.CoreNetworkId),
     Definition: __expectString(output.Definition),
     DefinitionTimestamp:
-      output.DefinitionTimestamp != undefined
+      output.DefinitionTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DefinitionTimestamp)))
         : undefined,
     Metadata:
-      output.Metadata != undefined
+      output.Metadata != null
         ? deserializeAws_restJson1NetworkResourceMetadataMap(output.Metadata, context)
         : undefined,
     RegisteredGatewayArn: __expectString(output.RegisteredGatewayArn),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -8903,7 +8864,7 @@ const deserializeAws_restJson1NetworkRoute = (output: any, context: __SerdeConte
   return {
     DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
     Destinations:
-      output.Destinations != undefined
+      output.Destinations != null
         ? deserializeAws_restJson1NetworkRouteDestinationList(output.Destinations, context)
         : undefined,
     PrefixListId: __expectString(output.PrefixListId),
@@ -8959,7 +8920,7 @@ const deserializeAws_restJson1NetworkTelemetry = (output: any, context: __SerdeC
     Address: __expectString(output.Address),
     AwsRegion: __expectString(output.AwsRegion),
     CoreNetworkId: __expectString(output.CoreNetworkId),
-    Health: output.Health != undefined ? deserializeAws_restJson1ConnectionHealth(output.Health, context) : undefined,
+    Health: output.Health != null ? deserializeAws_restJson1ConnectionHealth(output.Health, context) : undefined,
     RegisteredGatewayArn: __expectString(output.RegisteredGatewayArn),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceId: __expectString(output.ResourceId),
@@ -8982,7 +8943,7 @@ const deserializeAws_restJson1NetworkTelemetryList = (output: any, context: __Se
 const deserializeAws_restJson1OrganizationStatus = (output: any, context: __SerdeContext): OrganizationStatus => {
   return {
     AccountStatusList:
-      output.AccountStatusList != undefined
+      output.AccountStatusList != null
         ? deserializeAws_restJson1AccountStatusList(output.AccountStatusList, context)
         : undefined,
     OrganizationAwsServiceAccessStatus: __expectString(output.OrganizationAwsServiceAccessStatus),
@@ -8995,9 +8956,7 @@ const deserializeAws_restJson1PathComponent = (output: any, context: __SerdeCont
   return {
     DestinationCidrBlock: __expectString(output.DestinationCidrBlock),
     Resource:
-      output.Resource != undefined
-        ? deserializeAws_restJson1NetworkResourceSummary(output.Resource, context)
-        : undefined,
+      output.Resource != null ? deserializeAws_restJson1NetworkResourceSummary(output.Resource, context) : undefined,
     Sequence: __expectInt32(output.Sequence),
   } as any;
 };
@@ -9018,7 +8977,7 @@ const deserializeAws_restJson1ProposedSegmentChange = (output: any, context: __S
   return {
     AttachmentPolicyRuleNumber: __expectInt32(output.AttachmentPolicyRuleNumber),
     SegmentName: __expectString(output.SegmentName),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -9056,27 +9015,21 @@ const deserializeAws_restJson1RelationshipList = (output: any, context: __SerdeC
 const deserializeAws_restJson1RouteAnalysis = (output: any, context: __SerdeContext): RouteAnalysis => {
   return {
     Destination:
-      output.Destination != undefined
+      output.Destination != null
         ? deserializeAws_restJson1RouteAnalysisEndpointOptions(output.Destination, context)
         : undefined,
     ForwardPath:
-      output.ForwardPath != undefined
-        ? deserializeAws_restJson1RouteAnalysisPath(output.ForwardPath, context)
-        : undefined,
+      output.ForwardPath != null ? deserializeAws_restJson1RouteAnalysisPath(output.ForwardPath, context) : undefined,
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     IncludeReturnPath: __expectBoolean(output.IncludeReturnPath),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ReturnPath:
-      output.ReturnPath != undefined
-        ? deserializeAws_restJson1RouteAnalysisPath(output.ReturnPath, context)
-        : undefined,
+      output.ReturnPath != null ? deserializeAws_restJson1RouteAnalysisPath(output.ReturnPath, context) : undefined,
     RouteAnalysisId: __expectString(output.RouteAnalysisId),
     Source:
-      output.Source != undefined
-        ? deserializeAws_restJson1RouteAnalysisEndpointOptions(output.Source, context)
-        : undefined,
+      output.Source != null ? deserializeAws_restJson1RouteAnalysisEndpointOptions(output.Source, context) : undefined,
     StartTimestamp:
-      output.StartTimestamp != undefined
+      output.StartTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
         : undefined,
     Status: __expectString(output.Status),
@@ -9091,7 +9044,7 @@ const deserializeAws_restJson1RouteAnalysisCompletion = (
   return {
     ReasonCode: __expectString(output.ReasonCode),
     ReasonContext:
-      output.ReasonContext != undefined
+      output.ReasonContext != null
         ? deserializeAws_restJson1ReasonContextMap(output.ReasonContext, context)
         : undefined,
     ResultCode: __expectString(output.ResultCode),
@@ -9112,26 +9065,24 @@ const deserializeAws_restJson1RouteAnalysisEndpointOptions = (
 const deserializeAws_restJson1RouteAnalysisPath = (output: any, context: __SerdeContext): RouteAnalysisPath => {
   return {
     CompletionStatus:
-      output.CompletionStatus != undefined
+      output.CompletionStatus != null
         ? deserializeAws_restJson1RouteAnalysisCompletion(output.CompletionStatus, context)
         : undefined,
-    Path: output.Path != undefined ? deserializeAws_restJson1PathComponentList(output.Path, context) : undefined,
+    Path: output.Path != null ? deserializeAws_restJson1PathComponentList(output.Path, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Site => {
   return {
     CreatedAt:
-      output.CreatedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
-        : undefined,
+      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     Description: __expectString(output.Description),
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
-    Location: output.Location != undefined ? deserializeAws_restJson1Location(output.Location, context) : undefined,
+    Location: output.Location != null ? deserializeAws_restJson1Location(output.Location, context) : undefined,
     SiteArn: __expectString(output.SiteArn),
     SiteId: __expectString(output.SiteId),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -9152,8 +9103,7 @@ const deserializeAws_restJson1SiteToSiteVpnAttachment = (
   context: __SerdeContext
 ): SiteToSiteVpnAttachment => {
   return {
-    Attachment:
-      output.Attachment != undefined ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
+    Attachment: output.Attachment != null ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
     VpnConnectionArn: __expectString(output.VpnConnectionArn),
   } as any;
 };
@@ -9224,7 +9174,7 @@ const deserializeAws_restJson1TransitGatewayRegistration = (
   return {
     GlobalNetworkId: __expectString(output.GlobalNetworkId),
     State:
-      output.State != undefined
+      output.State != null
         ? deserializeAws_restJson1TransitGatewayRegistrationStateReason(output.State, context)
         : undefined,
     TransitGatewayArn: __expectString(output.TransitGatewayArn),
@@ -9283,11 +9233,10 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
 
 const deserializeAws_restJson1VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment => {
   return {
-    Attachment:
-      output.Attachment != undefined ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
-    Options: output.Options != undefined ? deserializeAws_restJson1VpcOptions(output.Options, context) : undefined,
+    Attachment: output.Attachment != null ? deserializeAws_restJson1Attachment(output.Attachment, context) : undefined,
+    Options: output.Options != null ? deserializeAws_restJson1VpcOptions(output.Options, context) : undefined,
     SubnetArns:
-      output.SubnetArns != undefined ? deserializeAws_restJson1SubnetArnList(output.SubnetArns, context) : undefined,
+      output.SubnetArns != null ? deserializeAws_restJson1SubnetArnList(output.SubnetArns, context) : undefined,
   } as any;
 };
 

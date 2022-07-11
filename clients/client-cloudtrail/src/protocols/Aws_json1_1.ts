@@ -3327,17 +3327,17 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsRequest = (input: AddTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList != undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagsList != null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1AdvancedEventSelector = (input: AdvancedEventSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FieldSelectors != undefined && {
+    ...(input.FieldSelectors != null && {
       FieldSelectors: serializeAws_json1_1AdvancedFieldSelectors(input.FieldSelectors, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
@@ -3354,15 +3354,13 @@ const serializeAws_json1_1AdvancedEventSelectors = (input: AdvancedEventSelector
 
 const serializeAws_json1_1AdvancedFieldSelector = (input: AdvancedFieldSelector, context: __SerdeContext): any => {
   return {
-    ...(input.EndsWith != undefined && { EndsWith: serializeAws_json1_1Operator(input.EndsWith, context) }),
-    ...(input.Equals != undefined && { Equals: serializeAws_json1_1Operator(input.Equals, context) }),
-    ...(input.Field != undefined && { Field: input.Field }),
-    ...(input.NotEndsWith != undefined && { NotEndsWith: serializeAws_json1_1Operator(input.NotEndsWith, context) }),
-    ...(input.NotEquals != undefined && { NotEquals: serializeAws_json1_1Operator(input.NotEquals, context) }),
-    ...(input.NotStartsWith != undefined && {
-      NotStartsWith: serializeAws_json1_1Operator(input.NotStartsWith, context),
-    }),
-    ...(input.StartsWith != undefined && { StartsWith: serializeAws_json1_1Operator(input.StartsWith, context) }),
+    ...(input.EndsWith != null && { EndsWith: serializeAws_json1_1Operator(input.EndsWith, context) }),
+    ...(input.Equals != null && { Equals: serializeAws_json1_1Operator(input.Equals, context) }),
+    ...(input.Field != null && { Field: input.Field }),
+    ...(input.NotEndsWith != null && { NotEndsWith: serializeAws_json1_1Operator(input.NotEndsWith, context) }),
+    ...(input.NotEquals != null && { NotEquals: serializeAws_json1_1Operator(input.NotEquals, context) }),
+    ...(input.NotStartsWith != null && { NotStartsWith: serializeAws_json1_1Operator(input.NotStartsWith, context) }),
+    ...(input.StartsWith != null && { StartsWith: serializeAws_json1_1Operator(input.StartsWith, context) }),
   };
 };
 
@@ -3379,8 +3377,8 @@ const serializeAws_json1_1AdvancedFieldSelectors = (input: AdvancedFieldSelector
 
 const serializeAws_json1_1CancelQueryRequest = (input: CancelQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   };
 };
 
@@ -3389,15 +3387,15 @@ const serializeAws_json1_1CreateEventDataStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdvancedEventSelectors != undefined && {
+    ...(input.AdvancedEventSelectors != null && {
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
-    ...(input.MultiRegionEnabled != undefined && { MultiRegionEnabled: input.MultiRegionEnabled }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationEnabled != undefined && { OrganizationEnabled: input.OrganizationEnabled }),
-    ...(input.RetentionPeriod != undefined && { RetentionPeriod: input.RetentionPeriod }),
-    ...(input.TagsList != undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
-    ...(input.TerminationProtectionEnabled != undefined && {
+    ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
+    ...(input.RetentionPeriod != null && { RetentionPeriod: input.RetentionPeriod }),
+    ...(input.TagsList != null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.TerminationProtectionEnabled != null && {
       TerminationProtectionEnabled: input.TerminationProtectionEnabled,
     }),
   };
@@ -3405,27 +3403,25 @@ const serializeAws_json1_1CreateEventDataStoreRequest = (
 
 const serializeAws_json1_1CreateTrailRequest = (input: CreateTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogsLogGroupArn != undefined && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
-    ...(input.CloudWatchLogsRoleArn != undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
-    ...(input.EnableLogFileValidation != undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
-    ...(input.IncludeGlobalServiceEvents != undefined && {
-      IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
-    }),
-    ...(input.IsMultiRegionTrail != undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
-    ...(input.IsOrganizationTrail != undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.S3BucketName != undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix != undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName != undefined && { SnsTopicName: input.SnsTopicName }),
-    ...(input.TagsList != undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.CloudWatchLogsLogGroupArn != null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
+    ...(input.CloudWatchLogsRoleArn != null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation != null && { EnableLogFileValidation: input.EnableLogFileValidation }),
+    ...(input.IncludeGlobalServiceEvents != null && { IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents }),
+    ...(input.IsMultiRegionTrail != null && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail != null && { IsOrganizationTrail: input.IsOrganizationTrail }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.SnsTopicName != null && { SnsTopicName: input.SnsTopicName }),
+    ...(input.TagsList != null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
 const serializeAws_json1_1DataResource = (input: DataResource, context: __SerdeContext): any => {
   return {
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1DataResourceValues(input.Values, context) }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Values != null && { Values: serializeAws_json1_1DataResourceValues(input.Values, context) }),
   };
 };
 
@@ -3456,27 +3452,27 @@ const serializeAws_json1_1DeleteEventDataStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
   };
 };
 
 const serializeAws_json1_1DeleteTrailRequest = (input: DeleteTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1DescribeQueryRequest = (input: DescribeQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   };
 };
 
 const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.includeShadowTrails != undefined && { includeShadowTrails: input.includeShadowTrails }),
-    ...(input.trailNameList != undefined && {
+    ...(input.includeShadowTrails != null && { includeShadowTrails: input.includeShadowTrails }),
+    ...(input.trailNameList != null && {
       trailNameList: serializeAws_json1_1TrailNameList(input.trailNameList, context),
     }),
   };
@@ -3484,17 +3480,17 @@ const serializeAws_json1_1DescribeTrailsRequest = (input: DescribeTrailsRequest,
 
 const serializeAws_json1_1EventSelector = (input: EventSelector, context: __SerdeContext): any => {
   return {
-    ...(input.DataResources != undefined && {
+    ...(input.DataResources != null && {
       DataResources: serializeAws_json1_1DataResources(input.DataResources, context),
     }),
-    ...(input.ExcludeManagementEventSources != undefined && {
+    ...(input.ExcludeManagementEventSources != null && {
       ExcludeManagementEventSources: serializeAws_json1_1ExcludeManagementEventSources(
         input.ExcludeManagementEventSources,
         context
       ),
     }),
-    ...(input.IncludeManagementEvents != undefined && { IncludeManagementEvents: input.IncludeManagementEvents }),
-    ...(input.ReadWriteType != undefined && { ReadWriteType: input.ReadWriteType }),
+    ...(input.IncludeManagementEvents != null && { IncludeManagementEvents: input.IncludeManagementEvents }),
+    ...(input.ReadWriteType != null && { ReadWriteType: input.ReadWriteType }),
   };
 };
 
@@ -3525,7 +3521,7 @@ const serializeAws_json1_1GetEventDataStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
   };
 };
 
@@ -3534,7 +3530,7 @@ const serializeAws_json1_1GetEventSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TrailName != undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName != null && { TrailName: input.TrailName }),
   };
 };
 
@@ -3543,34 +3539,34 @@ const serializeAws_json1_1GetInsightSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TrailName != undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName != null && { TrailName: input.TrailName }),
   };
 };
 
 const serializeAws_json1_1GetQueryResultsRequest = (input: GetQueryResultsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
-    ...(input.MaxQueryResults != undefined && { MaxQueryResults: input.MaxQueryResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.QueryId != undefined && { QueryId: input.QueryId }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.MaxQueryResults != null && { MaxQueryResults: input.MaxQueryResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QueryId != null && { QueryId: input.QueryId }),
   };
 };
 
 const serializeAws_json1_1GetTrailRequest = (input: GetTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1GetTrailStatusRequest = (input: GetTrailStatusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1InsightSelector = (input: InsightSelector, context: __SerdeContext): any => {
   return {
-    ...(input.InsightType != undefined && { InsightType: input.InsightType }),
+    ...(input.InsightType != null && { InsightType: input.InsightType }),
   };
 };
 
@@ -3590,34 +3586,34 @@ const serializeAws_json1_1ListEventDataStoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListQueriesRequest = (input: ListQueriesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.QueryStatus != undefined && { QueryStatus: input.QueryStatus }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.QueryStatus != null && { QueryStatus: input.QueryStatus }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceIdList != undefined && {
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceIdList != null && {
       ResourceIdList: serializeAws_json1_1ResourceIdList(input.ResourceIdList, context),
     }),
   };
@@ -3625,14 +3621,14 @@ const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __
 
 const serializeAws_json1_1ListTrailsRequest = (input: ListTrailsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1LookupAttribute = (input: LookupAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeKey != undefined && { AttributeKey: input.AttributeKey }),
-    ...(input.AttributeValue != undefined && { AttributeValue: input.AttributeValue }),
+    ...(input.AttributeKey != null && { AttributeKey: input.AttributeKey }),
+    ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
   };
 };
 
@@ -3649,14 +3645,14 @@ const serializeAws_json1_1LookupAttributesList = (input: LookupAttribute[], cont
 
 const serializeAws_json1_1LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.EventCategory != undefined && { EventCategory: input.EventCategory }),
-    ...(input.LookupAttributes != undefined && {
+    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.EventCategory != null && { EventCategory: input.EventCategory }),
+    ...(input.LookupAttributes != null && {
       LookupAttributes: serializeAws_json1_1LookupAttributesList(input.LookupAttributes, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StartTime != undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
@@ -3676,13 +3672,13 @@ const serializeAws_json1_1PutEventSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdvancedEventSelectors != undefined && {
+    ...(input.AdvancedEventSelectors != null && {
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
-    ...(input.EventSelectors != undefined && {
+    ...(input.EventSelectors != null && {
       EventSelectors: serializeAws_json1_1EventSelectors(input.EventSelectors, context),
     }),
-    ...(input.TrailName != undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName != null && { TrailName: input.TrailName }),
   };
 };
 
@@ -3691,17 +3687,17 @@ const serializeAws_json1_1PutInsightSelectorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InsightSelectors != undefined && {
+    ...(input.InsightSelectors != null && {
       InsightSelectors: serializeAws_json1_1InsightSelectors(input.InsightSelectors, context),
     }),
-    ...(input.TrailName != undefined && { TrailName: input.TrailName }),
+    ...(input.TrailName != null && { TrailName: input.TrailName }),
   };
 };
 
 const serializeAws_json1_1RemoveTagsRequest = (input: RemoveTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagsList != undefined && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.TagsList != null && { TagsList: serializeAws_json1_1TagsList(input.TagsList, context) }),
   };
 };
 
@@ -3721,32 +3717,32 @@ const serializeAws_json1_1RestoreEventDataStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
   };
 };
 
 const serializeAws_json1_1StartLoggingRequest = (input: StartLoggingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.QueryStatement != undefined && { QueryStatement: input.QueryStatement }),
+    ...(input.QueryStatement != null && { QueryStatement: input.QueryStatement }),
   };
 };
 
 const serializeAws_json1_1StopLoggingRequest = (input: StopLoggingRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -3777,15 +3773,15 @@ const serializeAws_json1_1UpdateEventDataStoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdvancedEventSelectors != undefined && {
+    ...(input.AdvancedEventSelectors != null && {
       AdvancedEventSelectors: serializeAws_json1_1AdvancedEventSelectors(input.AdvancedEventSelectors, context),
     }),
-    ...(input.EventDataStore != undefined && { EventDataStore: input.EventDataStore }),
-    ...(input.MultiRegionEnabled != undefined && { MultiRegionEnabled: input.MultiRegionEnabled }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OrganizationEnabled != undefined && { OrganizationEnabled: input.OrganizationEnabled }),
-    ...(input.RetentionPeriod != undefined && { RetentionPeriod: input.RetentionPeriod }),
-    ...(input.TerminationProtectionEnabled != undefined && {
+    ...(input.EventDataStore != null && { EventDataStore: input.EventDataStore }),
+    ...(input.MultiRegionEnabled != null && { MultiRegionEnabled: input.MultiRegionEnabled }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OrganizationEnabled != null && { OrganizationEnabled: input.OrganizationEnabled }),
+    ...(input.RetentionPeriod != null && { RetentionPeriod: input.RetentionPeriod }),
+    ...(input.TerminationProtectionEnabled != null && {
       TerminationProtectionEnabled: input.TerminationProtectionEnabled,
     }),
   };
@@ -3793,19 +3789,17 @@ const serializeAws_json1_1UpdateEventDataStoreRequest = (
 
 const serializeAws_json1_1UpdateTrailRequest = (input: UpdateTrailRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogsLogGroupArn != undefined && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
-    ...(input.CloudWatchLogsRoleArn != undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
-    ...(input.EnableLogFileValidation != undefined && { EnableLogFileValidation: input.EnableLogFileValidation }),
-    ...(input.IncludeGlobalServiceEvents != undefined && {
-      IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
-    }),
-    ...(input.IsMultiRegionTrail != undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
-    ...(input.IsOrganizationTrail != undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.S3BucketName != undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix != undefined && { S3KeyPrefix: input.S3KeyPrefix }),
-    ...(input.SnsTopicName != undefined && { SnsTopicName: input.SnsTopicName }),
+    ...(input.CloudWatchLogsLogGroupArn != null && { CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn }),
+    ...(input.CloudWatchLogsRoleArn != null && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.EnableLogFileValidation != null && { EnableLogFileValidation: input.EnableLogFileValidation }),
+    ...(input.IncludeGlobalServiceEvents != null && { IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents }),
+    ...(input.IsMultiRegionTrail != null && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail != null && { IsOrganizationTrail: input.IsOrganizationTrail }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.S3BucketName != null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix != null && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.SnsTopicName != null && { SnsTopicName: input.SnsTopicName }),
   };
 };
 
@@ -3816,7 +3810,7 @@ const deserializeAws_json1_1AddTagsResponse = (output: any, context: __SerdeCont
 const deserializeAws_json1_1AdvancedEventSelector = (output: any, context: __SerdeContext): AdvancedEventSelector => {
   return {
     FieldSelectors:
-      output.FieldSelectors != undefined
+      output.FieldSelectors != null
         ? deserializeAws_json1_1AdvancedFieldSelectors(output.FieldSelectors, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -3840,15 +3834,14 @@ const deserializeAws_json1_1AdvancedEventSelectors = (
 
 const deserializeAws_json1_1AdvancedFieldSelector = (output: any, context: __SerdeContext): AdvancedFieldSelector => {
   return {
-    EndsWith: output.EndsWith != undefined ? deserializeAws_json1_1Operator(output.EndsWith, context) : undefined,
-    Equals: output.Equals != undefined ? deserializeAws_json1_1Operator(output.Equals, context) : undefined,
+    EndsWith: output.EndsWith != null ? deserializeAws_json1_1Operator(output.EndsWith, context) : undefined,
+    Equals: output.Equals != null ? deserializeAws_json1_1Operator(output.Equals, context) : undefined,
     Field: __expectString(output.Field),
-    NotEndsWith:
-      output.NotEndsWith != undefined ? deserializeAws_json1_1Operator(output.NotEndsWith, context) : undefined,
-    NotEquals: output.NotEquals != undefined ? deserializeAws_json1_1Operator(output.NotEquals, context) : undefined,
+    NotEndsWith: output.NotEndsWith != null ? deserializeAws_json1_1Operator(output.NotEndsWith, context) : undefined,
+    NotEquals: output.NotEquals != null ? deserializeAws_json1_1Operator(output.NotEquals, context) : undefined,
     NotStartsWith:
-      output.NotStartsWith != undefined ? deserializeAws_json1_1Operator(output.NotStartsWith, context) : undefined,
-    StartsWith: output.StartsWith != undefined ? deserializeAws_json1_1Operator(output.StartsWith, context) : undefined,
+      output.NotStartsWith != null ? deserializeAws_json1_1Operator(output.NotStartsWith, context) : undefined,
+    StartsWith: output.StartsWith != null ? deserializeAws_json1_1Operator(output.StartsWith, context) : undefined,
   } as any;
 };
 
@@ -3922,11 +3915,11 @@ const deserializeAws_json1_1CreateEventDataStoreResponse = (
 ): CreateEventDataStoreResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
@@ -3935,10 +3928,10 @@ const deserializeAws_json1_1CreateEventDataStoreResponse = (
     OrganizationEnabled: __expectBoolean(output.OrganizationEnabled),
     RetentionPeriod: __expectInt32(output.RetentionPeriod),
     Status: __expectString(output.Status),
-    TagsList: output.TagsList != undefined ? deserializeAws_json1_1TagsList(output.TagsList, context) : undefined,
+    TagsList: output.TagsList != null ? deserializeAws_json1_1TagsList(output.TagsList, context) : undefined,
     TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != undefined
+      output.UpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
         : undefined,
   } as any;
@@ -3965,7 +3958,7 @@ const deserializeAws_json1_1CreateTrailResponse = (output: any, context: __Serde
 const deserializeAws_json1_1DataResource = (output: any, context: __SerdeContext): DataResource => {
   return {
     Type: __expectString(output.Type),
-    Values: output.Values != undefined ? deserializeAws_json1_1DataResourceValues(output.Values, context) : undefined,
+    Values: output.Values != null ? deserializeAws_json1_1DataResourceValues(output.Values, context) : undefined,
   } as any;
 };
 
@@ -4009,7 +4002,7 @@ const deserializeAws_json1_1DescribeQueryResponse = (output: any, context: __Ser
     ErrorMessage: __expectString(output.ErrorMessage),
     QueryId: __expectString(output.QueryId),
     QueryStatistics:
-      output.QueryStatistics != undefined
+      output.QueryStatistics != null
         ? deserializeAws_json1_1QueryStatisticsForDescribeQuery(output.QueryStatistics, context)
         : undefined,
     QueryStatus: __expectString(output.QueryStatus),
@@ -4019,7 +4012,7 @@ const deserializeAws_json1_1DescribeQueryResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1DescribeTrailsResponse = (output: any, context: __SerdeContext): DescribeTrailsResponse => {
   return {
-    trailList: output.trailList != undefined ? deserializeAws_json1_1TrailList(output.trailList, context) : undefined,
+    trailList: output.trailList != null ? deserializeAws_json1_1TrailList(output.trailList, context) : undefined,
   } as any;
 };
 
@@ -4031,12 +4024,9 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
     EventName: __expectString(output.EventName),
     EventSource: __expectString(output.EventSource),
     EventTime:
-      output.EventTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
-        : undefined,
+      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
     ReadOnly: __expectString(output.ReadOnly),
-    Resources:
-      output.Resources != undefined ? deserializeAws_json1_1ResourceList(output.Resources, context) : undefined,
+    Resources: output.Resources != null ? deserializeAws_json1_1ResourceList(output.Resources, context) : undefined,
     Username: __expectString(output.Username),
   } as any;
 };
@@ -4044,11 +4034,11 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
 const deserializeAws_json1_1EventDataStore = (output: any, context: __SerdeContext): EventDataStore => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
@@ -4059,7 +4049,7 @@ const deserializeAws_json1_1EventDataStore = (output: any, context: __SerdeConte
     Status: __expectString(output.Status),
     TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != undefined
+      output.UpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
         : undefined,
   } as any;
@@ -4125,11 +4115,9 @@ const deserializeAws_json1_1EventDataStoreTerminationProtectedException = (
 const deserializeAws_json1_1EventSelector = (output: any, context: __SerdeContext): EventSelector => {
   return {
     DataResources:
-      output.DataResources != undefined
-        ? deserializeAws_json1_1DataResources(output.DataResources, context)
-        : undefined,
+      output.DataResources != null ? deserializeAws_json1_1DataResources(output.DataResources, context) : undefined,
     ExcludeManagementEventSources:
-      output.ExcludeManagementEventSources != undefined
+      output.ExcludeManagementEventSources != null
         ? deserializeAws_json1_1ExcludeManagementEventSources(output.ExcludeManagementEventSources, context)
         : undefined,
     IncludeManagementEvents: __expectBoolean(output.IncludeManagementEvents),
@@ -4179,11 +4167,11 @@ const deserializeAws_json1_1GetEventDataStoreResponse = (
 ): GetEventDataStoreResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
@@ -4194,7 +4182,7 @@ const deserializeAws_json1_1GetEventDataStoreResponse = (
     Status: __expectString(output.Status),
     TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != undefined
+      output.UpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
         : undefined,
   } as any;
@@ -4206,13 +4194,11 @@ const deserializeAws_json1_1GetEventSelectorsResponse = (
 ): GetEventSelectorsResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     EventSelectors:
-      output.EventSelectors != undefined
-        ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)
-        : undefined,
+      output.EventSelectors != null ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context) : undefined,
     TrailARN: __expectString(output.TrailARN),
   } as any;
 };
@@ -4223,7 +4209,7 @@ const deserializeAws_json1_1GetInsightSelectorsResponse = (
 ): GetInsightSelectorsResponse => {
   return {
     InsightSelectors:
-      output.InsightSelectors != undefined
+      output.InsightSelectors != null
         ? deserializeAws_json1_1InsightSelectors(output.InsightSelectors, context)
         : undefined,
     TrailARN: __expectString(output.TrailARN),
@@ -4238,11 +4224,11 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
     ErrorMessage: __expectString(output.ErrorMessage),
     NextToken: __expectString(output.NextToken),
     QueryResultRows:
-      output.QueryResultRows != undefined
+      output.QueryResultRows != null
         ? deserializeAws_json1_1QueryResultRows(output.QueryResultRows, context)
         : undefined,
     QueryStatistics:
-      output.QueryStatistics != undefined
+      output.QueryStatistics != null
         ? deserializeAws_json1_1QueryStatistics(output.QueryStatistics, context)
         : undefined,
     QueryStatus: __expectString(output.QueryStatus),
@@ -4251,7 +4237,7 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
 
 const deserializeAws_json1_1GetTrailResponse = (output: any, context: __SerdeContext): GetTrailResponse => {
   return {
-    Trail: output.Trail != undefined ? deserializeAws_json1_1Trail(output.Trail, context) : undefined,
+    Trail: output.Trail != null ? deserializeAws_json1_1Trail(output.Trail, context) : undefined,
   } as any;
 };
 
@@ -4260,34 +4246,34 @@ const deserializeAws_json1_1GetTrailStatusResponse = (output: any, context: __Se
     IsLogging: __expectBoolean(output.IsLogging),
     LatestCloudWatchLogsDeliveryError: __expectString(output.LatestCloudWatchLogsDeliveryError),
     LatestCloudWatchLogsDeliveryTime:
-      output.LatestCloudWatchLogsDeliveryTime != undefined
+      output.LatestCloudWatchLogsDeliveryTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestCloudWatchLogsDeliveryTime)))
         : undefined,
     LatestDeliveryAttemptSucceeded: __expectString(output.LatestDeliveryAttemptSucceeded),
     LatestDeliveryAttemptTime: __expectString(output.LatestDeliveryAttemptTime),
     LatestDeliveryError: __expectString(output.LatestDeliveryError),
     LatestDeliveryTime:
-      output.LatestDeliveryTime != undefined
+      output.LatestDeliveryTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestDeliveryTime)))
         : undefined,
     LatestDigestDeliveryError: __expectString(output.LatestDigestDeliveryError),
     LatestDigestDeliveryTime:
-      output.LatestDigestDeliveryTime != undefined
+      output.LatestDigestDeliveryTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestDigestDeliveryTime)))
         : undefined,
     LatestNotificationAttemptSucceeded: __expectString(output.LatestNotificationAttemptSucceeded),
     LatestNotificationAttemptTime: __expectString(output.LatestNotificationAttemptTime),
     LatestNotificationError: __expectString(output.LatestNotificationError),
     LatestNotificationTime:
-      output.LatestNotificationTime != undefined
+      output.LatestNotificationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LatestNotificationTime)))
         : undefined,
     StartLoggingTime:
-      output.StartLoggingTime != undefined
+      output.StartLoggingTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartLoggingTime)))
         : undefined,
     StopLoggingTime:
-      output.StopLoggingTime != undefined
+      output.StopLoggingTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StopLoggingTime)))
         : undefined,
     TimeLoggingStarted: __expectString(output.TimeLoggingStarted),
@@ -4607,7 +4593,7 @@ const deserializeAws_json1_1ListEventDataStoresResponse = (
 ): ListEventDataStoresResponse => {
   return {
     EventDataStores:
-      output.EventDataStores != undefined
+      output.EventDataStores != null
         ? deserializeAws_json1_1EventDataStores(output.EventDataStores, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4618,16 +4604,14 @@ const deserializeAws_json1_1ListPublicKeysResponse = (output: any, context: __Se
   return {
     NextToken: __expectString(output.NextToken),
     PublicKeyList:
-      output.PublicKeyList != undefined
-        ? deserializeAws_json1_1PublicKeyList(output.PublicKeyList, context)
-        : undefined,
+      output.PublicKeyList != null ? deserializeAws_json1_1PublicKeyList(output.PublicKeyList, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListQueriesResponse = (output: any, context: __SerdeContext): ListQueriesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Queries: output.Queries != undefined ? deserializeAws_json1_1Queries(output.Queries, context) : undefined,
+    Queries: output.Queries != null ? deserializeAws_json1_1Queries(output.Queries, context) : undefined,
   } as any;
 };
 
@@ -4635,7 +4619,7 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
   return {
     NextToken: __expectString(output.NextToken),
     ResourceTagList:
-      output.ResourceTagList != undefined
+      output.ResourceTagList != null
         ? deserializeAws_json1_1ResourceTagList(output.ResourceTagList, context)
         : undefined,
   } as any;
@@ -4644,13 +4628,13 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ListTrailsResponse = (output: any, context: __SerdeContext): ListTrailsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Trails: output.Trails != undefined ? deserializeAws_json1_1Trails(output.Trails, context) : undefined,
+    Trails: output.Trails != null ? deserializeAws_json1_1Trails(output.Trails, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LookupEventsResponse = (output: any, context: __SerdeContext): LookupEventsResponse => {
   return {
-    Events: output.Events != undefined ? deserializeAws_json1_1EventsList(output.Events, context) : undefined,
+    Events: output.Events != null ? deserializeAws_json1_1EventsList(output.Events, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -4725,14 +4709,14 @@ const deserializeAws_json1_1PublicKey = (output: any, context: __SerdeContext): 
   return {
     Fingerprint: __expectString(output.Fingerprint),
     ValidityEndTime:
-      output.ValidityEndTime != undefined
+      output.ValidityEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidityEndTime)))
         : undefined,
     ValidityStartTime:
-      output.ValidityStartTime != undefined
+      output.ValidityStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidityStartTime)))
         : undefined,
-    Value: output.Value != undefined ? context.base64Decoder(output.Value) : undefined,
+    Value: output.Value != null ? context.base64Decoder(output.Value) : undefined,
   } as any;
 };
 
@@ -4754,13 +4738,11 @@ const deserializeAws_json1_1PutEventSelectorsResponse = (
 ): PutEventSelectorsResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     EventSelectors:
-      output.EventSelectors != undefined
-        ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)
-        : undefined,
+      output.EventSelectors != null ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context) : undefined,
     TrailARN: __expectString(output.TrailARN),
   } as any;
 };
@@ -4771,7 +4753,7 @@ const deserializeAws_json1_1PutInsightSelectorsResponse = (
 ): PutInsightSelectorsResponse => {
   return {
     InsightSelectors:
-      output.InsightSelectors != undefined
+      output.InsightSelectors != null
         ? deserializeAws_json1_1InsightSelectors(output.InsightSelectors, context)
         : undefined,
     TrailARN: __expectString(output.TrailARN),
@@ -4793,7 +4775,7 @@ const deserializeAws_json1_1Queries = (output: any, context: __SerdeContext): Qu
 const deserializeAws_json1_1Query = (output: any, context: __SerdeContext): Query => {
   return {
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     QueryId: __expectString(output.QueryId),
@@ -4861,7 +4843,7 @@ const deserializeAws_json1_1QueryStatisticsForDescribeQuery = (
   return {
     BytesScanned: __expectLong(output.BytesScanned),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EventsMatched: __expectLong(output.EventsMatched),
@@ -4905,7 +4887,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
     ResourceId: __expectString(output.ResourceId),
-    TagsList: output.TagsList != undefined ? deserializeAws_json1_1TagsList(output.TagsList, context) : undefined,
+    TagsList: output.TagsList != null ? deserializeAws_json1_1TagsList(output.TagsList, context) : undefined,
   } as any;
 };
 
@@ -4936,11 +4918,11 @@ const deserializeAws_json1_1RestoreEventDataStoreResponse = (
 ): RestoreEventDataStoreResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
@@ -4951,7 +4933,7 @@ const deserializeAws_json1_1RestoreEventDataStoreResponse = (
     Status: __expectString(output.Status),
     TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != undefined
+      output.UpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
         : undefined,
   } as any;
@@ -5100,11 +5082,11 @@ const deserializeAws_json1_1UpdateEventDataStoreResponse = (
 ): UpdateEventDataStoreResponse => {
   return {
     AdvancedEventSelectors:
-      output.AdvancedEventSelectors != undefined
+      output.AdvancedEventSelectors != null
         ? deserializeAws_json1_1AdvancedEventSelectors(output.AdvancedEventSelectors, context)
         : undefined,
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     EventDataStoreArn: __expectString(output.EventDataStoreArn),
@@ -5115,7 +5097,7 @@ const deserializeAws_json1_1UpdateEventDataStoreResponse = (
     Status: __expectString(output.Status),
     TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
     UpdatedTimestamp:
-      output.UpdatedTimestamp != undefined
+      output.UpdatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTimestamp)))
         : undefined,
   } as any;

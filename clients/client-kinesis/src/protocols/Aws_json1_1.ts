@@ -2261,18 +2261,18 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateStreamInput = (input: CreateStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ShardCount != undefined && { ShardCount: input.ShardCount }),
-    ...(input.StreamModeDetails != undefined && {
+    ...(input.ShardCount != null && { ShardCount: input.ShardCount }),
+    ...(input.StreamModeDetails != null && {
       StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
     }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2281,15 +2281,15 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionPeriodHours != undefined && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1DeleteStreamInput = (input: DeleteStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.EnforceConsumerDeletion != undefined && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.EnforceConsumerDeletion != null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2298,9 +2298,9 @@ const serializeAws_json1_1DeregisterStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerARN != undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName != undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
   };
 };
 
@@ -2313,17 +2313,17 @@ const serializeAws_json1_1DescribeStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerARN != undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName != undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
   };
 };
 
 const serializeAws_json1_1DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId != undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2332,7 +2332,7 @@ const serializeAws_json1_1DescribeStreamSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2341,10 +2341,10 @@ const serializeAws_json1_1DisableEnhancedMonitoringInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ShardLevelMetrics != undefined && {
+    ...(input.ShardLevelMetrics != null && {
       ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
     }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2353,27 +2353,27 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ShardLevelMetrics != undefined && {
+    ...(input.ShardLevelMetrics != null && {
       ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
     }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.ShardIterator != undefined && { ShardIterator: input.ShardIterator }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
   };
 };
 
 const serializeAws_json1_1GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-    ...(input.ShardId != undefined && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType != undefined && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StartingSequenceNumber != undefined && { StartingSequenceNumber: input.StartingSequenceNumber }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.ShardId != null && { ShardId: input.ShardId }),
+    ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
+    ...(input.StartingSequenceNumber != null && { StartingSequenceNumber: input.StartingSequenceNumber }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 
@@ -2382,21 +2382,21 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionPeriodHours != undefined && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.RetentionPeriodHours != null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId != undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ShardFilter != undefined && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
-    ...(input.StreamCreationTimestamp != undefined && {
+    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ShardFilter != null && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
+    ...(input.StreamCreationTimestamp != null && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2405,10 +2405,10 @@ const serializeAws_json1_1ListStreamConsumersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamCreationTimestamp != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamCreationTimestamp != null && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
   };
@@ -2416,24 +2416,24 @@ const serializeAws_json1_1ListStreamConsumersInput = (
 
 const serializeAws_json1_1ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartStreamName != undefined && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
+    ...(input.ExclusiveStartStreamName != null && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
+    ...(input.Limit != null && { Limit: input.Limit }),
   };
 };
 
 const serializeAws_json1_1ListTagsForStreamInput = (input: ListTagsForStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartTagKey != undefined && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1MergeShardsInput = (input: MergeShardsInput, context: __SerdeContext): any => {
   return {
-    ...(input.AdjacentShardToMerge != undefined && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
-    ...(input.ShardToMerge != undefined && { ShardToMerge: input.ShardToMerge }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.AdjacentShardToMerge != null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
+    ...(input.ShardToMerge != null && { ShardToMerge: input.ShardToMerge }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2450,28 +2450,26 @@ const serializeAws_json1_1MetricsNameList = (input: (MetricsName | string)[], co
 
 const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey != undefined && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey != undefined && { PartitionKey: input.PartitionKey }),
-    ...(input.SequenceNumberForOrdering != undefined && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
+    ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
+    ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
+    ...(input.SequenceNumberForOrdering != null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Records != undefined && {
-      Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context),
-    }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.Records != null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1PutRecordsRequestEntry = (input: PutRecordsRequestEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey != undefined && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey != undefined && { PartitionKey: input.PartitionKey }),
+    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
+    ...(input.ExplicitHashKey != null && { ExplicitHashKey: input.ExplicitHashKey }),
+    ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
   };
 };
 
@@ -2494,8 +2492,8 @@ const serializeAws_json1_1RegisterStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerName != undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerName != null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
   };
 };
 
@@ -2504,32 +2502,32 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
   return {
-    ...(input.ShardId != undefined && { ShardId: input.ShardId }),
-    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.ShardId != null && { ShardId: input.ShardId }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
   return {
-    ...(input.NewStartingHashKey != undefined && { NewStartingHashKey: input.NewStartingHashKey }),
-    ...(input.ShardToSplit != undefined && { ShardToSplit: input.ShardToSplit }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.NewStartingHashKey != null && { NewStartingHashKey: input.NewStartingHashKey }),
+    ...(input.ShardToSplit != null && { ShardToSplit: input.ShardToSplit }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
   return {
-    ...(input.SequenceNumber != undefined && { SequenceNumber: input.SequenceNumber }),
-    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -2538,9 +2536,9 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionType != undefined && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId != undefined && { KeyId: input.KeyId }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
+    ...(input.KeyId != null && { KeyId: input.KeyId }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2549,23 +2547,23 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionType != undefined && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId != undefined && { KeyId: input.KeyId }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.EncryptionType != null && { EncryptionType: input.EncryptionType }),
+    ...(input.KeyId != null && { KeyId: input.KeyId }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1StreamModeDetails = (input: StreamModeDetails, context: __SerdeContext): any => {
   return {
-    ...(input.StreamMode != undefined && { StreamMode: input.StreamMode }),
+    ...(input.StreamMode != null && { StreamMode: input.StreamMode }),
   };
 };
 
 const serializeAws_json1_1SubscribeToShardInput = (input: SubscribeToShardInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConsumerARN != undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ShardId != undefined && { ShardId: input.ShardId }),
-    ...(input.StartingPosition != undefined && {
+    ...(input.ConsumerARN != null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ShardId != null && { ShardId: input.ShardId }),
+    ...(input.StartingPosition != null && {
       StartingPosition: serializeAws_json1_1StartingPosition(input.StartingPosition, context),
     }),
   };
@@ -2596,16 +2594,16 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
 
 const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput, context: __SerdeContext): any => {
   return {
-    ...(input.ScalingType != undefined && { ScalingType: input.ScalingType }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.TargetShardCount != undefined && { TargetShardCount: input.TargetShardCount }),
+    ...(input.ScalingType != null && { ScalingType: input.ScalingType }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.TargetShardCount != null && { TargetShardCount: input.TargetShardCount }),
   };
 };
 
 const serializeAws_json1_1UpdateStreamModeInput = (input: UpdateStreamModeInput, context: __SerdeContext): any => {
   return {
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamModeDetails != undefined && {
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamModeDetails != null && {
       StreamModeDetails: serializeAws_json1_1StreamModeDetails(input.StreamModeDetails, context),
     }),
   };
@@ -2614,9 +2612,9 @@ const serializeAws_json1_1UpdateStreamModeInput = (input: UpdateStreamModeInput,
 const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext): ChildShard => {
   return {
     HashKeyRange:
-      output.HashKeyRange != undefined ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context) : undefined,
+      output.HashKeyRange != null ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context) : undefined,
     ParentShards:
-      output.ParentShards != undefined ? deserializeAws_json1_1ShardIdList(output.ParentShards, context) : undefined,
+      output.ParentShards != null ? deserializeAws_json1_1ShardIdList(output.ParentShards, context) : undefined,
     ShardId: __expectString(output.ShardId),
   } as any;
 };
@@ -2637,7 +2635,7 @@ const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): C
   return {
     ConsumerARN: __expectString(output.ConsumerARN),
     ConsumerCreationTimestamp:
-      output.ConsumerCreationTimestamp != undefined
+      output.ConsumerCreationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConsumerCreationTimestamp)))
         : undefined,
     ConsumerName: __expectString(output.ConsumerName),
@@ -2649,7 +2647,7 @@ const deserializeAws_json1_1ConsumerDescription = (output: any, context: __Serde
   return {
     ConsumerARN: __expectString(output.ConsumerARN),
     ConsumerCreationTimestamp:
-      output.ConsumerCreationTimestamp != undefined
+      output.ConsumerCreationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ConsumerCreationTimestamp)))
         : undefined,
     ConsumerName: __expectString(output.ConsumerName),
@@ -2685,7 +2683,7 @@ const deserializeAws_json1_1DescribeStreamConsumerOutput = (
 ): DescribeStreamConsumerOutput => {
   return {
     ConsumerDescription:
-      output.ConsumerDescription != undefined
+      output.ConsumerDescription != null
         ? deserializeAws_json1_1ConsumerDescription(output.ConsumerDescription, context)
         : undefined,
   } as any;
@@ -2694,7 +2692,7 @@ const deserializeAws_json1_1DescribeStreamConsumerOutput = (
 const deserializeAws_json1_1DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
   return {
     StreamDescription:
-      output.StreamDescription != undefined
+      output.StreamDescription != null
         ? deserializeAws_json1_1StreamDescription(output.StreamDescription, context)
         : undefined,
   } as any;
@@ -2706,7 +2704,7 @@ const deserializeAws_json1_1DescribeStreamSummaryOutput = (
 ): DescribeStreamSummaryOutput => {
   return {
     StreamDescriptionSummary:
-      output.StreamDescriptionSummary != undefined
+      output.StreamDescriptionSummary != null
         ? deserializeAws_json1_1StreamDescriptionSummary(output.StreamDescriptionSummary, context)
         : undefined,
   } as any;
@@ -2715,7 +2713,7 @@ const deserializeAws_json1_1DescribeStreamSummaryOutput = (
 const deserializeAws_json1_1EnhancedMetrics = (output: any, context: __SerdeContext): EnhancedMetrics => {
   return {
     ShardLevelMetrics:
-      output.ShardLevelMetrics != undefined
+      output.ShardLevelMetrics != null
         ? deserializeAws_json1_1MetricsNameList(output.ShardLevelMetrics, context)
         : undefined,
   } as any;
@@ -2739,11 +2737,11 @@ const deserializeAws_json1_1EnhancedMonitoringOutput = (
 ): EnhancedMonitoringOutput => {
   return {
     CurrentShardLevelMetrics:
-      output.CurrentShardLevelMetrics != undefined
+      output.CurrentShardLevelMetrics != null
         ? deserializeAws_json1_1MetricsNameList(output.CurrentShardLevelMetrics, context)
         : undefined,
     DesiredShardLevelMetrics:
-      output.DesiredShardLevelMetrics != undefined
+      output.DesiredShardLevelMetrics != null
         ? deserializeAws_json1_1MetricsNameList(output.DesiredShardLevelMetrics, context)
         : undefined,
     StreamName: __expectString(output.StreamName),
@@ -2771,10 +2769,10 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
     ChildShards:
-      output.ChildShards != undefined ? deserializeAws_json1_1ChildShardList(output.ChildShards, context) : undefined,
+      output.ChildShards != null ? deserializeAws_json1_1ChildShardList(output.ChildShards, context) : undefined,
     MillisBehindLatest: __expectLong(output.MillisBehindLatest),
     NextShardIterator: __expectString(output.NextShardIterator),
-    Records: output.Records != undefined ? deserializeAws_json1_1RecordList(output.Records, context) : undefined,
+    Records: output.Records != null ? deserializeAws_json1_1RecordList(output.Records, context) : undefined,
   } as any;
 };
 
@@ -2860,7 +2858,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1ListShardsOutput = (output: any, context: __SerdeContext): ListShardsOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Shards: output.Shards != undefined ? deserializeAws_json1_1ShardList(output.Shards, context) : undefined,
+    Shards: output.Shards != null ? deserializeAws_json1_1ShardList(output.Shards, context) : undefined,
   } as any;
 };
 
@@ -2869,8 +2867,7 @@ const deserializeAws_json1_1ListStreamConsumersOutput = (
   context: __SerdeContext
 ): ListStreamConsumersOutput => {
   return {
-    Consumers:
-      output.Consumers != undefined ? deserializeAws_json1_1ConsumerList(output.Consumers, context) : undefined,
+    Consumers: output.Consumers != null ? deserializeAws_json1_1ConsumerList(output.Consumers, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2879,7 +2876,7 @@ const deserializeAws_json1_1ListStreamsOutput = (output: any, context: __SerdeCo
   return {
     HasMoreStreams: __expectBoolean(output.HasMoreStreams),
     StreamNames:
-      output.StreamNames != undefined ? deserializeAws_json1_1StreamNameList(output.StreamNames, context) : undefined,
+      output.StreamNames != null ? deserializeAws_json1_1StreamNameList(output.StreamNames, context) : undefined,
   } as any;
 };
 
@@ -2889,7 +2886,7 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
 ): ListTagsForStreamOutput => {
   return {
     HasMoreTags: __expectBoolean(output.HasMoreTags),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2927,9 +2924,7 @@ const deserializeAws_json1_1PutRecordsOutput = (output: any, context: __SerdeCon
     EncryptionType: __expectString(output.EncryptionType),
     FailedRecordCount: __expectInt32(output.FailedRecordCount),
     Records:
-      output.Records != undefined
-        ? deserializeAws_json1_1PutRecordsResultEntryList(output.Records, context)
-        : undefined,
+      output.Records != null ? deserializeAws_json1_1PutRecordsResultEntryList(output.Records, context) : undefined,
   } as any;
 };
 
@@ -2960,10 +2955,10 @@ const deserializeAws_json1_1PutRecordsResultEntryList = (
 const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
     ApproximateArrivalTimestamp:
-      output.ApproximateArrivalTimestamp != undefined
+      output.ApproximateArrivalTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateArrivalTimestamp)))
         : undefined,
-    Data: output.Data != undefined ? context.base64Decoder(output.Data) : undefined,
+    Data: output.Data != null ? context.base64Decoder(output.Data) : undefined,
     EncryptionType: __expectString(output.EncryptionType),
     PartitionKey: __expectString(output.PartitionKey),
     SequenceNumber: __expectString(output.SequenceNumber),
@@ -2987,7 +2982,7 @@ const deserializeAws_json1_1RegisterStreamConsumerOutput = (
   context: __SerdeContext
 ): RegisterStreamConsumerOutput => {
   return {
-    Consumer: output.Consumer != undefined ? deserializeAws_json1_1Consumer(output.Consumer, context) : undefined,
+    Consumer: output.Consumer != null ? deserializeAws_json1_1Consumer(output.Consumer, context) : undefined,
   } as any;
 };
 
@@ -3017,10 +3012,10 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
   return {
     AdjacentParentShardId: __expectString(output.AdjacentParentShardId),
     HashKeyRange:
-      output.HashKeyRange != undefined ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context) : undefined,
+      output.HashKeyRange != null ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context) : undefined,
     ParentShardId: __expectString(output.ParentShardId),
     SequenceNumberRange:
-      output.SequenceNumberRange != undefined
+      output.SequenceNumberRange != null
         ? deserializeAws_json1_1SequenceNumberRange(output.SequenceNumberRange, context)
         : undefined,
     ShardId: __expectString(output.ShardId),
@@ -3055,20 +3050,20 @@ const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeCo
   return {
     EncryptionType: __expectString(output.EncryptionType),
     EnhancedMonitoring:
-      output.EnhancedMonitoring != undefined
+      output.EnhancedMonitoring != null
         ? deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context)
         : undefined,
     HasMoreShards: __expectBoolean(output.HasMoreShards),
     KeyId: __expectString(output.KeyId),
     RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
-    Shards: output.Shards != undefined ? deserializeAws_json1_1ShardList(output.Shards, context) : undefined,
+    Shards: output.Shards != null ? deserializeAws_json1_1ShardList(output.Shards, context) : undefined,
     StreamARN: __expectString(output.StreamARN),
     StreamCreationTimestamp:
-      output.StreamCreationTimestamp != undefined
+      output.StreamCreationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
         : undefined,
     StreamModeDetails:
-      output.StreamModeDetails != undefined
+      output.StreamModeDetails != null
         ? deserializeAws_json1_1StreamModeDetails(output.StreamModeDetails, context)
         : undefined,
     StreamName: __expectString(output.StreamName),
@@ -3084,7 +3079,7 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     ConsumerCount: __expectInt32(output.ConsumerCount),
     EncryptionType: __expectString(output.EncryptionType),
     EnhancedMonitoring:
-      output.EnhancedMonitoring != undefined
+      output.EnhancedMonitoring != null
         ? deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context)
         : undefined,
     KeyId: __expectString(output.KeyId),
@@ -3092,11 +3087,11 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     RetentionPeriodHours: __expectInt32(output.RetentionPeriodHours),
     StreamARN: __expectString(output.StreamARN),
     StreamCreationTimestamp:
-      output.StreamCreationTimestamp != undefined
+      output.StreamCreationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StreamCreationTimestamp)))
         : undefined,
     StreamModeDetails:
-      output.StreamModeDetails != undefined
+      output.StreamModeDetails != null
         ? deserializeAws_json1_1StreamModeDetails(output.StreamModeDetails, context)
         : undefined,
     StreamName: __expectString(output.StreamName),
@@ -3125,10 +3120,10 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
   return {
     ChildShards:
-      output.ChildShards != undefined ? deserializeAws_json1_1ChildShardList(output.ChildShards, context) : undefined,
+      output.ChildShards != null ? deserializeAws_json1_1ChildShardList(output.ChildShards, context) : undefined,
     ContinuationSequenceNumber: __expectString(output.ContinuationSequenceNumber),
     MillisBehindLatest: __expectLong(output.MillisBehindLatest),
-    Records: output.Records != undefined ? deserializeAws_json1_1RecordList(output.Records, context) : undefined,
+    Records: output.Records != null ? deserializeAws_json1_1RecordList(output.Records, context) : undefined,
   } as any;
 };
 
@@ -3204,7 +3199,7 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
 const deserializeAws_json1_1SubscribeToShardOutput = (output: any, context: __SerdeContext): SubscribeToShardOutput => {
   return {
     EventStream:
-      output.EventStream != undefined
+      output.EventStream != null
         ? deserializeAws_json1_1SubscribeToShardEventStream(__expectUnion(output.EventStream), context)
         : undefined,
   } as any;

@@ -68,13 +68,13 @@ export const serializeAws_restJson1CreateAppMonitorCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appmonitor";
   let body: any;
   body = JSON.stringify({
-    ...(input.AppMonitorConfiguration != undefined && {
+    ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
     }),
-    ...(input.CwLogEnabled != undefined && { CwLogEnabled: input.CwLogEnabled }),
-    ...(input.Domain != undefined && { Domain: input.Domain }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
+    ...(input.Domain != null && { Domain: input.Domain }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -163,10 +163,10 @@ export const serializeAws_restJson1GetAppMonitorDataCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != undefined && { Filters: serializeAws_restJson1QueryFilters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TimeRange != undefined && { TimeRange: serializeAws_restJson1TimeRange(input.TimeRange, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1QueryFilters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TimeRange != null && { TimeRange: serializeAws_restJson1TimeRange(input.TimeRange, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -251,14 +251,12 @@ export const serializeAws_restJson1PutRumEventsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AppMonitorDetails != undefined && {
+    ...(input.AppMonitorDetails != null && {
       AppMonitorDetails: serializeAws_restJson1AppMonitorDetails(input.AppMonitorDetails, context),
     }),
-    ...(input.BatchId != undefined && { BatchId: input.BatchId }),
-    ...(input.RumEvents != undefined && { RumEvents: serializeAws_restJson1RumEventList(input.RumEvents, context) }),
-    ...(input.UserDetails != undefined && {
-      UserDetails: serializeAws_restJson1UserDetails(input.UserDetails, context),
-    }),
+    ...(input.BatchId != null && { BatchId: input.BatchId }),
+    ...(input.RumEvents != null && { RumEvents: serializeAws_restJson1RumEventList(input.RumEvents, context) }),
+    ...(input.UserDetails != null && { UserDetails: serializeAws_restJson1UserDetails(input.UserDetails, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -298,7 +296,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -363,11 +361,11 @@ export const serializeAws_restJson1UpdateAppMonitorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AppMonitorConfiguration != undefined && {
+    ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
     }),
-    ...(input.CwLogEnabled != undefined && { CwLogEnabled: input.CwLogEnabled }),
-    ...(input.Domain != undefined && { Domain: input.Domain }),
+    ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
+    ...(input.Domain != null && { Domain: input.Domain }),
   });
   return new __HttpRequest({
     protocol,
@@ -1071,31 +1069,25 @@ const serializeAws_restJson1AppMonitorConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowCookies != undefined && { AllowCookies: input.AllowCookies }),
-    ...(input.EnableXRay != undefined && { EnableXRay: input.EnableXRay }),
-    ...(input.ExcludedPages != undefined && {
-      ExcludedPages: serializeAws_restJson1Pages(input.ExcludedPages, context),
-    }),
-    ...(input.FavoritePages != undefined && {
+    ...(input.AllowCookies != null && { AllowCookies: input.AllowCookies }),
+    ...(input.EnableXRay != null && { EnableXRay: input.EnableXRay }),
+    ...(input.ExcludedPages != null && { ExcludedPages: serializeAws_restJson1Pages(input.ExcludedPages, context) }),
+    ...(input.FavoritePages != null && {
       FavoritePages: serializeAws_restJson1FavoritePages(input.FavoritePages, context),
     }),
-    ...(input.GuestRoleArn != undefined && { GuestRoleArn: input.GuestRoleArn }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IncludedPages != undefined && {
-      IncludedPages: serializeAws_restJson1Pages(input.IncludedPages, context),
-    }),
-    ...(input.SessionSampleRate != undefined && { SessionSampleRate: __serializeFloat(input.SessionSampleRate) }),
-    ...(input.Telemetries != undefined && {
-      Telemetries: serializeAws_restJson1Telemetries(input.Telemetries, context),
-    }),
+    ...(input.GuestRoleArn != null && { GuestRoleArn: input.GuestRoleArn }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IncludedPages != null && { IncludedPages: serializeAws_restJson1Pages(input.IncludedPages, context) }),
+    ...(input.SessionSampleRate != null && { SessionSampleRate: __serializeFloat(input.SessionSampleRate) }),
+    ...(input.Telemetries != null && { Telemetries: serializeAws_restJson1Telemetries(input.Telemetries, context) }),
   };
 };
 
 const serializeAws_restJson1AppMonitorDetails = (input: AppMonitorDetails, context: __SerdeContext): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -1123,8 +1115,8 @@ const serializeAws_restJson1Pages = (input: string[], context: __SerdeContext): 
 
 const serializeAws_restJson1QueryFilter = (input: QueryFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_restJson1QueryFilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_restJson1QueryFilterValueList(input.Values, context) }),
   };
 };
 
@@ -1152,11 +1144,11 @@ const serializeAws_restJson1QueryFilterValueList = (input: string[], context: __
 
 const serializeAws_restJson1RumEvent = (input: RumEvent, context: __SerdeContext): any => {
   return {
-    ...(input.details != undefined && { details: __LazyJsonString.fromObject(input.details) }),
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.metadata != undefined && { metadata: __LazyJsonString.fromObject(input.metadata) }),
-    ...(input.timestamp != undefined && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.details != null && { details: __LazyJsonString.fromObject(input.details) }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.metadata != null && { metadata: __LazyJsonString.fromObject(input.metadata) }),
+    ...(input.timestamp != null && { timestamp: Math.round(input.timestamp.getTime() / 1000) }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -1196,33 +1188,33 @@ const serializeAws_restJson1Telemetries = (input: (Telemetry | string)[], contex
 
 const serializeAws_restJson1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.After != undefined && { After: input.After }),
-    ...(input.Before != undefined && { Before: input.Before }),
+    ...(input.After != null && { After: input.After }),
+    ...(input.Before != null && { Before: input.Before }),
   };
 };
 
 const serializeAws_restJson1UserDetails = (input: UserDetails, context: __SerdeContext): any => {
   return {
-    ...(input.sessionId != undefined && { sessionId: input.sessionId }),
-    ...(input.userId != undefined && { userId: input.userId }),
+    ...(input.sessionId != null && { sessionId: input.sessionId }),
+    ...(input.userId != null && { userId: input.userId }),
   };
 };
 
 const deserializeAws_restJson1AppMonitor = (output: any, context: __SerdeContext): AppMonitor => {
   return {
     AppMonitorConfiguration:
-      output.AppMonitorConfiguration != undefined
+      output.AppMonitorConfiguration != null
         ? deserializeAws_restJson1AppMonitorConfiguration(output.AppMonitorConfiguration, context)
         : undefined,
     Created: __expectString(output.Created),
     DataStorage:
-      output.DataStorage != undefined ? deserializeAws_restJson1DataStorage(output.DataStorage, context) : undefined,
+      output.DataStorage != null ? deserializeAws_restJson1DataStorage(output.DataStorage, context) : undefined,
     Domain: __expectString(output.Domain),
     Id: __expectString(output.Id),
     LastModified: __expectString(output.LastModified),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -1234,18 +1226,16 @@ const deserializeAws_restJson1AppMonitorConfiguration = (
     AllowCookies: __expectBoolean(output.AllowCookies),
     EnableXRay: __expectBoolean(output.EnableXRay),
     ExcludedPages:
-      output.ExcludedPages != undefined ? deserializeAws_restJson1Pages(output.ExcludedPages, context) : undefined,
+      output.ExcludedPages != null ? deserializeAws_restJson1Pages(output.ExcludedPages, context) : undefined,
     FavoritePages:
-      output.FavoritePages != undefined
-        ? deserializeAws_restJson1FavoritePages(output.FavoritePages, context)
-        : undefined,
+      output.FavoritePages != null ? deserializeAws_restJson1FavoritePages(output.FavoritePages, context) : undefined,
     GuestRoleArn: __expectString(output.GuestRoleArn),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     IncludedPages:
-      output.IncludedPages != undefined ? deserializeAws_restJson1Pages(output.IncludedPages, context) : undefined,
+      output.IncludedPages != null ? deserializeAws_restJson1Pages(output.IncludedPages, context) : undefined,
     SessionSampleRate: __limitedParseDouble(output.SessionSampleRate),
     Telemetries:
-      output.Telemetries != undefined ? deserializeAws_restJson1Telemetries(output.Telemetries, context) : undefined,
+      output.Telemetries != null ? deserializeAws_restJson1Telemetries(output.Telemetries, context) : undefined,
   } as any;
 };
 
@@ -1280,7 +1270,7 @@ const deserializeAws_restJson1CwLog = (output: any, context: __SerdeContext): Cw
 
 const deserializeAws_restJson1DataStorage = (output: any, context: __SerdeContext): DataStorage => {
   return {
-    CwLog: output.CwLog != undefined ? deserializeAws_restJson1CwLog(output.CwLog, context) : undefined,
+    CwLog: output.CwLog != null ? deserializeAws_restJson1CwLog(output.CwLog, context) : undefined,
   } as any;
 };
 

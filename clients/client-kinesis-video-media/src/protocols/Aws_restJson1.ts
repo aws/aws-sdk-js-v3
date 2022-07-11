@@ -33,11 +33,11 @@ export const serializeAws_restJson1GetMediaCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
   let body: any;
   body = JSON.stringify({
-    ...(input.StartSelector != undefined && {
+    ...(input.StartSelector != null && {
       StartSelector: serializeAws_restJson1StartSelector(input.StartSelector, context),
     }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -210,10 +210,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
   return {
-    ...(input.AfterFragmentNumber != undefined && { AfterFragmentNumber: input.AfterFragmentNumber }),
-    ...(input.ContinuationToken != undefined && { ContinuationToken: input.ContinuationToken }),
-    ...(input.StartSelectorType != undefined && { StartSelectorType: input.StartSelectorType }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.AfterFragmentNumber != null && { AfterFragmentNumber: input.AfterFragmentNumber }),
+    ...(input.ContinuationToken != null && { ContinuationToken: input.ContinuationToken }),
+    ...(input.StartSelectorType != null && { StartSelectorType: input.StartSelectorType }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 

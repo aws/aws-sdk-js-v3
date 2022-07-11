@@ -131,11 +131,11 @@ export const serializeAws_restJson1CreateLedgerCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ledgers";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection != undefined && { DeletionProtection: input.DeletionProtection }),
-    ...(input.KmsKey != undefined && { KmsKey: input.KmsKey }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.PermissionsMode != undefined && { PermissionsMode: input.PermissionsMode }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.PermissionsMode != null && { PermissionsMode: input.PermissionsMode }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -303,15 +303,13 @@ export const serializeAws_restJson1ExportJournalToS3Command = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime != undefined && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000),
-    }),
-    ...(input.InclusiveStartTime != undefined && {
+    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
+    ...(input.InclusiveStartTime != null && {
       InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
     }),
-    ...(input.OutputFormat != undefined && { OutputFormat: input.OutputFormat }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3ExportConfiguration != undefined && {
+    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.S3ExportConfiguration != null && {
       S3ExportConfiguration: serializeAws_restJson1S3ExportConfiguration(input.S3ExportConfiguration, context),
     }),
   });
@@ -346,10 +344,8 @@ export const serializeAws_restJson1GetBlockCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BlockAddress != undefined && {
-      BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context),
-    }),
-    ...(input.DigestTipAddress != undefined && {
+    ...(input.BlockAddress != null && { BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context) }),
+    ...(input.DigestTipAddress != null && {
       DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
     }),
   });
@@ -412,13 +408,11 @@ export const serializeAws_restJson1GetRevisionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BlockAddress != undefined && {
-      BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context),
-    }),
-    ...(input.DigestTipAddress != undefined && {
+    ...(input.BlockAddress != null && { BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context) }),
+    ...(input.DigestTipAddress != null && {
       DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
     }),
-    ...(input.DocumentId != undefined && { DocumentId: input.DocumentId }),
+    ...(input.DocumentId != null && { DocumentId: input.DocumentId }),
   });
   return new __HttpRequest({
     protocol,
@@ -598,18 +592,16 @@ export const serializeAws_restJson1StreamJournalToKinesisCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime != undefined && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000),
-    }),
-    ...(input.InclusiveStartTime != undefined && {
+    ...(input.ExclusiveEndTime != null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
+    ...(input.InclusiveStartTime != null && {
       InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
     }),
-    ...(input.KinesisConfiguration != undefined && {
+    ...(input.KinesisConfiguration != null && {
       KinesisConfiguration: serializeAws_restJson1KinesisConfiguration(input.KinesisConfiguration, context),
     }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -642,7 +634,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -707,8 +699,8 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection != undefined && { DeletionProtection: input.DeletionProtection }),
-    ...(input.KmsKey != undefined && { KmsKey: input.KmsKey }),
+    ...(input.DeletionProtection != null && { DeletionProtection: input.DeletionProtection }),
+    ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
   });
   return new __HttpRequest({
     protocol,
@@ -742,7 +734,7 @@ export const serializeAws_restJson1UpdateLedgerPermissionsModeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.PermissionsMode != undefined && { PermissionsMode: input.PermissionsMode }),
+    ...(input.PermissionsMode != null && { PermissionsMode: input.PermissionsMode }),
   });
   return new __HttpRequest({
     protocol,
@@ -1953,8 +1945,8 @@ const deserializeAws_restJson1ResourcePreconditionNotMetExceptionResponse = asyn
 
 const serializeAws_restJson1KinesisConfiguration = (input: KinesisConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AggregationEnabled != undefined && { AggregationEnabled: input.AggregationEnabled }),
-    ...(input.StreamArn != undefined && { StreamArn: input.StreamArn }),
+    ...(input.AggregationEnabled != null && { AggregationEnabled: input.AggregationEnabled }),
+    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
   };
 };
 
@@ -1963,18 +1955,18 @@ const serializeAws_restJson1S3EncryptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyArn != undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ObjectEncryptionType != undefined && { ObjectEncryptionType: input.ObjectEncryptionType }),
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.ObjectEncryptionType != null && { ObjectEncryptionType: input.ObjectEncryptionType }),
   };
 };
 
 const serializeAws_restJson1S3ExportConfiguration = (input: S3ExportConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket != undefined && { Bucket: input.Bucket }),
-    ...(input.EncryptionConfiguration != undefined && {
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.EncryptionConfiguration != null && {
       EncryptionConfiguration: serializeAws_restJson1S3EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
-    ...(input.Prefix != undefined && { Prefix: input.Prefix }),
+    ...(input.Prefix != null && { Prefix: input.Prefix }),
   };
 };
 
@@ -1992,7 +1984,7 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 
 const serializeAws_restJson1ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
-    ...(input.IonText != undefined && { IonText: input.IonText }),
+    ...(input.IonText != null && { IonText: input.IonText }),
   };
 };
 
@@ -2003,20 +1995,20 @@ const deserializeAws_restJson1JournalKinesisStreamDescription = (
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     ErrorCause: __expectString(output.ErrorCause),
     ExclusiveEndTime:
-      output.ExclusiveEndTime != undefined
+      output.ExclusiveEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
         : undefined,
     InclusiveStartTime:
-      output.InclusiveStartTime != undefined
+      output.InclusiveStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
         : undefined,
     KinesisConfiguration:
-      output.KinesisConfiguration != undefined
+      output.KinesisConfiguration != null
         ? deserializeAws_restJson1KinesisConfiguration(output.KinesisConfiguration, context)
         : undefined,
     LedgerName: __expectString(output.LedgerName),
@@ -2048,23 +2040,23 @@ const deserializeAws_restJson1JournalS3ExportDescription = (
 ): JournalS3ExportDescription => {
   return {
     ExclusiveEndTime:
-      output.ExclusiveEndTime != undefined
+      output.ExclusiveEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExclusiveEndTime)))
         : undefined,
     ExportCreationTime:
-      output.ExportCreationTime != undefined
+      output.ExportCreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExportCreationTime)))
         : undefined,
     ExportId: __expectString(output.ExportId),
     InclusiveStartTime:
-      output.InclusiveStartTime != undefined
+      output.InclusiveStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InclusiveStartTime)))
         : undefined,
     LedgerName: __expectString(output.LedgerName),
     OutputFormat: __expectString(output.OutputFormat),
     RoleArn: __expectString(output.RoleArn),
     S3ExportConfiguration:
-      output.S3ExportConfiguration != undefined
+      output.S3ExportConfiguration != null
         ? deserializeAws_restJson1S3ExportConfiguration(output.S3ExportConfiguration, context)
         : undefined,
     Status: __expectString(output.Status),
@@ -2100,7 +2092,7 @@ const deserializeAws_restJson1LedgerEncryptionDescription = (
   return {
     EncryptionStatus: __expectString(output.EncryptionStatus),
     InaccessibleKmsKeyDateTime:
-      output.InaccessibleKmsKeyDateTime != undefined
+      output.InaccessibleKmsKeyDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.InaccessibleKmsKeyDateTime)))
         : undefined,
     KmsKeyArn: __expectString(output.KmsKeyArn),
@@ -2122,7 +2114,7 @@ const deserializeAws_restJson1LedgerList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1LedgerSummary = (output: any, context: __SerdeContext): LedgerSummary => {
   return {
     CreationDateTime:
-      output.CreationDateTime != undefined
+      output.CreationDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDateTime)))
         : undefined,
     Name: __expectString(output.Name),
@@ -2144,7 +2136,7 @@ const deserializeAws_restJson1S3ExportConfiguration = (output: any, context: __S
   return {
     Bucket: __expectString(output.Bucket),
     EncryptionConfiguration:
-      output.EncryptionConfiguration != undefined
+      output.EncryptionConfiguration != null
         ? deserializeAws_restJson1S3EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
     Prefix: __expectString(output.Prefix),

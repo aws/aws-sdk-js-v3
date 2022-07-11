@@ -114,7 +114,7 @@ export const serializeAws_restJson1BatchGetChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arns != undefined && { arns: serializeAws_restJson1ChannelArnList(input.arns, context) }),
+    ...(input.arns != null && { arns: serializeAws_restJson1ChannelArnList(input.arns, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -138,7 +138,7 @@ export const serializeAws_restJson1BatchGetStreamKeyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arns != undefined && { arns: serializeAws_restJson1StreamKeyArnList(input.arns, context) }),
+    ...(input.arns != null && { arns: serializeAws_restJson1StreamKeyArnList(input.arns, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -162,12 +162,12 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.authorized != undefined && { authorized: input.authorized }),
-    ...(input.latencyMode != undefined && { latencyMode: input.latencyMode }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.recordingConfigurationArn != undefined && { recordingConfigurationArn: input.recordingConfigurationArn }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.authorized != null && { authorized: input.authorized }),
+    ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -192,12 +192,12 @@ export const serializeAws_restJson1CreateRecordingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateRecordingConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.destinationConfiguration != undefined && {
+    ...(input.destinationConfiguration != null && {
       destinationConfiguration: serializeAws_restJson1DestinationConfiguration(input.destinationConfiguration, context),
     }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.thumbnailConfiguration != undefined && {
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.thumbnailConfiguration != null && {
       thumbnailConfiguration: serializeAws_restJson1ThumbnailConfiguration(input.thumbnailConfiguration, context),
     }),
   });
@@ -223,8 +223,8 @@ export const serializeAws_restJson1CreateStreamKeyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -248,7 +248,7 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -272,7 +272,7 @@ export const serializeAws_restJson1DeletePlaybackKeyPairCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeletePlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -297,7 +297,7 @@ export const serializeAws_restJson1DeleteRecordingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteRecordingConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -321,7 +321,7 @@ export const serializeAws_restJson1DeleteStreamKeyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -345,7 +345,7 @@ export const serializeAws_restJson1GetChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -369,7 +369,7 @@ export const serializeAws_restJson1GetPlaybackKeyPairCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetPlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -394,7 +394,7 @@ export const serializeAws_restJson1GetRecordingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetRecordingConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -418,7 +418,7 @@ export const serializeAws_restJson1GetStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -442,7 +442,7 @@ export const serializeAws_restJson1GetStreamKeyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
+    ...(input.arn != null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -466,8 +466,8 @@ export const serializeAws_restJson1GetStreamSessionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetStreamSession";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
-    ...(input.streamId != undefined && { streamId: input.streamId }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
+    ...(input.streamId != null && { streamId: input.streamId }),
   });
   return new __HttpRequest({
     protocol,
@@ -491,9 +491,9 @@ export const serializeAws_restJson1ImportPlaybackKeyPairCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ImportPlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.publicKeyMaterial != undefined && { publicKeyMaterial: input.publicKeyMaterial }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.publicKeyMaterial != null && { publicKeyMaterial: input.publicKeyMaterial }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -517,12 +517,12 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListChannels";
   let body: any;
   body = JSON.stringify({
-    ...(input.filterByName != undefined && { filterByName: input.filterByName }),
-    ...(input.filterByRecordingConfigurationArn != undefined && {
+    ...(input.filterByName != null && { filterByName: input.filterByName }),
+    ...(input.filterByRecordingConfigurationArn != null && {
       filterByRecordingConfigurationArn: input.filterByRecordingConfigurationArn,
     }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -546,8 +546,8 @@ export const serializeAws_restJson1ListPlaybackKeyPairsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListPlaybackKeyPairs";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -572,8 +572,8 @@ export const serializeAws_restJson1ListRecordingConfigurationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListRecordingConfigurations";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -597,9 +597,9 @@ export const serializeAws_restJson1ListStreamKeysCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreamKeys";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -623,9 +623,9 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreams";
   let body: any;
   body = JSON.stringify({
-    ...(input.filterBy != undefined && { filterBy: serializeAws_restJson1StreamFilters(input.filterBy, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filterBy != null && { filterBy: serializeAws_restJson1StreamFilters(input.filterBy, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -649,9 +649,9 @@ export const serializeAws_restJson1ListStreamSessionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListStreamSessions";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -703,8 +703,8 @@ export const serializeAws_restJson1PutMetadataCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutMetadata";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
-    ...(input.metadata != undefined && { metadata: input.metadata }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
+    ...(input.metadata != null && { metadata: input.metadata }),
   });
   return new __HttpRequest({
     protocol,
@@ -728,7 +728,7 @@ export const serializeAws_restJson1StopStreamCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StopStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn != undefined && { channelArn: input.channelArn }),
+    ...(input.channelArn != null && { channelArn: input.channelArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -761,7 +761,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -817,12 +817,12 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn != undefined && { arn: input.arn }),
-    ...(input.authorized != undefined && { authorized: input.authorized }),
-    ...(input.latencyMode != undefined && { latencyMode: input.latencyMode }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.recordingConfigurationArn != undefined && { recordingConfigurationArn: input.recordingConfigurationArn }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.arn != null && { arn: input.arn }),
+    ...(input.authorized != null && { authorized: input.authorized }),
+    ...(input.latencyMode != null && { latencyMode: input.latencyMode }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.recordingConfigurationArn != null && { recordingConfigurationArn: input.recordingConfigurationArn }),
+    ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -2497,7 +2497,7 @@ const serializeAws_restJson1DestinationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.s3 != undefined && { s3: serializeAws_restJson1S3DestinationConfiguration(input.s3, context) }),
+    ...(input.s3 != null && { s3: serializeAws_restJson1S3DestinationConfiguration(input.s3, context) }),
   };
 };
 
@@ -2506,13 +2506,13 @@ const serializeAws_restJson1S3DestinationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.bucketName != undefined && { bucketName: input.bucketName }),
+    ...(input.bucketName != null && { bucketName: input.bucketName }),
   };
 };
 
 const serializeAws_restJson1StreamFilters = (input: StreamFilters, context: __SerdeContext): any => {
   return {
-    ...(input.health != undefined && { health: input.health }),
+    ...(input.health != null && { health: input.health }),
   };
 };
 
@@ -2541,8 +2541,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 
 const serializeAws_restJson1ThumbnailConfiguration = (input: ThumbnailConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.recordingMode != undefined && { recordingMode: input.recordingMode }),
-    ...(input.targetIntervalSeconds != undefined && { targetIntervalSeconds: input.targetIntervalSeconds }),
+    ...(input.recordingMode != null && { recordingMode: input.recordingMode }),
+    ...(input.targetIntervalSeconds != null && { targetIntervalSeconds: input.targetIntervalSeconds }),
   };
 };
 
@@ -2584,7 +2584,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     name: __expectString(output.name),
     playbackUrl: __expectString(output.playbackUrl),
     recordingConfigurationArn: __expectString(output.recordingConfigurationArn),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -2620,7 +2620,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
     latencyMode: __expectString(output.latencyMode),
     name: __expectString(output.name),
     recordingConfigurationArn: __expectString(output.recordingConfigurationArn),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2629,14 +2629,14 @@ const deserializeAws_restJson1DestinationConfiguration = (
   context: __SerdeContext
 ): DestinationConfiguration => {
   return {
-    s3: output.s3 != undefined ? deserializeAws_restJson1S3DestinationConfiguration(output.s3, context) : undefined,
+    s3: output.s3 != null ? deserializeAws_restJson1S3DestinationConfiguration(output.s3, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1IngestConfiguration = (output: any, context: __SerdeContext): IngestConfiguration => {
   return {
-    audio: output.audio != undefined ? deserializeAws_restJson1AudioConfiguration(output.audio, context) : undefined,
-    video: output.video != undefined ? deserializeAws_restJson1VideoConfiguration(output.video, context) : undefined,
+    audio: output.audio != null ? deserializeAws_restJson1AudioConfiguration(output.audio, context) : undefined,
+    video: output.video != null ? deserializeAws_restJson1VideoConfiguration(output.video, context) : undefined,
   } as any;
 };
 
@@ -2645,7 +2645,7 @@ const deserializeAws_restJson1PlaybackKeyPair = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     fingerprint: __expectString(output.fingerprint),
     name: __expectString(output.name),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2671,7 +2671,7 @@ const deserializeAws_restJson1PlaybackKeyPairSummary = (
   return {
     arn: __expectString(output.arn),
     name: __expectString(output.name),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2682,14 +2682,14 @@ const deserializeAws_restJson1RecordingConfiguration = (
   return {
     arn: __expectString(output.arn),
     destinationConfiguration:
-      output.destinationConfiguration != undefined
+      output.destinationConfiguration != null
         ? deserializeAws_restJson1DestinationConfiguration(output.destinationConfiguration, context)
         : undefined,
     name: __expectString(output.name),
     state: __expectString(output.state),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     thumbnailConfiguration:
-      output.thumbnailConfiguration != undefined
+      output.thumbnailConfiguration != null
         ? deserializeAws_restJson1ThumbnailConfiguration(output.thumbnailConfiguration, context)
         : undefined,
   } as any;
@@ -2717,12 +2717,12 @@ const deserializeAws_restJson1RecordingConfigurationSummary = (
   return {
     arn: __expectString(output.arn),
     destinationConfiguration:
-      output.destinationConfiguration != undefined
+      output.destinationConfiguration != null
         ? deserializeAws_restJson1DestinationConfiguration(output.destinationConfiguration, context)
         : undefined,
     name: __expectString(output.name),
     state: __expectString(output.state),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2740,7 +2740,7 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
     playbackUrl: __expectString(output.playbackUrl),
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),
@@ -2749,7 +2749,7 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1StreamEvent = (output: any, context: __SerdeContext): StreamEvent => {
   return {
-    eventTime: output.eventTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.eventTime)) : undefined,
+    eventTime: output.eventTime != null ? __expectNonNull(__parseRfc3339DateTime(output.eventTime)) : undefined,
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;
@@ -2771,7 +2771,7 @@ const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext)
   return {
     arn: __expectString(output.arn),
     channelArn: __expectString(output.channelArn),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     value: __expectString(output.value),
   } as any;
 };
@@ -2804,7 +2804,7 @@ const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeC
   return {
     arn: __expectString(output.arn),
     channelArn: __expectString(output.channelArn),
-    tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2822,20 +2822,20 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeContext): StreamSession => {
   return {
-    channel: output.channel != undefined ? deserializeAws_restJson1Channel(output.channel, context) : undefined,
-    endTime: output.endTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    channel: output.channel != null ? deserializeAws_restJson1Channel(output.channel, context) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
     ingestConfiguration:
-      output.ingestConfiguration != undefined
+      output.ingestConfiguration != null
         ? deserializeAws_restJson1IngestConfiguration(output.ingestConfiguration, context)
         : undefined,
     recordingConfiguration:
-      output.recordingConfiguration != undefined
+      output.recordingConfiguration != null
         ? deserializeAws_restJson1RecordingConfiguration(output.recordingConfiguration, context)
         : undefined,
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
     truncatedEvents:
-      output.truncatedEvents != undefined
+      output.truncatedEvents != null
         ? deserializeAws_restJson1StreamEvents(output.truncatedEvents, context)
         : undefined,
   } as any;
@@ -2855,9 +2855,9 @@ const deserializeAws_restJson1StreamSessionList = (output: any, context: __Serde
 
 const deserializeAws_restJson1StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {
   return {
-    endTime: output.endTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
     hasErrorEvent: __expectBoolean(output.hasErrorEvent),
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
     streamId: __expectString(output.streamId),
   } as any;
 };
@@ -2866,7 +2866,7 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
   return {
     channelArn: __expectString(output.channelArn),
     health: __expectString(output.health),
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
     state: __expectString(output.state),
     streamId: __expectString(output.streamId),
     viewerCount: __expectLong(output.viewerCount),

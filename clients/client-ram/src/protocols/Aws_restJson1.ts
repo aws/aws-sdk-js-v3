@@ -140,10 +140,8 @@ export const serializeAws_restJson1AcceptResourceShareInvitationCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/acceptresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.resourceShareInvitationArn != undefined && {
-      resourceShareInvitationArn: input.resourceShareInvitationArn,
-    }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -168,14 +166,14 @@ export const serializeAws_restJson1AssociateResourceShareCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.principals != undefined && {
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.principals != null && {
       principals: serializeAws_restJson1PrincipalArnOrIdList(input.principals, context),
     }),
-    ...(input.resourceArns != undefined && {
+    ...(input.resourceArns != null && {
       resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
     }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -200,11 +198,11 @@ export const serializeAws_restJson1AssociateResourceSharePermissionCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.permissionArn != undefined && { permissionArn: input.permissionArn }),
-    ...(input.permissionVersion != undefined && { permissionVersion: input.permissionVersion }),
-    ...(input.replace != undefined && { replace: input.replace }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
+    ...(input.permissionVersion != null && { permissionVersion: input.permissionVersion }),
+    ...(input.replace != null && { replace: input.replace }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -228,19 +226,19 @@ export const serializeAws_restJson1CreateResourceShareCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
   let body: any;
   body = JSON.stringify({
-    ...(input.allowExternalPrincipals != undefined && { allowExternalPrincipals: input.allowExternalPrincipals }),
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.permissionArns != undefined && {
+    ...(input.allowExternalPrincipals != null && { allowExternalPrincipals: input.allowExternalPrincipals }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.permissionArns != null && {
       permissionArns: serializeAws_restJson1PermissionArnList(input.permissionArns, context),
     }),
-    ...(input.principals != undefined && {
+    ...(input.principals != null && {
       principals: serializeAws_restJson1PrincipalArnOrIdList(input.principals, context),
     }),
-    ...(input.resourceArns != undefined && {
+    ...(input.resourceArns != null && {
       resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -289,14 +287,14 @@ export const serializeAws_restJson1DisassociateResourceShareCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourceshare";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.principals != undefined && {
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.principals != null && {
       principals: serializeAws_restJson1PrincipalArnOrIdList(input.principals, context),
     }),
-    ...(input.resourceArns != undefined && {
+    ...(input.resourceArns != null && {
       resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
     }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -321,9 +319,9 @@ export const serializeAws_restJson1DisassociateResourceSharePermissionCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.permissionArn != undefined && { permissionArn: input.permissionArn }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -370,8 +368,8 @@ export const serializeAws_restJson1GetPermissionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
   let body: any;
   body = JSON.stringify({
-    ...(input.permissionArn != undefined && { permissionArn: input.permissionArn }),
-    ...(input.permissionVersion != undefined && { permissionVersion: input.permissionVersion }),
+    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
+    ...(input.permissionVersion != null && { permissionVersion: input.permissionVersion }),
   });
   return new __HttpRequest({
     protocol,
@@ -395,10 +393,10 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.principal != undefined && { principal: input.principal }),
-    ...(input.resourceArns != undefined && {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.principal != null && { principal: input.principal }),
+    ...(input.resourceArns != null && {
       resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
     }),
   });
@@ -425,13 +423,13 @@ export const serializeAws_restJson1GetResourceShareAssociationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareassociations";
   let body: any;
   body = JSON.stringify({
-    ...(input.associationStatus != undefined && { associationStatus: input.associationStatus }),
-    ...(input.associationType != undefined && { associationType: input.associationType }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.principal != undefined && { principal: input.principal }),
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.resourceShareArns != undefined && {
+    ...(input.associationStatus != null && { associationStatus: input.associationStatus }),
+    ...(input.associationType != null && { associationType: input.associationType }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.principal != null && { principal: input.principal }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.resourceShareArns != null && {
       resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
     }),
   });
@@ -458,12 +456,12 @@ export const serializeAws_restJson1GetResourceShareInvitationsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareinvitations";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceShareArns != undefined && {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceShareArns != null && {
       resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
     }),
-    ...(input.resourceShareInvitationArns != undefined && {
+    ...(input.resourceShareInvitationArns != null && {
       resourceShareInvitationArns: serializeAws_restJson1ResourceShareInvitationArnList(
         input.resourceShareInvitationArns,
         context
@@ -492,16 +490,16 @@ export const serializeAws_restJson1GetResourceSharesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.permissionArn != undefined && { permissionArn: input.permissionArn }),
-    ...(input.resourceOwner != undefined && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceShareArns != undefined && {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
+    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
+    ...(input.resourceShareArns != null && {
       resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
     }),
-    ...(input.resourceShareStatus != undefined && { resourceShareStatus: input.resourceShareStatus }),
-    ...(input.tagFilters != undefined && { tagFilters: serializeAws_restJson1TagFilters(input.tagFilters, context) }),
+    ...(input.resourceShareStatus != null && { resourceShareStatus: input.resourceShareStatus }),
+    ...(input.tagFilters != null && { tagFilters: serializeAws_restJson1TagFilters(input.tagFilters, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -526,12 +524,10 @@ export const serializeAws_restJson1ListPendingInvitationResourcesCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpendinginvitationresources";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceRegionScope != undefined && { resourceRegionScope: input.resourceRegionScope }),
-    ...(input.resourceShareInvitationArn != undefined && {
-      resourceShareInvitationArn: input.resourceShareInvitationArn,
-    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
+    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -555,9 +551,9 @@ export const serializeAws_restJson1ListPermissionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceType != undefined && { resourceType: input.resourceType }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceType != null && { resourceType: input.resourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -582,9 +578,9 @@ export const serializeAws_restJson1ListPermissionVersionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionversions";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.permissionArn != undefined && { permissionArn: input.permissionArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.permissionArn != null && { permissionArn: input.permissionArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -608,17 +604,17 @@ export const serializeAws_restJson1ListPrincipalsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.principals != undefined && {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.principals != null && {
       principals: serializeAws_restJson1PrincipalArnOrIdList(input.principals, context),
     }),
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.resourceOwner != undefined && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceShareArns != undefined && {
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
+    ...(input.resourceShareArns != null && {
       resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
     }),
-    ...(input.resourceType != undefined && { resourceType: input.resourceType }),
+    ...(input.resourceType != null && { resourceType: input.resourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -642,18 +638,18 @@ export const serializeAws_restJson1ListResourcesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.principal != undefined && { principal: input.principal }),
-    ...(input.resourceArns != undefined && {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.principal != null && { principal: input.principal }),
+    ...(input.resourceArns != null && {
       resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
     }),
-    ...(input.resourceOwner != undefined && { resourceOwner: input.resourceOwner }),
-    ...(input.resourceRegionScope != undefined && { resourceRegionScope: input.resourceRegionScope }),
-    ...(input.resourceShareArns != undefined && {
+    ...(input.resourceOwner != null && { resourceOwner: input.resourceOwner }),
+    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
+    ...(input.resourceShareArns != null && {
       resourceShareArns: serializeAws_restJson1ResourceShareArnList(input.resourceShareArns, context),
     }),
-    ...(input.resourceType != undefined && { resourceType: input.resourceType }),
+    ...(input.resourceType != null && { resourceType: input.resourceType }),
   });
   return new __HttpRequest({
     protocol,
@@ -678,9 +674,9 @@ export const serializeAws_restJson1ListResourceSharePermissionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcesharepermissions";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -704,9 +700,9 @@ export const serializeAws_restJson1ListResourceTypesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceRegionScope != undefined && { resourceRegionScope: input.resourceRegionScope }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceRegionScope != null && { resourceRegionScope: input.resourceRegionScope }),
   });
   return new __HttpRequest({
     protocol,
@@ -755,10 +751,8 @@ export const serializeAws_restJson1RejectResourceShareInvitationCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rejectresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.resourceShareInvitationArn != undefined && {
-      resourceShareInvitationArn: input.resourceShareInvitationArn,
-    }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.resourceShareInvitationArn != null && { resourceShareInvitationArn: input.resourceShareInvitationArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -782,8 +776,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -807,8 +801,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
   let body: any;
   body = JSON.stringify({
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
-    ...(input.tagKeys != undefined && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -832,10 +826,10 @@ export const serializeAws_restJson1UpdateResourceShareCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
   let body: any;
   body = JSON.stringify({
-    ...(input.allowExternalPrincipals != undefined && { allowExternalPrincipals: input.allowExternalPrincipals }),
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.resourceShareArn != undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.allowExternalPrincipals != null && { allowExternalPrincipals: input.allowExternalPrincipals }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.resourceShareArn != null && { resourceShareArn: input.resourceShareArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -2967,15 +2961,15 @@ const serializeAws_restJson1ResourceShareInvitationArnList = (input: string[], c
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
 const serializeAws_restJson1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.tagKey != undefined && { tagKey: input.tagKey }),
-    ...(input.tagValues != undefined && { tagValues: serializeAws_restJson1TagValueList(input.tagValues, context) }),
+    ...(input.tagKey != null && { tagKey: input.tagKey }),
+    ...(input.tagValues != null && { tagValues: serializeAws_restJson1TagValueList(input.tagValues, context) }),
   };
 };
 
@@ -3038,13 +3032,13 @@ const deserializeAws_restJson1PolicyList = (output: any, context: __SerdeContext
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     external: __expectBoolean(output.external),
     id: __expectString(output.id),
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceShareArn: __expectString(output.resourceShareArn),
@@ -3067,11 +3061,11 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceGroupArn: __expectString(output.resourceGroupArn),
@@ -3099,12 +3093,12 @@ const deserializeAws_restJson1ResourceShare = (output: any, context: __SerdeCont
   return {
     allowExternalPrincipals: __expectBoolean(output.allowExternalPrincipals),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     featureSet: __expectString(output.featureSet),
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
@@ -3112,7 +3106,7 @@ const deserializeAws_restJson1ResourceShare = (output: any, context: __SerdeCont
     resourceShareArn: __expectString(output.resourceShareArn),
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3124,12 +3118,12 @@ const deserializeAws_restJson1ResourceShareAssociation = (
     associatedEntity: __expectString(output.associatedEntity),
     associationType: __expectString(output.associationType),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     external: __expectBoolean(output.external),
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     resourceShareArn: __expectString(output.resourceShareArn),
@@ -3160,14 +3154,14 @@ const deserializeAws_restJson1ResourceShareInvitation = (
 ): ResourceShareInvitation => {
   return {
     invitationTimestamp:
-      output.invitationTimestamp != undefined
+      output.invitationTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.invitationTimestamp)))
         : undefined,
     receiverAccountId: __expectString(output.receiverAccountId),
     receiverArn: __expectString(output.receiverArn),
     resourceShareArn: __expectString(output.resourceShareArn),
     resourceShareAssociations:
-      output.resourceShareAssociations != undefined
+      output.resourceShareAssociations != null
         ? deserializeAws_restJson1ResourceShareAssociationList(output.resourceShareAssociations, context)
         : undefined,
     resourceShareInvitationArn: __expectString(output.resourceShareInvitationArn),
@@ -3211,13 +3205,13 @@ const deserializeAws_restJson1ResourceSharePermissionDetail = (
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     defaultVersion: __expectBoolean(output.defaultVersion),
     isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),
@@ -3249,13 +3243,13 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
   return {
     arn: __expectString(output.arn),
     creationTime:
-      output.creationTime != undefined
+      output.creationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
         : undefined,
     defaultVersion: __expectBoolean(output.defaultVersion),
     isResourceTypeDefault: __expectBoolean(output.isResourceTypeDefault),
     lastUpdatedTime:
-      output.lastUpdatedTime != undefined
+      output.lastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
         : undefined,
     name: __expectString(output.name),

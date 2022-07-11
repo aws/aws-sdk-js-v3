@@ -3268,8 +3268,8 @@ const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1AcknowledgeJobInput = (input: AcknowledgeJobInput, context: __SerdeContext): any => {
   return {
-    ...(input.jobId != undefined && { jobId: input.jobId }),
-    ...(input.nonce != undefined && { nonce: input.nonce }),
+    ...(input.jobId != null && { jobId: input.jobId }),
+    ...(input.nonce != null && { nonce: input.nonce }),
   };
 };
 
@@ -3278,9 +3278,9 @@ const serializeAws_json1_1AcknowledgeThirdPartyJobInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
-    ...(input.nonce != undefined && { nonce: input.nonce }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.jobId != null && { jobId: input.jobId }),
+    ...(input.nonce != null && { nonce: input.nonce }),
   };
 };
 
@@ -3301,13 +3301,13 @@ const serializeAws_json1_1ActionConfigurationProperty = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.queryable != undefined && { queryable: input.queryable }),
-    ...(input.required != undefined && { required: input.required }),
-    ...(input.secret != undefined && { secret: input.secret }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.queryable != null && { queryable: input.queryable }),
+    ...(input.required != null && { required: input.required }),
+    ...(input.secret != null && { secret: input.secret }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -3327,37 +3327,35 @@ const serializeAws_json1_1ActionConfigurationPropertyList = (
 
 const serializeAws_json1_1ActionDeclaration = (input: ActionDeclaration, context: __SerdeContext): any => {
   return {
-    ...(input.actionTypeId != undefined && {
-      actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context),
-    }),
-    ...(input.configuration != undefined && {
+    ...(input.actionTypeId != null && { actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context) }),
+    ...(input.configuration != null && {
       configuration: serializeAws_json1_1ActionConfigurationMap(input.configuration, context),
     }),
-    ...(input.inputArtifacts != undefined && {
+    ...(input.inputArtifacts != null && {
       inputArtifacts: serializeAws_json1_1InputArtifactList(input.inputArtifacts, context),
     }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.namespace != undefined && { namespace: input.namespace }),
-    ...(input.outputArtifacts != undefined && {
+    ...(input.name != null && { name: input.name }),
+    ...(input.namespace != null && { namespace: input.namespace }),
+    ...(input.outputArtifacts != null && {
       outputArtifacts: serializeAws_json1_1OutputArtifactList(input.outputArtifacts, context),
     }),
-    ...(input.region != undefined && { region: input.region }),
-    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
-    ...(input.runOrder != undefined && { runOrder: input.runOrder }),
+    ...(input.region != null && { region: input.region }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.runOrder != null && { runOrder: input.runOrder }),
   };
 };
 
 const serializeAws_json1_1ActionExecutionFilter = (input: ActionExecutionFilter, context: __SerdeContext): any => {
   return {
-    ...(input.pipelineExecutionId != undefined && { pipelineExecutionId: input.pipelineExecutionId }),
+    ...(input.pipelineExecutionId != null && { pipelineExecutionId: input.pipelineExecutionId }),
   };
 };
 
 const serializeAws_json1_1ActionRevision = (input: ActionRevision, context: __SerdeContext): any => {
   return {
-    ...(input.created != undefined && { created: Math.round(input.created.getTime() / 1000) }),
-    ...(input.revisionChangeId != undefined && { revisionChangeId: input.revisionChangeId }),
-    ...(input.revisionId != undefined && { revisionId: input.revisionId }),
+    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000) }),
+    ...(input.revisionChangeId != null && { revisionChangeId: input.revisionChangeId }),
+    ...(input.revisionId != null && { revisionId: input.revisionId }),
   };
 };
 
@@ -3366,64 +3364,64 @@ const serializeAws_json1_1ActionTypeArtifactDetails = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maximumCount != undefined && { maximumCount: input.maximumCount }),
-    ...(input.minimumCount != undefined && { minimumCount: input.minimumCount }),
+    ...(input.maximumCount != null && { maximumCount: input.maximumCount }),
+    ...(input.minimumCount != null && { minimumCount: input.minimumCount }),
   };
 };
 
 const serializeAws_json1_1ActionTypeDeclaration = (input: ActionTypeDeclaration, context: __SerdeContext): any => {
   return {
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.executor != undefined && { executor: serializeAws_json1_1ActionTypeExecutor(input.executor, context) }),
-    ...(input.id != undefined && { id: serializeAws_json1_1ActionTypeIdentifier(input.id, context) }),
-    ...(input.inputArtifactDetails != undefined && {
+    ...(input.description != null && { description: input.description }),
+    ...(input.executor != null && { executor: serializeAws_json1_1ActionTypeExecutor(input.executor, context) }),
+    ...(input.id != null && { id: serializeAws_json1_1ActionTypeIdentifier(input.id, context) }),
+    ...(input.inputArtifactDetails != null && {
       inputArtifactDetails: serializeAws_json1_1ActionTypeArtifactDetails(input.inputArtifactDetails, context),
     }),
-    ...(input.outputArtifactDetails != undefined && {
+    ...(input.outputArtifactDetails != null && {
       outputArtifactDetails: serializeAws_json1_1ActionTypeArtifactDetails(input.outputArtifactDetails, context),
     }),
-    ...(input.permissions != undefined && {
+    ...(input.permissions != null && {
       permissions: serializeAws_json1_1ActionTypePermissions(input.permissions, context),
     }),
-    ...(input.properties != undefined && {
+    ...(input.properties != null && {
       properties: serializeAws_json1_1ActionTypeProperties(input.properties, context),
     }),
-    ...(input.urls != undefined && { urls: serializeAws_json1_1ActionTypeUrls(input.urls, context) }),
+    ...(input.urls != null && { urls: serializeAws_json1_1ActionTypeUrls(input.urls, context) }),
   };
 };
 
 const serializeAws_json1_1ActionTypeExecutor = (input: ActionTypeExecutor, context: __SerdeContext): any => {
   return {
-    ...(input.configuration != undefined && {
+    ...(input.configuration != null && {
       configuration: serializeAws_json1_1ExecutorConfiguration(input.configuration, context),
     }),
-    ...(input.jobTimeout != undefined && { jobTimeout: input.jobTimeout }),
-    ...(input.policyStatementsTemplate != undefined && { policyStatementsTemplate: input.policyStatementsTemplate }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.jobTimeout != null && { jobTimeout: input.jobTimeout }),
+    ...(input.policyStatementsTemplate != null && { policyStatementsTemplate: input.policyStatementsTemplate }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1ActionTypeId = (input: ActionTypeId, context: __SerdeContext): any => {
   return {
-    ...(input.category != undefined && { category: input.category }),
-    ...(input.owner != undefined && { owner: input.owner }),
-    ...(input.provider != undefined && { provider: input.provider }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.owner != null && { owner: input.owner }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1ActionTypeIdentifier = (input: ActionTypeIdentifier, context: __SerdeContext): any => {
   return {
-    ...(input.category != undefined && { category: input.category }),
-    ...(input.owner != undefined && { owner: input.owner }),
-    ...(input.provider != undefined && { provider: input.provider }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.owner != null && { owner: input.owner }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1ActionTypePermissions = (input: ActionTypePermissions, context: __SerdeContext): any => {
   return {
-    ...(input.allowedAccounts != undefined && {
+    ...(input.allowedAccounts != null && {
       allowedAccounts: serializeAws_json1_1AllowedAccounts(input.allowedAccounts, context),
     }),
   };
@@ -3442,32 +3440,30 @@ const serializeAws_json1_1ActionTypeProperties = (input: ActionTypeProperty[], c
 
 const serializeAws_json1_1ActionTypeProperty = (input: ActionTypeProperty, context: __SerdeContext): any => {
   return {
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.noEcho != undefined && { noEcho: input.noEcho }),
-    ...(input.optional != undefined && { optional: input.optional }),
-    ...(input.queryable != undefined && { queryable: input.queryable }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.noEcho != null && { noEcho: input.noEcho }),
+    ...(input.optional != null && { optional: input.optional }),
+    ...(input.queryable != null && { queryable: input.queryable }),
   };
 };
 
 const serializeAws_json1_1ActionTypeSettings = (input: ActionTypeSettings, context: __SerdeContext): any => {
   return {
-    ...(input.entityUrlTemplate != undefined && { entityUrlTemplate: input.entityUrlTemplate }),
-    ...(input.executionUrlTemplate != undefined && { executionUrlTemplate: input.executionUrlTemplate }),
-    ...(input.revisionUrlTemplate != undefined && { revisionUrlTemplate: input.revisionUrlTemplate }),
-    ...(input.thirdPartyConfigurationUrl != undefined && {
-      thirdPartyConfigurationUrl: input.thirdPartyConfigurationUrl,
-    }),
+    ...(input.entityUrlTemplate != null && { entityUrlTemplate: input.entityUrlTemplate }),
+    ...(input.executionUrlTemplate != null && { executionUrlTemplate: input.executionUrlTemplate }),
+    ...(input.revisionUrlTemplate != null && { revisionUrlTemplate: input.revisionUrlTemplate }),
+    ...(input.thirdPartyConfigurationUrl != null && { thirdPartyConfigurationUrl: input.thirdPartyConfigurationUrl }),
   };
 };
 
 const serializeAws_json1_1ActionTypeUrls = (input: ActionTypeUrls, context: __SerdeContext): any => {
   return {
-    ...(input.configurationUrl != undefined && { configurationUrl: input.configurationUrl }),
-    ...(input.entityUrlTemplate != undefined && { entityUrlTemplate: input.entityUrlTemplate }),
-    ...(input.executionUrlTemplate != undefined && { executionUrlTemplate: input.executionUrlTemplate }),
-    ...(input.revisionUrlTemplate != undefined && { revisionUrlTemplate: input.revisionUrlTemplate }),
+    ...(input.configurationUrl != null && { configurationUrl: input.configurationUrl }),
+    ...(input.entityUrlTemplate != null && { entityUrlTemplate: input.entityUrlTemplate }),
+    ...(input.executionUrlTemplate != null && { executionUrlTemplate: input.executionUrlTemplate }),
+    ...(input.revisionUrlTemplate != null && { revisionUrlTemplate: input.revisionUrlTemplate }),
   };
 };
 
@@ -3484,25 +3480,25 @@ const serializeAws_json1_1AllowedAccounts = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1ApprovalResult = (input: ApprovalResult, context: __SerdeContext): any => {
   return {
-    ...(input.status != undefined && { status: input.status }),
-    ...(input.summary != undefined && { summary: input.summary }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.summary != null && { summary: input.summary }),
   };
 };
 
 const serializeAws_json1_1ArtifactDetails = (input: ArtifactDetails, context: __SerdeContext): any => {
   return {
-    ...(input.maximumCount != undefined && { maximumCount: input.maximumCount }),
-    ...(input.minimumCount != undefined && { minimumCount: input.minimumCount }),
+    ...(input.maximumCount != null && { maximumCount: input.maximumCount }),
+    ...(input.minimumCount != null && { minimumCount: input.minimumCount }),
   };
 };
 
 const serializeAws_json1_1ArtifactStore = (input: ArtifactStore, context: __SerdeContext): any => {
   return {
-    ...(input.encryptionKey != undefined && {
+    ...(input.encryptionKey != null && {
       encryptionKey: serializeAws_json1_1EncryptionKey(input.encryptionKey, context),
     }),
-    ...(input.location != undefined && { location: input.location }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.location != null && { location: input.location }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -3520,8 +3516,8 @@ const serializeAws_json1_1ArtifactStoreMap = (input: Record<string, ArtifactStor
 
 const serializeAws_json1_1BlockerDeclaration = (input: BlockerDeclaration, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -3530,39 +3526,39 @@ const serializeAws_json1_1CreateCustomActionTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.category != undefined && { category: input.category }),
-    ...(input.configurationProperties != undefined && {
+    ...(input.category != null && { category: input.category }),
+    ...(input.configurationProperties != null && {
       configurationProperties: serializeAws_json1_1ActionConfigurationPropertyList(
         input.configurationProperties,
         context
       ),
     }),
-    ...(input.inputArtifactDetails != undefined && {
+    ...(input.inputArtifactDetails != null && {
       inputArtifactDetails: serializeAws_json1_1ArtifactDetails(input.inputArtifactDetails, context),
     }),
-    ...(input.outputArtifactDetails != undefined && {
+    ...(input.outputArtifactDetails != null && {
       outputArtifactDetails: serializeAws_json1_1ArtifactDetails(input.outputArtifactDetails, context),
     }),
-    ...(input.provider != undefined && { provider: input.provider }),
-    ...(input.settings != undefined && { settings: serializeAws_json1_1ActionTypeSettings(input.settings, context) }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.settings != null && { settings: serializeAws_json1_1ActionTypeSettings(input.settings, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1CreatePipelineInput = (input: CreatePipelineInput, context: __SerdeContext): any => {
   return {
-    ...(input.pipeline != undefined && { pipeline: serializeAws_json1_1PipelineDeclaration(input.pipeline, context) }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.pipeline != null && { pipeline: serializeAws_json1_1PipelineDeclaration(input.pipeline, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CurrentRevision = (input: CurrentRevision, context: __SerdeContext): any => {
   return {
-    ...(input.changeIdentifier != undefined && { changeIdentifier: input.changeIdentifier }),
-    ...(input.created != undefined && { created: Math.round(input.created.getTime() / 1000) }),
-    ...(input.revision != undefined && { revision: input.revision }),
-    ...(input.revisionSummary != undefined && { revisionSummary: input.revisionSummary }),
+    ...(input.changeIdentifier != null && { changeIdentifier: input.changeIdentifier }),
+    ...(input.created != null && { created: Math.round(input.created.getTime() / 1000) }),
+    ...(input.revision != null && { revision: input.revision }),
+    ...(input.revisionSummary != null && { revisionSummary: input.revisionSummary }),
   };
 };
 
@@ -3571,21 +3567,21 @@ const serializeAws_json1_1DeleteCustomActionTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.category != undefined && { category: input.category }),
-    ...(input.provider != undefined && { provider: input.provider }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1DeletePipelineInput = (input: DeletePipelineInput, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DeleteWebhookInput = (input: DeleteWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3594,7 +3590,7 @@ const serializeAws_json1_1DeregisterWebhookWithThirdPartyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.webhookName != undefined && { webhookName: input.webhookName }),
+    ...(input.webhookName != null && { webhookName: input.webhookName }),
   };
 };
 
@@ -3603,10 +3599,10 @@ const serializeAws_json1_1DisableStageTransitionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.reason != undefined && { reason: input.reason }),
-    ...(input.stageName != undefined && { stageName: input.stageName }),
-    ...(input.transitionType != undefined && { transitionType: input.transitionType }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.reason != null && { reason: input.reason }),
+    ...(input.stageName != null && { stageName: input.stageName }),
+    ...(input.transitionType != null && { transitionType: input.transitionType }),
   };
 };
 
@@ -3615,36 +3611,36 @@ const serializeAws_json1_1EnableStageTransitionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.stageName != undefined && { stageName: input.stageName }),
-    ...(input.transitionType != undefined && { transitionType: input.transitionType }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.stageName != null && { stageName: input.stageName }),
+    ...(input.transitionType != null && { transitionType: input.transitionType }),
   };
 };
 
 const serializeAws_json1_1EncryptionKey = (input: EncryptionKey, context: __SerdeContext): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1ExecutionDetails = (input: ExecutionDetails, context: __SerdeContext): any => {
   return {
-    ...(input.externalExecutionId != undefined && { externalExecutionId: input.externalExecutionId }),
-    ...(input.percentComplete != undefined && { percentComplete: input.percentComplete }),
-    ...(input.summary != undefined && { summary: input.summary }),
+    ...(input.externalExecutionId != null && { externalExecutionId: input.externalExecutionId }),
+    ...(input.percentComplete != null && { percentComplete: input.percentComplete }),
+    ...(input.summary != null && { summary: input.summary }),
   };
 };
 
 const serializeAws_json1_1ExecutorConfiguration = (input: ExecutorConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.jobWorkerExecutorConfiguration != undefined && {
+    ...(input.jobWorkerExecutorConfiguration != null && {
       jobWorkerExecutorConfiguration: serializeAws_json1_1JobWorkerExecutorConfiguration(
         input.jobWorkerExecutorConfiguration,
         context
       ),
     }),
-    ...(input.lambdaExecutorConfiguration != undefined && {
+    ...(input.lambdaExecutorConfiguration != null && {
       lambdaExecutorConfiguration: serializeAws_json1_1LambdaExecutorConfiguration(
         input.lambdaExecutorConfiguration,
         context
@@ -3655,24 +3651,24 @@ const serializeAws_json1_1ExecutorConfiguration = (input: ExecutorConfiguration,
 
 const serializeAws_json1_1FailureDetails = (input: FailureDetails, context: __SerdeContext): any => {
   return {
-    ...(input.externalExecutionId != undefined && { externalExecutionId: input.externalExecutionId }),
-    ...(input.message != undefined && { message: input.message }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.externalExecutionId != null && { externalExecutionId: input.externalExecutionId }),
+    ...(input.message != null && { message: input.message }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1GetActionTypeInput = (input: GetActionTypeInput, context: __SerdeContext): any => {
   return {
-    ...(input.category != undefined && { category: input.category }),
-    ...(input.owner != undefined && { owner: input.owner }),
-    ...(input.provider != undefined && { provider: input.provider }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.owner != null && { owner: input.owner }),
+    ...(input.provider != null && { provider: input.provider }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1GetJobDetailsInput = (input: GetJobDetailsInput, context: __SerdeContext): any => {
   return {
-    ...(input.jobId != undefined && { jobId: input.jobId }),
+    ...(input.jobId != null && { jobId: input.jobId }),
   };
 };
 
@@ -3681,21 +3677,21 @@ const serializeAws_json1_1GetPipelineExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pipelineExecutionId != undefined && { pipelineExecutionId: input.pipelineExecutionId }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
+    ...(input.pipelineExecutionId != null && { pipelineExecutionId: input.pipelineExecutionId }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
   };
 };
 
 const serializeAws_json1_1GetPipelineInput = (input: GetPipelineInput, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
 const serializeAws_json1_1GetPipelineStateInput = (input: GetPipelineStateInput, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3704,14 +3700,14 @@ const serializeAws_json1_1GetThirdPartyJobDetailsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.jobId != null && { jobId: input.jobId }),
   };
 };
 
 const serializeAws_json1_1InputArtifact = (input: InputArtifact, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3731,10 +3727,10 @@ const serializeAws_json1_1JobWorkerExecutorConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pollingAccounts != undefined && {
+    ...(input.pollingAccounts != null && {
       pollingAccounts: serializeAws_json1_1PollingAccountList(input.pollingAccounts, context),
     }),
-    ...(input.pollingServicePrincipals != undefined && {
+    ...(input.pollingServicePrincipals != null && {
       pollingServicePrincipals: serializeAws_json1_1PollingServicePrincipalList(
         input.pollingServicePrincipals,
         context
@@ -3748,7 +3744,7 @@ const serializeAws_json1_1LambdaExecutorConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.lambdaFunctionArn != undefined && { lambdaFunctionArn: input.lambdaFunctionArn }),
+    ...(input.lambdaFunctionArn != null && { lambdaFunctionArn: input.lambdaFunctionArn }),
   };
 };
 
@@ -3757,18 +3753,18 @@ const serializeAws_json1_1ListActionExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filter != undefined && { filter: serializeAws_json1_1ActionExecutionFilter(input.filter, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
+    ...(input.filter != null && { filter: serializeAws_json1_1ActionExecutionFilter(input.filter, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
   };
 };
 
 const serializeAws_json1_1ListActionTypesInput = (input: ListActionTypesInput, context: __SerdeContext): any => {
   return {
-    ...(input.actionOwnerFilter != undefined && { actionOwnerFilter: input.actionOwnerFilter }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.regionFilter != undefined && { regionFilter: input.regionFilter }),
+    ...(input.actionOwnerFilter != null && { actionOwnerFilter: input.actionOwnerFilter }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.regionFilter != null && { regionFilter: input.regionFilter }),
   };
 };
 
@@ -3777,16 +3773,16 @@ const serializeAws_json1_1ListPipelineExecutionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
   };
 };
 
 const serializeAws_json1_1ListPipelinesInput = (input: ListPipelinesInput, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -3795,22 +3791,22 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1ListWebhooksInput = (input: ListWebhooksInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1OutputArtifact = (input: OutputArtifact, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -3839,18 +3835,16 @@ const serializeAws_json1_1OutputVariablesMap = (input: Record<string, string>, c
 
 const serializeAws_json1_1PipelineDeclaration = (input: PipelineDeclaration, context: __SerdeContext): any => {
   return {
-    ...(input.artifactStore != undefined && {
+    ...(input.artifactStore != null && {
       artifactStore: serializeAws_json1_1ArtifactStore(input.artifactStore, context),
     }),
-    ...(input.artifactStores != undefined && {
+    ...(input.artifactStores != null && {
       artifactStores: serializeAws_json1_1ArtifactStoreMap(input.artifactStores, context),
     }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
-    ...(input.stages != undefined && {
-      stages: serializeAws_json1_1PipelineStageDeclarationList(input.stages, context),
-    }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.stages != null && { stages: serializeAws_json1_1PipelineStageDeclarationList(input.stages, context) }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -3867,11 +3861,9 @@ const serializeAws_json1_1PipelineStageDeclarationList = (input: StageDeclaratio
 
 const serializeAws_json1_1PollForJobsInput = (input: PollForJobsInput, context: __SerdeContext): any => {
   return {
-    ...(input.actionTypeId != undefined && {
-      actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context),
-    }),
-    ...(input.maxBatchSize != undefined && { maxBatchSize: input.maxBatchSize }),
-    ...(input.queryParam != undefined && { queryParam: serializeAws_json1_1QueryParamMap(input.queryParam, context) }),
+    ...(input.actionTypeId != null && { actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context) }),
+    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
+    ...(input.queryParam != null && { queryParam: serializeAws_json1_1QueryParamMap(input.queryParam, context) }),
   };
 };
 
@@ -3880,10 +3872,8 @@ const serializeAws_json1_1PollForThirdPartyJobsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.actionTypeId != undefined && {
-      actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context),
-    }),
-    ...(input.maxBatchSize != undefined && { maxBatchSize: input.maxBatchSize }),
+    ...(input.actionTypeId != null && { actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context) }),
+    ...(input.maxBatchSize != null && { maxBatchSize: input.maxBatchSize }),
   };
 };
 
@@ -3911,22 +3901,22 @@ const serializeAws_json1_1PollingServicePrincipalList = (input: string[], contex
 
 const serializeAws_json1_1PutActionRevisionInput = (input: PutActionRevisionInput, context: __SerdeContext): any => {
   return {
-    ...(input.actionName != undefined && { actionName: input.actionName }),
-    ...(input.actionRevision != undefined && {
+    ...(input.actionName != null && { actionName: input.actionName }),
+    ...(input.actionRevision != null && {
       actionRevision: serializeAws_json1_1ActionRevision(input.actionRevision, context),
     }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.stageName != undefined && { stageName: input.stageName }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.stageName != null && { stageName: input.stageName }),
   };
 };
 
 const serializeAws_json1_1PutApprovalResultInput = (input: PutApprovalResultInput, context: __SerdeContext): any => {
   return {
-    ...(input.actionName != undefined && { actionName: input.actionName }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.result != undefined && { result: serializeAws_json1_1ApprovalResult(input.result, context) }),
-    ...(input.stageName != undefined && { stageName: input.stageName }),
-    ...(input.token != undefined && { token: input.token }),
+    ...(input.actionName != null && { actionName: input.actionName }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.result != null && { result: serializeAws_json1_1ApprovalResult(input.result, context) }),
+    ...(input.stageName != null && { stageName: input.stageName }),
+    ...(input.token != null && { token: input.token }),
   };
 };
 
@@ -3935,10 +3925,10 @@ const serializeAws_json1_1PutJobFailureResultInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.failureDetails != undefined && {
+    ...(input.failureDetails != null && {
       failureDetails: serializeAws_json1_1FailureDetails(input.failureDetails, context),
     }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
+    ...(input.jobId != null && { jobId: input.jobId }),
   };
 };
 
@@ -3947,15 +3937,15 @@ const serializeAws_json1_1PutJobSuccessResultInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.continuationToken != undefined && { continuationToken: input.continuationToken }),
-    ...(input.currentRevision != undefined && {
+    ...(input.continuationToken != null && { continuationToken: input.continuationToken }),
+    ...(input.currentRevision != null && {
       currentRevision: serializeAws_json1_1CurrentRevision(input.currentRevision, context),
     }),
-    ...(input.executionDetails != undefined && {
+    ...(input.executionDetails != null && {
       executionDetails: serializeAws_json1_1ExecutionDetails(input.executionDetails, context),
     }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
-    ...(input.outputVariables != undefined && {
+    ...(input.jobId != null && { jobId: input.jobId }),
+    ...(input.outputVariables != null && {
       outputVariables: serializeAws_json1_1OutputVariablesMap(input.outputVariables, context),
     }),
   };
@@ -3966,11 +3956,11 @@ const serializeAws_json1_1PutThirdPartyJobFailureResultInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.failureDetails != undefined && {
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.failureDetails != null && {
       failureDetails: serializeAws_json1_1FailureDetails(input.failureDetails, context),
     }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
+    ...(input.jobId != null && { jobId: input.jobId }),
   };
 };
 
@@ -3979,22 +3969,22 @@ const serializeAws_json1_1PutThirdPartyJobSuccessResultInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientToken != undefined && { clientToken: input.clientToken }),
-    ...(input.continuationToken != undefined && { continuationToken: input.continuationToken }),
-    ...(input.currentRevision != undefined && {
+    ...(input.clientToken != null && { clientToken: input.clientToken }),
+    ...(input.continuationToken != null && { continuationToken: input.continuationToken }),
+    ...(input.currentRevision != null && {
       currentRevision: serializeAws_json1_1CurrentRevision(input.currentRevision, context),
     }),
-    ...(input.executionDetails != undefined && {
+    ...(input.executionDetails != null && {
       executionDetails: serializeAws_json1_1ExecutionDetails(input.executionDetails, context),
     }),
-    ...(input.jobId != undefined && { jobId: input.jobId }),
+    ...(input.jobId != null && { jobId: input.jobId }),
   };
 };
 
 const serializeAws_json1_1PutWebhookInput = (input: PutWebhookInput, context: __SerdeContext): any => {
   return {
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.webhook != undefined && { webhook: serializeAws_json1_1WebhookDefinition(input.webhook, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.webhook != null && { webhook: serializeAws_json1_1WebhookDefinition(input.webhook, context) }),
   };
 };
 
@@ -4015,7 +4005,7 @@ const serializeAws_json1_1RegisterWebhookWithThirdPartyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.webhookName != undefined && { webhookName: input.webhookName }),
+    ...(input.webhookName != null && { webhookName: input.webhookName }),
   };
 };
 
@@ -4024,10 +4014,10 @@ const serializeAws_json1_1RetryStageExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.pipelineExecutionId != undefined && { pipelineExecutionId: input.pipelineExecutionId }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.retryMode != undefined && { retryMode: input.retryMode }),
-    ...(input.stageName != undefined && { stageName: input.stageName }),
+    ...(input.pipelineExecutionId != null && { pipelineExecutionId: input.pipelineExecutionId }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.retryMode != null && { retryMode: input.retryMode }),
+    ...(input.stageName != null && { stageName: input.stageName }),
   };
 };
 
@@ -4055,13 +4045,11 @@ const serializeAws_json1_1StageBlockerDeclarationList = (input: BlockerDeclarati
 
 const serializeAws_json1_1StageDeclaration = (input: StageDeclaration, context: __SerdeContext): any => {
   return {
-    ...(input.actions != undefined && {
-      actions: serializeAws_json1_1StageActionDeclarationList(input.actions, context),
-    }),
-    ...(input.blockers != undefined && {
+    ...(input.actions != null && { actions: serializeAws_json1_1StageActionDeclarationList(input.actions, context) }),
+    ...(input.blockers != null && {
       blockers: serializeAws_json1_1StageBlockerDeclarationList(input.blockers, context),
     }),
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -4071,7 +4059,7 @@ const serializeAws_json1_1StartPipelineExecutionInput = (
 ): any => {
   return {
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -4080,17 +4068,17 @@ const serializeAws_json1_1StopPipelineExecutionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.abandon != undefined && { abandon: input.abandon }),
-    ...(input.pipelineExecutionId != undefined && { pipelineExecutionId: input.pipelineExecutionId }),
-    ...(input.pipelineName != undefined && { pipelineName: input.pipelineName }),
-    ...(input.reason != undefined && { reason: input.reason }),
+    ...(input.abandon != null && { abandon: input.abandon }),
+    ...(input.pipelineExecutionId != null && { pipelineExecutionId: input.pipelineExecutionId }),
+    ...(input.pipelineName != null && { pipelineName: input.pipelineName }),
+    ...(input.reason != null && { reason: input.reason }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -4118,21 +4106,21 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateActionTypeInput = (input: UpdateActionTypeInput, context: __SerdeContext): any => {
   return {
-    ...(input.actionType != undefined && {
+    ...(input.actionType != null && {
       actionType: serializeAws_json1_1ActionTypeDeclaration(input.actionType, context),
     }),
   };
@@ -4140,7 +4128,7 @@ const serializeAws_json1_1UpdateActionTypeInput = (input: UpdateActionTypeInput,
 
 const serializeAws_json1_1UpdatePipelineInput = (input: UpdatePipelineInput, context: __SerdeContext): any => {
   return {
-    ...(input.pipeline != undefined && { pipeline: serializeAws_json1_1PipelineDeclaration(input.pipeline, context) }),
+    ...(input.pipeline != null && { pipeline: serializeAws_json1_1PipelineDeclaration(input.pipeline, context) }),
   };
 };
 
@@ -4149,31 +4137,31 @@ const serializeAws_json1_1WebhookAuthConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowedIPRange != undefined && { AllowedIPRange: input.AllowedIPRange }),
-    ...(input.SecretToken != undefined && { SecretToken: input.SecretToken }),
+    ...(input.AllowedIPRange != null && { AllowedIPRange: input.AllowedIPRange }),
+    ...(input.SecretToken != null && { SecretToken: input.SecretToken }),
   };
 };
 
 const serializeAws_json1_1WebhookDefinition = (input: WebhookDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.authentication != undefined && { authentication: input.authentication }),
-    ...(input.authenticationConfiguration != undefined && {
+    ...(input.authentication != null && { authentication: input.authentication }),
+    ...(input.authenticationConfiguration != null && {
       authenticationConfiguration: serializeAws_json1_1WebhookAuthConfiguration(
         input.authenticationConfiguration,
         context
       ),
     }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1WebhookFilters(input.filters, context) }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.targetAction != undefined && { targetAction: input.targetAction }),
-    ...(input.targetPipeline != undefined && { targetPipeline: input.targetPipeline }),
+    ...(input.filters != null && { filters: serializeAws_json1_1WebhookFilters(input.filters, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.targetAction != null && { targetAction: input.targetAction }),
+    ...(input.targetPipeline != null && { targetPipeline: input.targetPipeline }),
   };
 };
 
 const serializeAws_json1_1WebhookFilterRule = (input: WebhookFilterRule, context: __SerdeContext): any => {
   return {
-    ...(input.jsonPath != undefined && { jsonPath: input.jsonPath }),
-    ...(input.matchEquals != undefined && { matchEquals: input.matchEquals }),
+    ...(input.jsonPath != null && { jsonPath: input.jsonPath }),
+    ...(input.matchEquals != null && { matchEquals: input.matchEquals }),
   };
 };
 
@@ -4206,7 +4194,7 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
 const deserializeAws_json1_1ActionConfiguration = (output: any, context: __SerdeContext): ActionConfiguration => {
   return {
     configuration:
-      output.configuration != undefined
+      output.configuration != null
         ? deserializeAws_json1_1ActionConfigurationMap(output.configuration, context)
         : undefined,
   } as any;
@@ -4264,19 +4252,19 @@ const deserializeAws_json1_1ActionContext = (output: any, context: __SerdeContex
 const deserializeAws_json1_1ActionDeclaration = (output: any, context: __SerdeContext): ActionDeclaration => {
   return {
     actionTypeId:
-      output.actionTypeId != undefined ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
+      output.actionTypeId != null ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
     configuration:
-      output.configuration != undefined
+      output.configuration != null
         ? deserializeAws_json1_1ActionConfigurationMap(output.configuration, context)
         : undefined,
     inputArtifacts:
-      output.inputArtifacts != undefined
+      output.inputArtifacts != null
         ? deserializeAws_json1_1InputArtifactList(output.inputArtifacts, context)
         : undefined,
     name: __expectString(output.name),
     namespace: __expectString(output.namespace),
     outputArtifacts:
-      output.outputArtifacts != undefined
+      output.outputArtifacts != null
         ? deserializeAws_json1_1OutputArtifactList(output.outputArtifacts, context)
         : undefined,
     region: __expectString(output.region),
@@ -4289,11 +4277,11 @@ const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeCont
   return {
     actionExecutionId: __expectString(output.actionExecutionId),
     errorDetails:
-      output.errorDetails != undefined ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context) : undefined,
+      output.errorDetails != null ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context) : undefined,
     externalExecutionId: __expectString(output.externalExecutionId),
     externalExecutionUrl: __expectString(output.externalExecutionUrl),
     lastStatusChange:
-      output.lastStatusChange != undefined
+      output.lastStatusChange != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChange)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
@@ -4308,20 +4296,17 @@ const deserializeAws_json1_1ActionExecutionDetail = (output: any, context: __Ser
   return {
     actionExecutionId: __expectString(output.actionExecutionId),
     actionName: __expectString(output.actionName),
-    input: output.input != undefined ? deserializeAws_json1_1ActionExecutionInput(output.input, context) : undefined,
+    input: output.input != null ? deserializeAws_json1_1ActionExecutionInput(output.input, context) : undefined,
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
-    output:
-      output.output != undefined ? deserializeAws_json1_1ActionExecutionOutput(output.output, context) : undefined,
+    output: output.output != null ? deserializeAws_json1_1ActionExecutionOutput(output.output, context) : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
     pipelineVersion: __expectInt32(output.pipelineVersion),
     stageName: __expectString(output.stageName),
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -4344,19 +4329,19 @@ const deserializeAws_json1_1ActionExecutionDetailList = (
 const deserializeAws_json1_1ActionExecutionInput = (output: any, context: __SerdeContext): ActionExecutionInput => {
   return {
     actionTypeId:
-      output.actionTypeId != undefined ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
+      output.actionTypeId != null ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
     configuration:
-      output.configuration != undefined
+      output.configuration != null
         ? deserializeAws_json1_1ActionConfigurationMap(output.configuration, context)
         : undefined,
     inputArtifacts:
-      output.inputArtifacts != undefined
+      output.inputArtifacts != null
         ? deserializeAws_json1_1ArtifactDetailList(output.inputArtifacts, context)
         : undefined,
     namespace: __expectString(output.namespace),
     region: __expectString(output.region),
     resolvedConfiguration:
-      output.resolvedConfiguration != undefined
+      output.resolvedConfiguration != null
         ? deserializeAws_json1_1ResolvedActionConfigurationMap(output.resolvedConfiguration, context)
         : undefined,
     roleArn: __expectString(output.roleArn),
@@ -4366,15 +4351,15 @@ const deserializeAws_json1_1ActionExecutionInput = (output: any, context: __Serd
 const deserializeAws_json1_1ActionExecutionOutput = (output: any, context: __SerdeContext): ActionExecutionOutput => {
   return {
     executionResult:
-      output.executionResult != undefined
+      output.executionResult != null
         ? deserializeAws_json1_1ActionExecutionResult(output.executionResult, context)
         : undefined,
     outputArtifacts:
-      output.outputArtifacts != undefined
+      output.outputArtifacts != null
         ? deserializeAws_json1_1ArtifactDetailList(output.outputArtifacts, context)
         : undefined,
     outputVariables:
-      output.outputVariables != undefined
+      output.outputVariables != null
         ? deserializeAws_json1_1OutputVariablesMap(output.outputVariables, context)
         : undefined,
   } as any;
@@ -4400,7 +4385,7 @@ const deserializeAws_json1_1ActionNotFoundException = (
 const deserializeAws_json1_1ActionRevision = (output: any, context: __SerdeContext): ActionRevision => {
   return {
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     revisionChangeId: __expectString(output.revisionChangeId),
     revisionId: __expectString(output.revisionId),
   } as any;
@@ -4410,12 +4395,12 @@ const deserializeAws_json1_1ActionState = (output: any, context: __SerdeContext)
   return {
     actionName: __expectString(output.actionName),
     currentRevision:
-      output.currentRevision != undefined
+      output.currentRevision != null
         ? deserializeAws_json1_1ActionRevision(output.currentRevision, context)
         : undefined,
     entityUrl: __expectString(output.entityUrl),
     latestExecution:
-      output.latestExecution != undefined
+      output.latestExecution != null
         ? deserializeAws_json1_1ActionExecution(output.latestExecution, context)
         : undefined,
     revisionUrl: __expectString(output.revisionUrl),
@@ -4437,20 +4422,19 @@ const deserializeAws_json1_1ActionStateList = (output: any, context: __SerdeCont
 const deserializeAws_json1_1ActionType = (output: any, context: __SerdeContext): ActionType => {
   return {
     actionConfigurationProperties:
-      output.actionConfigurationProperties != undefined
+      output.actionConfigurationProperties != null
         ? deserializeAws_json1_1ActionConfigurationPropertyList(output.actionConfigurationProperties, context)
         : undefined,
-    id: output.id != undefined ? deserializeAws_json1_1ActionTypeId(output.id, context) : undefined,
+    id: output.id != null ? deserializeAws_json1_1ActionTypeId(output.id, context) : undefined,
     inputArtifactDetails:
-      output.inputArtifactDetails != undefined
+      output.inputArtifactDetails != null
         ? deserializeAws_json1_1ArtifactDetails(output.inputArtifactDetails, context)
         : undefined,
     outputArtifactDetails:
-      output.outputArtifactDetails != undefined
+      output.outputArtifactDetails != null
         ? deserializeAws_json1_1ArtifactDetails(output.outputArtifactDetails, context)
         : undefined,
-    settings:
-      output.settings != undefined ? deserializeAws_json1_1ActionTypeSettings(output.settings, context) : undefined,
+    settings: output.settings != null ? deserializeAws_json1_1ActionTypeSettings(output.settings, context) : undefined,
   } as any;
 };
 
@@ -4467,33 +4451,28 @@ const deserializeAws_json1_1ActionTypeArtifactDetails = (
 const deserializeAws_json1_1ActionTypeDeclaration = (output: any, context: __SerdeContext): ActionTypeDeclaration => {
   return {
     description: __expectString(output.description),
-    executor:
-      output.executor != undefined ? deserializeAws_json1_1ActionTypeExecutor(output.executor, context) : undefined,
-    id: output.id != undefined ? deserializeAws_json1_1ActionTypeIdentifier(output.id, context) : undefined,
+    executor: output.executor != null ? deserializeAws_json1_1ActionTypeExecutor(output.executor, context) : undefined,
+    id: output.id != null ? deserializeAws_json1_1ActionTypeIdentifier(output.id, context) : undefined,
     inputArtifactDetails:
-      output.inputArtifactDetails != undefined
+      output.inputArtifactDetails != null
         ? deserializeAws_json1_1ActionTypeArtifactDetails(output.inputArtifactDetails, context)
         : undefined,
     outputArtifactDetails:
-      output.outputArtifactDetails != undefined
+      output.outputArtifactDetails != null
         ? deserializeAws_json1_1ActionTypeArtifactDetails(output.outputArtifactDetails, context)
         : undefined,
     permissions:
-      output.permissions != undefined
-        ? deserializeAws_json1_1ActionTypePermissions(output.permissions, context)
-        : undefined,
+      output.permissions != null ? deserializeAws_json1_1ActionTypePermissions(output.permissions, context) : undefined,
     properties:
-      output.properties != undefined
-        ? deserializeAws_json1_1ActionTypeProperties(output.properties, context)
-        : undefined,
-    urls: output.urls != undefined ? deserializeAws_json1_1ActionTypeUrls(output.urls, context) : undefined,
+      output.properties != null ? deserializeAws_json1_1ActionTypeProperties(output.properties, context) : undefined,
+    urls: output.urls != null ? deserializeAws_json1_1ActionTypeUrls(output.urls, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ActionTypeExecutor = (output: any, context: __SerdeContext): ActionTypeExecutor => {
   return {
     configuration:
-      output.configuration != undefined
+      output.configuration != null
         ? deserializeAws_json1_1ExecutorConfiguration(output.configuration, context)
         : undefined,
     jobTimeout: __expectInt32(output.jobTimeout),
@@ -4544,7 +4523,7 @@ const deserializeAws_json1_1ActionTypeNotFoundException = (
 const deserializeAws_json1_1ActionTypePermissions = (output: any, context: __SerdeContext): ActionTypePermissions => {
   return {
     allowedAccounts:
-      output.allowedAccounts != undefined
+      output.allowedAccounts != null
         ? deserializeAws_json1_1AllowedAccounts(output.allowedAccounts, context)
         : undefined,
   } as any;
@@ -4614,8 +4593,7 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
 
 const deserializeAws_json1_1Artifact = (output: any, context: __SerdeContext): Artifact => {
   return {
-    location:
-      output.location != undefined ? deserializeAws_json1_1ArtifactLocation(output.location, context) : undefined,
+    location: output.location != null ? deserializeAws_json1_1ArtifactLocation(output.location, context) : undefined,
     name: __expectString(output.name),
     revision: __expectString(output.revision),
   } as any;
@@ -4624,8 +4602,7 @@ const deserializeAws_json1_1Artifact = (output: any, context: __SerdeContext): A
 const deserializeAws_json1_1ArtifactDetail = (output: any, context: __SerdeContext): ArtifactDetail => {
   return {
     name: __expectString(output.name),
-    s3location:
-      output.s3location != undefined ? deserializeAws_json1_1S3Location(output.s3location, context) : undefined,
+    s3location: output.s3location != null ? deserializeAws_json1_1S3Location(output.s3location, context) : undefined,
   } as any;
 };
 
@@ -4663,7 +4640,7 @@ const deserializeAws_json1_1ArtifactList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1ArtifactLocation = (output: any, context: __SerdeContext): ArtifactLocation => {
   return {
     s3Location:
-      output.s3Location != undefined ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context) : undefined,
+      output.s3Location != null ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -4671,7 +4648,7 @@ const deserializeAws_json1_1ArtifactLocation = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ArtifactRevision = (output: any, context: __SerdeContext): ArtifactRevision => {
   return {
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     name: __expectString(output.name),
     revisionChangeIdentifier: __expectString(output.revisionChangeIdentifier),
     revisionId: __expectString(output.revisionId),
@@ -4695,9 +4672,7 @@ const deserializeAws_json1_1ArtifactRevisionList = (output: any, context: __Serd
 const deserializeAws_json1_1ArtifactStore = (output: any, context: __SerdeContext): ArtifactStore => {
   return {
     encryptionKey:
-      output.encryptionKey != undefined
-        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
-        : undefined,
+      output.encryptionKey != null ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context) : undefined,
     location: __expectString(output.location),
     type: __expectString(output.type),
   } as any;
@@ -4753,17 +4728,15 @@ const deserializeAws_json1_1CreateCustomActionTypeOutput = (
   context: __SerdeContext
 ): CreateCustomActionTypeOutput => {
   return {
-    actionType:
-      output.actionType != undefined ? deserializeAws_json1_1ActionType(output.actionType, context) : undefined,
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    actionType: output.actionType != null ? deserializeAws_json1_1ActionType(output.actionType, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePipelineOutput => {
   return {
-    pipeline:
-      output.pipeline != undefined ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -4811,11 +4784,11 @@ const deserializeAws_json1_1ExecutionTrigger = (output: any, context: __SerdeCon
 const deserializeAws_json1_1ExecutorConfiguration = (output: any, context: __SerdeContext): ExecutorConfiguration => {
   return {
     jobWorkerExecutorConfiguration:
-      output.jobWorkerExecutorConfiguration != undefined
+      output.jobWorkerExecutorConfiguration != null
         ? deserializeAws_json1_1JobWorkerExecutorConfiguration(output.jobWorkerExecutorConfiguration, context)
         : undefined,
     lambdaExecutorConfiguration:
-      output.lambdaExecutorConfiguration != undefined
+      output.lambdaExecutorConfiguration != null
         ? deserializeAws_json1_1LambdaExecutorConfiguration(output.lambdaExecutorConfiguration, context)
         : undefined,
   } as any;
@@ -4824,16 +4797,13 @@ const deserializeAws_json1_1ExecutorConfiguration = (output: any, context: __Ser
 const deserializeAws_json1_1GetActionTypeOutput = (output: any, context: __SerdeContext): GetActionTypeOutput => {
   return {
     actionType:
-      output.actionType != undefined
-        ? deserializeAws_json1_1ActionTypeDeclaration(output.actionType, context)
-        : undefined,
+      output.actionType != null ? deserializeAws_json1_1ActionTypeDeclaration(output.actionType, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetJobDetailsOutput = (output: any, context: __SerdeContext): GetJobDetailsOutput => {
   return {
-    jobDetails:
-      output.jobDetails != undefined ? deserializeAws_json1_1JobDetails(output.jobDetails, context) : undefined,
+    jobDetails: output.jobDetails != null ? deserializeAws_json1_1JobDetails(output.jobDetails, context) : undefined,
   } as any;
 };
 
@@ -4843,7 +4813,7 @@ const deserializeAws_json1_1GetPipelineExecutionOutput = (
 ): GetPipelineExecutionOutput => {
   return {
     pipelineExecution:
-      output.pipelineExecution != undefined
+      output.pipelineExecution != null
         ? deserializeAws_json1_1PipelineExecution(output.pipelineExecution, context)
         : undefined,
   } as any;
@@ -4851,23 +4821,21 @@ const deserializeAws_json1_1GetPipelineExecutionOutput = (
 
 const deserializeAws_json1_1GetPipelineOutput = (output: any, context: __SerdeContext): GetPipelineOutput => {
   return {
-    metadata:
-      output.metadata != undefined ? deserializeAws_json1_1PipelineMetadata(output.metadata, context) : undefined,
-    pipeline:
-      output.pipeline != undefined ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
+    metadata: output.metadata != null ? deserializeAws_json1_1PipelineMetadata(output.metadata, context) : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetPipelineStateOutput = (output: any, context: __SerdeContext): GetPipelineStateOutput => {
   return {
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     pipelineName: __expectString(output.pipelineName),
     pipelineVersion: __expectInt32(output.pipelineVersion),
     stageStates:
-      output.stageStates != undefined ? deserializeAws_json1_1StageStateList(output.stageStates, context) : undefined,
+      output.stageStates != null ? deserializeAws_json1_1StageStateList(output.stageStates, context) : undefined,
     updated:
-      output.updated != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
+      output.updated != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
   } as any;
 };
 
@@ -4877,9 +4845,7 @@ const deserializeAws_json1_1GetThirdPartyJobDetailsOutput = (
 ): GetThirdPartyJobDetailsOutput => {
   return {
     jobDetails:
-      output.jobDetails != undefined
-        ? deserializeAws_json1_1ThirdPartyJobDetails(output.jobDetails, context)
-        : undefined,
+      output.jobDetails != null ? deserializeAws_json1_1ThirdPartyJobDetails(output.jobDetails, context) : undefined,
   } as any;
 };
 
@@ -5018,7 +4984,7 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternException = (
 const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     accountId: __expectString(output.accountId),
-    data: output.data != undefined ? deserializeAws_json1_1JobData(output.data, context) : undefined,
+    data: output.data != null ? deserializeAws_json1_1JobData(output.data, context) : undefined,
     id: __expectString(output.id),
     nonce: __expectString(output.nonce),
   } as any;
@@ -5027,30 +4993,24 @@ const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job =>
 const deserializeAws_json1_1JobData = (output: any, context: __SerdeContext): JobData => {
   return {
     actionConfiguration:
-      output.actionConfiguration != undefined
+      output.actionConfiguration != null
         ? deserializeAws_json1_1ActionConfiguration(output.actionConfiguration, context)
         : undefined,
     actionTypeId:
-      output.actionTypeId != undefined ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
+      output.actionTypeId != null ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
     artifactCredentials:
-      output.artifactCredentials != undefined
+      output.artifactCredentials != null
         ? deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context)
         : undefined,
     continuationToken: __expectString(output.continuationToken),
     encryptionKey:
-      output.encryptionKey != undefined
-        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
-        : undefined,
+      output.encryptionKey != null ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context) : undefined,
     inputArtifacts:
-      output.inputArtifacts != undefined
-        ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context)
-        : undefined,
+      output.inputArtifacts != null ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context) : undefined,
     outputArtifacts:
-      output.outputArtifacts != undefined
-        ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context)
-        : undefined,
+      output.outputArtifacts != null ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context) : undefined,
     pipelineContext:
-      output.pipelineContext != undefined
+      output.pipelineContext != null
         ? deserializeAws_json1_1PipelineContext(output.pipelineContext, context)
         : undefined,
   } as any;
@@ -5059,7 +5019,7 @@ const deserializeAws_json1_1JobData = (output: any, context: __SerdeContext): Jo
 const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext): JobDetails => {
   return {
     accountId: __expectString(output.accountId),
-    data: output.data != undefined ? deserializeAws_json1_1JobData(output.data, context) : undefined,
+    data: output.data != null ? deserializeAws_json1_1JobData(output.data, context) : undefined,
     id: __expectString(output.id),
   } as any;
 };
@@ -5088,11 +5048,11 @@ const deserializeAws_json1_1JobWorkerExecutorConfiguration = (
 ): JobWorkerExecutorConfiguration => {
   return {
     pollingAccounts:
-      output.pollingAccounts != undefined
+      output.pollingAccounts != null
         ? deserializeAws_json1_1PollingAccountList(output.pollingAccounts, context)
         : undefined,
     pollingServicePrincipals:
-      output.pollingServicePrincipals != undefined
+      output.pollingServicePrincipals != null
         ? deserializeAws_json1_1PollingServicePrincipalList(output.pollingServicePrincipals, context)
         : undefined,
   } as any;
@@ -5119,7 +5079,7 @@ const deserializeAws_json1_1ListActionExecutionsOutput = (
 ): ListActionExecutionsOutput => {
   return {
     actionExecutionDetails:
-      output.actionExecutionDetails != undefined
+      output.actionExecutionDetails != null
         ? deserializeAws_json1_1ActionExecutionDetailList(output.actionExecutionDetails, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -5129,7 +5089,7 @@ const deserializeAws_json1_1ListActionExecutionsOutput = (
 const deserializeAws_json1_1ListActionTypesOutput = (output: any, context: __SerdeContext): ListActionTypesOutput => {
   return {
     actionTypes:
-      output.actionTypes != undefined ? deserializeAws_json1_1ActionTypeList(output.actionTypes, context) : undefined,
+      output.actionTypes != null ? deserializeAws_json1_1ActionTypeList(output.actionTypes, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -5141,7 +5101,7 @@ const deserializeAws_json1_1ListPipelineExecutionsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     pipelineExecutionSummaries:
-      output.pipelineExecutionSummaries != undefined
+      output.pipelineExecutionSummaries != null
         ? deserializeAws_json1_1PipelineExecutionSummaryList(output.pipelineExecutionSummaries, context)
         : undefined,
   } as any;
@@ -5150,8 +5110,7 @@ const deserializeAws_json1_1ListPipelineExecutionsOutput = (
 const deserializeAws_json1_1ListPipelinesOutput = (output: any, context: __SerdeContext): ListPipelinesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    pipelines:
-      output.pipelines != undefined ? deserializeAws_json1_1PipelineList(output.pipelines, context) : undefined,
+    pipelines: output.pipelines != null ? deserializeAws_json1_1PipelineList(output.pipelines, context) : undefined,
   } as any;
 };
 
@@ -5161,7 +5120,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -5169,14 +5128,14 @@ const deserializeAws_json1_1ListWebhookItem = (output: any, context: __SerdeCont
   return {
     arn: __expectString(output.arn),
     definition:
-      output.definition != undefined ? deserializeAws_json1_1WebhookDefinition(output.definition, context) : undefined,
+      output.definition != null ? deserializeAws_json1_1WebhookDefinition(output.definition, context) : undefined,
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
     lastTriggered:
-      output.lastTriggered != undefined
+      output.lastTriggered != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastTriggered)))
         : undefined,
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
     url: __expectString(output.url),
   } as any;
 };
@@ -5184,7 +5143,7 @@ const deserializeAws_json1_1ListWebhookItem = (output: any, context: __SerdeCont
 const deserializeAws_json1_1ListWebhooksOutput = (output: any, context: __SerdeContext): ListWebhooksOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    webhooks: output.webhooks != undefined ? deserializeAws_json1_1WebhookList(output.webhooks, context) : undefined,
+    webhooks: output.webhooks != null ? deserializeAws_json1_1WebhookList(output.webhooks, context) : undefined,
   } as any;
 };
 
@@ -5238,30 +5197,26 @@ const deserializeAws_json1_1OutputVariablesSizeExceededException = (
 
 const deserializeAws_json1_1PipelineContext = (output: any, context: __SerdeContext): PipelineContext => {
   return {
-    action: output.action != undefined ? deserializeAws_json1_1ActionContext(output.action, context) : undefined,
+    action: output.action != null ? deserializeAws_json1_1ActionContext(output.action, context) : undefined,
     pipelineArn: __expectString(output.pipelineArn),
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
     pipelineName: __expectString(output.pipelineName),
-    stage: output.stage != undefined ? deserializeAws_json1_1StageContext(output.stage, context) : undefined,
+    stage: output.stage != null ? deserializeAws_json1_1StageContext(output.stage, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PipelineDeclaration = (output: any, context: __SerdeContext): PipelineDeclaration => {
   return {
     artifactStore:
-      output.artifactStore != undefined
-        ? deserializeAws_json1_1ArtifactStore(output.artifactStore, context)
-        : undefined,
+      output.artifactStore != null ? deserializeAws_json1_1ArtifactStore(output.artifactStore, context) : undefined,
     artifactStores:
-      output.artifactStores != undefined
+      output.artifactStores != null
         ? deserializeAws_json1_1ArtifactStoreMap(output.artifactStores, context)
         : undefined,
     name: __expectString(output.name),
     roleArn: __expectString(output.roleArn),
     stages:
-      output.stages != undefined
-        ? deserializeAws_json1_1PipelineStageDeclarationList(output.stages, context)
-        : undefined,
+      output.stages != null ? deserializeAws_json1_1PipelineStageDeclarationList(output.stages, context) : undefined,
     version: __expectInt32(output.version),
   } as any;
 };
@@ -5269,7 +5224,7 @@ const deserializeAws_json1_1PipelineDeclaration = (output: any, context: __Serde
 const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeContext): PipelineExecution => {
   return {
     artifactRevisions:
-      output.artifactRevisions != undefined
+      output.artifactRevisions != null
         ? deserializeAws_json1_1ArtifactRevisionList(output.artifactRevisions, context)
         : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
@@ -5304,24 +5259,20 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
 ): PipelineExecutionSummary => {
   return {
     lastUpdateTime:
-      output.lastUpdateTime != undefined
+      output.lastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
     pipelineExecutionId: __expectString(output.pipelineExecutionId),
     sourceRevisions:
-      output.sourceRevisions != undefined
+      output.sourceRevisions != null
         ? deserializeAws_json1_1SourceRevisionList(output.sourceRevisions, context)
         : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     stopTrigger:
-      output.stopTrigger != undefined
-        ? deserializeAws_json1_1StopExecutionTrigger(output.stopTrigger, context)
-        : undefined,
-    trigger: output.trigger != undefined ? deserializeAws_json1_1ExecutionTrigger(output.trigger, context) : undefined,
+      output.stopTrigger != null ? deserializeAws_json1_1StopExecutionTrigger(output.stopTrigger, context) : undefined,
+    trigger: output.trigger != null ? deserializeAws_json1_1ExecutionTrigger(output.trigger, context) : undefined,
   } as any;
 };
 
@@ -5355,10 +5306,10 @@ const deserializeAws_json1_1PipelineList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1PipelineMetadata = (output: any, context: __SerdeContext): PipelineMetadata => {
   return {
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     pipelineArn: __expectString(output.pipelineArn),
     updated:
-      output.updated != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
+      output.updated != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
   } as any;
 };
 
@@ -5398,10 +5349,10 @@ const deserializeAws_json1_1PipelineStageDeclarationList = (
 const deserializeAws_json1_1PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
   return {
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     name: __expectString(output.name),
     updated:
-      output.updated != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
+      output.updated != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updated))) : undefined,
     version: __expectInt32(output.version),
   } as any;
 };
@@ -5417,7 +5368,7 @@ const deserializeAws_json1_1PipelineVersionNotFoundException = (
 
 const deserializeAws_json1_1PollForJobsOutput = (output: any, context: __SerdeContext): PollForJobsOutput => {
   return {
-    jobs: output.jobs != undefined ? deserializeAws_json1_1JobList(output.jobs, context) : undefined,
+    jobs: output.jobs != null ? deserializeAws_json1_1JobList(output.jobs, context) : undefined,
   } as any;
 };
 
@@ -5426,7 +5377,7 @@ const deserializeAws_json1_1PollForThirdPartyJobsOutput = (
   context: __SerdeContext
 ): PollForThirdPartyJobsOutput => {
   return {
-    jobs: output.jobs != undefined ? deserializeAws_json1_1ThirdPartyJobList(output.jobs, context) : undefined,
+    jobs: output.jobs != null ? deserializeAws_json1_1ThirdPartyJobList(output.jobs, context) : undefined,
   } as any;
 };
 
@@ -5470,15 +5421,13 @@ const deserializeAws_json1_1PutApprovalResultOutput = (
 ): PutApprovalResultOutput => {
   return {
     approvedAt:
-      output.approvedAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.approvedAt)))
-        : undefined,
+      output.approvedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.approvedAt))) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOutput => {
   return {
-    webhook: output.webhook != undefined ? deserializeAws_json1_1ListWebhookItem(output.webhook, context) : undefined,
+    webhook: output.webhook != null ? deserializeAws_json1_1ListWebhookItem(output.webhook, context) : undefined,
   } as any;
 };
 
@@ -5602,13 +5551,9 @@ const deserializeAws_json1_1StageContext = (output: any, context: __SerdeContext
 const deserializeAws_json1_1StageDeclaration = (output: any, context: __SerdeContext): StageDeclaration => {
   return {
     actions:
-      output.actions != undefined
-        ? deserializeAws_json1_1StageActionDeclarationList(output.actions, context)
-        : undefined,
+      output.actions != null ? deserializeAws_json1_1StageActionDeclarationList(output.actions, context) : undefined,
     blockers:
-      output.blockers != undefined
-        ? deserializeAws_json1_1StageBlockerDeclarationList(output.blockers, context)
-        : undefined,
+      output.blockers != null ? deserializeAws_json1_1StageBlockerDeclarationList(output.blockers, context) : undefined,
     name: __expectString(output.name),
   } as any;
 };
@@ -5638,19 +5583,17 @@ const deserializeAws_json1_1StageNotRetryableException = (
 const deserializeAws_json1_1StageState = (output: any, context: __SerdeContext): StageState => {
   return {
     actionStates:
-      output.actionStates != undefined
-        ? deserializeAws_json1_1ActionStateList(output.actionStates, context)
-        : undefined,
+      output.actionStates != null ? deserializeAws_json1_1ActionStateList(output.actionStates, context) : undefined,
     inboundExecution:
-      output.inboundExecution != undefined
+      output.inboundExecution != null
         ? deserializeAws_json1_1StageExecution(output.inboundExecution, context)
         : undefined,
     inboundTransitionState:
-      output.inboundTransitionState != undefined
+      output.inboundTransitionState != null
         ? deserializeAws_json1_1TransitionState(output.inboundTransitionState, context)
         : undefined,
     latestExecution:
-      output.latestExecution != undefined
+      output.latestExecution != null
         ? deserializeAws_json1_1StageExecution(output.latestExecution, context)
         : undefined,
     stageName: __expectString(output.stageName),
@@ -5726,30 +5669,24 @@ const deserializeAws_json1_1ThirdPartyJob = (output: any, context: __SerdeContex
 const deserializeAws_json1_1ThirdPartyJobData = (output: any, context: __SerdeContext): ThirdPartyJobData => {
   return {
     actionConfiguration:
-      output.actionConfiguration != undefined
+      output.actionConfiguration != null
         ? deserializeAws_json1_1ActionConfiguration(output.actionConfiguration, context)
         : undefined,
     actionTypeId:
-      output.actionTypeId != undefined ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
+      output.actionTypeId != null ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context) : undefined,
     artifactCredentials:
-      output.artifactCredentials != undefined
+      output.artifactCredentials != null
         ? deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context)
         : undefined,
     continuationToken: __expectString(output.continuationToken),
     encryptionKey:
-      output.encryptionKey != undefined
-        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
-        : undefined,
+      output.encryptionKey != null ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context) : undefined,
     inputArtifacts:
-      output.inputArtifacts != undefined
-        ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context)
-        : undefined,
+      output.inputArtifacts != null ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context) : undefined,
     outputArtifacts:
-      output.outputArtifacts != undefined
-        ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context)
-        : undefined,
+      output.outputArtifacts != null ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context) : undefined,
     pipelineContext:
-      output.pipelineContext != undefined
+      output.pipelineContext != null
         ? deserializeAws_json1_1PipelineContext(output.pipelineContext, context)
         : undefined,
   } as any;
@@ -5757,7 +5694,7 @@ const deserializeAws_json1_1ThirdPartyJobData = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ThirdPartyJobDetails = (output: any, context: __SerdeContext): ThirdPartyJobDetails => {
   return {
-    data: output.data != undefined ? deserializeAws_json1_1ThirdPartyJobData(output.data, context) : undefined,
+    data: output.data != null ? deserializeAws_json1_1ThirdPartyJobData(output.data, context) : undefined,
     id: __expectString(output.id),
     nonce: __expectString(output.nonce),
   } as any;
@@ -5786,7 +5723,7 @@ const deserializeAws_json1_1TransitionState = (output: any, context: __SerdeCont
     disabledReason: __expectString(output.disabledReason),
     enabled: __expectBoolean(output.enabled),
     lastChangedAt:
-      output.lastChangedAt != undefined
+      output.lastChangedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastChangedAt)))
         : undefined,
     lastChangedBy: __expectString(output.lastChangedBy),
@@ -5799,8 +5736,7 @@ const deserializeAws_json1_1UntagResourceOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1UpdatePipelineOutput = (output: any, context: __SerdeContext): UpdatePipelineOutput => {
   return {
-    pipeline:
-      output.pipeline != undefined ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
+    pipeline: output.pipeline != null ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context) : undefined,
   } as any;
 };
 
@@ -5824,10 +5760,10 @@ const deserializeAws_json1_1WebhookDefinition = (output: any, context: __SerdeCo
   return {
     authentication: __expectString(output.authentication),
     authenticationConfiguration:
-      output.authenticationConfiguration != undefined
+      output.authenticationConfiguration != null
         ? deserializeAws_json1_1WebhookAuthConfiguration(output.authenticationConfiguration, context)
         : undefined,
-    filters: output.filters != undefined ? deserializeAws_json1_1WebhookFilters(output.filters, context) : undefined,
+    filters: output.filters != null ? deserializeAws_json1_1WebhookFilters(output.filters, context) : undefined,
     name: __expectString(output.name),
     targetAction: __expectString(output.targetAction),
     targetPipeline: __expectString(output.targetPipeline),

@@ -1912,9 +1912,9 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 
 const serializeAws_json1_1CognitoIdentityProvider = (input: CognitoIdentityProvider, context: __SerdeContext): any => {
   return {
-    ...(input.ClientId != undefined && { ClientId: input.ClientId }),
-    ...(input.ProviderName != undefined && { ProviderName: input.ProviderName }),
-    ...(input.ServerSideTokenCheck != undefined && { ServerSideTokenCheck: input.ServerSideTokenCheck }),
+    ...(input.ClientId != null && { ClientId: input.ClientId }),
+    ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
+    ...(input.ServerSideTokenCheck != null && { ServerSideTokenCheck: input.ServerSideTokenCheck }),
   };
 };
 
@@ -1934,28 +1934,28 @@ const serializeAws_json1_1CognitoIdentityProviderList = (
 
 const serializeAws_json1_1CreateIdentityPoolInput = (input: CreateIdentityPoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.AllowClassicFlow != undefined && { AllowClassicFlow: input.AllowClassicFlow }),
-    ...(input.AllowUnauthenticatedIdentities != undefined && {
+    ...(input.AllowClassicFlow != null && { AllowClassicFlow: input.AllowClassicFlow }),
+    ...(input.AllowUnauthenticatedIdentities != null && {
       AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
     }),
-    ...(input.CognitoIdentityProviders != undefined && {
+    ...(input.CognitoIdentityProviders != null && {
       CognitoIdentityProviders: serializeAws_json1_1CognitoIdentityProviderList(
         input.CognitoIdentityProviders,
         context
       ),
     }),
-    ...(input.DeveloperProviderName != undefined && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolName != undefined && { IdentityPoolName: input.IdentityPoolName }),
-    ...(input.IdentityPoolTags != undefined && {
+    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolName != null && { IdentityPoolName: input.IdentityPoolName }),
+    ...(input.IdentityPoolTags != null && {
       IdentityPoolTags: serializeAws_json1_1IdentityPoolTagsType(input.IdentityPoolTags, context),
     }),
-    ...(input.OpenIdConnectProviderARNs != undefined && {
+    ...(input.OpenIdConnectProviderARNs != null && {
       OpenIdConnectProviderARNs: serializeAws_json1_1OIDCProviderList(input.OpenIdConnectProviderARNs, context),
     }),
-    ...(input.SamlProviderARNs != undefined && {
+    ...(input.SamlProviderARNs != null && {
       SamlProviderARNs: serializeAws_json1_1SAMLProviderList(input.SamlProviderARNs, context),
     }),
-    ...(input.SupportedLoginProviders != undefined && {
+    ...(input.SupportedLoginProviders != null && {
       SupportedLoginProviders: serializeAws_json1_1IdentityProviders(input.SupportedLoginProviders, context),
     }),
   };
@@ -1963,7 +1963,7 @@ const serializeAws_json1_1CreateIdentityPoolInput = (input: CreateIdentityPoolIn
 
 const serializeAws_json1_1DeleteIdentitiesInput = (input: DeleteIdentitiesInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityIdsToDelete != undefined && {
+    ...(input.IdentityIdsToDelete != null && {
       IdentityIdsToDelete: serializeAws_json1_1IdentityIdList(input.IdentityIdsToDelete, context),
     }),
   };
@@ -1971,13 +1971,13 @@ const serializeAws_json1_1DeleteIdentitiesInput = (input: DeleteIdentitiesInput,
 
 const serializeAws_json1_1DeleteIdentityPoolInput = (input: DeleteIdentityPoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
 const serializeAws_json1_1DescribeIdentityInput = (input: DescribeIdentityInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
   };
 };
 
@@ -1986,7 +1986,7 @@ const serializeAws_json1_1DescribeIdentityPoolInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
@@ -1995,9 +1995,9 @@ const serializeAws_json1_1GetCredentialsForIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomRoleArn != undefined && { CustomRoleArn: input.CustomRoleArn }),
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins != undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.CustomRoleArn != null && { CustomRoleArn: input.CustomRoleArn }),
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.Logins != null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2006,15 +2006,15 @@ const serializeAws_json1_1GetIdentityPoolRolesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
 const serializeAws_json1_1GetIdInput = (input: GetIdInput, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.Logins != undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.Logins != null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2023,20 +2023,20 @@ const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.Logins != undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
-    ...(input.PrincipalTags != undefined && {
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.Logins != null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.PrincipalTags != null && {
       PrincipalTags: serializeAws_json1_1PrincipalTags(input.PrincipalTags, context),
     }),
-    ...(input.TokenDuration != undefined && { TokenDuration: input.TokenDuration }),
+    ...(input.TokenDuration != null && { TokenDuration: input.TokenDuration }),
   };
 };
 
 const serializeAws_json1_1GetOpenIdTokenInput = (input: GetOpenIdTokenInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins != undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.Logins != null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
   };
 };
 
@@ -2045,8 +2045,8 @@ const serializeAws_json1_1GetPrincipalTagAttributeMapInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityProviderName != undefined && { IdentityProviderName: input.IdentityProviderName }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityProviderName != null && { IdentityProviderName: input.IdentityProviderName }),
   };
 };
 
@@ -2063,29 +2063,29 @@ const serializeAws_json1_1IdentityIdList = (input: string[], context: __SerdeCon
 
 const serializeAws_json1_1IdentityPool = (input: IdentityPool, context: __SerdeContext): any => {
   return {
-    ...(input.AllowClassicFlow != undefined && { AllowClassicFlow: input.AllowClassicFlow }),
-    ...(input.AllowUnauthenticatedIdentities != undefined && {
+    ...(input.AllowClassicFlow != null && { AllowClassicFlow: input.AllowClassicFlow }),
+    ...(input.AllowUnauthenticatedIdentities != null && {
       AllowUnauthenticatedIdentities: input.AllowUnauthenticatedIdentities,
     }),
-    ...(input.CognitoIdentityProviders != undefined && {
+    ...(input.CognitoIdentityProviders != null && {
       CognitoIdentityProviders: serializeAws_json1_1CognitoIdentityProviderList(
         input.CognitoIdentityProviders,
         context
       ),
     }),
-    ...(input.DeveloperProviderName != undefined && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityPoolName != undefined && { IdentityPoolName: input.IdentityPoolName }),
-    ...(input.IdentityPoolTags != undefined && {
+    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityPoolName != null && { IdentityPoolName: input.IdentityPoolName }),
+    ...(input.IdentityPoolTags != null && {
       IdentityPoolTags: serializeAws_json1_1IdentityPoolTagsType(input.IdentityPoolTags, context),
     }),
-    ...(input.OpenIdConnectProviderARNs != undefined && {
+    ...(input.OpenIdConnectProviderARNs != null && {
       OpenIdConnectProviderARNs: serializeAws_json1_1OIDCProviderList(input.OpenIdConnectProviderARNs, context),
     }),
-    ...(input.SamlProviderARNs != undefined && {
+    ...(input.SamlProviderARNs != null && {
       SamlProviderARNs: serializeAws_json1_1SAMLProviderList(input.SamlProviderARNs, context),
     }),
-    ...(input.SupportedLoginProviders != undefined && {
+    ...(input.SupportedLoginProviders != null && {
       SupportedLoginProviders: serializeAws_json1_1IdentityProviders(input.SupportedLoginProviders, context),
     }),
   };
@@ -2128,17 +2128,17 @@ const serializeAws_json1_1IdentityProviders = (input: Record<string, string>, co
 
 const serializeAws_json1_1ListIdentitiesInput = (input: ListIdentitiesInput, context: __SerdeContext): any => {
   return {
-    ...(input.HideDisabled != undefined && { HideDisabled: input.HideDisabled }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.HideDisabled != null && { HideDisabled: input.HideDisabled }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListIdentityPoolsInput = (input: ListIdentityPoolsInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2147,7 +2147,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -2179,20 +2179,20 @@ const serializeAws_json1_1LookupDeveloperIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeveloperUserIdentifier != undefined && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.DeveloperUserIdentifier != null && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1MappingRule = (input: MappingRule, context: __SerdeContext): any => {
   return {
-    ...(input.Claim != undefined && { Claim: input.Claim }),
-    ...(input.MatchType != undefined && { MatchType: input.MatchType }),
-    ...(input.RoleARN != undefined && { RoleARN: input.RoleARN }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Claim != null && { Claim: input.Claim }),
+    ...(input.MatchType != null && { MatchType: input.MatchType }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2212,10 +2212,10 @@ const serializeAws_json1_1MergeDeveloperIdentitiesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationUserIdentifier != undefined && { DestinationUserIdentifier: input.DestinationUserIdentifier }),
-    ...(input.DeveloperProviderName != undefined && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.SourceUserIdentifier != undefined && { SourceUserIdentifier: input.SourceUserIdentifier }),
+    ...(input.DestinationUserIdentifier != null && { DestinationUserIdentifier: input.DestinationUserIdentifier }),
+    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.SourceUserIdentifier != null && { SourceUserIdentifier: input.SourceUserIdentifier }),
   };
 };
 
@@ -2244,11 +2244,11 @@ const serializeAws_json1_1PrincipalTags = (input: Record<string, string>, contex
 
 const serializeAws_json1_1RoleMapping = (input: RoleMapping, context: __SerdeContext): any => {
   return {
-    ...(input.AmbiguousRoleResolution != undefined && { AmbiguousRoleResolution: input.AmbiguousRoleResolution }),
-    ...(input.RulesConfiguration != undefined && {
+    ...(input.AmbiguousRoleResolution != null && { AmbiguousRoleResolution: input.AmbiguousRoleResolution }),
+    ...(input.RulesConfiguration != null && {
       RulesConfiguration: serializeAws_json1_1RulesConfigurationType(input.RulesConfiguration, context),
     }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -2278,7 +2278,7 @@ const serializeAws_json1_1RolesMap = (input: Record<string, string>, context: __
 
 const serializeAws_json1_1RulesConfigurationType = (input: RulesConfigurationType, context: __SerdeContext): any => {
   return {
-    ...(input.Rules != undefined && { Rules: serializeAws_json1_1MappingRulesList(input.Rules, context) }),
+    ...(input.Rules != null && { Rules: serializeAws_json1_1MappingRulesList(input.Rules, context) }),
   };
 };
 
@@ -2298,11 +2298,11 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.RoleMappings != undefined && {
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.RoleMappings != null && {
       RoleMappings: serializeAws_json1_1RoleMappingMap(input.RoleMappings, context),
     }),
-    ...(input.Roles != undefined && { Roles: serializeAws_json1_1RolesMap(input.Roles, context) }),
+    ...(input.Roles != null && { Roles: serializeAws_json1_1RolesMap(input.Roles, context) }),
   };
 };
 
@@ -2311,19 +2311,19 @@ const serializeAws_json1_1SetPrincipalTagAttributeMapInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
-    ...(input.IdentityProviderName != undefined && { IdentityProviderName: input.IdentityProviderName }),
-    ...(input.PrincipalTags != undefined && {
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityProviderName != null && { IdentityProviderName: input.IdentityProviderName }),
+    ...(input.PrincipalTags != null && {
       PrincipalTags: serializeAws_json1_1PrincipalTags(input.PrincipalTags, context),
     }),
-    ...(input.UseDefaults != undefined && { UseDefaults: input.UseDefaults }),
+    ...(input.UseDefaults != null && { UseDefaults: input.UseDefaults }),
   };
 };
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1IdentityPoolTagsType(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1IdentityPoolTagsType(input.Tags, context) }),
   };
 };
 
@@ -2332,18 +2332,18 @@ const serializeAws_json1_1UnlinkDeveloperIdentityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeveloperProviderName != undefined && { DeveloperProviderName: input.DeveloperProviderName }),
-    ...(input.DeveloperUserIdentifier != undefined && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.IdentityPoolId != undefined && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.DeveloperProviderName != null && { DeveloperProviderName: input.DeveloperProviderName }),
+    ...(input.DeveloperUserIdentifier != null && { DeveloperUserIdentifier: input.DeveloperUserIdentifier }),
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.IdentityPoolId != null && { IdentityPoolId: input.IdentityPoolId }),
   };
 };
 
 const serializeAws_json1_1UnlinkIdentityInput = (input: UnlinkIdentityInput, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityId != undefined && { IdentityId: input.IdentityId }),
-    ...(input.Logins != undefined && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
-    ...(input.LoginsToRemove != undefined && {
+    ...(input.IdentityId != null && { IdentityId: input.IdentityId }),
+    ...(input.Logins != null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.LoginsToRemove != null && {
       LoginsToRemove: serializeAws_json1_1LoginsList(input.LoginsToRemove, context),
     }),
   };
@@ -2351,10 +2351,8 @@ const serializeAws_json1_1UnlinkIdentityInput = (input: UnlinkIdentityInput, con
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != undefined && {
-      TagKeys: serializeAws_json1_1IdentityPoolTagsListType(input.TagKeys, context),
-    }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1IdentityPoolTagsListType(input.TagKeys, context) }),
   };
 };
 
@@ -2397,9 +2395,7 @@ const deserializeAws_json1_1Credentials = (output: any, context: __SerdeContext)
   return {
     AccessKeyId: __expectString(output.AccessKeyId),
     Expiration:
-      output.Expiration != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration)))
-        : undefined,
+      output.Expiration != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Expiration))) : undefined,
     SecretKey: __expectString(output.SecretKey),
     SessionToken: __expectString(output.SessionToken),
   } as any;
@@ -2411,7 +2407,7 @@ const deserializeAws_json1_1DeleteIdentitiesResponse = (
 ): DeleteIdentitiesResponse => {
   return {
     UnprocessedIdentityIds:
-      output.UnprocessedIdentityIds != undefined
+      output.UnprocessedIdentityIds != null
         ? deserializeAws_json1_1UnprocessedIdentityIdList(output.UnprocessedIdentityIds, context)
         : undefined,
   } as any;
@@ -2453,7 +2449,7 @@ const deserializeAws_json1_1GetCredentialsForIdentityResponse = (
 ): GetCredentialsForIdentityResponse => {
   return {
     Credentials:
-      output.Credentials != undefined ? deserializeAws_json1_1Credentials(output.Credentials, context) : undefined,
+      output.Credentials != null ? deserializeAws_json1_1Credentials(output.Credentials, context) : undefined,
     IdentityId: __expectString(output.IdentityId),
   } as any;
 };
@@ -2465,8 +2461,8 @@ const deserializeAws_json1_1GetIdentityPoolRolesResponse = (
   return {
     IdentityPoolId: __expectString(output.IdentityPoolId),
     RoleMappings:
-      output.RoleMappings != undefined ? deserializeAws_json1_1RoleMappingMap(output.RoleMappings, context) : undefined,
-    Roles: output.Roles != undefined ? deserializeAws_json1_1RolesMap(output.Roles, context) : undefined,
+      output.RoleMappings != null ? deserializeAws_json1_1RoleMappingMap(output.RoleMappings, context) : undefined,
+    Roles: output.Roles != null ? deserializeAws_json1_1RolesMap(output.Roles, context) : undefined,
   } as any;
 };
 
@@ -2501,9 +2497,7 @@ const deserializeAws_json1_1GetPrincipalTagAttributeMapResponse = (
     IdentityPoolId: __expectString(output.IdentityPoolId),
     IdentityProviderName: __expectString(output.IdentityProviderName),
     PrincipalTags:
-      output.PrincipalTags != undefined
-        ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context)
-        : undefined,
+      output.PrincipalTags != null ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context) : undefined,
     UseDefaults: __expectBoolean(output.UseDefaults),
   } as any;
 };
@@ -2523,15 +2517,15 @@ const deserializeAws_json1_1IdentitiesList = (output: any, context: __SerdeConte
 const deserializeAws_json1_1IdentityDescription = (output: any, context: __SerdeContext): IdentityDescription => {
   return {
     CreationDate:
-      output.CreationDate != undefined
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     IdentityId: __expectString(output.IdentityId),
     LastModifiedDate:
-      output.LastModifiedDate != undefined
+      output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
-    Logins: output.Logins != undefined ? deserializeAws_json1_1LoginsList(output.Logins, context) : undefined,
+    Logins: output.Logins != null ? deserializeAws_json1_1LoginsList(output.Logins, context) : undefined,
   } as any;
 };
 
@@ -2540,26 +2534,26 @@ const deserializeAws_json1_1IdentityPool = (output: any, context: __SerdeContext
     AllowClassicFlow: __expectBoolean(output.AllowClassicFlow),
     AllowUnauthenticatedIdentities: __expectBoolean(output.AllowUnauthenticatedIdentities),
     CognitoIdentityProviders:
-      output.CognitoIdentityProviders != undefined
+      output.CognitoIdentityProviders != null
         ? deserializeAws_json1_1CognitoIdentityProviderList(output.CognitoIdentityProviders, context)
         : undefined,
     DeveloperProviderName: __expectString(output.DeveloperProviderName),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     IdentityPoolName: __expectString(output.IdentityPoolName),
     IdentityPoolTags:
-      output.IdentityPoolTags != undefined
+      output.IdentityPoolTags != null
         ? deserializeAws_json1_1IdentityPoolTagsType(output.IdentityPoolTags, context)
         : undefined,
     OpenIdConnectProviderARNs:
-      output.OpenIdConnectProviderARNs != undefined
+      output.OpenIdConnectProviderARNs != null
         ? deserializeAws_json1_1OIDCProviderList(output.OpenIdConnectProviderARNs, context)
         : undefined,
     SamlProviderARNs:
-      output.SamlProviderARNs != undefined
+      output.SamlProviderARNs != null
         ? deserializeAws_json1_1SAMLProviderList(output.SamlProviderARNs, context)
         : undefined,
     SupportedLoginProviders:
-      output.SupportedLoginProviders != undefined
+      output.SupportedLoginProviders != null
         ? deserializeAws_json1_1IdentityProviders(output.SupportedLoginProviders, context)
         : undefined,
   } as any;
@@ -2647,7 +2641,7 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 const deserializeAws_json1_1ListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
   return {
     Identities:
-      output.Identities != undefined ? deserializeAws_json1_1IdentitiesList(output.Identities, context) : undefined,
+      output.Identities != null ? deserializeAws_json1_1IdentitiesList(output.Identities, context) : undefined,
     IdentityPoolId: __expectString(output.IdentityPoolId),
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -2659,9 +2653,7 @@ const deserializeAws_json1_1ListIdentityPoolsResponse = (
 ): ListIdentityPoolsResponse => {
   return {
     IdentityPools:
-      output.IdentityPools != undefined
-        ? deserializeAws_json1_1IdentityPoolsList(output.IdentityPools, context)
-        : undefined,
+      output.IdentityPools != null ? deserializeAws_json1_1IdentityPoolsList(output.IdentityPools, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2671,7 +2663,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != undefined ? deserializeAws_json1_1IdentityPoolTagsType(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1IdentityPoolTagsType(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2693,7 +2685,7 @@ const deserializeAws_json1_1LookupDeveloperIdentityResponse = (
 ): LookupDeveloperIdentityResponse => {
   return {
     DeveloperUserIdentifierList:
-      output.DeveloperUserIdentifierList != undefined
+      output.DeveloperUserIdentifierList != null
         ? deserializeAws_json1_1DeveloperUserIdentifierList(output.DeveloperUserIdentifierList, context)
         : undefined,
     IdentityId: __expectString(output.IdentityId),
@@ -2783,7 +2775,7 @@ const deserializeAws_json1_1RoleMapping = (output: any, context: __SerdeContext)
   return {
     AmbiguousRoleResolution: __expectString(output.AmbiguousRoleResolution),
     RulesConfiguration:
-      output.RulesConfiguration != undefined
+      output.RulesConfiguration != null
         ? deserializeAws_json1_1RulesConfigurationType(output.RulesConfiguration, context)
         : undefined,
     Type: __expectString(output.Type),
@@ -2816,7 +2808,7 @@ const deserializeAws_json1_1RolesMap = (output: any, context: __SerdeContext): R
 
 const deserializeAws_json1_1RulesConfigurationType = (output: any, context: __SerdeContext): RulesConfigurationType => {
   return {
-    Rules: output.Rules != undefined ? deserializeAws_json1_1MappingRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? deserializeAws_json1_1MappingRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
@@ -2840,9 +2832,7 @@ const deserializeAws_json1_1SetPrincipalTagAttributeMapResponse = (
     IdentityPoolId: __expectString(output.IdentityPoolId),
     IdentityProviderName: __expectString(output.IdentityProviderName),
     PrincipalTags:
-      output.PrincipalTags != undefined
-        ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context)
-        : undefined,
+      output.PrincipalTags != null ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context) : undefined,
     UseDefaults: __expectBoolean(output.UseDefaults),
   } as any;
 };

@@ -2085,10 +2085,8 @@ const serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationConfigurationId != undefined && {
-      applicationConfigurationId: input.applicationConfigurationId,
-    }),
-    ...(input.configurationIds != undefined && {
+    ...(input.applicationConfigurationId != null && { applicationConfigurationId: input.applicationConfigurationId }),
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
   };
@@ -2099,7 +2097,7 @@ const serializeAws_json1_1BatchDeleteImportDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.importTaskIds != undefined && {
+    ...(input.importTaskIds != null && {
       importTaskIds: serializeAws_json1_1ToDeleteIdentifierList(input.importTaskIds, context),
     }),
   };
@@ -2132,17 +2130,17 @@ const serializeAws_json1_1CreateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.configurationIds != undefined && {
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
   };
 };
 
@@ -2151,7 +2149,7 @@ const serializeAws_json1_1DeleteApplicationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationIds != undefined && {
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ApplicationIdsList(input.configurationIds, context),
     }),
   };
@@ -2159,19 +2157,19 @@ const serializeAws_json1_1DeleteApplicationsRequest = (
 
 const serializeAws_json1_1DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.configurationIds != undefined && {
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagSet(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeAgentsRequest = (input: DescribeAgentsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.agentIds != undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1Filters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.agentIds != null && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
+    ...(input.filters != null && { filters: serializeAws_json1_1Filters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2180,7 +2178,7 @@ const serializeAws_json1_1DescribeConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationIds != undefined && {
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
   };
@@ -2191,11 +2189,9 @@ const serializeAws_json1_1DescribeContinuousExportsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportIds != undefined && {
-      exportIds: serializeAws_json1_1ContinuousExportIds(input.exportIds, context),
-    }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.exportIds != null && { exportIds: serializeAws_json1_1ContinuousExportIds(input.exportIds, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2204,9 +2200,9 @@ const serializeAws_json1_1DescribeExportConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportIds != undefined && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.exportIds != null && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2215,10 +2211,10 @@ const serializeAws_json1_1DescribeExportTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportIds != undefined && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.exportIds != null && { exportIds: serializeAws_json1_1ExportIds(input.exportIds, context) }),
+    ...(input.filters != null && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2238,19 +2234,19 @@ const serializeAws_json1_1DescribeImportTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filters != undefined && {
+    ...(input.filters != null && {
       filters: serializeAws_json1_1DescribeImportTasksFilterList(input.filters, context),
     }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filters != undefined && { filters: serializeAws_json1_1TagFilters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filters != null && { filters: serializeAws_json1_1TagFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -2259,10 +2255,8 @@ const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest =
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationConfigurationId != undefined && {
-      applicationConfigurationId: input.applicationConfigurationId,
-    }),
-    ...(input.configurationIds != undefined && {
+    ...(input.applicationConfigurationId != null && { applicationConfigurationId: input.applicationConfigurationId }),
+    ...(input.configurationIds != null && {
       configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context),
     }),
   };
@@ -2281,9 +2275,9 @@ const serializeAws_json1_1ExportDataFormats = (input: (ExportDataFormat | string
 
 const serializeAws_json1_1ExportFilter = (input: ExportFilter, context: __SerdeContext): any => {
   return {
-    ...(input.condition != undefined && { condition: input.condition }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.values != undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
+    ...(input.condition != null && { condition: input.condition }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -2311,9 +2305,9 @@ const serializeAws_json1_1ExportIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.condition != undefined && { condition: input.condition }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.values != undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
+    ...(input.condition != null && { condition: input.condition }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -2348,8 +2342,8 @@ const serializeAws_json1_1GetDiscoverySummaryRequest = (
 
 const serializeAws_json1_1ImportTaskFilter = (input: ImportTaskFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.values != undefined && { values: serializeAws_json1_1ImportTaskFilterValueList(input.values, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_json1_1ImportTaskFilterValueList(input.values, context) }),
   };
 };
 
@@ -2369,11 +2363,11 @@ const serializeAws_json1_1ListConfigurationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationType != undefined && { configurationType: input.configurationType }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1Filters(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.orderBy != undefined && { orderBy: serializeAws_json1_1OrderByList(input.orderBy, context) }),
+    ...(input.configurationType != null && { configurationType: input.configurationType }),
+    ...(input.filters != null && { filters: serializeAws_json1_1Filters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.orderBy != null && { orderBy: serializeAws_json1_1OrderByList(input.orderBy, context) }),
   };
 };
 
@@ -2382,20 +2376,20 @@ const serializeAws_json1_1ListServerNeighborsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationId != undefined && { configurationId: input.configurationId }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.neighborConfigurationIds != undefined && {
+    ...(input.configurationId != null && { configurationId: input.configurationId }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.neighborConfigurationIds != null && {
       neighborConfigurationIds: serializeAws_json1_1ConfigurationIdList(input.neighborConfigurationIds, context),
     }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.portInformationNeeded != undefined && { portInformationNeeded: input.portInformationNeeded }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.portInformationNeeded != null && { portInformationNeeded: input.portInformationNeeded }),
   };
 };
 
 const serializeAws_json1_1OrderByElement = (input: OrderByElement, context: __SerdeContext): any => {
   return {
-    ...(input.fieldName != undefined && { fieldName: input.fieldName }),
-    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
+    ...(input.fieldName != null && { fieldName: input.fieldName }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
   };
 };
 
@@ -2422,26 +2416,26 @@ const serializeAws_json1_1StartDataCollectionByAgentIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.agentIds != undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
+    ...(input.agentIds != null && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
   };
 };
 
 const serializeAws_json1_1StartExportTaskRequest = (input: StartExportTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime != undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.exportDataFormat != undefined && {
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.exportDataFormat != null && {
       exportDataFormat: serializeAws_json1_1ExportDataFormats(input.exportDataFormat, context),
     }),
-    ...(input.filters != undefined && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
-    ...(input.startTime != undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.filters != null && { filters: serializeAws_json1_1ExportFilters(input.filters, context) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1StartImportTaskRequest = (input: StartImportTaskRequest, context: __SerdeContext): any => {
   return {
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.importUrl != undefined && { importUrl: input.importUrl }),
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.importUrl != null && { importUrl: input.importUrl }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -2450,7 +2444,7 @@ const serializeAws_json1_1StopContinuousExportRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.exportId != undefined && { exportId: input.exportId }),
+    ...(input.exportId != null && { exportId: input.exportId }),
   };
 };
 
@@ -2459,21 +2453,21 @@ const serializeAws_json1_1StopDataCollectionByAgentIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.agentIds != undefined && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
+    ...(input.agentIds != null && { agentIds: serializeAws_json1_1AgentIds(input.agentIds, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.values != undefined && { values: serializeAws_json1_1FilterValues(input.values, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_json1_1FilterValues(input.values, context) }),
   };
 };
 
@@ -2515,9 +2509,9 @@ const serializeAws_json1_1UpdateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.configurationId != undefined && { configurationId: input.configurationId }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.configurationId != null && { configurationId: input.configurationId }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -2551,7 +2545,7 @@ const deserializeAws_json1_1AgentInfo = (output: any, context: __SerdeContext): 
   return {
     agentId: __expectString(output.agentId),
     agentNetworkInfoList:
-      output.agentNetworkInfoList != undefined
+      output.agentNetworkInfoList != null
         ? deserializeAws_json1_1AgentNetworkInfoList(output.agentNetworkInfoList, context)
         : undefined,
     agentType: __expectString(output.agentType),
@@ -2644,9 +2638,7 @@ const deserializeAws_json1_1BatchDeleteImportDataResponse = (
 ): BatchDeleteImportDataResponse => {
   return {
     errors:
-      output.errors != undefined
-        ? deserializeAws_json1_1BatchDeleteImportDataErrorList(output.errors, context)
-        : undefined,
+      output.errors != null ? deserializeAws_json1_1BatchDeleteImportDataErrorList(output.errors, context) : undefined,
   } as any;
 };
 
@@ -2680,7 +2672,7 @@ const deserializeAws_json1_1ConfigurationTag = (output: any, context: __SerdeCon
     configurationType: __expectString(output.configurationType),
     key: __expectString(output.key),
     timeOfCreation:
-      output.timeOfCreation != undefined
+      output.timeOfCreation != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeOfCreation)))
         : undefined,
     value: __expectString(output.value),
@@ -2714,19 +2706,15 @@ const deserializeAws_json1_1ContinuousExportDescription = (
     exportId: __expectString(output.exportId),
     s3Bucket: __expectString(output.s3Bucket),
     schemaStorageConfig:
-      output.schemaStorageConfig != undefined
+      output.schemaStorageConfig != null
         ? deserializeAws_json1_1SchemaStorageConfig(output.schemaStorageConfig, context)
         : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     statusDetail: __expectString(output.statusDetail),
     stopTime:
-      output.stopTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime)))
-        : undefined,
+      output.stopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime))) : undefined,
   } as any;
 };
 
@@ -2810,8 +2798,7 @@ const deserializeAws_json1_1DeleteTagsResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DescribeAgentsResponse = (output: any, context: __SerdeContext): DescribeAgentsResponse => {
   return {
-    agentsInfo:
-      output.agentsInfo != undefined ? deserializeAws_json1_1AgentsInfo(output.agentsInfo, context) : undefined,
+    agentsInfo: output.agentsInfo != null ? deserializeAws_json1_1AgentsInfo(output.agentsInfo, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -2852,7 +2839,7 @@ const deserializeAws_json1_1DescribeConfigurationsResponse = (
 ): DescribeConfigurationsResponse => {
   return {
     configurations:
-      output.configurations != undefined
+      output.configurations != null
         ? deserializeAws_json1_1DescribeConfigurationsAttributes(output.configurations, context)
         : undefined,
   } as any;
@@ -2864,7 +2851,7 @@ const deserializeAws_json1_1DescribeContinuousExportsResponse = (
 ): DescribeContinuousExportsResponse => {
   return {
     descriptions:
-      output.descriptions != undefined
+      output.descriptions != null
         ? deserializeAws_json1_1ContinuousExportDescriptions(output.descriptions, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -2877,7 +2864,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsResponse = (
 ): DescribeExportConfigurationsResponse => {
   return {
     exportsInfo:
-      output.exportsInfo != undefined ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context) : undefined,
+      output.exportsInfo != null ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -2888,7 +2875,7 @@ const deserializeAws_json1_1DescribeExportTasksResponse = (
 ): DescribeExportTasksResponse => {
   return {
     exportsInfo:
-      output.exportsInfo != undefined ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context) : undefined,
+      output.exportsInfo != null ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -2899,14 +2886,14 @@ const deserializeAws_json1_1DescribeImportTasksResponse = (
 ): DescribeImportTasksResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    tasks: output.tasks != undefined ? deserializeAws_json1_1ImportTaskList(output.tasks, context) : undefined,
+    tasks: output.tasks != null ? deserializeAws_json1_1ImportTaskList(output.tasks, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTagsResponse = (output: any, context: __SerdeContext): DescribeTagsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
-    tags: output.tags != undefined ? deserializeAws_json1_1ConfigurationTagSet(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1ConfigurationTagSet(output.tags, context) : undefined,
   } as any;
 };
 
@@ -2931,17 +2918,17 @@ const deserializeAws_json1_1ExportInfo = (output: any, context: __SerdeContext):
     configurationsDownloadUrl: __expectString(output.configurationsDownloadUrl),
     exportId: __expectString(output.exportId),
     exportRequestTime:
-      output.exportRequestTime != undefined
+      output.exportRequestTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.exportRequestTime)))
         : undefined,
     exportStatus: __expectString(output.exportStatus),
     isTruncated: __expectBoolean(output.isTruncated),
     requestedEndTime:
-      output.requestedEndTime != undefined
+      output.requestedEndTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedEndTime)))
         : undefined,
     requestedStartTime:
-      output.requestedStartTime != undefined
+      output.requestedStartTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedStartTime)))
         : undefined,
     statusMessage: __expectString(output.statusMessage),
@@ -2966,16 +2953,14 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
 ): GetDiscoverySummaryResponse => {
   return {
     agentSummary:
-      output.agentSummary != undefined
-        ? deserializeAws_json1_1CustomerAgentInfo(output.agentSummary, context)
-        : undefined,
+      output.agentSummary != null ? deserializeAws_json1_1CustomerAgentInfo(output.agentSummary, context) : undefined,
     applications: __expectLong(output.applications),
     connectorSummary:
-      output.connectorSummary != undefined
+      output.connectorSummary != null
         ? deserializeAws_json1_1CustomerConnectorInfo(output.connectorSummary, context)
         : undefined,
     meCollectorSummary:
-      output.meCollectorSummary != undefined
+      output.meCollectorSummary != null
         ? deserializeAws_json1_1CustomerMeCollectorInfo(output.meCollectorSummary, context)
         : undefined,
     servers: __expectLong(output.servers),
@@ -3000,15 +2985,15 @@ const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext):
     clientRequestToken: __expectString(output.clientRequestToken),
     errorsAndFailedEntriesZip: __expectString(output.errorsAndFailedEntriesZip),
     importCompletionTime:
-      output.importCompletionTime != undefined
+      output.importCompletionTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importCompletionTime)))
         : undefined,
     importDeletedTime:
-      output.importDeletedTime != undefined
+      output.importDeletedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importDeletedTime)))
         : undefined,
     importRequestTime:
-      output.importRequestTime != undefined
+      output.importRequestTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.importRequestTime)))
         : undefined,
     importTaskId: __expectString(output.importTaskId),
@@ -3056,9 +3041,7 @@ const deserializeAws_json1_1ListConfigurationsResponse = (
 ): ListConfigurationsResponse => {
   return {
     configurations:
-      output.configurations != undefined
-        ? deserializeAws_json1_1Configurations(output.configurations, context)
-        : undefined,
+      output.configurations != null ? deserializeAws_json1_1Configurations(output.configurations, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -3070,7 +3053,7 @@ const deserializeAws_json1_1ListServerNeighborsResponse = (
   return {
     knownDependencyCount: __expectLong(output.knownDependencyCount),
     neighbors:
-      output.neighbors != undefined ? deserializeAws_json1_1NeighborDetailsList(output.neighbors, context) : undefined,
+      output.neighbors != null ? deserializeAws_json1_1NeighborDetailsList(output.neighbors, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -3157,13 +3140,11 @@ const deserializeAws_json1_1StartContinuousExportResponse = (
     exportId: __expectString(output.exportId),
     s3Bucket: __expectString(output.s3Bucket),
     schemaStorageConfig:
-      output.schemaStorageConfig != undefined
+      output.schemaStorageConfig != null
         ? deserializeAws_json1_1SchemaStorageConfig(output.schemaStorageConfig, context)
         : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
   } as any;
 };
 
@@ -3173,7 +3154,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsResponse = (
 ): StartDataCollectionByAgentIdsResponse => {
   return {
     agentsConfigurationStatus:
-      output.agentsConfigurationStatus != undefined
+      output.agentsConfigurationStatus != null
         ? deserializeAws_json1_1AgentConfigurationStatusList(output.agentsConfigurationStatus, context)
         : undefined,
   } as any;
@@ -3193,7 +3174,7 @@ const deserializeAws_json1_1StartImportTaskResponse = (
   context: __SerdeContext
 ): StartImportTaskResponse => {
   return {
-    task: output.task != undefined ? deserializeAws_json1_1ImportTask(output.task, context) : undefined,
+    task: output.task != null ? deserializeAws_json1_1ImportTask(output.task, context) : undefined,
   } as any;
 };
 
@@ -3203,13 +3184,9 @@ const deserializeAws_json1_1StopContinuousExportResponse = (
 ): StopContinuousExportResponse => {
   return {
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     stopTime:
-      output.stopTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime)))
-        : undefined,
+      output.stopTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.stopTime))) : undefined,
   } as any;
 };
 
@@ -3219,7 +3196,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsResponse = (
 ): StopDataCollectionByAgentIdsResponse => {
   return {
     agentsConfigurationStatus:
-      output.agentsConfigurationStatus != undefined
+      output.agentsConfigurationStatus != null
         ? deserializeAws_json1_1AgentConfigurationStatusList(output.agentsConfigurationStatus, context)
         : undefined,
   } as any;

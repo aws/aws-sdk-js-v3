@@ -538,21 +538,21 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1CloseTunnelRequest = (input: CloseTunnelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.delete != undefined && { delete: input.delete }),
-    ...(input.tunnelId != undefined && { tunnelId: input.tunnelId }),
+    ...(input.delete != null && { delete: input.delete }),
+    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
   };
 };
 
 const serializeAws_json1_1DescribeTunnelRequest = (input: DescribeTunnelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.tunnelId != undefined && { tunnelId: input.tunnelId }),
+    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
   };
 };
 
 const serializeAws_json1_1DestinationConfig = (input: DestinationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.services != undefined && { services: serializeAws_json1_1ServiceList(input.services, context) }),
-    ...(input.thingName != undefined && { thingName: input.thingName }),
+    ...(input.services != null && { services: serializeAws_json1_1ServiceList(input.services, context) }),
+    ...(input.thingName != null && { thingName: input.thingName }),
   };
 };
 
@@ -561,26 +561,26 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
 const serializeAws_json1_1ListTunnelsRequest = (input: ListTunnelsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.thingName != undefined && { thingName: input.thingName }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.thingName != null && { thingName: input.thingName }),
   };
 };
 
 const serializeAws_json1_1OpenTunnelRequest = (input: OpenTunnelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.destinationConfig != undefined && {
+    ...(input.description != null && { description: input.description }),
+    ...(input.destinationConfig != null && {
       destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutConfig != undefined && {
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.timeoutConfig != null && {
       timeoutConfig: serializeAws_json1_1TimeoutConfig(input.timeoutConfig, context),
     }),
   };
@@ -591,11 +591,11 @@ const serializeAws_json1_1RotateTunnelAccessTokenRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.clientMode != undefined && { clientMode: input.clientMode }),
-    ...(input.destinationConfig != undefined && {
+    ...(input.clientMode != null && { clientMode: input.clientMode }),
+    ...(input.destinationConfig != null && {
       destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
     }),
-    ...(input.tunnelId != undefined && { tunnelId: input.tunnelId }),
+    ...(input.tunnelId != null && { tunnelId: input.tunnelId }),
   };
 };
 
@@ -612,8 +612,8 @@ const serializeAws_json1_1ServiceList = (input: string[], context: __SerdeContex
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -641,21 +641,21 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1TimeoutConfig = (input: TimeoutConfig, context: __SerdeContext): any => {
   return {
-    ...(input.maxLifetimeTimeoutMinutes != undefined && { maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes }),
+    ...(input.maxLifetimeTimeoutMinutes != null && { maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceArn != undefined && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != undefined && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -666,7 +666,7 @@ const deserializeAws_json1_1CloseTunnelResponse = (output: any, context: __Serde
 const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeContext): ConnectionState => {
   return {
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),
@@ -675,13 +675,13 @@ const deserializeAws_json1_1ConnectionState = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DescribeTunnelResponse = (output: any, context: __SerdeContext): DescribeTunnelResponse => {
   return {
-    tunnel: output.tunnel != undefined ? deserializeAws_json1_1Tunnel(output.tunnel, context) : undefined,
+    tunnel: output.tunnel != null ? deserializeAws_json1_1Tunnel(output.tunnel, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DestinationConfig = (output: any, context: __SerdeContext): DestinationConfig => {
   return {
-    services: output.services != undefined ? deserializeAws_json1_1ServiceList(output.services, context) : undefined,
+    services: output.services != null ? deserializeAws_json1_1ServiceList(output.services, context) : undefined,
     thingName: __expectString(output.thingName),
   } as any;
 };
@@ -697,7 +697,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -705,7 +705,7 @@ const deserializeAws_json1_1ListTunnelsResponse = (output: any, context: __Serde
   return {
     nextToken: __expectString(output.nextToken),
     tunnelSummaries:
-      output.tunnelSummaries != undefined
+      output.tunnelSummaries != null
         ? deserializeAws_json1_1TunnelSummaryList(output.tunnelSummaries, context)
         : undefined,
   } as any;
@@ -784,32 +784,28 @@ const deserializeAws_json1_1TimeoutConfig = (output: any, context: __SerdeContex
 const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tunnel => {
   return {
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     destinationConfig:
-      output.destinationConfig != undefined
+      output.destinationConfig != null
         ? deserializeAws_json1_1DestinationConfig(output.destinationConfig, context)
         : undefined,
     destinationConnectionState:
-      output.destinationConnectionState != undefined
+      output.destinationConnectionState != null
         ? deserializeAws_json1_1ConnectionState(output.destinationConnectionState, context)
         : undefined,
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     sourceConnectionState:
-      output.sourceConnectionState != undefined
+      output.sourceConnectionState != null
         ? deserializeAws_json1_1ConnectionState(output.sourceConnectionState, context)
         : undefined,
     status: __expectString(output.status),
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
     timeoutConfig:
-      output.timeoutConfig != undefined
-        ? deserializeAws_json1_1TimeoutConfig(output.timeoutConfig, context)
-        : undefined,
+      output.timeoutConfig != null ? deserializeAws_json1_1TimeoutConfig(output.timeoutConfig, context) : undefined,
     tunnelArn: __expectString(output.tunnelArn),
     tunnelId: __expectString(output.tunnelId),
   } as any;
@@ -818,12 +814,10 @@ const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tun
 const deserializeAws_json1_1TunnelSummary = (output: any, context: __SerdeContext): TunnelSummary => {
   return {
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     description: __expectString(output.description),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     status: __expectString(output.status),

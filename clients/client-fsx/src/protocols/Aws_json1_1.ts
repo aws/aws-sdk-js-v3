@@ -3334,21 +3334,21 @@ const serializeAws_json1_1AssociateFileSystemAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Aliases != undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
   };
 };
 
 const serializeAws_json1_1AutoExportPolicy = (input: AutoExportPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Events != undefined && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
+    ...(input.Events != null && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
   };
 };
 
 const serializeAws_json1_1AutoImportPolicy = (input: AutoImportPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Events != undefined && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
+    ...(input.Events != null && { Events: serializeAws_json1_1EventTypes(input.Events, context) }),
   };
 };
 
@@ -3368,36 +3368,36 @@ const serializeAws_json1_1CancelDataRepositoryTaskRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TaskId != undefined && { TaskId: input.TaskId }),
+    ...(input.TaskId != null && { TaskId: input.TaskId }),
   };
 };
 
 const serializeAws_json1_1CompletionReport = (input: CompletionReport, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.Format != undefined && { Format: input.Format }),
-    ...(input.Path != undefined && { Path: input.Path }),
-    ...(input.Scope != undefined && { Scope: input.Scope }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.Path != null && { Path: input.Path }),
+    ...(input.Scope != null && { Scope: input.Scope }),
   };
 };
 
 const serializeAws_json1_1CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.CopyTags != undefined && { CopyTags: input.CopyTags }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.SourceBackupId != undefined && { SourceBackupId: input.SourceBackupId }),
-    ...(input.SourceRegion != undefined && { SourceRegion: input.SourceRegion }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.CopyTags != null && { CopyTags: input.CopyTags }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.SourceBackupId != null && { SourceBackupId: input.SourceBackupId }),
+    ...(input.SourceRegion != null && { SourceRegion: input.SourceRegion }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateBackupRequest = (input: CreateBackupRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeId != undefined && { VolumeId: input.VolumeId }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
   };
 };
 
@@ -3406,16 +3406,16 @@ const serializeAws_json1_1CreateDataRepositoryAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchImportMetaDataOnCreate != undefined && {
+    ...(input.BatchImportMetaDataOnCreate != null && {
       BatchImportMetaDataOnCreate: input.BatchImportMetaDataOnCreate,
     }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DataRepositoryPath != undefined && { DataRepositoryPath: input.DataRepositoryPath }),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.FileSystemPath != undefined && { FileSystemPath: input.FileSystemPath }),
-    ...(input.ImportedFileChunkSize != undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
-    ...(input.S3 != undefined && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.DataRepositoryPath != null && { DataRepositoryPath: input.DataRepositoryPath }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemPath != null && { FileSystemPath: input.FileSystemPath }),
+    ...(input.ImportedFileChunkSize != null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.S3 != null && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3425,11 +3425,11 @@ const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.Paths != undefined && { Paths: serializeAws_json1_1DataRepositoryTaskPaths(input.Paths, context) }),
-    ...(input.Report != undefined && { Report: serializeAws_json1_1CompletionReport(input.Report, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.Paths != null && { Paths: serializeAws_json1_1DataRepositoryTaskPaths(input.Paths, context) }),
+    ...(input.Report != null && { Report: serializeAws_json1_1CompletionReport(input.Report, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -3438,26 +3438,26 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BackupId != undefined && { BackupId: input.BackupId }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemTypeVersion != undefined && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.LustreConfiguration != undefined && {
+    ...(input.FileSystemTypeVersion != null && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LustreConfiguration != null && {
       LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(input.LustreConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1CreateFileSystemOpenZFSConfiguration(
         input.OpenZFSConfiguration,
         context
       ),
     }),
-    ...(input.SecurityGroupIds != undefined && {
+    ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.StorageType != undefined && { StorageType: input.StorageType }),
-    ...(input.SubnetIds != undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.WindowsConfiguration != undefined && {
+    ...(input.StorageType != null && { StorageType: input.StorageType }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.WindowsConfiguration != null && {
       WindowsConfiguration: serializeAws_json1_1CreateFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
         context
@@ -3471,33 +3471,31 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoImportPolicy != undefined && { AutoImportPolicy: input.AutoImportPolicy }),
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutoImportPolicy != null && { AutoImportPolicy: input.AutoImportPolicy }),
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.CopyTagsToBackups != undefined && { CopyTagsToBackups: input.CopyTagsToBackups }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DataCompressionType != undefined && { DataCompressionType: input.DataCompressionType }),
-    ...(input.DeploymentType != undefined && { DeploymentType: input.DeploymentType }),
-    ...(input.DriveCacheType != undefined && { DriveCacheType: input.DriveCacheType }),
-    ...(input.ExportPath != undefined && { ExportPath: input.ExportPath }),
-    ...(input.ImportPath != undefined && { ImportPath: input.ImportPath }),
-    ...(input.ImportedFileChunkSize != undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
-    ...(input.LogConfiguration != undefined && {
+    ...(input.DataCompressionType != null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.DriveCacheType != null && { DriveCacheType: input.DriveCacheType }),
+    ...(input.ExportPath != null && { ExportPath: input.ExportPath }),
+    ...(input.ImportPath != null && { ImportPath: input.ImportPath }),
+    ...(input.ImportedFileChunkSize != null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.LogConfiguration != null && {
       LogConfiguration: serializeAws_json1_1LustreLogCreateConfiguration(input.LogConfiguration, context),
     }),
-    ...(input.PerUnitStorageThroughput != undefined && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
-    ...(input.RootSquashConfiguration != undefined && {
+    ...(input.PerUnitStorageThroughput != null && { PerUnitStorageThroughput: input.PerUnitStorageThroughput }),
+    ...(input.RootSquashConfiguration != null && {
       RootSquashConfiguration: serializeAws_json1_1LustreRootSquashConfiguration(
         input.RootSquashConfiguration,
         context
       ),
     }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -3506,26 +3504,24 @@ const serializeAws_json1_1CreateFileSystemOntapConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DeploymentType != undefined && { DeploymentType: input.DeploymentType }),
-    ...(input.DiskIopsConfiguration != undefined && {
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.DiskIopsConfiguration != null && {
       DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
     }),
-    ...(input.EndpointIpAddressRange != undefined && { EndpointIpAddressRange: input.EndpointIpAddressRange }),
-    ...(input.FsxAdminPassword != undefined && { FsxAdminPassword: input.FsxAdminPassword }),
-    ...(input.PreferredSubnetId != undefined && { PreferredSubnetId: input.PreferredSubnetId }),
-    ...(input.RouteTableIds != undefined && {
+    ...(input.EndpointIpAddressRange != null && { EndpointIpAddressRange: input.EndpointIpAddressRange }),
+    ...(input.FsxAdminPassword != null && { FsxAdminPassword: input.FsxAdminPassword }),
+    ...(input.PreferredSubnetId != null && { PreferredSubnetId: input.PreferredSubnetId }),
+    ...(input.RouteTableIds != null && {
       RouteTableIds: serializeAws_json1_1RouteTableIds(input.RouteTableIds, context),
     }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -3534,57 +3530,55 @@ const serializeAws_json1_1CreateFileSystemOpenZFSConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.CopyTagsToBackups != undefined && { CopyTagsToBackups: input.CopyTagsToBackups }),
-    ...(input.CopyTagsToVolumes != undefined && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.CopyTagsToVolumes != null && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DeploymentType != undefined && { DeploymentType: input.DeploymentType }),
-    ...(input.DiskIopsConfiguration != undefined && {
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.DiskIopsConfiguration != null && {
       DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
     }),
-    ...(input.RootVolumeConfiguration != undefined && {
+    ...(input.RootVolumeConfiguration != null && {
       RootVolumeConfiguration: serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration(
         input.RootVolumeConfiguration,
         context
       ),
     }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
 const serializeAws_json1_1CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemType != undefined && { FileSystemType: input.FileSystemType }),
-    ...(input.FileSystemTypeVersion != undefined && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
-    ...(input.KmsKeyId != undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.LustreConfiguration != undefined && {
+    ...(input.FileSystemType != null && { FileSystemType: input.FileSystemType }),
+    ...(input.FileSystemTypeVersion != null && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
+    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LustreConfiguration != null && {
       LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(input.LustreConfiguration, context),
     }),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1CreateFileSystemOntapConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1CreateFileSystemOpenZFSConfiguration(
         input.OpenZFSConfiguration,
         context
       ),
     }),
-    ...(input.SecurityGroupIds != undefined && {
+    ...(input.SecurityGroupIds != null && {
       SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
-    ...(input.StorageCapacity != undefined && { StorageCapacity: input.StorageCapacity }),
-    ...(input.StorageType != undefined && { StorageType: input.StorageType }),
-    ...(input.SubnetIds != undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.WindowsConfiguration != undefined && {
+    ...(input.StorageCapacity != null && { StorageCapacity: input.StorageCapacity }),
+    ...(input.StorageType != null && { StorageType: input.StorageType }),
+    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.WindowsConfiguration != null && {
       WindowsConfiguration: serializeAws_json1_1CreateFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
         context
@@ -3598,33 +3592,31 @@ const serializeAws_json1_1CreateFileSystemWindowsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveDirectoryId != undefined && { ActiveDirectoryId: input.ActiveDirectoryId }),
-    ...(input.Aliases != undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
-    ...(input.AuditLogConfiguration != undefined && {
+    ...(input.ActiveDirectoryId != null && { ActiveDirectoryId: input.ActiveDirectoryId }),
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ...(input.AuditLogConfiguration != null && {
       AuditLogConfiguration: serializeAws_json1_1WindowsAuditLogCreateConfiguration(
         input.AuditLogConfiguration,
         context
       ),
     }),
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.CopyTagsToBackups != undefined && { CopyTagsToBackups: input.CopyTagsToBackups }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DeploymentType != undefined && { DeploymentType: input.DeploymentType }),
-    ...(input.PreferredSubnetId != undefined && { PreferredSubnetId: input.PreferredSubnetId }),
-    ...(input.SelfManagedActiveDirectoryConfiguration != undefined && {
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.PreferredSubnetId != null && { PreferredSubnetId: input.PreferredSubnetId }),
+    ...(input.SelfManagedActiveDirectoryConfiguration != null && {
       SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfiguration(
         input.SelfManagedActiveDirectoryConfiguration,
         context
       ),
     }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -3633,12 +3625,12 @@ const serializeAws_json1_1CreateOntapVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JunctionPath != undefined && { JunctionPath: input.JunctionPath }),
-    ...(input.SecurityStyle != undefined && { SecurityStyle: input.SecurityStyle }),
-    ...(input.SizeInMegabytes != undefined && { SizeInMegabytes: input.SizeInMegabytes }),
-    ...(input.StorageEfficiencyEnabled != undefined && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
-    ...(input.StorageVirtualMachineId != undefined && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
-    ...(input.TieringPolicy != undefined && {
+    ...(input.JunctionPath != null && { JunctionPath: input.JunctionPath }),
+    ...(input.SecurityStyle != null && { SecurityStyle: input.SecurityStyle }),
+    ...(input.SizeInMegabytes != null && { SizeInMegabytes: input.SizeInMegabytes }),
+    ...(input.StorageEfficiencyEnabled != null && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
+    ...(input.StorageVirtualMachineId != null && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
+    ...(input.TieringPolicy != null && {
       TieringPolicy: serializeAws_json1_1TieringPolicy(input.TieringPolicy, context),
     }),
   };
@@ -3649,8 +3641,8 @@ const serializeAws_json1_1CreateOpenZFSOriginSnapshotConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CopyStrategy != undefined && { CopyStrategy: input.CopyStrategy }),
-    ...(input.SnapshotARN != undefined && { SnapshotARN: input.SnapshotARN }),
+    ...(input.CopyStrategy != null && { CopyStrategy: input.CopyStrategy }),
+    ...(input.SnapshotARN != null && { SnapshotARN: input.SnapshotARN }),
   };
 };
 
@@ -3659,22 +3651,20 @@ const serializeAws_json1_1CreateOpenZFSVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CopyTagsToSnapshots != undefined && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
-    ...(input.DataCompressionType != undefined && { DataCompressionType: input.DataCompressionType }),
-    ...(input.NfsExports != undefined && {
-      NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context),
-    }),
-    ...(input.OriginSnapshot != undefined && {
+    ...(input.CopyTagsToSnapshots != null && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
+    ...(input.DataCompressionType != null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports != null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.OriginSnapshot != null && {
       OriginSnapshot: serializeAws_json1_1CreateOpenZFSOriginSnapshotConfiguration(input.OriginSnapshot, context),
     }),
-    ...(input.ParentVolumeId != undefined && { ParentVolumeId: input.ParentVolumeId }),
-    ...(input.ReadOnly != undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RecordSizeKiB != undefined && { RecordSizeKiB: input.RecordSizeKiB }),
-    ...(input.StorageCapacityQuotaGiB != undefined && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
-    ...(input.StorageCapacityReservationGiB != undefined && {
+    ...(input.ParentVolumeId != null && { ParentVolumeId: input.ParentVolumeId }),
+    ...(input.ReadOnly != null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB != null && { RecordSizeKiB: input.RecordSizeKiB }),
+    ...(input.StorageCapacityQuotaGiB != null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.StorageCapacityReservationGiB != null && {
       StorageCapacityReservationGiB: input.StorageCapacityReservationGiB,
     }),
-    ...(input.UserAndGroupQuotas != undefined && {
+    ...(input.UserAndGroupQuotas != null && {
       UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
     }),
   };
@@ -3683,9 +3673,9 @@ const serializeAws_json1_1CreateOpenZFSVolumeConfiguration = (
 const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeId != undefined && { VolumeId: input.VolumeId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
   };
 };
 
@@ -3694,18 +3684,18 @@ const serializeAws_json1_1CreateStorageVirtualMachineRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveDirectoryConfiguration != undefined && {
+    ...(input.ActiveDirectoryConfiguration != null && {
       ActiveDirectoryConfiguration: serializeAws_json1_1CreateSvmActiveDirectoryConfiguration(
         input.ActiveDirectoryConfiguration,
         context
       ),
     }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RootVolumeSecurityStyle != undefined && { RootVolumeSecurityStyle: input.RootVolumeSecurityStyle }),
-    ...(input.SvmAdminPassword != undefined && { SvmAdminPassword: input.SvmAdminPassword }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RootVolumeSecurityStyle != null && { RootVolumeSecurityStyle: input.RootVolumeSecurityStyle }),
+    ...(input.SvmAdminPassword != null && { SvmAdminPassword: input.SvmAdminPassword }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3714,8 +3704,8 @@ const serializeAws_json1_1CreateSvmActiveDirectoryConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NetBiosName != undefined && { NetBiosName: input.NetBiosName }),
-    ...(input.SelfManagedActiveDirectoryConfiguration != undefined && {
+    ...(input.NetBiosName != null && { NetBiosName: input.NetBiosName }),
+    ...(input.SelfManagedActiveDirectoryConfiguration != null && {
       SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfiguration(
         input.SelfManagedActiveDirectoryConfiguration,
         context
@@ -3729,28 +3719,28 @@ const serializeAws_json1_1CreateVolumeFromBackupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BackupId != undefined && { BackupId: input.BackupId }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1CreateOntapVolumeConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1CreateOntapVolumeConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1CreateOpenZFSVolumeConfiguration(input.OpenZFSConfiguration, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeType != undefined && { VolumeType: input.VolumeType }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
   };
 };
 
@@ -3770,10 +3760,8 @@ const serializeAws_json1_1DataRepositoryTaskFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && {
-      Values: serializeAws_json1_1DataRepositoryTaskFilterValues(input.Values, context),
-    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1DataRepositoryTaskFilterValues(input.Values, context) }),
   };
 };
 
@@ -3815,7 +3803,7 @@ const serializeAws_json1_1DataRepositoryTaskPaths = (input: string[], context: _
 
 const serializeAws_json1_1DeleteBackupRequest = (input: DeleteBackupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupId != undefined && { BackupId: input.BackupId }),
+    ...(input.BackupId != null && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
   };
 };
@@ -3825,9 +3813,9 @@ const serializeAws_json1_1DeleteDataRepositoryAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId != undefined && { AssociationId: input.AssociationId }),
+    ...(input.AssociationId != null && { AssociationId: input.AssociationId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.DeleteDataInFileSystem != undefined && { DeleteDataInFileSystem: input.DeleteDataInFileSystem }),
+    ...(input.DeleteDataInFileSystem != null && { DeleteDataInFileSystem: input.DeleteDataInFileSystem }),
   };
 };
 
@@ -3836,10 +3824,8 @@ const serializeAws_json1_1DeleteFileSystemLustreConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FinalBackupTags != undefined && {
-      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context),
-    }),
-    ...(input.SkipFinalBackup != undefined && { SkipFinalBackup: input.SkipFinalBackup }),
+    ...(input.FinalBackupTags != null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.SkipFinalBackup != null && { SkipFinalBackup: input.SkipFinalBackup }),
   };
 };
 
@@ -3848,13 +3834,11 @@ const serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FinalBackupTags != undefined && {
-      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context),
-    }),
-    ...(input.Options != undefined && {
+    ...(input.FinalBackupTags != null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.Options != null && {
       Options: serializeAws_json1_1DeleteFileSystemOpenZFSOptions(input.Options, context),
     }),
-    ...(input.SkipFinalBackup != undefined && { SkipFinalBackup: input.SkipFinalBackup }),
+    ...(input.SkipFinalBackup != null && { SkipFinalBackup: input.SkipFinalBackup }),
   };
 };
 
@@ -3875,17 +3859,17 @@ const serializeAws_json1_1DeleteFileSystemOpenZFSOptions = (
 const serializeAws_json1_1DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.LustreConfiguration != undefined && {
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.LustreConfiguration != null && {
       LustreConfiguration: serializeAws_json1_1DeleteFileSystemLustreConfiguration(input.LustreConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration(
         input.OpenZFSConfiguration,
         context
       ),
     }),
-    ...(input.WindowsConfiguration != undefined && {
+    ...(input.WindowsConfiguration != null && {
       WindowsConfiguration: serializeAws_json1_1DeleteFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
         context
@@ -3899,10 +3883,8 @@ const serializeAws_json1_1DeleteFileSystemWindowsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FinalBackupTags != undefined && {
-      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context),
-    }),
-    ...(input.SkipFinalBackup != undefined && { SkipFinalBackup: input.SkipFinalBackup }),
+    ...(input.FinalBackupTags != null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.SkipFinalBackup != null && { SkipFinalBackup: input.SkipFinalBackup }),
   };
 };
 
@@ -3923,7 +3905,7 @@ const serializeAws_json1_1DeleteOpenZFSVolumeOptions = (
 const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.SnapshotId != undefined && { SnapshotId: input.SnapshotId }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
   };
 };
 
@@ -3933,7 +3915,7 @@ const serializeAws_json1_1DeleteStorageVirtualMachineRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.StorageVirtualMachineId != undefined && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
+    ...(input.StorageVirtualMachineId != null && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
   };
 };
 
@@ -3942,10 +3924,8 @@ const serializeAws_json1_1DeleteVolumeOntapConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FinalBackupTags != undefined && {
-      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context),
-    }),
-    ...(input.SkipFinalBackup != undefined && { SkipFinalBackup: input.SkipFinalBackup }),
+    ...(input.FinalBackupTags != null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.SkipFinalBackup != null && { SkipFinalBackup: input.SkipFinalBackup }),
   };
 };
 
@@ -3954,31 +3934,29 @@ const serializeAws_json1_1DeleteVolumeOpenZFSConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Options != undefined && {
-      Options: serializeAws_json1_1DeleteOpenZFSVolumeOptions(input.Options, context),
-    }),
+    ...(input.Options != null && { Options: serializeAws_json1_1DeleteOpenZFSVolumeOptions(input.Options, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1DeleteVolumeOntapConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1DeleteVolumeOpenZFSConfiguration(input.OpenZFSConfiguration, context),
     }),
-    ...(input.VolumeId != undefined && { VolumeId: input.VolumeId }),
+    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
   };
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (input: DescribeBackupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BackupIds != undefined && { BackupIds: serializeAws_json1_1BackupIds(input.BackupIds, context) }),
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.BackupIds != null && { BackupIds: serializeAws_json1_1BackupIds(input.BackupIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3987,12 +3965,12 @@ const serializeAws_json1_1DescribeDataRepositoryAssociationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationIds != undefined && {
+    ...(input.AssociationIds != null && {
       AssociationIds: serializeAws_json1_1DataRepositoryAssociationIds(input.AssociationIds, context),
     }),
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4001,12 +3979,10 @@ const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && {
-      Filters: serializeAws_json1_1DataRepositoryTaskFilters(input.Filters, context),
-    }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TaskIds != undefined && { TaskIds: serializeAws_json1_1TaskIds(input.TaskIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1DataRepositoryTaskFilters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TaskIds != null && { TaskIds: serializeAws_json1_1TaskIds(input.TaskIds, context) }),
   };
 };
 
@@ -4016,9 +3992,9 @@ const serializeAws_json1_1DescribeFileSystemAliasesRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4027,11 +4003,11 @@ const serializeAws_json1_1DescribeFileSystemsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FileSystemIds != undefined && {
+    ...(input.FileSystemIds != null && {
       FileSystemIds: serializeAws_json1_1FileSystemIds(input.FileSystemIds, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4040,10 +4016,10 @@ const serializeAws_json1_1DescribeSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1SnapshotFilters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.SnapshotIds != undefined && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1SnapshotFilters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SnapshotIds != null && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
   };
 };
 
@@ -4052,12 +4028,10 @@ const serializeAws_json1_1DescribeStorageVirtualMachinesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && {
-      Filters: serializeAws_json1_1StorageVirtualMachineFilters(input.Filters, context),
-    }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StorageVirtualMachineIds != undefined && {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1StorageVirtualMachineFilters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StorageVirtualMachineIds != null && {
       StorageVirtualMachineIds: serializeAws_json1_1StorageVirtualMachineIds(input.StorageVirtualMachineIds, context),
     }),
   };
@@ -4065,10 +4039,10 @@ const serializeAws_json1_1DescribeStorageVirtualMachinesRequest = (
 
 const serializeAws_json1_1DescribeVolumesRequest = (input: DescribeVolumesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_1VolumeFilters(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.VolumeIds != undefined && { VolumeIds: serializeAws_json1_1VolumeIds(input.VolumeIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_1VolumeFilters(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.VolumeIds != null && { VolumeIds: serializeAws_json1_1VolumeIds(input.VolumeIds, context) }),
   };
 };
 
@@ -4077,16 +4051,16 @@ const serializeAws_json1_1DisassociateFileSystemAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Aliases != undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
   };
 };
 
 const serializeAws_json1_1DiskIopsConfiguration = (input: DiskIopsConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Iops != undefined && { Iops: input.Iops }),
-    ...(input.Mode != undefined && { Mode: input.Mode }),
+    ...(input.Iops != null && { Iops: input.Iops }),
+    ...(input.Mode != null && { Mode: input.Mode }),
   };
 };
 
@@ -4125,8 +4099,8 @@ const serializeAws_json1_1FileSystemIds = (input: string[], context: __SerdeCont
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
   };
 };
 
@@ -4157,9 +4131,9 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
@@ -4168,8 +4142,8 @@ const serializeAws_json1_1LustreLogCreateConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination != undefined && { Destination: input.Destination }),
-    ...(input.Level != undefined && { Level: input.Level }),
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.Level != null && { Level: input.Level }),
   };
 };
 
@@ -4189,10 +4163,10 @@ const serializeAws_json1_1LustreRootSquashConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NoSquashNids != undefined && {
+    ...(input.NoSquashNids != null && {
       NoSquashNids: serializeAws_json1_1LustreNoSquashNids(input.NoSquashNids, context),
     }),
-    ...(input.RootSquash != undefined && { RootSquash: input.RootSquash }),
+    ...(input.RootSquash != null && { RootSquash: input.RootSquash }),
   };
 };
 
@@ -4201,8 +4175,8 @@ const serializeAws_json1_1OpenZFSClientConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Clients != undefined && { Clients: input.Clients }),
-    ...(input.Options != undefined && { Options: serializeAws_json1_1OpenZFSNfsExportOptions(input.Options, context) }),
+    ...(input.Clients != null && { Clients: input.Clients }),
+    ...(input.Options != null && { Options: serializeAws_json1_1OpenZFSNfsExportOptions(input.Options, context) }),
   };
 };
 
@@ -4225,14 +4199,12 @@ const serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CopyTagsToSnapshots != undefined && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
-    ...(input.DataCompressionType != undefined && { DataCompressionType: input.DataCompressionType }),
-    ...(input.NfsExports != undefined && {
-      NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context),
-    }),
-    ...(input.ReadOnly != undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RecordSizeKiB != undefined && { RecordSizeKiB: input.RecordSizeKiB }),
-    ...(input.UserAndGroupQuotas != undefined && {
+    ...(input.CopyTagsToSnapshots != null && { CopyTagsToSnapshots: input.CopyTagsToSnapshots }),
+    ...(input.DataCompressionType != null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports != null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.ReadOnly != null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB != null && { RecordSizeKiB: input.RecordSizeKiB }),
+    ...(input.UserAndGroupQuotas != null && {
       UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
     }),
   };
@@ -4240,7 +4212,7 @@ const serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration = (
 
 const serializeAws_json1_1OpenZFSNfsExport = (input: OpenZFSNfsExport, context: __SerdeContext): any => {
   return {
-    ...(input.ClientConfigurations != undefined && {
+    ...(input.ClientConfigurations != null && {
       ClientConfigurations: serializeAws_json1_1OpenZFSClientConfigurations(input.ClientConfigurations, context),
     }),
   };
@@ -4284,9 +4256,9 @@ const serializeAws_json1_1OpenZFSUserAndGroupQuotas = (
 
 const serializeAws_json1_1OpenZFSUserOrGroupQuota = (input: OpenZFSUserOrGroupQuota, context: __SerdeContext): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.StorageCapacityQuotaGiB != undefined && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.StorageCapacityQuotaGiB != null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -4296,7 +4268,7 @@ const serializeAws_json1_1ReleaseFileSystemNfsV3LocksRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
   };
 };
 
@@ -4320,11 +4292,9 @@ const serializeAws_json1_1RestoreVolumeFromSnapshotRequest = (
 ): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Options != undefined && {
-      Options: serializeAws_json1_1RestoreOpenZFSVolumeOptions(input.Options, context),
-    }),
-    ...(input.SnapshotId != undefined && { SnapshotId: input.SnapshotId }),
-    ...(input.VolumeId != undefined && { VolumeId: input.VolumeId }),
+    ...(input.Options != null && { Options: serializeAws_json1_1RestoreOpenZFSVolumeOptions(input.Options, context) }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
+    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
   };
 };
 
@@ -4344,10 +4314,10 @@ const serializeAws_json1_1S3DataRepositoryConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoExportPolicy != undefined && {
+    ...(input.AutoExportPolicy != null && {
       AutoExportPolicy: serializeAws_json1_1AutoExportPolicy(input.AutoExportPolicy, context),
     }),
-    ...(input.AutoImportPolicy != undefined && {
+    ...(input.AutoImportPolicy != null && {
       AutoImportPolicy: serializeAws_json1_1AutoImportPolicy(input.AutoImportPolicy, context),
     }),
   };
@@ -4369,16 +4339,16 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DnsIps != undefined && { DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context) }),
-    ...(input.DomainName != undefined && { DomainName: input.DomainName }),
-    ...(input.FileSystemAdministratorsGroup != undefined && {
+    ...(input.DnsIps != null && { DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context) }),
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.FileSystemAdministratorsGroup != null && {
       FileSystemAdministratorsGroup: input.FileSystemAdministratorsGroup,
     }),
-    ...(input.OrganizationalUnitDistinguishedName != undefined && {
+    ...(input.OrganizationalUnitDistinguishedName != null && {
       OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
     }),
-    ...(input.Password != undefined && { Password: input.Password }),
-    ...(input.UserName != undefined && { UserName: input.UserName }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
@@ -4387,16 +4357,16 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DnsIps != undefined && { DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context) }),
-    ...(input.Password != undefined && { Password: input.Password }),
-    ...(input.UserName != undefined && { UserName: input.UserName }),
+    ...(input.DnsIps != null && { DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context) }),
+    ...(input.Password != null && { Password: input.Password }),
+    ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
 const serializeAws_json1_1SnapshotFilter = (input: SnapshotFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1SnapshotFilterValues(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1SnapshotFilterValues(input.Values, context) }),
   };
 };
 
@@ -4438,8 +4408,8 @@ const serializeAws_json1_1StorageVirtualMachineFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && {
       Values: serializeAws_json1_1StorageVirtualMachineFilterValues(input.Values, context),
     }),
   };
@@ -4494,8 +4464,8 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4512,8 +4482,8 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4541,15 +4511,15 @@ const serializeAws_json1_1TaskIds = (input: string[], context: __SerdeContext): 
 
 const serializeAws_json1_1TieringPolicy = (input: TieringPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.CoolingPeriod != undefined && { CoolingPeriod: input.CoolingPeriod }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.CoolingPeriod != null && { CoolingPeriod: input.CoolingPeriod }),
+    ...(input.Name != null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN != undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -4558,10 +4528,10 @@ const serializeAws_json1_1UpdateDataRepositoryAssociationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssociationId != undefined && { AssociationId: input.AssociationId }),
+    ...(input.AssociationId != null && { AssociationId: input.AssociationId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.ImportedFileChunkSize != undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
-    ...(input.S3 != undefined && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
+    ...(input.ImportedFileChunkSize != null && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
+    ...(input.S3 != null && { S3: serializeAws_json1_1S3DataRepositoryConfiguration(input.S3, context) }),
   };
 };
 
@@ -4570,26 +4540,24 @@ const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutoImportPolicy != undefined && { AutoImportPolicy: input.AutoImportPolicy }),
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutoImportPolicy != null && { AutoImportPolicy: input.AutoImportPolicy }),
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DataCompressionType != undefined && { DataCompressionType: input.DataCompressionType }),
-    ...(input.LogConfiguration != undefined && {
+    ...(input.DataCompressionType != null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.LogConfiguration != null && {
       LogConfiguration: serializeAws_json1_1LustreLogCreateConfiguration(input.LogConfiguration, context),
     }),
-    ...(input.RootSquashConfiguration != undefined && {
+    ...(input.RootSquashConfiguration != null && {
       RootSquashConfiguration: serializeAws_json1_1LustreRootSquashConfiguration(
         input.RootSquashConfiguration,
         context
       ),
     }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -4598,20 +4566,18 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DiskIopsConfiguration != undefined && {
+    ...(input.DiskIopsConfiguration != null && {
       DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
     }),
-    ...(input.FsxAdminPassword != undefined && { FsxAdminPassword: input.FsxAdminPassword }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.FsxAdminPassword != null && { FsxAdminPassword: input.FsxAdminPassword }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -4620,42 +4586,40 @@ const serializeAws_json1_1UpdateFileSystemOpenZFSConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.CopyTagsToBackups != undefined && { CopyTagsToBackups: input.CopyTagsToBackups }),
-    ...(input.CopyTagsToVolumes != undefined && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.CopyTagsToBackups != null && { CopyTagsToBackups: input.CopyTagsToBackups }),
+    ...(input.CopyTagsToVolumes != null && { CopyTagsToVolumes: input.CopyTagsToVolumes }),
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.DiskIopsConfiguration != undefined && {
+    ...(input.DiskIopsConfiguration != null && {
       DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
     }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
 const serializeAws_json1_1UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId != undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.LustreConfiguration != undefined && {
+    ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
+    ...(input.LustreConfiguration != null && {
       LustreConfiguration: serializeAws_json1_1UpdateFileSystemLustreConfiguration(input.LustreConfiguration, context),
     }),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1UpdateFileSystemOntapConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1UpdateFileSystemOpenZFSConfiguration(
         input.OpenZFSConfiguration,
         context
       ),
     }),
-    ...(input.StorageCapacity != undefined && { StorageCapacity: input.StorageCapacity }),
-    ...(input.WindowsConfiguration != undefined && {
+    ...(input.StorageCapacity != null && { StorageCapacity: input.StorageCapacity }),
+    ...(input.WindowsConfiguration != null && {
       WindowsConfiguration: serializeAws_json1_1UpdateFileSystemWindowsConfiguration(
         input.WindowsConfiguration,
         context
@@ -4669,28 +4633,26 @@ const serializeAws_json1_1UpdateFileSystemWindowsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuditLogConfiguration != undefined && {
+    ...(input.AuditLogConfiguration != null && {
       AuditLogConfiguration: serializeAws_json1_1WindowsAuditLogCreateConfiguration(
         input.AuditLogConfiguration,
         context
       ),
     }),
-    ...(input.AutomaticBackupRetentionDays != undefined && {
+    ...(input.AutomaticBackupRetentionDays != null && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
-    ...(input.DailyAutomaticBackupStartTime != undefined && {
+    ...(input.DailyAutomaticBackupStartTime != null && {
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
-    ...(input.SelfManagedActiveDirectoryConfiguration != undefined && {
+    ...(input.SelfManagedActiveDirectoryConfiguration != null && {
       SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates(
         input.SelfManagedActiveDirectoryConfiguration,
         context
       ),
     }),
-    ...(input.ThroughputCapacity != undefined && { ThroughputCapacity: input.ThroughputCapacity }),
-    ...(input.WeeklyMaintenanceStartTime != undefined && {
-      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime,
-    }),
+    ...(input.ThroughputCapacity != null && { ThroughputCapacity: input.ThroughputCapacity }),
+    ...(input.WeeklyMaintenanceStartTime != null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
 };
 
@@ -4699,11 +4661,11 @@ const serializeAws_json1_1UpdateOntapVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JunctionPath != undefined && { JunctionPath: input.JunctionPath }),
-    ...(input.SecurityStyle != undefined && { SecurityStyle: input.SecurityStyle }),
-    ...(input.SizeInMegabytes != undefined && { SizeInMegabytes: input.SizeInMegabytes }),
-    ...(input.StorageEfficiencyEnabled != undefined && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
-    ...(input.TieringPolicy != undefined && {
+    ...(input.JunctionPath != null && { JunctionPath: input.JunctionPath }),
+    ...(input.SecurityStyle != null && { SecurityStyle: input.SecurityStyle }),
+    ...(input.SizeInMegabytes != null && { SizeInMegabytes: input.SizeInMegabytes }),
+    ...(input.StorageEfficiencyEnabled != null && { StorageEfficiencyEnabled: input.StorageEfficiencyEnabled }),
+    ...(input.TieringPolicy != null && {
       TieringPolicy: serializeAws_json1_1TieringPolicy(input.TieringPolicy, context),
     }),
   };
@@ -4714,17 +4676,15 @@ const serializeAws_json1_1UpdateOpenZFSVolumeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataCompressionType != undefined && { DataCompressionType: input.DataCompressionType }),
-    ...(input.NfsExports != undefined && {
-      NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context),
-    }),
-    ...(input.ReadOnly != undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RecordSizeKiB != undefined && { RecordSizeKiB: input.RecordSizeKiB }),
-    ...(input.StorageCapacityQuotaGiB != undefined && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
-    ...(input.StorageCapacityReservationGiB != undefined && {
+    ...(input.DataCompressionType != null && { DataCompressionType: input.DataCompressionType }),
+    ...(input.NfsExports != null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
+    ...(input.ReadOnly != null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB != null && { RecordSizeKiB: input.RecordSizeKiB }),
+    ...(input.StorageCapacityQuotaGiB != null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
+    ...(input.StorageCapacityReservationGiB != null && {
       StorageCapacityReservationGiB: input.StorageCapacityReservationGiB,
     }),
-    ...(input.UserAndGroupQuotas != undefined && {
+    ...(input.UserAndGroupQuotas != null && {
       UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
     }),
   };
@@ -4733,8 +4693,8 @@ const serializeAws_json1_1UpdateOpenZFSVolumeConfiguration = (
 const serializeAws_json1_1UpdateSnapshotRequest = (input: UpdateSnapshotRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SnapshotId != undefined && { SnapshotId: input.SnapshotId }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
   };
 };
 
@@ -4743,15 +4703,15 @@ const serializeAws_json1_1UpdateStorageVirtualMachineRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActiveDirectoryConfiguration != undefined && {
+    ...(input.ActiveDirectoryConfiguration != null && {
       ActiveDirectoryConfiguration: serializeAws_json1_1UpdateSvmActiveDirectoryConfiguration(
         input.ActiveDirectoryConfiguration,
         context
       ),
     }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.StorageVirtualMachineId != undefined && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
-    ...(input.SvmAdminPassword != undefined && { SvmAdminPassword: input.SvmAdminPassword }),
+    ...(input.StorageVirtualMachineId != null && { StorageVirtualMachineId: input.StorageVirtualMachineId }),
+    ...(input.SvmAdminPassword != null && { SvmAdminPassword: input.SvmAdminPassword }),
   };
 };
 
@@ -4760,7 +4720,7 @@ const serializeAws_json1_1UpdateSvmActiveDirectoryConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SelfManagedActiveDirectoryConfiguration != undefined && {
+    ...(input.SelfManagedActiveDirectoryConfiguration != null && {
       SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates(
         input.SelfManagedActiveDirectoryConfiguration,
         context
@@ -4772,21 +4732,21 @@ const serializeAws_json1_1UpdateSvmActiveDirectoryConfiguration = (
 const serializeAws_json1_1UpdateVolumeRequest = (input: UpdateVolumeRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.OntapConfiguration != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OntapConfiguration != null && {
       OntapConfiguration: serializeAws_json1_1UpdateOntapVolumeConfiguration(input.OntapConfiguration, context),
     }),
-    ...(input.OpenZFSConfiguration != undefined && {
+    ...(input.OpenZFSConfiguration != null && {
       OpenZFSConfiguration: serializeAws_json1_1UpdateOpenZFSVolumeConfiguration(input.OpenZFSConfiguration, context),
     }),
-    ...(input.VolumeId != undefined && { VolumeId: input.VolumeId }),
+    ...(input.VolumeId != null && { VolumeId: input.VolumeId }),
   };
 };
 
 const serializeAws_json1_1VolumeFilter = (input: VolumeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_1VolumeFilterValues(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_1VolumeFilterValues(input.Values, context) }),
   };
 };
 
@@ -4828,9 +4788,9 @@ const serializeAws_json1_1WindowsAuditLogCreateConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AuditLogDestination != undefined && { AuditLogDestination: input.AuditLogDestination }),
-    ...(input.FileAccessAuditLogLevel != undefined && { FileAccessAuditLogLevel: input.FileAccessAuditLogLevel }),
-    ...(input.FileShareAccessAuditLogLevel != undefined && {
+    ...(input.AuditLogDestination != null && { AuditLogDestination: input.AuditLogDestination }),
+    ...(input.FileAccessAuditLogLevel != null && { FileAccessAuditLogLevel: input.FileAccessAuditLogLevel }),
+    ...(input.FileShareAccessAuditLogLevel != null && {
       FileShareAccessAuditLogLevel: input.FileShareAccessAuditLogLevel,
     }),
   };
@@ -4859,27 +4819,25 @@ const deserializeAws_json1_1AdministrativeAction = (output: any, context: __Serd
   return {
     AdministrativeActionType: __expectString(output.AdministrativeActionType),
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1AdministrativeActionFailureDetails(output.FailureDetails, context)
         : undefined,
     ProgressPercent: __expectInt32(output.ProgressPercent),
     RequestTime:
-      output.RequestTime != undefined
+      output.RequestTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestTime)))
         : undefined,
     Status: __expectString(output.Status),
     TargetFileSystemValues:
-      output.TargetFileSystemValues != undefined
+      output.TargetFileSystemValues != null
         ? deserializeAws_json1_1FileSystem(output.TargetFileSystemValues, context)
         : undefined,
     TargetSnapshotValues:
-      output.TargetSnapshotValues != undefined
+      output.TargetSnapshotValues != null
         ? deserializeAws_json1_1Snapshot(output.TargetSnapshotValues, context)
         : undefined,
     TargetVolumeValues:
-      output.TargetVolumeValues != undefined
-        ? deserializeAws_json1_1Volume(output.TargetVolumeValues, context)
-        : undefined,
+      output.TargetVolumeValues != null ? deserializeAws_json1_1Volume(output.TargetVolumeValues, context) : undefined,
   } as any;
 };
 
@@ -4928,19 +4886,19 @@ const deserializeAws_json1_1AssociateFileSystemAliasesResponse = (
   context: __SerdeContext
 ): AssociateFileSystemAliasesResponse => {
   return {
-    Aliases: output.Aliases != undefined ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AutoExportPolicy = (output: any, context: __SerdeContext): AutoExportPolicy => {
   return {
-    Events: output.Events != undefined ? deserializeAws_json1_1EventTypes(output.Events, context) : undefined,
+    Events: output.Events != null ? deserializeAws_json1_1EventTypes(output.Events, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AutoImportPolicy = (output: any, context: __SerdeContext): AutoImportPolicy => {
   return {
-    Events: output.Events != undefined ? deserializeAws_json1_1EventTypes(output.Events, context) : undefined,
+    Events: output.Events != null ? deserializeAws_json1_1EventTypes(output.Events, context) : undefined,
   } as any;
 };
 
@@ -4948,19 +4906,18 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
   return {
     BackupId: __expectString(output.BackupId),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DirectoryInformation:
-      output.DirectoryInformation != undefined
+      output.DirectoryInformation != null
         ? deserializeAws_json1_1ActiveDirectoryBackupAttributes(output.DirectoryInformation, context)
         : undefined,
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1BackupFailureDetails(output.FailureDetails, context)
         : undefined,
-    FileSystem:
-      output.FileSystem != undefined ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
+    FileSystem: output.FileSystem != null ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
     Lifecycle: __expectString(output.Lifecycle),
     OwnerId: __expectString(output.OwnerId),
@@ -4969,9 +4926,9 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
     ResourceType: __expectString(output.ResourceType),
     SourceBackupId: __expectString(output.SourceBackupId),
     SourceBackupRegion: __expectString(output.SourceBackupRegion),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
-    Volume: output.Volume != undefined ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
+    Volume: output.Volume != null ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
   } as any;
 };
 
@@ -5046,13 +5003,13 @@ const deserializeAws_json1_1CompletionReport = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1CopyBackupResponse = (output: any, context: __SerdeContext): CopyBackupResponse => {
   return {
-    Backup: output.Backup != undefined ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
+    Backup: output.Backup != null ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __SerdeContext): CreateBackupResponse => {
   return {
-    Backup: output.Backup != undefined ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
+    Backup: output.Backup != null ? deserializeAws_json1_1Backup(output.Backup, context) : undefined,
   } as any;
 };
 
@@ -5062,7 +5019,7 @@ const deserializeAws_json1_1CreateDataRepositoryAssociationResponse = (
 ): CreateDataRepositoryAssociationResponse => {
   return {
     Association:
-      output.Association != undefined
+      output.Association != null
         ? deserializeAws_json1_1DataRepositoryAssociation(output.Association, context)
         : undefined,
   } as any;
@@ -5074,7 +5031,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
 ): CreateDataRepositoryTaskResponse => {
   return {
     DataRepositoryTask:
-      output.DataRepositoryTask != undefined
+      output.DataRepositoryTask != null
         ? deserializeAws_json1_1DataRepositoryTask(output.DataRepositoryTask, context)
         : undefined,
   } as any;
@@ -5085,8 +5042,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupResponse = (
   context: __SerdeContext
 ): CreateFileSystemFromBackupResponse => {
   return {
-    FileSystem:
-      output.FileSystem != undefined ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
+    FileSystem: output.FileSystem != null ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
   } as any;
 };
 
@@ -5095,14 +5051,13 @@ const deserializeAws_json1_1CreateFileSystemResponse = (
   context: __SerdeContext
 ): CreateFileSystemResponse => {
   return {
-    FileSystem:
-      output.FileSystem != undefined ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
+    FileSystem: output.FileSystem != null ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotResponse = (output: any, context: __SerdeContext): CreateSnapshotResponse => {
   return {
-    Snapshot: output.Snapshot != undefined ? deserializeAws_json1_1Snapshot(output.Snapshot, context) : undefined,
+    Snapshot: output.Snapshot != null ? deserializeAws_json1_1Snapshot(output.Snapshot, context) : undefined,
   } as any;
 };
 
@@ -5112,7 +5067,7 @@ const deserializeAws_json1_1CreateStorageVirtualMachineResponse = (
 ): CreateStorageVirtualMachineResponse => {
   return {
     StorageVirtualMachine:
-      output.StorageVirtualMachine != undefined
+      output.StorageVirtualMachine != null
         ? deserializeAws_json1_1StorageVirtualMachine(output.StorageVirtualMachine, context)
         : undefined,
   } as any;
@@ -5123,13 +5078,13 @@ const deserializeAws_json1_1CreateVolumeFromBackupResponse = (
   context: __SerdeContext
 ): CreateVolumeFromBackupResponse => {
   return {
-    Volume: output.Volume != undefined ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
+    Volume: output.Volume != null ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateVolumeResponse = (output: any, context: __SerdeContext): CreateVolumeResponse => {
   return {
-    Volume: output.Volume != undefined ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
+    Volume: output.Volume != null ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
   } as any;
 };
 
@@ -5141,12 +5096,12 @@ const deserializeAws_json1_1DataRepositoryAssociation = (
     AssociationId: __expectString(output.AssociationId),
     BatchImportMetaDataOnCreate: __expectBoolean(output.BatchImportMetaDataOnCreate),
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DataRepositoryPath: __expectString(output.DataRepositoryPath),
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
@@ -5154,8 +5109,8 @@ const deserializeAws_json1_1DataRepositoryAssociation = (
     ImportedFileChunkSize: __expectInt32(output.ImportedFileChunkSize),
     Lifecycle: __expectString(output.Lifecycle),
     ResourceARN: __expectString(output.ResourceARN),
-    S3: output.S3 != undefined ? deserializeAws_json1_1S3DataRepositoryConfiguration(output.S3, context) : undefined,
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    S3: output.S3 != null ? deserializeAws_json1_1S3DataRepositoryConfiguration(output.S3, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -5191,7 +5146,7 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
     AutoImportPolicy: __expectString(output.AutoImportPolicy),
     ExportPath: __expectString(output.ExportPath),
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1DataRepositoryFailureDetails(output.FailureDetails, context)
         : undefined,
     ImportPath: __expectString(output.ImportPath),
@@ -5212,27 +5167,24 @@ const deserializeAws_json1_1DataRepositoryFailureDetails = (
 const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeContext): DataRepositoryTask => {
   return {
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     EndTime:
-      output.EndTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1DataRepositoryTaskFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),
-    Paths: output.Paths != undefined ? deserializeAws_json1_1DataRepositoryTaskPaths(output.Paths, context) : undefined,
-    Report: output.Report != undefined ? deserializeAws_json1_1CompletionReport(output.Report, context) : undefined,
+    Paths: output.Paths != null ? deserializeAws_json1_1DataRepositoryTaskPaths(output.Paths, context) : undefined,
+    Report: output.Report != null ? deserializeAws_json1_1CompletionReport(output.Report, context) : undefined,
     ResourceARN: __expectString(output.ResourceARN),
     StartTime:
-      output.StartTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
-    Status:
-      output.Status != undefined ? deserializeAws_json1_1DataRepositoryTaskStatus(output.Status, context) : undefined,
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+    Status: output.Status != null ? deserializeAws_json1_1DataRepositoryTaskStatus(output.Status, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     TaskId: __expectString(output.TaskId),
     Type: __expectString(output.Type),
   } as any;
@@ -5305,7 +5257,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
   return {
     FailedCount: __expectLong(output.FailedCount),
     LastUpdatedTime:
-      output.LastUpdatedTime != undefined
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     SucceededCount: __expectLong(output.SucceededCount),
@@ -5338,7 +5290,7 @@ const deserializeAws_json1_1DeleteFileSystemLustreResponse = (
   return {
     FinalBackupId: __expectString(output.FinalBackupId),
     FinalBackupTags:
-      output.FinalBackupTags != undefined ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
+      output.FinalBackupTags != null ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
   } as any;
 };
 
@@ -5349,7 +5301,7 @@ const deserializeAws_json1_1DeleteFileSystemOpenZFSResponse = (
   return {
     FinalBackupId: __expectString(output.FinalBackupId),
     FinalBackupTags:
-      output.FinalBackupTags != undefined ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
+      output.FinalBackupTags != null ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
   } as any;
 };
 
@@ -5361,15 +5313,15 @@ const deserializeAws_json1_1DeleteFileSystemResponse = (
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),
     LustreResponse:
-      output.LustreResponse != undefined
+      output.LustreResponse != null
         ? deserializeAws_json1_1DeleteFileSystemLustreResponse(output.LustreResponse, context)
         : undefined,
     OpenZFSResponse:
-      output.OpenZFSResponse != undefined
+      output.OpenZFSResponse != null
         ? deserializeAws_json1_1DeleteFileSystemOpenZFSResponse(output.OpenZFSResponse, context)
         : undefined,
     WindowsResponse:
-      output.WindowsResponse != undefined
+      output.WindowsResponse != null
         ? deserializeAws_json1_1DeleteFileSystemWindowsResponse(output.WindowsResponse, context)
         : undefined,
   } as any;
@@ -5382,7 +5334,7 @@ const deserializeAws_json1_1DeleteFileSystemWindowsResponse = (
   return {
     FinalBackupId: __expectString(output.FinalBackupId),
     FinalBackupTags:
-      output.FinalBackupTags != undefined ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
+      output.FinalBackupTags != null ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
   } as any;
 };
 
@@ -5410,7 +5362,7 @@ const deserializeAws_json1_1DeleteVolumeOntapResponse = (
   return {
     FinalBackupId: __expectString(output.FinalBackupId),
     FinalBackupTags:
-      output.FinalBackupTags != undefined ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
+      output.FinalBackupTags != null ? deserializeAws_json1_1Tags(output.FinalBackupTags, context) : undefined,
   } as any;
 };
 
@@ -5418,7 +5370,7 @@ const deserializeAws_json1_1DeleteVolumeResponse = (output: any, context: __Serd
   return {
     Lifecycle: __expectString(output.Lifecycle),
     OntapResponse:
-      output.OntapResponse != undefined
+      output.OntapResponse != null
         ? deserializeAws_json1_1DeleteVolumeOntapResponse(output.OntapResponse, context)
         : undefined,
     VolumeId: __expectString(output.VolumeId),
@@ -5430,7 +5382,7 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   context: __SerdeContext
 ): DescribeBackupsResponse => {
   return {
-    Backups: output.Backups != undefined ? deserializeAws_json1_1Backups(output.Backups, context) : undefined,
+    Backups: output.Backups != null ? deserializeAws_json1_1Backups(output.Backups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5441,7 +5393,7 @@ const deserializeAws_json1_1DescribeDataRepositoryAssociationsResponse = (
 ): DescribeDataRepositoryAssociationsResponse => {
   return {
     Associations:
-      output.Associations != undefined
+      output.Associations != null
         ? deserializeAws_json1_1DataRepositoryAssociations(output.Associations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5454,7 +5406,7 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
 ): DescribeDataRepositoryTasksResponse => {
   return {
     DataRepositoryTasks:
-      output.DataRepositoryTasks != undefined
+      output.DataRepositoryTasks != null
         ? deserializeAws_json1_1DataRepositoryTasks(output.DataRepositoryTasks, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -5466,7 +5418,7 @@ const deserializeAws_json1_1DescribeFileSystemAliasesResponse = (
   context: __SerdeContext
 ): DescribeFileSystemAliasesResponse => {
   return {
-    Aliases: output.Aliases != undefined ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5477,7 +5429,7 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
 ): DescribeFileSystemsResponse => {
   return {
     FileSystems:
-      output.FileSystems != undefined ? deserializeAws_json1_1FileSystems(output.FileSystems, context) : undefined,
+      output.FileSystems != null ? deserializeAws_json1_1FileSystems(output.FileSystems, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -5488,7 +5440,7 @@ const deserializeAws_json1_1DescribeSnapshotsResponse = (
 ): DescribeSnapshotsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Snapshots: output.Snapshots != undefined ? deserializeAws_json1_1Snapshots(output.Snapshots, context) : undefined,
+    Snapshots: output.Snapshots != null ? deserializeAws_json1_1Snapshots(output.Snapshots, context) : undefined,
   } as any;
 };
 
@@ -5499,7 +5451,7 @@ const deserializeAws_json1_1DescribeStorageVirtualMachinesResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     StorageVirtualMachines:
-      output.StorageVirtualMachines != undefined
+      output.StorageVirtualMachines != null
         ? deserializeAws_json1_1StorageVirtualMachines(output.StorageVirtualMachines, context)
         : undefined,
   } as any;
@@ -5511,7 +5463,7 @@ const deserializeAws_json1_1DescribeVolumesResponse = (
 ): DescribeVolumesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Volumes: output.Volumes != undefined ? deserializeAws_json1_1Volumes(output.Volumes, context) : undefined,
+    Volumes: output.Volumes != null ? deserializeAws_json1_1Volumes(output.Volumes, context) : undefined,
   } as any;
 };
 
@@ -5520,7 +5472,7 @@ const deserializeAws_json1_1DisassociateFileSystemAliasesResponse = (
   context: __SerdeContext
 ): DisassociateFileSystemAliasesResponse => {
   return {
-    Aliases: output.Aliases != undefined ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
   } as any;
 };
 
@@ -5558,16 +5510,16 @@ const deserializeAws_json1_1EventTypes = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext): FileSystem => {
   return {
     AdministrativeActions:
-      output.AdministrativeActions != undefined
+      output.AdministrativeActions != null
         ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
         : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     DNSName: __expectString(output.DNSName),
     FailureDetails:
-      output.FailureDetails != undefined
+      output.FailureDetails != null
         ? deserializeAws_json1_1FileSystemFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
@@ -5576,30 +5528,30 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
     KmsKeyId: __expectString(output.KmsKeyId),
     Lifecycle: __expectString(output.Lifecycle),
     LustreConfiguration:
-      output.LustreConfiguration != undefined
+      output.LustreConfiguration != null
         ? deserializeAws_json1_1LustreFileSystemConfiguration(output.LustreConfiguration, context)
         : undefined,
     NetworkInterfaceIds:
-      output.NetworkInterfaceIds != undefined
+      output.NetworkInterfaceIds != null
         ? deserializeAws_json1_1NetworkInterfaceIds(output.NetworkInterfaceIds, context)
         : undefined,
     OntapConfiguration:
-      output.OntapConfiguration != undefined
+      output.OntapConfiguration != null
         ? deserializeAws_json1_1OntapFileSystemConfiguration(output.OntapConfiguration, context)
         : undefined,
     OpenZFSConfiguration:
-      output.OpenZFSConfiguration != undefined
+      output.OpenZFSConfiguration != null
         ? deserializeAws_json1_1OpenZFSFileSystemConfiguration(output.OpenZFSConfiguration, context)
         : undefined,
     OwnerId: __expectString(output.OwnerId),
     ResourceARN: __expectString(output.ResourceARN),
     StorageCapacity: __expectInt32(output.StorageCapacity),
     StorageType: __expectString(output.StorageType),
-    SubnetIds: output.SubnetIds != undefined ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     VpcId: __expectString(output.VpcId),
     WindowsConfiguration:
-      output.WindowsConfiguration != undefined
+      output.WindowsConfiguration != null
         ? deserializeAws_json1_1WindowsFileSystemConfiguration(output.WindowsConfiguration, context)
         : undefined,
   } as any;
@@ -5609,7 +5561,7 @@ const deserializeAws_json1_1FileSystemEndpoint = (output: any, context: __SerdeC
   return {
     DNSName: __expectString(output.DNSName),
     IpAddresses:
-      output.IpAddresses != undefined
+      output.IpAddresses != null
         ? deserializeAws_json1_1OntapEndpointIpAddresses(output.IpAddresses, context)
         : undefined,
   } as any;
@@ -5618,11 +5570,9 @@ const deserializeAws_json1_1FileSystemEndpoint = (output: any, context: __SerdeC
 const deserializeAws_json1_1FileSystemEndpoints = (output: any, context: __SerdeContext): FileSystemEndpoints => {
   return {
     Intercluster:
-      output.Intercluster != undefined
-        ? deserializeAws_json1_1FileSystemEndpoint(output.Intercluster, context)
-        : undefined,
+      output.Intercluster != null ? deserializeAws_json1_1FileSystemEndpoint(output.Intercluster, context) : undefined,
     Management:
-      output.Management != undefined ? deserializeAws_json1_1FileSystemEndpoint(output.Management, context) : undefined,
+      output.Management != null ? deserializeAws_json1_1FileSystemEndpoint(output.Management, context) : undefined,
   } as any;
 };
 
@@ -5768,7 +5718,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -5782,19 +5732,19 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DataCompressionType: __expectString(output.DataCompressionType),
     DataRepositoryConfiguration:
-      output.DataRepositoryConfiguration != undefined
+      output.DataRepositoryConfiguration != null
         ? deserializeAws_json1_1DataRepositoryConfiguration(output.DataRepositoryConfiguration, context)
         : undefined,
     DeploymentType: __expectString(output.DeploymentType),
     DriveCacheType: __expectString(output.DriveCacheType),
     LogConfiguration:
-      output.LogConfiguration != undefined
+      output.LogConfiguration != null
         ? deserializeAws_json1_1LustreLogConfiguration(output.LogConfiguration, context)
         : undefined,
     MountName: __expectString(output.MountName),
     PerUnitStorageThroughput: __expectInt32(output.PerUnitStorageThroughput),
     RootSquashConfiguration:
-      output.RootSquashConfiguration != undefined
+      output.RootSquashConfiguration != null
         ? deserializeAws_json1_1LustreRootSquashConfiguration(output.RootSquashConfiguration, context)
         : undefined,
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
@@ -5826,9 +5776,7 @@ const deserializeAws_json1_1LustreRootSquashConfiguration = (
 ): LustreRootSquashConfiguration => {
   return {
     NoSquashNids:
-      output.NoSquashNids != undefined
-        ? deserializeAws_json1_1LustreNoSquashNids(output.NoSquashNids, context)
-        : undefined,
+      output.NoSquashNids != null ? deserializeAws_json1_1LustreNoSquashNids(output.NoSquashNids, context) : undefined,
     RootSquash: __expectString(output.RootSquash),
   } as any;
 };
@@ -5894,17 +5842,15 @@ const deserializeAws_json1_1OntapFileSystemConfiguration = (
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DeploymentType: __expectString(output.DeploymentType),
     DiskIopsConfiguration:
-      output.DiskIopsConfiguration != undefined
+      output.DiskIopsConfiguration != null
         ? deserializeAws_json1_1DiskIopsConfiguration(output.DiskIopsConfiguration, context)
         : undefined,
     EndpointIpAddressRange: __expectString(output.EndpointIpAddressRange),
     Endpoints:
-      output.Endpoints != undefined ? deserializeAws_json1_1FileSystemEndpoints(output.Endpoints, context) : undefined,
+      output.Endpoints != null ? deserializeAws_json1_1FileSystemEndpoints(output.Endpoints, context) : undefined,
     PreferredSubnetId: __expectString(output.PreferredSubnetId),
     RouteTableIds:
-      output.RouteTableIds != undefined
-        ? deserializeAws_json1_1RouteTableIds(output.RouteTableIds, context)
-        : undefined,
+      output.RouteTableIds != null ? deserializeAws_json1_1RouteTableIds(output.RouteTableIds, context) : undefined,
     ThroughputCapacity: __expectInt32(output.ThroughputCapacity),
     WeeklyMaintenanceStartTime: __expectString(output.WeeklyMaintenanceStartTime),
   } as any;
@@ -5924,9 +5870,7 @@ const deserializeAws_json1_1OntapVolumeConfiguration = (
     StorageVirtualMachineId: __expectString(output.StorageVirtualMachineId),
     StorageVirtualMachineRoot: __expectBoolean(output.StorageVirtualMachineRoot),
     TieringPolicy:
-      output.TieringPolicy != undefined
-        ? deserializeAws_json1_1TieringPolicy(output.TieringPolicy, context)
-        : undefined,
+      output.TieringPolicy != null ? deserializeAws_json1_1TieringPolicy(output.TieringPolicy, context) : undefined,
     UUID: __expectString(output.UUID),
   } as any;
 };
@@ -5938,7 +5882,7 @@ const deserializeAws_json1_1OpenZFSClientConfiguration = (
   return {
     Clients: __expectString(output.Clients),
     Options:
-      output.Options != undefined ? deserializeAws_json1_1OpenZFSNfsExportOptions(output.Options, context) : undefined,
+      output.Options != null ? deserializeAws_json1_1OpenZFSNfsExportOptions(output.Options, context) : undefined,
   } as any;
 };
 
@@ -5968,7 +5912,7 @@ const deserializeAws_json1_1OpenZFSFileSystemConfiguration = (
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DeploymentType: __expectString(output.DeploymentType),
     DiskIopsConfiguration:
-      output.DiskIopsConfiguration != undefined
+      output.DiskIopsConfiguration != null
         ? deserializeAws_json1_1DiskIopsConfiguration(output.DiskIopsConfiguration, context)
         : undefined,
     RootVolumeId: __expectString(output.RootVolumeId),
@@ -5980,7 +5924,7 @@ const deserializeAws_json1_1OpenZFSFileSystemConfiguration = (
 const deserializeAws_json1_1OpenZFSNfsExport = (output: any, context: __SerdeContext): OpenZFSNfsExport => {
   return {
     ClientConfigurations:
-      output.ClientConfigurations != undefined
+      output.ClientConfigurations != null
         ? deserializeAws_json1_1OpenZFSClientConfigurations(output.ClientConfigurations, context)
         : undefined,
   } as any;
@@ -6054,9 +5998,9 @@ const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
     CopyTagsToSnapshots: __expectBoolean(output.CopyTagsToSnapshots),
     DataCompressionType: __expectString(output.DataCompressionType),
     NfsExports:
-      output.NfsExports != undefined ? deserializeAws_json1_1OpenZFSNfsExports(output.NfsExports, context) : undefined,
+      output.NfsExports != null ? deserializeAws_json1_1OpenZFSNfsExports(output.NfsExports, context) : undefined,
     OriginSnapshot:
-      output.OriginSnapshot != undefined
+      output.OriginSnapshot != null
         ? deserializeAws_json1_1OpenZFSOriginSnapshotConfiguration(output.OriginSnapshot, context)
         : undefined,
     ParentVolumeId: __expectString(output.ParentVolumeId),
@@ -6065,7 +6009,7 @@ const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
     StorageCapacityQuotaGiB: __expectInt32(output.StorageCapacityQuotaGiB),
     StorageCapacityReservationGiB: __expectInt32(output.StorageCapacityReservationGiB),
     UserAndGroupQuotas:
-      output.UserAndGroupQuotas != undefined
+      output.UserAndGroupQuotas != null
         ? deserializeAws_json1_1OpenZFSUserAndGroupQuotas(output.UserAndGroupQuotas, context)
         : undefined,
     VolumePath: __expectString(output.VolumePath),
@@ -6077,8 +6021,7 @@ const deserializeAws_json1_1ReleaseFileSystemNfsV3LocksResponse = (
   context: __SerdeContext
 ): ReleaseFileSystemNfsV3LocksResponse => {
   return {
-    FileSystem:
-      output.FileSystem != undefined ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
+    FileSystem: output.FileSystem != null ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
   } as any;
 };
 
@@ -6127,11 +6070,11 @@ const deserializeAws_json1_1S3DataRepositoryConfiguration = (
 ): S3DataRepositoryConfiguration => {
   return {
     AutoExportPolicy:
-      output.AutoExportPolicy != undefined
+      output.AutoExportPolicy != null
         ? deserializeAws_json1_1AutoExportPolicy(output.AutoExportPolicy, context)
         : undefined,
     AutoImportPolicy:
-      output.AutoImportPolicy != undefined
+      output.AutoImportPolicy != null
         ? deserializeAws_json1_1AutoImportPolicy(output.AutoImportPolicy, context)
         : undefined,
   } as any;
@@ -6142,7 +6085,7 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
   context: __SerdeContext
 ): SelfManagedActiveDirectoryAttributes => {
   return {
-    DnsIps: output.DnsIps != undefined ? deserializeAws_json1_1DnsIps(output.DnsIps, context) : undefined,
+    DnsIps: output.DnsIps != null ? deserializeAws_json1_1DnsIps(output.DnsIps, context) : undefined,
     DomainName: __expectString(output.DomainName),
     FileSystemAdministratorsGroup: __expectString(output.FileSystemAdministratorsGroup),
     OrganizationalUnitDistinguishedName: __expectString(output.OrganizationalUnitDistinguishedName),
@@ -6160,22 +6103,22 @@ const deserializeAws_json1_1ServiceLimitExceeded = (output: any, context: __Serd
 const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
     AdministrativeActions:
-      output.AdministrativeActions != undefined
+      output.AdministrativeActions != null
         ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
         : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Lifecycle: __expectString(output.Lifecycle),
     LifecycleTransitionReason:
-      output.LifecycleTransitionReason != undefined
+      output.LifecycleTransitionReason != null
         ? deserializeAws_json1_1LifecycleTransitionReason(output.LifecycleTransitionReason, context)
         : undefined,
     Name: __expectString(output.Name),
     ResourceARN: __expectString(output.ResourceARN),
     SnapshotId: __expectString(output.SnapshotId),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     VolumeId: __expectString(output.VolumeId),
   } as any;
 };
@@ -6211,19 +6154,18 @@ const deserializeAws_json1_1SourceBackupUnavailable = (
 const deserializeAws_json1_1StorageVirtualMachine = (output: any, context: __SerdeContext): StorageVirtualMachine => {
   return {
     ActiveDirectoryConfiguration:
-      output.ActiveDirectoryConfiguration != undefined
+      output.ActiveDirectoryConfiguration != null
         ? deserializeAws_json1_1SvmActiveDirectoryConfiguration(output.ActiveDirectoryConfiguration, context)
         : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
-    Endpoints:
-      output.Endpoints != undefined ? deserializeAws_json1_1SvmEndpoints(output.Endpoints, context) : undefined,
+    Endpoints: output.Endpoints != null ? deserializeAws_json1_1SvmEndpoints(output.Endpoints, context) : undefined,
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),
     LifecycleTransitionReason:
-      output.LifecycleTransitionReason != undefined
+      output.LifecycleTransitionReason != null
         ? deserializeAws_json1_1LifecycleTransitionReason(output.LifecycleTransitionReason, context)
         : undefined,
     Name: __expectString(output.Name),
@@ -6231,7 +6173,7 @@ const deserializeAws_json1_1StorageVirtualMachine = (output: any, context: __Ser
     RootVolumeSecurityStyle: __expectString(output.RootVolumeSecurityStyle),
     StorageVirtualMachineId: __expectString(output.StorageVirtualMachineId),
     Subtype: __expectString(output.Subtype),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     UUID: __expectString(output.UUID),
   } as any;
 };
@@ -6279,7 +6221,7 @@ const deserializeAws_json1_1SvmActiveDirectoryConfiguration = (
   return {
     NetBiosName: __expectString(output.NetBiosName),
     SelfManagedActiveDirectoryConfiguration:
-      output.SelfManagedActiveDirectoryConfiguration != undefined
+      output.SelfManagedActiveDirectoryConfiguration != null
         ? deserializeAws_json1_1SelfManagedActiveDirectoryAttributes(
             output.SelfManagedActiveDirectoryConfiguration,
             context
@@ -6292,7 +6234,7 @@ const deserializeAws_json1_1SvmEndpoint = (output: any, context: __SerdeContext)
   return {
     DNSName: __expectString(output.DNSName),
     IpAddresses:
-      output.IpAddresses != undefined
+      output.IpAddresses != null
         ? deserializeAws_json1_1OntapEndpointIpAddresses(output.IpAddresses, context)
         : undefined,
   } as any;
@@ -6300,11 +6242,10 @@ const deserializeAws_json1_1SvmEndpoint = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1SvmEndpoints = (output: any, context: __SerdeContext): SvmEndpoints => {
   return {
-    Iscsi: output.Iscsi != undefined ? deserializeAws_json1_1SvmEndpoint(output.Iscsi, context) : undefined,
-    Management:
-      output.Management != undefined ? deserializeAws_json1_1SvmEndpoint(output.Management, context) : undefined,
-    Nfs: output.Nfs != undefined ? deserializeAws_json1_1SvmEndpoint(output.Nfs, context) : undefined,
-    Smb: output.Smb != undefined ? deserializeAws_json1_1SvmEndpoint(output.Smb, context) : undefined,
+    Iscsi: output.Iscsi != null ? deserializeAws_json1_1SvmEndpoint(output.Iscsi, context) : undefined,
+    Management: output.Management != null ? deserializeAws_json1_1SvmEndpoint(output.Management, context) : undefined,
+    Nfs: output.Nfs != null ? deserializeAws_json1_1SvmEndpoint(output.Nfs, context) : undefined,
+    Smb: output.Smb != null ? deserializeAws_json1_1SvmEndpoint(output.Smb, context) : undefined,
   } as any;
 };
 
@@ -6354,7 +6295,7 @@ const deserializeAws_json1_1UpdateDataRepositoryAssociationResponse = (
 ): UpdateDataRepositoryAssociationResponse => {
   return {
     Association:
-      output.Association != undefined
+      output.Association != null
         ? deserializeAws_json1_1DataRepositoryAssociation(output.Association, context)
         : undefined,
   } as any;
@@ -6365,14 +6306,13 @@ const deserializeAws_json1_1UpdateFileSystemResponse = (
   context: __SerdeContext
 ): UpdateFileSystemResponse => {
   return {
-    FileSystem:
-      output.FileSystem != undefined ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
+    FileSystem: output.FileSystem != null ? deserializeAws_json1_1FileSystem(output.FileSystem, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateSnapshotResponse = (output: any, context: __SerdeContext): UpdateSnapshotResponse => {
   return {
-    Snapshot: output.Snapshot != undefined ? deserializeAws_json1_1Snapshot(output.Snapshot, context) : undefined,
+    Snapshot: output.Snapshot != null ? deserializeAws_json1_1Snapshot(output.Snapshot, context) : undefined,
   } as any;
 };
 
@@ -6382,7 +6322,7 @@ const deserializeAws_json1_1UpdateStorageVirtualMachineResponse = (
 ): UpdateStorageVirtualMachineResponse => {
   return {
     StorageVirtualMachine:
-      output.StorageVirtualMachine != undefined
+      output.StorageVirtualMachine != null
         ? deserializeAws_json1_1StorageVirtualMachine(output.StorageVirtualMachine, context)
         : undefined,
   } as any;
@@ -6390,37 +6330,37 @@ const deserializeAws_json1_1UpdateStorageVirtualMachineResponse = (
 
 const deserializeAws_json1_1UpdateVolumeResponse = (output: any, context: __SerdeContext): UpdateVolumeResponse => {
   return {
-    Volume: output.Volume != undefined ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
+    Volume: output.Volume != null ? deserializeAws_json1_1Volume(output.Volume, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
     AdministrativeActions:
-      output.AdministrativeActions != undefined
+      output.AdministrativeActions != null
         ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
         : undefined,
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
     Lifecycle: __expectString(output.Lifecycle),
     LifecycleTransitionReason:
-      output.LifecycleTransitionReason != undefined
+      output.LifecycleTransitionReason != null
         ? deserializeAws_json1_1LifecycleTransitionReason(output.LifecycleTransitionReason, context)
         : undefined,
     Name: __expectString(output.Name),
     OntapConfiguration:
-      output.OntapConfiguration != undefined
+      output.OntapConfiguration != null
         ? deserializeAws_json1_1OntapVolumeConfiguration(output.OntapConfiguration, context)
         : undefined,
     OpenZFSConfiguration:
-      output.OpenZFSConfiguration != undefined
+      output.OpenZFSConfiguration != null
         ? deserializeAws_json1_1OpenZFSVolumeConfiguration(output.OpenZFSConfiguration, context)
         : undefined,
     ResourceARN: __expectString(output.ResourceARN),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     VolumeId: __expectString(output.VolumeId),
     VolumeType: __expectString(output.VolumeType),
   } as any;
@@ -6461,9 +6401,9 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
 ): WindowsFileSystemConfiguration => {
   return {
     ActiveDirectoryId: __expectString(output.ActiveDirectoryId),
-    Aliases: output.Aliases != undefined ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
     AuditLogConfiguration:
-      output.AuditLogConfiguration != undefined
+      output.AuditLogConfiguration != null
         ? deserializeAws_json1_1WindowsAuditLogConfiguration(output.AuditLogConfiguration, context)
         : undefined,
     AutomaticBackupRetentionDays: __expectInt32(output.AutomaticBackupRetentionDays),
@@ -6471,14 +6411,14 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
     DailyAutomaticBackupStartTime: __expectString(output.DailyAutomaticBackupStartTime),
     DeploymentType: __expectString(output.DeploymentType),
     MaintenanceOperationsInProgress:
-      output.MaintenanceOperationsInProgress != undefined
+      output.MaintenanceOperationsInProgress != null
         ? deserializeAws_json1_1FileSystemMaintenanceOperations(output.MaintenanceOperationsInProgress, context)
         : undefined,
     PreferredFileServerIp: __expectString(output.PreferredFileServerIp),
     PreferredSubnetId: __expectString(output.PreferredSubnetId),
     RemoteAdministrationEndpoint: __expectString(output.RemoteAdministrationEndpoint),
     SelfManagedActiveDirectoryConfiguration:
-      output.SelfManagedActiveDirectoryConfiguration != undefined
+      output.SelfManagedActiveDirectoryConfiguration != null
         ? deserializeAws_json1_1SelfManagedActiveDirectoryAttributes(
             output.SelfManagedActiveDirectoryConfiguration,
             context

@@ -5353,24 +5353,24 @@ const serializeAws_json1_1AddTagsToOnPremisesInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceNames != undefined && {
+    ...(input.instanceNames != null && {
       instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1Alarm = (input: Alarm, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1AlarmConfiguration = (input: AlarmConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.alarms != undefined && { alarms: serializeAws_json1_1AlarmList(input.alarms, context) }),
-    ...(input.enabled != undefined && { enabled: input.enabled }),
-    ...(input.ignorePollAlarmFailure != undefined && { ignorePollAlarmFailure: input.ignorePollAlarmFailure }),
+    ...(input.alarms != null && { alarms: serializeAws_json1_1AlarmList(input.alarms, context) }),
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.ignorePollAlarmFailure != null && { ignorePollAlarmFailure: input.ignorePollAlarmFailure }),
   };
 };
 
@@ -5398,8 +5398,8 @@ const serializeAws_json1_1ApplicationsList = (input: string[], context: __SerdeC
 
 const serializeAws_json1_1AppSpecContent = (input: AppSpecContent, context: __SerdeContext): any => {
   return {
-    ...(input.content != undefined && { content: input.content }),
-    ...(input.sha256 != undefined && { sha256: input.sha256 }),
+    ...(input.content != null && { content: input.content }),
+    ...(input.sha256 != null && { sha256: input.sha256 }),
   };
 };
 
@@ -5408,8 +5408,8 @@ const serializeAws_json1_1AutoRollbackConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.enabled != undefined && { enabled: input.enabled }),
-    ...(input.events != undefined && { events: serializeAws_json1_1AutoRollbackEventsList(input.events, context) }),
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.events != null && { events: serializeAws_json1_1AutoRollbackEventsList(input.events, context) }),
   };
 };
 
@@ -5443,10 +5443,8 @@ const serializeAws_json1_1BatchGetApplicationRevisionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.revisions != undefined && {
-      revisions: serializeAws_json1_1RevisionLocationList(input.revisions, context),
-    }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.revisions != null && { revisions: serializeAws_json1_1RevisionLocationList(input.revisions, context) }),
   };
 };
 
@@ -5455,7 +5453,7 @@ const serializeAws_json1_1BatchGetApplicationsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationNames != undefined && {
+    ...(input.applicationNames != null && {
       applicationNames: serializeAws_json1_1ApplicationsList(input.applicationNames, context),
     }),
   };
@@ -5466,8 +5464,8 @@ const serializeAws_json1_1BatchGetDeploymentGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.deploymentGroupNames != undefined && {
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.deploymentGroupNames != null && {
       deploymentGroupNames: serializeAws_json1_1DeploymentGroupsList(input.deploymentGroupNames, context),
     }),
   };
@@ -5478,10 +5476,8 @@ const serializeAws_json1_1BatchGetDeploymentInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.instanceIds != undefined && {
-      instanceIds: serializeAws_json1_1InstancesList(input.instanceIds, context),
-    }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.instanceIds != null && { instanceIds: serializeAws_json1_1InstancesList(input.instanceIds, context) }),
   };
 };
 
@@ -5490,7 +5486,7 @@ const serializeAws_json1_1BatchGetDeploymentsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentIds != undefined && {
+    ...(input.deploymentIds != null && {
       deploymentIds: serializeAws_json1_1DeploymentsList(input.deploymentIds, context),
     }),
   };
@@ -5501,8 +5497,8 @@ const serializeAws_json1_1BatchGetDeploymentTargetsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.targetIds != undefined && { targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context) }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.targetIds != null && { targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context) }),
   };
 };
 
@@ -5511,7 +5507,7 @@ const serializeAws_json1_1BatchGetOnPremisesInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceNames != undefined && {
+    ...(input.instanceNames != null && {
       instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
     }),
   };
@@ -5522,16 +5518,16 @@ const serializeAws_json1_1BlueGreenDeploymentConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentReadyOption != undefined && {
+    ...(input.deploymentReadyOption != null && {
       deploymentReadyOption: serializeAws_json1_1DeploymentReadyOption(input.deploymentReadyOption, context),
     }),
-    ...(input.greenFleetProvisioningOption != undefined && {
+    ...(input.greenFleetProvisioningOption != null && {
       greenFleetProvisioningOption: serializeAws_json1_1GreenFleetProvisioningOption(
         input.greenFleetProvisioningOption,
         context
       ),
     }),
-    ...(input.terminateBlueInstancesOnDeploymentSuccess != undefined && {
+    ...(input.terminateBlueInstancesOnDeploymentSuccess != null && {
       terminateBlueInstancesOnDeploymentSuccess: serializeAws_json1_1BlueInstanceTerminationOption(
         input.terminateBlueInstancesOnDeploymentSuccess,
         context
@@ -5545,8 +5541,8 @@ const serializeAws_json1_1BlueInstanceTerminationOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.action != undefined && { action: input.action }),
-    ...(input.terminationWaitTimeInMinutes != undefined && {
+    ...(input.action != null && { action: input.action }),
+    ...(input.terminationWaitTimeInMinutes != null && {
       terminationWaitTimeInMinutes: input.terminationWaitTimeInMinutes,
     }),
   };
@@ -5554,16 +5550,16 @@ const serializeAws_json1_1BlueInstanceTerminationOption = (
 
 const serializeAws_json1_1ContinueDeploymentInput = (input: ContinueDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.deploymentWaitType != undefined && { deploymentWaitType: input.deploymentWaitType }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.deploymentWaitType != null && { deploymentWaitType: input.deploymentWaitType }),
   };
 };
 
 const serializeAws_json1_1CreateApplicationInput = (input: CreateApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.computePlatform != undefined && { computePlatform: input.computePlatform }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.computePlatform != null && { computePlatform: input.computePlatform }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -5572,12 +5568,12 @@ const serializeAws_json1_1CreateDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.computePlatform != undefined && { computePlatform: input.computePlatform }),
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
-    ...(input.minimumHealthyHosts != undefined && {
+    ...(input.computePlatform != null && { computePlatform: input.computePlatform }),
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.minimumHealthyHosts != null && {
       minimumHealthyHosts: serializeAws_json1_1MinimumHealthyHosts(input.minimumHealthyHosts, context),
     }),
-    ...(input.trafficRoutingConfig != undefined && {
+    ...(input.trafficRoutingConfig != null && {
       trafficRoutingConfig: serializeAws_json1_1TrafficRoutingConfig(input.trafficRoutingConfig, context),
     }),
   };
@@ -5588,50 +5584,48 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmConfiguration != undefined && {
+    ...(input.alarmConfiguration != null && {
       alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
     }),
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.autoRollbackConfiguration != undefined && {
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.autoRollbackConfiguration != null && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
         context
       ),
     }),
-    ...(input.autoScalingGroups != undefined && {
+    ...(input.autoScalingGroups != null && {
       autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
-    ...(input.blueGreenDeploymentConfiguration != undefined && {
+    ...(input.blueGreenDeploymentConfiguration != null && {
       blueGreenDeploymentConfiguration: serializeAws_json1_1BlueGreenDeploymentConfiguration(
         input.blueGreenDeploymentConfiguration,
         context
       ),
     }),
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
-    ...(input.deploymentGroupName != undefined && { deploymentGroupName: input.deploymentGroupName }),
-    ...(input.deploymentStyle != undefined && {
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.deploymentStyle != null && {
       deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
     }),
-    ...(input.ec2TagFilters != undefined && {
+    ...(input.ec2TagFilters != null && {
       ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
     }),
-    ...(input.ec2TagSet != undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.ecsServices != undefined && {
-      ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context),
-    }),
-    ...(input.loadBalancerInfo != undefined && {
+    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.ecsServices != null && { ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context) }),
+    ...(input.loadBalancerInfo != null && {
       loadBalancerInfo: serializeAws_json1_1LoadBalancerInfo(input.loadBalancerInfo, context),
     }),
-    ...(input.onPremisesInstanceTagFilters != undefined && {
+    ...(input.onPremisesInstanceTagFilters != null && {
       onPremisesInstanceTagFilters: serializeAws_json1_1TagFilterList(input.onPremisesInstanceTagFilters, context),
     }),
-    ...(input.onPremisesTagSet != undefined && {
+    ...(input.onPremisesTagSet != null && {
       onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
     }),
-    ...(input.outdatedInstancesStrategy != undefined && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
-    ...(input.serviceRoleArn != undefined && { serviceRoleArn: input.serviceRoleArn }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.triggerConfigurations != undefined && {
+    ...(input.outdatedInstancesStrategy != null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
+    ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.triggerConfigurations != null && {
       triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
     }),
   };
@@ -5639,25 +5633,25 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
 
 const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.autoRollbackConfiguration != undefined && {
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.autoRollbackConfiguration != null && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
         context
       ),
     }),
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
-    ...(input.deploymentGroupName != undefined && { deploymentGroupName: input.deploymentGroupName }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.fileExistsBehavior != undefined && { fileExistsBehavior: input.fileExistsBehavior }),
-    ...(input.ignoreApplicationStopFailures != undefined && {
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.fileExistsBehavior != null && { fileExistsBehavior: input.fileExistsBehavior }),
+    ...(input.ignoreApplicationStopFailures != null && {
       ignoreApplicationStopFailures: input.ignoreApplicationStopFailures,
     }),
-    ...(input.revision != undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
-    ...(input.targetInstances != undefined && {
+    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
+    ...(input.targetInstances != null && {
       targetInstances: serializeAws_json1_1TargetInstances(input.targetInstances, context),
     }),
-    ...(input.updateOutdatedInstancesOnly != undefined && {
+    ...(input.updateOutdatedInstancesOnly != null && {
       updateOutdatedInstancesOnly: input.updateOutdatedInstancesOnly,
     }),
   };
@@ -5665,7 +5659,7 @@ const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput,
 
 const serializeAws_json1_1DeleteApplicationInput = (input: DeleteApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
   };
 };
 
@@ -5674,7 +5668,7 @@ const serializeAws_json1_1DeleteDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
@@ -5683,8 +5677,8 @@ const serializeAws_json1_1DeleteDeploymentGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.deploymentGroupName != undefined && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
@@ -5693,7 +5687,7 @@ const serializeAws_json1_1DeleteGitHubAccountTokenInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.tokenName != undefined && { tokenName: input.tokenName }),
+    ...(input.tokenName != null && { tokenName: input.tokenName }),
   };
 };
 
@@ -5702,7 +5696,7 @@ const serializeAws_json1_1DeleteResourcesByExternalIdInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.externalId != undefined && { externalId: input.externalId }),
+    ...(input.externalId != null && { externalId: input.externalId }),
   };
 };
 
@@ -5719,8 +5713,8 @@ const serializeAws_json1_1DeploymentGroupsList = (input: string[], context: __Se
 
 const serializeAws_json1_1DeploymentReadyOption = (input: DeploymentReadyOption, context: __SerdeContext): any => {
   return {
-    ...(input.actionOnTimeout != undefined && { actionOnTimeout: input.actionOnTimeout }),
-    ...(input.waitTimeInMinutes != undefined && { waitTimeInMinutes: input.waitTimeInMinutes }),
+    ...(input.actionOnTimeout != null && { actionOnTimeout: input.actionOnTimeout }),
+    ...(input.waitTimeInMinutes != null && { waitTimeInMinutes: input.waitTimeInMinutes }),
   };
 };
 
@@ -5751,8 +5745,8 @@ const serializeAws_json1_1DeploymentStatusList = (
 
 const serializeAws_json1_1DeploymentStyle = (input: DeploymentStyle, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentOption != undefined && { deploymentOption: input.deploymentOption }),
-    ...(input.deploymentType != undefined && { deploymentType: input.deploymentType }),
+    ...(input.deploymentOption != null && { deploymentOption: input.deploymentOption }),
+    ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
   };
 };
 
@@ -5761,15 +5755,15 @@ const serializeAws_json1_1DeregisterOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName != undefined && { instanceName: input.instanceName }),
+    ...(input.instanceName != null && { instanceName: input.instanceName }),
   };
 };
 
 const serializeAws_json1_1EC2TagFilter = (input: EC2TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -5786,7 +5780,7 @@ const serializeAws_json1_1EC2TagFilterList = (input: EC2TagFilter[], context: __
 
 const serializeAws_json1_1EC2TagSet = (input: EC2TagSet, context: __SerdeContext): any => {
   return {
-    ...(input.ec2TagSetList != undefined && {
+    ...(input.ec2TagSetList != null && {
       ec2TagSetList: serializeAws_json1_1EC2TagSetList(input.ec2TagSetList, context),
     }),
   };
@@ -5805,8 +5799,8 @@ const serializeAws_json1_1EC2TagSetList = (input: EC2TagFilter[][], context: __S
 
 const serializeAws_json1_1ECSService = (input: ECSService, context: __SerdeContext): any => {
   return {
-    ...(input.clusterName != undefined && { clusterName: input.clusterName }),
-    ...(input.serviceName != undefined && { serviceName: input.serviceName }),
+    ...(input.clusterName != null && { clusterName: input.clusterName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -5823,7 +5817,7 @@ const serializeAws_json1_1ECSServiceList = (input: ECSService[], context: __Serd
 
 const serializeAws_json1_1ELBInfo = (input: ELBInfo, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -5851,7 +5845,7 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1GetApplicationInput = (input: GetApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
   };
 };
 
@@ -5860,8 +5854,8 @@ const serializeAws_json1_1GetApplicationRevisionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.revision != undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
   };
 };
 
@@ -5870,20 +5864,20 @@ const serializeAws_json1_1GetDeploymentConfigInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
 const serializeAws_json1_1GetDeploymentGroupInput = (input: GetDeploymentGroupInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.deploymentGroupName != undefined && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
 const serializeAws_json1_1GetDeploymentInput = (input: GetDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
   };
 };
 
@@ -5892,8 +5886,8 @@ const serializeAws_json1_1GetDeploymentInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.instanceId != undefined && { instanceId: input.instanceId }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.instanceId != null && { instanceId: input.instanceId }),
   };
 };
 
@@ -5902,8 +5896,8 @@ const serializeAws_json1_1GetDeploymentTargetInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.targetId != undefined && { targetId: input.targetId }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.targetId != null && { targetId: input.targetId }),
   };
 };
 
@@ -5912,14 +5906,14 @@ const serializeAws_json1_1GetOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceName != undefined && { instanceName: input.instanceName }),
+    ...(input.instanceName != null && { instanceName: input.instanceName }),
   };
 };
 
 const serializeAws_json1_1GitHubLocation = (input: GitHubLocation, context: __SerdeContext): any => {
   return {
-    ...(input.commitId != undefined && { commitId: input.commitId }),
-    ...(input.repository != undefined && { repository: input.repository }),
+    ...(input.commitId != null && { commitId: input.commitId }),
+    ...(input.repository != null && { repository: input.repository }),
   };
 };
 
@@ -5928,7 +5922,7 @@ const serializeAws_json1_1GreenFleetProvisioningOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.action != undefined && { action: input.action }),
+    ...(input.action != null && { action: input.action }),
   };
 };
 
@@ -5981,19 +5975,19 @@ const serializeAws_json1_1ListApplicationRevisionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.deployed != undefined && { deployed: input.deployed }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.s3Bucket != undefined && { s3Bucket: input.s3Bucket }),
-    ...(input.s3KeyPrefix != undefined && { s3KeyPrefix: input.s3KeyPrefix }),
-    ...(input.sortBy != undefined && { sortBy: input.sortBy }),
-    ...(input.sortOrder != undefined && { sortOrder: input.sortOrder }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.deployed != null && { deployed: input.deployed }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
+    ...(input.s3KeyPrefix != null && { s3KeyPrefix: input.s3KeyPrefix }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
   };
 };
 
 const serializeAws_json1_1ListApplicationsInput = (input: ListApplicationsInput, context: __SerdeContext): any => {
   return {
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6002,7 +5996,7 @@ const serializeAws_json1_1ListDeploymentConfigsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6011,8 +6005,8 @@ const serializeAws_json1_1ListDeploymentGroupsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6021,29 +6015,29 @@ const serializeAws_json1_1ListDeploymentInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.instanceStatusFilter != undefined && {
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.instanceStatusFilter != null && {
       instanceStatusFilter: serializeAws_json1_1InstanceStatusList(input.instanceStatusFilter, context),
     }),
-    ...(input.instanceTypeFilter != undefined && {
+    ...(input.instanceTypeFilter != null && {
       instanceTypeFilter: serializeAws_json1_1InstanceTypeList(input.instanceTypeFilter, context),
     }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.createTimeRange != undefined && {
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.createTimeRange != null && {
       createTimeRange: serializeAws_json1_1TimeRange(input.createTimeRange, context),
     }),
-    ...(input.deploymentGroupName != undefined && { deploymentGroupName: input.deploymentGroupName }),
-    ...(input.externalId != undefined && { externalId: input.externalId }),
-    ...(input.includeOnlyStatuses != undefined && {
+    ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
+    ...(input.externalId != null && { externalId: input.externalId }),
+    ...(input.includeOnlyStatuses != null && {
       includeOnlyStatuses: serializeAws_json1_1DeploymentStatusList(input.includeOnlyStatuses, context),
     }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6052,9 +6046,9 @@ const serializeAws_json1_1ListDeploymentTargetsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.targetFilters != undefined && {
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.targetFilters != null && {
       targetFilters: serializeAws_json1_1TargetFilters(input.targetFilters, context),
     }),
   };
@@ -6076,7 +6070,7 @@ const serializeAws_json1_1ListGitHubAccountTokenNamesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
@@ -6085,9 +6079,9 @@ const serializeAws_json1_1ListOnPremisesInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
-    ...(input.registrationStatus != undefined && { registrationStatus: input.registrationStatus }),
-    ...(input.tagFilters != undefined && { tagFilters: serializeAws_json1_1TagFilterList(input.tagFilters, context) }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
+    ...(input.tagFilters != null && { tagFilters: serializeAws_json1_1TagFilterList(input.tagFilters, context) }),
   };
 };
 
@@ -6096,18 +6090,18 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1LoadBalancerInfo = (input: LoadBalancerInfo, context: __SerdeContext): any => {
   return {
-    ...(input.elbInfoList != undefined && { elbInfoList: serializeAws_json1_1ELBInfoList(input.elbInfoList, context) }),
-    ...(input.targetGroupInfoList != undefined && {
+    ...(input.elbInfoList != null && { elbInfoList: serializeAws_json1_1ELBInfoList(input.elbInfoList, context) }),
+    ...(input.targetGroupInfoList != null && {
       targetGroupInfoList: serializeAws_json1_1TargetGroupInfoList(input.targetGroupInfoList, context),
     }),
-    ...(input.targetGroupPairInfoList != undefined && {
+    ...(input.targetGroupPairInfoList != null && {
       targetGroupPairInfoList: serializeAws_json1_1TargetGroupPairInfoList(input.targetGroupPairInfoList, context),
     }),
   };
@@ -6115,14 +6109,14 @@ const serializeAws_json1_1LoadBalancerInfo = (input: LoadBalancerInfo, context: 
 
 const serializeAws_json1_1MinimumHealthyHosts = (input: MinimumHealthyHosts, context: __SerdeContext): any => {
   return {
-    ...(input.type != undefined && { type: input.type }),
-    ...(input.value != undefined && { value: input.value }),
+    ...(input.type != null && { type: input.type }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1OnPremisesTagSet = (input: OnPremisesTagSet, context: __SerdeContext): any => {
   return {
-    ...(input.onPremisesTagSetList != undefined && {
+    ...(input.onPremisesTagSetList != null && {
       onPremisesTagSetList: serializeAws_json1_1OnPremisesTagSetList(input.onPremisesTagSetList, context),
     }),
   };
@@ -6144,18 +6138,18 @@ const serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
-    ...(input.lifecycleEventHookExecutionId != undefined && {
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
+    ...(input.lifecycleEventHookExecutionId != null && {
       lifecycleEventHookExecutionId: input.lifecycleEventHookExecutionId,
     }),
-    ...(input.status != undefined && { status: input.status }),
+    ...(input.status != null && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1RawString = (input: RawString, context: __SerdeContext): any => {
   return {
-    ...(input.content != undefined && { content: input.content }),
-    ...(input.sha256 != undefined && { sha256: input.sha256 }),
+    ...(input.content != null && { content: input.content }),
+    ...(input.sha256 != null && { sha256: input.sha256 }),
   };
 };
 
@@ -6164,9 +6158,9 @@ const serializeAws_json1_1RegisterApplicationRevisionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.description != undefined && { description: input.description }),
-    ...(input.revision != undefined && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
   };
 };
 
@@ -6175,9 +6169,9 @@ const serializeAws_json1_1RegisterOnPremisesInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.iamSessionArn != undefined && { iamSessionArn: input.iamSessionArn }),
-    ...(input.iamUserArn != undefined && { iamUserArn: input.iamUserArn }),
-    ...(input.instanceName != undefined && { instanceName: input.instanceName }),
+    ...(input.iamSessionArn != null && { iamSessionArn: input.iamSessionArn }),
+    ...(input.iamUserArn != null && { iamUserArn: input.iamUserArn }),
+    ...(input.instanceName != null && { instanceName: input.instanceName }),
   };
 };
 
@@ -6186,24 +6180,24 @@ const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceNames != undefined && {
+    ...(input.instanceNames != null && {
       instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1RevisionLocation = (input: RevisionLocation, context: __SerdeContext): any => {
   return {
-    ...(input.appSpecContent != undefined && {
+    ...(input.appSpecContent != null && {
       appSpecContent: serializeAws_json1_1AppSpecContent(input.appSpecContent, context),
     }),
-    ...(input.gitHubLocation != undefined && {
+    ...(input.gitHubLocation != null && {
       gitHubLocation: serializeAws_json1_1GitHubLocation(input.gitHubLocation, context),
     }),
-    ...(input.revisionType != undefined && { revisionType: input.revisionType }),
-    ...(input.s3Location != undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
-    ...(input.string != undefined && { string: serializeAws_json1_1RawString(input.string, context) }),
+    ...(input.revisionType != null && { revisionType: input.revisionType }),
+    ...(input.s3Location != null && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
+    ...(input.string != null && { string: serializeAws_json1_1RawString(input.string, context) }),
   };
 };
 
@@ -6220,11 +6214,11 @@ const serializeAws_json1_1RevisionLocationList = (input: RevisionLocation[], con
 
 const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket != undefined && { bucket: input.bucket }),
-    ...(input.bundleType != undefined && { bundleType: input.bundleType }),
-    ...(input.eTag != undefined && { eTag: input.eTag }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.version != undefined && { version: input.version }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.bundleType != null && { bundleType: input.bundleType }),
+    ...(input.eTag != null && { eTag: input.eTag }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -6233,29 +6227,29 @@ const serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
   };
 };
 
 const serializeAws_json1_1StopDeploymentInput = (input: StopDeploymentInput, context: __SerdeContext): any => {
   return {
-    ...(input.autoRollbackEnabled != undefined && { autoRollbackEnabled: input.autoRollbackEnabled }),
-    ...(input.deploymentId != undefined && { deploymentId: input.deploymentId }),
+    ...(input.autoRollbackEnabled != null && { autoRollbackEnabled: input.autoRollbackEnabled }),
+    ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Type != undefined && { Type: input.Type }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -6294,8 +6288,8 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -6313,7 +6307,7 @@ const serializeAws_json1_1TargetFilters = (input: Record<string, string[]>, cont
 
 const serializeAws_json1_1TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
+    ...(input.name != null && { name: input.name }),
   };
 };
 
@@ -6330,13 +6324,13 @@ const serializeAws_json1_1TargetGroupInfoList = (input: TargetGroupInfo[], conte
 
 const serializeAws_json1_1TargetGroupPairInfo = (input: TargetGroupPairInfo, context: __SerdeContext): any => {
   return {
-    ...(input.prodTrafficRoute != undefined && {
+    ...(input.prodTrafficRoute != null && {
       prodTrafficRoute: serializeAws_json1_1TrafficRoute(input.prodTrafficRoute, context),
     }),
-    ...(input.targetGroups != undefined && {
+    ...(input.targetGroups != null && {
       targetGroups: serializeAws_json1_1TargetGroupInfoList(input.targetGroups, context),
     }),
-    ...(input.testTrafficRoute != undefined && {
+    ...(input.testTrafficRoute != null && {
       testTrafficRoute: serializeAws_json1_1TrafficRoute(input.testTrafficRoute, context),
     }),
   };
@@ -6366,40 +6360,38 @@ const serializeAws_json1_1TargetIdList = (input: string[], context: __SerdeConte
 
 const serializeAws_json1_1TargetInstances = (input: TargetInstances, context: __SerdeContext): any => {
   return {
-    ...(input.autoScalingGroups != undefined && {
+    ...(input.autoScalingGroups != null && {
       autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
-    ...(input.ec2TagSet != undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.tagFilters != undefined && {
-      tagFilters: serializeAws_json1_1EC2TagFilterList(input.tagFilters, context),
-    }),
+    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.tagFilters != null && { tagFilters: serializeAws_json1_1EC2TagFilterList(input.tagFilters, context) }),
   };
 };
 
 const serializeAws_json1_1TimeBasedCanary = (input: TimeBasedCanary, context: __SerdeContext): any => {
   return {
-    ...(input.canaryInterval != undefined && { canaryInterval: input.canaryInterval }),
-    ...(input.canaryPercentage != undefined && { canaryPercentage: input.canaryPercentage }),
+    ...(input.canaryInterval != null && { canaryInterval: input.canaryInterval }),
+    ...(input.canaryPercentage != null && { canaryPercentage: input.canaryPercentage }),
   };
 };
 
 const serializeAws_json1_1TimeBasedLinear = (input: TimeBasedLinear, context: __SerdeContext): any => {
   return {
-    ...(input.linearInterval != undefined && { linearInterval: input.linearInterval }),
-    ...(input.linearPercentage != undefined && { linearPercentage: input.linearPercentage }),
+    ...(input.linearInterval != null && { linearInterval: input.linearInterval }),
+    ...(input.linearPercentage != null && { linearPercentage: input.linearPercentage }),
   };
 };
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.end != undefined && { end: Math.round(input.end.getTime() / 1000) }),
-    ...(input.start != undefined && { start: Math.round(input.start.getTime() / 1000) }),
+    ...(input.end != null && { end: Math.round(input.end.getTime() / 1000) }),
+    ...(input.start != null && { start: Math.round(input.start.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1TrafficRoute = (input: TrafficRoute, context: __SerdeContext): any => {
   return {
-    ...(input.listenerArns != undefined && {
+    ...(input.listenerArns != null && {
       listenerArns: serializeAws_json1_1ListenerArnList(input.listenerArns, context),
     }),
   };
@@ -6407,23 +6399,23 @@ const serializeAws_json1_1TrafficRoute = (input: TrafficRoute, context: __SerdeC
 
 const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, context: __SerdeContext): any => {
   return {
-    ...(input.timeBasedCanary != undefined && {
+    ...(input.timeBasedCanary != null && {
       timeBasedCanary: serializeAws_json1_1TimeBasedCanary(input.timeBasedCanary, context),
     }),
-    ...(input.timeBasedLinear != undefined && {
+    ...(input.timeBasedLinear != null && {
       timeBasedLinear: serializeAws_json1_1TimeBasedLinear(input.timeBasedLinear, context),
     }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
 const serializeAws_json1_1TriggerConfig = (input: TriggerConfig, context: __SerdeContext): any => {
   return {
-    ...(input.triggerEvents != undefined && {
+    ...(input.triggerEvents != null && {
       triggerEvents: serializeAws_json1_1TriggerEventTypeList(input.triggerEvents, context),
     }),
-    ...(input.triggerName != undefined && { triggerName: input.triggerName }),
-    ...(input.triggerTargetArn != undefined && { triggerTargetArn: input.triggerTargetArn }),
+    ...(input.triggerName != null && { triggerName: input.triggerName }),
+    ...(input.triggerTargetArn != null && { triggerTargetArn: input.triggerTargetArn }),
   };
 };
 
@@ -6454,15 +6446,15 @@ const serializeAws_json1_1TriggerEventTypeList = (
 
 const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateApplicationInput = (input: UpdateApplicationInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.newApplicationName != undefined && { newApplicationName: input.newApplicationName }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.newApplicationName != null && { newApplicationName: input.newApplicationName }),
   };
 };
 
@@ -6471,52 +6463,48 @@ const serializeAws_json1_1UpdateDeploymentGroupInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.alarmConfiguration != undefined && {
+    ...(input.alarmConfiguration != null && {
       alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
     }),
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
-    ...(input.autoRollbackConfiguration != undefined && {
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
+    ...(input.autoRollbackConfiguration != null && {
       autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
         input.autoRollbackConfiguration,
         context
       ),
     }),
-    ...(input.autoScalingGroups != undefined && {
+    ...(input.autoScalingGroups != null && {
       autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
-    ...(input.blueGreenDeploymentConfiguration != undefined && {
+    ...(input.blueGreenDeploymentConfiguration != null && {
       blueGreenDeploymentConfiguration: serializeAws_json1_1BlueGreenDeploymentConfiguration(
         input.blueGreenDeploymentConfiguration,
         context
       ),
     }),
-    ...(input.currentDeploymentGroupName != undefined && {
-      currentDeploymentGroupName: input.currentDeploymentGroupName,
-    }),
-    ...(input.deploymentConfigName != undefined && { deploymentConfigName: input.deploymentConfigName }),
-    ...(input.deploymentStyle != undefined && {
+    ...(input.currentDeploymentGroupName != null && { currentDeploymentGroupName: input.currentDeploymentGroupName }),
+    ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
+    ...(input.deploymentStyle != null && {
       deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
     }),
-    ...(input.ec2TagFilters != undefined && {
+    ...(input.ec2TagFilters != null && {
       ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
     }),
-    ...(input.ec2TagSet != undefined && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.ecsServices != undefined && {
-      ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context),
-    }),
-    ...(input.loadBalancerInfo != undefined && {
+    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.ecsServices != null && { ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context) }),
+    ...(input.loadBalancerInfo != null && {
       loadBalancerInfo: serializeAws_json1_1LoadBalancerInfo(input.loadBalancerInfo, context),
     }),
-    ...(input.newDeploymentGroupName != undefined && { newDeploymentGroupName: input.newDeploymentGroupName }),
-    ...(input.onPremisesInstanceTagFilters != undefined && {
+    ...(input.newDeploymentGroupName != null && { newDeploymentGroupName: input.newDeploymentGroupName }),
+    ...(input.onPremisesInstanceTagFilters != null && {
       onPremisesInstanceTagFilters: serializeAws_json1_1TagFilterList(input.onPremisesInstanceTagFilters, context),
     }),
-    ...(input.onPremisesTagSet != undefined && {
+    ...(input.onPremisesTagSet != null && {
       onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
     }),
-    ...(input.outdatedInstancesStrategy != undefined && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
-    ...(input.serviceRoleArn != undefined && { serviceRoleArn: input.serviceRoleArn }),
-    ...(input.triggerConfigurations != undefined && {
+    ...(input.outdatedInstancesStrategy != null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
+    ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
+    ...(input.triggerConfigurations != null && {
       triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
     }),
   };
@@ -6530,7 +6518,7 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
 
 const deserializeAws_json1_1AlarmConfiguration = (output: any, context: __SerdeContext): AlarmConfiguration => {
   return {
-    alarms: output.alarms != undefined ? deserializeAws_json1_1AlarmList(output.alarms, context) : undefined,
+    alarms: output.alarms != null ? deserializeAws_json1_1AlarmList(output.alarms, context) : undefined,
     enabled: __expectBoolean(output.enabled),
     ignorePollAlarmFailure: __expectBoolean(output.ignorePollAlarmFailure),
   } as any;
@@ -6581,9 +6569,7 @@ const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeCont
     applicationName: __expectString(output.applicationName),
     computePlatform: __expectString(output.computePlatform),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     gitHubAccountName: __expectString(output.gitHubAccountName),
     linkedToGitHub: __expectBoolean(output.linkedToGitHub),
   } as any;
@@ -6653,8 +6639,7 @@ const deserializeAws_json1_1AutoRollbackConfiguration = (
 ): AutoRollbackConfiguration => {
   return {
     enabled: __expectBoolean(output.enabled),
-    events:
-      output.events != undefined ? deserializeAws_json1_1AutoRollbackEventsList(output.events, context) : undefined,
+    events: output.events != null ? deserializeAws_json1_1AutoRollbackEventsList(output.events, context) : undefined,
   } as any;
 };
 
@@ -6711,8 +6696,7 @@ const deserializeAws_json1_1BatchGetApplicationRevisionsOutput = (
   return {
     applicationName: __expectString(output.applicationName),
     errorMessage: __expectString(output.errorMessage),
-    revisions:
-      output.revisions != undefined ? deserializeAws_json1_1RevisionInfoList(output.revisions, context) : undefined,
+    revisions: output.revisions != null ? deserializeAws_json1_1RevisionInfoList(output.revisions, context) : undefined,
   } as any;
 };
 
@@ -6722,7 +6706,7 @@ const deserializeAws_json1_1BatchGetApplicationsOutput = (
 ): BatchGetApplicationsOutput => {
   return {
     applicationsInfo:
-      output.applicationsInfo != undefined
+      output.applicationsInfo != null
         ? deserializeAws_json1_1ApplicationsInfoList(output.applicationsInfo, context)
         : undefined,
   } as any;
@@ -6734,7 +6718,7 @@ const deserializeAws_json1_1BatchGetDeploymentGroupsOutput = (
 ): BatchGetDeploymentGroupsOutput => {
   return {
     deploymentGroupsInfo:
-      output.deploymentGroupsInfo != undefined
+      output.deploymentGroupsInfo != null
         ? deserializeAws_json1_1DeploymentGroupInfoList(output.deploymentGroupsInfo, context)
         : undefined,
     errorMessage: __expectString(output.errorMessage),
@@ -6748,7 +6732,7 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesOutput = (
   return {
     errorMessage: __expectString(output.errorMessage),
     instancesSummary:
-      output.instancesSummary != undefined
+      output.instancesSummary != null
         ? deserializeAws_json1_1InstanceSummaryList(output.instancesSummary, context)
         : undefined,
   } as any;
@@ -6760,7 +6744,7 @@ const deserializeAws_json1_1BatchGetDeploymentsOutput = (
 ): BatchGetDeploymentsOutput => {
   return {
     deploymentsInfo:
-      output.deploymentsInfo != undefined
+      output.deploymentsInfo != null
         ? deserializeAws_json1_1DeploymentsInfoList(output.deploymentsInfo, context)
         : undefined,
   } as any;
@@ -6772,7 +6756,7 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsOutput = (
 ): BatchGetDeploymentTargetsOutput => {
   return {
     deploymentTargets:
-      output.deploymentTargets != undefined
+      output.deploymentTargets != null
         ? deserializeAws_json1_1DeploymentTargetList(output.deploymentTargets, context)
         : undefined,
   } as any;
@@ -6784,9 +6768,7 @@ const deserializeAws_json1_1BatchGetOnPremisesInstancesOutput = (
 ): BatchGetOnPremisesInstancesOutput => {
   return {
     instanceInfos:
-      output.instanceInfos != undefined
-        ? deserializeAws_json1_1InstanceInfoList(output.instanceInfos, context)
-        : undefined,
+      output.instanceInfos != null ? deserializeAws_json1_1InstanceInfoList(output.instanceInfos, context) : undefined,
   } as any;
 };
 
@@ -6805,15 +6787,15 @@ const deserializeAws_json1_1BlueGreenDeploymentConfiguration = (
 ): BlueGreenDeploymentConfiguration => {
   return {
     deploymentReadyOption:
-      output.deploymentReadyOption != undefined
+      output.deploymentReadyOption != null
         ? deserializeAws_json1_1DeploymentReadyOption(output.deploymentReadyOption, context)
         : undefined,
     greenFleetProvisioningOption:
-      output.greenFleetProvisioningOption != undefined
+      output.greenFleetProvisioningOption != null
         ? deserializeAws_json1_1GreenFleetProvisioningOption(output.greenFleetProvisioningOption, context)
         : undefined,
     terminateBlueInstancesOnDeploymentSuccess:
-      output.terminateBlueInstancesOnDeploymentSuccess != undefined
+      output.terminateBlueInstancesOnDeploymentSuccess != null
         ? deserializeAws_json1_1BlueInstanceTerminationOption(output.terminateBlueInstancesOnDeploymentSuccess, context)
         : undefined,
   } as any;
@@ -6842,11 +6824,11 @@ const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __Serd
   return {
     deploymentId: __expectString(output.deploymentId),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != undefined
+      output.lifecycleEvents != null
         ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
         : undefined,
     resourceType: __expectString(output.resourceType),
@@ -6895,7 +6877,7 @@ const deserializeAws_json1_1DeleteDeploymentGroupOutput = (
 ): DeleteDeploymentGroupOutput => {
   return {
     hooksNotCleanedUp:
-      output.hooksNotCleanedUp != undefined
+      output.hooksNotCleanedUp != null
         ? deserializeAws_json1_1AutoScalingGroupList(output.hooksNotCleanedUp, context)
         : undefined,
   } as any;
@@ -6948,17 +6930,15 @@ const deserializeAws_json1_1DeploymentConfigInfo = (output: any, context: __Serd
   return {
     computePlatform: __expectString(output.computePlatform),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     deploymentConfigId: __expectString(output.deploymentConfigId),
     deploymentConfigName: __expectString(output.deploymentConfigName),
     minimumHealthyHosts:
-      output.minimumHealthyHosts != undefined
+      output.minimumHealthyHosts != null
         ? deserializeAws_json1_1MinimumHealthyHosts(output.minimumHealthyHosts, context)
         : undefined,
     trafficRoutingConfig:
-      output.trafficRoutingConfig != undefined
+      output.trafficRoutingConfig != null
         ? deserializeAws_json1_1TrafficRoutingConfig(output.trafficRoutingConfig, context)
         : undefined,
   } as any;
@@ -7033,20 +7013,20 @@ const deserializeAws_json1_1DeploymentGroupDoesNotExistException = (
 const deserializeAws_json1_1DeploymentGroupInfo = (output: any, context: __SerdeContext): DeploymentGroupInfo => {
   return {
     alarmConfiguration:
-      output.alarmConfiguration != undefined
+      output.alarmConfiguration != null
         ? deserializeAws_json1_1AlarmConfiguration(output.alarmConfiguration, context)
         : undefined,
     applicationName: __expectString(output.applicationName),
     autoRollbackConfiguration:
-      output.autoRollbackConfiguration != undefined
+      output.autoRollbackConfiguration != null
         ? deserializeAws_json1_1AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
         : undefined,
     autoScalingGroups:
-      output.autoScalingGroups != undefined
+      output.autoScalingGroups != null
         ? deserializeAws_json1_1AutoScalingGroupList(output.autoScalingGroups, context)
         : undefined,
     blueGreenDeploymentConfiguration:
-      output.blueGreenDeploymentConfiguration != undefined
+      output.blueGreenDeploymentConfiguration != null
         ? deserializeAws_json1_1BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
         : undefined,
     computePlatform: __expectString(output.computePlatform),
@@ -7054,44 +7034,42 @@ const deserializeAws_json1_1DeploymentGroupInfo = (output: any, context: __Serde
     deploymentGroupId: __expectString(output.deploymentGroupId),
     deploymentGroupName: __expectString(output.deploymentGroupName),
     deploymentStyle:
-      output.deploymentStyle != undefined
+      output.deploymentStyle != null
         ? deserializeAws_json1_1DeploymentStyle(output.deploymentStyle, context)
         : undefined,
     ec2TagFilters:
-      output.ec2TagFilters != undefined
-        ? deserializeAws_json1_1EC2TagFilterList(output.ec2TagFilters, context)
-        : undefined,
-    ec2TagSet: output.ec2TagSet != undefined ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
+      output.ec2TagFilters != null ? deserializeAws_json1_1EC2TagFilterList(output.ec2TagFilters, context) : undefined,
+    ec2TagSet: output.ec2TagSet != null ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
     ecsServices:
-      output.ecsServices != undefined ? deserializeAws_json1_1ECSServiceList(output.ecsServices, context) : undefined,
+      output.ecsServices != null ? deserializeAws_json1_1ECSServiceList(output.ecsServices, context) : undefined,
     lastAttemptedDeployment:
-      output.lastAttemptedDeployment != undefined
+      output.lastAttemptedDeployment != null
         ? deserializeAws_json1_1LastDeploymentInfo(output.lastAttemptedDeployment, context)
         : undefined,
     lastSuccessfulDeployment:
-      output.lastSuccessfulDeployment != undefined
+      output.lastSuccessfulDeployment != null
         ? deserializeAws_json1_1LastDeploymentInfo(output.lastSuccessfulDeployment, context)
         : undefined,
     loadBalancerInfo:
-      output.loadBalancerInfo != undefined
+      output.loadBalancerInfo != null
         ? deserializeAws_json1_1LoadBalancerInfo(output.loadBalancerInfo, context)
         : undefined,
     onPremisesInstanceTagFilters:
-      output.onPremisesInstanceTagFilters != undefined
+      output.onPremisesInstanceTagFilters != null
         ? deserializeAws_json1_1TagFilterList(output.onPremisesInstanceTagFilters, context)
         : undefined,
     onPremisesTagSet:
-      output.onPremisesTagSet != undefined
+      output.onPremisesTagSet != null
         ? deserializeAws_json1_1OnPremisesTagSet(output.onPremisesTagSet, context)
         : undefined,
     outdatedInstancesStrategy: __expectString(output.outdatedInstancesStrategy),
     serviceRoleArn: __expectString(output.serviceRoleArn),
     targetRevision:
-      output.targetRevision != undefined
+      output.targetRevision != null
         ? deserializeAws_json1_1RevisionLocation(output.targetRevision, context)
         : undefined,
     triggerConfigurations:
-      output.triggerConfigurations != undefined
+      output.triggerConfigurations != null
         ? deserializeAws_json1_1TriggerConfigList(output.triggerConfigurations, context)
         : undefined,
   } as any;
@@ -7153,41 +7131,39 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
     additionalDeploymentStatusInfo: __expectString(output.additionalDeploymentStatusInfo),
     applicationName: __expectString(output.applicationName),
     autoRollbackConfiguration:
-      output.autoRollbackConfiguration != undefined
+      output.autoRollbackConfiguration != null
         ? deserializeAws_json1_1AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
         : undefined,
     blueGreenDeploymentConfiguration:
-      output.blueGreenDeploymentConfiguration != undefined
+      output.blueGreenDeploymentConfiguration != null
         ? deserializeAws_json1_1BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
         : undefined,
     completeTime:
-      output.completeTime != undefined
+      output.completeTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.completeTime)))
         : undefined,
     computePlatform: __expectString(output.computePlatform),
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     creator: __expectString(output.creator),
     deploymentConfigName: __expectString(output.deploymentConfigName),
     deploymentGroupName: __expectString(output.deploymentGroupName),
     deploymentId: __expectString(output.deploymentId),
     deploymentOverview:
-      output.deploymentOverview != undefined
+      output.deploymentOverview != null
         ? deserializeAws_json1_1DeploymentOverview(output.deploymentOverview, context)
         : undefined,
     deploymentStatusMessages:
-      output.deploymentStatusMessages != undefined
+      output.deploymentStatusMessages != null
         ? deserializeAws_json1_1DeploymentStatusMessageList(output.deploymentStatusMessages, context)
         : undefined,
     deploymentStyle:
-      output.deploymentStyle != undefined
+      output.deploymentStyle != null
         ? deserializeAws_json1_1DeploymentStyle(output.deploymentStyle, context)
         : undefined,
     description: __expectString(output.description),
     errorInformation:
-      output.errorInformation != undefined
+      output.errorInformation != null
         ? deserializeAws_json1_1ErrorInformation(output.errorInformation, context)
         : undefined,
     externalId: __expectString(output.externalId),
@@ -7195,28 +7171,25 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
     ignoreApplicationStopFailures: __expectBoolean(output.ignoreApplicationStopFailures),
     instanceTerminationWaitTimeStarted: __expectBoolean(output.instanceTerminationWaitTimeStarted),
     loadBalancerInfo:
-      output.loadBalancerInfo != undefined
+      output.loadBalancerInfo != null
         ? deserializeAws_json1_1LoadBalancerInfo(output.loadBalancerInfo, context)
         : undefined,
     previousRevision:
-      output.previousRevision != undefined
+      output.previousRevision != null
         ? deserializeAws_json1_1RevisionLocation(output.previousRevision, context)
         : undefined,
     relatedDeployments:
-      output.relatedDeployments != undefined
+      output.relatedDeployments != null
         ? deserializeAws_json1_1RelatedDeployments(output.relatedDeployments, context)
         : undefined,
-    revision:
-      output.revision != undefined ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
+    revision: output.revision != null ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
     rollbackInfo:
-      output.rollbackInfo != undefined ? deserializeAws_json1_1RollbackInfo(output.rollbackInfo, context) : undefined,
+      output.rollbackInfo != null ? deserializeAws_json1_1RollbackInfo(output.rollbackInfo, context) : undefined,
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
     targetInstances:
-      output.targetInstances != undefined
+      output.targetInstances != null
         ? deserializeAws_json1_1TargetInstances(output.targetInstances, context)
         : undefined,
     updateOutdatedInstancesOnly: __expectBoolean(output.updateOutdatedInstancesOnly),
@@ -7314,17 +7287,15 @@ const deserializeAws_json1_1DeploymentStyle = (output: any, context: __SerdeCont
 const deserializeAws_json1_1DeploymentTarget = (output: any, context: __SerdeContext): DeploymentTarget => {
   return {
     cloudFormationTarget:
-      output.cloudFormationTarget != undefined
+      output.cloudFormationTarget != null
         ? deserializeAws_json1_1CloudFormationTarget(output.cloudFormationTarget, context)
         : undefined,
     deploymentTargetType: __expectString(output.deploymentTargetType),
-    ecsTarget: output.ecsTarget != undefined ? deserializeAws_json1_1ECSTarget(output.ecsTarget, context) : undefined,
+    ecsTarget: output.ecsTarget != null ? deserializeAws_json1_1ECSTarget(output.ecsTarget, context) : undefined,
     instanceTarget:
-      output.instanceTarget != undefined
-        ? deserializeAws_json1_1InstanceTarget(output.instanceTarget, context)
-        : undefined,
+      output.instanceTarget != null ? deserializeAws_json1_1InstanceTarget(output.instanceTarget, context) : undefined,
     lambdaTarget:
-      output.lambdaTarget != undefined ? deserializeAws_json1_1LambdaTarget(output.lambdaTarget, context) : undefined,
+      output.lambdaTarget != null ? deserializeAws_json1_1LambdaTarget(output.lambdaTarget, context) : undefined,
   } as any;
 };
 
@@ -7408,9 +7379,7 @@ const deserializeAws_json1_1EC2TagFilterList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1EC2TagSet = (output: any, context: __SerdeContext): EC2TagSet => {
   return {
     ec2TagSetList:
-      output.ec2TagSetList != undefined
-        ? deserializeAws_json1_1EC2TagSetList(output.ec2TagSetList, context)
-        : undefined,
+      output.ec2TagSetList != null ? deserializeAws_json1_1EC2TagSetList(output.ec2TagSetList, context) : undefined,
   } as any;
 };
 
@@ -7458,18 +7427,18 @@ const deserializeAws_json1_1ECSTarget = (output: any, context: __SerdeContext): 
   return {
     deploymentId: __expectString(output.deploymentId),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != undefined
+      output.lifecycleEvents != null
         ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
         : undefined,
     status: __expectString(output.status),
     targetArn: __expectString(output.targetArn),
     targetId: __expectString(output.targetId),
     taskSetsInfo:
-      output.taskSetsInfo != undefined ? deserializeAws_json1_1ECSTaskSetList(output.taskSetsInfo, context) : undefined,
+      output.taskSetsInfo != null ? deserializeAws_json1_1ECSTaskSetList(output.taskSetsInfo, context) : undefined,
   } as any;
 };
 
@@ -7481,7 +7450,7 @@ const deserializeAws_json1_1ECSTaskSet = (output: any, context: __SerdeContext):
     runningCount: __expectLong(output.runningCount),
     status: __expectString(output.status),
     targetGroup:
-      output.targetGroup != undefined ? deserializeAws_json1_1TargetGroupInfo(output.targetGroup, context) : undefined,
+      output.targetGroup != null ? deserializeAws_json1_1TargetGroupInfo(output.targetGroup, context) : undefined,
     taskSetLabel: __expectString(output.taskSetLabel),
     trafficWeight: __limitedParseDouble(output.trafficWeight),
   } as any;
@@ -7527,20 +7496,20 @@ const deserializeAws_json1_1ErrorInformation = (output: any, context: __SerdeCon
 const deserializeAws_json1_1GenericRevisionInfo = (output: any, context: __SerdeContext): GenericRevisionInfo => {
   return {
     deploymentGroups:
-      output.deploymentGroups != undefined
+      output.deploymentGroups != null
         ? deserializeAws_json1_1DeploymentGroupsList(output.deploymentGroups, context)
         : undefined,
     description: __expectString(output.description),
     firstUsedTime:
-      output.firstUsedTime != undefined
+      output.firstUsedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstUsedTime)))
         : undefined,
     lastUsedTime:
-      output.lastUsedTime != undefined
+      output.lastUsedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUsedTime)))
         : undefined,
     registerTime:
-      output.registerTime != undefined
+      output.registerTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registerTime)))
         : undefined,
   } as any;
@@ -7549,7 +7518,7 @@ const deserializeAws_json1_1GenericRevisionInfo = (output: any, context: __Serde
 const deserializeAws_json1_1GetApplicationOutput = (output: any, context: __SerdeContext): GetApplicationOutput => {
   return {
     application:
-      output.application != undefined ? deserializeAws_json1_1ApplicationInfo(output.application, context) : undefined,
+      output.application != null ? deserializeAws_json1_1ApplicationInfo(output.application, context) : undefined,
   } as any;
 };
 
@@ -7559,12 +7528,9 @@ const deserializeAws_json1_1GetApplicationRevisionOutput = (
 ): GetApplicationRevisionOutput => {
   return {
     applicationName: __expectString(output.applicationName),
-    revision:
-      output.revision != undefined ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
+    revision: output.revision != null ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
     revisionInfo:
-      output.revisionInfo != undefined
-        ? deserializeAws_json1_1GenericRevisionInfo(output.revisionInfo, context)
-        : undefined,
+      output.revisionInfo != null ? deserializeAws_json1_1GenericRevisionInfo(output.revisionInfo, context) : undefined,
   } as any;
 };
 
@@ -7574,7 +7540,7 @@ const deserializeAws_json1_1GetDeploymentConfigOutput = (
 ): GetDeploymentConfigOutput => {
   return {
     deploymentConfigInfo:
-      output.deploymentConfigInfo != undefined
+      output.deploymentConfigInfo != null
         ? deserializeAws_json1_1DeploymentConfigInfo(output.deploymentConfigInfo, context)
         : undefined,
   } as any;
@@ -7586,7 +7552,7 @@ const deserializeAws_json1_1GetDeploymentGroupOutput = (
 ): GetDeploymentGroupOutput => {
   return {
     deploymentGroupInfo:
-      output.deploymentGroupInfo != undefined
+      output.deploymentGroupInfo != null
         ? deserializeAws_json1_1DeploymentGroupInfo(output.deploymentGroupInfo, context)
         : undefined,
   } as any;
@@ -7598,7 +7564,7 @@ const deserializeAws_json1_1GetDeploymentInstanceOutput = (
 ): GetDeploymentInstanceOutput => {
   return {
     instanceSummary:
-      output.instanceSummary != undefined
+      output.instanceSummary != null
         ? deserializeAws_json1_1InstanceSummary(output.instanceSummary, context)
         : undefined,
   } as any;
@@ -7607,9 +7573,7 @@ const deserializeAws_json1_1GetDeploymentInstanceOutput = (
 const deserializeAws_json1_1GetDeploymentOutput = (output: any, context: __SerdeContext): GetDeploymentOutput => {
   return {
     deploymentInfo:
-      output.deploymentInfo != undefined
-        ? deserializeAws_json1_1DeploymentInfo(output.deploymentInfo, context)
-        : undefined,
+      output.deploymentInfo != null ? deserializeAws_json1_1DeploymentInfo(output.deploymentInfo, context) : undefined,
   } as any;
 };
 
@@ -7619,7 +7583,7 @@ const deserializeAws_json1_1GetDeploymentTargetOutput = (
 ): GetDeploymentTargetOutput => {
   return {
     deploymentTarget:
-      output.deploymentTarget != undefined
+      output.deploymentTarget != null
         ? deserializeAws_json1_1DeploymentTarget(output.deploymentTarget, context)
         : undefined,
   } as any;
@@ -7631,7 +7595,7 @@ const deserializeAws_json1_1GetOnPremisesInstanceOutput = (
 ): GetOnPremisesInstanceOutput => {
   return {
     instanceInfo:
-      output.instanceInfo != undefined ? deserializeAws_json1_1InstanceInfo(output.instanceInfo, context) : undefined,
+      output.instanceInfo != null ? deserializeAws_json1_1InstanceInfo(output.instanceInfo, context) : undefined,
   } as any;
 };
 
@@ -7738,7 +7702,7 @@ const deserializeAws_json1_1InstanceIdRequiredException = (
 const deserializeAws_json1_1InstanceInfo = (output: any, context: __SerdeContext): InstanceInfo => {
   return {
     deregisterTime:
-      output.deregisterTime != undefined
+      output.deregisterTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.deregisterTime)))
         : undefined,
     iamSessionArn: __expectString(output.iamSessionArn),
@@ -7746,10 +7710,10 @@ const deserializeAws_json1_1InstanceInfo = (output: any, context: __SerdeContext
     instanceArn: __expectString(output.instanceArn),
     instanceName: __expectString(output.instanceName),
     registerTime:
-      output.registerTime != undefined
+      output.registerTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registerTime)))
         : undefined,
-    tags: output.tags != undefined ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
   } as any;
 };
 
@@ -7831,11 +7795,11 @@ const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeCont
     instanceId: __expectString(output.instanceId),
     instanceType: __expectString(output.instanceType),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != undefined
+      output.lifecycleEvents != null
         ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
         : undefined,
     status: __expectString(output.status),
@@ -7859,11 +7823,11 @@ const deserializeAws_json1_1InstanceTarget = (output: any, context: __SerdeConte
     deploymentId: __expectString(output.deploymentId),
     instanceLabel: __expectString(output.instanceLabel),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != undefined
+      output.lifecycleEvents != null
         ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
         : undefined,
     status: __expectString(output.status),
@@ -8354,15 +8318,15 @@ const deserializeAws_json1_1LambdaTarget = (output: any, context: __SerdeContext
   return {
     deploymentId: __expectString(output.deploymentId),
     lambdaFunctionInfo:
-      output.lambdaFunctionInfo != undefined
+      output.lambdaFunctionInfo != null
         ? deserializeAws_json1_1LambdaFunctionInfo(output.lambdaFunctionInfo, context)
         : undefined,
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != undefined
+      output.lifecycleEvents != null
         ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
         : undefined,
     status: __expectString(output.status),
@@ -8374,12 +8338,10 @@ const deserializeAws_json1_1LambdaTarget = (output: any, context: __SerdeContext
 const deserializeAws_json1_1LastDeploymentInfo = (output: any, context: __SerdeContext): LastDeploymentInfo => {
   return {
     createTime:
-      output.createTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime)))
-        : undefined,
+      output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
     deploymentId: __expectString(output.deploymentId),
     endTime:
-      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -8387,14 +8349,12 @@ const deserializeAws_json1_1LastDeploymentInfo = (output: any, context: __SerdeC
 const deserializeAws_json1_1LifecycleEvent = (output: any, context: __SerdeContext): LifecycleEvent => {
   return {
     diagnostics:
-      output.diagnostics != undefined ? deserializeAws_json1_1Diagnostics(output.diagnostics, context) : undefined,
+      output.diagnostics != null ? deserializeAws_json1_1Diagnostics(output.diagnostics, context) : undefined,
     endTime:
-      output.endTime != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
+      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     lifecycleEventName: __expectString(output.lifecycleEventName),
     startTime:
-      output.startTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
-        : undefined,
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
   } as any;
 };
@@ -8436,16 +8396,14 @@ const deserializeAws_json1_1ListApplicationRevisionsOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     revisions:
-      output.revisions != undefined ? deserializeAws_json1_1RevisionLocationList(output.revisions, context) : undefined,
+      output.revisions != null ? deserializeAws_json1_1RevisionLocationList(output.revisions, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListApplicationsOutput = (output: any, context: __SerdeContext): ListApplicationsOutput => {
   return {
     applications:
-      output.applications != undefined
-        ? deserializeAws_json1_1ApplicationsList(output.applications, context)
-        : undefined,
+      output.applications != null ? deserializeAws_json1_1ApplicationsList(output.applications, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -8456,7 +8414,7 @@ const deserializeAws_json1_1ListDeploymentConfigsOutput = (
 ): ListDeploymentConfigsOutput => {
   return {
     deploymentConfigsList:
-      output.deploymentConfigsList != undefined
+      output.deploymentConfigsList != null
         ? deserializeAws_json1_1DeploymentConfigsList(output.deploymentConfigsList, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -8470,7 +8428,7 @@ const deserializeAws_json1_1ListDeploymentGroupsOutput = (
   return {
     applicationName: __expectString(output.applicationName),
     deploymentGroups:
-      output.deploymentGroups != undefined
+      output.deploymentGroups != null
         ? deserializeAws_json1_1DeploymentGroupsList(output.deploymentGroups, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
@@ -8483,9 +8441,7 @@ const deserializeAws_json1_1ListDeploymentInstancesOutput = (
 ): ListDeploymentInstancesOutput => {
   return {
     instancesList:
-      output.instancesList != undefined
-        ? deserializeAws_json1_1InstancesList(output.instancesList, context)
-        : undefined,
+      output.instancesList != null ? deserializeAws_json1_1InstancesList(output.instancesList, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -8493,7 +8449,7 @@ const deserializeAws_json1_1ListDeploymentInstancesOutput = (
 const deserializeAws_json1_1ListDeploymentsOutput = (output: any, context: __SerdeContext): ListDeploymentsOutput => {
   return {
     deployments:
-      output.deployments != undefined ? deserializeAws_json1_1DeploymentsList(output.deployments, context) : undefined,
+      output.deployments != null ? deserializeAws_json1_1DeploymentsList(output.deployments, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -8504,8 +8460,7 @@ const deserializeAws_json1_1ListDeploymentTargetsOutput = (
 ): ListDeploymentTargetsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    targetIds:
-      output.targetIds != undefined ? deserializeAws_json1_1TargetIdList(output.targetIds, context) : undefined,
+    targetIds: output.targetIds != null ? deserializeAws_json1_1TargetIdList(output.targetIds, context) : undefined,
   } as any;
 };
 
@@ -8528,7 +8483,7 @@ const deserializeAws_json1_1ListGitHubAccountTokenNamesOutput = (
   return {
     nextToken: __expectString(output.nextToken),
     tokenNameList:
-      output.tokenNameList != undefined
+      output.tokenNameList != null
         ? deserializeAws_json1_1GitHubAccountTokenNameList(output.tokenNameList, context)
         : undefined,
   } as any;
@@ -8540,9 +8495,7 @@ const deserializeAws_json1_1ListOnPremisesInstancesOutput = (
 ): ListOnPremisesInstancesOutput => {
   return {
     instanceNames:
-      output.instanceNames != undefined
-        ? deserializeAws_json1_1InstanceNameList(output.instanceNames, context)
-        : undefined,
+      output.instanceNames != null ? deserializeAws_json1_1InstanceNameList(output.instanceNames, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
@@ -8553,20 +8506,20 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LoadBalancerInfo = (output: any, context: __SerdeContext): LoadBalancerInfo => {
   return {
     elbInfoList:
-      output.elbInfoList != undefined ? deserializeAws_json1_1ELBInfoList(output.elbInfoList, context) : undefined,
+      output.elbInfoList != null ? deserializeAws_json1_1ELBInfoList(output.elbInfoList, context) : undefined,
     targetGroupInfoList:
-      output.targetGroupInfoList != undefined
+      output.targetGroupInfoList != null
         ? deserializeAws_json1_1TargetGroupInfoList(output.targetGroupInfoList, context)
         : undefined,
     targetGroupPairInfoList:
-      output.targetGroupPairInfoList != undefined
+      output.targetGroupPairInfoList != null
         ? deserializeAws_json1_1TargetGroupPairInfoList(output.targetGroupPairInfoList, context)
         : undefined,
   } as any;
@@ -8591,7 +8544,7 @@ const deserializeAws_json1_1MultipleIamArnsProvidedException = (
 const deserializeAws_json1_1OnPremisesTagSet = (output: any, context: __SerdeContext): OnPremisesTagSet => {
   return {
     onPremisesTagSetList:
-      output.onPremisesTagSetList != undefined
+      output.onPremisesTagSetList != null
         ? deserializeAws_json1_1OnPremisesTagSetList(output.onPremisesTagSetList, context)
         : undefined,
   } as any;
@@ -8637,7 +8590,7 @@ const deserializeAws_json1_1RawString = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1RelatedDeployments = (output: any, context: __SerdeContext): RelatedDeployments => {
   return {
     autoUpdateOutdatedInstancesDeploymentIds:
-      output.autoUpdateOutdatedInstancesDeploymentIds != undefined
+      output.autoUpdateOutdatedInstancesDeploymentIds != null
         ? deserializeAws_json1_1DeploymentsList(output.autoUpdateOutdatedInstancesDeploymentIds, context)
         : undefined,
     autoUpdateOutdatedInstancesRootDeploymentId: __expectString(output.autoUpdateOutdatedInstancesRootDeploymentId),
@@ -8674,11 +8627,11 @@ const deserializeAws_json1_1RevisionDoesNotExistException = (
 const deserializeAws_json1_1RevisionInfo = (output: any, context: __SerdeContext): RevisionInfo => {
   return {
     genericRevisionInfo:
-      output.genericRevisionInfo != undefined
+      output.genericRevisionInfo != null
         ? deserializeAws_json1_1GenericRevisionInfo(output.genericRevisionInfo, context)
         : undefined,
     revisionLocation:
-      output.revisionLocation != undefined
+      output.revisionLocation != null
         ? deserializeAws_json1_1RevisionLocation(output.revisionLocation, context)
         : undefined,
   } as any;
@@ -8699,17 +8652,12 @@ const deserializeAws_json1_1RevisionInfoList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1RevisionLocation = (output: any, context: __SerdeContext): RevisionLocation => {
   return {
     appSpecContent:
-      output.appSpecContent != undefined
-        ? deserializeAws_json1_1AppSpecContent(output.appSpecContent, context)
-        : undefined,
+      output.appSpecContent != null ? deserializeAws_json1_1AppSpecContent(output.appSpecContent, context) : undefined,
     gitHubLocation:
-      output.gitHubLocation != undefined
-        ? deserializeAws_json1_1GitHubLocation(output.gitHubLocation, context)
-        : undefined,
+      output.gitHubLocation != null ? deserializeAws_json1_1GitHubLocation(output.gitHubLocation, context) : undefined,
     revisionType: __expectString(output.revisionType),
-    s3Location:
-      output.s3Location != undefined ? deserializeAws_json1_1S3Location(output.s3Location, context) : undefined,
-    string: output.string != undefined ? deserializeAws_json1_1RawString(output.string, context) : undefined,
+    s3Location: output.s3Location != null ? deserializeAws_json1_1S3Location(output.s3Location, context) : undefined,
+    string: output.string != null ? deserializeAws_json1_1RawString(output.string, context) : undefined,
   } as any;
 };
 
@@ -8853,15 +8801,13 @@ const deserializeAws_json1_1TargetGroupInfoList = (output: any, context: __Serde
 const deserializeAws_json1_1TargetGroupPairInfo = (output: any, context: __SerdeContext): TargetGroupPairInfo => {
   return {
     prodTrafficRoute:
-      output.prodTrafficRoute != undefined
+      output.prodTrafficRoute != null
         ? deserializeAws_json1_1TrafficRoute(output.prodTrafficRoute, context)
         : undefined,
     targetGroups:
-      output.targetGroups != undefined
-        ? deserializeAws_json1_1TargetGroupInfoList(output.targetGroups, context)
-        : undefined,
+      output.targetGroups != null ? deserializeAws_json1_1TargetGroupInfoList(output.targetGroups, context) : undefined,
     testTrafficRoute:
-      output.testTrafficRoute != undefined
+      output.testTrafficRoute != null
         ? deserializeAws_json1_1TrafficRoute(output.testTrafficRoute, context)
         : undefined,
   } as any;
@@ -8894,12 +8840,12 @@ const deserializeAws_json1_1TargetIdList = (output: any, context: __SerdeContext
 const deserializeAws_json1_1TargetInstances = (output: any, context: __SerdeContext): TargetInstances => {
   return {
     autoScalingGroups:
-      output.autoScalingGroups != undefined
+      output.autoScalingGroups != null
         ? deserializeAws_json1_1AutoScalingGroupNameList(output.autoScalingGroups, context)
         : undefined,
-    ec2TagSet: output.ec2TagSet != undefined ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
+    ec2TagSet: output.ec2TagSet != null ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
     tagFilters:
-      output.tagFilters != undefined ? deserializeAws_json1_1EC2TagFilterList(output.tagFilters, context) : undefined,
+      output.tagFilters != null ? deserializeAws_json1_1EC2TagFilterList(output.tagFilters, context) : undefined,
   } as any;
 };
 
@@ -8926,20 +8872,18 @@ const deserializeAws_json1_1TimeBasedLinear = (output: any, context: __SerdeCont
 const deserializeAws_json1_1TrafficRoute = (output: any, context: __SerdeContext): TrafficRoute => {
   return {
     listenerArns:
-      output.listenerArns != undefined
-        ? deserializeAws_json1_1ListenerArnList(output.listenerArns, context)
-        : undefined,
+      output.listenerArns != null ? deserializeAws_json1_1ListenerArnList(output.listenerArns, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __SerdeContext): TrafficRoutingConfig => {
   return {
     timeBasedCanary:
-      output.timeBasedCanary != undefined
+      output.timeBasedCanary != null
         ? deserializeAws_json1_1TimeBasedCanary(output.timeBasedCanary, context)
         : undefined,
     timeBasedLinear:
-      output.timeBasedLinear != undefined
+      output.timeBasedLinear != null
         ? deserializeAws_json1_1TimeBasedLinear(output.timeBasedLinear, context)
         : undefined,
     type: __expectString(output.type),
@@ -8949,7 +8893,7 @@ const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __Serd
 const deserializeAws_json1_1TriggerConfig = (output: any, context: __SerdeContext): TriggerConfig => {
   return {
     triggerEvents:
-      output.triggerEvents != undefined
+      output.triggerEvents != null
         ? deserializeAws_json1_1TriggerEventTypeList(output.triggerEvents, context)
         : undefined,
     triggerName: __expectString(output.triggerName),
@@ -9012,7 +8956,7 @@ const deserializeAws_json1_1UpdateDeploymentGroupOutput = (
 ): UpdateDeploymentGroupOutput => {
   return {
     hooksNotCleanedUp:
-      output.hooksNotCleanedUp != undefined
+      output.hooksNotCleanedUp != null
         ? deserializeAws_json1_1AutoScalingGroupList(output.hooksNotCleanedUp, context)
         : undefined,
   } as any;

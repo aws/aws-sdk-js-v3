@@ -249,7 +249,7 @@ export const serializeAws_restJson1PutLexiconCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content != undefined && { Content: input.Content }),
+    ...(input.Content != null && { Content: input.Content }),
   });
   return new __HttpRequest({
     protocol,
@@ -273,22 +273,22 @@ export const serializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
   let body: any;
   body = JSON.stringify({
-    ...(input.Engine != undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.LexiconNames != undefined && {
+    ...(input.Engine != null && { Engine: input.Engine }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.LexiconNames != null && {
       LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat != undefined && { OutputFormat: input.OutputFormat }),
-    ...(input.OutputS3BucketName != undefined && { OutputS3BucketName: input.OutputS3BucketName }),
-    ...(input.OutputS3KeyPrefix != undefined && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
-    ...(input.SampleRate != undefined && { SampleRate: input.SampleRate }),
-    ...(input.SnsTopicArn != undefined && { SnsTopicArn: input.SnsTopicArn }),
-    ...(input.SpeechMarkTypes != undefined && {
+    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
+    ...(input.OutputS3BucketName != null && { OutputS3BucketName: input.OutputS3BucketName }),
+    ...(input.OutputS3KeyPrefix != null && { OutputS3KeyPrefix: input.OutputS3KeyPrefix }),
+    ...(input.SampleRate != null && { SampleRate: input.SampleRate }),
+    ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SpeechMarkTypes != null && {
       SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(input.SpeechMarkTypes, context),
     }),
-    ...(input.Text != undefined && { Text: input.Text }),
-    ...(input.TextType != undefined && { TextType: input.TextType }),
-    ...(input.VoiceId != undefined && { VoiceId: input.VoiceId }),
+    ...(input.Text != null && { Text: input.Text }),
+    ...(input.TextType != null && { TextType: input.TextType }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   });
   return new __HttpRequest({
     protocol,
@@ -312,19 +312,19 @@ export const serializeAws_restJson1SynthesizeSpeechCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/speech";
   let body: any;
   body = JSON.stringify({
-    ...(input.Engine != undefined && { Engine: input.Engine }),
-    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.LexiconNames != undefined && {
+    ...(input.Engine != null && { Engine: input.Engine }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.LexiconNames != null && {
       LexiconNames: serializeAws_restJson1LexiconNameList(input.LexiconNames, context),
     }),
-    ...(input.OutputFormat != undefined && { OutputFormat: input.OutputFormat }),
-    ...(input.SampleRate != undefined && { SampleRate: input.SampleRate }),
-    ...(input.SpeechMarkTypes != undefined && {
+    ...(input.OutputFormat != null && { OutputFormat: input.OutputFormat }),
+    ...(input.SampleRate != null && { SampleRate: input.SampleRate }),
+    ...(input.SpeechMarkTypes != null && {
       SpeechMarkTypes: serializeAws_restJson1SpeechMarkTypeList(input.SpeechMarkTypes, context),
     }),
-    ...(input.Text != undefined && { Text: input.Text }),
-    ...(input.TextType != undefined && { TextType: input.TextType }),
-    ...(input.VoiceId != undefined && { VoiceId: input.VoiceId }),
+    ...(input.Text != null && { Text: input.Text }),
+    ...(input.TextType != null && { TextType: input.TextType }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1246,7 +1246,7 @@ const deserializeAws_restJson1LexiconAttributes = (output: any, context: __Serde
     Alphabet: __expectString(output.Alphabet),
     LanguageCode: __expectString(output.LanguageCode),
     LastModified:
-      output.LastModified != undefined
+      output.LastModified != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModified)))
         : undefined,
     LexemesCount: __expectInt32(output.LexemesCount),
@@ -1258,9 +1258,7 @@ const deserializeAws_restJson1LexiconAttributes = (output: any, context: __Serde
 const deserializeAws_restJson1LexiconDescription = (output: any, context: __SerdeContext): LexiconDescription => {
   return {
     Attributes:
-      output.Attributes != undefined
-        ? deserializeAws_restJson1LexiconAttributes(output.Attributes, context)
-        : undefined,
+      output.Attributes != null ? deserializeAws_restJson1LexiconAttributes(output.Attributes, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };
@@ -1307,22 +1305,20 @@ const deserializeAws_restJson1SpeechMarkTypeList = (
 const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeContext): SynthesisTask => {
   return {
     CreationTime:
-      output.CreationTime != undefined
+      output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Engine: __expectString(output.Engine),
     LanguageCode: __expectString(output.LanguageCode),
     LexiconNames:
-      output.LexiconNames != undefined
-        ? deserializeAws_restJson1LexiconNameList(output.LexiconNames, context)
-        : undefined,
+      output.LexiconNames != null ? deserializeAws_restJson1LexiconNameList(output.LexiconNames, context) : undefined,
     OutputFormat: __expectString(output.OutputFormat),
     OutputUri: __expectString(output.OutputUri),
     RequestCharacters: __expectInt32(output.RequestCharacters),
     SampleRate: __expectString(output.SampleRate),
     SnsTopicArn: __expectString(output.SnsTopicArn),
     SpeechMarkTypes:
-      output.SpeechMarkTypes != undefined
+      output.SpeechMarkTypes != null
         ? deserializeAws_restJson1SpeechMarkTypeList(output.SpeechMarkTypes, context)
         : undefined,
     TaskId: __expectString(output.TaskId),
@@ -1348,7 +1344,7 @@ const deserializeAws_restJson1SynthesisTasks = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Voice => {
   return {
     AdditionalLanguageCodes:
-      output.AdditionalLanguageCodes != undefined
+      output.AdditionalLanguageCodes != null
         ? deserializeAws_restJson1LanguageCodeList(output.AdditionalLanguageCodes, context)
         : undefined,
     Gender: __expectString(output.Gender),
@@ -1357,7 +1353,7 @@ const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Vo
     LanguageName: __expectString(output.LanguageName),
     Name: __expectString(output.Name),
     SupportedEngines:
-      output.SupportedEngines != undefined
+      output.SupportedEngines != null
         ? deserializeAws_restJson1EngineList(output.SupportedEngines, context)
         : undefined,
   } as any;

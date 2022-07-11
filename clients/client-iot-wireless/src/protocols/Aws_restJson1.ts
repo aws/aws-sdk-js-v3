@@ -447,10 +447,8 @@ export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand 
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Sidewalk != undefined && {
-      Sidewalk: serializeAws_restJson1SidewalkAccountInfo(input.Sidewalk, context),
-    }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Sidewalk != null && { Sidewalk: serializeAws_restJson1SidewalkAccountInfo(input.Sidewalk, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -484,7 +482,7 @@ export const serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand =
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.MulticastGroupId != undefined && { MulticastGroupId: input.MulticastGroupId }),
+    ...(input.MulticastGroupId != null && { MulticastGroupId: input.MulticastGroupId }),
   });
   return new __HttpRequest({
     protocol,
@@ -518,7 +516,7 @@ export const serializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand =
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.WirelessDeviceId != undefined && { WirelessDeviceId: input.WirelessDeviceId }),
+    ...(input.WirelessDeviceId != null && { WirelessDeviceId: input.WirelessDeviceId }),
   });
   return new __HttpRequest({
     protocol,
@@ -552,7 +550,7 @@ export const serializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupComm
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.WirelessDeviceId != undefined && { WirelessDeviceId: input.WirelessDeviceId }),
+    ...(input.WirelessDeviceId != null && { WirelessDeviceId: input.WirelessDeviceId }),
   });
   return new __HttpRequest({
     protocol,
@@ -586,7 +584,7 @@ export const serializeAws_restJson1AssociateWirelessDeviceWithThingCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ThingArn != undefined && { ThingArn: input.ThingArn }),
+    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -620,7 +618,7 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithCertificateComman
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.IotCertificateId != undefined && { IotCertificateId: input.IotCertificateId }),
+    ...(input.IotCertificateId != null && { IotCertificateId: input.IotCertificateId }),
   });
   return new __HttpRequest({
     protocol,
@@ -654,7 +652,7 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithThingCommand = as
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ThingArn != undefined && { ThingArn: input.ThingArn }),
+    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -708,12 +706,12 @@ export const serializeAws_restJson1CreateDestinationCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Expression != undefined && { Expression: input.Expression }),
-    ...(input.ExpressionType != undefined && { ExpressionType: input.ExpressionType }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -738,9 +736,9 @@ export const serializeAws_restJson1CreateDeviceProfileCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANDeviceProfile(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANDeviceProfile(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -765,12 +763,12 @@ export const serializeAws_restJson1CreateFuotaTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.FirmwareUpdateImage != undefined && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
-    ...(input.FirmwareUpdateRole != undefined && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
+    ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -795,10 +793,10 @@ export const serializeAws_restJson1CreateMulticastGroupCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -824,16 +822,16 @@ export const serializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand = a
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.TraceContent != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TraceContent != null && {
       TraceContent: serializeAws_restJson1TraceContent(input.TraceContent, context),
     }),
-    ...(input.WirelessDevices != undefined && {
+    ...(input.WirelessDevices != null && {
       WirelessDevices: serializeAws_restJson1WirelessDeviceList(input.WirelessDevices, context),
     }),
-    ...(input.WirelessGateways != undefined && {
+    ...(input.WirelessGateways != null && {
       WirelessGateways: serializeAws_restJson1WirelessGatewayList(input.WirelessGateways, context),
     }),
   });
@@ -860,9 +858,9 @@ export const serializeAws_restJson1CreateServiceProfileCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANServiceProfile(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANServiceProfile(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -887,12 +885,12 @@ export const serializeAws_restJson1CreateWirelessDeviceCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DestinationName != undefined && { DestinationName: input.DestinationName }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANDevice(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANDevice(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -917,10 +915,10 @@ export const serializeAws_restJson1CreateWirelessGatewayCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANGateway(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANGateway(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -954,7 +952,7 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.WirelessGatewayTaskDefinitionId != undefined && {
+    ...(input.WirelessGatewayTaskDefinitionId != null && {
       WirelessGatewayTaskDefinitionId: input.WirelessGatewayTaskDefinitionId,
     }),
   });
@@ -981,11 +979,11 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
   let body: any;
   body = JSON.stringify({
-    ...(input.AutoCreateTasks != undefined && { AutoCreateTasks: input.AutoCreateTasks }),
+    ...(input.AutoCreateTasks != null && { AutoCreateTasks: input.AutoCreateTasks }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Update != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Update != null && {
       Update: serializeAws_restJson1UpdateWirelessGatewayTaskCreate(input.Update, context),
     }),
   });
@@ -2649,8 +2647,8 @@ export const serializeAws_restJson1PutPositionConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Destination != undefined && { Destination: input.Destination }),
-    ...(input.Solvers != undefined && {
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.Solvers != null && {
       Solvers: serializeAws_restJson1PositionSolverConfigurations(input.Solvers, context),
     }),
   });
@@ -2690,7 +2688,7 @@ export const serializeAws_restJson1PutResourceLogLevelCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
   });
   return new __HttpRequest({
     protocol,
@@ -2780,8 +2778,8 @@ export const serializeAws_restJson1SendDataToMulticastGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.PayloadData != undefined && { PayloadData: input.PayloadData }),
-    ...(input.WirelessMetadata != undefined && {
+    ...(input.PayloadData != null && { PayloadData: input.PayloadData }),
+    ...(input.WirelessMetadata != null && {
       WirelessMetadata: serializeAws_restJson1MulticastWirelessMetadata(input.WirelessMetadata, context),
     }),
   });
@@ -2817,9 +2815,9 @@ export const serializeAws_restJson1SendDataToWirelessDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.PayloadData != undefined && { PayloadData: input.PayloadData }),
-    ...(input.TransmitMode != undefined && { TransmitMode: input.TransmitMode }),
-    ...(input.WirelessMetadata != undefined && {
+    ...(input.PayloadData != null && { PayloadData: input.PayloadData }),
+    ...(input.TransmitMode != null && { TransmitMode: input.TransmitMode }),
+    ...(input.WirelessMetadata != null && {
       WirelessMetadata: serializeAws_restJson1WirelessMetadata(input.WirelessMetadata, context),
     }),
   });
@@ -2855,8 +2853,8 @@ export const serializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticast
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2890,8 +2888,8 @@ export const serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMultic
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.QueryString != undefined && { QueryString: input.QueryString }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.QueryString != null && { QueryString: input.QueryString }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2924,7 +2922,7 @@ export const serializeAws_restJson1StartFuotaTaskCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANStartFuotaTask(input.LoRaWAN, context) }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANStartFuotaTask(input.LoRaWAN, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2958,9 +2956,7 @@ export const serializeAws_restJson1StartMulticastGroupSessionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LoRaWAN != undefined && {
-      LoRaWAN: serializeAws_restJson1LoRaWANMulticastSession(input.LoRaWAN, context),
-    }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticastSession(input.LoRaWAN, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2987,7 +2983,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3074,10 +3070,10 @@ export const serializeAws_restJson1UpdateDestinationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Expression != undefined && { Expression: input.Expression }),
-    ...(input.ExpressionType != undefined && { ExpressionType: input.ExpressionType }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.ExpressionType != null && { ExpressionType: input.ExpressionType }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -3102,22 +3098,20 @@ export const serializeAws_restJson1UpdateEventConfigurationByResourceTypesComman
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectionStatus != undefined && {
+    ...(input.ConnectionStatus != null && {
       ConnectionStatus: serializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration(
         input.ConnectionStatus,
         context
       ),
     }),
-    ...(input.DeviceRegistrationState != undefined && {
+    ...(input.DeviceRegistrationState != null && {
       DeviceRegistrationState: serializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration(
         input.DeviceRegistrationState,
         context
       ),
     }),
-    ...(input.Join != undefined && {
-      Join: serializeAws_restJson1JoinResourceTypeEventConfiguration(input.Join, context),
-    }),
-    ...(input.Proximity != undefined && {
+    ...(input.Join != null && { Join: serializeAws_restJson1JoinResourceTypeEventConfiguration(input.Join, context) }),
+    ...(input.Proximity != null && {
       Proximity: serializeAws_restJson1ProximityResourceTypeEventConfiguration(input.Proximity, context),
     }),
   });
@@ -3152,11 +3146,11 @@ export const serializeAws_restJson1UpdateFuotaTaskCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.FirmwareUpdateImage != undefined && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
-    ...(input.FirmwareUpdateRole != undefined && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.FirmwareUpdateImage != null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
+    ...(input.FirmwareUpdateRole != null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3180,14 +3174,14 @@ export const serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
   body = JSON.stringify({
-    ...(input.DefaultLogLevel != undefined && { DefaultLogLevel: input.DefaultLogLevel }),
-    ...(input.WirelessDeviceLogOptions != undefined && {
+    ...(input.DefaultLogLevel != null && { DefaultLogLevel: input.DefaultLogLevel }),
+    ...(input.WirelessDeviceLogOptions != null && {
       WirelessDeviceLogOptions: serializeAws_restJson1WirelessDeviceLogOptionList(
         input.WirelessDeviceLogOptions,
         context
       ),
     }),
-    ...(input.WirelessGatewayLogOptions != undefined && {
+    ...(input.WirelessGatewayLogOptions != null && {
       WirelessGatewayLogOptions: serializeAws_restJson1WirelessGatewayLogOptionList(
         input.WirelessGatewayLogOptions,
         context
@@ -3225,9 +3219,9 @@ export const serializeAws_restJson1UpdateMulticastGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3262,20 +3256,20 @@ export const serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.TraceContent != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.TraceContent != null && {
       TraceContent: serializeAws_restJson1TraceContent(input.TraceContent, context),
     }),
-    ...(input.WirelessDevicesToAdd != undefined && {
+    ...(input.WirelessDevicesToAdd != null && {
       WirelessDevicesToAdd: serializeAws_restJson1WirelessDeviceList(input.WirelessDevicesToAdd, context),
     }),
-    ...(input.WirelessDevicesToRemove != undefined && {
+    ...(input.WirelessDevicesToRemove != null && {
       WirelessDevicesToRemove: serializeAws_restJson1WirelessDeviceList(input.WirelessDevicesToRemove, context),
     }),
-    ...(input.WirelessGatewaysToAdd != undefined && {
+    ...(input.WirelessGatewaysToAdd != null && {
       WirelessGatewaysToAdd: serializeAws_restJson1WirelessGatewayList(input.WirelessGatewaysToAdd, context),
     }),
-    ...(input.WirelessGatewaysToRemove != undefined && {
+    ...(input.WirelessGatewaysToRemove != null && {
       WirelessGatewaysToRemove: serializeAws_restJson1WirelessGatewayList(input.WirelessGatewaysToRemove, context),
     }),
   });
@@ -3314,9 +3308,7 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Sidewalk != undefined && {
-      Sidewalk: serializeAws_restJson1SidewalkUpdateAccount(input.Sidewalk, context),
-    }),
+    ...(input.Sidewalk != null && { Sidewalk: serializeAws_restJson1SidewalkUpdateAccount(input.Sidewalk, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3354,7 +3346,7 @@ export const serializeAws_restJson1UpdatePositionCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Position != undefined && { Position: serializeAws_restJson1PositionCoordinate(input.Position, context) }),
+    ...(input.Position != null && { Position: serializeAws_restJson1PositionCoordinate(input.Position, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3393,17 +3385,17 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectionStatus != undefined && {
+    ...(input.ConnectionStatus != null && {
       ConnectionStatus: serializeAws_restJson1ConnectionStatusEventConfiguration(input.ConnectionStatus, context),
     }),
-    ...(input.DeviceRegistrationState != undefined && {
+    ...(input.DeviceRegistrationState != null && {
       DeviceRegistrationState: serializeAws_restJson1DeviceRegistrationStateEventConfiguration(
         input.DeviceRegistrationState,
         context
       ),
     }),
-    ...(input.Join != undefined && { Join: serializeAws_restJson1JoinEventConfiguration(input.Join, context) }),
-    ...(input.Proximity != undefined && {
+    ...(input.Join != null && { Join: serializeAws_restJson1JoinEventConfiguration(input.Join, context) }),
+    ...(input.Proximity != null && {
       Proximity: serializeAws_restJson1ProximityEventConfiguration(input.Proximity, context),
     }),
   });
@@ -3439,10 +3431,10 @@ export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.DestinationName != undefined && { DestinationName: input.DestinationName }),
-    ...(input.LoRaWAN != undefined && { LoRaWAN: serializeAws_restJson1LoRaWANUpdateDevice(input.LoRaWAN, context) }),
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.DestinationName != null && { DestinationName: input.DestinationName }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANUpdateDevice(input.LoRaWAN, context) }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3475,12 +3467,12 @@ export const serializeAws_restJson1UpdateWirelessGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.JoinEuiFilters != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.JoinEuiFilters != null && {
       JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.NetIdFilters != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.NetIdFilters != null && {
       NetIdFilters: serializeAws_restJson1NetIdFilters(input.NetIdFilters, context),
     }),
   });
@@ -9499,9 +9491,9 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AbpV1_0_x = (input: AbpV1_0_x, context: __SerdeContext): any => {
   return {
-    ...(input.DevAddr != undefined && { DevAddr: input.DevAddr }),
-    ...(input.FCntStart != undefined && { FCntStart: input.FCntStart }),
-    ...(input.SessionKeys != undefined && {
+    ...(input.DevAddr != null && { DevAddr: input.DevAddr }),
+    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
+    ...(input.SessionKeys != null && {
       SessionKeys: serializeAws_restJson1SessionKeysAbpV1_0_x(input.SessionKeys, context),
     }),
   };
@@ -9509,9 +9501,9 @@ const serializeAws_restJson1AbpV1_0_x = (input: AbpV1_0_x, context: __SerdeConte
 
 const serializeAws_restJson1AbpV1_1 = (input: AbpV1_1, context: __SerdeContext): any => {
   return {
-    ...(input.DevAddr != undefined && { DevAddr: input.DevAddr }),
-    ...(input.FCntStart != undefined && { FCntStart: input.FCntStart }),
-    ...(input.SessionKeys != undefined && {
+    ...(input.DevAddr != null && { DevAddr: input.DevAddr }),
+    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
+    ...(input.SessionKeys != null && {
       SessionKeys: serializeAws_restJson1SessionKeysAbpV1_1(input.SessionKeys, context),
     }),
   };
@@ -9522,10 +9514,10 @@ const serializeAws_restJson1ConnectionStatusEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
+    ...(input.LoRaWAN != null && {
       LoRaWAN: serializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations(input.LoRaWAN, context),
     }),
-    ...(input.WirelessGatewayIdEventTopic != undefined && {
+    ...(input.WirelessGatewayIdEventTopic != null && {
       WirelessGatewayIdEventTopic: input.WirelessGatewayIdEventTopic,
     }),
   };
@@ -9536,7 +9528,7 @@ const serializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
+    ...(input.LoRaWAN != null && {
       LoRaWAN: serializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration(input.LoRaWAN, context),
     }),
   };
@@ -9547,12 +9539,10 @@ const serializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Sidewalk != undefined && {
+    ...(input.Sidewalk != null && {
       Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
     }),
-    ...(input.WirelessDeviceIdEventTopic != undefined && {
-      WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic,
-    }),
+    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
   };
 };
 
@@ -9561,7 +9551,7 @@ const serializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguratio
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Sidewalk != undefined && {
+    ...(input.Sidewalk != null && {
       Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
     }),
   };
@@ -9580,12 +9570,10 @@ const serializeAws_restJson1FactoryPresetFreqsList = (input: number[], context: 
 
 const serializeAws_restJson1FPorts = (input: FPorts, context: __SerdeContext): any => {
   return {
-    ...(input.ClockSync != undefined && { ClockSync: input.ClockSync }),
-    ...(input.Fuota != undefined && { Fuota: input.Fuota }),
-    ...(input.Multicast != undefined && { Multicast: input.Multicast }),
-    ...(input.Positioning != undefined && {
-      Positioning: serializeAws_restJson1Positioning(input.Positioning, context),
-    }),
+    ...(input.ClockSync != null && { ClockSync: input.ClockSync }),
+    ...(input.Fuota != null && { Fuota: input.Fuota }),
+    ...(input.Multicast != null && { Multicast: input.Multicast }),
+    ...(input.Positioning != null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
   };
 };
 
@@ -9613,12 +9601,10 @@ const serializeAws_restJson1JoinEuiRange = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1JoinEventConfiguration = (input: JoinEventConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
+    ...(input.LoRaWAN != null && {
       LoRaWAN: serializeAws_restJson1LoRaWANJoinEventNotificationConfigurations(input.LoRaWAN, context),
     }),
-    ...(input.WirelessDeviceIdEventTopic != undefined && {
-      WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic,
-    }),
+    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
   };
 };
 
@@ -9627,7 +9613,7 @@ const serializeAws_restJson1JoinResourceTypeEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
+    ...(input.LoRaWAN != null && {
       LoRaWAN: serializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration(input.LoRaWAN, context),
     }),
   };
@@ -9638,7 +9624,7 @@ const serializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfiguratio
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayEuiEventTopic != undefined && { GatewayEuiEventTopic: input.GatewayEuiEventTopic }),
+    ...(input.GatewayEuiEventTopic != null && { GatewayEuiEventTopic: input.GatewayEuiEventTopic }),
   };
 };
 
@@ -9647,74 +9633,74 @@ const serializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguratio
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WirelessGatewayEventTopic != undefined && { WirelessGatewayEventTopic: input.WirelessGatewayEventTopic }),
+    ...(input.WirelessGatewayEventTopic != null && { WirelessGatewayEventTopic: input.WirelessGatewayEventTopic }),
   };
 };
 
 const serializeAws_restJson1LoRaWANDevice = (input: LoRaWANDevice, context: __SerdeContext): any => {
   return {
-    ...(input.AbpV1_0_x != undefined && { AbpV1_0_x: serializeAws_restJson1AbpV1_0_x(input.AbpV1_0_x, context) }),
-    ...(input.AbpV1_1 != undefined && { AbpV1_1: serializeAws_restJson1AbpV1_1(input.AbpV1_1, context) }),
-    ...(input.DevEui != undefined && { DevEui: input.DevEui }),
-    ...(input.DeviceProfileId != undefined && { DeviceProfileId: input.DeviceProfileId }),
-    ...(input.FPorts != undefined && { FPorts: serializeAws_restJson1FPorts(input.FPorts, context) }),
-    ...(input.OtaaV1_0_x != undefined && { OtaaV1_0_x: serializeAws_restJson1OtaaV1_0_x(input.OtaaV1_0_x, context) }),
-    ...(input.OtaaV1_1 != undefined && { OtaaV1_1: serializeAws_restJson1OtaaV1_1(input.OtaaV1_1, context) }),
-    ...(input.ServiceProfileId != undefined && { ServiceProfileId: input.ServiceProfileId }),
+    ...(input.AbpV1_0_x != null && { AbpV1_0_x: serializeAws_restJson1AbpV1_0_x(input.AbpV1_0_x, context) }),
+    ...(input.AbpV1_1 != null && { AbpV1_1: serializeAws_restJson1AbpV1_1(input.AbpV1_1, context) }),
+    ...(input.DevEui != null && { DevEui: input.DevEui }),
+    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
+    ...(input.FPorts != null && { FPorts: serializeAws_restJson1FPorts(input.FPorts, context) }),
+    ...(input.OtaaV1_0_x != null && { OtaaV1_0_x: serializeAws_restJson1OtaaV1_0_x(input.OtaaV1_0_x, context) }),
+    ...(input.OtaaV1_1 != null && { OtaaV1_1: serializeAws_restJson1OtaaV1_1(input.OtaaV1_1, context) }),
+    ...(input.ServiceProfileId != null && { ServiceProfileId: input.ServiceProfileId }),
   };
 };
 
 const serializeAws_restJson1LoRaWANDeviceProfile = (input: LoRaWANDeviceProfile, context: __SerdeContext): any => {
   return {
-    ...(input.ClassBTimeout != undefined && { ClassBTimeout: input.ClassBTimeout }),
-    ...(input.ClassCTimeout != undefined && { ClassCTimeout: input.ClassCTimeout }),
-    ...(input.FactoryPresetFreqsList != undefined && {
+    ...(input.ClassBTimeout != null && { ClassBTimeout: input.ClassBTimeout }),
+    ...(input.ClassCTimeout != null && { ClassCTimeout: input.ClassCTimeout }),
+    ...(input.FactoryPresetFreqsList != null && {
       FactoryPresetFreqsList: serializeAws_restJson1FactoryPresetFreqsList(input.FactoryPresetFreqsList, context),
     }),
-    ...(input.MacVersion != undefined && { MacVersion: input.MacVersion }),
-    ...(input.MaxDutyCycle != undefined && { MaxDutyCycle: input.MaxDutyCycle }),
-    ...(input.MaxEirp != undefined && { MaxEirp: input.MaxEirp }),
-    ...(input.PingSlotDr != undefined && { PingSlotDr: input.PingSlotDr }),
-    ...(input.PingSlotFreq != undefined && { PingSlotFreq: input.PingSlotFreq }),
-    ...(input.PingSlotPeriod != undefined && { PingSlotPeriod: input.PingSlotPeriod }),
-    ...(input.RegParamsRevision != undefined && { RegParamsRevision: input.RegParamsRevision }),
-    ...(input.RfRegion != undefined && { RfRegion: input.RfRegion }),
-    ...(input.RxDataRate2 != undefined && { RxDataRate2: input.RxDataRate2 }),
-    ...(input.RxDelay1 != undefined && { RxDelay1: input.RxDelay1 }),
-    ...(input.RxDrOffset1 != undefined && { RxDrOffset1: input.RxDrOffset1 }),
-    ...(input.RxFreq2 != undefined && { RxFreq2: input.RxFreq2 }),
-    ...(input.Supports32BitFCnt != undefined && { Supports32BitFCnt: input.Supports32BitFCnt }),
-    ...(input.SupportsClassB != undefined && { SupportsClassB: input.SupportsClassB }),
-    ...(input.SupportsClassC != undefined && { SupportsClassC: input.SupportsClassC }),
-    ...(input.SupportsJoin != undefined && { SupportsJoin: input.SupportsJoin }),
+    ...(input.MacVersion != null && { MacVersion: input.MacVersion }),
+    ...(input.MaxDutyCycle != null && { MaxDutyCycle: input.MaxDutyCycle }),
+    ...(input.MaxEirp != null && { MaxEirp: input.MaxEirp }),
+    ...(input.PingSlotDr != null && { PingSlotDr: input.PingSlotDr }),
+    ...(input.PingSlotFreq != null && { PingSlotFreq: input.PingSlotFreq }),
+    ...(input.PingSlotPeriod != null && { PingSlotPeriod: input.PingSlotPeriod }),
+    ...(input.RegParamsRevision != null && { RegParamsRevision: input.RegParamsRevision }),
+    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
+    ...(input.RxDataRate2 != null && { RxDataRate2: input.RxDataRate2 }),
+    ...(input.RxDelay1 != null && { RxDelay1: input.RxDelay1 }),
+    ...(input.RxDrOffset1 != null && { RxDrOffset1: input.RxDrOffset1 }),
+    ...(input.RxFreq2 != null && { RxFreq2: input.RxFreq2 }),
+    ...(input.Supports32BitFCnt != null && { Supports32BitFCnt: input.Supports32BitFCnt }),
+    ...(input.SupportsClassB != null && { SupportsClassB: input.SupportsClassB }),
+    ...(input.SupportsClassC != null && { SupportsClassC: input.SupportsClassC }),
+    ...(input.SupportsJoin != null && { SupportsJoin: input.SupportsJoin }),
   };
 };
 
 const serializeAws_restJson1LoRaWANFuotaTask = (input: LoRaWANFuotaTask, context: __SerdeContext): any => {
   return {
-    ...(input.RfRegion != undefined && { RfRegion: input.RfRegion }),
+    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
   };
 };
 
 const serializeAws_restJson1LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayEui != undefined && { GatewayEui: input.GatewayEui }),
-    ...(input.JoinEuiFilters != undefined && {
+    ...(input.GatewayEui != null && { GatewayEui: input.GatewayEui }),
+    ...(input.JoinEuiFilters != null && {
       JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
     }),
-    ...(input.NetIdFilters != undefined && {
+    ...(input.NetIdFilters != null && {
       NetIdFilters: serializeAws_restJson1NetIdFilters(input.NetIdFilters, context),
     }),
-    ...(input.RfRegion != undefined && { RfRegion: input.RfRegion }),
-    ...(input.SubBands != undefined && { SubBands: serializeAws_restJson1SubBands(input.SubBands, context) }),
+    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
+    ...(input.SubBands != null && { SubBands: serializeAws_restJson1SubBands(input.SubBands, context) }),
   };
 };
 
 const serializeAws_restJson1LoRaWANGatewayVersion = (input: LoRaWANGatewayVersion, context: __SerdeContext): any => {
   return {
-    ...(input.Model != undefined && { Model: input.Model }),
-    ...(input.PackageVersion != undefined && { PackageVersion: input.PackageVersion }),
-    ...(input.Station != undefined && { Station: input.Station }),
+    ...(input.Model != null && { Model: input.Model }),
+    ...(input.PackageVersion != null && { PackageVersion: input.PackageVersion }),
+    ...(input.Station != null && { Station: input.Station }),
   };
 };
 
@@ -9723,7 +9709,7 @@ const serializeAws_restJson1LoRaWANJoinEventNotificationConfigurations = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DevEuiEventTopic != undefined && { DevEuiEventTopic: input.DevEuiEventTopic }),
+    ...(input.DevEuiEventTopic != null && { DevEuiEventTopic: input.DevEuiEventTopic }),
   };
 };
 
@@ -9732,14 +9718,14 @@ const serializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WirelessDeviceEventTopic != undefined && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
+    ...(input.WirelessDeviceEventTopic != null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
   };
 };
 
 const serializeAws_restJson1LoRaWANMulticast = (input: LoRaWANMulticast, context: __SerdeContext): any => {
   return {
-    ...(input.DlClass != undefined && { DlClass: input.DlClass }),
-    ...(input.RfRegion != undefined && { RfRegion: input.RfRegion }),
+    ...(input.DlClass != null && { DlClass: input.DlClass }),
+    ...(input.RfRegion != null && { RfRegion: input.RfRegion }),
   };
 };
 
@@ -9748,7 +9734,7 @@ const serializeAws_restJson1LoRaWANMulticastMetadata = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FPort != undefined && { FPort: input.FPort }),
+    ...(input.FPort != null && { FPort: input.FPort }),
   };
 };
 
@@ -9757,12 +9743,12 @@ const serializeAws_restJson1LoRaWANMulticastSession = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DlDr != undefined && { DlDr: input.DlDr }),
-    ...(input.DlFreq != undefined && { DlFreq: input.DlFreq }),
-    ...(input.SessionStartTime != undefined && {
+    ...(input.DlDr != null && { DlDr: input.DlDr }),
+    ...(input.DlFreq != null && { DlFreq: input.DlFreq }),
+    ...(input.SessionStartTime != null && {
       SessionStartTime: input.SessionStartTime.toISOString().split(".")[0] + "Z",
     }),
-    ...(input.SessionTimeout != undefined && { SessionTimeout: input.SessionTimeout }),
+    ...(input.SessionTimeout != null && { SessionTimeout: input.SessionTimeout }),
   };
 };
 
@@ -9771,29 +9757,29 @@ const serializeAws_restJson1LoRaWANSendDataToDevice = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FPort != undefined && { FPort: input.FPort }),
+    ...(input.FPort != null && { FPort: input.FPort }),
   };
 };
 
 const serializeAws_restJson1LoRaWANServiceProfile = (input: LoRaWANServiceProfile, context: __SerdeContext): any => {
   return {
-    ...(input.AddGwMetadata != undefined && { AddGwMetadata: input.AddGwMetadata }),
+    ...(input.AddGwMetadata != null && { AddGwMetadata: input.AddGwMetadata }),
   };
 };
 
 const serializeAws_restJson1LoRaWANStartFuotaTask = (input: LoRaWANStartFuotaTask, context: __SerdeContext): any => {
   return {
-    ...(input.StartTime != undefined && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.StartTime != null && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
   };
 };
 
 const serializeAws_restJson1LoRaWANUpdateDevice = (input: LoRaWANUpdateDevice, context: __SerdeContext): any => {
   return {
-    ...(input.AbpV1_0_x != undefined && { AbpV1_0_x: serializeAws_restJson1UpdateAbpV1_0_x(input.AbpV1_0_x, context) }),
-    ...(input.AbpV1_1 != undefined && { AbpV1_1: serializeAws_restJson1UpdateAbpV1_1(input.AbpV1_1, context) }),
-    ...(input.DeviceProfileId != undefined && { DeviceProfileId: input.DeviceProfileId }),
-    ...(input.FPorts != undefined && { FPorts: serializeAws_restJson1UpdateFPorts(input.FPorts, context) }),
-    ...(input.ServiceProfileId != undefined && { ServiceProfileId: input.ServiceProfileId }),
+    ...(input.AbpV1_0_x != null && { AbpV1_0_x: serializeAws_restJson1UpdateAbpV1_0_x(input.AbpV1_0_x, context) }),
+    ...(input.AbpV1_1 != null && { AbpV1_1: serializeAws_restJson1UpdateAbpV1_1(input.AbpV1_1, context) }),
+    ...(input.DeviceProfileId != null && { DeviceProfileId: input.DeviceProfileId }),
+    ...(input.FPorts != null && { FPorts: serializeAws_restJson1UpdateFPorts(input.FPorts, context) }),
+    ...(input.ServiceProfileId != null && { ServiceProfileId: input.ServiceProfileId }),
   };
 };
 
@@ -9802,12 +9788,12 @@ const serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CurrentVersion != undefined && {
+    ...(input.CurrentVersion != null && {
       CurrentVersion: serializeAws_restJson1LoRaWANGatewayVersion(input.CurrentVersion, context),
     }),
-    ...(input.SigKeyCrc != undefined && { SigKeyCrc: input.SigKeyCrc }),
-    ...(input.UpdateSignature != undefined && { UpdateSignature: input.UpdateSignature }),
-    ...(input.UpdateVersion != undefined && {
+    ...(input.SigKeyCrc != null && { SigKeyCrc: input.SigKeyCrc }),
+    ...(input.UpdateSignature != null && { UpdateSignature: input.UpdateSignature }),
+    ...(input.UpdateVersion != null && {
       UpdateVersion: serializeAws_restJson1LoRaWANGatewayVersion(input.UpdateVersion, context),
     }),
   };
@@ -9818,9 +9804,7 @@ const serializeAws_restJson1MulticastWirelessMetadata = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
-      LoRaWAN: serializeAws_restJson1LoRaWANMulticastMetadata(input.LoRaWAN, context),
-    }),
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticastMetadata(input.LoRaWAN, context) }),
   };
 };
 
@@ -9837,17 +9821,17 @@ const serializeAws_restJson1NetIdFilters = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1OtaaV1_0_x = (input: OtaaV1_0_x, context: __SerdeContext): any => {
   return {
-    ...(input.AppEui != undefined && { AppEui: input.AppEui }),
-    ...(input.AppKey != undefined && { AppKey: input.AppKey }),
-    ...(input.GenAppKey != undefined && { GenAppKey: input.GenAppKey }),
+    ...(input.AppEui != null && { AppEui: input.AppEui }),
+    ...(input.AppKey != null && { AppKey: input.AppKey }),
+    ...(input.GenAppKey != null && { GenAppKey: input.GenAppKey }),
   };
 };
 
 const serializeAws_restJson1OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext): any => {
   return {
-    ...(input.AppKey != undefined && { AppKey: input.AppKey }),
-    ...(input.JoinEui != undefined && { JoinEui: input.JoinEui }),
-    ...(input.NwkKey != undefined && { NwkKey: input.NwkKey }),
+    ...(input.AppKey != null && { AppKey: input.AppKey }),
+    ...(input.JoinEui != null && { JoinEui: input.JoinEui }),
+    ...(input.NwkKey != null && { NwkKey: input.NwkKey }),
   };
 };
 
@@ -9864,9 +9848,9 @@ const serializeAws_restJson1PositionCoordinate = (input: number[], context: __Se
 
 const serializeAws_restJson1Positioning = (input: Positioning, context: __SerdeContext): any => {
   return {
-    ...(input.ClockSync != undefined && { ClockSync: input.ClockSync }),
-    ...(input.Gnss != undefined && { Gnss: input.Gnss }),
-    ...(input.Stream != undefined && { Stream: input.Stream }),
+    ...(input.ClockSync != null && { ClockSync: input.ClockSync }),
+    ...(input.Gnss != null && { Gnss: input.Gnss }),
+    ...(input.Stream != null && { Stream: input.Stream }),
   };
 };
 
@@ -9875,7 +9859,7 @@ const serializeAws_restJson1PositionSolverConfigurations = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SemtechGnss != undefined && {
+    ...(input.SemtechGnss != null && {
       SemtechGnss: serializeAws_restJson1SemtechGnssConfiguration(input.SemtechGnss, context),
     }),
   };
@@ -9886,12 +9870,10 @@ const serializeAws_restJson1ProximityEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Sidewalk != undefined && {
+    ...(input.Sidewalk != null && {
       Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
     }),
-    ...(input.WirelessDeviceIdEventTopic != undefined && {
-      WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic,
-    }),
+    ...(input.WirelessDeviceIdEventTopic != null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
   };
 };
 
@@ -9900,7 +9882,7 @@ const serializeAws_restJson1ProximityResourceTypeEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Sidewalk != undefined && {
+    ...(input.Sidewalk != null && {
       Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
     }),
   };
@@ -9911,31 +9893,31 @@ const serializeAws_restJson1SemtechGnssConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Fec != undefined && { Fec: input.Fec }),
-    ...(input.Status != undefined && { Status: input.Status }),
+    ...(input.Fec != null && { Fec: input.Fec }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
 const serializeAws_restJson1SessionKeysAbpV1_0_x = (input: SessionKeysAbpV1_0_x, context: __SerdeContext): any => {
   return {
-    ...(input.AppSKey != undefined && { AppSKey: input.AppSKey }),
-    ...(input.NwkSKey != undefined && { NwkSKey: input.NwkSKey }),
+    ...(input.AppSKey != null && { AppSKey: input.AppSKey }),
+    ...(input.NwkSKey != null && { NwkSKey: input.NwkSKey }),
   };
 };
 
 const serializeAws_restJson1SessionKeysAbpV1_1 = (input: SessionKeysAbpV1_1, context: __SerdeContext): any => {
   return {
-    ...(input.AppSKey != undefined && { AppSKey: input.AppSKey }),
-    ...(input.FNwkSIntKey != undefined && { FNwkSIntKey: input.FNwkSIntKey }),
-    ...(input.NwkSEncKey != undefined && { NwkSEncKey: input.NwkSEncKey }),
-    ...(input.SNwkSIntKey != undefined && { SNwkSIntKey: input.SNwkSIntKey }),
+    ...(input.AppSKey != null && { AppSKey: input.AppSKey }),
+    ...(input.FNwkSIntKey != null && { FNwkSIntKey: input.FNwkSIntKey }),
+    ...(input.NwkSEncKey != null && { NwkSEncKey: input.NwkSEncKey }),
+    ...(input.SNwkSIntKey != null && { SNwkSIntKey: input.SNwkSIntKey }),
   };
 };
 
 const serializeAws_restJson1SidewalkAccountInfo = (input: SidewalkAccountInfo, context: __SerdeContext): any => {
   return {
-    ...(input.AmazonId != undefined && { AmazonId: input.AmazonId }),
-    ...(input.AppServerPrivateKey != undefined && { AppServerPrivateKey: input.AppServerPrivateKey }),
+    ...(input.AmazonId != null && { AmazonId: input.AmazonId }),
+    ...(input.AppServerPrivateKey != null && { AppServerPrivateKey: input.AppServerPrivateKey }),
   };
 };
 
@@ -9944,7 +9926,7 @@ const serializeAws_restJson1SidewalkEventNotificationConfigurations = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AmazonIdEventTopic != undefined && { AmazonIdEventTopic: input.AmazonIdEventTopic }),
+    ...(input.AmazonIdEventTopic != null && { AmazonIdEventTopic: input.AmazonIdEventTopic }),
   };
 };
 
@@ -9953,7 +9935,7 @@ const serializeAws_restJson1SidewalkResourceTypeEventConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WirelessDeviceEventTopic != undefined && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
+    ...(input.WirelessDeviceEventTopic != null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
   };
 };
 
@@ -9962,14 +9944,14 @@ const serializeAws_restJson1SidewalkSendDataToDevice = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.Seq != undefined && { Seq: input.Seq }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.Seq != null && { Seq: input.Seq }),
   };
 };
 
 const serializeAws_restJson1SidewalkUpdateAccount = (input: SidewalkUpdateAccount, context: __SerdeContext): any => {
   return {
-    ...(input.AppServerPrivateKey != undefined && { AppServerPrivateKey: input.AppServerPrivateKey }),
+    ...(input.AppServerPrivateKey != null && { AppServerPrivateKey: input.AppServerPrivateKey }),
   };
 };
 
@@ -9986,8 +9968,8 @@ const serializeAws_restJson1SubBands = (input: number[], context: __SerdeContext
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -10004,28 +9986,26 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1TraceContent = (input: TraceContent, context: __SerdeContext): any => {
   return {
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
-    ...(input.WirelessDeviceFrameInfo != undefined && { WirelessDeviceFrameInfo: input.WirelessDeviceFrameInfo }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
+    ...(input.WirelessDeviceFrameInfo != null && { WirelessDeviceFrameInfo: input.WirelessDeviceFrameInfo }),
   };
 };
 
 const serializeAws_restJson1UpdateAbpV1_0_x = (input: UpdateAbpV1_0_x, context: __SerdeContext): any => {
   return {
-    ...(input.FCntStart != undefined && { FCntStart: input.FCntStart }),
+    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
   };
 };
 
 const serializeAws_restJson1UpdateAbpV1_1 = (input: UpdateAbpV1_1, context: __SerdeContext): any => {
   return {
-    ...(input.FCntStart != undefined && { FCntStart: input.FCntStart }),
+    ...(input.FCntStart != null && { FCntStart: input.FCntStart }),
   };
 };
 
 const serializeAws_restJson1UpdateFPorts = (input: UpdateFPorts, context: __SerdeContext): any => {
   return {
-    ...(input.Positioning != undefined && {
-      Positioning: serializeAws_restJson1Positioning(input.Positioning, context),
-    }),
+    ...(input.Positioning != null && { Positioning: serializeAws_restJson1Positioning(input.Positioning, context) }),
   };
 };
 
@@ -10034,11 +10014,11 @@ const serializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
+    ...(input.LoRaWAN != null && {
       LoRaWAN: serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate(input.LoRaWAN, context),
     }),
-    ...(input.UpdateDataRole != undefined && { UpdateDataRole: input.UpdateDataRole }),
-    ...(input.UpdateDataSource != undefined && { UpdateDataSource: input.UpdateDataSource }),
+    ...(input.UpdateDataRole != null && { UpdateDataRole: input.UpdateDataRole }),
+    ...(input.UpdateDataSource != null && { UpdateDataSource: input.UpdateDataSource }),
   };
 };
 
@@ -10047,8 +10027,8 @@ const serializeAws_restJson1WirelessDeviceEventLogOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Event != undefined && { Event: input.Event }),
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
+    ...(input.Event != null && { Event: input.Event }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
   };
 };
 
@@ -10082,11 +10062,11 @@ const serializeAws_restJson1WirelessDeviceLogOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Events != undefined && {
+    ...(input.Events != null && {
       Events: serializeAws_restJson1WirelessDeviceEventLogOptionList(input.Events, context),
     }),
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -10109,8 +10089,8 @@ const serializeAws_restJson1WirelessGatewayEventLogOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Event != undefined && { Event: input.Event }),
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
+    ...(input.Event != null && { Event: input.Event }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
   };
 };
 
@@ -10144,11 +10124,11 @@ const serializeAws_restJson1WirelessGatewayLogOption = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Events != undefined && {
+    ...(input.Events != null && {
       Events: serializeAws_restJson1WirelessGatewayEventLogOptionList(input.Events, context),
     }),
-    ...(input.LogLevel != undefined && { LogLevel: input.LogLevel }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.LogLevel != null && { LogLevel: input.LogLevel }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -10168,10 +10148,8 @@ const serializeAws_restJson1WirelessGatewayLogOptionList = (
 
 const serializeAws_restJson1WirelessMetadata = (input: WirelessMetadata, context: __SerdeContext): any => {
   return {
-    ...(input.LoRaWAN != undefined && {
-      LoRaWAN: serializeAws_restJson1LoRaWANSendDataToDevice(input.LoRaWAN, context),
-    }),
-    ...(input.Sidewalk != undefined && {
+    ...(input.LoRaWAN != null && { LoRaWAN: serializeAws_restJson1LoRaWANSendDataToDevice(input.LoRaWAN, context) }),
+    ...(input.Sidewalk != null && {
       Sidewalk: serializeAws_restJson1SidewalkSendDataToDevice(input.Sidewalk, context),
     }),
   };
@@ -10182,7 +10160,7 @@ const deserializeAws_restJson1AbpV1_0_x = (output: any, context: __SerdeContext)
     DevAddr: __expectString(output.DevAddr),
     FCntStart: __expectInt32(output.FCntStart),
     SessionKeys:
-      output.SessionKeys != undefined
+      output.SessionKeys != null
         ? deserializeAws_restJson1SessionKeysAbpV1_0_x(output.SessionKeys, context)
         : undefined,
   } as any;
@@ -10193,9 +10171,7 @@ const deserializeAws_restJson1AbpV1_1 = (output: any, context: __SerdeContext): 
     DevAddr: __expectString(output.DevAddr),
     FCntStart: __expectInt32(output.FCntStart),
     SessionKeys:
-      output.SessionKeys != undefined
-        ? deserializeAws_restJson1SessionKeysAbpV1_1(output.SessionKeys, context)
-        : undefined,
+      output.SessionKeys != null ? deserializeAws_restJson1SessionKeysAbpV1_1(output.SessionKeys, context) : undefined,
   } as any;
 };
 
@@ -10219,7 +10195,7 @@ const deserializeAws_restJson1ConnectionStatusEventConfiguration = (
 ): ConnectionStatusEventConfiguration => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations(output.LoRaWAN, context)
         : undefined,
     WirelessGatewayIdEventTopic: __expectString(output.WirelessGatewayIdEventTopic),
@@ -10232,7 +10208,7 @@ const deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration = (
 ): ConnectionStatusResourceTypeEventConfiguration => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration(output.LoRaWAN, context)
         : undefined,
   } as any;
@@ -10299,7 +10275,7 @@ const deserializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
 ): DeviceRegistrationStateEventConfiguration => {
   return {
     Sidewalk:
-      output.Sidewalk != undefined
+      output.Sidewalk != null
         ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
         : undefined,
     WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
@@ -10312,7 +10288,7 @@ const deserializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfigurat
 ): DeviceRegistrationStateResourceTypeEventConfiguration => {
   return {
     Sidewalk:
-      output.Sidewalk != undefined
+      output.Sidewalk != null
         ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
         : undefined,
   } as any;
@@ -10321,9 +10297,7 @@ const deserializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfigurat
 const deserializeAws_restJson1DownlinkQueueMessage = (output: any, context: __SerdeContext): DownlinkQueueMessage => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
-        ? deserializeAws_restJson1LoRaWANSendDataToDevice(output.LoRaWAN, context)
-        : undefined,
+      output.LoRaWAN != null ? deserializeAws_restJson1LoRaWANSendDataToDevice(output.LoRaWAN, context) : undefined,
     MessageId: __expectString(output.MessageId),
     ReceivedAt: __expectString(output.ReceivedAt),
     TransmitMode: __expectInt32(output.TransmitMode),
@@ -10351,7 +10325,7 @@ const deserializeAws_restJson1EventConfigurationItem = (
 ): EventConfigurationItem => {
   return {
     Events:
-      output.Events != undefined
+      output.Events != null
         ? deserializeAws_restJson1EventNotificationItemConfigurations(output.Events, context)
         : undefined,
     Identifier: __expectString(output.Identifier),
@@ -10381,16 +10355,16 @@ const deserializeAws_restJson1EventNotificationItemConfigurations = (
 ): EventNotificationItemConfigurations => {
   return {
     ConnectionStatus:
-      output.ConnectionStatus != undefined
+      output.ConnectionStatus != null
         ? deserializeAws_restJson1ConnectionStatusEventConfiguration(output.ConnectionStatus, context)
         : undefined,
     DeviceRegistrationState:
-      output.DeviceRegistrationState != undefined
+      output.DeviceRegistrationState != null
         ? deserializeAws_restJson1DeviceRegistrationStateEventConfiguration(output.DeviceRegistrationState, context)
         : undefined,
-    Join: output.Join != undefined ? deserializeAws_restJson1JoinEventConfiguration(output.Join, context) : undefined,
+    Join: output.Join != null ? deserializeAws_restJson1JoinEventConfiguration(output.Join, context) : undefined,
     Proximity:
-      output.Proximity != undefined
+      output.Proximity != null
         ? deserializeAws_restJson1ProximityEventConfiguration(output.Proximity, context)
         : undefined,
   } as any;
@@ -10414,7 +10388,7 @@ const deserializeAws_restJson1FPorts = (output: any, context: __SerdeContext): F
     Fuota: __expectInt32(output.Fuota),
     Multicast: __expectInt32(output.Multicast),
     Positioning:
-      output.Positioning != undefined ? deserializeAws_restJson1Positioning(output.Positioning, context) : undefined,
+      output.Positioning != null ? deserializeAws_restJson1Positioning(output.Positioning, context) : undefined,
   } as any;
 };
 
@@ -10468,7 +10442,7 @@ const deserializeAws_restJson1JoinEventConfiguration = (
 ): JoinEventConfiguration => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANJoinEventNotificationConfigurations(output.LoRaWAN, context)
         : undefined,
     WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
@@ -10481,7 +10455,7 @@ const deserializeAws_restJson1JoinResourceTypeEventConfiguration = (
 ): JoinResourceTypeEventConfiguration => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration(output.LoRaWAN, context)
         : undefined,
   } as any;
@@ -10507,14 +10481,13 @@ const deserializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfigurat
 
 const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeContext): LoRaWANDevice => {
   return {
-    AbpV1_0_x: output.AbpV1_0_x != undefined ? deserializeAws_restJson1AbpV1_0_x(output.AbpV1_0_x, context) : undefined,
-    AbpV1_1: output.AbpV1_1 != undefined ? deserializeAws_restJson1AbpV1_1(output.AbpV1_1, context) : undefined,
+    AbpV1_0_x: output.AbpV1_0_x != null ? deserializeAws_restJson1AbpV1_0_x(output.AbpV1_0_x, context) : undefined,
+    AbpV1_1: output.AbpV1_1 != null ? deserializeAws_restJson1AbpV1_1(output.AbpV1_1, context) : undefined,
     DevEui: __expectString(output.DevEui),
     DeviceProfileId: __expectString(output.DeviceProfileId),
-    FPorts: output.FPorts != undefined ? deserializeAws_restJson1FPorts(output.FPorts, context) : undefined,
-    OtaaV1_0_x:
-      output.OtaaV1_0_x != undefined ? deserializeAws_restJson1OtaaV1_0_x(output.OtaaV1_0_x, context) : undefined,
-    OtaaV1_1: output.OtaaV1_1 != undefined ? deserializeAws_restJson1OtaaV1_1(output.OtaaV1_1, context) : undefined,
+    FPorts: output.FPorts != null ? deserializeAws_restJson1FPorts(output.FPorts, context) : undefined,
+    OtaaV1_0_x: output.OtaaV1_0_x != null ? deserializeAws_restJson1OtaaV1_0_x(output.OtaaV1_0_x, context) : undefined,
+    OtaaV1_1: output.OtaaV1_1 != null ? deserializeAws_restJson1OtaaV1_1(output.OtaaV1_1, context) : undefined,
     ServiceProfileId: __expectString(output.ServiceProfileId),
   } as any;
 };
@@ -10526,7 +10499,7 @@ const deserializeAws_restJson1LoRaWANDeviceMetadata = (output: any, context: __S
     FPort: __expectInt32(output.FPort),
     Frequency: __expectInt32(output.Frequency),
     Gateways:
-      output.Gateways != undefined
+      output.Gateways != null
         ? deserializeAws_restJson1LoRaWANGatewayMetadataList(output.Gateways, context)
         : undefined,
     Timestamp: __expectString(output.Timestamp),
@@ -10538,7 +10511,7 @@ const deserializeAws_restJson1LoRaWANDeviceProfile = (output: any, context: __Se
     ClassBTimeout: __expectInt32(output.ClassBTimeout),
     ClassCTimeout: __expectInt32(output.ClassCTimeout),
     FactoryPresetFreqsList:
-      output.FactoryPresetFreqsList != undefined
+      output.FactoryPresetFreqsList != null
         ? deserializeAws_restJson1FactoryPresetFreqsList(output.FactoryPresetFreqsList, context)
         : undefined,
     MacVersion: __expectString(output.MacVersion),
@@ -10566,7 +10539,7 @@ const deserializeAws_restJson1LoRaWANFuotaTaskGetInfo = (
 ): LoRaWANFuotaTaskGetInfo => {
   return {
     RfRegion: __expectString(output.RfRegion),
-    StartTime: output.StartTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -10574,13 +10547,13 @@ const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeCon
   return {
     GatewayEui: __expectString(output.GatewayEui),
     JoinEuiFilters:
-      output.JoinEuiFilters != undefined
+      output.JoinEuiFilters != null
         ? deserializeAws_restJson1JoinEuiFilters(output.JoinEuiFilters, context)
         : undefined,
     NetIdFilters:
-      output.NetIdFilters != undefined ? deserializeAws_restJson1NetIdFilters(output.NetIdFilters, context) : undefined,
+      output.NetIdFilters != null ? deserializeAws_restJson1NetIdFilters(output.NetIdFilters, context) : undefined,
     RfRegion: __expectString(output.RfRegion),
-    SubBands: output.SubBands != undefined ? deserializeAws_restJson1SubBands(output.SubBands, context) : undefined,
+    SubBands: output.SubBands != null ? deserializeAws_restJson1SubBands(output.SubBands, context) : undefined,
   } as any;
 };
 
@@ -10590,7 +10563,7 @@ const deserializeAws_restJson1LoRaWANGatewayCurrentVersion = (
 ): LoRaWANGatewayCurrentVersion => {
   return {
     CurrentVersion:
-      output.CurrentVersion != undefined
+      output.CurrentVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.CurrentVersion, context)
         : undefined,
   } as any;
@@ -10698,9 +10671,7 @@ const deserializeAws_restJson1LoRaWANMulticastSession = (
     DlDr: __expectInt32(output.DlDr),
     DlFreq: __expectInt32(output.DlFreq),
     SessionStartTime:
-      output.SessionStartTime != undefined
-        ? __expectNonNull(__parseRfc3339DateTime(output.SessionStartTime))
-        : undefined,
+      output.SessionStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.SessionStartTime)) : undefined,
     SessionTimeout: __expectInt32(output.SessionTimeout),
   } as any;
 };
@@ -10720,13 +10691,13 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
 ): LoRaWANUpdateGatewayTaskCreate => {
   return {
     CurrentVersion:
-      output.CurrentVersion != undefined
+      output.CurrentVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.CurrentVersion, context)
         : undefined,
     SigKeyCrc: __expectLong(output.SigKeyCrc),
     UpdateSignature: __expectString(output.UpdateSignature),
     UpdateVersion:
-      output.UpdateVersion != undefined
+      output.UpdateVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.UpdateVersion, context)
         : undefined,
   } as any;
@@ -10738,11 +10709,11 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry = (
 ): LoRaWANUpdateGatewayTaskEntry => {
   return {
     CurrentVersion:
-      output.CurrentVersion != undefined
+      output.CurrentVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.CurrentVersion, context)
         : undefined,
     UpdateVersion:
-      output.UpdateVersion != undefined
+      output.UpdateVersion != null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.UpdateVersion, context)
         : undefined,
   } as any;
@@ -10854,7 +10825,7 @@ const deserializeAws_restJson1PositionConfigurationItem = (
     ResourceIdentifier: __expectString(output.ResourceIdentifier),
     ResourceType: __expectString(output.ResourceType),
     Solvers:
-      output.Solvers != undefined ? deserializeAws_restJson1PositionSolverDetails(output.Solvers, context) : undefined,
+      output.Solvers != null ? deserializeAws_restJson1PositionSolverDetails(output.Solvers, context) : undefined,
   } as any;
 };
 
@@ -10896,9 +10867,7 @@ const deserializeAws_restJson1Positioning = (output: any, context: __SerdeContex
 const deserializeAws_restJson1PositionSolverDetails = (output: any, context: __SerdeContext): PositionSolverDetails => {
   return {
     SemtechGnss:
-      output.SemtechGnss != undefined
-        ? deserializeAws_restJson1SemtechGnssDetail(output.SemtechGnss, context)
-        : undefined,
+      output.SemtechGnss != null ? deserializeAws_restJson1SemtechGnssDetail(output.SemtechGnss, context) : undefined,
   } as any;
 };
 
@@ -10908,7 +10877,7 @@ const deserializeAws_restJson1ProximityEventConfiguration = (
 ): ProximityEventConfiguration => {
   return {
     Sidewalk:
-      output.Sidewalk != undefined
+      output.Sidewalk != null
         ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
         : undefined,
     WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
@@ -10921,7 +10890,7 @@ const deserializeAws_restJson1ProximityResourceTypeEventConfiguration = (
 ): ProximityResourceTypeEventConfiguration => {
   return {
     Sidewalk:
-      output.Sidewalk != undefined
+      output.Sidewalk != null
         ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
         : undefined,
   } as any;
@@ -11009,7 +10978,7 @@ const deserializeAws_restJson1SidewalkDevice = (output: any, context: __SerdeCon
   return {
     AmazonId: __expectString(output.AmazonId),
     DeviceCertificates:
-      output.DeviceCertificates != undefined
+      output.DeviceCertificates != null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
     SidewalkId: __expectString(output.SidewalkId),
@@ -11042,7 +11011,7 @@ const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __Serd
   return {
     AmazonId: __expectString(output.AmazonId),
     DeviceCertificates:
-      output.DeviceCertificates != undefined
+      output.DeviceCertificates != null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
     SidewalkId: __expectString(output.SidewalkId),
@@ -11103,7 +11072,7 @@ const deserializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
 ): UpdateWirelessGatewayTaskCreate => {
   return {
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate(output.LoRaWAN, context)
         : undefined,
     UpdateDataRole: __expectString(output.UpdateDataRole),
@@ -11119,7 +11088,7 @@ const deserializeAws_restJson1UpdateWirelessGatewayTaskEntry = (
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
     LoRaWAN:
-      output.LoRaWAN != undefined
+      output.LoRaWAN != null
         ? deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry(output.LoRaWAN, context)
         : undefined,
   } as any;
@@ -11168,7 +11137,7 @@ const deserializeAws_restJson1WirelessDeviceLogOption = (
 ): WirelessDeviceLogOption => {
   return {
     Events:
-      output.Events != undefined
+      output.Events != null
         ? deserializeAws_restJson1WirelessDeviceEventLogOptionList(output.Events, context)
         : undefined,
     LogLevel: __expectString(output.LogLevel),
@@ -11201,13 +11170,12 @@ const deserializeAws_restJson1WirelessDeviceStatistics = (
     FuotaDeviceStatus: __expectString(output.FuotaDeviceStatus),
     Id: __expectString(output.Id),
     LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
-    LoRaWAN:
-      output.LoRaWAN != undefined ? deserializeAws_restJson1LoRaWANListDevice(output.LoRaWAN, context) : undefined,
+    LoRaWAN: output.LoRaWAN != null ? deserializeAws_restJson1LoRaWANListDevice(output.LoRaWAN, context) : undefined,
     McGroupId: __expectInt32(output.McGroupId),
     MulticastDeviceStatus: __expectString(output.MulticastDeviceStatus),
     Name: __expectString(output.Name),
     Sidewalk:
-      output.Sidewalk != undefined ? deserializeAws_restJson1SidewalkListDevice(output.Sidewalk, context) : undefined,
+      output.Sidewalk != null ? deserializeAws_restJson1SidewalkListDevice(output.Sidewalk, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -11270,7 +11238,7 @@ const deserializeAws_restJson1WirelessGatewayLogOption = (
 ): WirelessGatewayLogOption => {
   return {
     Events:
-      output.Events != undefined
+      output.Events != null
         ? deserializeAws_restJson1WirelessGatewayEventLogOptionList(output.Events, context)
         : undefined,
     LogLevel: __expectString(output.LogLevel),
@@ -11302,7 +11270,7 @@ const deserializeAws_restJson1WirelessGatewayStatistics = (
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
-    LoRaWAN: output.LoRaWAN != undefined ? deserializeAws_restJson1LoRaWANGateway(output.LoRaWAN, context) : undefined,
+    LoRaWAN: output.LoRaWAN != null ? deserializeAws_restJson1LoRaWANGateway(output.LoRaWAN, context) : undefined,
     Name: __expectString(output.Name),
   } as any;
 };

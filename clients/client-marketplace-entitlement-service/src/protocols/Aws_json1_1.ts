@@ -161,10 +161,10 @@ const serializeAws_json1_1GetEntitlementFilters = (input: Record<string, string[
 
 const serializeAws_json1_1GetEntitlementsRequest = (input: GetEntitlementsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ProductCode != undefined && { ProductCode: input.ProductCode }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ProductCode != null && { ProductCode: input.ProductCode }),
   };
 };
 
@@ -173,14 +173,12 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
     CustomerIdentifier: __expectString(output.CustomerIdentifier),
     Dimension: __expectString(output.Dimension),
     ExpirationDate:
-      output.ExpirationDate != undefined
+      output.ExpirationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationDate)))
         : undefined,
     ProductCode: __expectString(output.ProductCode),
     Value:
-      output.Value != undefined
-        ? deserializeAws_json1_1EntitlementValue(__expectUnion(output.Value), context)
-        : undefined,
+      output.Value != null ? deserializeAws_json1_1EntitlementValue(__expectUnion(output.Value), context) : undefined,
   } as any;
 };
 
@@ -215,9 +213,7 @@ const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeCon
 const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
   return {
     Entitlements:
-      output.Entitlements != undefined
-        ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
-        : undefined,
+      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };

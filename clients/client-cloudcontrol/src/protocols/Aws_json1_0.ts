@@ -1070,36 +1070,36 @@ const serializeAws_json1_0CancelResourceRequestInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RequestToken != undefined && { RequestToken: input.RequestToken }),
+    ...(input.RequestToken != null && { RequestToken: input.RequestToken }),
   };
 };
 
 const serializeAws_json1_0CreateResourceInput = (input: CreateResourceInput, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DesiredState != undefined && { DesiredState: input.DesiredState }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != undefined && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != undefined && { TypeVersionId: input.TypeVersionId }),
+    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.TypeName != null && { TypeName: input.TypeName }),
+    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
   };
 };
 
 const serializeAws_json1_0DeleteResourceInput = (input: DeleteResourceInput, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != undefined && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != undefined && { TypeVersionId: input.TypeVersionId }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.TypeName != null && { TypeName: input.TypeName }),
+    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
   };
 };
 
 const serializeAws_json1_0GetResourceInput = (input: GetResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != undefined && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != undefined && { TypeVersionId: input.TypeVersionId }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.TypeName != null && { TypeName: input.TypeName }),
+    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
   };
 };
 
@@ -1108,7 +1108,7 @@ const serializeAws_json1_0GetResourceRequestStatusInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RequestToken != undefined && { RequestToken: input.RequestToken }),
+    ...(input.RequestToken != null && { RequestToken: input.RequestToken }),
   };
 };
 
@@ -1117,9 +1117,9 @@ const serializeAws_json1_0ListResourceRequestsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceRequestStatusFilter != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceRequestStatusFilter != null && {
       ResourceRequestStatusFilter: serializeAws_json1_0ResourceRequestStatusFilter(
         input.ResourceRequestStatusFilter,
         context
@@ -1130,12 +1130,12 @@ const serializeAws_json1_0ListResourceRequestsInput = (
 
 const serializeAws_json1_0ListResourcesInput = (input: ListResourcesInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceModel != undefined && { ResourceModel: input.ResourceModel }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != undefined && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != undefined && { TypeVersionId: input.TypeVersionId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceModel != null && { ResourceModel: input.ResourceModel }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.TypeName != null && { TypeName: input.TypeName }),
+    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
   };
 };
 
@@ -1166,21 +1166,21 @@ const serializeAws_json1_0ResourceRequestStatusFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OperationStatuses != undefined && {
+    ...(input.OperationStatuses != null && {
       OperationStatuses: serializeAws_json1_0OperationStatuses(input.OperationStatuses, context),
     }),
-    ...(input.Operations != undefined && { Operations: serializeAws_json1_0Operations(input.Operations, context) }),
+    ...(input.Operations != null && { Operations: serializeAws_json1_0Operations(input.Operations, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateResourceInput = (input: UpdateResourceInput, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Identifier != undefined && { Identifier: input.Identifier }),
-    ...(input.PatchDocument != undefined && { PatchDocument: input.PatchDocument }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.TypeName != undefined && { TypeName: input.TypeName }),
-    ...(input.TypeVersionId != undefined && { TypeVersionId: input.TypeVersionId }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.PatchDocument != null && { PatchDocument: input.PatchDocument }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.TypeName != null && { TypeName: input.TypeName }),
+    ...(input.TypeVersionId != null && { TypeVersionId: input.TypeVersionId }),
   };
 };
 
@@ -1196,9 +1196,7 @@ const deserializeAws_json1_0CancelResourceRequestOutput = (
 ): CancelResourceRequestOutput => {
   return {
     ProgressEvent:
-      output.ProgressEvent != undefined
-        ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context)
-        : undefined,
+      output.ProgressEvent != null ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context) : undefined,
   } as any;
 };
 
@@ -1232,18 +1230,14 @@ const deserializeAws_json1_0ConcurrentOperationException = (
 const deserializeAws_json1_0CreateResourceOutput = (output: any, context: __SerdeContext): CreateResourceOutput => {
   return {
     ProgressEvent:
-      output.ProgressEvent != undefined
-        ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context)
-        : undefined,
+      output.ProgressEvent != null ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DeleteResourceOutput = (output: any, context: __SerdeContext): DeleteResourceOutput => {
   return {
     ProgressEvent:
-      output.ProgressEvent != undefined
-        ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context)
-        : undefined,
+      output.ProgressEvent != null ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context) : undefined,
   } as any;
 };
 
@@ -1259,7 +1253,7 @@ const deserializeAws_json1_0GeneralServiceException = (
 const deserializeAws_json1_0GetResourceOutput = (output: any, context: __SerdeContext): GetResourceOutput => {
   return {
     ResourceDescription:
-      output.ResourceDescription != undefined
+      output.ResourceDescription != null
         ? deserializeAws_json1_0ResourceDescription(output.ResourceDescription, context)
         : undefined,
     TypeName: __expectString(output.TypeName),
@@ -1272,9 +1266,7 @@ const deserializeAws_json1_0GetResourceRequestStatusOutput = (
 ): GetResourceRequestStatusOutput => {
   return {
     ProgressEvent:
-      output.ProgressEvent != undefined
-        ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context)
-        : undefined,
+      output.ProgressEvent != null ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context) : undefined,
   } as any;
 };
 
@@ -1321,7 +1313,7 @@ const deserializeAws_json1_0ListResourceRequestsOutput = (
   return {
     NextToken: __expectString(output.NextToken),
     ResourceRequestStatusSummaries:
-      output.ResourceRequestStatusSummaries != undefined
+      output.ResourceRequestStatusSummaries != null
         ? deserializeAws_json1_0ResourceRequestStatusSummaries(output.ResourceRequestStatusSummaries, context)
         : undefined,
   } as any;
@@ -1331,7 +1323,7 @@ const deserializeAws_json1_0ListResourcesOutput = (output: any, context: __Serde
   return {
     NextToken: __expectString(output.NextToken),
     ResourceDescriptions:
-      output.ResourceDescriptions != undefined
+      output.ResourceDescriptions != null
         ? deserializeAws_json1_0ResourceDescriptions(output.ResourceDescriptions, context)
         : undefined,
     TypeName: __expectString(output.TypeName),
@@ -1369,18 +1361,14 @@ const deserializeAws_json1_0ProgressEvent = (output: any, context: __SerdeContex
   return {
     ErrorCode: __expectString(output.ErrorCode),
     EventTime:
-      output.EventTime != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime)))
-        : undefined,
+      output.EventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EventTime))) : undefined,
     Identifier: __expectString(output.Identifier),
     Operation: __expectString(output.Operation),
     OperationStatus: __expectString(output.OperationStatus),
     RequestToken: __expectString(output.RequestToken),
     ResourceModel: __expectString(output.ResourceModel),
     RetryAfter:
-      output.RetryAfter != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetryAfter)))
-        : undefined,
+      output.RetryAfter != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RetryAfter))) : undefined,
     StatusMessage: __expectString(output.StatusMessage),
     TypeName: __expectString(output.TypeName),
   } as any;
@@ -1489,9 +1477,7 @@ const deserializeAws_json1_0UnsupportedActionException = (
 const deserializeAws_json1_0UpdateResourceOutput = (output: any, context: __SerdeContext): UpdateResourceOutput => {
   return {
     ProgressEvent:
-      output.ProgressEvent != undefined
-        ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context)
-        : undefined,
+      output.ProgressEvent != null ? deserializeAws_json1_0ProgressEvent(output.ProgressEvent, context) : undefined,
   } as any;
 };
 

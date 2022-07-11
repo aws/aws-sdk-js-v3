@@ -133,33 +133,33 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
   let body: any;
   body = JSON.stringify({
-    ...(input.accountAccessType != undefined && { accountAccessType: input.accountAccessType }),
-    ...(input.authenticationProviders != undefined && {
+    ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
+    ...(input.authenticationProviders != null && {
       authenticationProviders: serializeAws_restJson1AuthenticationProviders(input.authenticationProviders, context),
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.organizationRoleName != undefined && { organizationRoleName: input.organizationRoleName }),
-    ...(input.permissionType != undefined && { permissionType: input.permissionType }),
-    ...(input.stackSetName != undefined && { stackSetName: input.stackSetName }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.workspaceDataSources != undefined && {
+    ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
+    ...(input.permissionType != null && { permissionType: input.permissionType }),
+    ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.workspaceDataSources != null && {
       workspaceDataSources: serializeAws_restJson1DataSourceTypesList(input.workspaceDataSources, context),
     }),
-    ...(input.workspaceDescription != undefined && { workspaceDescription: input.workspaceDescription }),
-    ...(input.workspaceName != undefined && { workspaceName: input.workspaceName }),
-    ...(input.workspaceNotificationDestinations != undefined && {
+    ...(input.workspaceDescription != null && { workspaceDescription: input.workspaceDescription }),
+    ...(input.workspaceName != null && { workspaceName: input.workspaceName }),
+    ...(input.workspaceNotificationDestinations != null && {
       workspaceNotificationDestinations: serializeAws_restJson1NotificationDestinationsList(
         input.workspaceNotificationDestinations,
         context
       ),
     }),
-    ...(input.workspaceOrganizationalUnits != undefined && {
+    ...(input.workspaceOrganizationalUnits != null && {
       workspaceOrganizationalUnits: serializeAws_restJson1OrganizationalUnitList(
         input.workspaceOrganizationalUnits,
         context
       ),
     }),
-    ...(input.workspaceRoleArn != undefined && { workspaceRoleArn: input.workspaceRoleArn }),
+    ...(input.workspaceRoleArn != null && { workspaceRoleArn: input.workspaceRoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -193,9 +193,9 @@ export const serializeAws_restJson1CreateWorkspaceApiKeyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.keyName != undefined && { keyName: input.keyName }),
-    ...(input.keyRole != undefined && { keyRole: input.keyRole }),
-    ...(input.secondsToLive != undefined && { secondsToLive: input.secondsToLive }),
+    ...(input.keyName != null && { keyName: input.keyName }),
+    ...(input.keyRole != null && { keyRole: input.keyRole }),
+    ...(input.secondsToLive != null && { secondsToLive: input.secondsToLive }),
   });
   return new __HttpRequest({
     protocol,
@@ -482,7 +482,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -548,7 +548,7 @@ export const serializeAws_restJson1UpdatePermissionsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.updateInstructionBatch != undefined && {
+    ...(input.updateInstructionBatch != null && {
       updateInstructionBatch: serializeAws_restJson1UpdateInstructionBatch(input.updateInstructionBatch, context),
     }),
   });
@@ -584,28 +584,28 @@ export const serializeAws_restJson1UpdateWorkspaceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.accountAccessType != undefined && { accountAccessType: input.accountAccessType }),
-    ...(input.organizationRoleName != undefined && { organizationRoleName: input.organizationRoleName }),
-    ...(input.permissionType != undefined && { permissionType: input.permissionType }),
-    ...(input.stackSetName != undefined && { stackSetName: input.stackSetName }),
-    ...(input.workspaceDataSources != undefined && {
+    ...(input.accountAccessType != null && { accountAccessType: input.accountAccessType }),
+    ...(input.organizationRoleName != null && { organizationRoleName: input.organizationRoleName }),
+    ...(input.permissionType != null && { permissionType: input.permissionType }),
+    ...(input.stackSetName != null && { stackSetName: input.stackSetName }),
+    ...(input.workspaceDataSources != null && {
       workspaceDataSources: serializeAws_restJson1DataSourceTypesList(input.workspaceDataSources, context),
     }),
-    ...(input.workspaceDescription != undefined && { workspaceDescription: input.workspaceDescription }),
-    ...(input.workspaceName != undefined && { workspaceName: input.workspaceName }),
-    ...(input.workspaceNotificationDestinations != undefined && {
+    ...(input.workspaceDescription != null && { workspaceDescription: input.workspaceDescription }),
+    ...(input.workspaceName != null && { workspaceName: input.workspaceName }),
+    ...(input.workspaceNotificationDestinations != null && {
       workspaceNotificationDestinations: serializeAws_restJson1NotificationDestinationsList(
         input.workspaceNotificationDestinations,
         context
       ),
     }),
-    ...(input.workspaceOrganizationalUnits != undefined && {
+    ...(input.workspaceOrganizationalUnits != null && {
       workspaceOrganizationalUnits: serializeAws_restJson1OrganizationalUnitList(
         input.workspaceOrganizationalUnits,
         context
       ),
     }),
-    ...(input.workspaceRoleArn != undefined && { workspaceRoleArn: input.workspaceRoleArn }),
+    ...(input.workspaceRoleArn != null && { workspaceRoleArn: input.workspaceRoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -639,10 +639,10 @@ export const serializeAws_restJson1UpdateWorkspaceAuthenticationCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.authenticationProviders != undefined && {
+    ...(input.authenticationProviders != null && {
       authenticationProviders: serializeAws_restJson1AuthenticationProviders(input.authenticationProviders, context),
     }),
-    ...(input.samlConfiguration != undefined && {
+    ...(input.samlConfiguration != null && {
       samlConfiguration: serializeAws_restJson1SamlConfiguration(input.samlConfiguration, context),
     }),
   });
@@ -1763,12 +1763,12 @@ const serializeAws_restJson1AllowedOrganizations = (input: string[], context: __
 
 const serializeAws_restJson1AssertionAttributes = (input: AssertionAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.email != undefined && { email: input.email }),
-    ...(input.groups != undefined && { groups: input.groups }),
-    ...(input.login != undefined && { login: input.login }),
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.org != undefined && { org: input.org }),
-    ...(input.role != undefined && { role: input.role }),
+    ...(input.email != null && { email: input.email }),
+    ...(input.groups != null && { groups: input.groups }),
+    ...(input.login != null && { login: input.login }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.org != null && { org: input.org }),
+    ...(input.role != null && { role: input.role }),
   };
 };
 
@@ -1846,24 +1846,22 @@ const serializeAws_restJson1RoleValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_restJson1RoleValues = (input: RoleValues, context: __SerdeContext): any => {
   return {
-    ...(input.admin != undefined && { admin: serializeAws_restJson1RoleValueList(input.admin, context) }),
-    ...(input.editor != undefined && { editor: serializeAws_restJson1RoleValueList(input.editor, context) }),
+    ...(input.admin != null && { admin: serializeAws_restJson1RoleValueList(input.admin, context) }),
+    ...(input.editor != null && { editor: serializeAws_restJson1RoleValueList(input.editor, context) }),
   };
 };
 
 const serializeAws_restJson1SamlConfiguration = (input: SamlConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.allowedOrganizations != undefined && {
+    ...(input.allowedOrganizations != null && {
       allowedOrganizations: serializeAws_restJson1AllowedOrganizations(input.allowedOrganizations, context),
     }),
-    ...(input.assertionAttributes != undefined && {
+    ...(input.assertionAttributes != null && {
       assertionAttributes: serializeAws_restJson1AssertionAttributes(input.assertionAttributes, context),
     }),
-    ...(input.idpMetadata != undefined && {
-      idpMetadata: serializeAws_restJson1IdpMetadata(input.idpMetadata, context),
-    }),
-    ...(input.loginValidityDuration != undefined && { loginValidityDuration: input.loginValidityDuration }),
-    ...(input.roleValues != undefined && { roleValues: serializeAws_restJson1RoleValues(input.roleValues, context) }),
+    ...(input.idpMetadata != null && { idpMetadata: serializeAws_restJson1IdpMetadata(input.idpMetadata, context) }),
+    ...(input.loginValidityDuration != null && { loginValidityDuration: input.loginValidityDuration }),
+    ...(input.roleValues != null && { roleValues: serializeAws_restJson1RoleValues(input.roleValues, context) }),
   };
 };
 
@@ -1881,9 +1879,9 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1UpdateInstruction = (input: UpdateInstruction, context: __SerdeContext): any => {
   return {
-    ...(input.action != undefined && { action: input.action }),
-    ...(input.role != undefined && { role: input.role }),
-    ...(input.users != undefined && { users: serializeAws_restJson1UserList(input.users, context) }),
+    ...(input.action != null && { action: input.action }),
+    ...(input.role != null && { role: input.role }),
+    ...(input.users != null && { users: serializeAws_restJson1UserList(input.users, context) }),
   };
 };
 
@@ -1900,8 +1898,8 @@ const serializeAws_restJson1UpdateInstructionBatch = (input: UpdateInstruction[]
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
   return {
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -1944,13 +1942,10 @@ const deserializeAws_restJson1AuthenticationDescription = (
   context: __SerdeContext
 ): AuthenticationDescription => {
   return {
-    awsSso:
-      output.awsSso != undefined ? deserializeAws_restJson1AwsSsoAuthentication(output.awsSso, context) : undefined,
+    awsSso: output.awsSso != null ? deserializeAws_restJson1AwsSsoAuthentication(output.awsSso, context) : undefined,
     providers:
-      output.providers != undefined
-        ? deserializeAws_restJson1AuthenticationProviders(output.providers, context)
-        : undefined,
-    saml: output.saml != undefined ? deserializeAws_restJson1SamlAuthentication(output.saml, context) : undefined,
+      output.providers != null ? deserializeAws_restJson1AuthenticationProviders(output.providers, context) : undefined,
+    saml: output.saml != null ? deserializeAws_restJson1SamlAuthentication(output.saml, context) : undefined,
   } as any;
 };
 
@@ -1972,9 +1967,7 @@ const deserializeAws_restJson1AuthenticationProviders = (
 const deserializeAws_restJson1AuthenticationSummary = (output: any, context: __SerdeContext): AuthenticationSummary => {
   return {
     providers:
-      output.providers != undefined
-        ? deserializeAws_restJson1AuthenticationProviders(output.providers, context)
-        : undefined,
+      output.providers != null ? deserializeAws_restJson1AuthenticationProviders(output.providers, context) : undefined,
     samlConfigurationStatus: __expectString(output.samlConfigurationStatus),
   } as any;
 };
@@ -2040,7 +2033,7 @@ const deserializeAws_restJson1OrganizationalUnitList = (output: any, context: __
 const deserializeAws_restJson1PermissionEntry = (output: any, context: __SerdeContext): PermissionEntry => {
   return {
     role: __expectString(output.role),
-    user: output.user != undefined ? deserializeAws_restJson1User(output.user, context) : undefined,
+    user: output.user != null ? deserializeAws_restJson1User(output.user, context) : undefined,
   } as any;
 };
 
@@ -2070,15 +2063,15 @@ const deserializeAws_restJson1RoleValueList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1RoleValues = (output: any, context: __SerdeContext): RoleValues => {
   return {
-    admin: output.admin != undefined ? deserializeAws_restJson1RoleValueList(output.admin, context) : undefined,
-    editor: output.editor != undefined ? deserializeAws_restJson1RoleValueList(output.editor, context) : undefined,
+    admin: output.admin != null ? deserializeAws_restJson1RoleValueList(output.admin, context) : undefined,
+    editor: output.editor != null ? deserializeAws_restJson1RoleValueList(output.editor, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SamlAuthentication = (output: any, context: __SerdeContext): SamlAuthentication => {
   return {
     configuration:
-      output.configuration != undefined
+      output.configuration != null
         ? deserializeAws_restJson1SamlConfiguration(output.configuration, context)
         : undefined,
     status: __expectString(output.status),
@@ -2088,20 +2081,19 @@ const deserializeAws_restJson1SamlAuthentication = (output: any, context: __Serd
 const deserializeAws_restJson1SamlConfiguration = (output: any, context: __SerdeContext): SamlConfiguration => {
   return {
     allowedOrganizations:
-      output.allowedOrganizations != undefined
+      output.allowedOrganizations != null
         ? deserializeAws_restJson1AllowedOrganizations(output.allowedOrganizations, context)
         : undefined,
     assertionAttributes:
-      output.assertionAttributes != undefined
+      output.assertionAttributes != null
         ? deserializeAws_restJson1AssertionAttributes(output.assertionAttributes, context)
         : undefined,
     idpMetadata:
-      output.idpMetadata != undefined
+      output.idpMetadata != null
         ? deserializeAws_restJson1IdpMetadata(__expectUnion(output.idpMetadata), context)
         : undefined,
     loginValidityDuration: __expectInt32(output.loginValidityDuration),
-    roleValues:
-      output.roleValues != undefined ? deserializeAws_restJson1RoleValues(output.roleValues, context) : undefined,
+    roleValues: output.roleValues != null ? deserializeAws_restJson1RoleValues(output.roleValues, context) : undefined,
   } as any;
 };
 
@@ -2119,8 +2111,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
 
 const deserializeAws_restJson1UpdateError = (output: any, context: __SerdeContext): UpdateError => {
   return {
-    causedBy:
-      output.causedBy != undefined ? deserializeAws_restJson1UpdateInstruction(output.causedBy, context) : undefined,
+    causedBy: output.causedBy != null ? deserializeAws_restJson1UpdateInstruction(output.causedBy, context) : undefined,
     code: __expectInt32(output.code),
     message: __expectString(output.message),
   } as any;
@@ -2142,7 +2133,7 @@ const deserializeAws_restJson1UpdateInstruction = (output: any, context: __Serde
   return {
     action: __expectString(output.action),
     role: __expectString(output.role),
-    users: output.users != undefined ? deserializeAws_restJson1UserList(output.users, context) : undefined,
+    users: output.users != null ? deserializeAws_restJson1UserList(output.users, context) : undefined,
   } as any;
 };
 
@@ -2194,47 +2185,43 @@ const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __Se
   return {
     accountAccessType: __expectString(output.accountAccessType),
     authentication:
-      output.authentication != undefined
+      output.authentication != null
         ? deserializeAws_restJson1AuthenticationSummary(output.authentication, context)
         : undefined,
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     dataSources:
-      output.dataSources != undefined
-        ? deserializeAws_restJson1DataSourceTypesList(output.dataSources, context)
-        : undefined,
+      output.dataSources != null ? deserializeAws_restJson1DataSourceTypesList(output.dataSources, context) : undefined,
     description: __expectString(output.description),
     endpoint: __expectString(output.endpoint),
     freeTrialConsumed: __expectBoolean(output.freeTrialConsumed),
     freeTrialExpiration:
-      output.freeTrialExpiration != undefined
+      output.freeTrialExpiration != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.freeTrialExpiration)))
         : undefined,
     grafanaVersion: __expectString(output.grafanaVersion),
     id: __expectString(output.id),
     licenseExpiration:
-      output.licenseExpiration != undefined
+      output.licenseExpiration != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.licenseExpiration)))
         : undefined,
     licenseType: __expectString(output.licenseType),
     modified:
-      output.modified != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified)))
-        : undefined,
+      output.modified != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified))) : undefined,
     name: __expectString(output.name),
     notificationDestinations:
-      output.notificationDestinations != undefined
+      output.notificationDestinations != null
         ? deserializeAws_restJson1NotificationDestinationsList(output.notificationDestinations, context)
         : undefined,
     organizationRoleName: __expectString(output.organizationRoleName),
     organizationalUnits:
-      output.organizationalUnits != undefined
+      output.organizationalUnits != null
         ? deserializeAws_restJson1OrganizationalUnitList(output.organizationalUnits, context)
         : undefined,
     permissionType: __expectString(output.permissionType),
     stackSetName: __expectString(output.stackSetName),
     status: __expectString(output.status),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
     workspaceRoleArn: __expectString(output.workspaceRoleArn),
   } as any;
 };
@@ -2254,26 +2241,24 @@ const deserializeAws_restJson1WorkspaceList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSummary => {
   return {
     authentication:
-      output.authentication != undefined
+      output.authentication != null
         ? deserializeAws_restJson1AuthenticationSummary(output.authentication, context)
         : undefined,
     created:
-      output.created != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
+      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
     description: __expectString(output.description),
     endpoint: __expectString(output.endpoint),
     grafanaVersion: __expectString(output.grafanaVersion),
     id: __expectString(output.id),
     modified:
-      output.modified != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified)))
-        : undefined,
+      output.modified != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modified))) : undefined,
     name: __expectString(output.name),
     notificationDestinations:
-      output.notificationDestinations != undefined
+      output.notificationDestinations != null
         ? deserializeAws_restJson1NotificationDestinationsList(output.notificationDestinations, context)
         : undefined,
     status: __expectString(output.status),
-    tags: output.tags != undefined ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
   } as any;
 };
 

@@ -405,7 +405,7 @@ export const serializeAws_restJson1AssociateRoleToGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -430,7 +430,7 @@ export const serializeAws_restJson1AssociateServiceRoleToAccountCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
   let body: any;
   body = JSON.stringify({
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -456,11 +456,11 @@ export const serializeAws_restJson1CreateConnectorDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1ConnectorDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -496,9 +496,7 @@ export const serializeAws_restJson1CreateConnectorDefinitionVersionCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Connectors != undefined && {
-      Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context),
-    }),
+    ...(input.Connectors != null && { Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -524,11 +522,11 @@ export const serializeAws_restJson1CreateCoreDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1CoreDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -564,7 +562,7 @@ export const serializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Cores != undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
+    ...(input.Cores != null && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -599,9 +597,9 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeploymentId != undefined && { DeploymentId: input.DeploymentId }),
-    ...(input.DeploymentType != undefined && { DeploymentType: input.DeploymentType }),
-    ...(input.GroupVersionId != undefined && { GroupVersionId: input.GroupVersionId }),
+    ...(input.DeploymentId != null && { DeploymentId: input.DeploymentId }),
+    ...(input.DeploymentType != null && { DeploymentType: input.DeploymentType }),
+    ...(input.GroupVersionId != null && { GroupVersionId: input.GroupVersionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -627,11 +625,11 @@ export const serializeAws_restJson1CreateDeviceDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1DeviceDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -667,7 +665,7 @@ export const serializeAws_restJson1CreateDeviceDefinitionVersionCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Devices != undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
+    ...(input.Devices != null && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -693,11 +691,11 @@ export const serializeAws_restJson1CreateFunctionDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1FunctionDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -733,12 +731,10 @@ export const serializeAws_restJson1CreateFunctionDefinitionVersionCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DefaultConfig != undefined && {
+    ...(input.DefaultConfig != null && {
       DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
     }),
-    ...(input.Functions != undefined && {
-      Functions: serializeAws_restJson1__listOfFunction(input.Functions, context),
-    }),
+    ...(input.Functions != null && { Functions: serializeAws_restJson1__listOfFunction(input.Functions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -763,11 +759,11 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1GroupVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -834,23 +830,19 @@ export const serializeAws_restJson1CreateGroupVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectorDefinitionVersionArn != undefined && {
+    ...(input.ConnectorDefinitionVersionArn != null && {
       ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn != undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
-    ...(input.DeviceDefinitionVersionArn != undefined && {
-      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
-    }),
-    ...(input.FunctionDefinitionVersionArn != undefined && {
+    ...(input.CoreDefinitionVersionArn != null && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
+    ...(input.DeviceDefinitionVersionArn != null && { DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn }),
+    ...(input.FunctionDefinitionVersionArn != null && {
       FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
     }),
-    ...(input.LoggerDefinitionVersionArn != undefined && {
-      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn,
-    }),
-    ...(input.ResourceDefinitionVersionArn != undefined && {
+    ...(input.LoggerDefinitionVersionArn != null && { LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn }),
+    ...(input.ResourceDefinitionVersionArn != null && {
       ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
     }),
-    ...(input.SubscriptionDefinitionVersionArn != undefined && {
+    ...(input.SubscriptionDefinitionVersionArn != null && {
       SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
     }),
   });
@@ -878,11 +870,11 @@ export const serializeAws_restJson1CreateLoggerDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1LoggerDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -918,7 +910,7 @@ export const serializeAws_restJson1CreateLoggerDefinitionVersionCommand = async 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Loggers != undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
+    ...(input.Loggers != null && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -944,11 +936,11 @@ export const serializeAws_restJson1CreateResourceDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1ResourceDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -984,9 +976,7 @@ export const serializeAws_restJson1CreateResourceDefinitionVersionCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Resources != undefined && {
-      Resources: serializeAws_restJson1__listOfResource(input.Resources, context),
-    }),
+    ...(input.Resources != null && { Resources: serializeAws_restJson1__listOfResource(input.Resources, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1011,14 +1001,14 @@ export const serializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/updates";
   let body: any;
   body = JSON.stringify({
-    ...(input.S3UrlSignerRole != undefined && { S3UrlSignerRole: input.S3UrlSignerRole }),
-    ...(input.SoftwareToUpdate != undefined && { SoftwareToUpdate: input.SoftwareToUpdate }),
-    ...(input.UpdateAgentLogLevel != undefined && { UpdateAgentLogLevel: input.UpdateAgentLogLevel }),
-    ...(input.UpdateTargets != undefined && {
+    ...(input.S3UrlSignerRole != null && { S3UrlSignerRole: input.S3UrlSignerRole }),
+    ...(input.SoftwareToUpdate != null && { SoftwareToUpdate: input.SoftwareToUpdate }),
+    ...(input.UpdateAgentLogLevel != null && { UpdateAgentLogLevel: input.UpdateAgentLogLevel }),
+    ...(input.UpdateTargets != null && {
       UpdateTargets: serializeAws_restJson1UpdateTargets(input.UpdateTargets, context),
     }),
-    ...(input.UpdateTargetsArchitecture != undefined && { UpdateTargetsArchitecture: input.UpdateTargetsArchitecture }),
-    ...(input.UpdateTargetsOperatingSystem != undefined && {
+    ...(input.UpdateTargetsArchitecture != null && { UpdateTargetsArchitecture: input.UpdateTargetsArchitecture }),
+    ...(input.UpdateTargetsOperatingSystem != null && {
       UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem,
     }),
   });
@@ -1046,11 +1036,11 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
   let body: any;
   body = JSON.stringify({
-    ...(input.InitialVersion != undefined && {
+    ...(input.InitialVersion != null && {
       InitialVersion: serializeAws_restJson1SubscriptionDefinitionVersion(input.InitialVersion, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1086,7 +1076,7 @@ export const serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Subscriptions != undefined && {
+    ...(input.Subscriptions != null && {
       Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
     }),
   });
@@ -2866,7 +2856,7 @@ export const serializeAws_restJson1ResetDeploymentsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Force != undefined && { Force: input.Force }),
+    ...(input.Force != null && { Force: input.Force }),
   });
   return new __HttpRequest({
     protocol,
@@ -2892,9 +2882,9 @@ export const serializeAws_restJson1StartBulkDeploymentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
   let body: any;
   body = JSON.stringify({
-    ...(input.ExecutionRoleArn != undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.InputFileUri != undefined && { InputFileUri: input.InputFileUri }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.InputFileUri != null && { InputFileUri: input.InputFileUri }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2957,7 +2947,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -3024,7 +3014,7 @@ export const serializeAws_restJson1UpdateConnectivityInfoCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectivityInfo != undefined && {
+    ...(input.ConnectivityInfo != null && {
       ConnectivityInfo: serializeAws_restJson1__listOfConnectivityInfo(input.ConnectivityInfo, context),
     }),
   });
@@ -3061,7 +3051,7 @@ export const serializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3096,7 +3086,7 @@ export const serializeAws_restJson1UpdateCoreDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3131,7 +3121,7 @@ export const serializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3166,7 +3156,7 @@ export const serializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3200,7 +3190,7 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3235,7 +3225,7 @@ export const serializeAws_restJson1UpdateGroupCertificateConfigurationCommand = 
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CertificateExpiryInMilliseconds != undefined && {
+    ...(input.CertificateExpiryInMilliseconds != null && {
       CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds,
     }),
   });
@@ -3272,7 +3262,7 @@ export const serializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3307,7 +3297,7 @@ export const serializeAws_restJson1UpdateResourceDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3342,7 +3332,7 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name != undefined && { Name: input.Name }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3377,7 +3367,7 @@ export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TelemetryConfiguration != undefined && {
+    ...(input.TelemetryConfiguration != null && {
       TelemetryConfiguration: serializeAws_restJson1TelemetryConfigurationUpdate(input.TelemetryConfiguration, context),
     }),
   });
@@ -8476,20 +8466,18 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
 
 const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
   return {
-    ...(input.HostAddress != undefined && { HostAddress: input.HostAddress }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Metadata != undefined && { Metadata: input.Metadata }),
-    ...(input.PortNumber != undefined && { PortNumber: input.PortNumber }),
+    ...(input.HostAddress != null && { HostAddress: input.HostAddress }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Metadata != null && { Metadata: input.Metadata }),
+    ...(input.PortNumber != null && { PortNumber: input.PortNumber }),
   };
 };
 
 const serializeAws_restJson1Connector = (input: Connector, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorArn != undefined && { ConnectorArn: input.ConnectorArn }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Parameters != undefined && {
-      Parameters: serializeAws_restJson1__mapOf__string(input.Parameters, context),
-    }),
+    ...(input.ConnectorArn != null && { ConnectorArn: input.ConnectorArn }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Parameters != null && { Parameters: serializeAws_restJson1__mapOf__string(input.Parameters, context) }),
   };
 };
 
@@ -8498,33 +8486,31 @@ const serializeAws_restJson1ConnectorDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Connectors != undefined && {
-      Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context),
-    }),
+    ...(input.Connectors != null && { Connectors: serializeAws_restJson1__listOfConnector(input.Connectors, context) }),
   };
 };
 
 const serializeAws_restJson1Core = (input: Core, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn != undefined && { CertificateArn: input.CertificateArn }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.SyncShadow != undefined && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn != undefined && { ThingArn: input.ThingArn }),
+    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.SyncShadow != null && { SyncShadow: input.SyncShadow }),
+    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
   };
 };
 
 const serializeAws_restJson1CoreDefinitionVersion = (input: CoreDefinitionVersion, context: __SerdeContext): any => {
   return {
-    ...(input.Cores != undefined && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
+    ...(input.Cores != null && { Cores: serializeAws_restJson1__listOfCore(input.Cores, context) }),
   };
 };
 
 const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateArn != undefined && { CertificateArn: input.CertificateArn }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.SyncShadow != undefined && { SyncShadow: input.SyncShadow }),
-    ...(input.ThingArn != undefined && { ThingArn: input.ThingArn }),
+    ...(input.CertificateArn != null && { CertificateArn: input.CertificateArn }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.SyncShadow != null && { SyncShadow: input.SyncShadow }),
+    ...(input.ThingArn != null && { ThingArn: input.ThingArn }),
   };
 };
 
@@ -8533,31 +8519,31 @@ const serializeAws_restJson1DeviceDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Devices != undefined && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
+    ...(input.Devices != null && { Devices: serializeAws_restJson1__listOfDevice(input.Devices, context) }),
   };
 };
 
 const serializeAws_restJson1Function = (input: Function, context: __SerdeContext): any => {
   return {
-    ...(input.FunctionArn != undefined && { FunctionArn: input.FunctionArn }),
-    ...(input.FunctionConfiguration != undefined && {
+    ...(input.FunctionArn != null && { FunctionArn: input.FunctionArn }),
+    ...(input.FunctionConfiguration != null && {
       FunctionConfiguration: serializeAws_restJson1FunctionConfiguration(input.FunctionConfiguration, context),
     }),
-    ...(input.Id != undefined && { Id: input.Id }),
+    ...(input.Id != null && { Id: input.Id }),
   };
 };
 
 const serializeAws_restJson1FunctionConfiguration = (input: FunctionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EncodingType != undefined && { EncodingType: input.EncodingType }),
-    ...(input.Environment != undefined && {
+    ...(input.EncodingType != null && { EncodingType: input.EncodingType }),
+    ...(input.Environment != null && {
       Environment: serializeAws_restJson1FunctionConfigurationEnvironment(input.Environment, context),
     }),
-    ...(input.ExecArgs != undefined && { ExecArgs: input.ExecArgs }),
-    ...(input.Executable != undefined && { Executable: input.Executable }),
-    ...(input.MemorySize != undefined && { MemorySize: input.MemorySize }),
-    ...(input.Pinned != undefined && { Pinned: input.Pinned }),
-    ...(input.Timeout != undefined && { Timeout: input.Timeout }),
+    ...(input.ExecArgs != null && { ExecArgs: input.ExecArgs }),
+    ...(input.Executable != null && { Executable: input.Executable }),
+    ...(input.MemorySize != null && { MemorySize: input.MemorySize }),
+    ...(input.Pinned != null && { Pinned: input.Pinned }),
+    ...(input.Timeout != null && { Timeout: input.Timeout }),
   };
 };
 
@@ -8566,20 +8552,20 @@ const serializeAws_restJson1FunctionConfigurationEnvironment = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccessSysfs != undefined && { AccessSysfs: input.AccessSysfs }),
-    ...(input.Execution != undefined && {
+    ...(input.AccessSysfs != null && { AccessSysfs: input.AccessSysfs }),
+    ...(input.Execution != null && {
       Execution: serializeAws_restJson1FunctionExecutionConfig(input.Execution, context),
     }),
-    ...(input.ResourceAccessPolicies != undefined && {
+    ...(input.ResourceAccessPolicies != null && {
       ResourceAccessPolicies: serializeAws_restJson1__listOfResourceAccessPolicy(input.ResourceAccessPolicies, context),
     }),
-    ...(input.Variables != undefined && { Variables: serializeAws_restJson1__mapOf__string(input.Variables, context) }),
+    ...(input.Variables != null && { Variables: serializeAws_restJson1__mapOf__string(input.Variables, context) }),
   };
 };
 
 const serializeAws_restJson1FunctionDefaultConfig = (input: FunctionDefaultConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Execution != undefined && {
+    ...(input.Execution != null && {
       Execution: serializeAws_restJson1FunctionDefaultExecutionConfig(input.Execution, context),
     }),
   };
@@ -8590,8 +8576,8 @@ const serializeAws_restJson1FunctionDefaultExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode != undefined && { IsolationMode: input.IsolationMode }),
-    ...(input.RunAs != undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
+    ...(input.IsolationMode != null && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs != null && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
@@ -8600,12 +8586,10 @@ const serializeAws_restJson1FunctionDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DefaultConfig != undefined && {
+    ...(input.DefaultConfig != null && {
       DefaultConfig: serializeAws_restJson1FunctionDefaultConfig(input.DefaultConfig, context),
     }),
-    ...(input.Functions != undefined && {
-      Functions: serializeAws_restJson1__listOfFunction(input.Functions, context),
-    }),
+    ...(input.Functions != null && { Functions: serializeAws_restJson1__listOfFunction(input.Functions, context) }),
   };
 };
 
@@ -8614,44 +8598,40 @@ const serializeAws_restJson1FunctionExecutionConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IsolationMode != undefined && { IsolationMode: input.IsolationMode }),
-    ...(input.RunAs != undefined && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
+    ...(input.IsolationMode != null && { IsolationMode: input.IsolationMode }),
+    ...(input.RunAs != null && { RunAs: serializeAws_restJson1FunctionRunAsConfig(input.RunAs, context) }),
   };
 };
 
 const serializeAws_restJson1FunctionRunAsConfig = (input: FunctionRunAsConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Gid != undefined && { Gid: input.Gid }),
-    ...(input.Uid != undefined && { Uid: input.Uid }),
+    ...(input.Gid != null && { Gid: input.Gid }),
+    ...(input.Uid != null && { Uid: input.Uid }),
   };
 };
 
 const serializeAws_restJson1GroupOwnerSetting = (input: GroupOwnerSetting, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAddGroupOwner != undefined && { AutoAddGroupOwner: input.AutoAddGroupOwner }),
-    ...(input.GroupOwner != undefined && { GroupOwner: input.GroupOwner }),
+    ...(input.AutoAddGroupOwner != null && { AutoAddGroupOwner: input.AutoAddGroupOwner }),
+    ...(input.GroupOwner != null && { GroupOwner: input.GroupOwner }),
   };
 };
 
 const serializeAws_restJson1GroupVersion = (input: GroupVersion, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectorDefinitionVersionArn != undefined && {
+    ...(input.ConnectorDefinitionVersionArn != null && {
       ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn,
     }),
-    ...(input.CoreDefinitionVersionArn != undefined && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
-    ...(input.DeviceDefinitionVersionArn != undefined && {
-      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn,
-    }),
-    ...(input.FunctionDefinitionVersionArn != undefined && {
+    ...(input.CoreDefinitionVersionArn != null && { CoreDefinitionVersionArn: input.CoreDefinitionVersionArn }),
+    ...(input.DeviceDefinitionVersionArn != null && { DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn }),
+    ...(input.FunctionDefinitionVersionArn != null && {
       FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn,
     }),
-    ...(input.LoggerDefinitionVersionArn != undefined && {
-      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn,
-    }),
-    ...(input.ResourceDefinitionVersionArn != undefined && {
+    ...(input.LoggerDefinitionVersionArn != null && { LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn }),
+    ...(input.ResourceDefinitionVersionArn != null && {
       ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn,
     }),
-    ...(input.SubscriptionDefinitionVersionArn != undefined && {
+    ...(input.SubscriptionDefinitionVersionArn != null && {
       SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn,
     }),
   };
@@ -8662,10 +8642,10 @@ const serializeAws_restJson1LocalDeviceResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupOwnerSetting != undefined && {
+    ...(input.GroupOwnerSetting != null && {
       GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
     }),
-    ...(input.SourcePath != undefined && { SourcePath: input.SourcePath }),
+    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
   };
 };
 
@@ -8674,21 +8654,21 @@ const serializeAws_restJson1LocalVolumeResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath != undefined && { DestinationPath: input.DestinationPath }),
-    ...(input.GroupOwnerSetting != undefined && {
+    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
+    ...(input.GroupOwnerSetting != null && {
       GroupOwnerSetting: serializeAws_restJson1GroupOwnerSetting(input.GroupOwnerSetting, context),
     }),
-    ...(input.SourcePath != undefined && { SourcePath: input.SourcePath }),
+    ...(input.SourcePath != null && { SourcePath: input.SourcePath }),
   };
 };
 
 const serializeAws_restJson1Logger = (input: Logger, context: __SerdeContext): any => {
   return {
-    ...(input.Component != undefined && { Component: input.Component }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Level != undefined && { Level: input.Level }),
-    ...(input.Space != undefined && { Space: input.Space }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Component != null && { Component: input.Component }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Level != null && { Level: input.Level }),
+    ...(input.Space != null && { Space: input.Space }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -8697,15 +8677,15 @@ const serializeAws_restJson1LoggerDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Loggers != undefined && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
+    ...(input.Loggers != null && { Loggers: serializeAws_restJson1__listOfLogger(input.Loggers, context) }),
   };
 };
 
 const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.ResourceDataContainer != undefined && {
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResourceDataContainer != null && {
       ResourceDataContainer: serializeAws_restJson1ResourceDataContainer(input.ResourceDataContainer, context),
     }),
   };
@@ -8713,32 +8693,32 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
 
 const serializeAws_restJson1ResourceAccessPolicy = (input: ResourceAccessPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Permission != undefined && { Permission: input.Permission }),
-    ...(input.ResourceId != undefined && { ResourceId: input.ResourceId }),
+    ...(input.Permission != null && { Permission: input.Permission }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_restJson1ResourceDataContainer = (input: ResourceDataContainer, context: __SerdeContext): any => {
   return {
-    ...(input.LocalDeviceResourceData != undefined && {
+    ...(input.LocalDeviceResourceData != null && {
       LocalDeviceResourceData: serializeAws_restJson1LocalDeviceResourceData(input.LocalDeviceResourceData, context),
     }),
-    ...(input.LocalVolumeResourceData != undefined && {
+    ...(input.LocalVolumeResourceData != null && {
       LocalVolumeResourceData: serializeAws_restJson1LocalVolumeResourceData(input.LocalVolumeResourceData, context),
     }),
-    ...(input.S3MachineLearningModelResourceData != undefined && {
+    ...(input.S3MachineLearningModelResourceData != null && {
       S3MachineLearningModelResourceData: serializeAws_restJson1S3MachineLearningModelResourceData(
         input.S3MachineLearningModelResourceData,
         context
       ),
     }),
-    ...(input.SageMakerMachineLearningModelResourceData != undefined && {
+    ...(input.SageMakerMachineLearningModelResourceData != null && {
       SageMakerMachineLearningModelResourceData: serializeAws_restJson1SageMakerMachineLearningModelResourceData(
         input.SageMakerMachineLearningModelResourceData,
         context
       ),
     }),
-    ...(input.SecretsManagerSecretResourceData != undefined && {
+    ...(input.SecretsManagerSecretResourceData != null && {
       SecretsManagerSecretResourceData: serializeAws_restJson1SecretsManagerSecretResourceData(
         input.SecretsManagerSecretResourceData,
         context
@@ -8752,9 +8732,7 @@ const serializeAws_restJson1ResourceDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Resources != undefined && {
-      Resources: serializeAws_restJson1__listOfResource(input.Resources, context),
-    }),
+    ...(input.Resources != null && { Resources: serializeAws_restJson1__listOfResource(input.Resources, context) }),
   };
 };
 
@@ -8763,8 +8741,8 @@ const serializeAws_restJson1ResourceDownloadOwnerSetting = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupOwner != undefined && { GroupOwner: input.GroupOwner }),
-    ...(input.GroupPermission != undefined && { GroupPermission: input.GroupPermission }),
+    ...(input.GroupOwner != null && { GroupOwner: input.GroupOwner }),
+    ...(input.GroupPermission != null && { GroupPermission: input.GroupPermission }),
   };
 };
 
@@ -8773,11 +8751,11 @@ const serializeAws_restJson1S3MachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath != undefined && { DestinationPath: input.DestinationPath }),
-    ...(input.OwnerSetting != undefined && {
+    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
+    ...(input.OwnerSetting != null && {
       OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
-    ...(input.S3Uri != undefined && { S3Uri: input.S3Uri }),
+    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
   };
 };
 
@@ -8786,11 +8764,11 @@ const serializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationPath != undefined && { DestinationPath: input.DestinationPath }),
-    ...(input.OwnerSetting != undefined && {
+    ...(input.DestinationPath != null && { DestinationPath: input.DestinationPath }),
+    ...(input.OwnerSetting != null && {
       OwnerSetting: serializeAws_restJson1ResourceDownloadOwnerSetting(input.OwnerSetting, context),
     }),
-    ...(input.SageMakerJobArn != undefined && { SageMakerJobArn: input.SageMakerJobArn }),
+    ...(input.SageMakerJobArn != null && { SageMakerJobArn: input.SageMakerJobArn }),
   };
 };
 
@@ -8799,8 +8777,8 @@ const serializeAws_restJson1SecretsManagerSecretResourceData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ARN != undefined && { ARN: input.ARN }),
-    ...(input.AdditionalStagingLabelsToDownload != undefined && {
+    ...(input.ARN != null && { ARN: input.ARN }),
+    ...(input.AdditionalStagingLabelsToDownload != null && {
       AdditionalStagingLabelsToDownload: serializeAws_restJson1__listOf__string(
         input.AdditionalStagingLabelsToDownload,
         context
@@ -8811,10 +8789,10 @@ const serializeAws_restJson1SecretsManagerSecretResourceData = (
 
 const serializeAws_restJson1Subscription = (input: Subscription, context: __SerdeContext): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Source != undefined && { Source: input.Source }),
-    ...(input.Subject != undefined && { Subject: input.Subject }),
-    ...(input.Target != undefined && { Target: input.Target }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Source != null && { Source: input.Source }),
+    ...(input.Subject != null && { Subject: input.Subject }),
+    ...(input.Target != null && { Target: input.Target }),
   };
 };
 
@@ -8823,7 +8801,7 @@ const serializeAws_restJson1SubscriptionDefinitionVersion = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Subscriptions != undefined && {
+    ...(input.Subscriptions != null && {
       Subscriptions: serializeAws_restJson1__listOfSubscription(input.Subscriptions, context),
     }),
   };
@@ -8846,7 +8824,7 @@ const serializeAws_restJson1TelemetryConfigurationUpdate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Telemetry != undefined && { Telemetry: input.Telemetry }),
+    ...(input.Telemetry != null && { Telemetry: input.Telemetry }),
   };
 };
 
@@ -9077,7 +9055,7 @@ const deserializeAws_restJson1BulkDeploymentResult = (output: any, context: __Se
     DeploymentStatus: __expectString(output.DeploymentStatus),
     DeploymentType: __expectString(output.DeploymentType),
     ErrorDetails:
-      output.ErrorDetails != undefined ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context) : undefined,
+      output.ErrorDetails != null ? deserializeAws_restJson1ErrorDetails(output.ErrorDetails, context) : undefined,
     ErrorMessage: __expectString(output.ErrorMessage),
     GroupArn: __expectString(output.GroupArn),
   } as any;
@@ -9124,7 +9102,7 @@ const deserializeAws_restJson1Connector = (output: any, context: __SerdeContext)
     ConnectorArn: __expectString(output.ConnectorArn),
     Id: __expectString(output.Id),
     Parameters:
-      output.Parameters != undefined ? deserializeAws_restJson1__mapOf__string(output.Parameters, context) : undefined,
+      output.Parameters != null ? deserializeAws_restJson1__mapOf__string(output.Parameters, context) : undefined,
   } as any;
 };
 
@@ -9134,9 +9112,7 @@ const deserializeAws_restJson1ConnectorDefinitionVersion = (
 ): ConnectorDefinitionVersion => {
   return {
     Connectors:
-      output.Connectors != undefined
-        ? deserializeAws_restJson1__listOfConnector(output.Connectors, context)
-        : undefined,
+      output.Connectors != null ? deserializeAws_restJson1__listOfConnector(output.Connectors, context) : undefined,
   } as any;
 };
 
@@ -9151,7 +9127,7 @@ const deserializeAws_restJson1Core = (output: any, context: __SerdeContext): Cor
 
 const deserializeAws_restJson1CoreDefinitionVersion = (output: any, context: __SerdeContext): CoreDefinitionVersion => {
   return {
-    Cores: output.Cores != undefined ? deserializeAws_restJson1__listOfCore(output.Cores, context) : undefined,
+    Cores: output.Cores != null ? deserializeAws_restJson1__listOfCore(output.Cores, context) : undefined,
   } as any;
 };
 
@@ -9164,7 +9140,7 @@ const deserializeAws_restJson1DefinitionInformation = (output: any, context: __S
     LatestVersion: __expectString(output.LatestVersion),
     LatestVersionArn: __expectString(output.LatestVersionArn),
     Name: __expectString(output.Name),
-    Tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -9204,7 +9180,7 @@ const deserializeAws_restJson1DeviceDefinitionVersion = (
   context: __SerdeContext
 ): DeviceDefinitionVersion => {
   return {
-    Devices: output.Devices != undefined ? deserializeAws_restJson1__listOfDevice(output.Devices, context) : undefined,
+    Devices: output.Devices != null ? deserializeAws_restJson1__listOfDevice(output.Devices, context) : undefined,
   } as any;
 };
 
@@ -9231,7 +9207,7 @@ const deserializeAws_restJson1Function = (output: any, context: __SerdeContext):
   return {
     FunctionArn: __expectString(output.FunctionArn),
     FunctionConfiguration:
-      output.FunctionConfiguration != undefined
+      output.FunctionConfiguration != null
         ? deserializeAws_restJson1FunctionConfiguration(output.FunctionConfiguration, context)
         : undefined,
     Id: __expectString(output.Id),
@@ -9242,7 +9218,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
   return {
     EncodingType: __expectString(output.EncodingType),
     Environment:
-      output.Environment != undefined
+      output.Environment != null
         ? deserializeAws_restJson1FunctionConfigurationEnvironment(output.Environment, context)
         : undefined,
     ExecArgs: __expectString(output.ExecArgs),
@@ -9260,22 +9236,20 @@ const deserializeAws_restJson1FunctionConfigurationEnvironment = (
   return {
     AccessSysfs: __expectBoolean(output.AccessSysfs),
     Execution:
-      output.Execution != undefined
-        ? deserializeAws_restJson1FunctionExecutionConfig(output.Execution, context)
-        : undefined,
+      output.Execution != null ? deserializeAws_restJson1FunctionExecutionConfig(output.Execution, context) : undefined,
     ResourceAccessPolicies:
-      output.ResourceAccessPolicies != undefined
+      output.ResourceAccessPolicies != null
         ? deserializeAws_restJson1__listOfResourceAccessPolicy(output.ResourceAccessPolicies, context)
         : undefined,
     Variables:
-      output.Variables != undefined ? deserializeAws_restJson1__mapOf__string(output.Variables, context) : undefined,
+      output.Variables != null ? deserializeAws_restJson1__mapOf__string(output.Variables, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1FunctionDefaultConfig = (output: any, context: __SerdeContext): FunctionDefaultConfig => {
   return {
     Execution:
-      output.Execution != undefined
+      output.Execution != null
         ? deserializeAws_restJson1FunctionDefaultExecutionConfig(output.Execution, context)
         : undefined,
   } as any;
@@ -9287,7 +9261,7 @@ const deserializeAws_restJson1FunctionDefaultExecutionConfig = (
 ): FunctionDefaultExecutionConfig => {
   return {
     IsolationMode: __expectString(output.IsolationMode),
-    RunAs: output.RunAs != undefined ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
+    RunAs: output.RunAs != null ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
   } as any;
 };
 
@@ -9297,11 +9271,11 @@ const deserializeAws_restJson1FunctionDefinitionVersion = (
 ): FunctionDefinitionVersion => {
   return {
     DefaultConfig:
-      output.DefaultConfig != undefined
+      output.DefaultConfig != null
         ? deserializeAws_restJson1FunctionDefaultConfig(output.DefaultConfig, context)
         : undefined,
     Functions:
-      output.Functions != undefined ? deserializeAws_restJson1__listOfFunction(output.Functions, context) : undefined,
+      output.Functions != null ? deserializeAws_restJson1__listOfFunction(output.Functions, context) : undefined,
   } as any;
 };
 
@@ -9311,7 +9285,7 @@ const deserializeAws_restJson1FunctionExecutionConfig = (
 ): FunctionExecutionConfig => {
   return {
     IsolationMode: __expectString(output.IsolationMode),
-    RunAs: output.RunAs != undefined ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
+    RunAs: output.RunAs != null ? deserializeAws_restJson1FunctionRunAsConfig(output.RunAs, context) : undefined,
   } as any;
 };
 
@@ -9369,7 +9343,7 @@ const deserializeAws_restJson1LocalDeviceResourceData = (
 ): LocalDeviceResourceData => {
   return {
     GroupOwnerSetting:
-      output.GroupOwnerSetting != undefined
+      output.GroupOwnerSetting != null
         ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
         : undefined,
     SourcePath: __expectString(output.SourcePath),
@@ -9383,7 +9357,7 @@ const deserializeAws_restJson1LocalVolumeResourceData = (
   return {
     DestinationPath: __expectString(output.DestinationPath),
     GroupOwnerSetting:
-      output.GroupOwnerSetting != undefined
+      output.GroupOwnerSetting != null
         ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
         : undefined,
     SourcePath: __expectString(output.SourcePath),
@@ -9405,7 +9379,7 @@ const deserializeAws_restJson1LoggerDefinitionVersion = (
   context: __SerdeContext
 ): LoggerDefinitionVersion => {
   return {
-    Loggers: output.Loggers != undefined ? deserializeAws_restJson1__listOfLogger(output.Loggers, context) : undefined,
+    Loggers: output.Loggers != null ? deserializeAws_restJson1__listOfLogger(output.Loggers, context) : undefined,
   } as any;
 };
 
@@ -9414,7 +9388,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     ResourceDataContainer:
-      output.ResourceDataContainer != undefined
+      output.ResourceDataContainer != null
         ? deserializeAws_restJson1ResourceDataContainer(output.ResourceDataContainer, context)
         : undefined,
   } as any;
@@ -9430,26 +9404,26 @@ const deserializeAws_restJson1ResourceAccessPolicy = (output: any, context: __Se
 const deserializeAws_restJson1ResourceDataContainer = (output: any, context: __SerdeContext): ResourceDataContainer => {
   return {
     LocalDeviceResourceData:
-      output.LocalDeviceResourceData != undefined
+      output.LocalDeviceResourceData != null
         ? deserializeAws_restJson1LocalDeviceResourceData(output.LocalDeviceResourceData, context)
         : undefined,
     LocalVolumeResourceData:
-      output.LocalVolumeResourceData != undefined
+      output.LocalVolumeResourceData != null
         ? deserializeAws_restJson1LocalVolumeResourceData(output.LocalVolumeResourceData, context)
         : undefined,
     S3MachineLearningModelResourceData:
-      output.S3MachineLearningModelResourceData != undefined
+      output.S3MachineLearningModelResourceData != null
         ? deserializeAws_restJson1S3MachineLearningModelResourceData(output.S3MachineLearningModelResourceData, context)
         : undefined,
     SageMakerMachineLearningModelResourceData:
-      output.SageMakerMachineLearningModelResourceData != undefined
+      output.SageMakerMachineLearningModelResourceData != null
         ? deserializeAws_restJson1SageMakerMachineLearningModelResourceData(
             output.SageMakerMachineLearningModelResourceData,
             context
           )
         : undefined,
     SecretsManagerSecretResourceData:
-      output.SecretsManagerSecretResourceData != undefined
+      output.SecretsManagerSecretResourceData != null
         ? deserializeAws_restJson1SecretsManagerSecretResourceData(output.SecretsManagerSecretResourceData, context)
         : undefined,
   } as any;
@@ -9461,7 +9435,7 @@ const deserializeAws_restJson1ResourceDefinitionVersion = (
 ): ResourceDefinitionVersion => {
   return {
     Resources:
-      output.Resources != undefined ? deserializeAws_restJson1__listOfResource(output.Resources, context) : undefined,
+      output.Resources != null ? deserializeAws_restJson1__listOfResource(output.Resources, context) : undefined,
   } as any;
 };
 
@@ -9478,7 +9452,7 @@ const deserializeAws_restJson1ResourceDownloadOwnerSetting = (
 const deserializeAws_restJson1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
   return {
     TelemetryConfiguration:
-      output.TelemetryConfiguration != undefined
+      output.TelemetryConfiguration != null
         ? deserializeAws_restJson1TelemetryConfiguration(output.TelemetryConfiguration, context)
         : undefined,
   } as any;
@@ -9491,7 +9465,7 @@ const deserializeAws_restJson1S3MachineLearningModelResourceData = (
   return {
     DestinationPath: __expectString(output.DestinationPath),
     OwnerSetting:
-      output.OwnerSetting != undefined
+      output.OwnerSetting != null
         ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
         : undefined,
     S3Uri: __expectString(output.S3Uri),
@@ -9505,7 +9479,7 @@ const deserializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   return {
     DestinationPath: __expectString(output.DestinationPath),
     OwnerSetting:
-      output.OwnerSetting != undefined
+      output.OwnerSetting != null
         ? deserializeAws_restJson1ResourceDownloadOwnerSetting(output.OwnerSetting, context)
         : undefined,
     SageMakerJobArn: __expectString(output.SageMakerJobArn),
@@ -9519,7 +9493,7 @@ const deserializeAws_restJson1SecretsManagerSecretResourceData = (
   return {
     ARN: __expectString(output.ARN),
     AdditionalStagingLabelsToDownload:
-      output.AdditionalStagingLabelsToDownload != undefined
+      output.AdditionalStagingLabelsToDownload != null
         ? deserializeAws_restJson1__listOf__string(output.AdditionalStagingLabelsToDownload, context)
         : undefined,
   } as any;
@@ -9540,7 +9514,7 @@ const deserializeAws_restJson1SubscriptionDefinitionVersion = (
 ): SubscriptionDefinitionVersion => {
   return {
     Subscriptions:
-      output.Subscriptions != undefined
+      output.Subscriptions != null
         ? deserializeAws_restJson1__listOfSubscription(output.Subscriptions, context)
         : undefined,
   } as any;

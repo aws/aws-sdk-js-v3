@@ -1000,7 +1000,7 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
 const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeContext): BundleDetails => {
   return {
     availablePlatforms:
-      output.availablePlatforms != undefined
+      output.availablePlatforms != null
         ? deserializeAws_restJson1Platforms(output.availablePlatforms, context)
         : undefined,
     bundleId: __expectString(output.bundleId),
@@ -1039,17 +1039,17 @@ const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeCon
   return {
     consoleUrl: __expectString(output.consoleUrl),
     createdDate:
-      output.createdDate != undefined
+      output.createdDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
         : undefined,
     lastUpdatedDate:
-      output.lastUpdatedDate != undefined
+      output.lastUpdatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
         : undefined,
     name: __expectString(output.name),
     projectId: __expectString(output.projectId),
     region: __expectString(output.region),
-    resources: output.resources != undefined ? deserializeAws_restJson1Resources(output.resources, context) : undefined,
+    resources: output.resources != null ? deserializeAws_restJson1Resources(output.resources, context) : undefined,
     state: __expectString(output.state),
   } as any;
 };
@@ -1076,8 +1076,7 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     arn: __expectString(output.arn),
-    attributes:
-      output.attributes != undefined ? deserializeAws_restJson1Attributes(output.attributes, context) : undefined,
+    attributes: output.attributes != null ? deserializeAws_restJson1Attributes(output.attributes, context) : undefined,
     feature: __expectString(output.feature),
     name: __expectString(output.name),
     type: __expectString(output.type),

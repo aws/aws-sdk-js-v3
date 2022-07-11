@@ -58,10 +58,10 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerator-offerings";
   let body: any;
   body = JSON.stringify({
-    ...(input.acceleratorTypes != undefined && {
+    ...(input.acceleratorTypes != null && {
       acceleratorTypes: serializeAws_restJson1AcceleratorTypeNameList(input.acceleratorTypes, context),
     }),
-    ...(input.locationType != undefined && { locationType: input.locationType }),
+    ...(input.locationType != null && { locationType: input.locationType }),
   });
   return new __HttpRequest({
     protocol,
@@ -85,12 +85,12 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerators";
   let body: any;
   body = JSON.stringify({
-    ...(input.acceleratorIds != undefined && {
+    ...(input.acceleratorIds != null && {
       acceleratorIds: serializeAws_restJson1AcceleratorIdList(input.acceleratorIds, context),
     }),
-    ...(input.filters != undefined && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
-    ...(input.maxResults != undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken != undefined && { nextToken: input.nextToken }),
+    ...(input.filters != null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -174,7 +174,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -590,8 +590,8 @@ const serializeAws_restJson1AcceleratorTypeNameList = (input: string[], context:
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.name != undefined && { name: input.name }),
-    ...(input.values != undefined && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.values != null && { values: serializeAws_restJson1ValueStringList(input.values, context) }),
   };
 };
 
@@ -632,10 +632,9 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
 const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
   return {
     acceleratorTypeName: __expectString(output.acceleratorTypeName),
-    memoryInfo:
-      output.memoryInfo != undefined ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context) : undefined,
+    memoryInfo: output.memoryInfo != null ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context) : undefined,
     throughputInfo:
-      output.throughputInfo != undefined
+      output.throughputInfo != null
         ? deserializeAws_restJson1ThroughputInfoList(output.throughputInfo, context)
         : undefined,
   } as any;
@@ -685,7 +684,7 @@ const deserializeAws_restJson1ElasticInferenceAccelerator = (
 ): ElasticInferenceAccelerator => {
   return {
     acceleratorHealth:
-      output.acceleratorHealth != undefined
+      output.acceleratorHealth != null
         ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
         : undefined,
     acceleratorId: __expectString(output.acceleratorId),

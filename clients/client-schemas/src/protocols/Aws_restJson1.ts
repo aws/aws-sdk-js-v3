@@ -98,10 +98,10 @@ export const serializeAws_restJson1CreateDiscovererCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
   let body: any;
   body = JSON.stringify({
-    ...(input.CrossAccount != undefined && { CrossAccount: input.CrossAccount }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.SourceArn != undefined && { SourceArn: input.SourceArn }),
-    ...(input.Tags != undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.CrossAccount != null && { CrossAccount: input.CrossAccount }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -135,8 +135,8 @@ export const serializeAws_restJson1CreateRegistryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Tags != undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -180,10 +180,10 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content != undefined && { Content: input.Content }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Tags != undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -624,10 +624,10 @@ export const serializeAws_restJson1GetDiscoveredSchemaCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discover";
   let body: any;
   body = JSON.stringify({
-    ...(input.Events != undefined && {
+    ...(input.Events != null && {
       Events: serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput(input.Events, context),
     }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -889,8 +889,8 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy != undefined && { Policy: __LazyJsonString.fromObject(input.Policy) }),
-    ...(input.RevisionId != undefined && { RevisionId: input.RevisionId }),
+    ...(input.Policy != null && { Policy: __LazyJsonString.fromObject(input.Policy) }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1018,7 +1018,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1084,8 +1084,8 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CrossAccount != undefined && { CrossAccount: input.CrossAccount }),
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.CrossAccount != null && { CrossAccount: input.CrossAccount }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1119,7 +1119,7 @@ export const serializeAws_restJson1UpdateRegistryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1164,9 +1164,9 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientTokenId: input.ClientTokenId ?? generateIdempotencyToken(),
-    ...(input.Content != undefined && { Content: input.Content }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.Content != null && { Content: input.Content }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
     protocol,
@@ -3555,7 +3555,7 @@ const deserializeAws_restJson1DiscovererSummary = (output: any, context: __Serde
     DiscovererId: __expectString(output.DiscovererId),
     SourceArn: __expectString(output.SourceArn),
     State: __expectString(output.State),
-    Tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
@@ -3563,17 +3563,17 @@ const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeCo
   return {
     RegistryArn: __expectString(output.RegistryArn),
     RegistryName: __expectString(output.RegistryName),
-    Tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
   return {
     LastModified:
-      output.LastModified != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastModified)) : undefined,
+      output.LastModified != null ? __expectNonNull(__parseRfc3339DateTime(output.LastModified)) : undefined,
     SchemaArn: __expectString(output.SchemaArn),
     SchemaName: __expectString(output.SchemaName),
-    Tags: output.tags != undefined ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
     VersionCount: __expectLong(output.VersionCount),
   } as any;
 };
@@ -3593,7 +3593,7 @@ const deserializeAws_restJson1SearchSchemaSummary = (output: any, context: __Ser
     SchemaArn: __expectString(output.SchemaArn),
     SchemaName: __expectString(output.SchemaName),
     SchemaVersions:
-      output.SchemaVersions != undefined
+      output.SchemaVersions != null
         ? deserializeAws_restJson1__listOfSearchSchemaVersionSummary(output.SchemaVersions, context)
         : undefined,
   } as any;
@@ -3604,8 +3604,7 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
   context: __SerdeContext
 ): SearchSchemaVersionSummary => {
   return {
-    CreatedDate:
-      output.CreatedDate != undefined ? __expectNonNull(__parseRfc3339DateTime(output.CreatedDate)) : undefined,
+    CreatedDate: output.CreatedDate != null ? __expectNonNull(__parseRfc3339DateTime(output.CreatedDate)) : undefined,
     SchemaVersion: __expectString(output.SchemaVersion),
     Type: __expectString(output.Type),
   } as any;

@@ -126,10 +126,10 @@ export const serializeAws_restJson1CreateGameCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/game";
   let body: any;
   body = JSON.stringify({
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.GameName != undefined && { GameName: input.GameName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.GameName != null && { GameName: input.GameName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -163,7 +163,7 @@ export const serializeAws_restJson1CreateSnapshotCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -196,11 +196,11 @@ export const serializeAws_restJson1CreateStageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Role != undefined && { Role: input.Role }),
-    ...(input.StageName != undefined && { StageName: input.StageName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Role != null && { Role: input.Role }),
+    ...(input.StageName != null && { StageName: input.StageName }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -753,7 +753,7 @@ export const serializeAws_restJson1ImportGameConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ImportSource != undefined && {
+    ...(input.ImportSource != null && {
       ImportSource: serializeAws_restJson1ImportGameConfigurationSource(input.ImportSource, context),
     }),
   });
@@ -1073,7 +1073,7 @@ export const serializeAws_restJson1StartGeneratedCodeJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Generator != undefined && { Generator: serializeAws_restJson1Generator(input.Generator, context) }),
+    ...(input.Generator != null && { Generator: serializeAws_restJson1Generator(input.Generator, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1117,8 +1117,8 @@ export const serializeAws_restJson1StartStageDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ClientToken != undefined && { ClientToken: input.ClientToken }),
-    ...(input.SnapshotId != undefined && { SnapshotId: input.SnapshotId }),
+    ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
+    ...(input.SnapshotId != null && { SnapshotId: input.SnapshotId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1151,7 +1151,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1216,7 +1216,7 @@ export const serializeAws_restJson1UpdateGameCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1250,7 +1250,7 @@ export const serializeAws_restJson1UpdateGameConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Modifications != undefined && {
+    ...(input.Modifications != null && {
       Modifications: serializeAws_restJson1SectionModificationList(input.Modifications, context),
     }),
   });
@@ -1295,7 +1295,7 @@ export const serializeAws_restJson1UpdateSnapshotCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
+    ...(input.Description != null && { Description: input.Description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1338,8 +1338,8 @@ export const serializeAws_restJson1UpdateStageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Role != undefined && { Role: input.Role }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Role != null && { Role: input.Role }),
   });
   return new __HttpRequest({
     protocol,
@@ -3364,9 +3364,9 @@ const serializeAws_restJson1Document = (input: __DocumentType, context: __SerdeC
 
 const serializeAws_restJson1Generator = (input: Generator, context: __SerdeContext): any => {
   return {
-    ...(input.GameSdkVersion != undefined && { GameSdkVersion: input.GameSdkVersion }),
-    ...(input.Language != undefined && { Language: input.Language }),
-    ...(input.TargetPlatform != undefined && { TargetPlatform: input.TargetPlatform }),
+    ...(input.GameSdkVersion != null && { GameSdkVersion: input.GameSdkVersion }),
+    ...(input.Language != null && { Language: input.Language }),
+    ...(input.TargetPlatform != null && { TargetPlatform: input.TargetPlatform }),
   };
 };
 
@@ -3375,16 +3375,16 @@ const serializeAws_restJson1ImportGameConfigurationSource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.File != undefined && { File: context.base64Encoder(input.File) }),
+    ...(input.File != null && { File: context.base64Encoder(input.File) }),
   };
 };
 
 const serializeAws_restJson1SectionModification = (input: SectionModification, context: __SerdeContext): any => {
   return {
-    ...(input.Operation != undefined && { Operation: input.Operation }),
-    ...(input.Path != undefined && { Path: input.Path }),
-    ...(input.Section != undefined && { Section: input.Section }),
-    ...(input.Value != undefined && { Value: serializeAws_restJson1Document(input.Value, context) }),
+    ...(input.Operation != null && { Operation: input.Operation }),
+    ...(input.Path != null && { Path: input.Path }),
+    ...(input.Section != null && { Section: input.Section }),
+    ...(input.Value != null && { Value: serializeAws_restJson1Document(input.Value, context) }),
   };
 };
 
@@ -3413,7 +3413,7 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
 
 const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     Id: __expectString(output.Id),
   } as any;
 };
@@ -3505,24 +3505,22 @@ const deserializeAws_restJson1GameConfigurationDetails = (
   context: __SerdeContext
 ): GameConfigurationDetails => {
   return {
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
-    Sections: output.Sections != undefined ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1GameDetails = (output: any, context: __SerdeContext): GameDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     Description: __expectString(output.Description),
     EnableTerminationProtection: __expectBoolean(output.EnableTerminationProtection),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3531,7 +3529,7 @@ const deserializeAws_restJson1GameSummary = (output: any, context: __SerdeContex
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3554,7 +3552,7 @@ const deserializeAws_restJson1GeneratedCodeJobDetails = (
   return {
     Description: __expectString(output.Description),
     ExpirationTime:
-      output.ExpirationTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationTime)) : undefined,
+      output.ExpirationTime != null ? __expectNonNull(__parseRfc3339DateTime(output.ExpirationTime)) : undefined,
     GeneratedCodeJobId: __expectString(output.GeneratedCodeJobId),
     S3Url: __expectString(output.S3Url),
     Status: __expectString(output.Status),
@@ -3578,8 +3576,7 @@ const deserializeAws_restJson1GeneratedCodeJobDetailsList = (
 
 const deserializeAws_restJson1Section = (output: any, context: __SerdeContext): Section => {
   return {
-    Attributes:
-      output.Attributes != undefined ? deserializeAws_restJson1Document(output.Attributes, context) : undefined,
+    Attributes: output.Attributes != null ? deserializeAws_restJson1Document(output.Attributes, context) : undefined,
     Name: __expectString(output.Name),
     Size: __expectInt32(output.Size),
   } as any;
@@ -3599,22 +3596,20 @@ const deserializeAws_restJson1Sections = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return {
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
-    Sections: output.Sections != undefined ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    Sections: output.Sections != null ? deserializeAws_restJson1Sections(output.Sections, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SnapshotSummary = (output: any, context: __SerdeContext): SnapshotSummary => {
   return {
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
   } as any;
 };
 
@@ -3635,16 +3630,15 @@ const deserializeAws_restJson1StageDeploymentDetails = (
   context: __SerdeContext
 ): StageDeploymentDetails => {
   return {
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
     DeploymentResult:
-      output.DeploymentResult != undefined
+      output.DeploymentResult != null
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3672,12 +3666,11 @@ const deserializeAws_restJson1StageDeploymentSummary = (
     DeploymentAction: __expectString(output.DeploymentAction),
     DeploymentId: __expectString(output.DeploymentId),
     DeploymentResult:
-      output.DeploymentResult != undefined
+      output.DeploymentResult != null
         ? deserializeAws_restJson1DeploymentResult(output.DeploymentResult, context)
         : undefined,
     DeploymentState: __expectString(output.DeploymentState),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
     SnapshotId: __expectString(output.SnapshotId),
   } as any;
 };
@@ -3685,16 +3678,15 @@ const deserializeAws_restJson1StageDeploymentSummary = (
 const deserializeAws_restJson1StageDetails = (output: any, context: __SerdeContext): StageDetails => {
   return {
     Arn: __expectString(output.Arn),
-    Created: output.Created != undefined ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
+    Created: output.Created != null ? __expectNonNull(__parseRfc3339DateTime(output.Created)) : undefined,
     Description: __expectString(output.Description),
     GameKey: __expectString(output.GameKey),
-    LastUpdated:
-      output.LastUpdated != undefined ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
+    LastUpdated: output.LastUpdated != null ? __expectNonNull(__parseRfc3339DateTime(output.LastUpdated)) : undefined,
     LogGroup: __expectString(output.LogGroup),
     Name: __expectString(output.Name),
     Role: __expectString(output.Role),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -3704,7 +3696,7 @@ const deserializeAws_restJson1StageSummary = (output: any, context: __SerdeConte
     GameKey: __expectString(output.GameKey),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 

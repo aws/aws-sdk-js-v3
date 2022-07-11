@@ -366,33 +366,33 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
 
 const serializeAws_json1_0DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId != undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.StreamArn != undefined && { StreamArn: input.StreamArn }),
+    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
   };
 };
 
 const serializeAws_json1_0GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.ShardIterator != undefined && { ShardIterator: input.ShardIterator }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
   };
 };
 
 const serializeAws_json1_0GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-    ...(input.SequenceNumber != undefined && { SequenceNumber: input.SequenceNumber }),
-    ...(input.ShardId != undefined && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType != undefined && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StreamArn != undefined && { StreamArn: input.StreamArn }),
+    ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
+    ...(input.ShardId != null && { ShardId: input.ShardId }),
+    ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
+    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
   };
 };
 
 const serializeAws_json1_0ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartStreamArn != undefined && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
-    ...(input.Limit != undefined && { Limit: input.Limit }),
-    ...(input.TableName != undefined && { TableName: input.TableName }),
+    ...(input.ExclusiveStartStreamArn != null && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.TableName != null && { TableName: input.TableName }),
   };
 };
 
@@ -469,7 +469,7 @@ const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __S
 const deserializeAws_json1_0DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
   return {
     StreamDescription:
-      output.StreamDescription != undefined
+      output.StreamDescription != null
         ? deserializeAws_json1_0StreamDescription(output.StreamDescription, context)
         : undefined,
   } as any;
@@ -487,7 +487,7 @@ const deserializeAws_json1_0ExpiredIteratorException = (
 const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
     NextShardIterator: __expectString(output.NextShardIterator),
-    Records: output.Records != undefined ? deserializeAws_json1_0RecordList(output.Records, context) : undefined,
+    Records: output.Records != null ? deserializeAws_json1_0RecordList(output.Records, context) : undefined,
   } as any;
 };
 
@@ -550,7 +550,7 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
 const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
   return {
     LastEvaluatedStreamArn: __expectString(output.LastEvaluatedStreamArn),
-    Streams: output.Streams != undefined ? deserializeAws_json1_0StreamList(output.Streams, context) : undefined,
+    Streams: output.Streams != null ? deserializeAws_json1_0StreamList(output.Streams, context) : undefined,
   } as any;
 };
 
@@ -584,13 +584,13 @@ const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __S
 const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
   return {
     awsRegion: __expectString(output.awsRegion),
-    dynamodb: output.dynamodb != undefined ? deserializeAws_json1_0StreamRecord(output.dynamodb, context) : undefined,
+    dynamodb: output.dynamodb != null ? deserializeAws_json1_0StreamRecord(output.dynamodb, context) : undefined,
     eventID: __expectString(output.eventID),
     eventName: __expectString(output.eventName),
     eventSource: __expectString(output.eventSource),
     eventVersion: __expectString(output.eventVersion),
     userIdentity:
-      output.userIdentity != undefined ? deserializeAws_json1_0Identity(output.userIdentity, context) : undefined,
+      output.userIdentity != null ? deserializeAws_json1_0Identity(output.userIdentity, context) : undefined,
   } as any;
 };
 
@@ -626,7 +626,7 @@ const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shar
   return {
     ParentShardId: __expectString(output.ParentShardId),
     SequenceNumberRange:
-      output.SequenceNumberRange != undefined
+      output.SequenceNumberRange != null
         ? deserializeAws_json1_0SequenceNumberRange(output.SequenceNumberRange, context)
         : undefined,
     ShardId: __expectString(output.ShardId),
@@ -656,12 +656,12 @@ const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _S
 const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
   return {
     CreationRequestDateTime:
-      output.CreationRequestDateTime != undefined
+      output.CreationRequestDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationRequestDateTime)))
         : undefined,
-    KeySchema: output.KeySchema != undefined ? deserializeAws_json1_0KeySchema(output.KeySchema, context) : undefined,
+    KeySchema: output.KeySchema != null ? deserializeAws_json1_0KeySchema(output.KeySchema, context) : undefined,
     LastEvaluatedShardId: __expectString(output.LastEvaluatedShardId),
-    Shards: output.Shards != undefined ? deserializeAws_json1_0ShardDescriptionList(output.Shards, context) : undefined,
+    Shards: output.Shards != null ? deserializeAws_json1_0ShardDescriptionList(output.Shards, context) : undefined,
     StreamArn: __expectString(output.StreamArn),
     StreamLabel: __expectString(output.StreamLabel),
     StreamStatus: __expectString(output.StreamStatus),
@@ -685,12 +685,12 @@ const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext):
 const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
   return {
     ApproximateCreationDateTime:
-      output.ApproximateCreationDateTime != undefined
+      output.ApproximateCreationDateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateCreationDateTime)))
         : undefined,
-    Keys: output.Keys != undefined ? deserializeAws_json1_0AttributeMap(output.Keys, context) : undefined,
-    NewImage: output.NewImage != undefined ? deserializeAws_json1_0AttributeMap(output.NewImage, context) : undefined,
-    OldImage: output.OldImage != undefined ? deserializeAws_json1_0AttributeMap(output.OldImage, context) : undefined,
+    Keys: output.Keys != null ? deserializeAws_json1_0AttributeMap(output.Keys, context) : undefined,
+    NewImage: output.NewImage != null ? deserializeAws_json1_0AttributeMap(output.NewImage, context) : undefined,
+    OldImage: output.OldImage != null ? deserializeAws_json1_0AttributeMap(output.OldImage, context) : undefined,
     SequenceNumber: __expectString(output.SequenceNumber),
     SizeBytes: __expectLong(output.SizeBytes),
     StreamViewType: __expectString(output.StreamViewType),

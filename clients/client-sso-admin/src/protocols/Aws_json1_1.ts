@@ -2501,8 +2501,8 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AccessControlAttribute = (input: AccessControlAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: serializeAws_json1_1AccessControlAttributeValue(input.Value, context) }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: serializeAws_json1_1AccessControlAttributeValue(input.Value, context) }),
   };
 };
 
@@ -2525,7 +2525,7 @@ const serializeAws_json1_1AccessControlAttributeValue = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Source != undefined && {
+    ...(input.Source != null && {
       Source: serializeAws_json1_1AccessControlAttributeValueSourceList(input.Source, context),
     }),
   };
@@ -2547,9 +2547,9 @@ const serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn != undefined && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2558,12 +2558,12 @@ const serializeAws_json1_1CreateAccountAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId != undefined && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType != undefined && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId != undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType != undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.PrincipalId != null && { PrincipalId: input.PrincipalId }),
+    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
+    ...(input.TargetType != null && { TargetType: input.TargetType }),
   };
 };
 
@@ -2572,13 +2572,13 @@ const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceAccessControlAttributeConfiguration != undefined && {
+    ...(input.InstanceAccessControlAttributeConfiguration != null && {
       InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
         input.InstanceAccessControlAttributeConfiguration,
         context
       ),
     }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2587,12 +2587,12 @@ const serializeAws_json1_1CreatePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RelayState != undefined && { RelayState: input.RelayState }),
-    ...(input.SessionDuration != undefined && { SessionDuration: input.SessionDuration }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RelayState != null && { RelayState: input.RelayState }),
+    ...(input.SessionDuration != null && { SessionDuration: input.SessionDuration }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2601,12 +2601,12 @@ const serializeAws_json1_1DeleteAccountAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId != undefined && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType != undefined && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId != undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType != undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.PrincipalId != null && { PrincipalId: input.PrincipalId }),
+    ...(input.PrincipalType != null && { PrincipalType: input.PrincipalType }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
+    ...(input.TargetType != null && { TargetType: input.TargetType }),
   };
 };
 
@@ -2615,8 +2615,8 @@ const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2625,7 +2625,7 @@ const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2634,8 +2634,8 @@ const serializeAws_json1_1DeletePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2644,10 +2644,10 @@ const serializeAws_json1_1DescribeAccountAssignmentCreationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountAssignmentCreationRequestId != undefined && {
+    ...(input.AccountAssignmentCreationRequestId != null && {
       AccountAssignmentCreationRequestId: input.AccountAssignmentCreationRequestId,
     }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2656,10 +2656,10 @@ const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountAssignmentDeletionRequestId != undefined && {
+    ...(input.AccountAssignmentDeletionRequestId != null && {
       AccountAssignmentDeletionRequestId: input.AccountAssignmentDeletionRequestId,
     }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2668,7 +2668,7 @@ const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationReq
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2677,8 +2677,8 @@ const serializeAws_json1_1DescribePermissionSetProvisioningStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ProvisionPermissionSetRequestId != undefined && {
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.ProvisionPermissionSetRequestId != null && {
       ProvisionPermissionSetRequestId: input.ProvisionPermissionSetRequestId,
     }),
   };
@@ -2689,8 +2689,8 @@ const serializeAws_json1_1DescribePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2699,9 +2699,9 @@ const serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn != undefined && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2710,8 +2710,8 @@ const serializeAws_json1_1GetInlinePolicyForPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2720,7 +2720,7 @@ const serializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccessControlAttributes != undefined && {
+    ...(input.AccessControlAttributes != null && {
       AccessControlAttributes: serializeAws_json1_1AccessControlAttributeList(input.AccessControlAttributes, context),
     }),
   };
@@ -2731,10 +2731,10 @@ const serializeAws_json1_1ListAccountAssignmentCreationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2743,10 +2743,10 @@ const serializeAws_json1_1ListAccountAssignmentDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2755,11 +2755,11 @@ const serializeAws_json1_1ListAccountAssignmentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2768,18 +2768,18 @@ const serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.ProvisioningStatus != undefined && { ProvisioningStatus: input.ProvisioningStatus }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.ProvisioningStatus != null && { ProvisioningStatus: input.ProvisioningStatus }),
   };
 };
 
 const serializeAws_json1_1ListInstancesRequest = (input: ListInstancesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2788,10 +2788,10 @@ const serializeAws_json1_1ListManagedPoliciesInPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2800,10 +2800,10 @@ const serializeAws_json1_1ListPermissionSetProvisioningStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter != undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filter != null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2812,11 +2812,11 @@ const serializeAws_json1_1ListPermissionSetsProvisionedToAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ProvisioningStatus != undefined && { ProvisioningStatus: input.ProvisioningStatus }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ProvisioningStatus != null && { ProvisioningStatus: input.ProvisioningStatus }),
   };
 };
 
@@ -2825,9 +2825,9 @@ const serializeAws_json1_1ListPermissionSetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2836,15 +2836,15 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1OperationStatusFilter = (input: OperationStatusFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Status != undefined && { Status: input.Status }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
@@ -2853,10 +2853,10 @@ const serializeAws_json1_1ProvisionPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.TargetId != undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType != undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.TargetId != null && { TargetId: input.TargetId }),
+    ...(input.TargetType != null && { TargetType: input.TargetType }),
   };
 };
 
@@ -2865,16 +2865,16 @@ const serializeAws_json1_1PutInlinePolicyToPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InlinePolicy != undefined && { InlinePolicy: input.InlinePolicy }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InlinePolicy != null && { InlinePolicy: input.InlinePolicy }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2902,17 +2902,17 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2921,13 +2921,13 @@ const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceAccessControlAttributeConfiguration != undefined && {
+    ...(input.InstanceAccessControlAttributeConfiguration != null && {
       InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
         input.InstanceAccessControlAttributeConfiguration,
         context
       ),
     }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -2936,19 +2936,18 @@ const serializeAws_json1_1UpdatePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.InstanceArn != undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn != undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.RelayState != undefined && { RelayState: input.RelayState }),
-    ...(input.SessionDuration != undefined && { SessionDuration: input.SessionDuration }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.RelayState != null && { RelayState: input.RelayState }),
+    ...(input.SessionDuration != null && { SessionDuration: input.SessionDuration }),
   };
 };
 
 const deserializeAws_json1_1AccessControlAttribute = (output: any, context: __SerdeContext): AccessControlAttribute => {
   return {
     Key: __expectString(output.Key),
-    Value:
-      output.Value != undefined ? deserializeAws_json1_1AccessControlAttributeValue(output.Value, context) : undefined,
+    Value: output.Value != null ? deserializeAws_json1_1AccessControlAttributeValue(output.Value, context) : undefined,
   } as any;
 };
 
@@ -2973,7 +2972,7 @@ const deserializeAws_json1_1AccessControlAttributeValue = (
 ): AccessControlAttributeValue => {
   return {
     Source:
-      output.Source != undefined
+      output.Source != null
         ? deserializeAws_json1_1AccessControlAttributeValueSourceList(output.Source, context)
         : undefined,
   } as any;
@@ -3027,7 +3026,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatus = (
 ): AccountAssignmentOperationStatus => {
   return {
     CreatedDate:
-      output.CreatedDate != undefined
+      output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
@@ -3062,7 +3061,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
 ): AccountAssignmentOperationStatusMetadata => {
   return {
     CreatedDate:
-      output.CreatedDate != undefined
+      output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     RequestId: __expectString(output.RequestId),
@@ -3123,7 +3122,7 @@ const deserializeAws_json1_1CreateAccountAssignmentResponse = (
 ): CreateAccountAssignmentResponse => {
   return {
     AccountAssignmentCreationStatus:
-      output.AccountAssignmentCreationStatus != undefined
+      output.AccountAssignmentCreationStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatus(output.AccountAssignmentCreationStatus, context)
         : undefined,
   } as any;
@@ -3142,9 +3141,7 @@ const deserializeAws_json1_1CreatePermissionSetResponse = (
 ): CreatePermissionSetResponse => {
   return {
     PermissionSet:
-      output.PermissionSet != undefined
-        ? deserializeAws_json1_1PermissionSet(output.PermissionSet, context)
-        : undefined,
+      output.PermissionSet != null ? deserializeAws_json1_1PermissionSet(output.PermissionSet, context) : undefined,
   } as any;
 };
 
@@ -3154,7 +3151,7 @@ const deserializeAws_json1_1DeleteAccountAssignmentResponse = (
 ): DeleteAccountAssignmentResponse => {
   return {
     AccountAssignmentDeletionStatus:
-      output.AccountAssignmentDeletionStatus != undefined
+      output.AccountAssignmentDeletionStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatus(output.AccountAssignmentDeletionStatus, context)
         : undefined,
   } as any;
@@ -3187,7 +3184,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentCreationStatusResponse = (
 ): DescribeAccountAssignmentCreationStatusResponse => {
   return {
     AccountAssignmentCreationStatus:
-      output.AccountAssignmentCreationStatus != undefined
+      output.AccountAssignmentCreationStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatus(output.AccountAssignmentCreationStatus, context)
         : undefined,
   } as any;
@@ -3199,7 +3196,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusResponse = (
 ): DescribeAccountAssignmentDeletionStatusResponse => {
   return {
     AccountAssignmentDeletionStatus:
-      output.AccountAssignmentDeletionStatus != undefined
+      output.AccountAssignmentDeletionStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatus(output.AccountAssignmentDeletionStatus, context)
         : undefined,
   } as any;
@@ -3211,7 +3208,7 @@ const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationR
 ): DescribeInstanceAccessControlAttributeConfigurationResponse => {
   return {
     InstanceAccessControlAttributeConfiguration:
-      output.InstanceAccessControlAttributeConfiguration != undefined
+      output.InstanceAccessControlAttributeConfiguration != null
         ? deserializeAws_json1_1InstanceAccessControlAttributeConfiguration(
             output.InstanceAccessControlAttributeConfiguration,
             context
@@ -3228,7 +3225,7 @@ const deserializeAws_json1_1DescribePermissionSetProvisioningStatusResponse = (
 ): DescribePermissionSetProvisioningStatusResponse => {
   return {
     PermissionSetProvisioningStatus:
-      output.PermissionSetProvisioningStatus != undefined
+      output.PermissionSetProvisioningStatus != null
         ? deserializeAws_json1_1PermissionSetProvisioningStatus(output.PermissionSetProvisioningStatus, context)
         : undefined,
   } as any;
@@ -3240,9 +3237,7 @@ const deserializeAws_json1_1DescribePermissionSetResponse = (
 ): DescribePermissionSetResponse => {
   return {
     PermissionSet:
-      output.PermissionSet != undefined
-        ? deserializeAws_json1_1PermissionSet(output.PermissionSet, context)
-        : undefined,
+      output.PermissionSet != null ? deserializeAws_json1_1PermissionSet(output.PermissionSet, context) : undefined,
   } as any;
 };
 
@@ -3268,7 +3263,7 @@ const deserializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
 ): InstanceAccessControlAttributeConfiguration => {
   return {
     AccessControlAttributes:
-      output.AccessControlAttributes != undefined
+      output.AccessControlAttributes != null
         ? deserializeAws_json1_1AccessControlAttributeList(output.AccessControlAttributes, context)
         : undefined,
   } as any;
@@ -3308,7 +3303,7 @@ const deserializeAws_json1_1ListAccountAssignmentCreationStatusResponse = (
 ): ListAccountAssignmentCreationStatusResponse => {
   return {
     AccountAssignmentsCreationStatus:
-      output.AccountAssignmentsCreationStatus != undefined
+      output.AccountAssignmentsCreationStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatusList(output.AccountAssignmentsCreationStatus, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3321,7 +3316,7 @@ const deserializeAws_json1_1ListAccountAssignmentDeletionStatusResponse = (
 ): ListAccountAssignmentDeletionStatusResponse => {
   return {
     AccountAssignmentsDeletionStatus:
-      output.AccountAssignmentsDeletionStatus != undefined
+      output.AccountAssignmentsDeletionStatus != null
         ? deserializeAws_json1_1AccountAssignmentOperationStatusList(output.AccountAssignmentsDeletionStatus, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3334,7 +3329,7 @@ const deserializeAws_json1_1ListAccountAssignmentsResponse = (
 ): ListAccountAssignmentsResponse => {
   return {
     AccountAssignments:
-      output.AccountAssignments != undefined
+      output.AccountAssignments != null
         ? deserializeAws_json1_1AccountAssignmentList(output.AccountAssignments, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3346,16 +3341,14 @@ const deserializeAws_json1_1ListAccountsForProvisionedPermissionSetResponse = (
   context: __SerdeContext
 ): ListAccountsForProvisionedPermissionSetResponse => {
   return {
-    AccountIds:
-      output.AccountIds != undefined ? deserializeAws_json1_1AccountList(output.AccountIds, context) : undefined,
+    AccountIds: output.AccountIds != null ? deserializeAws_json1_1AccountList(output.AccountIds, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_json1_1ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
   return {
-    Instances:
-      output.Instances != undefined ? deserializeAws_json1_1InstanceList(output.Instances, context) : undefined,
+    Instances: output.Instances != null ? deserializeAws_json1_1InstanceList(output.Instances, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -3366,7 +3359,7 @@ const deserializeAws_json1_1ListManagedPoliciesInPermissionSetResponse = (
 ): ListManagedPoliciesInPermissionSetResponse => {
   return {
     AttachedManagedPolicies:
-      output.AttachedManagedPolicies != undefined
+      output.AttachedManagedPolicies != null
         ? deserializeAws_json1_1AttachedManagedPolicyList(output.AttachedManagedPolicies, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -3380,7 +3373,7 @@ const deserializeAws_json1_1ListPermissionSetProvisioningStatusResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     PermissionSetsProvisioningStatus:
-      output.PermissionSetsProvisioningStatus != undefined
+      output.PermissionSetsProvisioningStatus != null
         ? deserializeAws_json1_1PermissionSetProvisioningStatusList(output.PermissionSetsProvisioningStatus, context)
         : undefined,
   } as any;
@@ -3393,7 +3386,7 @@ const deserializeAws_json1_1ListPermissionSetsProvisionedToAccountResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     PermissionSets:
-      output.PermissionSets != undefined
+      output.PermissionSets != null
         ? deserializeAws_json1_1PermissionSetList(output.PermissionSets, context)
         : undefined,
   } as any;
@@ -3406,7 +3399,7 @@ const deserializeAws_json1_1ListPermissionSetsResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     PermissionSets:
-      output.PermissionSets != undefined
+      output.PermissionSets != null
         ? deserializeAws_json1_1PermissionSetList(output.PermissionSets, context)
         : undefined,
   } as any;
@@ -3418,14 +3411,14 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != undefined ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PermissionSet = (output: any, context: __SerdeContext): PermissionSet => {
   return {
     CreatedDate:
-      output.CreatedDate != undefined
+      output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     Description: __expectString(output.Description),
@@ -3455,7 +3448,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatus = (
   return {
     AccountId: __expectString(output.AccountId),
     CreatedDate:
-      output.CreatedDate != undefined
+      output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
@@ -3486,7 +3479,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatusMetadata = (
 ): PermissionSetProvisioningStatusMetadata => {
   return {
     CreatedDate:
-      output.CreatedDate != undefined
+      output.CreatedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))
         : undefined,
     RequestId: __expectString(output.RequestId),
@@ -3500,7 +3493,7 @@ const deserializeAws_json1_1ProvisionPermissionSetResponse = (
 ): ProvisionPermissionSetResponse => {
   return {
     PermissionSetProvisioningStatus:
-      output.PermissionSetProvisioningStatus != undefined
+      output.PermissionSetProvisioningStatus != null
         ? deserializeAws_json1_1PermissionSetProvisioningStatus(output.PermissionSetProvisioningStatus, context)
         : undefined,
   } as any;

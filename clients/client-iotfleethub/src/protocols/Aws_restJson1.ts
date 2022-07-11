@@ -51,11 +51,11 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationDescription != undefined && { applicationDescription: input.applicationDescription }),
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
+    ...(input.applicationDescription != null && { applicationDescription: input.applicationDescription }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.roleArn != undefined && { roleArn: input.roleArn }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -201,7 +201,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -267,8 +267,8 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.applicationDescription != undefined && { applicationDescription: input.applicationDescription }),
-    ...(input.applicationName != undefined && { applicationName: input.applicationName }),
+    ...(input.applicationDescription != null && { applicationDescription: input.applicationDescription }),
+    ...(input.applicationName != null && { applicationName: input.applicationName }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({

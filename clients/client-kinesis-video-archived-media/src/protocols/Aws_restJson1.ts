@@ -65,11 +65,11 @@ export const serializeAws_restJson1GetClipCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getClip";
   let body: any;
   body = JSON.stringify({
-    ...(input.ClipFragmentSelector != undefined && {
+    ...(input.ClipFragmentSelector != null && {
       ClipFragmentSelector: serializeAws_restJson1ClipFragmentSelector(input.ClipFragmentSelector, context),
     }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -94,18 +94,16 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDASHStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
-    ...(input.DASHFragmentSelector != undefined && {
+    ...(input.DASHFragmentSelector != null && {
       DASHFragmentSelector: serializeAws_restJson1DASHFragmentSelector(input.DASHFragmentSelector, context),
     }),
-    ...(input.DisplayFragmentNumber != undefined && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
-    ...(input.DisplayFragmentTimestamp != undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires != undefined && { Expires: input.Expires }),
-    ...(input.MaxManifestFragmentResults != undefined && {
-      MaxManifestFragmentResults: input.MaxManifestFragmentResults,
-    }),
-    ...(input.PlaybackMode != undefined && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.DisplayFragmentNumber != null && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
+    ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
+    ...(input.Expires != null && { Expires: input.Expires }),
+    ...(input.MaxManifestFragmentResults != null && { MaxManifestFragmentResults: input.MaxManifestFragmentResults }),
+    ...(input.PlaybackMode != null && { PlaybackMode: input.PlaybackMode }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -130,19 +128,19 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getHLSStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContainerFormat != undefined && { ContainerFormat: input.ContainerFormat }),
-    ...(input.DiscontinuityMode != undefined && { DiscontinuityMode: input.DiscontinuityMode }),
-    ...(input.DisplayFragmentTimestamp != undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires != undefined && { Expires: input.Expires }),
-    ...(input.HLSFragmentSelector != undefined && {
+    ...(input.ContainerFormat != null && { ContainerFormat: input.ContainerFormat }),
+    ...(input.DiscontinuityMode != null && { DiscontinuityMode: input.DiscontinuityMode }),
+    ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
+    ...(input.Expires != null && { Expires: input.Expires }),
+    ...(input.HLSFragmentSelector != null && {
       HLSFragmentSelector: serializeAws_restJson1HLSFragmentSelector(input.HLSFragmentSelector, context),
     }),
-    ...(input.MaxMediaPlaylistFragmentResults != undefined && {
+    ...(input.MaxMediaPlaylistFragmentResults != null && {
       MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
     }),
-    ...(input.PlaybackMode != undefined && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.PlaybackMode != null && { PlaybackMode: input.PlaybackMode }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -166,20 +164,20 @@ export const serializeAws_restJson1GetImagesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getImages";
   let body: any;
   body = JSON.stringify({
-    ...(input.EndTimestamp != undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.Format != undefined && { Format: input.Format }),
-    ...(input.FormatConfig != undefined && {
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.FormatConfig != null && {
       FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context),
     }),
-    ...(input.HeightPixels != undefined && { HeightPixels: input.HeightPixels }),
-    ...(input.ImageSelectorType != undefined && { ImageSelectorType: input.ImageSelectorType }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.SamplingInterval != undefined && { SamplingInterval: input.SamplingInterval }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.WidthPixels != undefined && { WidthPixels: input.WidthPixels }),
+    ...(input.HeightPixels != null && { HeightPixels: input.HeightPixels }),
+    ...(input.ImageSelectorType != null && { ImageSelectorType: input.ImageSelectorType }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SamplingInterval != null && { SamplingInterval: input.SamplingInterval }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.WidthPixels != null && { WidthPixels: input.WidthPixels }),
   });
   return new __HttpRequest({
     protocol,
@@ -204,11 +202,9 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMediaForFragmentList";
   let body: any;
   body = JSON.stringify({
-    ...(input.Fragments != undefined && {
-      Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context),
-    }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.Fragments != null && { Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context) }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -232,13 +228,13 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFragments";
   let body: any;
   body = JSON.stringify({
-    ...(input.FragmentSelector != undefined && {
+    ...(input.FragmentSelector != null && {
       FragmentSelector: serializeAws_restJson1FragmentSelector(input.FragmentSelector, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.StreamARN != undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -772,8 +768,8 @@ const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = asyn
 
 const serializeAws_restJson1ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType != undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != undefined && {
+    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange != null && {
       TimestampRange: serializeAws_restJson1ClipTimestampRange(input.TimestampRange, context),
     }),
   };
@@ -781,15 +777,15 @@ const serializeAws_restJson1ClipFragmentSelector = (input: ClipFragmentSelector,
 
 const serializeAws_restJson1ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType != undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != undefined && {
+    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange != null && {
       TimestampRange: serializeAws_restJson1DASHTimestampRange(input.TimestampRange, context),
     }),
   };
@@ -797,8 +793,8 @@ const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector,
 
 const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -827,8 +823,8 @@ const serializeAws_restJson1FragmentNumberList = (input: string[], context: __Se
 
 const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType != undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != undefined && {
+    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange != null && {
       TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
     }),
   };
@@ -836,8 +832,8 @@ const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context
 
 const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType != undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != undefined && {
+    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange != null && {
       TimestampRange: serializeAws_restJson1HLSTimestampRange(input.TimestampRange, context),
     }),
   };
@@ -845,15 +841,15 @@ const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, c
 
 const serializeAws_restJson1HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp != undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -863,11 +859,11 @@ const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext):
     FragmentNumber: __expectString(output.FragmentNumber),
     FragmentSizeInBytes: __expectLong(output.FragmentSizeInBytes),
     ProducerTimestamp:
-      output.ProducerTimestamp != undefined
+      output.ProducerTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ProducerTimestamp)))
         : undefined,
     ServerTimestamp:
-      output.ServerTimestamp != undefined
+      output.ServerTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ServerTimestamp)))
         : undefined,
   } as any;
@@ -890,9 +886,7 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
     Error: __expectString(output.Error),
     ImageContent: __expectString(output.ImageContent),
     TimeStamp:
-      output.TimeStamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp)))
-        : undefined,
+      output.TimeStamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp))) : undefined,
   } as any;
 };
 

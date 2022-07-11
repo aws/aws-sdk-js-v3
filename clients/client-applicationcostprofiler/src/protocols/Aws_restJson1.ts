@@ -121,7 +121,7 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
   body = JSON.stringify({
-    ...(input.sourceS3Location != undefined && {
+    ...(input.sourceS3Location != null && {
       sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
     }),
   });
@@ -171,13 +171,13 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   let body: any;
   body = JSON.stringify({
-    ...(input.destinationS3Location != undefined && {
+    ...(input.destinationS3Location != null && {
       destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
     }),
-    ...(input.format != undefined && { format: input.format }),
-    ...(input.reportDescription != undefined && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency != undefined && { reportFrequency: input.reportFrequency }),
-    ...(input.reportId != undefined && { reportId: input.reportId }),
+    ...(input.format != null && { format: input.format }),
+    ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
+    ...(input.reportFrequency != null && { reportFrequency: input.reportFrequency }),
+    ...(input.reportId != null && { reportId: input.reportId }),
   });
   return new __HttpRequest({
     protocol,
@@ -211,12 +211,12 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.destinationS3Location != undefined && {
+    ...(input.destinationS3Location != null && {
       destinationS3Location: serializeAws_restJson1S3Location(input.destinationS3Location, context),
     }),
-    ...(input.format != undefined && { format: input.format }),
-    ...(input.reportDescription != undefined && { reportDescription: input.reportDescription }),
-    ...(input.reportFrequency != undefined && { reportFrequency: input.reportFrequency }),
+    ...(input.format != null && { format: input.format }),
+    ...(input.reportDescription != null && { reportDescription: input.reportDescription }),
+    ...(input.reportFrequency != null && { reportFrequency: input.reportFrequency }),
   });
   return new __HttpRequest({
     protocol,
@@ -666,32 +666,30 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket != undefined && { bucket: input.bucket }),
-    ...(input.prefix != undefined && { prefix: input.prefix }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_restJson1SourceS3Location = (input: SourceS3Location, context: __SerdeContext): any => {
   return {
-    ...(input.bucket != undefined && { bucket: input.bucket }),
-    ...(input.key != undefined && { key: input.key }),
-    ...(input.region != undefined && { region: input.region }),
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.region != null && { region: input.region }),
   };
 };
 
 const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
     createdAt:
-      output.createdAt != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     destinationS3Location:
-      output.destinationS3Location != undefined
+      output.destinationS3Location != null
         ? deserializeAws_restJson1S3Location(output.destinationS3Location, context)
         : undefined,
     format: __expectString(output.format),
     lastUpdatedAt:
-      output.lastUpdatedAt != undefined
+      output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     reportDescription: __expectString(output.reportDescription),

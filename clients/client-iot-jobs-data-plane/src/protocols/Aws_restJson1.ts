@@ -133,10 +133,10 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.statusDetails != undefined && {
+    ...(input.statusDetails != null && {
       statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
     }),
-    ...(input.stepTimeoutInMinutes != undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
+    ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   return new __HttpRequest({
     protocol,
@@ -179,15 +179,15 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.executionNumber != undefined && { executionNumber: input.executionNumber }),
-    ...(input.expectedVersion != undefined && { expectedVersion: input.expectedVersion }),
-    ...(input.includeJobDocument != undefined && { includeJobDocument: input.includeJobDocument }),
-    ...(input.includeJobExecutionState != undefined && { includeJobExecutionState: input.includeJobExecutionState }),
-    ...(input.status != undefined && { status: input.status }),
-    ...(input.statusDetails != undefined && {
+    ...(input.executionNumber != null && { executionNumber: input.executionNumber }),
+    ...(input.expectedVersion != null && { expectedVersion: input.expectedVersion }),
+    ...(input.includeJobDocument != null && { includeJobDocument: input.includeJobDocument }),
+    ...(input.includeJobExecutionState != null && { includeJobExecutionState: input.includeJobExecutionState }),
+    ...(input.status != null && { status: input.status }),
+    ...(input.statusDetails != null && {
       statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
     }),
-    ...(input.stepTimeoutInMinutes != undefined && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
+    ...(input.stepTimeoutInMinutes != null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
   return new __HttpRequest({
     protocol,
@@ -592,7 +592,7 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
     startedAt: __expectLong(output.startedAt),
     status: __expectString(output.status),
     statusDetails:
-      output.statusDetails != undefined ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
+      output.statusDetails != null ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
     thingName: __expectString(output.thingName),
     versionNumber: __expectLong(output.versionNumber),
   } as any;
@@ -602,7 +602,7 @@ const deserializeAws_restJson1JobExecutionState = (output: any, context: __Serde
   return {
     status: __expectString(output.status),
     statusDetails:
-      output.statusDetails != undefined ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
+      output.statusDetails != null ? deserializeAws_restJson1DetailsMap(output.statusDetails, context) : undefined,
     versionNumber: __expectLong(output.versionNumber),
   } as any;
 };

@@ -12138,69 +12138,69 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 
 const serializeAws_restJson1Activity = (input: Activity, context: __SerdeContext): any => {
   return {
-    ...(input.CUSTOM != undefined && { CUSTOM: serializeAws_restJson1CustomMessageActivity(input.CUSTOM, context) }),
-    ...(input.ConditionalSplit != undefined && {
+    ...(input.CUSTOM != null && { CUSTOM: serializeAws_restJson1CustomMessageActivity(input.CUSTOM, context) }),
+    ...(input.ConditionalSplit != null && {
       ConditionalSplit: serializeAws_restJson1ConditionalSplitActivity(input.ConditionalSplit, context),
     }),
-    ...(input.ContactCenter != undefined && {
+    ...(input.ContactCenter != null && {
       ContactCenter: serializeAws_restJson1ContactCenterActivity(input.ContactCenter, context),
     }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.EMAIL != undefined && { EMAIL: serializeAws_restJson1EmailMessageActivity(input.EMAIL, context) }),
-    ...(input.Holdout != undefined && { Holdout: serializeAws_restJson1HoldoutActivity(input.Holdout, context) }),
-    ...(input.MultiCondition != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EMAIL != null && { EMAIL: serializeAws_restJson1EmailMessageActivity(input.EMAIL, context) }),
+    ...(input.Holdout != null && { Holdout: serializeAws_restJson1HoldoutActivity(input.Holdout, context) }),
+    ...(input.MultiCondition != null && {
       MultiCondition: serializeAws_restJson1MultiConditionalSplitActivity(input.MultiCondition, context),
     }),
-    ...(input.PUSH != undefined && { PUSH: serializeAws_restJson1PushMessageActivity(input.PUSH, context) }),
-    ...(input.RandomSplit != undefined && {
+    ...(input.PUSH != null && { PUSH: serializeAws_restJson1PushMessageActivity(input.PUSH, context) }),
+    ...(input.RandomSplit != null && {
       RandomSplit: serializeAws_restJson1RandomSplitActivity(input.RandomSplit, context),
     }),
-    ...(input.SMS != undefined && { SMS: serializeAws_restJson1SMSMessageActivity(input.SMS, context) }),
-    ...(input.Wait != undefined && { Wait: serializeAws_restJson1WaitActivity(input.Wait, context) }),
+    ...(input.SMS != null && { SMS: serializeAws_restJson1SMSMessageActivity(input.SMS, context) }),
+    ...(input.Wait != null && { Wait: serializeAws_restJson1WaitActivity(input.Wait, context) }),
   };
 };
 
 const serializeAws_restJson1AddressConfiguration = (input: AddressConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.BodyOverride != undefined && { BodyOverride: input.BodyOverride }),
-    ...(input.ChannelType != undefined && { ChannelType: input.ChannelType }),
-    ...(input.Context != undefined && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.Substitutions != undefined && {
+    ...(input.BodyOverride != null && { BodyOverride: input.BodyOverride }),
+    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
+    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.TitleOverride != undefined && { TitleOverride: input.TitleOverride }),
+    ...(input.TitleOverride != null && { TitleOverride: input.TitleOverride }),
   };
 };
 
 const serializeAws_restJson1ADMChannelRequest = (input: ADMChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientId != undefined && { ClientId: input.ClientId }),
-    ...(input.ClientSecret != undefined && { ClientSecret: input.ClientSecret }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
+    ...(input.ClientId != null && { ClientId: input.ClientId }),
+    ...(input.ClientSecret != null && { ClientSecret: input.ClientSecret }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1ADMMessage = (input: ADMMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.ConsolidationKey != undefined && { ConsolidationKey: input.ConsolidationKey }),
-    ...(input.Data != undefined && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.ExpiresAfter != undefined && { ExpiresAfter: input.ExpiresAfter }),
-    ...(input.IconReference != undefined && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != undefined && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.MD5 != undefined && { MD5: input.MD5 }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != undefined && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.ConsolidationKey != null && { ConsolidationKey: input.ConsolidationKey }),
+    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
+    ...(input.ExpiresAfter != null && { ExpiresAfter: input.ExpiresAfter }),
+    ...(input.IconReference != null && { IconReference: input.IconReference }),
+    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.MD5 != null && { MD5: input.MD5 }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -12209,57 +12209,57 @@ const serializeAws_restJson1AndroidPushNotificationTemplate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.ImageIconUrl != undefined && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.SmallImageIconUrl != undefined && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
 const serializeAws_restJson1APNSChannelRequest = (input: APNSChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.Certificate != null && { Certificate: input.Certificate }),
+    ...(input.DefaultAuthenticationMethod != null && {
       DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
     }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != undefined && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != undefined && { TeamId: input.TeamId }),
-    ...(input.TokenKey != undefined && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != undefined && { TokenKeyId: input.TokenKeyId }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
+    ...(input.TeamId != null && { TeamId: input.TeamId }),
+    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
+    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
   };
 };
 
 const serializeAws_restJson1APNSMessage = (input: APNSMessage, context: __SerdeContext): any => {
   return {
-    ...(input.APNSPushType != undefined && { APNSPushType: input.APNSPushType }),
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Badge != undefined && { Badge: input.Badge }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Category != undefined && { Category: input.Category }),
-    ...(input.CollapseId != undefined && { CollapseId: input.CollapseId }),
-    ...(input.Data != undefined && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.MediaUrl != undefined && { MediaUrl: input.MediaUrl }),
-    ...(input.PreferredAuthenticationMethod != undefined && {
+    ...(input.APNSPushType != null && { APNSPushType: input.APNSPushType }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Badge != null && { Badge: input.Badge }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Category != null && { Category: input.Category }),
+    ...(input.CollapseId != null && { CollapseId: input.CollapseId }),
+    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
+    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
+    ...(input.PreferredAuthenticationMethod != null && {
       PreferredAuthenticationMethod: input.PreferredAuthenticationMethod,
     }),
-    ...(input.Priority != undefined && { Priority: input.Priority }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Priority != null && { Priority: input.Priority }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.ThreadId != undefined && { ThreadId: input.ThreadId }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.ThreadId != null && { ThreadId: input.ThreadId }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -12268,13 +12268,13 @@ const serializeAws_restJson1APNSPushNotificationTemplate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.MediaUrl != undefined && { MediaUrl: input.MediaUrl }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -12283,31 +12283,31 @@ const serializeAws_restJson1APNSSandboxChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.Certificate != null && { Certificate: input.Certificate }),
+    ...(input.DefaultAuthenticationMethod != null && {
       DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
     }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != undefined && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != undefined && { TeamId: input.TeamId }),
-    ...(input.TokenKey != undefined && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != undefined && { TokenKeyId: input.TokenKeyId }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
+    ...(input.TeamId != null && { TeamId: input.TeamId }),
+    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
+    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
   };
 };
 
 const serializeAws_restJson1APNSVoipChannelRequest = (input: APNSVoipChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.Certificate != null && { Certificate: input.Certificate }),
+    ...(input.DefaultAuthenticationMethod != null && {
       DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
     }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != undefined && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != undefined && { TeamId: input.TeamId }),
-    ...(input.TokenKey != undefined && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != undefined && { TokenKeyId: input.TokenKeyId }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
+    ...(input.TeamId != null && { TeamId: input.TeamId }),
+    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
+    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
   };
 };
 
@@ -12316,127 +12316,123 @@ const serializeAws_restJson1APNSVoipSandboxChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId != undefined && { BundleId: input.BundleId }),
-    ...(input.Certificate != undefined && { Certificate: input.Certificate }),
-    ...(input.DefaultAuthenticationMethod != undefined && {
+    ...(input.BundleId != null && { BundleId: input.BundleId }),
+    ...(input.Certificate != null && { Certificate: input.Certificate }),
+    ...(input.DefaultAuthenticationMethod != null && {
       DefaultAuthenticationMethod: input.DefaultAuthenticationMethod,
     }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.PrivateKey != undefined && { PrivateKey: input.PrivateKey }),
-    ...(input.TeamId != undefined && { TeamId: input.TeamId }),
-    ...(input.TokenKey != undefined && { TokenKey: input.TokenKey }),
-    ...(input.TokenKeyId != undefined && { TokenKeyId: input.TokenKeyId }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
+    ...(input.TeamId != null && { TeamId: input.TeamId }),
+    ...(input.TokenKey != null && { TokenKey: input.TokenKey }),
+    ...(input.TokenKeyId != null && { TokenKeyId: input.TokenKeyId }),
   };
 };
 
 const serializeAws_restJson1AttributeDimension = (input: AttributeDimension, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeType != undefined && { AttributeType: input.AttributeType }),
-    ...(input.Values != undefined && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
+    ...(input.AttributeType != null && { AttributeType: input.AttributeType }),
+    ...(input.Values != null && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
   };
 };
 
 const serializeAws_restJson1BaiduChannelRequest = (input: BaiduChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ApiKey != undefined && { ApiKey: input.ApiKey }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.SecretKey != undefined && { SecretKey: input.SecretKey }),
+    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.SecretKey != null && { SecretKey: input.SecretKey }),
   };
 };
 
 const serializeAws_restJson1BaiduMessage = (input: BaiduMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Data != undefined && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.IconReference != undefined && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != undefined && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != undefined && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
+    ...(input.IconReference != null && { IconReference: input.IconReference }),
+    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
 const serializeAws_restJson1CampaignCustomMessage = (input: CampaignCustomMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: input.Data }),
+    ...(input.Data != null && { Data: input.Data }),
   };
 };
 
 const serializeAws_restJson1CampaignEmailMessage = (input: CampaignEmailMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.FromAddress != undefined && { FromAddress: input.FromAddress }),
-    ...(input.HtmlBody != undefined && { HtmlBody: input.HtmlBody }),
-    ...(input.Title != undefined && { Title: input.Title }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
+    ...(input.HtmlBody != null && { HtmlBody: input.HtmlBody }),
+    ...(input.Title != null && { Title: input.Title }),
   };
 };
 
 const serializeAws_restJson1CampaignEventFilter = (input: CampaignEventFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context),
-    }),
-    ...(input.FilterType != undefined && { FilterType: input.FilterType }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
+    ...(input.FilterType != null && { FilterType: input.FilterType }),
   };
 };
 
 const serializeAws_restJson1CampaignHook = (input: CampaignHook, context: __SerdeContext): any => {
   return {
-    ...(input.LambdaFunctionName != undefined && { LambdaFunctionName: input.LambdaFunctionName }),
-    ...(input.Mode != undefined && { Mode: input.Mode }),
-    ...(input.WebUrl != undefined && { WebUrl: input.WebUrl }),
+    ...(input.LambdaFunctionName != null && { LambdaFunctionName: input.LambdaFunctionName }),
+    ...(input.Mode != null && { Mode: input.Mode }),
+    ...(input.WebUrl != null && { WebUrl: input.WebUrl }),
   };
 };
 
 const serializeAws_restJson1CampaignInAppMessage = (input: CampaignInAppMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Content != undefined && {
-      Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context),
-    }),
-    ...(input.CustomConfig != undefined && {
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Content != null && { Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context) }),
+    ...(input.CustomConfig != null && {
       CustomConfig: serializeAws_restJson1MapOf__string(input.CustomConfig, context),
     }),
-    ...(input.Layout != undefined && { Layout: input.Layout }),
+    ...(input.Layout != null && { Layout: input.Layout }),
   };
 };
 
 const serializeAws_restJson1CampaignLimits = (input: CampaignLimits, context: __SerdeContext): any => {
   return {
-    ...(input.Daily != undefined && { Daily: input.Daily }),
-    ...(input.MaximumDuration != undefined && { MaximumDuration: input.MaximumDuration }),
-    ...(input.MessagesPerSecond != undefined && { MessagesPerSecond: input.MessagesPerSecond }),
-    ...(input.Session != undefined && { Session: input.Session }),
-    ...(input.Total != undefined && { Total: input.Total }),
+    ...(input.Daily != null && { Daily: input.Daily }),
+    ...(input.MaximumDuration != null && { MaximumDuration: input.MaximumDuration }),
+    ...(input.MessagesPerSecond != null && { MessagesPerSecond: input.MessagesPerSecond }),
+    ...(input.Session != null && { Session: input.Session }),
+    ...(input.Total != null && { Total: input.Total }),
   };
 };
 
 const serializeAws_restJson1CampaignSmsMessage = (input: CampaignSmsMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != undefined && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
-    ...(input.TemplateId != undefined && { TemplateId: input.TemplateId }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
+    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
   };
 };
 
 const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
-    ...(input.Conditions != undefined && {
+    ...(input.Conditions != null && {
       Conditions: serializeAws_restJson1ListOfSimpleCondition(input.Conditions, context),
     }),
-    ...(input.Operator != undefined && { Operator: input.Operator }),
+    ...(input.Operator != null && { Operator: input.Operator }),
   };
 };
 
@@ -12445,18 +12441,18 @@ const serializeAws_restJson1ConditionalSplitActivity = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Condition != undefined && { Condition: serializeAws_restJson1Condition(input.Condition, context) }),
-    ...(input.EvaluationWaitTime != undefined && {
+    ...(input.Condition != null && { Condition: serializeAws_restJson1Condition(input.Condition, context) }),
+    ...(input.EvaluationWaitTime != null && {
       EvaluationWaitTime: serializeAws_restJson1WaitTime(input.EvaluationWaitTime, context),
     }),
-    ...(input.FalseActivity != undefined && { FalseActivity: input.FalseActivity }),
-    ...(input.TrueActivity != undefined && { TrueActivity: input.TrueActivity }),
+    ...(input.FalseActivity != null && { FalseActivity: input.FalseActivity }),
+    ...(input.TrueActivity != null && { TrueActivity: input.TrueActivity }),
   };
 };
 
 const serializeAws_restJson1ContactCenterActivity = (input: ContactCenterActivity, context: __SerdeContext): any => {
   return {
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
   };
 };
 
@@ -12465,8 +12461,8 @@ const serializeAws_restJson1CreateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
@@ -12475,25 +12471,21 @@ const serializeAws_restJson1CreateRecommenderConfigurationShape = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Attributes != undefined && {
-      Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context),
-    }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RecommendationProviderIdType != undefined && {
+    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RecommendationProviderIdType != null && {
       RecommendationProviderIdType: input.RecommendationProviderIdType,
     }),
-    ...(input.RecommendationProviderRoleArn != undefined && {
+    ...(input.RecommendationProviderRoleArn != null && {
       RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
     }),
-    ...(input.RecommendationProviderUri != undefined && { RecommendationProviderUri: input.RecommendationProviderUri }),
-    ...(input.RecommendationTransformerUri != undefined && {
+    ...(input.RecommendationProviderUri != null && { RecommendationProviderUri: input.RecommendationProviderUri }),
+    ...(input.RecommendationTransformerUri != null && {
       RecommendationTransformerUri: input.RecommendationTransformerUri,
     }),
-    ...(input.RecommendationsDisplayName != undefined && {
-      RecommendationsDisplayName: input.RecommendationsDisplayName,
-    }),
-    ...(input.RecommendationsPerMessage != undefined && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
+    ...(input.RecommendationsDisplayName != null && { RecommendationsDisplayName: input.RecommendationsDisplayName }),
+    ...(input.RecommendationsPerMessage != null && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
   };
 };
 
@@ -12502,8 +12494,8 @@ const serializeAws_restJson1CustomDeliveryConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryUri != undefined && { DeliveryUri: input.DeliveryUri }),
-    ...(input.EndpointTypes != undefined && {
+    ...(input.DeliveryUri != null && { DeliveryUri: input.DeliveryUri }),
+    ...(input.EndpointTypes != null && {
       EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
     }),
   };
@@ -12511,16 +12503,16 @@ const serializeAws_restJson1CustomDeliveryConfiguration = (
 
 const serializeAws_restJson1CustomMessageActivity = (input: CustomMessageActivity, context: __SerdeContext): any => {
   return {
-    ...(input.DeliveryUri != undefined && { DeliveryUri: input.DeliveryUri }),
-    ...(input.EndpointTypes != undefined && {
+    ...(input.DeliveryUri != null && { DeliveryUri: input.DeliveryUri }),
+    ...(input.EndpointTypes != null && {
       EndpointTypes: serializeAws_restJson1ListOf__EndpointTypesElement(input.EndpointTypes, context),
     }),
-    ...(input.MessageConfig != undefined && {
+    ...(input.MessageConfig != null && {
       MessageConfig: serializeAws_restJson1JourneyCustomMessage(input.MessageConfig, context),
     }),
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != undefined && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != undefined && { TemplateVersion: input.TemplateVersion }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
   };
 };
 
@@ -12529,19 +12521,19 @@ const serializeAws_restJson1DefaultButtonConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BackgroundColor != undefined && { BackgroundColor: input.BackgroundColor }),
-    ...(input.BorderRadius != undefined && { BorderRadius: input.BorderRadius }),
-    ...(input.ButtonAction != undefined && { ButtonAction: input.ButtonAction }),
-    ...(input.Link != undefined && { Link: input.Link }),
-    ...(input.Text != undefined && { Text: input.Text }),
-    ...(input.TextColor != undefined && { TextColor: input.TextColor }),
+    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
+    ...(input.BorderRadius != null && { BorderRadius: input.BorderRadius }),
+    ...(input.ButtonAction != null && { ButtonAction: input.ButtonAction }),
+    ...(input.Link != null && { Link: input.Link }),
+    ...(input.Text != null && { Text: input.Text }),
+    ...(input.TextColor != null && { TextColor: input.TextColor }),
   };
 };
 
 const serializeAws_restJson1DefaultMessage = (input: DefaultMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
   };
@@ -12552,15 +12544,15 @@ const serializeAws_restJson1DefaultPushNotificationMessage = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Data != undefined && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -12569,11 +12561,11 @@ const serializeAws_restJson1DefaultPushNotificationTemplate = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
@@ -12582,28 +12574,26 @@ const serializeAws_restJson1DirectMessageConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ADMMessage != undefined && { ADMMessage: serializeAws_restJson1ADMMessage(input.ADMMessage, context) }),
-    ...(input.APNSMessage != undefined && {
-      APNSMessage: serializeAws_restJson1APNSMessage(input.APNSMessage, context),
-    }),
-    ...(input.BaiduMessage != undefined && {
+    ...(input.ADMMessage != null && { ADMMessage: serializeAws_restJson1ADMMessage(input.ADMMessage, context) }),
+    ...(input.APNSMessage != null && { APNSMessage: serializeAws_restJson1APNSMessage(input.APNSMessage, context) }),
+    ...(input.BaiduMessage != null && {
       BaiduMessage: serializeAws_restJson1BaiduMessage(input.BaiduMessage, context),
     }),
-    ...(input.DefaultMessage != undefined && {
+    ...(input.DefaultMessage != null && {
       DefaultMessage: serializeAws_restJson1DefaultMessage(input.DefaultMessage, context),
     }),
-    ...(input.DefaultPushNotificationMessage != undefined && {
+    ...(input.DefaultPushNotificationMessage != null && {
       DefaultPushNotificationMessage: serializeAws_restJson1DefaultPushNotificationMessage(
         input.DefaultPushNotificationMessage,
         context
       ),
     }),
-    ...(input.EmailMessage != undefined && {
+    ...(input.EmailMessage != null && {
       EmailMessage: serializeAws_restJson1EmailMessage(input.EmailMessage, context),
     }),
-    ...(input.GCMMessage != undefined && { GCMMessage: serializeAws_restJson1GCMMessage(input.GCMMessage, context) }),
-    ...(input.SMSMessage != undefined && { SMSMessage: serializeAws_restJson1SMSMessage(input.SMSMessage, context) }),
-    ...(input.VoiceMessage != undefined && {
+    ...(input.GCMMessage != null && { GCMMessage: serializeAws_restJson1GCMMessage(input.GCMMessage, context) }),
+    ...(input.SMSMessage != null && { SMSMessage: serializeAws_restJson1SMSMessage(input.SMSMessage, context) }),
+    ...(input.VoiceMessage != null && {
       VoiceMessage: serializeAws_restJson1VoiceMessage(input.VoiceMessage, context),
     }),
   };
@@ -12611,27 +12601,25 @@ const serializeAws_restJson1DirectMessageConfiguration = (
 
 const serializeAws_restJson1EmailChannelRequest = (input: EmailChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationSet != undefined && { ConfigurationSet: input.ConfigurationSet }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.FromAddress != undefined && { FromAddress: input.FromAddress }),
-    ...(input.Identity != undefined && { Identity: input.Identity }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.ConfigurationSet != null && { ConfigurationSet: input.ConfigurationSet }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
+    ...(input.Identity != null && { Identity: input.Identity }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_restJson1EmailMessage = (input: EmailMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.FeedbackForwardingAddress != undefined && { FeedbackForwardingAddress: input.FeedbackForwardingAddress }),
-    ...(input.FromAddress != undefined && { FromAddress: input.FromAddress }),
-    ...(input.RawEmail != undefined && { RawEmail: serializeAws_restJson1RawEmail(input.RawEmail, context) }),
-    ...(input.ReplyToAddresses != undefined && {
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.FeedbackForwardingAddress != null && { FeedbackForwardingAddress: input.FeedbackForwardingAddress }),
+    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
+    ...(input.RawEmail != null && { RawEmail: serializeAws_restJson1RawEmail(input.RawEmail, context) }),
+    ...(input.ReplyToAddresses != null && {
       ReplyToAddresses: serializeAws_restJson1ListOf__string(input.ReplyToAddresses, context),
     }),
-    ...(input.SimpleEmail != undefined && {
-      SimpleEmail: serializeAws_restJson1SimpleEmail(input.SimpleEmail, context),
-    }),
-    ...(input.Substitutions != undefined && {
+    ...(input.SimpleEmail != null && { SimpleEmail: serializeAws_restJson1SimpleEmail(input.SimpleEmail, context) }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
   };
@@ -12639,95 +12627,95 @@ const serializeAws_restJson1EmailMessage = (input: EmailMessage, context: __Serd
 
 const serializeAws_restJson1EmailMessageActivity = (input: EmailMessageActivity, context: __SerdeContext): any => {
   return {
-    ...(input.MessageConfig != undefined && {
+    ...(input.MessageConfig != null && {
       MessageConfig: serializeAws_restJson1JourneyEmailMessage(input.MessageConfig, context),
     }),
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != undefined && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != undefined && { TemplateVersion: input.TemplateVersion }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
   };
 };
 
 const serializeAws_restJson1EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefaultSubstitutions != undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.HtmlPart != undefined && { HtmlPart: input.HtmlPart }),
-    ...(input.RecommenderId != undefined && { RecommenderId: input.RecommenderId }),
-    ...(input.Subject != undefined && { Subject: input.Subject }),
-    ...(input.TemplateDescription != undefined && { TemplateDescription: input.TemplateDescription }),
-    ...(input.TextPart != undefined && { TextPart: input.TextPart }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
+    ...(input.HtmlPart != null && { HtmlPart: input.HtmlPart }),
+    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
+    ...(input.Subject != null && { Subject: input.Subject }),
+    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
+    ...(input.TextPart != null && { TextPart: input.TextPart }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1EndpointBatchItem = (input: EndpointBatchItem, context: __SerdeContext): any => {
   return {
-    ...(input.Address != undefined && { Address: input.Address }),
-    ...(input.Attributes != undefined && {
+    ...(input.Address != null && { Address: input.Address }),
+    ...(input.Attributes != null && {
       Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
     }),
-    ...(input.ChannelType != undefined && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != undefined && {
+    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
+    ...(input.Demographic != null && {
       Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
     }),
-    ...(input.EffectiveDate != undefined && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != undefined && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != undefined && { OptOut: input.OptOut }),
-    ...(input.RequestId != undefined && { RequestId: input.RequestId }),
-    ...(input.User != undefined && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
+    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
+    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
+    ...(input.OptOut != null && { OptOut: input.OptOut }),
+    ...(input.RequestId != null && { RequestId: input.RequestId }),
+    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
   };
 };
 
 const serializeAws_restJson1EndpointBatchRequest = (input: EndpointBatchRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Item != undefined && { Item: serializeAws_restJson1ListOfEndpointBatchItem(input.Item, context) }),
+    ...(input.Item != null && { Item: serializeAws_restJson1ListOfEndpointBatchItem(input.Item, context) }),
   };
 };
 
 const serializeAws_restJson1EndpointDemographic = (input: EndpointDemographic, context: __SerdeContext): any => {
   return {
-    ...(input.AppVersion != undefined && { AppVersion: input.AppVersion }),
-    ...(input.Locale != undefined && { Locale: input.Locale }),
-    ...(input.Make != undefined && { Make: input.Make }),
-    ...(input.Model != undefined && { Model: input.Model }),
-    ...(input.ModelVersion != undefined && { ModelVersion: input.ModelVersion }),
-    ...(input.Platform != undefined && { Platform: input.Platform }),
-    ...(input.PlatformVersion != undefined && { PlatformVersion: input.PlatformVersion }),
-    ...(input.Timezone != undefined && { Timezone: input.Timezone }),
+    ...(input.AppVersion != null && { AppVersion: input.AppVersion }),
+    ...(input.Locale != null && { Locale: input.Locale }),
+    ...(input.Make != null && { Make: input.Make }),
+    ...(input.Model != null && { Model: input.Model }),
+    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
+    ...(input.Platform != null && { Platform: input.Platform }),
+    ...(input.PlatformVersion != null && { PlatformVersion: input.PlatformVersion }),
+    ...(input.Timezone != null && { Timezone: input.Timezone }),
   };
 };
 
 const serializeAws_restJson1EndpointLocation = (input: EndpointLocation, context: __SerdeContext): any => {
   return {
-    ...(input.City != undefined && { City: input.City }),
-    ...(input.Country != undefined && { Country: input.Country }),
-    ...(input.Latitude != undefined && { Latitude: __serializeFloat(input.Latitude) }),
-    ...(input.Longitude != undefined && { Longitude: __serializeFloat(input.Longitude) }),
-    ...(input.PostalCode != undefined && { PostalCode: input.PostalCode }),
-    ...(input.Region != undefined && { Region: input.Region }),
+    ...(input.City != null && { City: input.City }),
+    ...(input.Country != null && { Country: input.Country }),
+    ...(input.Latitude != null && { Latitude: __serializeFloat(input.Latitude) }),
+    ...(input.Longitude != null && { Longitude: __serializeFloat(input.Longitude) }),
+    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
+    ...(input.Region != null && { Region: input.Region }),
   };
 };
 
 const serializeAws_restJson1EndpointRequest = (input: EndpointRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Address != undefined && { Address: input.Address }),
-    ...(input.Attributes != undefined && {
+    ...(input.Address != null && { Address: input.Address }),
+    ...(input.Attributes != null && {
       Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
     }),
-    ...(input.ChannelType != undefined && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != undefined && {
+    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
+    ...(input.Demographic != null && {
       Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
     }),
-    ...(input.EffectiveDate != undefined && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != undefined && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != undefined && { OptOut: input.OptOut }),
-    ...(input.RequestId != undefined && { RequestId: input.RequestId }),
-    ...(input.User != undefined && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
+    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
+    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
+    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
+    ...(input.OptOut != null && { OptOut: input.OptOut }),
+    ...(input.RequestId != null && { RequestId: input.RequestId }),
+    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
   };
 };
 
@@ -12736,205 +12724,193 @@ const serializeAws_restJson1EndpointSendConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BodyOverride != undefined && { BodyOverride: input.BodyOverride }),
-    ...(input.Context != undefined && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.Substitutions != undefined && {
+    ...(input.BodyOverride != null && { BodyOverride: input.BodyOverride }),
+    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.TitleOverride != undefined && { TitleOverride: input.TitleOverride }),
+    ...(input.TitleOverride != null && { TitleOverride: input.TitleOverride }),
   };
 };
 
 const serializeAws_restJson1EndpointUser = (input: EndpointUser, context: __SerdeContext): any => {
   return {
-    ...(input.UserAttributes != undefined && {
+    ...(input.UserAttributes != null && {
       UserAttributes: serializeAws_restJson1MapOfListOf__string(input.UserAttributes, context),
     }),
-    ...(input.UserId != undefined && { UserId: input.UserId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.AppPackageName != undefined && { AppPackageName: input.AppPackageName }),
-    ...(input.AppTitle != undefined && { AppTitle: input.AppTitle }),
-    ...(input.AppVersionCode != undefined && { AppVersionCode: input.AppVersionCode }),
-    ...(input.Attributes != undefined && {
-      Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context),
-    }),
-    ...(input.ClientSdkVersion != undefined && { ClientSdkVersion: input.ClientSdkVersion }),
-    ...(input.EventType != undefined && { EventType: input.EventType }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.SdkName != undefined && { SdkName: input.SdkName }),
-    ...(input.Session != undefined && { Session: serializeAws_restJson1Session(input.Session, context) }),
-    ...(input.Timestamp != undefined && { Timestamp: input.Timestamp }),
+    ...(input.AppPackageName != null && { AppPackageName: input.AppPackageName }),
+    ...(input.AppTitle != null && { AppTitle: input.AppTitle }),
+    ...(input.AppVersionCode != null && { AppVersionCode: input.AppVersionCode }),
+    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
+    ...(input.ClientSdkVersion != null && { ClientSdkVersion: input.ClientSdkVersion }),
+    ...(input.EventType != null && { EventType: input.EventType }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
+    ...(input.SdkName != null && { SdkName: input.SdkName }),
+    ...(input.Session != null && { Session: serializeAws_restJson1Session(input.Session, context) }),
+    ...(input.Timestamp != null && { Timestamp: input.Timestamp }),
   };
 };
 
 const serializeAws_restJson1EventCondition = (input: EventCondition, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context),
-    }),
-    ...(input.MessageActivity != undefined && { MessageActivity: input.MessageActivity }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
+    ...(input.MessageActivity != null && { MessageActivity: input.MessageActivity }),
   };
 };
 
 const serializeAws_restJson1EventDimensions = (input: EventDimensions, context: __SerdeContext): any => {
   return {
-    ...(input.Attributes != undefined && {
+    ...(input.Attributes != null && {
       Attributes: serializeAws_restJson1MapOfAttributeDimension(input.Attributes, context),
     }),
-    ...(input.EventType != undefined && { EventType: serializeAws_restJson1SetDimension(input.EventType, context) }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
+    ...(input.EventType != null && { EventType: serializeAws_restJson1SetDimension(input.EventType, context) }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
   };
 };
 
 const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context),
-    }),
-    ...(input.FilterType != undefined && { FilterType: input.FilterType }),
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1EventDimensions(input.Dimensions, context) }),
+    ...(input.FilterType != null && { FilterType: input.FilterType }),
   };
 };
 
 const serializeAws_restJson1EventsBatch = (input: EventsBatch, context: __SerdeContext): any => {
   return {
-    ...(input.Endpoint != undefined && { Endpoint: serializeAws_restJson1PublicEndpoint(input.Endpoint, context) }),
-    ...(input.Events != undefined && { Events: serializeAws_restJson1MapOfEvent(input.Events, context) }),
+    ...(input.Endpoint != null && { Endpoint: serializeAws_restJson1PublicEndpoint(input.Endpoint, context) }),
+    ...(input.Events != null && { Events: serializeAws_restJson1MapOfEvent(input.Events, context) }),
   };
 };
 
 const serializeAws_restJson1EventsRequest = (input: EventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BatchItem != undefined && {
-      BatchItem: serializeAws_restJson1MapOfEventsBatch(input.BatchItem, context),
-    }),
+    ...(input.BatchItem != null && { BatchItem: serializeAws_restJson1MapOfEventsBatch(input.BatchItem, context) }),
   };
 };
 
 const serializeAws_restJson1EventStartCondition = (input: EventStartCondition, context: __SerdeContext): any => {
   return {
-    ...(input.EventFilter != undefined && {
-      EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context),
-    }),
-    ...(input.SegmentId != undefined && { SegmentId: input.SegmentId }),
+    ...(input.EventFilter != null && { EventFilter: serializeAws_restJson1EventFilter(input.EventFilter, context) }),
+    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
   };
 };
 
 const serializeAws_restJson1ExportJobRequest = (input: ExportJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3UrlPrefix != undefined && { S3UrlPrefix: input.S3UrlPrefix }),
-    ...(input.SegmentId != undefined && { SegmentId: input.SegmentId }),
-    ...(input.SegmentVersion != undefined && { SegmentVersion: input.SegmentVersion }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.S3UrlPrefix != null && { S3UrlPrefix: input.S3UrlPrefix }),
+    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
+    ...(input.SegmentVersion != null && { SegmentVersion: input.SegmentVersion }),
   };
 };
 
 const serializeAws_restJson1GCMChannelRequest = (input: GCMChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ApiKey != undefined && { ApiKey: input.ApiKey }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
+    ...(input.ApiKey != null && { ApiKey: input.ApiKey }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1GCMMessage = (input: GCMMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.CollapseKey != undefined && { CollapseKey: input.CollapseKey }),
-    ...(input.Data != undefined && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
-    ...(input.IconReference != undefined && { IconReference: input.IconReference }),
-    ...(input.ImageIconUrl != undefined && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.Priority != undefined && { Priority: input.Priority }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.RestrictedPackageName != undefined && { RestrictedPackageName: input.RestrictedPackageName }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.SmallImageIconUrl != undefined && { SmallImageIconUrl: input.SmallImageIconUrl }),
-    ...(input.Sound != undefined && { Sound: input.Sound }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.CollapseKey != null && { CollapseKey: input.CollapseKey }),
+    ...(input.Data != null && { Data: serializeAws_restJson1MapOf__string(input.Data, context) }),
+    ...(input.IconReference != null && { IconReference: input.IconReference }),
+    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.Priority != null && { Priority: input.Priority }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.RestrictedPackageName != null && { RestrictedPackageName: input.RestrictedPackageName }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.SmallImageIconUrl != null && { SmallImageIconUrl: input.SmallImageIconUrl }),
+    ...(input.Sound != null && { Sound: input.Sound }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
 const serializeAws_restJson1GPSCoordinates = (input: GPSCoordinates, context: __SerdeContext): any => {
   return {
-    ...(input.Latitude != undefined && { Latitude: __serializeFloat(input.Latitude) }),
-    ...(input.Longitude != undefined && { Longitude: __serializeFloat(input.Longitude) }),
+    ...(input.Latitude != null && { Latitude: __serializeFloat(input.Latitude) }),
+    ...(input.Longitude != null && { Longitude: __serializeFloat(input.Longitude) }),
   };
 };
 
 const serializeAws_restJson1GPSPointDimension = (input: GPSPointDimension, context: __SerdeContext): any => {
   return {
-    ...(input.Coordinates != undefined && {
-      Coordinates: serializeAws_restJson1GPSCoordinates(input.Coordinates, context),
-    }),
-    ...(input.RangeInKilometers != undefined && { RangeInKilometers: __serializeFloat(input.RangeInKilometers) }),
+    ...(input.Coordinates != null && { Coordinates: serializeAws_restJson1GPSCoordinates(input.Coordinates, context) }),
+    ...(input.RangeInKilometers != null && { RangeInKilometers: __serializeFloat(input.RangeInKilometers) }),
   };
 };
 
 const serializeAws_restJson1HoldoutActivity = (input: HoldoutActivity, context: __SerdeContext): any => {
   return {
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.Percentage != undefined && { Percentage: input.Percentage }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.Percentage != null && { Percentage: input.Percentage }),
   };
 };
 
 const serializeAws_restJson1ImportJobRequest = (input: ImportJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefineSegment != undefined && { DefineSegment: input.DefineSegment }),
-    ...(input.ExternalId != undefined && { ExternalId: input.ExternalId }),
-    ...(input.Format != undefined && { Format: input.Format }),
-    ...(input.RegisterEndpoints != undefined && { RegisterEndpoints: input.RegisterEndpoints }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3Url != undefined && { S3Url: input.S3Url }),
-    ...(input.SegmentId != undefined && { SegmentId: input.SegmentId }),
-    ...(input.SegmentName != undefined && { SegmentName: input.SegmentName }),
+    ...(input.DefineSegment != null && { DefineSegment: input.DefineSegment }),
+    ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
+    ...(input.Format != null && { Format: input.Format }),
+    ...(input.RegisterEndpoints != null && { RegisterEndpoints: input.RegisterEndpoints }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.S3Url != null && { S3Url: input.S3Url }),
+    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
+    ...(input.SegmentName != null && { SegmentName: input.SegmentName }),
   };
 };
 
 const serializeAws_restJson1InAppMessageBodyConfig = (input: InAppMessageBodyConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Alignment != undefined && { Alignment: input.Alignment }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.TextColor != undefined && { TextColor: input.TextColor }),
+    ...(input.Alignment != null && { Alignment: input.Alignment }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.TextColor != null && { TextColor: input.TextColor }),
   };
 };
 
 const serializeAws_restJson1InAppMessageButton = (input: InAppMessageButton, context: __SerdeContext): any => {
   return {
-    ...(input.Android != undefined && {
+    ...(input.Android != null && {
       Android: serializeAws_restJson1OverrideButtonConfiguration(input.Android, context),
     }),
-    ...(input.DefaultConfig != undefined && {
+    ...(input.DefaultConfig != null && {
       DefaultConfig: serializeAws_restJson1DefaultButtonConfiguration(input.DefaultConfig, context),
     }),
-    ...(input.IOS != undefined && { IOS: serializeAws_restJson1OverrideButtonConfiguration(input.IOS, context) }),
-    ...(input.Web != undefined && { Web: serializeAws_restJson1OverrideButtonConfiguration(input.Web, context) }),
+    ...(input.IOS != null && { IOS: serializeAws_restJson1OverrideButtonConfiguration(input.IOS, context) }),
+    ...(input.Web != null && { Web: serializeAws_restJson1OverrideButtonConfiguration(input.Web, context) }),
   };
 };
 
 const serializeAws_restJson1InAppMessageContent = (input: InAppMessageContent, context: __SerdeContext): any => {
   return {
-    ...(input.BackgroundColor != undefined && { BackgroundColor: input.BackgroundColor }),
-    ...(input.BodyConfig != undefined && {
+    ...(input.BackgroundColor != null && { BackgroundColor: input.BackgroundColor }),
+    ...(input.BodyConfig != null && {
       BodyConfig: serializeAws_restJson1InAppMessageBodyConfig(input.BodyConfig, context),
     }),
-    ...(input.HeaderConfig != undefined && {
+    ...(input.HeaderConfig != null && {
       HeaderConfig: serializeAws_restJson1InAppMessageHeaderConfig(input.HeaderConfig, context),
     }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.PrimaryBtn != undefined && {
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.PrimaryBtn != null && {
       PrimaryBtn: serializeAws_restJson1InAppMessageButton(input.PrimaryBtn, context),
     }),
-    ...(input.SecondaryBtn != undefined && {
+    ...(input.SecondaryBtn != null && {
       SecondaryBtn: serializeAws_restJson1InAppMessageButton(input.SecondaryBtn, context),
     }),
   };
@@ -12945,30 +12921,28 @@ const serializeAws_restJson1InAppMessageHeaderConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Alignment != undefined && { Alignment: input.Alignment }),
-    ...(input.Header != undefined && { Header: input.Header }),
-    ...(input.TextColor != undefined && { TextColor: input.TextColor }),
+    ...(input.Alignment != null && { Alignment: input.Alignment }),
+    ...(input.Header != null && { Header: input.Header }),
+    ...(input.TextColor != null && { TextColor: input.TextColor }),
   };
 };
 
 const serializeAws_restJson1InAppTemplateRequest = (input: InAppTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Content != undefined && {
-      Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context),
-    }),
-    ...(input.CustomConfig != undefined && {
+    ...(input.Content != null && { Content: serializeAws_restJson1ListOfInAppMessageContent(input.Content, context) }),
+    ...(input.CustomConfig != null && {
       CustomConfig: serializeAws_restJson1MapOf__string(input.CustomConfig, context),
     }),
-    ...(input.Layout != undefined && { Layout: input.Layout }),
-    ...(input.TemplateDescription != undefined && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.Layout != null && { Layout: input.Layout }),
+    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1JourneyChannelSettings = (input: JourneyChannelSettings, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectCampaignArn != undefined && { ConnectCampaignArn: input.ConnectCampaignArn }),
-    ...(input.ConnectCampaignExecutionRoleArn != undefined && {
+    ...(input.ConnectCampaignArn != null && { ConnectCampaignArn: input.ConnectCampaignArn }),
+    ...(input.ConnectCampaignExecutionRoleArn != null && {
       ConnectCampaignExecutionRoleArn: input.ConnectCampaignExecutionRoleArn,
     }),
   };
@@ -12976,52 +12950,52 @@ const serializeAws_restJson1JourneyChannelSettings = (input: JourneyChannelSetti
 
 const serializeAws_restJson1JourneyCustomMessage = (input: JourneyCustomMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: input.Data }),
+    ...(input.Data != null && { Data: input.Data }),
   };
 };
 
 const serializeAws_restJson1JourneyEmailMessage = (input: JourneyEmailMessage, context: __SerdeContext): any => {
   return {
-    ...(input.FromAddress != undefined && { FromAddress: input.FromAddress }),
+    ...(input.FromAddress != null && { FromAddress: input.FromAddress }),
   };
 };
 
 const serializeAws_restJson1JourneyLimits = (input: JourneyLimits, context: __SerdeContext): any => {
   return {
-    ...(input.DailyCap != undefined && { DailyCap: input.DailyCap }),
-    ...(input.EndpointReentryCap != undefined && { EndpointReentryCap: input.EndpointReentryCap }),
-    ...(input.EndpointReentryInterval != undefined && { EndpointReentryInterval: input.EndpointReentryInterval }),
-    ...(input.MessagesPerSecond != undefined && { MessagesPerSecond: input.MessagesPerSecond }),
+    ...(input.DailyCap != null && { DailyCap: input.DailyCap }),
+    ...(input.EndpointReentryCap != null && { EndpointReentryCap: input.EndpointReentryCap }),
+    ...(input.EndpointReentryInterval != null && { EndpointReentryInterval: input.EndpointReentryInterval }),
+    ...(input.MessagesPerSecond != null && { MessagesPerSecond: input.MessagesPerSecond }),
   };
 };
 
 const serializeAws_restJson1JourneyPushMessage = (input: JourneyPushMessage, context: __SerdeContext): any => {
   return {
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
   };
 };
 
 const serializeAws_restJson1JourneySchedule = (input: JourneySchedule, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: input.EndTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.StartTime != undefined && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.Timezone != undefined && { Timezone: input.Timezone }),
+    ...(input.EndTime != null && { EndTime: input.EndTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.StartTime != null && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.Timezone != null && { Timezone: input.Timezone }),
   };
 };
 
 const serializeAws_restJson1JourneySMSMessage = (input: JourneySMSMessage, context: __SerdeContext): any => {
   return {
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != undefined && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
-    ...(input.TemplateId != undefined && { TemplateId: input.TemplateId }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
+    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
   };
 };
 
 const serializeAws_restJson1JourneyStateRequest = (input: JourneyStateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.State != undefined && { State: input.State }),
+    ...(input.State != null && { State: input.State }),
   };
 };
 
@@ -13292,42 +13266,40 @@ const serializeAws_restJson1MapOfMetricDimension = (
 
 const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
   return {
-    ...(input.Action != undefined && { Action: input.Action }),
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.ImageIconUrl != undefined && { ImageIconUrl: input.ImageIconUrl }),
-    ...(input.ImageSmallIconUrl != undefined && { ImageSmallIconUrl: input.ImageSmallIconUrl }),
-    ...(input.ImageUrl != undefined && { ImageUrl: input.ImageUrl }),
-    ...(input.JsonBody != undefined && { JsonBody: input.JsonBody }),
-    ...(input.MediaUrl != undefined && { MediaUrl: input.MediaUrl }),
-    ...(input.RawContent != undefined && { RawContent: input.RawContent }),
-    ...(input.SilentPush != undefined && { SilentPush: input.SilentPush }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
-    ...(input.Title != undefined && { Title: input.Title }),
-    ...(input.Url != undefined && { Url: input.Url }),
+    ...(input.Action != null && { Action: input.Action }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.ImageIconUrl != null && { ImageIconUrl: input.ImageIconUrl }),
+    ...(input.ImageSmallIconUrl != null && { ImageSmallIconUrl: input.ImageSmallIconUrl }),
+    ...(input.ImageUrl != null && { ImageUrl: input.ImageUrl }),
+    ...(input.JsonBody != null && { JsonBody: input.JsonBody }),
+    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
+    ...(input.RawContent != null && { RawContent: input.RawContent }),
+    ...(input.SilentPush != null && { SilentPush: input.SilentPush }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
+    ...(input.Title != null && { Title: input.Title }),
+    ...(input.Url != null && { Url: input.Url }),
   };
 };
 
 const serializeAws_restJson1MessageConfiguration = (input: MessageConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ADMMessage != undefined && { ADMMessage: serializeAws_restJson1Message(input.ADMMessage, context) }),
-    ...(input.APNSMessage != undefined && { APNSMessage: serializeAws_restJson1Message(input.APNSMessage, context) }),
-    ...(input.BaiduMessage != undefined && {
-      BaiduMessage: serializeAws_restJson1Message(input.BaiduMessage, context),
-    }),
-    ...(input.CustomMessage != undefined && {
+    ...(input.ADMMessage != null && { ADMMessage: serializeAws_restJson1Message(input.ADMMessage, context) }),
+    ...(input.APNSMessage != null && { APNSMessage: serializeAws_restJson1Message(input.APNSMessage, context) }),
+    ...(input.BaiduMessage != null && { BaiduMessage: serializeAws_restJson1Message(input.BaiduMessage, context) }),
+    ...(input.CustomMessage != null && {
       CustomMessage: serializeAws_restJson1CampaignCustomMessage(input.CustomMessage, context),
     }),
-    ...(input.DefaultMessage != undefined && {
+    ...(input.DefaultMessage != null && {
       DefaultMessage: serializeAws_restJson1Message(input.DefaultMessage, context),
     }),
-    ...(input.EmailMessage != undefined && {
+    ...(input.EmailMessage != null && {
       EmailMessage: serializeAws_restJson1CampaignEmailMessage(input.EmailMessage, context),
     }),
-    ...(input.GCMMessage != undefined && { GCMMessage: serializeAws_restJson1Message(input.GCMMessage, context) }),
-    ...(input.InAppMessage != undefined && {
+    ...(input.GCMMessage != null && { GCMMessage: serializeAws_restJson1Message(input.GCMMessage, context) }),
+    ...(input.InAppMessage != null && {
       InAppMessage: serializeAws_restJson1CampaignInAppMessage(input.InAppMessage, context),
     }),
-    ...(input.SMSMessage != undefined && {
+    ...(input.SMSMessage != null && {
       SMSMessage: serializeAws_restJson1CampaignSmsMessage(input.SMSMessage, context),
     }),
   };
@@ -13335,34 +13307,34 @@ const serializeAws_restJson1MessageConfiguration = (input: MessageConfiguration,
 
 const serializeAws_restJson1MessageRequest = (input: MessageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Addresses != undefined && {
+    ...(input.Addresses != null && {
       Addresses: serializeAws_restJson1MapOfAddressConfiguration(input.Addresses, context),
     }),
-    ...(input.Context != undefined && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.Endpoints != undefined && {
+    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
+    ...(input.Endpoints != null && {
       Endpoints: serializeAws_restJson1MapOfEndpointSendConfiguration(input.Endpoints, context),
     }),
-    ...(input.MessageConfiguration != undefined && {
+    ...(input.MessageConfiguration != null && {
       MessageConfiguration: serializeAws_restJson1DirectMessageConfiguration(input.MessageConfiguration, context),
     }),
-    ...(input.TemplateConfiguration != undefined && {
+    ...(input.TemplateConfiguration != null && {
       TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
     }),
-    ...(input.TraceId != undefined && { TraceId: input.TraceId }),
+    ...(input.TraceId != null && { TraceId: input.TraceId }),
   };
 };
 
 const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator != undefined && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Value != undefined && { Value: __serializeFloat(input.Value) }),
+    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
 const serializeAws_restJson1MultiConditionalBranch = (input: MultiConditionalBranch, context: __SerdeContext): any => {
   return {
-    ...(input.Condition != undefined && { Condition: serializeAws_restJson1SimpleCondition(input.Condition, context) }),
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
+    ...(input.Condition != null && { Condition: serializeAws_restJson1SimpleCondition(input.Condition, context) }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
   };
 };
 
@@ -13371,11 +13343,11 @@ const serializeAws_restJson1MultiConditionalSplitActivity = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Branches != undefined && {
+    ...(input.Branches != null && {
       Branches: serializeAws_restJson1ListOfMultiConditionalBranch(input.Branches, context),
     }),
-    ...(input.DefaultActivity != undefined && { DefaultActivity: input.DefaultActivity }),
-    ...(input.EvaluationWaitTime != undefined && {
+    ...(input.DefaultActivity != null && { DefaultActivity: input.DefaultActivity }),
+    ...(input.EvaluationWaitTime != null && {
       EvaluationWaitTime: serializeAws_restJson1WaitTime(input.EvaluationWaitTime, context),
     }),
   };
@@ -13383,8 +13355,8 @@ const serializeAws_restJson1MultiConditionalSplitActivity = (
 
 const serializeAws_restJson1NumberValidateRequest = (input: NumberValidateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.PhoneNumber != undefined && { PhoneNumber: input.PhoneNumber }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.PhoneNumber != null && { PhoneNumber: input.PhoneNumber }),
   };
 };
 
@@ -13393,39 +13365,39 @@ const serializeAws_restJson1OverrideButtonConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ButtonAction != undefined && { ButtonAction: input.ButtonAction }),
-    ...(input.Link != undefined && { Link: input.Link }),
+    ...(input.ButtonAction != null && { ButtonAction: input.ButtonAction }),
+    ...(input.Link != null && { Link: input.Link }),
   };
 };
 
 const serializeAws_restJson1PublicEndpoint = (input: PublicEndpoint, context: __SerdeContext): any => {
   return {
-    ...(input.Address != undefined && { Address: input.Address }),
-    ...(input.Attributes != undefined && {
+    ...(input.Address != null && { Address: input.Address }),
+    ...(input.Attributes != null && {
       Attributes: serializeAws_restJson1MapOfListOf__string(input.Attributes, context),
     }),
-    ...(input.ChannelType != undefined && { ChannelType: input.ChannelType }),
-    ...(input.Demographic != undefined && {
+    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
+    ...(input.Demographic != null && {
       Demographic: serializeAws_restJson1EndpointDemographic(input.Demographic, context),
     }),
-    ...(input.EffectiveDate != undefined && { EffectiveDate: input.EffectiveDate }),
-    ...(input.EndpointStatus != undefined && { EndpointStatus: input.EndpointStatus }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
-    ...(input.OptOut != undefined && { OptOut: input.OptOut }),
-    ...(input.RequestId != undefined && { RequestId: input.RequestId }),
-    ...(input.User != undefined && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
+    ...(input.EffectiveDate != null && { EffectiveDate: input.EffectiveDate }),
+    ...(input.EndpointStatus != null && { EndpointStatus: input.EndpointStatus }),
+    ...(input.Location != null && { Location: serializeAws_restJson1EndpointLocation(input.Location, context) }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOf__double(input.Metrics, context) }),
+    ...(input.OptOut != null && { OptOut: input.OptOut }),
+    ...(input.RequestId != null && { RequestId: input.RequestId }),
+    ...(input.User != null && { User: serializeAws_restJson1EndpointUser(input.User, context) }),
   };
 };
 
 const serializeAws_restJson1PushMessageActivity = (input: PushMessageActivity, context: __SerdeContext): any => {
   return {
-    ...(input.MessageConfig != undefined && {
+    ...(input.MessageConfig != null && {
       MessageConfig: serializeAws_restJson1JourneyPushMessage(input.MessageConfig, context),
     }),
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != undefined && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != undefined && { TemplateVersion: input.TemplateVersion }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
   };
 };
 
@@ -13434,106 +13406,102 @@ const serializeAws_restJson1PushNotificationTemplateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ADM != undefined && { ADM: serializeAws_restJson1AndroidPushNotificationTemplate(input.ADM, context) }),
-    ...(input.APNS != undefined && { APNS: serializeAws_restJson1APNSPushNotificationTemplate(input.APNS, context) }),
-    ...(input.Baidu != undefined && {
-      Baidu: serializeAws_restJson1AndroidPushNotificationTemplate(input.Baidu, context),
-    }),
-    ...(input.Default != undefined && {
+    ...(input.ADM != null && { ADM: serializeAws_restJson1AndroidPushNotificationTemplate(input.ADM, context) }),
+    ...(input.APNS != null && { APNS: serializeAws_restJson1APNSPushNotificationTemplate(input.APNS, context) }),
+    ...(input.Baidu != null && { Baidu: serializeAws_restJson1AndroidPushNotificationTemplate(input.Baidu, context) }),
+    ...(input.Default != null && {
       Default: serializeAws_restJson1DefaultPushNotificationTemplate(input.Default, context),
     }),
-    ...(input.DefaultSubstitutions != undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.GCM != undefined && { GCM: serializeAws_restJson1AndroidPushNotificationTemplate(input.GCM, context) }),
-    ...(input.RecommenderId != undefined && { RecommenderId: input.RecommenderId }),
-    ...(input.TemplateDescription != undefined && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
+    ...(input.GCM != null && { GCM: serializeAws_restJson1AndroidPushNotificationTemplate(input.GCM, context) }),
+    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
+    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1QuietTime = (input: QuietTime, context: __SerdeContext): any => {
   return {
-    ...(input.End != undefined && { End: input.End }),
-    ...(input.Start != undefined && { Start: input.Start }),
+    ...(input.End != null && { End: input.End }),
+    ...(input.Start != null && { Start: input.Start }),
   };
 };
 
 const serializeAws_restJson1RandomSplitActivity = (input: RandomSplitActivity, context: __SerdeContext): any => {
   return {
-    ...(input.Branches != undefined && {
-      Branches: serializeAws_restJson1ListOfRandomSplitEntry(input.Branches, context),
-    }),
+    ...(input.Branches != null && { Branches: serializeAws_restJson1ListOfRandomSplitEntry(input.Branches, context) }),
   };
 };
 
 const serializeAws_restJson1RandomSplitEntry = (input: RandomSplitEntry, context: __SerdeContext): any => {
   return {
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.Percentage != undefined && { Percentage: input.Percentage }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.Percentage != null && { Percentage: input.Percentage }),
   };
 };
 
 const serializeAws_restJson1RawEmail = (input: RawEmail, context: __SerdeContext): any => {
   return {
-    ...(input.Data != undefined && { Data: context.base64Encoder(input.Data) }),
+    ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
   };
 };
 
 const serializeAws_restJson1RecencyDimension = (input: RecencyDimension, context: __SerdeContext): any => {
   return {
-    ...(input.Duration != undefined && { Duration: input.Duration }),
-    ...(input.RecencyType != undefined && { RecencyType: input.RecencyType }),
+    ...(input.Duration != null && { Duration: input.Duration }),
+    ...(input.RecencyType != null && { RecencyType: input.RecencyType }),
   };
 };
 
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime != undefined && { EndTime: input.EndTime }),
-    ...(input.EventFilter != undefined && {
+    ...(input.EndTime != null && { EndTime: input.EndTime }),
+    ...(input.EventFilter != null && {
       EventFilter: serializeAws_restJson1CampaignEventFilter(input.EventFilter, context),
     }),
-    ...(input.Frequency != undefined && { Frequency: input.Frequency }),
-    ...(input.IsLocalTime != undefined && { IsLocalTime: input.IsLocalTime }),
-    ...(input.QuietTime != undefined && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
-    ...(input.StartTime != undefined && { StartTime: input.StartTime }),
-    ...(input.Timezone != undefined && { Timezone: input.Timezone }),
+    ...(input.Frequency != null && { Frequency: input.Frequency }),
+    ...(input.IsLocalTime != null && { IsLocalTime: input.IsLocalTime }),
+    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
+    ...(input.StartTime != null && { StartTime: input.StartTime }),
+    ...(input.Timezone != null && { Timezone: input.Timezone }),
   };
 };
 
 const serializeAws_restJson1SegmentBehaviors = (input: SegmentBehaviors, context: __SerdeContext): any => {
   return {
-    ...(input.Recency != undefined && { Recency: serializeAws_restJson1RecencyDimension(input.Recency, context) }),
+    ...(input.Recency != null && { Recency: serializeAws_restJson1RecencyDimension(input.Recency, context) }),
   };
 };
 
 const serializeAws_restJson1SegmentCondition = (input: SegmentCondition, context: __SerdeContext): any => {
   return {
-    ...(input.SegmentId != undefined && { SegmentId: input.SegmentId }),
+    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
   };
 };
 
 const serializeAws_restJson1SegmentDemographics = (input: SegmentDemographics, context: __SerdeContext): any => {
   return {
-    ...(input.AppVersion != undefined && { AppVersion: serializeAws_restJson1SetDimension(input.AppVersion, context) }),
-    ...(input.Channel != undefined && { Channel: serializeAws_restJson1SetDimension(input.Channel, context) }),
-    ...(input.DeviceType != undefined && { DeviceType: serializeAws_restJson1SetDimension(input.DeviceType, context) }),
-    ...(input.Make != undefined && { Make: serializeAws_restJson1SetDimension(input.Make, context) }),
-    ...(input.Model != undefined && { Model: serializeAws_restJson1SetDimension(input.Model, context) }),
-    ...(input.Platform != undefined && { Platform: serializeAws_restJson1SetDimension(input.Platform, context) }),
+    ...(input.AppVersion != null && { AppVersion: serializeAws_restJson1SetDimension(input.AppVersion, context) }),
+    ...(input.Channel != null && { Channel: serializeAws_restJson1SetDimension(input.Channel, context) }),
+    ...(input.DeviceType != null && { DeviceType: serializeAws_restJson1SetDimension(input.DeviceType, context) }),
+    ...(input.Make != null && { Make: serializeAws_restJson1SetDimension(input.Make, context) }),
+    ...(input.Model != null && { Model: serializeAws_restJson1SetDimension(input.Model, context) }),
+    ...(input.Platform != null && { Platform: serializeAws_restJson1SetDimension(input.Platform, context) }),
   };
 };
 
 const serializeAws_restJson1SegmentDimensions = (input: SegmentDimensions, context: __SerdeContext): any => {
   return {
-    ...(input.Attributes != undefined && {
+    ...(input.Attributes != null && {
       Attributes: serializeAws_restJson1MapOfAttributeDimension(input.Attributes, context),
     }),
-    ...(input.Behavior != undefined && { Behavior: serializeAws_restJson1SegmentBehaviors(input.Behavior, context) }),
-    ...(input.Demographic != undefined && {
+    ...(input.Behavior != null && { Behavior: serializeAws_restJson1SegmentBehaviors(input.Behavior, context) }),
+    ...(input.Demographic != null && {
       Demographic: serializeAws_restJson1SegmentDemographics(input.Demographic, context),
     }),
-    ...(input.Location != undefined && { Location: serializeAws_restJson1SegmentLocation(input.Location, context) }),
-    ...(input.Metrics != undefined && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
-    ...(input.UserAttributes != undefined && {
+    ...(input.Location != null && { Location: serializeAws_restJson1SegmentLocation(input.Location, context) }),
+    ...(input.Metrics != null && { Metrics: serializeAws_restJson1MapOfMetricDimension(input.Metrics, context) }),
+    ...(input.UserAttributes != null && {
       UserAttributes: serializeAws_restJson1MapOfAttributeDimension(input.UserAttributes, context),
     }),
   };
@@ -13541,35 +13509,35 @@ const serializeAws_restJson1SegmentDimensions = (input: SegmentDimensions, conte
 
 const serializeAws_restJson1SegmentGroup = (input: SegmentGroup, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
+    ...(input.Dimensions != null && {
       Dimensions: serializeAws_restJson1ListOfSegmentDimensions(input.Dimensions, context),
     }),
-    ...(input.SourceSegments != undefined && {
+    ...(input.SourceSegments != null && {
       SourceSegments: serializeAws_restJson1ListOfSegmentReference(input.SourceSegments, context),
     }),
-    ...(input.SourceType != undefined && { SourceType: input.SourceType }),
-    ...(input.Type != undefined && { Type: input.Type }),
+    ...(input.SourceType != null && { SourceType: input.SourceType }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
 const serializeAws_restJson1SegmentGroupList = (input: SegmentGroupList, context: __SerdeContext): any => {
   return {
-    ...(input.Groups != undefined && { Groups: serializeAws_restJson1ListOfSegmentGroup(input.Groups, context) }),
-    ...(input.Include != undefined && { Include: input.Include }),
+    ...(input.Groups != null && { Groups: serializeAws_restJson1ListOfSegmentGroup(input.Groups, context) }),
+    ...(input.Include != null && { Include: input.Include }),
   };
 };
 
 const serializeAws_restJson1SegmentLocation = (input: SegmentLocation, context: __SerdeContext): any => {
   return {
-    ...(input.Country != undefined && { Country: serializeAws_restJson1SetDimension(input.Country, context) }),
-    ...(input.GPSPoint != undefined && { GPSPoint: serializeAws_restJson1GPSPointDimension(input.GPSPoint, context) }),
+    ...(input.Country != null && { Country: serializeAws_restJson1SetDimension(input.Country, context) }),
+    ...(input.GPSPoint != null && { GPSPoint: serializeAws_restJson1GPSPointDimension(input.GPSPoint, context) }),
   };
 };
 
 const serializeAws_restJson1SegmentReference = (input: SegmentReference, context: __SerdeContext): any => {
   return {
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -13578,17 +13546,17 @@ const serializeAws_restJson1SendOTPMessageRequestParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowedAttempts != undefined && { AllowedAttempts: input.AllowedAttempts }),
-    ...(input.BrandName != undefined && { BrandName: input.BrandName }),
-    ...(input.Channel != undefined && { Channel: input.Channel }),
-    ...(input.CodeLength != undefined && { CodeLength: input.CodeLength }),
-    ...(input.DestinationIdentity != undefined && { DestinationIdentity: input.DestinationIdentity }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.Language != undefined && { Language: input.Language }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.ReferenceId != undefined && { ReferenceId: input.ReferenceId }),
-    ...(input.TemplateId != undefined && { TemplateId: input.TemplateId }),
-    ...(input.ValidityPeriod != undefined && { ValidityPeriod: input.ValidityPeriod }),
+    ...(input.AllowedAttempts != null && { AllowedAttempts: input.AllowedAttempts }),
+    ...(input.BrandName != null && { BrandName: input.BrandName }),
+    ...(input.Channel != null && { Channel: input.Channel }),
+    ...(input.CodeLength != null && { CodeLength: input.CodeLength }),
+    ...(input.DestinationIdentity != null && { DestinationIdentity: input.DestinationIdentity }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.Language != null && { Language: input.Language }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.ReferenceId != null && { ReferenceId: input.ReferenceId }),
+    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
+    ...(input.ValidityPeriod != null && { ValidityPeriod: input.ValidityPeriod }),
   };
 };
 
@@ -13597,45 +13565,43 @@ const serializeAws_restJson1SendUsersMessageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Context != undefined && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
-    ...(input.MessageConfiguration != undefined && {
+    ...(input.Context != null && { Context: serializeAws_restJson1MapOf__string(input.Context, context) }),
+    ...(input.MessageConfiguration != null && {
       MessageConfiguration: serializeAws_restJson1DirectMessageConfiguration(input.MessageConfiguration, context),
     }),
-    ...(input.TemplateConfiguration != undefined && {
+    ...(input.TemplateConfiguration != null && {
       TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
     }),
-    ...(input.TraceId != undefined && { TraceId: input.TraceId }),
-    ...(input.Users != undefined && {
-      Users: serializeAws_restJson1MapOfEndpointSendConfiguration(input.Users, context),
-    }),
+    ...(input.TraceId != null && { TraceId: input.TraceId }),
+    ...(input.Users != null && { Users: serializeAws_restJson1MapOfEndpointSendConfiguration(input.Users, context) }),
   };
 };
 
 const serializeAws_restJson1Session = (input: Session, context: __SerdeContext): any => {
   return {
-    ...(input.Duration != undefined && { Duration: input.Duration }),
-    ...(input.Id != undefined && { Id: input.Id }),
-    ...(input.StartTimestamp != undefined && { StartTimestamp: input.StartTimestamp }),
-    ...(input.StopTimestamp != undefined && { StopTimestamp: input.StopTimestamp }),
+    ...(input.Duration != null && { Duration: input.Duration }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.StartTimestamp != null && { StartTimestamp: input.StartTimestamp }),
+    ...(input.StopTimestamp != null && { StopTimestamp: input.StopTimestamp }),
   };
 };
 
 const serializeAws_restJson1SetDimension = (input: SetDimension, context: __SerdeContext): any => {
   return {
-    ...(input.DimensionType != undefined && { DimensionType: input.DimensionType }),
-    ...(input.Values != undefined && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
+    ...(input.DimensionType != null && { DimensionType: input.DimensionType }),
+    ...(input.Values != null && { Values: serializeAws_restJson1ListOf__string(input.Values, context) }),
   };
 };
 
 const serializeAws_restJson1SimpleCondition = (input: SimpleCondition, context: __SerdeContext): any => {
   return {
-    ...(input.EventCondition != undefined && {
+    ...(input.EventCondition != null && {
       EventCondition: serializeAws_restJson1EventCondition(input.EventCondition, context),
     }),
-    ...(input.SegmentCondition != undefined && {
+    ...(input.SegmentCondition != null && {
       SegmentCondition: serializeAws_restJson1SegmentCondition(input.SegmentCondition, context),
     }),
-    ...(input.SegmentDimensions != undefined && {
+    ...(input.SegmentDimensions != null && {
       segmentDimensions: serializeAws_restJson1SegmentDimensions(input.SegmentDimensions, context),
     }),
   };
@@ -13643,71 +13609,71 @@ const serializeAws_restJson1SimpleCondition = (input: SimpleCondition, context: 
 
 const serializeAws_restJson1SimpleEmail = (input: SimpleEmail, context: __SerdeContext): any => {
   return {
-    ...(input.HtmlPart != undefined && { HtmlPart: serializeAws_restJson1SimpleEmailPart(input.HtmlPart, context) }),
-    ...(input.Subject != undefined && { Subject: serializeAws_restJson1SimpleEmailPart(input.Subject, context) }),
-    ...(input.TextPart != undefined && { TextPart: serializeAws_restJson1SimpleEmailPart(input.TextPart, context) }),
+    ...(input.HtmlPart != null && { HtmlPart: serializeAws_restJson1SimpleEmailPart(input.HtmlPart, context) }),
+    ...(input.Subject != null && { Subject: serializeAws_restJson1SimpleEmailPart(input.Subject, context) }),
+    ...(input.TextPart != null && { TextPart: serializeAws_restJson1SimpleEmailPart(input.TextPart, context) }),
   };
 };
 
 const serializeAws_restJson1SimpleEmailPart = (input: SimpleEmailPart, context: __SerdeContext): any => {
   return {
-    ...(input.Charset != undefined && { Charset: input.Charset }),
-    ...(input.Data != undefined && { Data: input.Data }),
+    ...(input.Charset != null && { Charset: input.Charset }),
+    ...(input.Data != null && { Data: input.Data }),
   };
 };
 
 const serializeAws_restJson1SMSChannelRequest = (input: SMSChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
-    ...(input.ShortCode != undefined && { ShortCode: input.ShortCode }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
+    ...(input.ShortCode != null && { ShortCode: input.ShortCode }),
   };
 };
 
 const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.EntityId != undefined && { EntityId: input.EntityId }),
-    ...(input.Keyword != undefined && { Keyword: input.Keyword }),
-    ...(input.MediaUrl != undefined && { MediaUrl: input.MediaUrl }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.OriginationNumber != undefined && { OriginationNumber: input.OriginationNumber }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.EntityId != null && { EntityId: input.EntityId }),
+    ...(input.Keyword != null && { Keyword: input.Keyword }),
+    ...(input.MediaUrl != null && { MediaUrl: input.MediaUrl }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.TemplateId != undefined && { TemplateId: input.TemplateId }),
+    ...(input.TemplateId != null && { TemplateId: input.TemplateId }),
   };
 };
 
 const serializeAws_restJson1SMSMessageActivity = (input: SMSMessageActivity, context: __SerdeContext): any => {
   return {
-    ...(input.MessageConfig != undefined && {
+    ...(input.MessageConfig != null && {
       MessageConfig: serializeAws_restJson1JourneySMSMessage(input.MessageConfig, context),
     }),
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.TemplateName != undefined && { TemplateName: input.TemplateName }),
-    ...(input.TemplateVersion != undefined && { TemplateVersion: input.TemplateVersion }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.TemplateName != null && { TemplateName: input.TemplateName }),
+    ...(input.TemplateVersion != null && { TemplateVersion: input.TemplateVersion }),
   };
 };
 
 const serializeAws_restJson1SMSTemplateRequest = (input: SMSTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.DefaultSubstitutions != undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.RecommenderId != undefined && { RecommenderId: input.RecommenderId }),
-    ...(input.TemplateDescription != undefined && { TemplateDescription: input.TemplateDescription }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
+    ...(input.RecommenderId != null && { RecommenderId: input.RecommenderId }),
+    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1StartCondition = (input: StartCondition, context: __SerdeContext): any => {
   return {
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.EventStartCondition != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EventStartCondition != null && {
       EventStartCondition: serializeAws_restJson1EventStartCondition(input.EventStartCondition, context),
     }),
-    ...(input.SegmentStartCondition != undefined && {
+    ...(input.SegmentStartCondition != null && {
       SegmentStartCondition: serializeAws_restJson1SegmentCondition(input.SegmentStartCondition, context),
     }),
   };
@@ -13715,14 +13681,14 @@ const serializeAws_restJson1StartCondition = (input: StartCondition, context: __
 
 const serializeAws_restJson1TagsModel = (input: TagsModel, context: __SerdeContext): any => {
   return {
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1Template = (input: Template, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -13731,22 +13697,16 @@ const serializeAws_restJson1TemplateActiveVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Version != undefined && { Version: input.Version }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
 const serializeAws_restJson1TemplateConfiguration = (input: TemplateConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.EmailTemplate != undefined && {
-      EmailTemplate: serializeAws_restJson1Template(input.EmailTemplate, context),
-    }),
-    ...(input.PushTemplate != undefined && {
-      PushTemplate: serializeAws_restJson1Template(input.PushTemplate, context),
-    }),
-    ...(input.SMSTemplate != undefined && { SMSTemplate: serializeAws_restJson1Template(input.SMSTemplate, context) }),
-    ...(input.VoiceTemplate != undefined && {
-      VoiceTemplate: serializeAws_restJson1Template(input.VoiceTemplate, context),
-    }),
+    ...(input.EmailTemplate != null && { EmailTemplate: serializeAws_restJson1Template(input.EmailTemplate, context) }),
+    ...(input.PushTemplate != null && { PushTemplate: serializeAws_restJson1Template(input.PushTemplate, context) }),
+    ...(input.SMSTemplate != null && { SMSTemplate: serializeAws_restJson1Template(input.SMSTemplate, context) }),
+    ...(input.VoiceTemplate != null && { VoiceTemplate: serializeAws_restJson1Template(input.VoiceTemplate, context) }),
   };
 };
 
@@ -13755,7 +13715,7 @@ const serializeAws_restJson1UpdateAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Blacklist != undefined && { Blacklist: serializeAws_restJson1ListOf__string(input.Blacklist, context) }),
+    ...(input.Blacklist != null && { Blacklist: serializeAws_restJson1ListOf__string(input.Blacklist, context) }),
   };
 };
 
@@ -13764,25 +13724,21 @@ const serializeAws_restJson1UpdateRecommenderConfigurationShape = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Attributes != undefined && {
-      Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context),
-    }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.RecommendationProviderIdType != undefined && {
+    ...(input.Attributes != null && { Attributes: serializeAws_restJson1MapOf__string(input.Attributes, context) }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.RecommendationProviderIdType != null && {
       RecommendationProviderIdType: input.RecommendationProviderIdType,
     }),
-    ...(input.RecommendationProviderRoleArn != undefined && {
+    ...(input.RecommendationProviderRoleArn != null && {
       RecommendationProviderRoleArn: input.RecommendationProviderRoleArn,
     }),
-    ...(input.RecommendationProviderUri != undefined && { RecommendationProviderUri: input.RecommendationProviderUri }),
-    ...(input.RecommendationTransformerUri != undefined && {
+    ...(input.RecommendationProviderUri != null && { RecommendationProviderUri: input.RecommendationProviderUri }),
+    ...(input.RecommendationTransformerUri != null && {
       RecommendationTransformerUri: input.RecommendationTransformerUri,
     }),
-    ...(input.RecommendationsDisplayName != undefined && {
-      RecommendationsDisplayName: input.RecommendationsDisplayName,
-    }),
-    ...(input.RecommendationsPerMessage != undefined && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
+    ...(input.RecommendationsDisplayName != null && { RecommendationsDisplayName: input.RecommendationsDisplayName }),
+    ...(input.RecommendationsPerMessage != null && { RecommendationsPerMessage: input.RecommendationsPerMessage }),
   };
 };
 
@@ -13791,52 +13747,52 @@ const serializeAws_restJson1VerifyOTPMessageRequestParameters = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationIdentity != undefined && { DestinationIdentity: input.DestinationIdentity }),
-    ...(input.Otp != undefined && { Otp: input.Otp }),
-    ...(input.ReferenceId != undefined && { ReferenceId: input.ReferenceId }),
+    ...(input.DestinationIdentity != null && { DestinationIdentity: input.DestinationIdentity }),
+    ...(input.Otp != null && { Otp: input.Otp }),
+    ...(input.ReferenceId != null && { ReferenceId: input.ReferenceId }),
   };
 };
 
 const serializeAws_restJson1VoiceChannelRequest = (input: VoiceChannelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1VoiceMessage = (input: VoiceMessage, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.OriginationNumber != undefined && { OriginationNumber: input.OriginationNumber }),
-    ...(input.Substitutions != undefined && {
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.OriginationNumber != null && { OriginationNumber: input.OriginationNumber }),
+    ...(input.Substitutions != null && {
       Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
     }),
-    ...(input.VoiceId != undefined && { VoiceId: input.VoiceId }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   };
 };
 
 const serializeAws_restJson1VoiceTemplateRequest = (input: VoiceTemplateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Body != undefined && { Body: input.Body }),
-    ...(input.DefaultSubstitutions != undefined && { DefaultSubstitutions: input.DefaultSubstitutions }),
-    ...(input.LanguageCode != undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.TemplateDescription != undefined && { TemplateDescription: input.TemplateDescription }),
-    ...(input.VoiceId != undefined && { VoiceId: input.VoiceId }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.Body != null && { Body: input.Body }),
+    ...(input.DefaultSubstitutions != null && { DefaultSubstitutions: input.DefaultSubstitutions }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.TemplateDescription != null && { TemplateDescription: input.TemplateDescription }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1WaitActivity = (input: WaitActivity, context: __SerdeContext): any => {
   return {
-    ...(input.NextActivity != undefined && { NextActivity: input.NextActivity }),
-    ...(input.WaitTime != undefined && { WaitTime: serializeAws_restJson1WaitTime(input.WaitTime, context) }),
+    ...(input.NextActivity != null && { NextActivity: input.NextActivity }),
+    ...(input.WaitTime != null && { WaitTime: serializeAws_restJson1WaitTime(input.WaitTime, context) }),
   };
 };
 
 const serializeAws_restJson1WaitTime = (input: WaitTime, context: __SerdeContext): any => {
   return {
-    ...(input.WaitFor != undefined && { WaitFor: input.WaitFor }),
-    ...(input.WaitUntil != undefined && { WaitUntil: input.WaitUntil }),
+    ...(input.WaitFor != null && { WaitFor: input.WaitFor }),
+    ...(input.WaitUntil != null && { WaitUntil: input.WaitUntil }),
   };
 };
 
@@ -13845,149 +13801,142 @@ const serializeAws_restJson1WriteApplicationSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CampaignHook != undefined && {
+    ...(input.CampaignHook != null && {
       CampaignHook: serializeAws_restJson1CampaignHook(input.CampaignHook, context),
     }),
-    ...(input.CloudWatchMetricsEnabled != undefined && { CloudWatchMetricsEnabled: input.CloudWatchMetricsEnabled }),
-    ...(input.EventTaggingEnabled != undefined && { EventTaggingEnabled: input.EventTaggingEnabled }),
-    ...(input.Limits != undefined && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
-    ...(input.QuietTime != undefined && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
+    ...(input.CloudWatchMetricsEnabled != null && { CloudWatchMetricsEnabled: input.CloudWatchMetricsEnabled }),
+    ...(input.EventTaggingEnabled != null && { EventTaggingEnabled: input.EventTaggingEnabled }),
+    ...(input.Limits != null && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
+    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
   };
 };
 
 const serializeAws_restJson1WriteCampaignRequest = (input: WriteCampaignRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AdditionalTreatments != undefined && {
+    ...(input.AdditionalTreatments != null && {
       AdditionalTreatments: serializeAws_restJson1ListOfWriteTreatmentResource(input.AdditionalTreatments, context),
     }),
-    ...(input.CustomDeliveryConfiguration != undefined && {
+    ...(input.CustomDeliveryConfiguration != null && {
       CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
         input.CustomDeliveryConfiguration,
         context
       ),
     }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.HoldoutPercent != undefined && { HoldoutPercent: input.HoldoutPercent }),
-    ...(input.Hook != undefined && { Hook: serializeAws_restJson1CampaignHook(input.Hook, context) }),
-    ...(input.IsPaused != undefined && { IsPaused: input.IsPaused }),
-    ...(input.Limits != undefined && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
-    ...(input.MessageConfiguration != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HoldoutPercent != null && { HoldoutPercent: input.HoldoutPercent }),
+    ...(input.Hook != null && { Hook: serializeAws_restJson1CampaignHook(input.Hook, context) }),
+    ...(input.IsPaused != null && { IsPaused: input.IsPaused }),
+    ...(input.Limits != null && { Limits: serializeAws_restJson1CampaignLimits(input.Limits, context) }),
+    ...(input.MessageConfiguration != null && {
       MessageConfiguration: serializeAws_restJson1MessageConfiguration(input.MessageConfiguration, context),
     }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Priority != undefined && { Priority: input.Priority }),
-    ...(input.Schedule != undefined && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
-    ...(input.SegmentId != undefined && { SegmentId: input.SegmentId }),
-    ...(input.SegmentVersion != undefined && { SegmentVersion: input.SegmentVersion }),
-    ...(input.TemplateConfiguration != undefined && {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Priority != null && { Priority: input.Priority }),
+    ...(input.Schedule != null && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
+    ...(input.SegmentId != null && { SegmentId: input.SegmentId }),
+    ...(input.SegmentVersion != null && { SegmentVersion: input.SegmentVersion }),
+    ...(input.TemplateConfiguration != null && {
       TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
     }),
-    ...(input.TreatmentDescription != undefined && { TreatmentDescription: input.TreatmentDescription }),
-    ...(input.TreatmentName != undefined && { TreatmentName: input.TreatmentName }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.TreatmentDescription != null && { TreatmentDescription: input.TreatmentDescription }),
+    ...(input.TreatmentName != null && { TreatmentName: input.TreatmentName }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1WriteEventStream = (input: WriteEventStream, context: __SerdeContext): any => {
   return {
-    ...(input.DestinationStreamArn != undefined && { DestinationStreamArn: input.DestinationStreamArn }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.DestinationStreamArn != null && { DestinationStreamArn: input.DestinationStreamArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Activities != undefined && {
-      Activities: serializeAws_restJson1MapOfActivity(input.Activities, context),
-    }),
-    ...(input.CreationDate != undefined && { CreationDate: input.CreationDate }),
-    ...(input.JourneyChannelSettings != undefined && {
+    ...(input.Activities != null && { Activities: serializeAws_restJson1MapOfActivity(input.Activities, context) }),
+    ...(input.CreationDate != null && { CreationDate: input.CreationDate }),
+    ...(input.JourneyChannelSettings != null && {
       JourneyChannelSettings: serializeAws_restJson1JourneyChannelSettings(input.JourneyChannelSettings, context),
     }),
-    ...(input.LastModifiedDate != undefined && { LastModifiedDate: input.LastModifiedDate }),
-    ...(input.Limits != undefined && { Limits: serializeAws_restJson1JourneyLimits(input.Limits, context) }),
-    ...(input.LocalTime != undefined && { LocalTime: input.LocalTime }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.QuietTime != undefined && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
-    ...(input.RefreshFrequency != undefined && { RefreshFrequency: input.RefreshFrequency }),
-    ...(input.RefreshOnSegmentUpdate != undefined && { RefreshOnSegmentUpdate: input.RefreshOnSegmentUpdate }),
-    ...(input.Schedule != undefined && { Schedule: serializeAws_restJson1JourneySchedule(input.Schedule, context) }),
-    ...(input.StartActivity != undefined && { StartActivity: input.StartActivity }),
-    ...(input.StartCondition != undefined && {
+    ...(input.LastModifiedDate != null && { LastModifiedDate: input.LastModifiedDate }),
+    ...(input.Limits != null && { Limits: serializeAws_restJson1JourneyLimits(input.Limits, context) }),
+    ...(input.LocalTime != null && { LocalTime: input.LocalTime }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.QuietTime != null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
+    ...(input.RefreshFrequency != null && { RefreshFrequency: input.RefreshFrequency }),
+    ...(input.RefreshOnSegmentUpdate != null && { RefreshOnSegmentUpdate: input.RefreshOnSegmentUpdate }),
+    ...(input.Schedule != null && { Schedule: serializeAws_restJson1JourneySchedule(input.Schedule, context) }),
+    ...(input.StartActivity != null && { StartActivity: input.StartActivity }),
+    ...(input.StartCondition != null && {
       StartCondition: serializeAws_restJson1StartCondition(input.StartCondition, context),
     }),
-    ...(input.State != undefined && { State: input.State }),
-    ...(input.WaitForQuietTime != undefined && { WaitForQuietTime: input.WaitForQuietTime }),
+    ...(input.State != null && { State: input.State }),
+    ...(input.WaitForQuietTime != null && { WaitForQuietTime: input.WaitForQuietTime }),
   };
 };
 
 const serializeAws_restJson1WriteSegmentRequest = (input: WriteSegmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Dimensions != undefined && {
-      Dimensions: serializeAws_restJson1SegmentDimensions(input.Dimensions, context),
-    }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SegmentGroups != undefined && {
+    ...(input.Dimensions != null && { Dimensions: serializeAws_restJson1SegmentDimensions(input.Dimensions, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SegmentGroups != null && {
       SegmentGroups: serializeAws_restJson1SegmentGroupList(input.SegmentGroups, context),
     }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1MapOf__string(input.tags, context) }),
   };
 };
 
 const serializeAws_restJson1WriteTreatmentResource = (input: WriteTreatmentResource, context: __SerdeContext): any => {
   return {
-    ...(input.CustomDeliveryConfiguration != undefined && {
+    ...(input.CustomDeliveryConfiguration != null && {
       CustomDeliveryConfiguration: serializeAws_restJson1CustomDeliveryConfiguration(
         input.CustomDeliveryConfiguration,
         context
       ),
     }),
-    ...(input.MessageConfiguration != undefined && {
+    ...(input.MessageConfiguration != null && {
       MessageConfiguration: serializeAws_restJson1MessageConfiguration(input.MessageConfiguration, context),
     }),
-    ...(input.Schedule != undefined && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
-    ...(input.SizePercent != undefined && { SizePercent: input.SizePercent }),
-    ...(input.TemplateConfiguration != undefined && {
+    ...(input.Schedule != null && { Schedule: serializeAws_restJson1Schedule(input.Schedule, context) }),
+    ...(input.SizePercent != null && { SizePercent: input.SizePercent }),
+    ...(input.TemplateConfiguration != null && {
       TemplateConfiguration: serializeAws_restJson1TemplateConfiguration(input.TemplateConfiguration, context),
     }),
-    ...(input.TreatmentDescription != undefined && { TreatmentDescription: input.TreatmentDescription }),
-    ...(input.TreatmentName != undefined && { TreatmentName: input.TreatmentName }),
+    ...(input.TreatmentDescription != null && { TreatmentDescription: input.TreatmentDescription }),
+    ...(input.TreatmentName != null && { TreatmentName: input.TreatmentName }),
   };
 };
 
 const deserializeAws_restJson1ActivitiesResponse = (output: any, context: __SerdeContext): ActivitiesResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfActivityResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfActivityResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
-    CUSTOM:
-      output.CUSTOM != undefined ? deserializeAws_restJson1CustomMessageActivity(output.CUSTOM, context) : undefined,
+    CUSTOM: output.CUSTOM != null ? deserializeAws_restJson1CustomMessageActivity(output.CUSTOM, context) : undefined,
     ConditionalSplit:
-      output.ConditionalSplit != undefined
+      output.ConditionalSplit != null
         ? deserializeAws_restJson1ConditionalSplitActivity(output.ConditionalSplit, context)
         : undefined,
     ContactCenter:
-      output.ContactCenter != undefined
+      output.ContactCenter != null
         ? deserializeAws_restJson1ContactCenterActivity(output.ContactCenter, context)
         : undefined,
     Description: __expectString(output.Description),
-    EMAIL: output.EMAIL != undefined ? deserializeAws_restJson1EmailMessageActivity(output.EMAIL, context) : undefined,
-    Holdout: output.Holdout != undefined ? deserializeAws_restJson1HoldoutActivity(output.Holdout, context) : undefined,
+    EMAIL: output.EMAIL != null ? deserializeAws_restJson1EmailMessageActivity(output.EMAIL, context) : undefined,
+    Holdout: output.Holdout != null ? deserializeAws_restJson1HoldoutActivity(output.Holdout, context) : undefined,
     MultiCondition:
-      output.MultiCondition != undefined
+      output.MultiCondition != null
         ? deserializeAws_restJson1MultiConditionalSplitActivity(output.MultiCondition, context)
         : undefined,
-    PUSH: output.PUSH != undefined ? deserializeAws_restJson1PushMessageActivity(output.PUSH, context) : undefined,
+    PUSH: output.PUSH != null ? deserializeAws_restJson1PushMessageActivity(output.PUSH, context) : undefined,
     RandomSplit:
-      output.RandomSplit != undefined
-        ? deserializeAws_restJson1RandomSplitActivity(output.RandomSplit, context)
-        : undefined,
-    SMS: output.SMS != undefined ? deserializeAws_restJson1SMSMessageActivity(output.SMS, context) : undefined,
-    Wait: output.Wait != undefined ? deserializeAws_restJson1WaitActivity(output.Wait, context) : undefined,
+      output.RandomSplit != null ? deserializeAws_restJson1RandomSplitActivity(output.RandomSplit, context) : undefined,
+    SMS: output.SMS != null ? deserializeAws_restJson1SMSMessageActivity(output.SMS, context) : undefined,
+    Wait: output.Wait != null ? deserializeAws_restJson1WaitActivity(output.Wait, context) : undefined,
   } as any;
 };
 
@@ -14139,12 +14088,11 @@ const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
 ): ApplicationDateRangeKpiResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
     KpiName: __expectString(output.KpiName),
-    KpiResult:
-      output.KpiResult != undefined ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
+    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -14154,7 +14102,7 @@ const deserializeAws_restJson1ApplicationResponse = (output: any, context: __Ser
     CreationDate: __expectString(output.CreationDate),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -14165,17 +14113,16 @@ const deserializeAws_restJson1ApplicationSettingsResource = (
   return {
     ApplicationId: __expectString(output.ApplicationId),
     CampaignHook:
-      output.CampaignHook != undefined ? deserializeAws_restJson1CampaignHook(output.CampaignHook, context) : undefined,
+      output.CampaignHook != null ? deserializeAws_restJson1CampaignHook(output.CampaignHook, context) : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != undefined ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
-    QuietTime: output.QuietTime != undefined ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
+    Limits: output.Limits != null ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
+    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ApplicationsResponse = (output: any, context: __SerdeContext): ApplicationsResponse => {
   return {
-    Item:
-      output.Item != undefined ? deserializeAws_restJson1ListOfApplicationResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfApplicationResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -14183,7 +14130,7 @@ const deserializeAws_restJson1ApplicationsResponse = (output: any, context: __Se
 const deserializeAws_restJson1AttributeDimension = (output: any, context: __SerdeContext): AttributeDimension => {
   return {
     AttributeType: __expectString(output.AttributeType),
-    Values: output.Values != undefined ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
   } as any;
 };
 
@@ -14192,7 +14139,7 @@ const deserializeAws_restJson1AttributesResource = (output: any, context: __Serd
     ApplicationId: __expectString(output.ApplicationId),
     AttributeType: __expectString(output.AttributeType),
     Attributes:
-      output.Attributes != undefined ? deserializeAws_restJson1ListOf__string(output.Attributes, context) : undefined,
+      output.Attributes != null ? deserializeAws_restJson1ListOf__string(output.Attributes, context) : undefined,
   } as any;
 };
 
@@ -14214,7 +14161,7 @@ const deserializeAws_restJson1BaiduChannelResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1BaseKpiResult = (output: any, context: __SerdeContext): BaseKpiResult => {
   return {
-    Rows: output.Rows != undefined ? deserializeAws_restJson1ListOfResultRow(output.Rows, context) : undefined,
+    Rows: output.Rows != null ? deserializeAws_restJson1ListOfResultRow(output.Rows, context) : undefined,
   } as any;
 };
 
@@ -14231,12 +14178,11 @@ const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
   return {
     ApplicationId: __expectString(output.ApplicationId),
     CampaignId: __expectString(output.CampaignId),
-    EndTime: output.EndTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
     KpiName: __expectString(output.KpiName),
-    KpiResult:
-      output.KpiResult != undefined ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
+    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -14252,7 +14198,7 @@ const deserializeAws_restJson1CampaignEmailMessage = (output: any, context: __Se
 const deserializeAws_restJson1CampaignEventFilter = (output: any, context: __SerdeContext): CampaignEventFilter => {
   return {
     Dimensions:
-      output.Dimensions != undefined ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
+      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
     FilterType: __expectString(output.FilterType),
   } as any;
 };
@@ -14269,13 +14215,9 @@ const deserializeAws_restJson1CampaignInAppMessage = (output: any, context: __Se
   return {
     Body: __expectString(output.Body),
     Content:
-      output.Content != undefined
-        ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context)
-        : undefined,
+      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
     CustomConfig:
-      output.CustomConfig != undefined
-        ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context)
-        : undefined,
+      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
     Layout: __expectString(output.Layout),
   } as any;
 };
@@ -14293,45 +14235,43 @@ const deserializeAws_restJson1CampaignLimits = (output: any, context: __SerdeCon
 const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeContext): CampaignResponse => {
   return {
     AdditionalTreatments:
-      output.AdditionalTreatments != undefined
+      output.AdditionalTreatments != null
         ? deserializeAws_restJson1ListOfTreatmentResource(output.AdditionalTreatments, context)
         : undefined,
     ApplicationId: __expectString(output.ApplicationId),
     Arn: __expectString(output.Arn),
     CreationDate: __expectString(output.CreationDate),
     CustomDeliveryConfiguration:
-      output.CustomDeliveryConfiguration != undefined
+      output.CustomDeliveryConfiguration != null
         ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
         : undefined,
     DefaultState:
-      output.DefaultState != undefined
-        ? deserializeAws_restJson1CampaignState(output.DefaultState, context)
-        : undefined,
+      output.DefaultState != null ? deserializeAws_restJson1CampaignState(output.DefaultState, context) : undefined,
     Description: __expectString(output.Description),
     HoldoutPercent: __expectInt32(output.HoldoutPercent),
-    Hook: output.Hook != undefined ? deserializeAws_restJson1CampaignHook(output.Hook, context) : undefined,
+    Hook: output.Hook != null ? deserializeAws_restJson1CampaignHook(output.Hook, context) : undefined,
     Id: __expectString(output.Id),
     IsPaused: __expectBoolean(output.IsPaused),
     LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != undefined ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
+    Limits: output.Limits != null ? deserializeAws_restJson1CampaignLimits(output.Limits, context) : undefined,
     MessageConfiguration:
-      output.MessageConfiguration != undefined
+      output.MessageConfiguration != null
         ? deserializeAws_restJson1MessageConfiguration(output.MessageConfiguration, context)
         : undefined,
     Name: __expectString(output.Name),
     Priority: __expectInt32(output.Priority),
-    Schedule: output.Schedule != undefined ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
+    Schedule: output.Schedule != null ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
     SegmentId: __expectString(output.SegmentId),
     SegmentVersion: __expectInt32(output.SegmentVersion),
-    State: output.State != undefined ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
+    State: output.State != null ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
     TemplateConfiguration:
-      output.TemplateConfiguration != undefined
+      output.TemplateConfiguration != null
         ? deserializeAws_restJson1TemplateConfiguration(output.TemplateConfiguration, context)
         : undefined,
     TreatmentDescription: __expectString(output.TreatmentDescription),
     TreatmentName: __expectString(output.TreatmentName),
     Version: __expectInt32(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -14348,7 +14288,7 @@ const deserializeAws_restJson1CampaignSmsMessage = (output: any, context: __Serd
 
 const deserializeAws_restJson1CampaignsResponse = (output: any, context: __SerdeContext): CampaignsResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfCampaignResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfCampaignResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -14376,16 +14316,14 @@ const deserializeAws_restJson1ChannelResponse = (output: any, context: __SerdeCo
 const deserializeAws_restJson1ChannelsResponse = (output: any, context: __SerdeContext): ChannelsResponse => {
   return {
     Channels:
-      output.Channels != undefined ? deserializeAws_restJson1MapOfChannelResponse(output.Channels, context) : undefined,
+      output.Channels != null ? deserializeAws_restJson1MapOfChannelResponse(output.Channels, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
   return {
     Conditions:
-      output.Conditions != undefined
-        ? deserializeAws_restJson1ListOfSimpleCondition(output.Conditions, context)
-        : undefined,
+      output.Conditions != null ? deserializeAws_restJson1ListOfSimpleCondition(output.Conditions, context) : undefined,
     Operator: __expectString(output.Operator),
   } as any;
 };
@@ -14395,9 +14333,9 @@ const deserializeAws_restJson1ConditionalSplitActivity = (
   context: __SerdeContext
 ): ConditionalSplitActivity => {
   return {
-    Condition: output.Condition != undefined ? deserializeAws_restJson1Condition(output.Condition, context) : undefined,
+    Condition: output.Condition != null ? deserializeAws_restJson1Condition(output.Condition, context) : undefined,
     EvaluationWaitTime:
-      output.EvaluationWaitTime != undefined
+      output.EvaluationWaitTime != null
         ? deserializeAws_restJson1WaitTime(output.EvaluationWaitTime, context)
         : undefined,
     FalseActivity: __expectString(output.FalseActivity),
@@ -14429,7 +14367,7 @@ const deserializeAws_restJson1CustomDeliveryConfiguration = (
   return {
     DeliveryUri: __expectString(output.DeliveryUri),
     EndpointTypes:
-      output.EndpointTypes != undefined
+      output.EndpointTypes != null
         ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
         : undefined,
   } as any;
@@ -14439,11 +14377,11 @@ const deserializeAws_restJson1CustomMessageActivity = (output: any, context: __S
   return {
     DeliveryUri: __expectString(output.DeliveryUri),
     EndpointTypes:
-      output.EndpointTypes != undefined
+      output.EndpointTypes != null
         ? deserializeAws_restJson1ListOf__EndpointTypesElement(output.EndpointTypes, context)
         : undefined,
     MessageConfig:
-      output.MessageConfig != undefined
+      output.MessageConfig != null
         ? deserializeAws_restJson1JourneyCustomMessage(output.MessageConfig, context)
         : undefined,
     NextActivity: __expectString(output.NextActivity),
@@ -14502,7 +14440,7 @@ const deserializeAws_restJson1EmailChannelResponse = (output: any, context: __Se
 const deserializeAws_restJson1EmailMessageActivity = (output: any, context: __SerdeContext): EmailMessageActivity => {
   return {
     MessageConfig:
-      output.MessageConfig != undefined
+      output.MessageConfig != null
         ? deserializeAws_restJson1JourneyEmailMessage(output.MessageConfig, context)
         : undefined,
     NextActivity: __expectString(output.NextActivity),
@@ -14525,7 +14463,7 @@ const deserializeAws_restJson1EmailTemplateResponse = (output: any, context: __S
     TemplateType: __expectString(output.TemplateType),
     TextPart: __expectString(output.TextPart),
     Version: __expectString(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -14576,38 +14514,33 @@ const deserializeAws_restJson1EndpointResponse = (output: any, context: __SerdeC
     Address: __expectString(output.Address),
     ApplicationId: __expectString(output.ApplicationId),
     Attributes:
-      output.Attributes != undefined
-        ? deserializeAws_restJson1MapOfListOf__string(output.Attributes, context)
-        : undefined,
+      output.Attributes != null ? deserializeAws_restJson1MapOfListOf__string(output.Attributes, context) : undefined,
     ChannelType: __expectString(output.ChannelType),
     CohortId: __expectString(output.CohortId),
     CreationDate: __expectString(output.CreationDate),
     Demographic:
-      output.Demographic != undefined
-        ? deserializeAws_restJson1EndpointDemographic(output.Demographic, context)
-        : undefined,
+      output.Demographic != null ? deserializeAws_restJson1EndpointDemographic(output.Demographic, context) : undefined,
     EffectiveDate: __expectString(output.EffectiveDate),
     EndpointStatus: __expectString(output.EndpointStatus),
     Id: __expectString(output.Id),
-    Location:
-      output.Location != undefined ? deserializeAws_restJson1EndpointLocation(output.Location, context) : undefined,
-    Metrics: output.Metrics != undefined ? deserializeAws_restJson1MapOf__double(output.Metrics, context) : undefined,
+    Location: output.Location != null ? deserializeAws_restJson1EndpointLocation(output.Location, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__double(output.Metrics, context) : undefined,
     OptOut: __expectString(output.OptOut),
     RequestId: __expectString(output.RequestId),
-    User: output.User != undefined ? deserializeAws_restJson1EndpointUser(output.User, context) : undefined,
+    User: output.User != null ? deserializeAws_restJson1EndpointUser(output.User, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EndpointsResponse = (output: any, context: __SerdeContext): EndpointsResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfEndpointResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfEndpointResponse(output.Item, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EndpointUser = (output: any, context: __SerdeContext): EndpointUser => {
   return {
     UserAttributes:
-      output.UserAttributes != undefined
+      output.UserAttributes != null
         ? deserializeAws_restJson1MapOfListOf__string(output.UserAttributes, context)
         : undefined,
     UserId: __expectString(output.UserId),
@@ -14617,7 +14550,7 @@ const deserializeAws_restJson1EndpointUser = (output: any, context: __SerdeConte
 const deserializeAws_restJson1EventCondition = (output: any, context: __SerdeContext): EventCondition => {
   return {
     Dimensions:
-      output.Dimensions != undefined ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
+      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
     MessageActivity: __expectString(output.MessageActivity),
   } as any;
 };
@@ -14625,20 +14558,18 @@ const deserializeAws_restJson1EventCondition = (output: any, context: __SerdeCon
 const deserializeAws_restJson1EventDimensions = (output: any, context: __SerdeContext): EventDimensions => {
   return {
     Attributes:
-      output.Attributes != undefined
+      output.Attributes != null
         ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
         : undefined,
-    EventType:
-      output.EventType != undefined ? deserializeAws_restJson1SetDimension(output.EventType, context) : undefined,
-    Metrics:
-      output.Metrics != undefined ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
+    EventType: output.EventType != null ? deserializeAws_restJson1SetDimension(output.EventType, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EventFilter = (output: any, context: __SerdeContext): EventFilter => {
   return {
     Dimensions:
-      output.Dimensions != undefined ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
+      output.Dimensions != null ? deserializeAws_restJson1EventDimensions(output.Dimensions, context) : undefined,
     FilterType: __expectString(output.FilterType),
   } as any;
 };
@@ -14652,15 +14583,14 @@ const deserializeAws_restJson1EventItemResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1EventsResponse = (output: any, context: __SerdeContext): EventsResponse => {
   return {
-    Results:
-      output.Results != undefined ? deserializeAws_restJson1MapOfItemResponse(output.Results, context) : undefined,
+    Results: output.Results != null ? deserializeAws_restJson1MapOfItemResponse(output.Results, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EventStartCondition = (output: any, context: __SerdeContext): EventStartCondition => {
   return {
     EventFilter:
-      output.EventFilter != undefined ? deserializeAws_restJson1EventFilter(output.EventFilter, context) : undefined,
+      output.EventFilter != null ? deserializeAws_restJson1EventFilter(output.EventFilter, context) : undefined,
     SegmentId: __expectString(output.SegmentId),
   } as any;
 };
@@ -14692,12 +14622,9 @@ const deserializeAws_restJson1ExportJobResponse = (output: any, context: __Serde
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
     Definition:
-      output.Definition != undefined
-        ? deserializeAws_restJson1ExportJobResource(output.Definition, context)
-        : undefined,
+      output.Definition != null ? deserializeAws_restJson1ExportJobResource(output.Definition, context) : undefined,
     FailedPieces: __expectInt32(output.FailedPieces),
-    Failures:
-      output.Failures != undefined ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
+    Failures: output.Failures != null ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
     Id: __expectString(output.Id),
     JobStatus: __expectString(output.JobStatus),
     TotalFailures: __expectInt32(output.TotalFailures),
@@ -14709,7 +14636,7 @@ const deserializeAws_restJson1ExportJobResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1ExportJobsResponse = (output: any, context: __SerdeContext): ExportJobsResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfExportJobResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfExportJobResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -14740,7 +14667,7 @@ const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeCon
 const deserializeAws_restJson1GPSPointDimension = (output: any, context: __SerdeContext): GPSPointDimension => {
   return {
     Coordinates:
-      output.Coordinates != undefined ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context) : undefined,
+      output.Coordinates != null ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context) : undefined,
     RangeInKilometers: __limitedParseDouble(output.RangeInKilometers),
   } as any;
 };
@@ -14772,12 +14699,9 @@ const deserializeAws_restJson1ImportJobResponse = (output: any, context: __Serde
     CompletionDate: __expectString(output.CompletionDate),
     CreationDate: __expectString(output.CreationDate),
     Definition:
-      output.Definition != undefined
-        ? deserializeAws_restJson1ImportJobResource(output.Definition, context)
-        : undefined,
+      output.Definition != null ? deserializeAws_restJson1ImportJobResource(output.Definition, context) : undefined,
     FailedPieces: __expectInt32(output.FailedPieces),
-    Failures:
-      output.Failures != undefined ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
+    Failures: output.Failures != null ? deserializeAws_restJson1ListOf__string(output.Failures, context) : undefined,
     Id: __expectString(output.Id),
     JobStatus: __expectString(output.JobStatus),
     TotalFailures: __expectInt32(output.TotalFailures),
@@ -14789,7 +14713,7 @@ const deserializeAws_restJson1ImportJobResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1ImportJobsResponse = (output: any, context: __SerdeContext): ImportJobsResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfImportJobResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfImportJobResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -14798,23 +14722,17 @@ const deserializeAws_restJson1InAppCampaignSchedule = (output: any, context: __S
   return {
     EndDate: __expectString(output.EndDate),
     EventFilter:
-      output.EventFilter != undefined
-        ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context)
-        : undefined,
-    QuietTime: output.QuietTime != undefined ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
+      output.EventFilter != null ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context) : undefined,
+    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1InAppMessage = (output: any, context: __SerdeContext): InAppMessage => {
   return {
     Content:
-      output.Content != undefined
-        ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context)
-        : undefined,
+      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
     CustomConfig:
-      output.CustomConfig != undefined
-        ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context)
-        : undefined,
+      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
     Layout: __expectString(output.Layout),
   } as any;
 };
@@ -14833,15 +14751,13 @@ const deserializeAws_restJson1InAppMessageBodyConfig = (
 const deserializeAws_restJson1InAppMessageButton = (output: any, context: __SerdeContext): InAppMessageButton => {
   return {
     Android:
-      output.Android != undefined
-        ? deserializeAws_restJson1OverrideButtonConfiguration(output.Android, context)
-        : undefined,
+      output.Android != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.Android, context) : undefined,
     DefaultConfig:
-      output.DefaultConfig != undefined
+      output.DefaultConfig != null
         ? deserializeAws_restJson1DefaultButtonConfiguration(output.DefaultConfig, context)
         : undefined,
-    IOS: output.IOS != undefined ? deserializeAws_restJson1OverrideButtonConfiguration(output.IOS, context) : undefined,
-    Web: output.Web != undefined ? deserializeAws_restJson1OverrideButtonConfiguration(output.Web, context) : undefined,
+    IOS: output.IOS != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.IOS, context) : undefined,
+    Web: output.Web != null ? deserializeAws_restJson1OverrideButtonConfiguration(output.Web, context) : undefined,
   } as any;
 };
 
@@ -14850,12 +14766,10 @@ const deserializeAws_restJson1InAppMessageCampaign = (output: any, context: __Se
     CampaignId: __expectString(output.CampaignId),
     DailyCap: __expectInt32(output.DailyCap),
     InAppMessage:
-      output.InAppMessage != undefined ? deserializeAws_restJson1InAppMessage(output.InAppMessage, context) : undefined,
+      output.InAppMessage != null ? deserializeAws_restJson1InAppMessage(output.InAppMessage, context) : undefined,
     Priority: __expectInt32(output.Priority),
     Schedule:
-      output.Schedule != undefined
-        ? deserializeAws_restJson1InAppCampaignSchedule(output.Schedule, context)
-        : undefined,
+      output.Schedule != null ? deserializeAws_restJson1InAppCampaignSchedule(output.Schedule, context) : undefined,
     SessionCap: __expectInt32(output.SessionCap),
     TotalCap: __expectInt32(output.TotalCap),
     TreatmentId: __expectString(output.TreatmentId),
@@ -14866,20 +14780,18 @@ const deserializeAws_restJson1InAppMessageContent = (output: any, context: __Ser
   return {
     BackgroundColor: __expectString(output.BackgroundColor),
     BodyConfig:
-      output.BodyConfig != undefined
+      output.BodyConfig != null
         ? deserializeAws_restJson1InAppMessageBodyConfig(output.BodyConfig, context)
         : undefined,
     HeaderConfig:
-      output.HeaderConfig != undefined
+      output.HeaderConfig != null
         ? deserializeAws_restJson1InAppMessageHeaderConfig(output.HeaderConfig, context)
         : undefined,
     ImageUrl: __expectString(output.ImageUrl),
     PrimaryBtn:
-      output.PrimaryBtn != undefined
-        ? deserializeAws_restJson1InAppMessageButton(output.PrimaryBtn, context)
-        : undefined,
+      output.PrimaryBtn != null ? deserializeAws_restJson1InAppMessageButton(output.PrimaryBtn, context) : undefined,
     SecondaryBtn:
-      output.SecondaryBtn != undefined
+      output.SecondaryBtn != null
         ? deserializeAws_restJson1InAppMessageButton(output.SecondaryBtn, context)
         : undefined,
   } as any;
@@ -14899,7 +14811,7 @@ const deserializeAws_restJson1InAppMessageHeaderConfig = (
 const deserializeAws_restJson1InAppMessagesResponse = (output: any, context: __SerdeContext): InAppMessagesResponse => {
   return {
     InAppMessageCampaigns:
-      output.InAppMessageCampaigns != undefined
+      output.InAppMessageCampaigns != null
         ? deserializeAws_restJson1ListOfInAppMessageCampaign(output.InAppMessageCampaigns, context)
         : undefined,
   } as any;
@@ -14909,32 +14821,28 @@ const deserializeAws_restJson1InAppTemplateResponse = (output: any, context: __S
   return {
     Arn: __expectString(output.Arn),
     Content:
-      output.Content != undefined
-        ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context)
-        : undefined,
+      output.Content != null ? deserializeAws_restJson1ListOfInAppMessageContent(output.Content, context) : undefined,
     CreationDate: __expectString(output.CreationDate),
     CustomConfig:
-      output.CustomConfig != undefined
-        ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context)
-        : undefined,
+      output.CustomConfig != null ? deserializeAws_restJson1MapOf__string(output.CustomConfig, context) : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Layout: __expectString(output.Layout),
     TemplateDescription: __expectString(output.TemplateDescription),
     TemplateName: __expectString(output.TemplateName),
     TemplateType: __expectString(output.TemplateType),
     Version: __expectString(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeContext): ItemResponse => {
   return {
     EndpointItemResponse:
-      output.EndpointItemResponse != undefined
+      output.EndpointItemResponse != null
         ? deserializeAws_restJson1EndpointItemResponse(output.EndpointItemResponse, context)
         : undefined,
     EventsItemResponse:
-      output.EventsItemResponse != undefined
+      output.EventsItemResponse != null
         ? deserializeAws_restJson1MapOfEventItemResponse(output.EventsItemResponse, context)
         : undefined,
   } as any;
@@ -14962,13 +14870,12 @@ const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
 ): JourneyDateRangeKpiResponse => {
   return {
     ApplicationId: __expectString(output.ApplicationId),
-    EndTime: output.EndTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
     JourneyId: __expectString(output.JourneyId),
     KpiName: __expectString(output.KpiName),
-    KpiResult:
-      output.KpiResult != undefined ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
+    KpiResult: output.KpiResult != null ? deserializeAws_restJson1BaseKpiResult(output.KpiResult, context) : undefined,
     NextToken: __expectString(output.NextToken),
-    StartTime: output.StartTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -14988,7 +14895,7 @@ const deserializeAws_restJson1JourneyExecutionActivityMetricsResponse = (
     JourneyActivityId: __expectString(output.JourneyActivityId),
     JourneyId: __expectString(output.JourneyId),
     LastEvaluatedTime: __expectString(output.LastEvaluatedTime),
-    Metrics: output.Metrics != undefined ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
   } as any;
 };
 
@@ -15000,7 +14907,7 @@ const deserializeAws_restJson1JourneyExecutionMetricsResponse = (
     ApplicationId: __expectString(output.ApplicationId),
     JourneyId: __expectString(output.JourneyId),
     LastEvaluatedTime: __expectString(output.LastEvaluatedTime),
-    Metrics: output.Metrics != undefined ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOf__string(output.Metrics, context) : undefined,
   } as any;
 };
 
@@ -15022,38 +14929,37 @@ const deserializeAws_restJson1JourneyPushMessage = (output: any, context: __Serd
 const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeContext): JourneyResponse => {
   return {
     Activities:
-      output.Activities != undefined ? deserializeAws_restJson1MapOfActivity(output.Activities, context) : undefined,
+      output.Activities != null ? deserializeAws_restJson1MapOfActivity(output.Activities, context) : undefined,
     ApplicationId: __expectString(output.ApplicationId),
     CreationDate: __expectString(output.CreationDate),
     Id: __expectString(output.Id),
     JourneyChannelSettings:
-      output.JourneyChannelSettings != undefined
+      output.JourneyChannelSettings != null
         ? deserializeAws_restJson1JourneyChannelSettings(output.JourneyChannelSettings, context)
         : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
-    Limits: output.Limits != undefined ? deserializeAws_restJson1JourneyLimits(output.Limits, context) : undefined,
+    Limits: output.Limits != null ? deserializeAws_restJson1JourneyLimits(output.Limits, context) : undefined,
     LocalTime: __expectBoolean(output.LocalTime),
     Name: __expectString(output.Name),
-    QuietTime: output.QuietTime != undefined ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
+    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
     RefreshFrequency: __expectString(output.RefreshFrequency),
     RefreshOnSegmentUpdate: __expectBoolean(output.RefreshOnSegmentUpdate),
-    Schedule:
-      output.Schedule != undefined ? deserializeAws_restJson1JourneySchedule(output.Schedule, context) : undefined,
+    Schedule: output.Schedule != null ? deserializeAws_restJson1JourneySchedule(output.Schedule, context) : undefined,
     StartActivity: __expectString(output.StartActivity),
     StartCondition:
-      output.StartCondition != undefined
+      output.StartCondition != null
         ? deserializeAws_restJson1StartCondition(output.StartCondition, context)
         : undefined,
     State: __expectString(output.State),
     WaitForQuietTime: __expectBoolean(output.WaitForQuietTime),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeContext): JourneySchedule => {
   return {
-    EndTime: output.EndTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
-    StartTime: output.StartTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.EndTime)) : undefined,
+    StartTime: output.StartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.StartTime)) : undefined,
     Timezone: __expectString(output.Timezone),
   } as any;
 };
@@ -15070,7 +14976,7 @@ const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __Serde
 
 const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeContext): JourneysResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfJourneyResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfJourneyResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -15390,7 +15296,7 @@ const deserializeAws_restJson1ListRecommenderConfigurationsResponse = (
 ): ListRecommenderConfigurationsResponse => {
   return {
     Item:
-      output.Item != undefined
+      output.Item != null
         ? deserializeAws_restJson1ListOfRecommenderConfigurationResponse(output.Item, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -15609,32 +15515,27 @@ const deserializeAws_restJson1MessageBody = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MessageConfiguration = (output: any, context: __SerdeContext): MessageConfiguration => {
   return {
-    ADMMessage:
-      output.ADMMessage != undefined ? deserializeAws_restJson1Message(output.ADMMessage, context) : undefined,
-    APNSMessage:
-      output.APNSMessage != undefined ? deserializeAws_restJson1Message(output.APNSMessage, context) : undefined,
+    ADMMessage: output.ADMMessage != null ? deserializeAws_restJson1Message(output.ADMMessage, context) : undefined,
+    APNSMessage: output.APNSMessage != null ? deserializeAws_restJson1Message(output.APNSMessage, context) : undefined,
     BaiduMessage:
-      output.BaiduMessage != undefined ? deserializeAws_restJson1Message(output.BaiduMessage, context) : undefined,
+      output.BaiduMessage != null ? deserializeAws_restJson1Message(output.BaiduMessage, context) : undefined,
     CustomMessage:
-      output.CustomMessage != undefined
+      output.CustomMessage != null
         ? deserializeAws_restJson1CampaignCustomMessage(output.CustomMessage, context)
         : undefined,
     DefaultMessage:
-      output.DefaultMessage != undefined ? deserializeAws_restJson1Message(output.DefaultMessage, context) : undefined,
+      output.DefaultMessage != null ? deserializeAws_restJson1Message(output.DefaultMessage, context) : undefined,
     EmailMessage:
-      output.EmailMessage != undefined
+      output.EmailMessage != null
         ? deserializeAws_restJson1CampaignEmailMessage(output.EmailMessage, context)
         : undefined,
-    GCMMessage:
-      output.GCMMessage != undefined ? deserializeAws_restJson1Message(output.GCMMessage, context) : undefined,
+    GCMMessage: output.GCMMessage != null ? deserializeAws_restJson1Message(output.GCMMessage, context) : undefined,
     InAppMessage:
-      output.InAppMessage != undefined
+      output.InAppMessage != null
         ? deserializeAws_restJson1CampaignInAppMessage(output.InAppMessage, context)
         : undefined,
     SMSMessage:
-      output.SMSMessage != undefined
-        ? deserializeAws_restJson1CampaignSmsMessage(output.SMSMessage, context)
-        : undefined,
+      output.SMSMessage != null ? deserializeAws_restJson1CampaignSmsMessage(output.SMSMessage, context) : undefined,
   } as any;
 };
 
@@ -15642,11 +15543,11 @@ const deserializeAws_restJson1MessageResponse = (output: any, context: __SerdeCo
   return {
     ApplicationId: __expectString(output.ApplicationId),
     EndpointResult:
-      output.EndpointResult != undefined
+      output.EndpointResult != null
         ? deserializeAws_restJson1MapOfEndpointMessageResult(output.EndpointResult, context)
         : undefined,
     RequestId: __expectString(output.RequestId),
-    Result: output.Result != undefined ? deserializeAws_restJson1MapOfMessageResult(output.Result, context) : undefined,
+    Result: output.Result != null ? deserializeAws_restJson1MapOfMessageResult(output.Result, context) : undefined,
   } as any;
 };
 
@@ -15673,7 +15574,7 @@ const deserializeAws_restJson1MultiConditionalBranch = (
 ): MultiConditionalBranch => {
   return {
     Condition:
-      output.Condition != undefined ? deserializeAws_restJson1SimpleCondition(output.Condition, context) : undefined,
+      output.Condition != null ? deserializeAws_restJson1SimpleCondition(output.Condition, context) : undefined,
     NextActivity: __expectString(output.NextActivity),
   } as any;
 };
@@ -15684,12 +15585,12 @@ const deserializeAws_restJson1MultiConditionalSplitActivity = (
 ): MultiConditionalSplitActivity => {
   return {
     Branches:
-      output.Branches != undefined
+      output.Branches != null
         ? deserializeAws_restJson1ListOfMultiConditionalBranch(output.Branches, context)
         : undefined,
     DefaultActivity: __expectString(output.DefaultActivity),
     EvaluationWaitTime:
-      output.EvaluationWaitTime != undefined
+      output.EvaluationWaitTime != null
         ? deserializeAws_restJson1WaitTime(output.EvaluationWaitTime, context)
         : undefined,
   } as any;
@@ -15730,7 +15631,7 @@ const deserializeAws_restJson1OverrideButtonConfiguration = (
 const deserializeAws_restJson1PushMessageActivity = (output: any, context: __SerdeContext): PushMessageActivity => {
   return {
     MessageConfig:
-      output.MessageConfig != undefined
+      output.MessageConfig != null
         ? deserializeAws_restJson1JourneyPushMessage(output.MessageConfig, context)
         : undefined,
     NextActivity: __expectString(output.NextActivity),
@@ -15744,34 +15645,25 @@ const deserializeAws_restJson1PushNotificationTemplateResponse = (
   context: __SerdeContext
 ): PushNotificationTemplateResponse => {
   return {
-    ADM:
-      output.ADM != undefined
-        ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.ADM, context)
-        : undefined,
-    APNS:
-      output.APNS != undefined ? deserializeAws_restJson1APNSPushNotificationTemplate(output.APNS, context) : undefined,
+    ADM: output.ADM != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.ADM, context) : undefined,
+    APNS: output.APNS != null ? deserializeAws_restJson1APNSPushNotificationTemplate(output.APNS, context) : undefined,
     Arn: __expectString(output.Arn),
     Baidu:
-      output.Baidu != undefined
-        ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.Baidu, context)
-        : undefined,
+      output.Baidu != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.Baidu, context) : undefined,
     CreationDate: __expectString(output.CreationDate),
     Default:
-      output.Default != undefined
+      output.Default != null
         ? deserializeAws_restJson1DefaultPushNotificationTemplate(output.Default, context)
         : undefined,
     DefaultSubstitutions: __expectString(output.DefaultSubstitutions),
-    GCM:
-      output.GCM != undefined
-        ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.GCM, context)
-        : undefined,
+    GCM: output.GCM != null ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.GCM, context) : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
     RecommenderId: __expectString(output.RecommenderId),
     TemplateDescription: __expectString(output.TemplateDescription),
     TemplateName: __expectString(output.TemplateName),
     TemplateType: __expectString(output.TemplateType),
     Version: __expectString(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -15785,9 +15677,7 @@ const deserializeAws_restJson1QuietTime = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1RandomSplitActivity = (output: any, context: __SerdeContext): RandomSplitActivity => {
   return {
     Branches:
-      output.Branches != undefined
-        ? deserializeAws_restJson1ListOfRandomSplitEntry(output.Branches, context)
-        : undefined,
+      output.Branches != null ? deserializeAws_restJson1ListOfRandomSplitEntry(output.Branches, context) : undefined,
   } as any;
 };
 
@@ -15811,7 +15701,7 @@ const deserializeAws_restJson1RecommenderConfigurationResponse = (
 ): RecommenderConfigurationResponse => {
   return {
     Attributes:
-      output.Attributes != undefined ? deserializeAws_restJson1MapOf__string(output.Attributes, context) : undefined,
+      output.Attributes != null ? deserializeAws_restJson1MapOf__string(output.Attributes, context) : undefined,
     CreationDate: __expectString(output.CreationDate),
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
@@ -15829,11 +15719,8 @@ const deserializeAws_restJson1RecommenderConfigurationResponse = (
 const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
   return {
     GroupedBys:
-      output.GroupedBys != undefined
-        ? deserializeAws_restJson1ListOfResultRowValue(output.GroupedBys, context)
-        : undefined,
-    Values:
-      output.Values != undefined ? deserializeAws_restJson1ListOfResultRowValue(output.Values, context) : undefined,
+      output.GroupedBys != null ? deserializeAws_restJson1ListOfResultRowValue(output.GroupedBys, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1ListOfResultRowValue(output.Values, context) : undefined,
   } as any;
 };
 
@@ -15849,12 +15736,10 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
   return {
     EndTime: __expectString(output.EndTime),
     EventFilter:
-      output.EventFilter != undefined
-        ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context)
-        : undefined,
+      output.EventFilter != null ? deserializeAws_restJson1CampaignEventFilter(output.EventFilter, context) : undefined,
     Frequency: __expectString(output.Frequency),
     IsLocalTime: __expectBoolean(output.IsLocalTime),
-    QuietTime: output.QuietTime != undefined ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
+    QuietTime: output.QuietTime != null ? deserializeAws_restJson1QuietTime(output.QuietTime, context) : undefined,
     StartTime: __expectString(output.StartTime),
     Timezone: __expectString(output.Timezone),
   } as any;
@@ -15862,8 +15747,7 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SegmentBehaviors = (output: any, context: __SerdeContext): SegmentBehaviors => {
   return {
-    Recency:
-      output.Recency != undefined ? deserializeAws_restJson1RecencyDimension(output.Recency, context) : undefined,
+    Recency: output.Recency != null ? deserializeAws_restJson1RecencyDimension(output.Recency, context) : undefined,
   } as any;
 };
 
@@ -15876,34 +15760,29 @@ const deserializeAws_restJson1SegmentCondition = (output: any, context: __SerdeC
 const deserializeAws_restJson1SegmentDemographics = (output: any, context: __SerdeContext): SegmentDemographics => {
   return {
     AppVersion:
-      output.AppVersion != undefined ? deserializeAws_restJson1SetDimension(output.AppVersion, context) : undefined,
-    Channel: output.Channel != undefined ? deserializeAws_restJson1SetDimension(output.Channel, context) : undefined,
+      output.AppVersion != null ? deserializeAws_restJson1SetDimension(output.AppVersion, context) : undefined,
+    Channel: output.Channel != null ? deserializeAws_restJson1SetDimension(output.Channel, context) : undefined,
     DeviceType:
-      output.DeviceType != undefined ? deserializeAws_restJson1SetDimension(output.DeviceType, context) : undefined,
-    Make: output.Make != undefined ? deserializeAws_restJson1SetDimension(output.Make, context) : undefined,
-    Model: output.Model != undefined ? deserializeAws_restJson1SetDimension(output.Model, context) : undefined,
-    Platform: output.Platform != undefined ? deserializeAws_restJson1SetDimension(output.Platform, context) : undefined,
+      output.DeviceType != null ? deserializeAws_restJson1SetDimension(output.DeviceType, context) : undefined,
+    Make: output.Make != null ? deserializeAws_restJson1SetDimension(output.Make, context) : undefined,
+    Model: output.Model != null ? deserializeAws_restJson1SetDimension(output.Model, context) : undefined,
+    Platform: output.Platform != null ? deserializeAws_restJson1SetDimension(output.Platform, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions => {
   return {
     Attributes:
-      output.Attributes != undefined
+      output.Attributes != null
         ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
         : undefined,
-    Behavior:
-      output.Behavior != undefined ? deserializeAws_restJson1SegmentBehaviors(output.Behavior, context) : undefined,
+    Behavior: output.Behavior != null ? deserializeAws_restJson1SegmentBehaviors(output.Behavior, context) : undefined,
     Demographic:
-      output.Demographic != undefined
-        ? deserializeAws_restJson1SegmentDemographics(output.Demographic, context)
-        : undefined,
-    Location:
-      output.Location != undefined ? deserializeAws_restJson1SegmentLocation(output.Location, context) : undefined,
-    Metrics:
-      output.Metrics != undefined ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
+      output.Demographic != null ? deserializeAws_restJson1SegmentDemographics(output.Demographic, context) : undefined,
+    Location: output.Location != null ? deserializeAws_restJson1SegmentLocation(output.Location, context) : undefined,
+    Metrics: output.Metrics != null ? deserializeAws_restJson1MapOfMetricDimension(output.Metrics, context) : undefined,
     UserAttributes:
-      output.UserAttributes != undefined
+      output.UserAttributes != null
         ? deserializeAws_restJson1MapOfAttributeDimension(output.UserAttributes, context)
         : undefined,
   } as any;
@@ -15912,11 +15791,11 @@ const deserializeAws_restJson1SegmentDimensions = (output: any, context: __Serde
 const deserializeAws_restJson1SegmentGroup = (output: any, context: __SerdeContext): SegmentGroup => {
   return {
     Dimensions:
-      output.Dimensions != undefined
+      output.Dimensions != null
         ? deserializeAws_restJson1ListOfSegmentDimensions(output.Dimensions, context)
         : undefined,
     SourceSegments:
-      output.SourceSegments != undefined
+      output.SourceSegments != null
         ? deserializeAws_restJson1ListOfSegmentReference(output.SourceSegments, context)
         : undefined,
     SourceType: __expectString(output.SourceType),
@@ -15926,7 +15805,7 @@ const deserializeAws_restJson1SegmentGroup = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SegmentGroupList = (output: any, context: __SerdeContext): SegmentGroupList => {
   return {
-    Groups: output.Groups != undefined ? deserializeAws_restJson1ListOfSegmentGroup(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? deserializeAws_restJson1ListOfSegmentGroup(output.Groups, context) : undefined,
     Include: __expectString(output.Include),
   } as any;
 };
@@ -15934,9 +15813,7 @@ const deserializeAws_restJson1SegmentGroupList = (output: any, context: __SerdeC
 const deserializeAws_restJson1SegmentImportResource = (output: any, context: __SerdeContext): SegmentImportResource => {
   return {
     ChannelCounts:
-      output.ChannelCounts != undefined
-        ? deserializeAws_restJson1MapOf__integer(output.ChannelCounts, context)
-        : undefined,
+      output.ChannelCounts != null ? deserializeAws_restJson1MapOf__integer(output.ChannelCounts, context) : undefined,
     ExternalId: __expectString(output.ExternalId),
     Format: __expectString(output.Format),
     RoleArn: __expectString(output.RoleArn),
@@ -15947,9 +15824,8 @@ const deserializeAws_restJson1SegmentImportResource = (output: any, context: __S
 
 const deserializeAws_restJson1SegmentLocation = (output: any, context: __SerdeContext): SegmentLocation => {
   return {
-    Country: output.Country != undefined ? deserializeAws_restJson1SetDimension(output.Country, context) : undefined,
-    GPSPoint:
-      output.GPSPoint != undefined ? deserializeAws_restJson1GPSPointDimension(output.GPSPoint, context) : undefined,
+    Country: output.Country != null ? deserializeAws_restJson1SetDimension(output.Country, context) : undefined,
+    GPSPoint: output.GPSPoint != null ? deserializeAws_restJson1GPSPointDimension(output.GPSPoint, context) : undefined,
   } as any;
 };
 
@@ -15966,29 +15842,27 @@ const deserializeAws_restJson1SegmentResponse = (output: any, context: __SerdeCo
     Arn: __expectString(output.Arn),
     CreationDate: __expectString(output.CreationDate),
     Dimensions:
-      output.Dimensions != undefined
-        ? deserializeAws_restJson1SegmentDimensions(output.Dimensions, context)
-        : undefined,
+      output.Dimensions != null ? deserializeAws_restJson1SegmentDimensions(output.Dimensions, context) : undefined,
     Id: __expectString(output.Id),
     ImportDefinition:
-      output.ImportDefinition != undefined
+      output.ImportDefinition != null
         ? deserializeAws_restJson1SegmentImportResource(output.ImportDefinition, context)
         : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Name: __expectString(output.Name),
     SegmentGroups:
-      output.SegmentGroups != undefined
+      output.SegmentGroups != null
         ? deserializeAws_restJson1SegmentGroupList(output.SegmentGroups, context)
         : undefined,
     SegmentType: __expectString(output.SegmentType),
     Version: __expectInt32(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SegmentsResponse = (output: any, context: __SerdeContext): SegmentsResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfSegmentResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfSegmentResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -16001,7 +15875,7 @@ const deserializeAws_restJson1SendUsersMessageResponse = (
     ApplicationId: __expectString(output.ApplicationId),
     RequestId: __expectString(output.RequestId),
     Result:
-      output.Result != undefined
+      output.Result != null
         ? deserializeAws_restJson1MapOfMapOfEndpointMessageResult(output.Result, context)
         : undefined,
   } as any;
@@ -16010,22 +15884,22 @@ const deserializeAws_restJson1SendUsersMessageResponse = (
 const deserializeAws_restJson1SetDimension = (output: any, context: __SerdeContext): SetDimension => {
   return {
     DimensionType: __expectString(output.DimensionType),
-    Values: output.Values != undefined ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
+    Values: output.Values != null ? deserializeAws_restJson1ListOf__string(output.Values, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SimpleCondition = (output: any, context: __SerdeContext): SimpleCondition => {
   return {
     EventCondition:
-      output.EventCondition != undefined
+      output.EventCondition != null
         ? deserializeAws_restJson1EventCondition(output.EventCondition, context)
         : undefined,
     SegmentCondition:
-      output.SegmentCondition != undefined
+      output.SegmentCondition != null
         ? deserializeAws_restJson1SegmentCondition(output.SegmentCondition, context)
         : undefined,
     SegmentDimensions:
-      output.segmentDimensions != undefined
+      output.segmentDimensions != null
         ? deserializeAws_restJson1SegmentDimensions(output.segmentDimensions, context)
         : undefined,
   } as any;
@@ -16053,7 +15927,7 @@ const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __Serd
 const deserializeAws_restJson1SMSMessageActivity = (output: any, context: __SerdeContext): SMSMessageActivity => {
   return {
     MessageConfig:
-      output.MessageConfig != undefined
+      output.MessageConfig != null
         ? deserializeAws_restJson1JourneySMSMessage(output.MessageConfig, context)
         : undefined,
     NextActivity: __expectString(output.NextActivity),
@@ -16074,7 +15948,7 @@ const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __Ser
     TemplateName: __expectString(output.TemplateName),
     TemplateType: __expectString(output.TemplateType),
     Version: __expectString(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -16082,11 +15956,11 @@ const deserializeAws_restJson1StartCondition = (output: any, context: __SerdeCon
   return {
     Description: __expectString(output.Description),
     EventStartCondition:
-      output.EventStartCondition != undefined
+      output.EventStartCondition != null
         ? deserializeAws_restJson1EventStartCondition(output.EventStartCondition, context)
         : undefined,
     SegmentStartCondition:
-      output.SegmentStartCondition != undefined
+      output.SegmentStartCondition != null
         ? deserializeAws_restJson1SegmentCondition(output.SegmentStartCondition, context)
         : undefined,
   } as any;
@@ -16094,7 +15968,7 @@ const deserializeAws_restJson1StartCondition = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1TagsModel = (output: any, context: __SerdeContext): TagsModel => {
   return {
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
@@ -16108,13 +15982,12 @@ const deserializeAws_restJson1Template = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1TemplateConfiguration = (output: any, context: __SerdeContext): TemplateConfiguration => {
   return {
     EmailTemplate:
-      output.EmailTemplate != undefined ? deserializeAws_restJson1Template(output.EmailTemplate, context) : undefined,
+      output.EmailTemplate != null ? deserializeAws_restJson1Template(output.EmailTemplate, context) : undefined,
     PushTemplate:
-      output.PushTemplate != undefined ? deserializeAws_restJson1Template(output.PushTemplate, context) : undefined,
-    SMSTemplate:
-      output.SMSTemplate != undefined ? deserializeAws_restJson1Template(output.SMSTemplate, context) : undefined,
+      output.PushTemplate != null ? deserializeAws_restJson1Template(output.PushTemplate, context) : undefined,
+    SMSTemplate: output.SMSTemplate != null ? deserializeAws_restJson1Template(output.SMSTemplate, context) : undefined,
     VoiceTemplate:
-      output.VoiceTemplate != undefined ? deserializeAws_restJson1Template(output.VoiceTemplate, context) : undefined,
+      output.VoiceTemplate != null ? deserializeAws_restJson1Template(output.VoiceTemplate, context) : undefined,
   } as any;
 };
 
@@ -16139,13 +16012,13 @@ const deserializeAws_restJson1TemplateResponse = (output: any, context: __SerdeC
     TemplateName: __expectString(output.TemplateName),
     TemplateType: __expectString(output.TemplateType),
     Version: __expectString(output.Version),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1TemplatesResponse = (output: any, context: __SerdeContext): TemplatesResponse => {
   return {
-    Item: output.Item != undefined ? deserializeAws_restJson1ListOfTemplateResponse(output.Item, context) : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfTemplateResponse(output.Item, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -16170,10 +16043,7 @@ const deserializeAws_restJson1TemplateVersionsResponse = (
   context: __SerdeContext
 ): TemplateVersionsResponse => {
   return {
-    Item:
-      output.Item != undefined
-        ? deserializeAws_restJson1ListOfTemplateVersionResponse(output.Item, context)
-        : undefined,
+    Item: output.Item != null ? deserializeAws_restJson1ListOfTemplateVersionResponse(output.Item, context) : undefined,
     Message: __expectString(output.Message),
     NextToken: __expectString(output.NextToken),
     RequestID: __expectString(output.RequestID),
@@ -16183,19 +16053,19 @@ const deserializeAws_restJson1TemplateVersionsResponse = (
 const deserializeAws_restJson1TreatmentResource = (output: any, context: __SerdeContext): TreatmentResource => {
   return {
     CustomDeliveryConfiguration:
-      output.CustomDeliveryConfiguration != undefined
+      output.CustomDeliveryConfiguration != null
         ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
         : undefined,
     Id: __expectString(output.Id),
     MessageConfiguration:
-      output.MessageConfiguration != undefined
+      output.MessageConfiguration != null
         ? deserializeAws_restJson1MessageConfiguration(output.MessageConfiguration, context)
         : undefined,
-    Schedule: output.Schedule != undefined ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
+    Schedule: output.Schedule != null ? deserializeAws_restJson1Schedule(output.Schedule, context) : undefined,
     SizePercent: __expectInt32(output.SizePercent),
-    State: output.State != undefined ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
+    State: output.State != null ? deserializeAws_restJson1CampaignState(output.State, context) : undefined,
     TemplateConfiguration:
-      output.TemplateConfiguration != undefined
+      output.TemplateConfiguration != null
         ? deserializeAws_restJson1TemplateConfiguration(output.TemplateConfiguration, context)
         : undefined,
     TreatmentDescription: __expectString(output.TreatmentDescription),
@@ -16237,14 +16107,14 @@ const deserializeAws_restJson1VoiceTemplateResponse = (output: any, context: __S
     TemplateType: __expectString(output.TemplateType),
     Version: __expectString(output.Version),
     VoiceId: __expectString(output.VoiceId),
-    tags: output.tags != undefined ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1MapOf__string(output.tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1WaitActivity = (output: any, context: __SerdeContext): WaitActivity => {
   return {
     NextActivity: __expectString(output.NextActivity),
-    WaitTime: output.WaitTime != undefined ? deserializeAws_restJson1WaitTime(output.WaitTime, context) : undefined,
+    WaitTime: output.WaitTime != null ? deserializeAws_restJson1WaitTime(output.WaitTime, context) : undefined,
   } as any;
 };
 

@@ -1940,20 +1940,18 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 
 const serializeAws_json1_1ActionThreshold = (input: ActionThreshold, context: __SerdeContext): any => {
   return {
-    ...(input.ActionThresholdType != undefined && { ActionThresholdType: input.ActionThresholdType }),
-    ...(input.ActionThresholdValue != undefined && {
-      ActionThresholdValue: __serializeFloat(input.ActionThresholdValue),
-    }),
+    ...(input.ActionThresholdType != null && { ActionThresholdType: input.ActionThresholdType }),
+    ...(input.ActionThresholdValue != null && { ActionThresholdValue: __serializeFloat(input.ActionThresholdValue) }),
   };
 };
 
 const serializeAws_json1_1AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAdjustType != undefined && { AutoAdjustType: input.AutoAdjustType }),
-    ...(input.HistoricalOptions != undefined && {
+    ...(input.AutoAdjustType != null && { AutoAdjustType: input.AutoAdjustType }),
+    ...(input.HistoricalOptions != null && {
       HistoricalOptions: serializeAws_json1_1HistoricalOptions(input.HistoricalOptions, context),
     }),
-    ...(input.LastAutoAdjustTime != undefined && {
+    ...(input.LastAutoAdjustTime != null && {
       LastAutoAdjustTime: Math.round(input.LastAutoAdjustTime.getTime() / 1000),
     }),
   };
@@ -1961,30 +1959,30 @@ const serializeAws_json1_1AutoAdjustData = (input: AutoAdjustData, context: __Se
 
 const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAdjustData != undefined && {
+    ...(input.AutoAdjustData != null && {
       AutoAdjustData: serializeAws_json1_1AutoAdjustData(input.AutoAdjustData, context),
     }),
-    ...(input.BudgetLimit != undefined && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.BudgetType != undefined && { BudgetType: input.BudgetType }),
-    ...(input.CalculatedSpend != undefined && {
+    ...(input.BudgetLimit != null && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.BudgetType != null && { BudgetType: input.BudgetType }),
+    ...(input.CalculatedSpend != null && {
       CalculatedSpend: serializeAws_json1_1CalculatedSpend(input.CalculatedSpend, context),
     }),
-    ...(input.CostFilters != undefined && { CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context) }),
-    ...(input.CostTypes != undefined && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
-    ...(input.LastUpdatedTime != undefined && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
-    ...(input.PlannedBudgetLimits != undefined && {
+    ...(input.CostFilters != null && { CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context) }),
+    ...(input.CostTypes != null && { CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context) }),
+    ...(input.LastUpdatedTime != null && { LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000) }),
+    ...(input.PlannedBudgetLimits != null && {
       PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(input.PlannedBudgetLimits, context),
     }),
-    ...(input.TimePeriod != undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
-    ...(input.TimeUnit != undefined && { TimeUnit: input.TimeUnit }),
+    ...(input.TimePeriod != null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.TimeUnit != null && { TimeUnit: input.TimeUnit }),
   };
 };
 
 const serializeAws_json1_1CalculatedSpend = (input: CalculatedSpend, context: __SerdeContext): any => {
   return {
-    ...(input.ActualSpend != undefined && { ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context) }),
-    ...(input.ForecastedSpend != undefined && {
+    ...(input.ActualSpend != null && { ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context) }),
+    ...(input.ForecastedSpend != null && {
       ForecastedSpend: serializeAws_json1_1Spend(input.ForecastedSpend, context),
     }),
   };
@@ -2004,17 +2002,17 @@ const serializeAws_json1_1CostFilters = (input: Record<string, string[]>, contex
 
 const serializeAws_json1_1CostTypes = (input: CostTypes, context: __SerdeContext): any => {
   return {
-    ...(input.IncludeCredit != undefined && { IncludeCredit: input.IncludeCredit }),
-    ...(input.IncludeDiscount != undefined && { IncludeDiscount: input.IncludeDiscount }),
-    ...(input.IncludeOtherSubscription != undefined && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
-    ...(input.IncludeRecurring != undefined && { IncludeRecurring: input.IncludeRecurring }),
-    ...(input.IncludeRefund != undefined && { IncludeRefund: input.IncludeRefund }),
-    ...(input.IncludeSubscription != undefined && { IncludeSubscription: input.IncludeSubscription }),
-    ...(input.IncludeSupport != undefined && { IncludeSupport: input.IncludeSupport }),
-    ...(input.IncludeTax != undefined && { IncludeTax: input.IncludeTax }),
-    ...(input.IncludeUpfront != undefined && { IncludeUpfront: input.IncludeUpfront }),
-    ...(input.UseAmortized != undefined && { UseAmortized: input.UseAmortized }),
-    ...(input.UseBlended != undefined && { UseBlended: input.UseBlended }),
+    ...(input.IncludeCredit != null && { IncludeCredit: input.IncludeCredit }),
+    ...(input.IncludeDiscount != null && { IncludeDiscount: input.IncludeDiscount }),
+    ...(input.IncludeOtherSubscription != null && { IncludeOtherSubscription: input.IncludeOtherSubscription }),
+    ...(input.IncludeRecurring != null && { IncludeRecurring: input.IncludeRecurring }),
+    ...(input.IncludeRefund != null && { IncludeRefund: input.IncludeRefund }),
+    ...(input.IncludeSubscription != null && { IncludeSubscription: input.IncludeSubscription }),
+    ...(input.IncludeSupport != null && { IncludeSupport: input.IncludeSupport }),
+    ...(input.IncludeTax != null && { IncludeTax: input.IncludeTax }),
+    ...(input.IncludeUpfront != null && { IncludeUpfront: input.IncludeUpfront }),
+    ...(input.UseAmortized != null && { UseAmortized: input.UseAmortized }),
+    ...(input.UseBlended != null && { UseBlended: input.UseBlended }),
   };
 };
 
@@ -2023,25 +2021,25 @@ const serializeAws_json1_1CreateBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionThreshold != undefined && {
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionThreshold != null && {
       ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
     }),
-    ...(input.ActionType != undefined && { ActionType: input.ActionType }),
-    ...(input.ApprovalModel != undefined && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Definition != undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn != undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType != undefined && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers != undefined && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
+    ...(input.ActionType != null && { ActionType: input.ActionType }),
+    ...(input.ApprovalModel != null && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Definition != null && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers != null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.Budget != undefined && { Budget: serializeAws_json1_1Budget(input.Budget, context) }),
-    ...(input.NotificationsWithSubscribers != undefined && {
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.Budget != null && { Budget: serializeAws_json1_1Budget(input.Budget, context) }),
+    ...(input.NotificationsWithSubscribers != null && {
       NotificationsWithSubscribers: serializeAws_json1_1NotificationWithSubscribersList(
         input.NotificationsWithSubscribers,
         context
@@ -2055,35 +2053,31 @@ const serializeAws_json1_1CreateNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscribers != undefined && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscribers != null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1CreateSubscriberRequest = (input: CreateSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscriber != undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscriber != null && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
 const serializeAws_json1_1Definition = (input: Definition, context: __SerdeContext): any => {
   return {
-    ...(input.IamActionDefinition != undefined && {
+    ...(input.IamActionDefinition != null && {
       IamActionDefinition: serializeAws_json1_1IamActionDefinition(input.IamActionDefinition, context),
     }),
-    ...(input.ScpActionDefinition != undefined && {
+    ...(input.ScpActionDefinition != null && {
       ScpActionDefinition: serializeAws_json1_1ScpActionDefinition(input.ScpActionDefinition, context),
     }),
-    ...(input.SsmActionDefinition != undefined && {
+    ...(input.SsmActionDefinition != null && {
       SsmActionDefinition: serializeAws_json1_1SsmActionDefinition(input.SsmActionDefinition, context),
     }),
   };
@@ -2094,16 +2088,16 @@ const serializeAws_json1_1DeleteBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId != undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionId != null && { ActionId: input.ActionId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
   };
 };
 
 const serializeAws_json1_1DeleteBudgetRequest = (input: DeleteBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
   };
 };
 
@@ -2112,22 +2106,18 @@ const serializeAws_json1_1DeleteNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteSubscriberRequest = (input: DeleteSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscriber != undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscriber != null && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
   };
 };
 
@@ -2136,12 +2126,12 @@ const serializeAws_json1_1DescribeBudgetActionHistoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId != undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod != undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionId != null && { ActionId: input.ActionId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TimePeriod != null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
   };
 };
 
@@ -2150,9 +2140,9 @@ const serializeAws_json1_1DescribeBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId != undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionId != null && { ActionId: input.ActionId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
   };
 };
 
@@ -2161,9 +2151,9 @@ const serializeAws_json1_1DescribeBudgetActionsForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2172,10 +2162,10 @@ const serializeAws_json1_1DescribeBudgetActionsForBudgetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2184,9 +2174,9 @@ const serializeAws_json1_1DescribeBudgetNotificationsForAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2195,26 +2185,26 @@ const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.TimePeriod != undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.TimePeriod != null && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeBudgetRequest = (input: DescribeBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
   };
 };
 
 const serializeAws_json1_1DescribeBudgetsRequest = (input: DescribeBudgetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2223,10 +2213,10 @@ const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2235,13 +2225,11 @@ const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
   };
 };
 
@@ -2261,10 +2249,10 @@ const serializeAws_json1_1ExecuteBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId != undefined && { ActionId: input.ActionId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.ExecutionType != undefined && { ExecutionType: input.ExecutionType }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionId != null && { ActionId: input.ActionId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.ExecutionType != null && { ExecutionType: input.ExecutionType }),
   };
 };
 
@@ -2281,17 +2269,17 @@ const serializeAws_json1_1Groups = (input: string[], context: __SerdeContext): a
 
 const serializeAws_json1_1HistoricalOptions = (input: HistoricalOptions, context: __SerdeContext): any => {
   return {
-    ...(input.BudgetAdjustmentPeriod != undefined && { BudgetAdjustmentPeriod: input.BudgetAdjustmentPeriod }),
-    ...(input.LookBackAvailablePeriods != undefined && { LookBackAvailablePeriods: input.LookBackAvailablePeriods }),
+    ...(input.BudgetAdjustmentPeriod != null && { BudgetAdjustmentPeriod: input.BudgetAdjustmentPeriod }),
+    ...(input.LookBackAvailablePeriods != null && { LookBackAvailablePeriods: input.LookBackAvailablePeriods }),
   };
 };
 
 const serializeAws_json1_1IamActionDefinition = (input: IamActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.Groups != undefined && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
-    ...(input.PolicyArn != undefined && { PolicyArn: input.PolicyArn }),
-    ...(input.Roles != undefined && { Roles: serializeAws_json1_1Roles(input.Roles, context) }),
-    ...(input.Users != undefined && { Users: serializeAws_json1_1Users(input.Users, context) }),
+    ...(input.Groups != null && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
+    ...(input.PolicyArn != null && { PolicyArn: input.PolicyArn }),
+    ...(input.Roles != null && { Roles: serializeAws_json1_1Roles(input.Roles, context) }),
+    ...(input.Users != null && { Users: serializeAws_json1_1Users(input.Users, context) }),
   };
 };
 
@@ -2308,11 +2296,11 @@ const serializeAws_json1_1InstanceIds = (input: string[], context: __SerdeContex
 
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator != undefined && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.NotificationState != undefined && { NotificationState: input.NotificationState }),
-    ...(input.NotificationType != undefined && { NotificationType: input.NotificationType }),
-    ...(input.Threshold != undefined && { Threshold: __serializeFloat(input.Threshold) }),
-    ...(input.ThresholdType != undefined && { ThresholdType: input.ThresholdType }),
+    ...(input.ComparisonOperator != null && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.NotificationState != null && { NotificationState: input.NotificationState }),
+    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
+    ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
+    ...(input.ThresholdType != null && { ThresholdType: input.ThresholdType }),
   };
 };
 
@@ -2321,10 +2309,8 @@ const serializeAws_json1_1NotificationWithSubscribers = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Subscribers != undefined && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Subscribers != null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
@@ -2367,30 +2353,30 @@ const serializeAws_json1_1Roles = (input: string[], context: __SerdeContext): an
 
 const serializeAws_json1_1ScpActionDefinition = (input: ScpActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId != undefined && { PolicyId: input.PolicyId }),
-    ...(input.TargetIds != undefined && { TargetIds: serializeAws_json1_1TargetIds(input.TargetIds, context) }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+    ...(input.TargetIds != null && { TargetIds: serializeAws_json1_1TargetIds(input.TargetIds, context) }),
   };
 };
 
 const serializeAws_json1_1Spend = (input: Spend, context: __SerdeContext): any => {
   return {
-    ...(input.Amount != undefined && { Amount: input.Amount }),
-    ...(input.Unit != undefined && { Unit: input.Unit }),
+    ...(input.Amount != null && { Amount: input.Amount }),
+    ...(input.Unit != null && { Unit: input.Unit }),
   };
 };
 
 const serializeAws_json1_1SsmActionDefinition = (input: SsmActionDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.ActionSubType != undefined && { ActionSubType: input.ActionSubType }),
-    ...(input.InstanceIds != undefined && { InstanceIds: serializeAws_json1_1InstanceIds(input.InstanceIds, context) }),
-    ...(input.Region != undefined && { Region: input.Region }),
+    ...(input.ActionSubType != null && { ActionSubType: input.ActionSubType }),
+    ...(input.InstanceIds != null && { InstanceIds: serializeAws_json1_1InstanceIds(input.InstanceIds, context) }),
+    ...(input.Region != null && { Region: input.Region }),
   };
 };
 
 const serializeAws_json1_1Subscriber = (input: Subscriber, context: __SerdeContext): any => {
   return {
-    ...(input.Address != undefined && { Address: input.Address }),
-    ...(input.SubscriptionType != undefined && { SubscriptionType: input.SubscriptionType }),
+    ...(input.Address != null && { Address: input.Address }),
+    ...(input.SubscriptionType != null && { SubscriptionType: input.SubscriptionType }),
   };
 };
 
@@ -2418,8 +2404,8 @@ const serializeAws_json1_1TargetIds = (input: string[], context: __SerdeContext)
 
 const serializeAws_json1_1TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return {
-    ...(input.End != undefined && { End: Math.round(input.End.getTime() / 1000) }),
-    ...(input.Start != undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
+    ...(input.End != null && { End: Math.round(input.End.getTime() / 1000) }),
+    ...(input.Start != null && { Start: Math.round(input.Start.getTime() / 1000) }),
   };
 };
 
@@ -2428,24 +2414,24 @@ const serializeAws_json1_1UpdateBudgetActionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.ActionId != undefined && { ActionId: input.ActionId }),
-    ...(input.ActionThreshold != undefined && {
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.ActionId != null && { ActionId: input.ActionId }),
+    ...(input.ActionThreshold != null && {
       ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
     }),
-    ...(input.ApprovalModel != undefined && { ApprovalModel: input.ApprovalModel }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.Definition != undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
-    ...(input.ExecutionRoleArn != undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
-    ...(input.NotificationType != undefined && { NotificationType: input.NotificationType }),
-    ...(input.Subscribers != undefined && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
+    ...(input.ApprovalModel != null && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.Definition != null && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType != null && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers != null && { Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (input: UpdateBudgetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.NewBudget != undefined && { NewBudget: serializeAws_json1_1Budget(input.NewBudget, context) }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.NewBudget != null && { NewBudget: serializeAws_json1_1Budget(input.NewBudget, context) }),
   };
 };
 
@@ -2454,12 +2440,12 @@ const serializeAws_json1_1UpdateNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.NewNotification != undefined && {
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.NewNotification != null && {
       NewNotification: serializeAws_json1_1Notification(input.NewNotification, context),
     }),
-    ...(input.OldNotification != undefined && {
+    ...(input.OldNotification != null && {
       OldNotification: serializeAws_json1_1Notification(input.OldNotification, context),
     }),
   };
@@ -2467,17 +2453,11 @@ const serializeAws_json1_1UpdateNotificationRequest = (
 
 const serializeAws_json1_1UpdateSubscriberRequest = (input: UpdateSubscriberRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId != undefined && { AccountId: input.AccountId }),
-    ...(input.BudgetName != undefined && { BudgetName: input.BudgetName }),
-    ...(input.NewSubscriber != undefined && {
-      NewSubscriber: serializeAws_json1_1Subscriber(input.NewSubscriber, context),
-    }),
-    ...(input.Notification != undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.OldSubscriber != undefined && {
-      OldSubscriber: serializeAws_json1_1Subscriber(input.OldSubscriber, context),
-    }),
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
+    ...(input.NewSubscriber != null && { NewSubscriber: serializeAws_json1_1Subscriber(input.NewSubscriber, context) }),
+    ...(input.Notification != null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.OldSubscriber != null && { OldSubscriber: serializeAws_json1_1Subscriber(input.OldSubscriber, context) }),
   };
 };
 
@@ -2502,19 +2482,18 @@ const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Act
   return {
     ActionId: __expectString(output.ActionId),
     ActionThreshold:
-      output.ActionThreshold != undefined
+      output.ActionThreshold != null
         ? deserializeAws_json1_1ActionThreshold(output.ActionThreshold, context)
         : undefined,
     ActionType: __expectString(output.ActionType),
     ApprovalModel: __expectString(output.ApprovalModel),
     BudgetName: __expectString(output.BudgetName),
-    Definition:
-      output.Definition != undefined ? deserializeAws_json1_1Definition(output.Definition, context) : undefined,
+    Definition: output.Definition != null ? deserializeAws_json1_1Definition(output.Definition, context) : undefined,
     ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
     NotificationType: __expectString(output.NotificationType),
     Status: __expectString(output.Status),
     Subscribers:
-      output.Subscribers != undefined ? deserializeAws_json1_1Subscribers(output.Subscribers, context) : undefined,
+      output.Subscribers != null ? deserializeAws_json1_1Subscribers(output.Subscribers, context) : undefined,
   } as any;
 };
 
@@ -2533,21 +2512,19 @@ const deserializeAws_json1_1ActionHistories = (output: any, context: __SerdeCont
 const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContext): ActionHistory => {
   return {
     ActionHistoryDetails:
-      output.ActionHistoryDetails != undefined
+      output.ActionHistoryDetails != null
         ? deserializeAws_json1_1ActionHistoryDetails(output.ActionHistoryDetails, context)
         : undefined,
     EventType: __expectString(output.EventType),
     Status: __expectString(output.Status),
     Timestamp:
-      output.Timestamp != undefined
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
-        : undefined,
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ActionHistoryDetails = (output: any, context: __SerdeContext): ActionHistoryDetails => {
   return {
-    Action: output.Action != undefined ? deserializeAws_json1_1Action(output.Action, context) : undefined,
+    Action: output.Action != null ? deserializeAws_json1_1Action(output.Action, context) : undefined,
     Message: __expectString(output.Message),
   } as any;
 };
@@ -2575,11 +2552,11 @@ const deserializeAws_json1_1AutoAdjustData = (output: any, context: __SerdeConte
   return {
     AutoAdjustType: __expectString(output.AutoAdjustType),
     HistoricalOptions:
-      output.HistoricalOptions != undefined
+      output.HistoricalOptions != null
         ? deserializeAws_json1_1HistoricalOptions(output.HistoricalOptions, context)
         : undefined,
     LastAutoAdjustTime:
-      output.LastAutoAdjustTime != undefined
+      output.LastAutoAdjustTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAutoAdjustTime)))
         : undefined,
   } as any;
@@ -2588,29 +2565,26 @@ const deserializeAws_json1_1AutoAdjustData = (output: any, context: __SerdeConte
 const deserializeAws_json1_1Budget = (output: any, context: __SerdeContext): Budget => {
   return {
     AutoAdjustData:
-      output.AutoAdjustData != undefined
-        ? deserializeAws_json1_1AutoAdjustData(output.AutoAdjustData, context)
-        : undefined,
-    BudgetLimit: output.BudgetLimit != undefined ? deserializeAws_json1_1Spend(output.BudgetLimit, context) : undefined,
+      output.AutoAdjustData != null ? deserializeAws_json1_1AutoAdjustData(output.AutoAdjustData, context) : undefined,
+    BudgetLimit: output.BudgetLimit != null ? deserializeAws_json1_1Spend(output.BudgetLimit, context) : undefined,
     BudgetName: __expectString(output.BudgetName),
     BudgetType: __expectString(output.BudgetType),
     CalculatedSpend:
-      output.CalculatedSpend != undefined
+      output.CalculatedSpend != null
         ? deserializeAws_json1_1CalculatedSpend(output.CalculatedSpend, context)
         : undefined,
     CostFilters:
-      output.CostFilters != undefined ? deserializeAws_json1_1CostFilters(output.CostFilters, context) : undefined,
-    CostTypes: output.CostTypes != undefined ? deserializeAws_json1_1CostTypes(output.CostTypes, context) : undefined,
+      output.CostFilters != null ? deserializeAws_json1_1CostFilters(output.CostFilters, context) : undefined,
+    CostTypes: output.CostTypes != null ? deserializeAws_json1_1CostTypes(output.CostTypes, context) : undefined,
     LastUpdatedTime:
-      output.LastUpdatedTime != undefined
+      output.LastUpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
         : undefined,
     PlannedBudgetLimits:
-      output.PlannedBudgetLimits != undefined
+      output.PlannedBudgetLimits != null
         ? deserializeAws_json1_1PlannedBudgetLimits(output.PlannedBudgetLimits, context)
         : undefined,
-    TimePeriod:
-      output.TimePeriod != undefined ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context) : undefined,
+    TimePeriod: output.TimePeriod != null ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context) : undefined,
     TimeUnit: __expectString(output.TimeUnit),
   } as any;
 };
@@ -2620,12 +2594,10 @@ const deserializeAws_json1_1BudgetedAndActualAmounts = (
   context: __SerdeContext
 ): BudgetedAndActualAmounts => {
   return {
-    ActualAmount:
-      output.ActualAmount != undefined ? deserializeAws_json1_1Spend(output.ActualAmount, context) : undefined,
+    ActualAmount: output.ActualAmount != null ? deserializeAws_json1_1Spend(output.ActualAmount, context) : undefined,
     BudgetedAmount:
-      output.BudgetedAmount != undefined ? deserializeAws_json1_1Spend(output.BudgetedAmount, context) : undefined,
-    TimePeriod:
-      output.TimePeriod != undefined ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context) : undefined,
+      output.BudgetedAmount != null ? deserializeAws_json1_1Spend(output.BudgetedAmount, context) : undefined,
+    TimePeriod: output.TimePeriod != null ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context) : undefined,
   } as any;
 };
 
@@ -2651,9 +2623,7 @@ const deserializeAws_json1_1BudgetNotificationsForAccount = (
   return {
     BudgetName: __expectString(output.BudgetName),
     Notifications:
-      output.Notifications != undefined
-        ? deserializeAws_json1_1Notifications(output.Notifications, context)
-        : undefined,
+      output.Notifications != null ? deserializeAws_json1_1Notifications(output.Notifications, context) : undefined,
   } as any;
 };
 
@@ -2680,12 +2650,12 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
     BudgetName: __expectString(output.BudgetName),
     BudgetType: __expectString(output.BudgetType),
     BudgetedAndActualAmountsList:
-      output.BudgetedAndActualAmountsList != undefined
+      output.BudgetedAndActualAmountsList != null
         ? deserializeAws_json1_1BudgetedAndActualAmountsList(output.BudgetedAndActualAmountsList, context)
         : undefined,
     CostFilters:
-      output.CostFilters != undefined ? deserializeAws_json1_1CostFilters(output.CostFilters, context) : undefined,
-    CostTypes: output.CostTypes != undefined ? deserializeAws_json1_1CostTypes(output.CostTypes, context) : undefined,
+      output.CostFilters != null ? deserializeAws_json1_1CostFilters(output.CostFilters, context) : undefined,
+    CostTypes: output.CostTypes != null ? deserializeAws_json1_1CostTypes(output.CostTypes, context) : undefined,
     TimeUnit: __expectString(output.TimeUnit),
   } as any;
 };
@@ -2704,9 +2674,9 @@ const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Bu
 
 const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeContext): CalculatedSpend => {
   return {
-    ActualSpend: output.ActualSpend != undefined ? deserializeAws_json1_1Spend(output.ActualSpend, context) : undefined,
+    ActualSpend: output.ActualSpend != null ? deserializeAws_json1_1Spend(output.ActualSpend, context) : undefined,
     ForecastedSpend:
-      output.ForecastedSpend != undefined ? deserializeAws_json1_1Spend(output.ForecastedSpend, context) : undefined,
+      output.ForecastedSpend != null ? deserializeAws_json1_1Spend(output.ForecastedSpend, context) : undefined,
   } as any;
 };
 
@@ -2779,15 +2749,15 @@ const deserializeAws_json1_1CreationLimitExceededException = (
 const deserializeAws_json1_1Definition = (output: any, context: __SerdeContext): Definition => {
   return {
     IamActionDefinition:
-      output.IamActionDefinition != undefined
+      output.IamActionDefinition != null
         ? deserializeAws_json1_1IamActionDefinition(output.IamActionDefinition, context)
         : undefined,
     ScpActionDefinition:
-      output.ScpActionDefinition != undefined
+      output.ScpActionDefinition != null
         ? deserializeAws_json1_1ScpActionDefinition(output.ScpActionDefinition, context)
         : undefined,
     SsmActionDefinition:
-      output.SsmActionDefinition != undefined
+      output.SsmActionDefinition != null
         ? deserializeAws_json1_1SsmActionDefinition(output.SsmActionDefinition, context)
         : undefined,
   } as any;
@@ -2799,7 +2769,7 @@ const deserializeAws_json1_1DeleteBudgetActionResponse = (
 ): DeleteBudgetActionResponse => {
   return {
     AccountId: __expectString(output.AccountId),
-    Action: output.Action != undefined ? deserializeAws_json1_1Action(output.Action, context) : undefined,
+    Action: output.Action != null ? deserializeAws_json1_1Action(output.Action, context) : undefined,
     BudgetName: __expectString(output.BudgetName),
   } as any;
 };
@@ -2828,7 +2798,7 @@ const deserializeAws_json1_1DescribeBudgetActionHistoriesResponse = (
 ): DescribeBudgetActionHistoriesResponse => {
   return {
     ActionHistories:
-      output.ActionHistories != undefined
+      output.ActionHistories != null
         ? deserializeAws_json1_1ActionHistories(output.ActionHistories, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2841,7 +2811,7 @@ const deserializeAws_json1_1DescribeBudgetActionResponse = (
 ): DescribeBudgetActionResponse => {
   return {
     AccountId: __expectString(output.AccountId),
-    Action: output.Action != undefined ? deserializeAws_json1_1Action(output.Action, context) : undefined,
+    Action: output.Action != null ? deserializeAws_json1_1Action(output.Action, context) : undefined,
     BudgetName: __expectString(output.BudgetName),
   } as any;
 };
@@ -2851,7 +2821,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForAccountResponse = (
   context: __SerdeContext
 ): DescribeBudgetActionsForAccountResponse => {
   return {
-    Actions: output.Actions != undefined ? deserializeAws_json1_1Actions(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? deserializeAws_json1_1Actions(output.Actions, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2861,7 +2831,7 @@ const deserializeAws_json1_1DescribeBudgetActionsForBudgetResponse = (
   context: __SerdeContext
 ): DescribeBudgetActionsForBudgetResponse => {
   return {
-    Actions: output.Actions != undefined ? deserializeAws_json1_1Actions(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? deserializeAws_json1_1Actions(output.Actions, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2872,7 +2842,7 @@ const deserializeAws_json1_1DescribeBudgetNotificationsForAccountResponse = (
 ): DescribeBudgetNotificationsForAccountResponse => {
   return {
     BudgetNotificationsForAccount:
-      output.BudgetNotificationsForAccount != undefined
+      output.BudgetNotificationsForAccount != null
         ? deserializeAws_json1_1BudgetNotificationsForAccountList(output.BudgetNotificationsForAccount, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2885,7 +2855,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
 ): DescribeBudgetPerformanceHistoryResponse => {
   return {
     BudgetPerformanceHistory:
-      output.BudgetPerformanceHistory != undefined
+      output.BudgetPerformanceHistory != null
         ? deserializeAws_json1_1BudgetPerformanceHistory(output.BudgetPerformanceHistory, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -2894,7 +2864,7 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
 
 const deserializeAws_json1_1DescribeBudgetResponse = (output: any, context: __SerdeContext): DescribeBudgetResponse => {
   return {
-    Budget: output.Budget != undefined ? deserializeAws_json1_1Budget(output.Budget, context) : undefined,
+    Budget: output.Budget != null ? deserializeAws_json1_1Budget(output.Budget, context) : undefined,
   } as any;
 };
 
@@ -2903,7 +2873,7 @@ const deserializeAws_json1_1DescribeBudgetsResponse = (
   context: __SerdeContext
 ): DescribeBudgetsResponse => {
   return {
-    Budgets: output.Budgets != undefined ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
+    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -2915,9 +2885,7 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Notifications:
-      output.Notifications != undefined
-        ? deserializeAws_json1_1Notifications(output.Notifications, context)
-        : undefined,
+      output.Notifications != null ? deserializeAws_json1_1Notifications(output.Notifications, context) : undefined,
   } as any;
 };
 
@@ -2928,7 +2896,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Subscribers:
-      output.Subscribers != undefined ? deserializeAws_json1_1Subscribers(output.Subscribers, context) : undefined,
+      output.Subscribers != null ? deserializeAws_json1_1Subscribers(output.Subscribers, context) : undefined,
   } as any;
 };
 
@@ -2995,10 +2963,10 @@ const deserializeAws_json1_1HistoricalOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1IamActionDefinition = (output: any, context: __SerdeContext): IamActionDefinition => {
   return {
-    Groups: output.Groups != undefined ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
     PolicyArn: __expectString(output.PolicyArn),
-    Roles: output.Roles != undefined ? deserializeAws_json1_1Roles(output.Roles, context) : undefined,
-    Users: output.Users != undefined ? deserializeAws_json1_1Users(output.Users, context) : undefined,
+    Roles: output.Roles != null ? deserializeAws_json1_1Roles(output.Roles, context) : undefined,
+    Users: output.Users != null ? deserializeAws_json1_1Users(output.Users, context) : undefined,
   } as any;
 };
 
@@ -3102,7 +3070,7 @@ const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): stri
 const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
   return {
     PolicyId: __expectString(output.PolicyId),
-    TargetIds: output.TargetIds != undefined ? deserializeAws_json1_1TargetIds(output.TargetIds, context) : undefined,
+    TargetIds: output.TargetIds != null ? deserializeAws_json1_1TargetIds(output.TargetIds, context) : undefined,
   } as any;
 };
 
@@ -3117,7 +3085,7 @@ const deserializeAws_json1_1SsmActionDefinition = (output: any, context: __Serde
   return {
     ActionSubType: __expectString(output.ActionSubType),
     InstanceIds:
-      output.InstanceIds != undefined ? deserializeAws_json1_1InstanceIds(output.InstanceIds, context) : undefined,
+      output.InstanceIds != null ? deserializeAws_json1_1InstanceIds(output.InstanceIds, context) : undefined,
     Region: __expectString(output.Region),
   } as any;
 };
@@ -3161,8 +3129,8 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
   return {
-    End: output.End != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.End))) : undefined,
-    Start: output.Start != undefined ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Start))) : undefined,
+    End: output.End != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.End))) : undefined,
+    Start: output.Start != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Start))) : undefined,
   } as any;
 };
 
@@ -3173,8 +3141,8 @@ const deserializeAws_json1_1UpdateBudgetActionResponse = (
   return {
     AccountId: __expectString(output.AccountId),
     BudgetName: __expectString(output.BudgetName),
-    NewAction: output.NewAction != undefined ? deserializeAws_json1_1Action(output.NewAction, context) : undefined,
-    OldAction: output.OldAction != undefined ? deserializeAws_json1_1Action(output.OldAction, context) : undefined,
+    NewAction: output.NewAction != null ? deserializeAws_json1_1Action(output.NewAction, context) : undefined,
+    OldAction: output.OldAction != null ? deserializeAws_json1_1Action(output.OldAction, context) : undefined,
   } as any;
 };
 

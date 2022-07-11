@@ -32,8 +32,8 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceFleetName != undefined && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName != undefined && { DeviceName: input.DeviceName }),
+    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
   });
   return new __HttpRequest({
     protocol,
@@ -57,13 +57,11 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
-    ...(input.AgentMetrics != undefined && {
-      AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context),
-    }),
-    ...(input.AgentVersion != undefined && { AgentVersion: input.AgentVersion }),
-    ...(input.DeviceFleetName != undefined && { DeviceFleetName: input.DeviceFleetName }),
-    ...(input.DeviceName != undefined && { DeviceName: input.DeviceName }),
-    ...(input.Models != undefined && { Models: serializeAws_restJson1Models(input.Models, context) }),
+    ...(input.AgentMetrics != null && { AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context) }),
+    ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
+    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
+    ...(input.Models != null && { Models: serializeAws_restJson1Models(input.Models, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -184,10 +182,10 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
 
 const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
   return {
-    ...(input.Dimension != undefined && { Dimension: input.Dimension }),
-    ...(input.MetricName != undefined && { MetricName: input.MetricName }),
-    ...(input.Timestamp != undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value != undefined && { Value: __serializeFloat(input.Value) }),
+    ...(input.Dimension != null && { Dimension: input.Dimension }),
+    ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.Timestamp != null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Value != null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -204,15 +202,11 @@ const serializeAws_restJson1EdgeMetrics = (input: EdgeMetric[], context: __Serde
 
 const serializeAws_restJson1Model = (input: Model, context: __SerdeContext): any => {
   return {
-    ...(input.LatestInference != undefined && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
-    ...(input.LatestSampleTime != undefined && {
-      LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000),
-    }),
-    ...(input.ModelMetrics != undefined && {
-      ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context),
-    }),
-    ...(input.ModelName != undefined && { ModelName: input.ModelName }),
-    ...(input.ModelVersion != undefined && { ModelVersion: input.ModelVersion }),
+    ...(input.LatestInference != null && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
+    ...(input.LatestSampleTime != null && { LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000) }),
+    ...(input.ModelMetrics != null && { ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context) }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
   };
 };
 

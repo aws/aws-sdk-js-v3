@@ -118,12 +118,12 @@ export const serializeAws_restJson1CreateOrderCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
   let body: any;
   body = JSON.stringify({
-    ...(input.LineItems != undefined && {
+    ...(input.LineItems != null && {
       LineItems: serializeAws_restJson1LineItemRequestListDefinition(input.LineItems, context),
     }),
-    ...(input.OutpostIdentifier != undefined && { OutpostIdentifier: input.OutpostIdentifier }),
-    ...(input.PaymentOption != undefined && { PaymentOption: input.PaymentOption }),
-    ...(input.PaymentTerm != undefined && { PaymentTerm: input.PaymentTerm }),
+    ...(input.OutpostIdentifier != null && { OutpostIdentifier: input.OutpostIdentifier }),
+    ...(input.PaymentOption != null && { PaymentOption: input.PaymentOption }),
+    ...(input.PaymentTerm != null && { PaymentTerm: input.PaymentTerm }),
   });
   return new __HttpRequest({
     protocol,
@@ -147,13 +147,13 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
   let body: any;
   body = JSON.stringify({
-    ...(input.AvailabilityZone != undefined && { AvailabilityZone: input.AvailabilityZone }),
-    ...(input.AvailabilityZoneId != undefined && { AvailabilityZoneId: input.AvailabilityZoneId }),
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SiteId != undefined && { SiteId: input.SiteId }),
-    ...(input.SupportedHardwareType != undefined && { SupportedHardwareType: input.SupportedHardwareType }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.AvailabilityZoneId != null && { AvailabilityZoneId: input.AvailabilityZoneId }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SiteId != null && { SiteId: input.SiteId }),
+    ...(input.SupportedHardwareType != null && { SupportedHardwareType: input.SupportedHardwareType }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -177,19 +177,19 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Notes != undefined && { Notes: input.Notes }),
-    ...(input.OperatingAddress != undefined && {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Notes != null && { Notes: input.Notes }),
+    ...(input.OperatingAddress != null && {
       OperatingAddress: serializeAws_restJson1Address(input.OperatingAddress, context),
     }),
-    ...(input.RackPhysicalProperties != undefined && {
+    ...(input.RackPhysicalProperties != null && {
       RackPhysicalProperties: serializeAws_restJson1RackPhysicalProperties(input.RackPhysicalProperties, context),
     }),
-    ...(input.ShippingAddress != undefined && {
+    ...(input.ShippingAddress != null && {
       ShippingAddress: serializeAws_restJson1Address(input.ShippingAddress, context),
     }),
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -668,10 +668,10 @@ export const serializeAws_restJson1StartConnectionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections";
   let body: any;
   body = JSON.stringify({
-    ...(input.AssetId != undefined && { AssetId: input.AssetId }),
-    ...(input.ClientPublicKey != undefined && { ClientPublicKey: input.ClientPublicKey }),
-    ...(input.DeviceSerialNumber != undefined && { DeviceSerialNumber: input.DeviceSerialNumber }),
-    ...(input.NetworkInterfaceDeviceIndex != undefined && {
+    ...(input.AssetId != null && { AssetId: input.AssetId }),
+    ...(input.ClientPublicKey != null && { ClientPublicKey: input.ClientPublicKey }),
+    ...(input.DeviceSerialNumber != null && { DeviceSerialNumber: input.DeviceSerialNumber }),
+    ...(input.NetworkInterfaceDeviceIndex != null && {
       NetworkInterfaceDeviceIndex: input.NetworkInterfaceDeviceIndex,
     }),
   });
@@ -706,7 +706,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -771,9 +771,9 @@ export const serializeAws_restJson1UpdateOutpostCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.SupportedHardwareType != undefined && { SupportedHardwareType: input.SupportedHardwareType }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.SupportedHardwareType != null && { SupportedHardwareType: input.SupportedHardwareType }),
   });
   return new __HttpRequest({
     protocol,
@@ -806,9 +806,9 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description != undefined && { Description: input.Description }),
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Notes != undefined && { Notes: input.Notes }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Notes != null && { Notes: input.Notes }),
   });
   return new __HttpRequest({
     protocol,
@@ -841,8 +841,8 @@ export const serializeAws_restJson1UpdateSiteAddressCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Address != undefined && { Address: serializeAws_restJson1Address(input.Address, context) }),
-    ...(input.AddressType != undefined && { AddressType: input.AddressType }),
+    ...(input.Address != null && { Address: serializeAws_restJson1Address(input.Address, context) }),
+    ...(input.AddressType != null && { AddressType: input.AddressType }),
   });
   return new __HttpRequest({
     protocol,
@@ -876,15 +876,15 @@ export const serializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand = asy
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.FiberOpticCableType != undefined && { FiberOpticCableType: input.FiberOpticCableType }),
-    ...(input.MaximumSupportedWeightLbs != undefined && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
-    ...(input.OpticalStandard != undefined && { OpticalStandard: input.OpticalStandard }),
-    ...(input.PowerConnector != undefined && { PowerConnector: input.PowerConnector }),
-    ...(input.PowerDrawKva != undefined && { PowerDrawKva: input.PowerDrawKva }),
-    ...(input.PowerFeedDrop != undefined && { PowerFeedDrop: input.PowerFeedDrop }),
-    ...(input.PowerPhase != undefined && { PowerPhase: input.PowerPhase }),
-    ...(input.UplinkCount != undefined && { UplinkCount: input.UplinkCount }),
-    ...(input.UplinkGbps != undefined && { UplinkGbps: input.UplinkGbps }),
+    ...(input.FiberOpticCableType != null && { FiberOpticCableType: input.FiberOpticCableType }),
+    ...(input.MaximumSupportedWeightLbs != null && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
+    ...(input.OpticalStandard != null && { OpticalStandard: input.OpticalStandard }),
+    ...(input.PowerConnector != null && { PowerConnector: input.PowerConnector }),
+    ...(input.PowerDrawKva != null && { PowerDrawKva: input.PowerDrawKva }),
+    ...(input.PowerFeedDrop != null && { PowerFeedDrop: input.PowerFeedDrop }),
+    ...(input.PowerPhase != null && { PowerPhase: input.PowerPhase }),
+    ...(input.UplinkCount != null && { UplinkCount: input.UplinkCount }),
+    ...(input.UplinkGbps != null && { UplinkGbps: input.UplinkGbps }),
   });
   return new __HttpRequest({
     protocol,
@@ -2449,24 +2449,24 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Address = (input: Address, context: __SerdeContext): any => {
   return {
-    ...(input.AddressLine1 != undefined && { AddressLine1: input.AddressLine1 }),
-    ...(input.AddressLine2 != undefined && { AddressLine2: input.AddressLine2 }),
-    ...(input.AddressLine3 != undefined && { AddressLine3: input.AddressLine3 }),
-    ...(input.City != undefined && { City: input.City }),
-    ...(input.ContactName != undefined && { ContactName: input.ContactName }),
-    ...(input.ContactPhoneNumber != undefined && { ContactPhoneNumber: input.ContactPhoneNumber }),
-    ...(input.CountryCode != undefined && { CountryCode: input.CountryCode }),
-    ...(input.DistrictOrCounty != undefined && { DistrictOrCounty: input.DistrictOrCounty }),
-    ...(input.Municipality != undefined && { Municipality: input.Municipality }),
-    ...(input.PostalCode != undefined && { PostalCode: input.PostalCode }),
-    ...(input.StateOrRegion != undefined && { StateOrRegion: input.StateOrRegion }),
+    ...(input.AddressLine1 != null && { AddressLine1: input.AddressLine1 }),
+    ...(input.AddressLine2 != null && { AddressLine2: input.AddressLine2 }),
+    ...(input.AddressLine3 != null && { AddressLine3: input.AddressLine3 }),
+    ...(input.City != null && { City: input.City }),
+    ...(input.ContactName != null && { ContactName: input.ContactName }),
+    ...(input.ContactPhoneNumber != null && { ContactPhoneNumber: input.ContactPhoneNumber }),
+    ...(input.CountryCode != null && { CountryCode: input.CountryCode }),
+    ...(input.DistrictOrCounty != null && { DistrictOrCounty: input.DistrictOrCounty }),
+    ...(input.Municipality != null && { Municipality: input.Municipality }),
+    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
+    ...(input.StateOrRegion != null && { StateOrRegion: input.StateOrRegion }),
   };
 };
 
 const serializeAws_restJson1LineItemRequest = (input: LineItemRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogItemId != undefined && { CatalogItemId: input.CatalogItemId }),
-    ...(input.Quantity != undefined && { Quantity: input.Quantity }),
+    ...(input.CatalogItemId != null && { CatalogItemId: input.CatalogItemId }),
+    ...(input.Quantity != null && { Quantity: input.Quantity }),
   };
 };
 
@@ -2486,15 +2486,15 @@ const serializeAws_restJson1LineItemRequestListDefinition = (
 
 const serializeAws_restJson1RackPhysicalProperties = (input: RackPhysicalProperties, context: __SerdeContext): any => {
   return {
-    ...(input.FiberOpticCableType != undefined && { FiberOpticCableType: input.FiberOpticCableType }),
-    ...(input.MaximumSupportedWeightLbs != undefined && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
-    ...(input.OpticalStandard != undefined && { OpticalStandard: input.OpticalStandard }),
-    ...(input.PowerConnector != undefined && { PowerConnector: input.PowerConnector }),
-    ...(input.PowerDrawKva != undefined && { PowerDrawKva: input.PowerDrawKva }),
-    ...(input.PowerFeedDrop != undefined && { PowerFeedDrop: input.PowerFeedDrop }),
-    ...(input.PowerPhase != undefined && { PowerPhase: input.PowerPhase }),
-    ...(input.UplinkCount != undefined && { UplinkCount: input.UplinkCount }),
-    ...(input.UplinkGbps != undefined && { UplinkGbps: input.UplinkGbps }),
+    ...(input.FiberOpticCableType != null && { FiberOpticCableType: input.FiberOpticCableType }),
+    ...(input.MaximumSupportedWeightLbs != null && { MaximumSupportedWeightLbs: input.MaximumSupportedWeightLbs }),
+    ...(input.OpticalStandard != null && { OpticalStandard: input.OpticalStandard }),
+    ...(input.PowerConnector != null && { PowerConnector: input.PowerConnector }),
+    ...(input.PowerDrawKva != null && { PowerDrawKva: input.PowerDrawKva }),
+    ...(input.PowerFeedDrop != null && { PowerFeedDrop: input.PowerFeedDrop }),
+    ...(input.PowerPhase != null && { PowerPhase: input.PowerPhase }),
+    ...(input.UplinkCount != null && { UplinkCount: input.UplinkCount }),
+    ...(input.UplinkGbps != null && { UplinkGbps: input.UplinkGbps }),
   };
 };
 
@@ -2530,12 +2530,10 @@ const deserializeAws_restJson1AssetInfo = (output: any, context: __SerdeContext)
   return {
     AssetId: __expectString(output.AssetId),
     AssetLocation:
-      output.AssetLocation != undefined
-        ? deserializeAws_restJson1AssetLocation(output.AssetLocation, context)
-        : undefined,
+      output.AssetLocation != null ? deserializeAws_restJson1AssetLocation(output.AssetLocation, context) : undefined,
     AssetType: __expectString(output.AssetType),
     ComputeAttributes:
-      output.ComputeAttributes != undefined
+      output.ComputeAttributes != null
         ? deserializeAws_restJson1ComputeAttributes(output.ComputeAttributes, context)
         : undefined,
     RackId: __expectString(output.RackId),
@@ -2564,17 +2562,17 @@ const deserializeAws_restJson1CatalogItem = (output: any, context: __SerdeContex
   return {
     CatalogItemId: __expectString(output.CatalogItemId),
     EC2Capacities:
-      output.EC2Capacities != undefined
+      output.EC2Capacities != null
         ? deserializeAws_restJson1EC2CapacityListDefinition(output.EC2Capacities, context)
         : undefined,
     ItemStatus: __expectString(output.ItemStatus),
     PowerKva: __limitedParseFloat32(output.PowerKva),
     SupportedStorage:
-      output.SupportedStorage != undefined
+      output.SupportedStorage != null
         ? deserializeAws_restJson1SupportedStorageList(output.SupportedStorage, context)
         : undefined,
     SupportedUplinkGbps:
-      output.SupportedUplinkGbps != undefined
+      output.SupportedUplinkGbps != null
         ? deserializeAws_restJson1SupportedUplinkGbpsListDefinition(output.SupportedUplinkGbps, context)
         : undefined,
     WeightLbs: __expectInt32(output.WeightLbs),
@@ -2613,8 +2611,7 @@ const deserializeAws_restJson1ComputeAttributes = (output: any, context: __Serde
 
 const deserializeAws_restJson1ConnectionDetails = (output: any, context: __SerdeContext): ConnectionDetails => {
   return {
-    AllowedIps:
-      output.AllowedIps != undefined ? deserializeAws_restJson1CIDRList(output.AllowedIps, context) : undefined,
+    AllowedIps: output.AllowedIps != null ? deserializeAws_restJson1CIDRList(output.AllowedIps, context) : undefined,
     ClientPublicKey: __expectString(output.ClientPublicKey),
     ClientTunnelAddress: __expectString(output.ClientTunnelAddress),
     ServerEndpoint: __expectString(output.ServerEndpoint),
@@ -2700,16 +2697,14 @@ const deserializeAws_restJson1LineItemStatusCounts = (output: any, context: __Se
 const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Order => {
   return {
     LineItems:
-      output.LineItems != undefined
-        ? deserializeAws_restJson1LineItemListDefinition(output.LineItems, context)
-        : undefined,
+      output.LineItems != null ? deserializeAws_restJson1LineItemListDefinition(output.LineItems, context) : undefined,
     OrderFulfilledDate:
-      output.OrderFulfilledDate != undefined
+      output.OrderFulfilledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderFulfilledDate)))
         : undefined,
     OrderId: __expectString(output.OrderId),
     OrderSubmissionDate:
-      output.OrderSubmissionDate != undefined
+      output.OrderSubmissionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
         : undefined,
     OutpostId: __expectString(output.OutpostId),
@@ -2721,16 +2716,16 @@ const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Or
 const deserializeAws_restJson1OrderSummary = (output: any, context: __SerdeContext): OrderSummary => {
   return {
     LineItemCountsByStatus:
-      output.LineItemCountsByStatus != undefined
+      output.LineItemCountsByStatus != null
         ? deserializeAws_restJson1LineItemStatusCounts(output.LineItemCountsByStatus, context)
         : undefined,
     OrderFulfilledDate:
-      output.OrderFulfilledDate != undefined
+      output.OrderFulfilledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderFulfilledDate)))
         : undefined,
     OrderId: __expectString(output.OrderId),
     OrderSubmissionDate:
-      output.OrderSubmissionDate != undefined
+      output.OrderSubmissionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OrderSubmissionDate)))
         : undefined,
     OrderType: __expectString(output.OrderType),
@@ -2764,7 +2759,7 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
     SiteArn: __expectString(output.SiteArn),
     SiteId: __expectString(output.SiteId),
     SupportedHardwareType: __expectString(output.SupportedHardwareType),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -2807,12 +2802,12 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
     OperatingAddressCountryCode: __expectString(output.OperatingAddressCountryCode),
     OperatingAddressStateOrRegion: __expectString(output.OperatingAddressStateOrRegion),
     RackPhysicalProperties:
-      output.RackPhysicalProperties != undefined
+      output.RackPhysicalProperties != null
         ? deserializeAws_restJson1RackPhysicalProperties(output.RackPhysicalProperties, context)
         : undefined,
     SiteArn: __expectString(output.SiteArn),
     SiteId: __expectString(output.SiteId),
-    Tags: output.Tags != undefined ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
 

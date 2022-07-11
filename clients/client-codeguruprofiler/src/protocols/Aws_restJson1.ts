@@ -131,7 +131,7 @@ export const serializeAws_restJson1AddNotificationChannelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.channels != undefined && { channels: serializeAws_restJson1Channels(input.channels, context) }),
+    ...(input.channels != null && { channels: serializeAws_restJson1Channels(input.channels, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,7 +172,7 @@ export const serializeAws_restJson1BatchGetFrameMetricDataCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.frameMetrics != undefined && {
+    ...(input.frameMetrics != null && {
       frameMetrics: serializeAws_restJson1FrameMetrics(input.frameMetrics, context),
     }),
   });
@@ -210,8 +210,8 @@ export const serializeAws_restJson1ConfigureAgentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fleetInstanceId != undefined && { fleetInstanceId: input.fleetInstanceId }),
-    ...(input.metadata != undefined && { metadata: serializeAws_restJson1Metadata(input.metadata, context) }),
+    ...(input.fleetInstanceId != null && { fleetInstanceId: input.fleetInstanceId }),
+    ...(input.metadata != null && { metadata: serializeAws_restJson1Metadata(input.metadata, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -238,12 +238,12 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.agentOrchestrationConfig != undefined && {
+    ...(input.agentOrchestrationConfig != null && {
       agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(input.agentOrchestrationConfig, context),
     }),
-    ...(input.computePlatform != undefined && { computePlatform: input.computePlatform }),
-    ...(input.profilingGroupName != undefined && { profilingGroupName: input.profilingGroupName }),
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.computePlatform != null && { computePlatform: input.computePlatform }),
+    ...(input.profilingGroupName != null && { profilingGroupName: input.profilingGroupName }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -677,8 +677,8 @@ export const serializeAws_restJson1PutPermissionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.principals != undefined && { principals: serializeAws_restJson1Principals(input.principals, context) }),
-    ...(input.revisionId != undefined && { revisionId: input.revisionId }),
+    ...(input.principals != null && { principals: serializeAws_restJson1Principals(input.principals, context) }),
+    ...(input.revisionId != null && { revisionId: input.revisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -804,8 +804,8 @@ export const serializeAws_restJson1SubmitFeedbackCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.comment != undefined && { comment: input.comment }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.comment != null && { comment: input.comment }),
+    ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
     protocol,
@@ -838,7 +838,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != undefined && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -904,7 +904,7 @@ export const serializeAws_restJson1UpdateProfilingGroupCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.agentOrchestrationConfig != undefined && {
+    ...(input.agentOrchestrationConfig != null && {
       agentOrchestrationConfig: serializeAws_restJson1AgentOrchestrationConfig(input.agentOrchestrationConfig, context),
     }),
   });
@@ -2320,17 +2320,17 @@ const serializeAws_restJson1AgentOrchestrationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.profilingEnabled != undefined && { profilingEnabled: input.profilingEnabled }),
+    ...(input.profilingEnabled != null && { profilingEnabled: input.profilingEnabled }),
   };
 };
 
 const serializeAws_restJson1Channel = (input: Channel, context: __SerdeContext): any => {
   return {
-    ...(input.eventPublishers != undefined && {
+    ...(input.eventPublishers != null && {
       eventPublishers: serializeAws_restJson1EventPublishers(input.eventPublishers, context),
     }),
-    ...(input.id != undefined && { id: input.id }),
-    ...(input.uri != undefined && { uri: input.uri }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.uri != null && { uri: input.uri }),
   };
 };
 
@@ -2358,11 +2358,11 @@ const serializeAws_restJson1EventPublishers = (input: (EventPublisher | string)[
 
 const serializeAws_restJson1FrameMetric = (input: FrameMetric, context: __SerdeContext): any => {
   return {
-    ...(input.frameName != undefined && { frameName: input.frameName }),
-    ...(input.threadStates != undefined && {
+    ...(input.frameName != null && { frameName: input.frameName }),
+    ...(input.threadStates != null && {
       threadStates: serializeAws_restJson1ThreadStates(input.threadStates, context),
     }),
-    ...(input.type != undefined && { type: input.type }),
+    ...(input.type != null && { type: input.type }),
   };
 };
 
@@ -2426,7 +2426,7 @@ const serializeAws_restJson1ThreadStates = (input: string[], context: __SerdeCon
 const deserializeAws_restJson1AgentConfiguration = (output: any, context: __SerdeContext): AgentConfiguration => {
   return {
     agentParameters:
-      output.agentParameters != undefined
+      output.agentParameters != null
         ? deserializeAws_restJson1AgentParameters(output.agentParameters, context)
         : undefined,
     periodInSeconds: __expectInt32(output.periodInSeconds),
@@ -2461,7 +2461,7 @@ const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeCo
 const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __SerdeContext): AggregatedProfileTime => {
   return {
     period: __expectString(output.period),
-    start: output.start != undefined ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
   } as any;
 };
 
@@ -2480,19 +2480,19 @@ const deserializeAws_restJson1Anomalies = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1Anomaly = (output: any, context: __SerdeContext): Anomaly => {
   return {
     instances:
-      output.instances != undefined ? deserializeAws_restJson1AnomalyInstances(output.instances, context) : undefined,
-    metric: output.metric != undefined ? deserializeAws_restJson1Metric(output.metric, context) : undefined,
+      output.instances != null ? deserializeAws_restJson1AnomalyInstances(output.instances, context) : undefined,
+    metric: output.metric != null ? deserializeAws_restJson1Metric(output.metric, context) : undefined,
     reason: __expectString(output.reason),
   } as any;
 };
 
 const deserializeAws_restJson1AnomalyInstance = (output: any, context: __SerdeContext): AnomalyInstance => {
   return {
-    endTime: output.endTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
     id: __expectString(output.id),
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
     userFeedback:
-      output.userFeedback != undefined ? deserializeAws_restJson1UserFeedback(output.userFeedback, context) : undefined,
+      output.userFeedback != null ? deserializeAws_restJson1UserFeedback(output.userFeedback, context) : undefined,
   } as any;
 };
 
@@ -2511,7 +2511,7 @@ const deserializeAws_restJson1AnomalyInstances = (output: any, context: __SerdeC
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     eventPublishers:
-      output.eventPublishers != undefined
+      output.eventPublishers != null
         ? deserializeAws_restJson1EventPublishers(output.eventPublishers, context)
         : undefined,
     id: __expectString(output.id),
@@ -2562,11 +2562,9 @@ const deserializeAws_restJson1FindingsReportSummary = (output: any, context: __S
   return {
     id: __expectString(output.id),
     profileEndTime:
-      output.profileEndTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.profileEndTime)) : undefined,
+      output.profileEndTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileEndTime)) : undefined,
     profileStartTime:
-      output.profileStartTime != undefined
-        ? __expectNonNull(__parseRfc3339DateTime(output.profileStartTime))
-        : undefined,
+      output.profileStartTime != null ? __expectNonNull(__parseRfc3339DateTime(output.profileStartTime)) : undefined,
     profilingGroupName: __expectString(output.profilingGroupName),
     totalNumberOfFindings: __expectInt32(output.totalNumberOfFindings),
   } as any;
@@ -2576,7 +2574,7 @@ const deserializeAws_restJson1FrameMetric = (output: any, context: __SerdeContex
   return {
     frameName: __expectString(output.frameName),
     threadStates:
-      output.threadStates != undefined ? deserializeAws_restJson1ThreadStates(output.threadStates, context) : undefined,
+      output.threadStates != null ? deserializeAws_restJson1ThreadStates(output.threadStates, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -2596,8 +2594,8 @@ const deserializeAws_restJson1FrameMetricData = (output: any, context: __SerdeCo
 const deserializeAws_restJson1FrameMetricDatum = (output: any, context: __SerdeContext): FrameMetricDatum => {
   return {
     frameMetric:
-      output.frameMetric != undefined ? deserializeAws_restJson1FrameMetric(output.frameMetric, context) : undefined,
-    values: output.values != undefined ? deserializeAws_restJson1FrameMetricValues(output.values, context) : undefined,
+      output.frameMetric != null ? deserializeAws_restJson1FrameMetric(output.frameMetric, context) : undefined,
+    values: output.values != null ? deserializeAws_restJson1FrameMetricValues(output.values, context) : undefined,
   } as any;
 };
 
@@ -2649,7 +2647,7 @@ const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): M
   return {
     frameName: __expectString(output.frameName),
     threadStates:
-      output.threadStates != undefined ? deserializeAws_restJson1Strings(output.threadStates, context) : undefined,
+      output.threadStates != null ? deserializeAws_restJson1Strings(output.threadStates, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
@@ -2659,14 +2657,14 @@ const deserializeAws_restJson1NotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   return {
-    channels: output.channels != undefined ? deserializeAws_restJson1Channels(output.channels, context) : undefined,
+    channels: output.channels != null ? deserializeAws_restJson1Channels(output.channels, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): Pattern => {
   return {
     countersToAggregate:
-      output.countersToAggregate != undefined
+      output.countersToAggregate != null
         ? deserializeAws_restJson1Strings(output.countersToAggregate, context)
         : undefined,
     description: __expectString(output.description),
@@ -2674,14 +2672,14 @@ const deserializeAws_restJson1Pattern = (output: any, context: __SerdeContext): 
     name: __expectString(output.name),
     resolutionSteps: __expectString(output.resolutionSteps),
     targetFrames:
-      output.targetFrames != undefined ? deserializeAws_restJson1TargetFrames(output.targetFrames, context) : undefined,
+      output.targetFrames != null ? deserializeAws_restJson1TargetFrames(output.targetFrames, context) : undefined,
     thresholdPercent: __limitedParseDouble(output.thresholdPercent),
   } as any;
 };
 
 const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContext): ProfileTime => {
   return {
-    start: output.start != undefined ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
+    start: output.start != null ? __expectNonNull(__parseRfc3339DateTime(output.start)) : undefined,
   } as any;
 };
 
@@ -2703,19 +2701,19 @@ const deserializeAws_restJson1ProfilingGroupDescription = (
 ): ProfilingGroupDescription => {
   return {
     agentOrchestrationConfig:
-      output.agentOrchestrationConfig != undefined
+      output.agentOrchestrationConfig != null
         ? deserializeAws_restJson1AgentOrchestrationConfig(output.agentOrchestrationConfig, context)
         : undefined,
     arn: __expectString(output.arn),
     computePlatform: __expectString(output.computePlatform),
-    createdAt: output.createdAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     name: __expectString(output.name),
     profilingStatus:
-      output.profilingStatus != undefined
+      output.profilingStatus != null
         ? deserializeAws_restJson1ProfilingStatus(output.profilingStatus, context)
         : undefined,
-    tags: output.tags != undefined ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
-    updatedAt: output.updatedAt != undefined ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
+    updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
   } as any;
 };
 
@@ -2749,15 +2747,15 @@ const deserializeAws_restJson1ProfilingGroupNames = (output: any, context: __Ser
 const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeContext): ProfilingStatus => {
   return {
     latestAgentOrchestratedAt:
-      output.latestAgentOrchestratedAt != undefined
+      output.latestAgentOrchestratedAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentOrchestratedAt))
         : undefined,
     latestAgentProfileReportedAt:
-      output.latestAgentProfileReportedAt != undefined
+      output.latestAgentProfileReportedAt != null
         ? __expectNonNull(__parseRfc3339DateTime(output.latestAgentProfileReportedAt))
         : undefined,
     latestAggregatedProfile:
-      output.latestAggregatedProfile != undefined
+      output.latestAggregatedProfile != null
         ? deserializeAws_restJson1AggregatedProfileTime(output.latestAggregatedProfile, context)
         : undefined,
   } as any;
@@ -2767,11 +2765,10 @@ const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeCon
   return {
     allMatchesCount: __expectInt32(output.allMatchesCount),
     allMatchesSum: __limitedParseDouble(output.allMatchesSum),
-    endTime: output.endTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
-    pattern: output.pattern != undefined ? deserializeAws_restJson1Pattern(output.pattern, context) : undefined,
-    startTime: output.startTime != undefined ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
-    topMatches:
-      output.topMatches != undefined ? deserializeAws_restJson1Matches(output.topMatches, context) : undefined,
+    endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTime(output.endTime)) : undefined,
+    pattern: output.pattern != null ? deserializeAws_restJson1Pattern(output.pattern, context) : undefined,
+    startTime: output.startTime != null ? __expectNonNull(__parseRfc3339DateTime(output.startTime)) : undefined,
+    topMatches: output.topMatches != null ? deserializeAws_restJson1Matches(output.topMatches, context) : undefined,
   } as any;
 };
 
@@ -2849,7 +2846,7 @@ const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TimestampStructure = (output: any, context: __SerdeContext): TimestampStructure => {
   return {
-    value: output.value != undefined ? __expectNonNull(__parseRfc3339DateTime(output.value)) : undefined,
+    value: output.value != null ? __expectNonNull(__parseRfc3339DateTime(output.value)) : undefined,
   } as any;
 };
 

@@ -3379,9 +3379,9 @@ const serializeAws_json1_0AssociateOriginationIdentityRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
@@ -3390,15 +3390,15 @@ const serializeAws_json1_0CloudWatchLogsDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IamRoleArn != undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.LogGroupArn != undefined && { LogGroupArn: input.LogGroupArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.LogGroupArn != null && { LogGroupArn: input.LogGroupArn }),
   };
 };
 
 const serializeAws_json1_0ConfigurationSetFilter = (input: ConfigurationSetFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3445,8 +3445,8 @@ const serializeAws_json1_0CreateConfigurationSetRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -3456,24 +3456,24 @@ const serializeAws_json1_0CreateEventDestinationRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.CloudWatchLogsDestination != undefined && {
+    ...(input.CloudWatchLogsDestination != null && {
       CloudWatchLogsDestination: serializeAws_json1_0CloudWatchLogsDestination(
         input.CloudWatchLogsDestination,
         context
       ),
     }),
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.EventDestinationName != undefined && { EventDestinationName: input.EventDestinationName }),
-    ...(input.KinesisFirehoseDestination != undefined && {
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
+    ...(input.KinesisFirehoseDestination != null && {
       KinesisFirehoseDestination: serializeAws_json1_0KinesisFirehoseDestination(
         input.KinesisFirehoseDestination,
         context
       ),
     }),
-    ...(input.MatchingEventTypes != undefined && {
+    ...(input.MatchingEventTypes != null && {
       MatchingEventTypes: serializeAws_json1_0EventTypeList(input.MatchingEventTypes, context),
     }),
-    ...(input.SnsDestination != undefined && {
+    ...(input.SnsDestination != null && {
       SnsDestination: serializeAws_json1_0SnsDestination(input.SnsDestination, context),
     }),
   };
@@ -3482,19 +3482,19 @@ const serializeAws_json1_0CreateEventDestinationRequest = (
 const serializeAws_json1_0CreateOptOutListRequest = (input: CreateOptOutListRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeletionProtectionEnabled != undefined && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
@@ -3503,7 +3503,7 @@ const serializeAws_json1_0DeleteConfigurationSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
@@ -3512,7 +3512,7 @@ const serializeAws_json1_0DeleteDefaultMessageTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
@@ -3521,7 +3521,7 @@ const serializeAws_json1_0DeleteDefaultSenderIdRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
   };
 };
 
@@ -3530,15 +3530,15 @@ const serializeAws_json1_0DeleteEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.EventDestinationName != undefined && { EventDestinationName: input.EventDestinationName }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
   };
 };
 
 const serializeAws_json1_0DeleteKeywordRequest = (input: DeleteKeywordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Keyword != undefined && { Keyword: input.Keyword }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.Keyword != null && { Keyword: input.Keyword }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
   };
 };
 
@@ -3547,20 +3547,20 @@ const serializeAws_json1_0DeleteOptedOutNumberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumber != undefined && { OptedOutNumber: input.OptedOutNumber }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
   };
 };
 
 const serializeAws_json1_0DeleteOptOutListRequest = (input: DeleteOptOutListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
   };
 };
 
 const serializeAws_json1_0DeletePoolRequest = (input: DeletePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
@@ -3583,8 +3583,8 @@ const serializeAws_json1_0DescribeAccountAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3593,8 +3593,8 @@ const serializeAws_json1_0DescribeAccountLimitsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3603,24 +3603,22 @@ const serializeAws_json1_0DescribeConfigurationSetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetNames != undefined && {
+    ...(input.ConfigurationSetNames != null && {
       ConfigurationSetNames: serializeAws_json1_0ConfigurationSetNameList(input.ConfigurationSetNames, context),
     }),
-    ...(input.Filters != undefined && {
-      Filters: serializeAws_json1_0ConfigurationSetFilterList(input.Filters, context),
-    }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_0ConfigurationSetFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0DescribeKeywordsRequest = (input: DescribeKeywordsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_0KeywordFilterList(input.Filters, context) }),
-    ...(input.Keywords != undefined && { Keywords: serializeAws_json1_0KeywordList(input.Keywords, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_0KeywordFilterList(input.Filters, context) }),
+    ...(input.Keywords != null && { Keywords: serializeAws_json1_0KeywordList(input.Keywords, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
   };
 };
 
@@ -3629,11 +3627,11 @@ const serializeAws_json1_0DescribeOptedOutNumbersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_0OptedOutFilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumbers != undefined && {
+    ...(input.Filters != null && { Filters: serializeAws_json1_0OptedOutFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.OptedOutNumbers != null && {
       OptedOutNumbers: serializeAws_json1_0OptedOutNumberList(input.OptedOutNumbers, context),
     }),
   };
@@ -3644,9 +3642,9 @@ const serializeAws_json1_0DescribeOptOutListsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.OptOutListNames != undefined && {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.OptOutListNames != null && {
       OptOutListNames: serializeAws_json1_0OptOutListNameList(input.OptOutListNames, context),
     }),
   };
@@ -3657,10 +3655,10 @@ const serializeAws_json1_0DescribePhoneNumbersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_0PhoneNumberFilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PhoneNumberIds != undefined && {
+    ...(input.Filters != null && { Filters: serializeAws_json1_0PhoneNumberFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PhoneNumberIds != null && {
       PhoneNumberIds: serializeAws_json1_0PhoneNumberIdList(input.PhoneNumberIds, context),
     }),
   };
@@ -3668,10 +3666,10 @@ const serializeAws_json1_0DescribePhoneNumbersRequest = (
 
 const serializeAws_json1_0DescribePoolsRequest = (input: DescribePoolsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_0PoolFilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PoolIds != undefined && { PoolIds: serializeAws_json1_0PoolIdList(input.PoolIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_0PoolFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PoolIds != null && { PoolIds: serializeAws_json1_0PoolIdList(input.PoolIds, context) }),
   };
 };
 
@@ -3680,10 +3678,10 @@ const serializeAws_json1_0DescribeSenderIdsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && { Filters: serializeAws_json1_0SenderIdFilterList(input.Filters, context) }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.SenderIds != undefined && { SenderIds: serializeAws_json1_0SenderIdList(input.SenderIds, context) }),
+    ...(input.Filters != null && { Filters: serializeAws_json1_0SenderIdFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SenderIds != null && { SenderIds: serializeAws_json1_0SenderIdList(input.SenderIds, context) }),
   };
 };
 
@@ -3692,8 +3690,8 @@ const serializeAws_json1_0DescribeSpendLimitsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3721,9 +3719,9 @@ const serializeAws_json1_0DisassociateOriginationIdentityRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
@@ -3751,8 +3749,8 @@ const serializeAws_json1_0FilterValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_0KeywordFilter = (input: KeywordFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3783,8 +3781,8 @@ const serializeAws_json1_0KinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryStreamArn != undefined && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn != undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.DeliveryStreamArn != null && { DeliveryStreamArn: input.DeliveryStreamArn }),
+    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
@@ -3793,12 +3791,12 @@ const serializeAws_json1_0ListPoolOriginationIdentitiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != undefined && {
+    ...(input.Filters != null && {
       Filters: serializeAws_json1_0PoolOriginationIdentitiesFilterList(input.Filters, context),
     }),
-    ...(input.MaxResults != undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != undefined && { NextToken: input.NextToken }),
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
   };
 };
 
@@ -3807,7 +3805,7 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -3838,8 +3836,8 @@ const serializeAws_json1_0NumberCapabilityList = (
 
 const serializeAws_json1_0OptedOutFilter = (input: OptedOutFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3878,8 +3876,8 @@ const serializeAws_json1_0OptOutListNameList = (input: string[], context: __Serd
 
 const serializeAws_json1_0PhoneNumberFilter = (input: PhoneNumberFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3907,8 +3905,8 @@ const serializeAws_json1_0PhoneNumberIdList = (input: string[], context: __Serde
 
 const serializeAws_json1_0PoolFilter = (input: PoolFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3939,8 +3937,8 @@ const serializeAws_json1_0PoolOriginationIdentitiesFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -3960,10 +3958,10 @@ const serializeAws_json1_0PoolOriginationIdentitiesFilterList = (
 
 const serializeAws_json1_0PutKeywordRequest = (input: PutKeywordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Keyword != undefined && { Keyword: input.Keyword }),
-    ...(input.KeywordAction != undefined && { KeywordAction: input.KeywordAction }),
-    ...(input.KeywordMessage != undefined && { KeywordMessage: input.KeywordMessage }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.Keyword != null && { Keyword: input.Keyword }),
+    ...(input.KeywordAction != null && { KeywordAction: input.KeywordAction }),
+    ...(input.KeywordMessage != null && { KeywordMessage: input.KeywordMessage }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
   };
 };
 
@@ -3972,8 +3970,8 @@ const serializeAws_json1_0PutOptedOutNumberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.OptedOutNumber != undefined && { OptedOutNumber: input.OptedOutNumber }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.OptedOutNumber != null && { OptedOutNumber: input.OptedOutNumber }),
   };
 };
 
@@ -3982,7 +3980,7 @@ const serializeAws_json1_0ReleasePhoneNumberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PhoneNumberId != undefined && { PhoneNumberId: input.PhoneNumberId }),
+    ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
   };
 };
 
@@ -3992,31 +3990,31 @@ const serializeAws_json1_0RequestPhoneNumberRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeletionProtectionEnabled != undefined && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.NumberCapabilities != undefined && {
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.NumberCapabilities != null && {
       NumberCapabilities: serializeAws_json1_0NumberCapabilityList(input.NumberCapabilities, context),
     }),
-    ...(input.NumberType != undefined && { NumberType: input.NumberType }),
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
-    ...(input.RegistrationId != undefined && { RegistrationId: input.RegistrationId }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.NumberType != null && { NumberType: input.NumberType }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
+    ...(input.RegistrationId != null && { RegistrationId: input.RegistrationId }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0SenderIdAndCountry = (input: SenderIdAndCountry, context: __SerdeContext): any => {
   return {
-    ...(input.IsoCountryCode != undefined && { IsoCountryCode: input.IsoCountryCode }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
+    ...(input.IsoCountryCode != null && { IsoCountryCode: input.IsoCountryCode }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
   };
 };
 
 const serializeAws_json1_0SenderIdFilter = (input: SenderIdFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name != undefined && { Name: input.Name }),
-    ...(input.Values != undefined && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Values != null && { Values: serializeAws_json1_0FilterValueList(input.Values, context) }),
   };
 };
 
@@ -4044,37 +4042,37 @@ const serializeAws_json1_0SenderIdList = (input: SenderIdAndCountry[], context: 
 
 const serializeAws_json1_0SendTextMessageRequest = (input: SendTextMessageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != undefined && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
-    ...(input.DestinationCountryParameters != undefined && {
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Context != null && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
+    ...(input.DestinationCountryParameters != null && {
       DestinationCountryParameters: serializeAws_json1_0DestinationCountryParameters(
         input.DestinationCountryParameters,
         context
       ),
     }),
-    ...(input.DestinationPhoneNumber != undefined && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.DryRun != undefined && { DryRun: input.DryRun }),
-    ...(input.Keyword != undefined && { Keyword: input.Keyword }),
-    ...(input.MaxPrice != undefined && { MaxPrice: input.MaxPrice }),
-    ...(input.MessageBody != undefined && { MessageBody: input.MessageBody }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
+    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
+    ...(input.DryRun != null && { DryRun: input.DryRun }),
+    ...(input.Keyword != null && { Keyword: input.Keyword }),
+    ...(input.MaxPrice != null && { MaxPrice: input.MaxPrice }),
+    ...(input.MessageBody != null && { MessageBody: input.MessageBody }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
   };
 };
 
 const serializeAws_json1_0SendVoiceMessageRequest = (input: SendVoiceMessageRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Context != undefined && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
-    ...(input.DestinationPhoneNumber != undefined && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.DryRun != undefined && { DryRun: input.DryRun }),
-    ...(input.MaxPricePerMinute != undefined && { MaxPricePerMinute: input.MaxPricePerMinute }),
-    ...(input.MessageBody != undefined && { MessageBody: input.MessageBody }),
-    ...(input.MessageBodyTextType != undefined && { MessageBodyTextType: input.MessageBodyTextType }),
-    ...(input.OriginationIdentity != undefined && { OriginationIdentity: input.OriginationIdentity }),
-    ...(input.TimeToLive != undefined && { TimeToLive: input.TimeToLive }),
-    ...(input.VoiceId != undefined && { VoiceId: input.VoiceId }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Context != null && { Context: serializeAws_json1_0ContextMap(input.Context, context) }),
+    ...(input.DestinationPhoneNumber != null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
+    ...(input.DryRun != null && { DryRun: input.DryRun }),
+    ...(input.MaxPricePerMinute != null && { MaxPricePerMinute: input.MaxPricePerMinute }),
+    ...(input.MessageBody != null && { MessageBody: input.MessageBody }),
+    ...(input.MessageBodyTextType != null && { MessageBodyTextType: input.MessageBodyTextType }),
+    ...(input.OriginationIdentity != null && { OriginationIdentity: input.OriginationIdentity }),
+    ...(input.TimeToLive != null && { TimeToLive: input.TimeToLive }),
+    ...(input.VoiceId != null && { VoiceId: input.VoiceId }),
   };
 };
 
@@ -4083,8 +4081,8 @@ const serializeAws_json1_0SetDefaultMessageTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.MessageType != undefined && { MessageType: input.MessageType }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.MessageType != null && { MessageType: input.MessageType }),
   };
 };
 
@@ -4093,8 +4091,8 @@ const serializeAws_json1_0SetDefaultSenderIdRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.SenderId != undefined && { SenderId: input.SenderId }),
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.SenderId != null && { SenderId: input.SenderId }),
   };
 };
 
@@ -4103,7 +4101,7 @@ const serializeAws_json1_0SetTextMessageSpendLimitOverrideRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MonthlyLimit != undefined && { MonthlyLimit: input.MonthlyLimit }),
+    ...(input.MonthlyLimit != null && { MonthlyLimit: input.MonthlyLimit }),
   };
 };
 
@@ -4112,20 +4110,20 @@ const serializeAws_json1_0SetVoiceMessageSpendLimitOverrideRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MonthlyLimit != undefined && { MonthlyLimit: input.MonthlyLimit }),
+    ...(input.MonthlyLimit != null && { MonthlyLimit: input.MonthlyLimit }),
   };
 };
 
 const serializeAws_json1_0SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
-    ...(input.TopicArn != undefined && { TopicArn: input.TopicArn }),
+    ...(input.TopicArn != null && { TopicArn: input.TopicArn }),
   };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -4153,15 +4151,15 @@ const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != undefined && { Tags: serializeAws_json1_0NonEmptyTagList(input.Tags, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0NonEmptyTagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn != undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4170,25 +4168,25 @@ const serializeAws_json1_0UpdateEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogsDestination != undefined && {
+    ...(input.CloudWatchLogsDestination != null && {
       CloudWatchLogsDestination: serializeAws_json1_0CloudWatchLogsDestination(
         input.CloudWatchLogsDestination,
         context
       ),
     }),
-    ...(input.ConfigurationSetName != undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Enabled != undefined && { Enabled: input.Enabled }),
-    ...(input.EventDestinationName != undefined && { EventDestinationName: input.EventDestinationName }),
-    ...(input.KinesisFirehoseDestination != undefined && {
+    ...(input.ConfigurationSetName != null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.EventDestinationName != null && { EventDestinationName: input.EventDestinationName }),
+    ...(input.KinesisFirehoseDestination != null && {
       KinesisFirehoseDestination: serializeAws_json1_0KinesisFirehoseDestination(
         input.KinesisFirehoseDestination,
         context
       ),
     }),
-    ...(input.MatchingEventTypes != undefined && {
+    ...(input.MatchingEventTypes != null && {
       MatchingEventTypes: serializeAws_json1_0EventTypeList(input.MatchingEventTypes, context),
     }),
-    ...(input.SnsDestination != undefined && {
+    ...(input.SnsDestination != null && {
       SnsDestination: serializeAws_json1_0SnsDestination(input.SnsDestination, context),
     }),
   };
@@ -4199,24 +4197,24 @@ const serializeAws_json1_0UpdatePhoneNumberRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeletionProtectionEnabled != undefined && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.PhoneNumberId != undefined && { PhoneNumberId: input.PhoneNumberId }),
-    ...(input.SelfManagedOptOutsEnabled != undefined && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
-    ...(input.TwoWayChannelArn != undefined && { TwoWayChannelArn: input.TwoWayChannelArn }),
-    ...(input.TwoWayEnabled != undefined && { TwoWayEnabled: input.TwoWayEnabled }),
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.PhoneNumberId != null && { PhoneNumberId: input.PhoneNumberId }),
+    ...(input.SelfManagedOptOutsEnabled != null && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
+    ...(input.TwoWayChannelArn != null && { TwoWayChannelArn: input.TwoWayChannelArn }),
+    ...(input.TwoWayEnabled != null && { TwoWayEnabled: input.TwoWayEnabled }),
   };
 };
 
 const serializeAws_json1_0UpdatePoolRequest = (input: UpdatePoolRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DeletionProtectionEnabled != undefined && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
-    ...(input.OptOutListName != undefined && { OptOutListName: input.OptOutListName }),
-    ...(input.PoolId != undefined && { PoolId: input.PoolId }),
-    ...(input.SelfManagedOptOutsEnabled != undefined && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
-    ...(input.SharedRoutesEnabled != undefined && { SharedRoutesEnabled: input.SharedRoutesEnabled }),
-    ...(input.TwoWayChannelArn != undefined && { TwoWayChannelArn: input.TwoWayChannelArn }),
-    ...(input.TwoWayEnabled != undefined && { TwoWayEnabled: input.TwoWayEnabled }),
+    ...(input.DeletionProtectionEnabled != null && { DeletionProtectionEnabled: input.DeletionProtectionEnabled }),
+    ...(input.OptOutListName != null && { OptOutListName: input.OptOutListName }),
+    ...(input.PoolId != null && { PoolId: input.PoolId }),
+    ...(input.SelfManagedOptOutsEnabled != null && { SelfManagedOptOutsEnabled: input.SelfManagedOptOutsEnabled }),
+    ...(input.SharedRoutesEnabled != null && { SharedRoutesEnabled: input.SharedRoutesEnabled }),
+    ...(input.TwoWayChannelArn != null && { TwoWayChannelArn: input.TwoWayChannelArn }),
+    ...(input.TwoWayEnabled != null && { TwoWayEnabled: input.TwoWayEnabled }),
   };
 };
 
@@ -4297,13 +4295,13 @@ const deserializeAws_json1_0ConfigurationSetInformation = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DefaultMessageType: __expectString(output.DefaultMessageType),
     DefaultSenderId: __expectString(output.DefaultSenderId),
     EventDestinations:
-      output.EventDestinations != undefined
+      output.EventDestinations != null
         ? deserializeAws_json1_0EventDestinationList(output.EventDestinations, context)
         : undefined,
   } as any;
@@ -4341,10 +4339,10 @@ const deserializeAws_json1_0CreateConfigurationSetResult = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -4356,7 +4354,7 @@ const deserializeAws_json1_0CreateEventDestinationResult = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != undefined
+      output.EventDestination != null
         ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
         : undefined,
   } as any;
@@ -4365,19 +4363,19 @@ const deserializeAws_json1_0CreateEventDestinationResult = (
 const deserializeAws_json1_0CreateOptOutListResult = (output: any, context: __SerdeContext): CreateOptOutListResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     OptOutListArn: __expectString(output.OptOutListArn),
     OptOutListName: __expectString(output.OptOutListName),
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -4388,7 +4386,7 @@ const deserializeAws_json1_0CreatePoolResult = (output: any, context: __SerdeCon
     SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
     SharedRoutesEnabled: __expectBoolean(output.SharedRoutesEnabled),
     Status: __expectString(output.Status),
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
     TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
     TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
   } as any;
@@ -4402,13 +4400,13 @@ const deserializeAws_json1_0DeleteConfigurationSetResult = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DefaultMessageType: __expectString(output.DefaultMessageType),
     DefaultSenderId: __expectString(output.DefaultSenderId),
     EventDestinations:
-      output.EventDestinations != undefined
+      output.EventDestinations != null
         ? deserializeAws_json1_0EventDestinationList(output.EventDestinations, context)
         : undefined,
   } as any;
@@ -4444,7 +4442,7 @@ const deserializeAws_json1_0DeleteEventDestinationResult = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != undefined
+      output.EventDestination != null
         ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
         : undefined,
   } as any;
@@ -4470,7 +4468,7 @@ const deserializeAws_json1_0DeleteOptedOutNumberResult = (
     OptOutListName: __expectString(output.OptOutListName),
     OptedOutNumber: __expectString(output.OptedOutNumber),
     OptedOutTimestamp:
-      output.OptedOutTimestamp != undefined
+      output.OptedOutTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
         : undefined,
   } as any;
@@ -4479,7 +4477,7 @@ const deserializeAws_json1_0DeleteOptedOutNumberResult = (
 const deserializeAws_json1_0DeleteOptOutListResult = (output: any, context: __SerdeContext): DeleteOptOutListResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     OptOutListArn: __expectString(output.OptOutListArn),
@@ -4490,7 +4488,7 @@ const deserializeAws_json1_0DeleteOptOutListResult = (output: any, context: __Se
 const deserializeAws_json1_0DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     MessageType: __expectString(output.MessageType),
@@ -4529,7 +4527,7 @@ const deserializeAws_json1_0DescribeAccountAttributesResult = (
 ): DescribeAccountAttributesResult => {
   return {
     AccountAttributes:
-      output.AccountAttributes != undefined
+      output.AccountAttributes != null
         ? deserializeAws_json1_0AccountAttributeList(output.AccountAttributes, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4542,9 +4540,7 @@ const deserializeAws_json1_0DescribeAccountLimitsResult = (
 ): DescribeAccountLimitsResult => {
   return {
     AccountLimits:
-      output.AccountLimits != undefined
-        ? deserializeAws_json1_0AccountLimitList(output.AccountLimits, context)
-        : undefined,
+      output.AccountLimits != null ? deserializeAws_json1_0AccountLimitList(output.AccountLimits, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -4555,7 +4551,7 @@ const deserializeAws_json1_0DescribeConfigurationSetsResult = (
 ): DescribeConfigurationSetsResult => {
   return {
     ConfigurationSets:
-      output.ConfigurationSets != undefined
+      output.ConfigurationSets != null
         ? deserializeAws_json1_0ConfigurationSetInformationList(output.ConfigurationSets, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
@@ -4565,7 +4561,7 @@ const deserializeAws_json1_0DescribeConfigurationSetsResult = (
 const deserializeAws_json1_0DescribeKeywordsResult = (output: any, context: __SerdeContext): DescribeKeywordsResult => {
   return {
     Keywords:
-      output.Keywords != undefined ? deserializeAws_json1_0KeywordInformationList(output.Keywords, context) : undefined,
+      output.Keywords != null ? deserializeAws_json1_0KeywordInformationList(output.Keywords, context) : undefined,
     NextToken: __expectString(output.NextToken),
     OriginationIdentity: __expectString(output.OriginationIdentity),
     OriginationIdentityArn: __expectString(output.OriginationIdentityArn),
@@ -4581,7 +4577,7 @@ const deserializeAws_json1_0DescribeOptedOutNumbersResult = (
     OptOutListArn: __expectString(output.OptOutListArn),
     OptOutListName: __expectString(output.OptOutListName),
     OptedOutNumbers:
-      output.OptedOutNumbers != undefined
+      output.OptedOutNumbers != null
         ? deserializeAws_json1_0OptedOutNumberInformationList(output.OptedOutNumbers, context)
         : undefined,
   } as any;
@@ -4594,7 +4590,7 @@ const deserializeAws_json1_0DescribeOptOutListsResult = (
   return {
     NextToken: __expectString(output.NextToken),
     OptOutLists:
-      output.OptOutLists != undefined
+      output.OptOutLists != null
         ? deserializeAws_json1_0OptOutListInformationList(output.OptOutLists, context)
         : undefined,
   } as any;
@@ -4607,7 +4603,7 @@ const deserializeAws_json1_0DescribePhoneNumbersResult = (
   return {
     NextToken: __expectString(output.NextToken),
     PhoneNumbers:
-      output.PhoneNumbers != undefined
+      output.PhoneNumbers != null
         ? deserializeAws_json1_0PhoneNumberInformationList(output.PhoneNumbers, context)
         : undefined,
   } as any;
@@ -4616,7 +4612,7 @@ const deserializeAws_json1_0DescribePhoneNumbersResult = (
 const deserializeAws_json1_0DescribePoolsResult = (output: any, context: __SerdeContext): DescribePoolsResult => {
   return {
     NextToken: __expectString(output.NextToken),
-    Pools: output.Pools != undefined ? deserializeAws_json1_0PoolInformationList(output.Pools, context) : undefined,
+    Pools: output.Pools != null ? deserializeAws_json1_0PoolInformationList(output.Pools, context) : undefined,
   } as any;
 };
 
@@ -4627,9 +4623,7 @@ const deserializeAws_json1_0DescribeSenderIdsResult = (
   return {
     NextToken: __expectString(output.NextToken),
     SenderIds:
-      output.SenderIds != undefined
-        ? deserializeAws_json1_0SenderIdInformationList(output.SenderIds, context)
-        : undefined,
+      output.SenderIds != null ? deserializeAws_json1_0SenderIdInformationList(output.SenderIds, context) : undefined,
   } as any;
 };
 
@@ -4640,7 +4634,7 @@ const deserializeAws_json1_0DescribeSpendLimitsResult = (
   return {
     NextToken: __expectString(output.NextToken),
     SpendLimits:
-      output.SpendLimits != undefined ? deserializeAws_json1_0SpendLimitList(output.SpendLimits, context) : undefined,
+      output.SpendLimits != null ? deserializeAws_json1_0SpendLimitList(output.SpendLimits, context) : undefined,
   } as any;
 };
 
@@ -4660,23 +4654,21 @@ const deserializeAws_json1_0DisassociateOriginationIdentityResult = (
 const deserializeAws_json1_0EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
     CloudWatchLogsDestination:
-      output.CloudWatchLogsDestination != undefined
+      output.CloudWatchLogsDestination != null
         ? deserializeAws_json1_0CloudWatchLogsDestination(output.CloudWatchLogsDestination, context)
         : undefined,
     Enabled: __expectBoolean(output.Enabled),
     EventDestinationName: __expectString(output.EventDestinationName),
     KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination != undefined
+      output.KinesisFirehoseDestination != null
         ? deserializeAws_json1_0KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes != undefined
+      output.MatchingEventTypes != null
         ? deserializeAws_json1_0EventTypeList(output.MatchingEventTypes, context)
         : undefined,
     SnsDestination:
-      output.SnsDestination != undefined
-        ? deserializeAws_json1_0SnsDestination(output.SnsDestination, context)
-        : undefined,
+      output.SnsDestination != null ? deserializeAws_json1_0SnsDestination(output.SnsDestination, context) : undefined,
   } as any;
 };
 
@@ -4751,7 +4743,7 @@ const deserializeAws_json1_0ListPoolOriginationIdentitiesResult = (
   return {
     NextToken: __expectString(output.NextToken),
     OriginationIdentities:
-      output.OriginationIdentities != undefined
+      output.OriginationIdentities != null
         ? deserializeAws_json1_0OriginationIdentityMetadataList(output.OriginationIdentities, context)
         : undefined,
     PoolArn: __expectString(output.PoolArn),
@@ -4765,7 +4757,7 @@ const deserializeAws_json1_0ListTagsForResourceResult = (
 ): ListTagsForResourceResult => {
   return {
     ResourceArn: __expectString(output.ResourceArn),
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
   } as any;
 };
 
@@ -4804,7 +4796,7 @@ const deserializeAws_json1_0OptedOutNumberInformation = (
     EndUserOptedOut: __expectBoolean(output.EndUserOptedOut),
     OptedOutNumber: __expectString(output.OptedOutNumber),
     OptedOutTimestamp:
-      output.OptedOutTimestamp != undefined
+      output.OptedOutTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
         : undefined,
   } as any;
@@ -4828,7 +4820,7 @@ const deserializeAws_json1_0OptedOutNumberInformationList = (
 const deserializeAws_json1_0OptOutListInformation = (output: any, context: __SerdeContext): OptOutListInformation => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     OptOutListArn: __expectString(output.OptOutListArn),
@@ -4858,7 +4850,7 @@ const deserializeAws_json1_0OriginationIdentityMetadata = (
   return {
     IsoCountryCode: __expectString(output.IsoCountryCode),
     NumberCapabilities:
-      output.NumberCapabilities != undefined
+      output.NumberCapabilities != null
         ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
         : undefined,
     OriginationIdentity: __expectString(output.OriginationIdentity),
@@ -4884,7 +4876,7 @@ const deserializeAws_json1_0OriginationIdentityMetadataList = (
 const deserializeAws_json1_0PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -4892,7 +4884,7 @@ const deserializeAws_json1_0PhoneNumberInformation = (output: any, context: __Se
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != undefined
+      output.NumberCapabilities != null
         ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
         : undefined,
     NumberType: __expectString(output.NumberType),
@@ -4926,7 +4918,7 @@ const deserializeAws_json1_0PhoneNumberInformationList = (
 const deserializeAws_json1_0PoolInformation = (output: any, context: __SerdeContext): PoolInformation => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -4974,7 +4966,7 @@ const deserializeAws_json1_0PutOptedOutNumberResult = (
     OptOutListName: __expectString(output.OptOutListName),
     OptedOutNumber: __expectString(output.OptedOutNumber),
     OptedOutTimestamp:
-      output.OptedOutTimestamp != undefined
+      output.OptedOutTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.OptedOutTimestamp)))
         : undefined,
   } as any;
@@ -4986,14 +4978,14 @@ const deserializeAws_json1_0ReleasePhoneNumberResult = (
 ): ReleasePhoneNumberResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     IsoCountryCode: __expectString(output.IsoCountryCode),
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != undefined
+      output.NumberCapabilities != null
         ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
         : undefined,
     NumberType: __expectString(output.NumberType),
@@ -5014,7 +5006,7 @@ const deserializeAws_json1_0RequestPhoneNumberResult = (
 ): RequestPhoneNumberResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -5022,7 +5014,7 @@ const deserializeAws_json1_0RequestPhoneNumberResult = (
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != undefined
+      output.NumberCapabilities != null
         ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
         : undefined,
     NumberType: __expectString(output.NumberType),
@@ -5033,7 +5025,7 @@ const deserializeAws_json1_0RequestPhoneNumberResult = (
     PoolId: __expectString(output.PoolId),
     SelfManagedOptOutsEnabled: __expectBoolean(output.SelfManagedOptOutsEnabled),
     Status: __expectString(output.Status),
-    Tags: output.Tags != undefined ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
     TwoWayChannelArn: __expectString(output.TwoWayChannelArn),
     TwoWayEnabled: __expectBoolean(output.TwoWayEnabled),
   } as any;
@@ -5054,9 +5046,7 @@ const deserializeAws_json1_0SenderIdInformation = (output: any, context: __Serde
   return {
     IsoCountryCode: __expectString(output.IsoCountryCode),
     MessageTypes:
-      output.MessageTypes != undefined
-        ? deserializeAws_json1_0MessageTypeList(output.MessageTypes, context)
-        : undefined,
+      output.MessageTypes != null ? deserializeAws_json1_0MessageTypeList(output.MessageTypes, context) : undefined,
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     SenderId: __expectString(output.SenderId),
     SenderIdArn: __expectString(output.SenderIdArn),
@@ -5205,7 +5195,7 @@ const deserializeAws_json1_0UpdateEventDestinationResult = (
     ConfigurationSetArn: __expectString(output.ConfigurationSetArn),
     ConfigurationSetName: __expectString(output.ConfigurationSetName),
     EventDestination:
-      output.EventDestination != undefined
+      output.EventDestination != null
         ? deserializeAws_json1_0EventDestination(output.EventDestination, context)
         : undefined,
   } as any;
@@ -5217,7 +5207,7 @@ const deserializeAws_json1_0UpdatePhoneNumberResult = (
 ): UpdatePhoneNumberResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -5225,7 +5215,7 @@ const deserializeAws_json1_0UpdatePhoneNumberResult = (
     MessageType: __expectString(output.MessageType),
     MonthlyLeasingPrice: __expectString(output.MonthlyLeasingPrice),
     NumberCapabilities:
-      output.NumberCapabilities != undefined
+      output.NumberCapabilities != null
         ? deserializeAws_json1_0NumberCapabilityList(output.NumberCapabilities, context)
         : undefined,
     NumberType: __expectString(output.NumberType),
@@ -5243,7 +5233,7 @@ const deserializeAws_json1_0UpdatePhoneNumberResult = (
 const deserializeAws_json1_0UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolResult => {
   return {
     CreatedTimestamp:
-      output.CreatedTimestamp != undefined
+      output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
         : undefined,
     DeletionProtectionEnabled: __expectBoolean(output.DeletionProtectionEnabled),
@@ -5262,9 +5252,7 @@ const deserializeAws_json1_0UpdatePoolResult = (output: any, context: __SerdeCon
 const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Fields:
-      output.Fields != undefined
-        ? deserializeAws_json1_0ValidationExceptionFieldList(output.Fields, context)
-        : undefined,
+      output.Fields != null ? deserializeAws_json1_0ValidationExceptionFieldList(output.Fields, context) : undefined,
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;

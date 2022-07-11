@@ -517,8 +517,8 @@ export const serializeAws_restJson1RegisterDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Platform != undefined && { Platform: input.Platform }),
-    ...(input.Token != undefined && { Token: input.Token }),
+    ...(input.Platform != null && { Platform: input.Platform }),
+    ...(input.Token != null && { Token: input.Token }),
   });
   return new __HttpRequest({
     protocol,
@@ -552,7 +552,7 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Events != undefined && { Events: serializeAws_restJson1Events(input.Events, context) }),
+    ...(input.Events != null && { Events: serializeAws_restJson1Events(input.Events, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -587,10 +587,10 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CognitoStreams != undefined && {
+    ...(input.CognitoStreams != null && {
       CognitoStreams: serializeAws_restJson1CognitoStreams(input.CognitoStreams, context),
     }),
-    ...(input.PushSync != undefined && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
+    ...(input.PushSync != null && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -758,11 +758,11 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId != undefined && { DeviceId: input.DeviceId }),
-    ...(input.RecordPatches != undefined && {
+    ...(input.DeviceId != null && { DeviceId: input.DeviceId }),
+    ...(input.RecordPatches != null && {
       RecordPatches: serializeAws_restJson1RecordPatchList(input.RecordPatches, context),
     }),
-    ...(input.SyncSessionToken != undefined && { SyncSessionToken: input.SyncSessionToken }),
+    ...(input.SyncSessionToken != null && { SyncSessionToken: input.SyncSessionToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -2057,9 +2057,9 @@ const serializeAws_restJson1ApplicationArnList = (input: string[], context: __Se
 
 const serializeAws_restJson1CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
   return {
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
-    ...(input.StreamName != undefined && { StreamName: input.StreamName }),
-    ...(input.StreamingStatus != undefined && { StreamingStatus: input.StreamingStatus }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+    ...(input.StreamingStatus != null && { StreamingStatus: input.StreamingStatus }),
   };
 };
 
@@ -2077,22 +2077,22 @@ const serializeAws_restJson1Events = (input: Record<string, string>, context: __
 
 const serializeAws_restJson1PushSync = (input: PushSync, context: __SerdeContext): any => {
   return {
-    ...(input.ApplicationArns != undefined && {
+    ...(input.ApplicationArns != null && {
       ApplicationArns: serializeAws_restJson1ApplicationArnList(input.ApplicationArns, context),
     }),
-    ...(input.RoleArn != undefined && { RoleArn: input.RoleArn }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_restJson1RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
   return {
-    ...(input.DeviceLastModifiedDate != undefined && {
+    ...(input.DeviceLastModifiedDate != null && {
       DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000),
     }),
-    ...(input.Key != undefined && { Key: input.Key }),
-    ...(input.Op != undefined && { Op: input.Op }),
-    ...(input.SyncCount != undefined && { SyncCount: input.SyncCount }),
-    ...(input.Value != undefined && { Value: input.Value }),
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Op != null && { Op: input.Op }),
+    ...(input.SyncCount != null && { SyncCount: input.SyncCount }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -2130,7 +2130,7 @@ const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeCon
 const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
     CreationDate:
-      output.CreationDate != undefined
+      output.CreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DataStorage: __expectLong(output.DataStorage),
@@ -2138,7 +2138,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
     IdentityId: __expectString(output.IdentityId),
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
-      output.LastModifiedDate != undefined
+      output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     NumRecords: __expectLong(output.NumRecords),
@@ -2174,7 +2174,7 @@ const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __Serde
     DataStorage: __expectLong(output.DataStorage),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
-      output.LastModifiedDate != undefined
+      output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     SyncSessionsCount: __expectLong(output.SyncSessionsCount),
@@ -2200,7 +2200,7 @@ const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeCont
     IdentityId: __expectString(output.IdentityId),
     IdentityPoolId: __expectString(output.IdentityPoolId),
     LastModifiedDate:
-      output.LastModifiedDate != undefined
+      output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
   } as any;
@@ -2221,7 +2221,7 @@ const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __S
 const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext): PushSync => {
   return {
     ApplicationArns:
-      output.ApplicationArns != undefined
+      output.ApplicationArns != null
         ? deserializeAws_restJson1ApplicationArnList(output.ApplicationArns, context)
         : undefined,
     RoleArn: __expectString(output.RoleArn),
@@ -2231,13 +2231,13 @@ const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
     DeviceLastModifiedDate:
-      output.DeviceLastModifiedDate != undefined
+      output.DeviceLastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeviceLastModifiedDate)))
         : undefined,
     Key: __expectString(output.Key),
     LastModifiedBy: __expectString(output.LastModifiedBy),
     LastModifiedDate:
-      output.LastModifiedDate != undefined
+      output.LastModifiedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedDate)))
         : undefined,
     SyncCount: __expectLong(output.SyncCount),
