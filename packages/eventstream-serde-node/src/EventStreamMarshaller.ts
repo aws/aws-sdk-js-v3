@@ -4,15 +4,14 @@ import { Readable } from "stream";
 
 import { readabletoIterable } from "./utils";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
-
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
-export class EventStreamMarshaller {
-  private readonly universalMarshaller: UniversalEventStreamMarshaller;
+export class EventStreamMarshaller<T> implements IEventStreamMarshaller<T> {
+  private readonly universalMarshaller: UniversalEventStreamMarshaller<T>;
+
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {
     this.universalMarshaller = new UniversalEventStreamMarshaller({
       utf8Decoder,
@@ -20,7 +19,7 @@ export class EventStreamMarshaller {
     });
   }
 
-  deserialize<T>(body: Readable, deserializer: (input: Record<string, Message>) => Promise<T>): AsyncIterable<T> {
+  deserialize(body: Readable, deserializer: (input: Record<string, Message>) => Promise<T>): AsyncIterable<T> {
     //should use stream[Symbol.asyncIterable] when the api is stable
     //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
     const bodyIterable: AsyncIterable<Uint8Array> =
@@ -28,7 +27,7 @@ export class EventStreamMarshaller {
     return this.universalMarshaller.deserialize(bodyIterable, deserializer);
   }
 
-  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): Readable {
+  serialize(input: AsyncIterable<T>, serializer: (event: T) => Message): Readable {
     const serializedIterable = this.universalMarshaller.serialize(input, serializer);
     if (typeof Readable.from === "function") {
       //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
