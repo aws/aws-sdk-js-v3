@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
+
+
+### Features
+
+* **types:** add types to sdk stream utility mixin ([#3779](https://github.com/aws/aws-sdk-js-v3/issues/3779)) ([f311cab](https://github.com/aws/aws-sdk-js-v3/commit/f311cab406a16274dc2487dfe55c36b45a5811f5))
+
+
+
+
+
 # [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
 
 **Note:** Version bump only for package @aws-sdk/types

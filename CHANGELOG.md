@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
+
+
+### Features
+
+* **client-ec2:** Build, manage, and monitor a unified global network that connects resources running across your cloud and on-premises environments using the AWS Cloud WAN APIs. ([5105355](https://github.com/aws/aws-sdk-js-v3/commit/5105355828f8ca0d581309866f885d80b535f88b))
+* **client-redshift:** This release adds a new --snapshot-arn field for describe-cluster-snapshots, describe-node-configuration-options, restore-from-cluster-snapshot, authorize-snapshot-acsess, and revoke-snapshot-acsess APIs. It allows customers to give a Redshift snapshot ARN or a Redshift Serverless ARN as input. ([be3a0a8](https://github.com/aws/aws-sdk-js-v3/commit/be3a0a8fa60485521f0b137f1faceb78b4fad2ee))
+* **clients:** update client endpoints as of 2022-07-11 ([65a0485](https://github.com/aws/aws-sdk-js-v3/commit/65a0485cef3786eda9bc4d3186fd68c2dc84c809))
+* **types:** add types to sdk stream utility mixin ([#3779](https://github.com/aws/aws-sdk-js-v3/issues/3779)) ([f311cab](https://github.com/aws/aws-sdk-js-v3/commit/f311cab406a16274dc2487dfe55c36b45a5811f5))
+
+
+
+
+
 # [3.126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.125.0...v3.126.0) (2022-07-08)
 
 
