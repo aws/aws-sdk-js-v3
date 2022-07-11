@@ -87,9 +87,27 @@ export interface EventStreamSerdeContext {
   eventStreamMarshaller: EventStreamMarshaller;
 }
 
+/**
+ * A function which deserializes binary event stream message into modeled shape.
+ */
+export interface EventStreamMarshallerDeserFn {
+  <T>(body: any, deserializer: (input: Record<string, Message>) => Promise<T>): AsyncIterable<T>;
+}
+
+/**
+ * A function that serializes modeled shape into binary stream message.
+ */
+export interface EventStreamMarshallerSerFn {
+  <T>(input: AsyncIterable<T>, serializer: (event: T) => Message): any;
+}
+
+/**
+ * An interface which provides functions for serializing and deserializing binary event stream
+ * to/from corresponsing modeled shape.
+ */
 export interface EventStreamMarshaller {
-  deserialize: (body: any, deserializer: (input: Record<string, Message>) => any) => AsyncIterable<any>;
-  serialize: (input: AsyncIterable<any>, serializer: (event: any) => Message) => any;
+  deserialize: EventStreamMarshallerDeserFn;
+  serialize: EventStreamMarshallerSerFn;
 }
 
 export interface EventStreamRequestSigner {
