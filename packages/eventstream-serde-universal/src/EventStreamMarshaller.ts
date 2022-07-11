@@ -4,14 +4,12 @@ import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Mess
 import { getChunkedStream } from "./getChunkedStream";
 import { getUnmarshalledStream } from "./getUnmarshalledStream";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
-
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
 }
 
-export class EventStreamMarshaller {
+export class EventStreamMarshaller<T> implements IEventStreamMarshaller<T> {
   private readonly eventStreamCodec: EventStreamCodec;
   private readonly utfEncoder: Encoder;
 
@@ -20,7 +18,7 @@ export class EventStreamMarshaller {
     this.utfEncoder = utf8Encoder;
   }
 
-  deserialize<T>(
+  deserialize(
     body: AsyncIterable<Uint8Array>,
     deserializer: (input: Record<string, Message>) => Promise<T>
   ): AsyncIterable<T> {
@@ -33,7 +31,7 @@ export class EventStreamMarshaller {
     return unmarshalledStream;
   }
 
-  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
+  serialize(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     const serializedIterator = async function* () {
