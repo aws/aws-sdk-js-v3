@@ -9,7 +9,13 @@ const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transfo
 /**
  * The stream handling utility functions for browsers and React Native
  */
-export const sdkStreamMixin = (stream: ReadableStream | Blob): SdkStream<ReadableStream | Blob> => {
+export const sdkStreamMixin = (stream: unknown): SdkStream<ReadableStream | Blob> => {
+  if (!isBlobInstance(stream) && !isReadableStreamIntance(stream)) {
+    //@ts-ignore
+    const name = stream?.__proto__?.constructor?.name || stream;
+    throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
+  }
+
   let transformed = false;
   const transformToByteArray = async () => {
     if (transformed) {
@@ -53,10 +59,10 @@ export const sdkStreamMixin = (stream: ReadableStream | Blob): SdkStream<Readabl
         throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
       }
       transformed = true;
-      if (typeof Blob === "function" && stream instanceof Blob) {
+      if (isBlobInstance(stream)) {
         // ReadableStream is undefined in React Native
         return blobToWebStream(stream);
-      } else if (typeof ReadableStream === "function" && stream instanceof ReadableStream) {
+      } else if (isReadableStreamIntance(stream)) {
         return stream;
       } else {
         throw new Error(`Cannot transform payload to web stream, got ${stream}`);
@@ -64,3 +70,8 @@ export const sdkStreamMixin = (stream: ReadableStream | Blob): SdkStream<Readabl
     },
   });
 };
+
+const isBlobInstance = (stream: unknown): stream is Blob => typeof Blob === "function" && stream instanceof Blob;
+
+const isReadableStreamIntance = (stream: unknown): stream is ReadableStream =>
+  typeof ReadableStream === "function" && stream instanceof ReadableStream;

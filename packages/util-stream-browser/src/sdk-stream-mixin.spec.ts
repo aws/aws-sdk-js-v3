@@ -31,10 +31,42 @@ describe(sdkStreamMixin.name, () => {
       }
     }
   };
+
+  let originalReadableStreamCtr = global.ReadableStream;
+  const mockReadableStream = jest.fn();
+  class ReadableStream {
+    constructor() {
+      mockReadableStream();
+    }
+  }
+
   let payloadStream: ReadableStream;
 
+  beforeAll(() => {
+    global.ReadableStream = ReadableStream as any;
+  });
+
   beforeEach(() => {
-    payloadStream = {} as unknown as ReadableStream;
+    originalReadableStreamCtr = global.ReadableStream;
+    jest.clearAllMocks();
+    payloadStream = new ReadableStream();
+  });
+
+  afterEach(() => {
+    global.ReadableStream = originalReadableStreamCtr;
+  });
+
+  it("should throw if input stream is not a Blob or Web Stream instance", () => {
+    const originalBlobCtr = global.Blob;
+    global.Blob = undefined;
+    global.ReadableStream = undefined;
+    try {
+      sdkStreamMixin({});
+      fail("expect unexpected stream to fail");
+    } catch (e) {
+      expect(e.message).toContain("nexpected stream implementation");
+      global.Blob = originalBlobCtr;
+    }
   });
 
   describe("transformToByteArray", () => {
@@ -113,24 +145,6 @@ describe(sdkStreamMixin.name, () => {
   });
 
   describe("transformToWebStream with ReadableStream payload", () => {
-    let originalReadableStreamCtr = global.ReadableStream;
-    const mockReadableStream = jest.fn();
-    class ReadableStream {
-      constructor() {
-        mockReadableStream();
-      }
-    }
-    global.ReadableStream = ReadableStream as any;
-
-    beforeEach(() => {
-      originalReadableStreamCtr = global.ReadableStream;
-      jest.clearAllMocks();
-    });
-
-    afterEach(() => {
-      global.ReadableStream = originalReadableStreamCtr;
-    });
-
     it("should return the payload if it is Web Stream instance", () => {
       const payloadStream = new ReadableStream();
       const sdkStream = sdkStreamMixin(payloadStream as any);
@@ -162,6 +176,7 @@ describe(sdkStreamMixin.name, () => {
     global.Blob = Blob as any;
 
     beforeEach(() => {
+      global.ReadableStream = undefined;
       originalBlobCtr = global.Blob;
       jest.clearAllMocks();
     });
