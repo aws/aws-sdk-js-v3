@@ -3,8 +3,6 @@ import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Mess
 
 import { iterableToReadableStream, readableStreamtoIterable } from "./utils";
 
-export interface EventStreamMarshaller extends IEventStreamMarshaller {}
-
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
@@ -26,8 +24,9 @@ export interface EventStreamMarshallerOptions {
  * Whereas in ReactNative, ReadableStream API is not available, we use async iterable
  * for streaming data although it has lower throughput.
  */
-export class EventStreamMarshaller {
-  private readonly universalMarshaller: UniversalEventStreamMarshaller;
+export class EventStreamMarshaller<T> implements IEventStreamMarshaller<T> {
+  private readonly universalMarshaller: UniversalEventStreamMarshaller<T>;
+
   constructor({ utf8Encoder, utf8Decoder }: EventStreamMarshallerOptions) {
     this.universalMarshaller = new UniversalEventStreamMarshaller({
       utf8Decoder,
@@ -35,7 +34,7 @@ export class EventStreamMarshaller {
     });
   }
 
-  deserialize<T>(
+  deserialize(
     body: ReadableStream<Uint8Array> | AsyncIterable<Uint8Array>,
     deserializer: (input: Record<string, Message>) => Promise<T>
   ): AsyncIterable<T> {
@@ -53,7 +52,7 @@ export class EventStreamMarshaller {
    * * https://bugzilla.mozilla.org/show_bug.cgi?id=1387483
    *
    */
-  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): ReadableStream | AsyncIterable<Uint8Array> {
+  serialize(input: AsyncIterable<T>, serializer: (event: T) => Message): ReadableStream | AsyncIterable<Uint8Array> {
     const serialziedIterable = this.universalMarshaller.serialize(input, serializer);
     return typeof ReadableStream === "function" ? iterableToReadableStream(serialziedIterable) : serialziedIterable;
   }
