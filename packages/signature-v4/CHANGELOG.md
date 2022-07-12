@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
+
+
+### Bug Fixes
+
+* **signature-v4:** getCanonicalHeaders ignores undefined header values ([#3789](https://github.com/aws/aws-sdk-js-v3/issues/3789)) ([78690d3](https://github.com/aws/aws-sdk-js-v3/commit/78690d3eb0e86b6752e6b3564c3c9f70cae385c1))
+
+
+
+
+
 # [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4

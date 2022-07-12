@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
+
+
+### Features
+
+* **client-networkmanager:** This release adds general availability API support for AWS Cloud WAN. ([a02b73f](https://github.com/aws/aws-sdk-js-v3/commit/a02b73f392805801a305324265c920c45f2d66a0))
+
+
+
+
+
 # [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
 
 **Note:** Version bump only for package @aws-sdk/client-networkmanager
