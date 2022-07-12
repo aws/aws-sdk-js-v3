@@ -1,4 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HeaderBag } from "@aws-sdk/types";
 
 import { ALWAYS_UNSIGNABLE_HEADERS } from "./constants";
 import { getCanonicalHeaders } from "./getCanonicalHeaders";
@@ -47,6 +48,24 @@ describe("getCanonicalHeaders", () => {
       host: "foo.us-east-1.amazonaws.com",
       foo: "bar",
     });
+  });
+
+  it("should ignore headers with undefined values", () => {
+    const headers: HeaderBag = {
+      "x-amz-user-agent": "aws-sdk-js-v3",
+      host: "foo.us-east-1.amazonaws.com",
+    };
+
+    (headers.foo as any) = undefined;
+    const request = new HttpRequest({
+      method: "POST",
+      protocol: "https:",
+      path: "/",
+      headers,
+      hostname: "foo.us-east-1.amazonaws.com",
+    });
+
+    expect(getCanonicalHeaders(request)).toEqual(headers);
   });
 
   it("should allow specifying custom unsignable headers", () => {
