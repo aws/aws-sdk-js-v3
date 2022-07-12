@@ -19,7 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/node-http-handler": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-buffer-from": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
