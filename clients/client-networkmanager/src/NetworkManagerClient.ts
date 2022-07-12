@@ -86,6 +86,14 @@ import {
   CreateSiteToSiteVpnAttachmentCommandOutput,
 } from "./commands/CreateSiteToSiteVpnAttachmentCommand";
 import {
+  CreateTransitGatewayPeeringCommandInput,
+  CreateTransitGatewayPeeringCommandOutput,
+} from "./commands/CreateTransitGatewayPeeringCommand";
+import {
+  CreateTransitGatewayRouteTableAttachmentCommandInput,
+  CreateTransitGatewayRouteTableAttachmentCommandOutput,
+} from "./commands/CreateTransitGatewayRouteTableAttachmentCommand";
+import {
   CreateVpcAttachmentCommandInput,
   CreateVpcAttachmentCommandOutput,
 } from "./commands/CreateVpcAttachmentCommand";
@@ -103,6 +111,7 @@ import {
   DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
 import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import { DeletePeeringCommandInput, DeletePeeringCommandOutput } from "./commands/DeletePeeringCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -143,6 +152,10 @@ import {
   GetConnectPeerAssociationsCommandOutput,
 } from "./commands/GetConnectPeerAssociationsCommand";
 import { GetConnectPeerCommandInput, GetConnectPeerCommandOutput } from "./commands/GetConnectPeerCommand";
+import {
+  GetCoreNetworkChangeEventsCommandInput,
+  GetCoreNetworkChangeEventsCommandOutput,
+} from "./commands/GetCoreNetworkChangeEventsCommand";
 import {
   GetCoreNetworkChangeSetCommandInput,
   GetCoreNetworkChangeSetCommandOutput,
@@ -191,9 +204,17 @@ import {
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import {
+  GetTransitGatewayPeeringCommandInput,
+  GetTransitGatewayPeeringCommandOutput,
+} from "./commands/GetTransitGatewayPeeringCommand";
+import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
+import {
+  GetTransitGatewayRouteTableAttachmentCommandInput,
+  GetTransitGatewayRouteTableAttachmentCommandOutput,
+} from "./commands/GetTransitGatewayRouteTableAttachmentCommand";
 import { GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput } from "./commands/GetVpcAttachmentCommand";
 import { ListAttachmentsCommandInput, ListAttachmentsCommandOutput } from "./commands/ListAttachmentsCommand";
 import { ListConnectPeersCommandInput, ListConnectPeersCommandOutput } from "./commands/ListConnectPeersCommand";
@@ -206,6 +227,7 @@ import {
   ListOrganizationServiceAccessStatusCommandInput,
   ListOrganizationServiceAccessStatusCommandOutput,
 } from "./commands/ListOrganizationServiceAccessStatusCommand";
+import { ListPeeringsCommandInput, ListPeeringsCommandOutput } from "./commands/ListPeeringsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -265,6 +287,8 @@ export type ServiceInputTypes =
   | CreateLinkCommandInput
   | CreateSiteCommandInput
   | CreateSiteToSiteVpnAttachmentCommandInput
+  | CreateTransitGatewayPeeringCommandInput
+  | CreateTransitGatewayRouteTableAttachmentCommandInput
   | CreateVpcAttachmentCommandInput
   | DeleteAttachmentCommandInput
   | DeleteConnectPeerCommandInput
@@ -274,6 +298,7 @@ export type ServiceInputTypes =
   | DeleteDeviceCommandInput
   | DeleteGlobalNetworkCommandInput
   | DeleteLinkCommandInput
+  | DeletePeeringCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteSiteCommandInput
   | DeregisterTransitGatewayCommandInput
@@ -287,6 +312,7 @@ export type ServiceInputTypes =
   | GetConnectPeerAssociationsCommandInput
   | GetConnectPeerCommandInput
   | GetConnectionsCommandInput
+  | GetCoreNetworkChangeEventsCommandInput
   | GetCoreNetworkChangeSetCommandInput
   | GetCoreNetworkCommandInput
   | GetCoreNetworkPolicyCommandInput
@@ -304,13 +330,16 @@ export type ServiceInputTypes =
   | GetSiteToSiteVpnAttachmentCommandInput
   | GetSitesCommandInput
   | GetTransitGatewayConnectPeerAssociationsCommandInput
+  | GetTransitGatewayPeeringCommandInput
   | GetTransitGatewayRegistrationsCommandInput
+  | GetTransitGatewayRouteTableAttachmentCommandInput
   | GetVpcAttachmentCommandInput
   | ListAttachmentsCommandInput
   | ListConnectPeersCommandInput
   | ListCoreNetworkPolicyVersionsCommandInput
   | ListCoreNetworksCommandInput
   | ListOrganizationServiceAccessStatusCommandInput
+  | ListPeeringsCommandInput
   | ListTagsForResourceCommandInput
   | PutCoreNetworkPolicyCommandInput
   | PutResourcePolicyCommandInput
@@ -345,6 +374,8 @@ export type ServiceOutputTypes =
   | CreateLinkCommandOutput
   | CreateSiteCommandOutput
   | CreateSiteToSiteVpnAttachmentCommandOutput
+  | CreateTransitGatewayPeeringCommandOutput
+  | CreateTransitGatewayRouteTableAttachmentCommandOutput
   | CreateVpcAttachmentCommandOutput
   | DeleteAttachmentCommandOutput
   | DeleteConnectPeerCommandOutput
@@ -354,6 +385,7 @@ export type ServiceOutputTypes =
   | DeleteDeviceCommandOutput
   | DeleteGlobalNetworkCommandOutput
   | DeleteLinkCommandOutput
+  | DeletePeeringCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteSiteCommandOutput
   | DeregisterTransitGatewayCommandOutput
@@ -367,6 +399,7 @@ export type ServiceOutputTypes =
   | GetConnectPeerAssociationsCommandOutput
   | GetConnectPeerCommandOutput
   | GetConnectionsCommandOutput
+  | GetCoreNetworkChangeEventsCommandOutput
   | GetCoreNetworkChangeSetCommandOutput
   | GetCoreNetworkCommandOutput
   | GetCoreNetworkPolicyCommandOutput
@@ -384,13 +417,16 @@ export type ServiceOutputTypes =
   | GetSiteToSiteVpnAttachmentCommandOutput
   | GetSitesCommandOutput
   | GetTransitGatewayConnectPeerAssociationsCommandOutput
+  | GetTransitGatewayPeeringCommandOutput
   | GetTransitGatewayRegistrationsCommandOutput
+  | GetTransitGatewayRouteTableAttachmentCommandOutput
   | GetVpcAttachmentCommandOutput
   | ListAttachmentsCommandOutput
   | ListConnectPeersCommandOutput
   | ListCoreNetworkPolicyVersionsCommandOutput
   | ListCoreNetworksCommandOutput
   | ListOrganizationServiceAccessStatusCommandOutput
+  | ListPeeringsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutCoreNetworkPolicyCommandOutput
   | PutResourcePolicyCommandOutput

@@ -64,6 +64,16 @@ import {
   CreateSiteToSiteVpnAttachmentCommandOutput,
 } from "./commands/CreateSiteToSiteVpnAttachmentCommand";
 import {
+  CreateTransitGatewayPeeringCommand,
+  CreateTransitGatewayPeeringCommandInput,
+  CreateTransitGatewayPeeringCommandOutput,
+} from "./commands/CreateTransitGatewayPeeringCommand";
+import {
+  CreateTransitGatewayRouteTableAttachmentCommand,
+  CreateTransitGatewayRouteTableAttachmentCommandInput,
+  CreateTransitGatewayRouteTableAttachmentCommandOutput,
+} from "./commands/CreateTransitGatewayRouteTableAttachmentCommand";
+import {
   CreateVpcAttachmentCommand,
   CreateVpcAttachmentCommandInput,
   CreateVpcAttachmentCommandOutput,
@@ -104,6 +114,11 @@ import {
   DeleteGlobalNetworkCommandOutput,
 } from "./commands/DeleteGlobalNetworkCommand";
 import { DeleteLinkCommand, DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import {
+  DeletePeeringCommand,
+  DeletePeeringCommandInput,
+  DeletePeeringCommandOutput,
+} from "./commands/DeletePeeringCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
@@ -165,6 +180,11 @@ import {
   GetConnectPeerCommandInput,
   GetConnectPeerCommandOutput,
 } from "./commands/GetConnectPeerCommand";
+import {
+  GetCoreNetworkChangeEventsCommand,
+  GetCoreNetworkChangeEventsCommandInput,
+  GetCoreNetworkChangeEventsCommandOutput,
+} from "./commands/GetCoreNetworkChangeEventsCommand";
 import {
   GetCoreNetworkChangeSetCommand,
   GetCoreNetworkChangeSetCommandInput,
@@ -239,10 +259,20 @@ import {
   GetTransitGatewayConnectPeerAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayConnectPeerAssociationsCommand";
 import {
+  GetTransitGatewayPeeringCommand,
+  GetTransitGatewayPeeringCommandInput,
+  GetTransitGatewayPeeringCommandOutput,
+} from "./commands/GetTransitGatewayPeeringCommand";
+import {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
 } from "./commands/GetTransitGatewayRegistrationsCommand";
+import {
+  GetTransitGatewayRouteTableAttachmentCommand,
+  GetTransitGatewayRouteTableAttachmentCommandInput,
+  GetTransitGatewayRouteTableAttachmentCommandOutput,
+} from "./commands/GetTransitGatewayRouteTableAttachmentCommand";
 import {
   GetVpcAttachmentCommand,
   GetVpcAttachmentCommandInput,
@@ -273,6 +303,11 @@ import {
   ListOrganizationServiceAccessStatusCommandInput,
   ListOrganizationServiceAccessStatusCommandOutput,
 } from "./commands/ListOrganizationServiceAccessStatusCommand";
+import {
+  ListPeeringsCommand,
+  ListPeeringsCommandInput,
+  ListPeeringsCommandOutput,
+} from "./commands/ListPeeringsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -813,6 +848,72 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Creates a transit gateway peering connection.</p>
+   */
+  public createTransitGatewayPeering(
+    args: CreateTransitGatewayPeeringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayPeeringCommandOutput>;
+  public createTransitGatewayPeering(
+    args: CreateTransitGatewayPeeringCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayPeeringCommandOutput) => void
+  ): void;
+  public createTransitGatewayPeering(
+    args: CreateTransitGatewayPeeringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayPeeringCommandOutput) => void
+  ): void;
+  public createTransitGatewayPeering(
+    args: CreateTransitGatewayPeeringCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitGatewayPeeringCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayPeeringCommandOutput) => void
+  ): Promise<CreateTransitGatewayPeeringCommandOutput> | void {
+    const command = new CreateTransitGatewayPeeringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a transit gateway route table attachment.</p>
+   */
+  public createTransitGatewayRouteTableAttachment(
+    args: CreateTransitGatewayRouteTableAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayRouteTableAttachmentCommandOutput>;
+  public createTransitGatewayRouteTableAttachment(
+    args: CreateTransitGatewayRouteTableAttachmentCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): void;
+  public createTransitGatewayRouteTableAttachment(
+    args: CreateTransitGatewayRouteTableAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): void;
+  public createTransitGatewayRouteTableAttachment(
+    args: CreateTransitGatewayRouteTableAttachmentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTransitGatewayRouteTableAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): Promise<CreateTransitGatewayRouteTableAttachmentCommandOutput> | void {
+    const command = new CreateTransitGatewayRouteTableAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a VPC attachment on an edge location of a core network.</p>
    */
   public createVpcAttachment(
@@ -1084,6 +1185,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: DeleteLinkCommandOutput) => void
   ): Promise<DeleteLinkCommandOutput> | void {
     const command = new DeleteLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing peering connection.</p>
+   */
+  public deletePeering(
+    args: DeletePeeringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePeeringCommandOutput>;
+  public deletePeering(
+    args: DeletePeeringCommandInput,
+    cb: (err: any, data?: DeletePeeringCommandOutput) => void
+  ): void;
+  public deletePeering(
+    args: DeletePeeringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePeeringCommandOutput) => void
+  ): void;
+  public deletePeering(
+    args: DeletePeeringCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePeeringCommandOutput) => void),
+    cb?: (err: any, data?: DeletePeeringCommandOutput) => void
+  ): Promise<DeletePeeringCommandOutput> | void {
+    const command = new DeletePeeringCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1544,6 +1677,38 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Returns information about a core network change event.</p>
+   */
+  public getCoreNetworkChangeEvents(
+    args: GetCoreNetworkChangeEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoreNetworkChangeEventsCommandOutput>;
+  public getCoreNetworkChangeEvents(
+    args: GetCoreNetworkChangeEventsCommandInput,
+    cb: (err: any, data?: GetCoreNetworkChangeEventsCommandOutput) => void
+  ): void;
+  public getCoreNetworkChangeEvents(
+    args: GetCoreNetworkChangeEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCoreNetworkChangeEventsCommandOutput) => void
+  ): void;
+  public getCoreNetworkChangeEvents(
+    args: GetCoreNetworkChangeEventsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoreNetworkChangeEventsCommandOutput) => void),
+    cb?: (err: any, data?: GetCoreNetworkChangeEventsCommandOutput) => void
+  ): Promise<GetCoreNetworkChangeEventsCommandOutput> | void {
+    const command = new GetCoreNetworkChangeEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
    */
   public getCoreNetworkChangeSet(
@@ -1576,7 +1741,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Gets details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
+   * <p>Returns details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
    */
   public getCoreNetworkPolicy(
     args: GetCoreNetworkPolicyCommandInput,
@@ -2044,6 +2209,38 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Returns information about a transit gateway peer.</p>
+   */
+  public getTransitGatewayPeering(
+    args: GetTransitGatewayPeeringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayPeeringCommandOutput>;
+  public getTransitGatewayPeering(
+    args: GetTransitGatewayPeeringCommandInput,
+    cb: (err: any, data?: GetTransitGatewayPeeringCommandOutput) => void
+  ): void;
+  public getTransitGatewayPeering(
+    args: GetTransitGatewayPeeringCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayPeeringCommandOutput) => void
+  ): void;
+  public getTransitGatewayPeering(
+    args: GetTransitGatewayPeeringCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTransitGatewayPeeringCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayPeeringCommandOutput) => void
+  ): Promise<GetTransitGatewayPeeringCommandOutput> | void {
+    const command = new GetTransitGatewayPeeringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about the transit gateway registrations in a specified
    *             global network.</p>
    */
@@ -2066,6 +2263,40 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void
   ): Promise<GetTransitGatewayRegistrationsCommandOutput> | void {
     const command = new GetTransitGatewayRegistrationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a transit gateway route table attachment.</p>
+   */
+  public getTransitGatewayRouteTableAttachment(
+    args: GetTransitGatewayRouteTableAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput>;
+  public getTransitGatewayRouteTableAttachment(
+    args: GetTransitGatewayRouteTableAttachmentCommandInput,
+    cb: (err: any, data?: GetTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): void;
+  public getTransitGatewayRouteTableAttachment(
+    args: GetTransitGatewayRouteTableAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): void;
+  public getTransitGatewayRouteTableAttachment(
+    args: GetTransitGatewayRouteTableAttachmentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTransitGatewayRouteTableAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayRouteTableAttachmentCommandOutput) => void
+  ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput> | void {
+    const command = new GetTransitGatewayRouteTableAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2236,6 +2467,9 @@ export class NetworkManager extends NetworkManagerClient {
     }
   }
 
+  /**
+   * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
+   */
   public listOrganizationServiceAccessStatus(
     args: ListOrganizationServiceAccessStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -2255,6 +2489,35 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void
   ): Promise<ListOrganizationServiceAccessStatusCommandOutput> | void {
     const command = new ListOrganizationServiceAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the peerings for a core network.</p>
+   */
+  public listPeerings(
+    args: ListPeeringsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPeeringsCommandOutput>;
+  public listPeerings(args: ListPeeringsCommandInput, cb: (err: any, data?: ListPeeringsCommandOutput) => void): void;
+  public listPeerings(
+    args: ListPeeringsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPeeringsCommandOutput) => void
+  ): void;
+  public listPeerings(
+    args: ListPeeringsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPeeringsCommandOutput) => void),
+    cb?: (err: any, data?: ListPeeringsCommandOutput) => void
+  ): Promise<ListPeeringsCommandOutput> | void {
+    const command = new ListPeeringsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2459,6 +2722,9 @@ export class NetworkManager extends NetworkManagerClient {
     }
   }
 
+  /**
+   * <p>Enables for the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
+   */
   public startOrganizationServiceAccessUpdate(
     args: StartOrganizationServiceAccessUpdateCommandInput,
     options?: __HttpHandlerOptions

@@ -12,42 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCoreNetworkPolicyRequest, GetCoreNetworkPolicyResponse } from "../models/models_0";
+import { GetCoreNetworkChangeEventsRequest, GetCoreNetworkChangeEventsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetCoreNetworkPolicyCommand,
-  serializeAws_restJson1GetCoreNetworkPolicyCommand,
+  deserializeAws_restJson1GetCoreNetworkChangeEventsCommand,
+  serializeAws_restJson1GetCoreNetworkChangeEventsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface GetCoreNetworkPolicyCommandInput extends GetCoreNetworkPolicyRequest {}
-export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyResponse, __MetadataBearer {}
+export interface GetCoreNetworkChangeEventsCommandInput extends GetCoreNetworkChangeEventsRequest {}
+export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkChangeEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
+ * <p>Returns information about a core network change event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, GetCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, GetCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, GetCoreNetworkChangeEventsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const command = new GetCoreNetworkPolicyCommand(input);
+ * const command = new GetCoreNetworkChangeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetCoreNetworkPolicyCommandInput} for command's `input` shape.
- * @see {@link GetCoreNetworkPolicyCommandOutput} for command's `response` shape.
+ * @see {@link GetCoreNetworkChangeEventsCommandInput} for command's `input` shape.
+ * @see {@link GetCoreNetworkChangeEventsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
-export class GetCoreNetworkPolicyCommand extends $Command<
-  GetCoreNetworkPolicyCommandInput,
-  GetCoreNetworkPolicyCommandOutput,
+export class GetCoreNetworkChangeEventsCommand extends $Command<
+  GetCoreNetworkChangeEventsCommandInput,
+  GetCoreNetworkChangeEventsCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetCoreNetworkPolicyCommandInput) {
+  constructor(readonly input: GetCoreNetworkChangeEventsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class GetCoreNetworkPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetCoreNetworkPolicyCommandInput, GetCoreNetworkPolicyCommandOutput> {
+  ): Handler<GetCoreNetworkChangeEventsCommandInput, GetCoreNetworkChangeEventsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "NetworkManagerClient";
-    const commandName = "GetCoreNetworkPolicyCommand";
+    const commandName = "GetCoreNetworkChangeEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCoreNetworkChangeEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCoreNetworkChangeEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,15 @@ export class GetCoreNetworkPolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: GetCoreNetworkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkPolicyCommand(input, context);
+  private serialize(input: GetCoreNetworkChangeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetCoreNetworkChangeEventsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkPolicyCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkPolicyCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetCoreNetworkChangeEventsCommandOutput> {
+    return deserializeAws_restJson1GetCoreNetworkChangeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -27,6 +27,23 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
   extends ListOrganizationServiceAccessStatusResponse,
     __MetadataBearer {}
 
+/**
+ * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, ListOrganizationServiceAccessStatusCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * const client = new NetworkManagerClient(config);
+ * const command = new ListOrganizationServiceAccessStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOrganizationServiceAccessStatusCommandInput} for command's `input` shape.
+ * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ */
 export class ListOrganizationServiceAccessStatusCommand extends $Command<
   ListOrganizationServiceAccessStatusCommandInput,
   ListOrganizationServiceAccessStatusCommandOutput,

@@ -13,46 +13,47 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  StartOrganizationServiceAccessUpdateRequest,
-  StartOrganizationServiceAccessUpdateResponse,
+  GetTransitGatewayRouteTableAttachmentRequest,
+  GetTransitGatewayRouteTableAttachmentResponse,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1StartOrganizationServiceAccessUpdateCommand,
-  serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand,
+  deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
+  serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface StartOrganizationServiceAccessUpdateCommandInput extends StartOrganizationServiceAccessUpdateRequest {}
-export interface StartOrganizationServiceAccessUpdateCommandOutput
-  extends StartOrganizationServiceAccessUpdateResponse,
+export interface GetTransitGatewayRouteTableAttachmentCommandInput
+  extends GetTransitGatewayRouteTableAttachmentRequest {}
+export interface GetTransitGatewayRouteTableAttachmentCommandOutput
+  extends GetTransitGatewayRouteTableAttachmentResponse,
     __MetadataBearer {}
 
 /**
- * <p>Enables for the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
+ * <p>Returns information about a transit gateway route table attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, StartOrganizationServiceAccessUpdateCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, GetTransitGatewayRouteTableAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const command = new StartOrganizationServiceAccessUpdateCommand(input);
+ * const command = new GetTransitGatewayRouteTableAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartOrganizationServiceAccessUpdateCommandInput} for command's `input` shape.
- * @see {@link StartOrganizationServiceAccessUpdateCommandOutput} for command's `response` shape.
+ * @see {@link GetTransitGatewayRouteTableAttachmentCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayRouteTableAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
-export class StartOrganizationServiceAccessUpdateCommand extends $Command<
-  StartOrganizationServiceAccessUpdateCommandInput,
-  StartOrganizationServiceAccessUpdateCommandOutput,
+export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
+  GetTransitGatewayRouteTableAttachmentCommandInput,
+  GetTransitGatewayRouteTableAttachmentCommandOutput,
   NetworkManagerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: StartOrganizationServiceAccessUpdateCommandInput) {
+  constructor(readonly input: GetTransitGatewayRouteTableAttachmentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +66,20 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartOrganizationServiceAccessUpdateCommandInput, StartOrganizationServiceAccessUpdateCommandOutput> {
+  ): Handler<GetTransitGatewayRouteTableAttachmentCommandInput, GetTransitGatewayRouteTableAttachmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "NetworkManagerClient";
-    const commandName = "StartOrganizationServiceAccessUpdateCommand";
+    const commandName = "GetTransitGatewayRouteTableAttachmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOrganizationServiceAccessUpdateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartOrganizationServiceAccessUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTransitGatewayRouteTableAttachmentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayRouteTableAttachmentResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,17 +90,17 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
   }
 
   private serialize(
-    input: StartOrganizationServiceAccessUpdateCommandInput,
+    input: GetTransitGatewayRouteTableAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartOrganizationServiceAccessUpdateCommand(input, context);
+    return serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<StartOrganizationServiceAccessUpdateCommandOutput> {
-    return deserializeAws_restJson1StartOrganizationServiceAccessUpdateCommand(output, context);
+  ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput> {
+    return deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

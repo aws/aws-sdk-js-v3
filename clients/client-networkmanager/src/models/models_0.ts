@@ -26,6 +26,7 @@ export namespace AcceptAttachmentRequest {
 export enum AttachmentType {
   CONNECT = "CONNECT",
   SITE_TO_SITE_VPN = "SITE_TO_SITE_VPN",
+  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
   VPC = "VPC",
 }
 
@@ -60,7 +61,7 @@ export namespace Tag {
  */
 export interface ProposedSegmentChange {
   /**
-   * <p>The key-value tags that changed for the segment.</p>
+   * <p>The list of key-value tags that changed for the segment.</p>
    */
   Tags?: Tag[];
 
@@ -101,7 +102,7 @@ export enum AttachmentState {
  */
 export interface Attachment {
   /**
-   * <p>A core network ID.</p>
+   * <p>The ID of a core network.</p>
    */
   CoreNetworkId?: string;
 
@@ -403,8 +404,18 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * <p>Describes the current status of an account within an Amazon Web Services Organization, including service-linked roles (SLRs).</p>
+ */
 export interface AccountStatus {
+  /**
+   * <p>The ID of an account within the Amazon Web Services Organization.</p>
+   */
   AccountId?: string;
+
+  /**
+   * <p>The status of SLR deployment for the account.</p>
+   */
   SLRDeploymentStatus?: string;
 }
 
@@ -910,12 +921,23 @@ export enum ChangeSetState {
   READY_TO_EXECUTE = "READY_TO_EXECUTE",
 }
 
+export enum ChangeStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+}
+
 export enum ChangeType {
   ATTACHMENT_MAPPING = "ATTACHMENT_MAPPING",
+  ATTACHMENT_POLICIES_CONFIGURATION = "ATTACHMENT_POLICIES_CONFIGURATION",
   ATTACHMENT_ROUTE_PROPAGATION = "ATTACHMENT_ROUTE_PROPAGATION",
   ATTACHMENT_ROUTE_STATIC = "ATTACHMENT_ROUTE_STATIC",
+  CORE_NETWORK_CONFIGURATION = "CORE_NETWORK_CONFIGURATION",
   CORE_NETWORK_EDGE = "CORE_NETWORK_EDGE",
   CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
+  SEGMENTS_CONFIGURATION = "SEGMENTS_CONFIGURATION",
+  SEGMENT_ACTIONS_CONFIGURATION = "SEGMENT_ACTIONS_CONFIGURATION",
 }
 
 export enum TunnelProtocol {
@@ -1205,7 +1227,7 @@ export interface ConnectPeer {
   Configuration?: ConnectPeerConfiguration;
 
   /**
-   * <p>The tags associated with the Connect peer.</p>
+   * <p>The list of key-value tags associated with the Connect peer.</p>
    */
   Tags?: Tag[];
 }
@@ -1254,7 +1276,7 @@ export interface ConnectPeerSummary {
   CreatedAt?: Date;
 
   /**
-   * <p>The tags associated with a Connect peer summary.</p>
+   * <p>The list of key-value tags associated with the Connect peer summary.</p>
    */
   Tags?: Tag[];
 }
@@ -1378,7 +1400,7 @@ export interface CoreNetwork {
   Edges?: CoreNetworkEdge[];
 
   /**
-   * <p>The tags associated with a core network.</p>
+   * <p>The list of key-value tags associated with a core network.</p>
    */
   Tags?: Tag[];
 }
@@ -1469,6 +1491,11 @@ export interface CoreNetworkChange {
    * <p>The new value for a core network</p>
    */
   NewValues?: CoreNetworkChangeValues;
+
+  /**
+   * <p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>"CORE_NETWORK_SEGMENT/us-east-1/devsegment"</code>.</p>
+   */
+  IdentifierPath?: string;
 }
 
 export namespace CoreNetworkChange {
@@ -1476,6 +1503,84 @@ export namespace CoreNetworkChange {
    * @internal
    */
   export const filterSensitiveLog = (obj: CoreNetworkChange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network change event.</p>
+ */
+export interface CoreNetworkChangeEventValues {
+  /**
+   * <p>The edge location for the core network change event.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The segment name if the change event is associated with a segment.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The ID of the attachment if the change event is associated with an attachment.  </p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>For a <code>STATIC_ROUTE</code> event, this is the IP address.</p>
+   */
+  Cidr?: string;
+}
+
+export namespace CoreNetworkChangeEventValues {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkChangeEventValues): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a core network change event. This can be a change to a segment, attachment, route, etc.</p>
+ */
+export interface CoreNetworkChangeEvent {
+  /**
+   * <p>Describes the type of change event. </p>
+   */
+  Type?: ChangeType | string;
+
+  /**
+   * <p>The action taken for the change event.</p>
+   */
+  Action?: ChangeAction | string;
+
+  /**
+   * <p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>"CORE_NETWORK_SEGMENT/us-east-1/devsegment"</code>.</p>
+   */
+  IdentifierPath?: string;
+
+  /**
+   * <p>The timestamp for an event change in status.</p>
+   */
+  EventTime?: Date;
+
+  /**
+   * <p>The status of the core network change event.</p>
+   */
+  Status?: ChangeStatus | string;
+
+  /**
+   * <p>Details of the change event.</p>
+   */
+  Values?: CoreNetworkChangeEventValues;
+}
+
+export namespace CoreNetworkChangeEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoreNetworkChangeEvent): any => ({
     ...obj,
   });
 }
@@ -2581,6 +2686,228 @@ export namespace CreateSiteToSiteVpnAttachmentResponse {
   });
 }
 
+export interface CreateTransitGatewayPeeringRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the transit gateway for the peering request.</p>
+   */
+  TransitGatewayArn: string | undefined;
+
+  /**
+   * <p>The list of key-value tags associated with the request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateTransitGatewayPeeringRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PeeringType {
+  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
+}
+
+export enum PeeringState {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+}
+
+/**
+ * <p>Describes a peering connection.</p>
+ */
+export interface Peering {
+  /**
+   * <p>The ID of the core network for the peering request.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The ARN of a core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The ID of the peering attachment. </p>
+   */
+  PeeringId?: string;
+
+  /**
+   * <p>The ID of the account owner.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>The type of peering. This will be <code>TRANSIT_GATEWAY</code>.</p>
+   */
+  PeeringType?: PeeringType | string;
+
+  /**
+   * <p>The current state of the peering connection. </p>
+   */
+  State?: PeeringState | string;
+
+  /**
+   * <p>The edge location for the peer.</p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>The resource ARN of the peer.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The list of key-value tags associated with the peering.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The timestamp when the attachment peer was created.</p>
+   */
+  CreatedAt?: Date;
+}
+
+export namespace Peering {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Peering): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a transit gateway peering attachment.</p>
+ */
+export interface TransitGatewayPeering {
+  /**
+   * <p>Describes a transit gateway peer connection.</p>
+   */
+  Peering?: Peering;
+
+  /**
+   * <p>The ARN of the transit gateway.</p>
+   */
+  TransitGatewayArn?: string;
+}
+
+export namespace TransitGatewayPeering {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayPeering): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayPeeringResponse {
+  /**
+   * <p>Returns information about the transit gateway peering connection request.</p>
+   */
+  TransitGatewayPeering?: TransitGatewayPeering;
+}
+
+export namespace CreateTransitGatewayPeeringResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayPeeringResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayRouteTableAttachmentRequest {
+  /**
+   * <p>The ID of the peer for the </p>
+   */
+  PeeringId: string | undefined;
+
+  /**
+   * <p>The ARN of the transit gateway route table for the attachment request.</p>
+   */
+  TransitGatewayRouteTableArn: string | undefined;
+
+  /**
+   * <p>The list of key-value tags associated with the request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateTransitGatewayRouteTableAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a transit gateway route table attachment.</p>
+ */
+export interface TransitGatewayRouteTableAttachment {
+  /**
+   * <p>Describes a core network attachment.</p>
+   */
+  Attachment?: Attachment;
+
+  /**
+   * <p>The ID of the peering attachment.</p>
+   */
+  PeeringId?: string;
+
+  /**
+   * <p>The ARN of the transit gateway attachment route table.</p>
+   */
+  TransitGatewayRouteTableArn?: string;
+}
+
+export namespace TransitGatewayRouteTableAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayRouteTableAttachment): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayRouteTableAttachmentResponse {
+  /**
+   * <p>The route table associated with the create transit gateway route table attachment request.</p>
+   */
+  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
+}
+
+export namespace CreateTransitGatewayRouteTableAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayRouteTableAttachmentResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the VPC options.</p>
  */
@@ -2959,6 +3286,38 @@ export namespace DeleteLinkResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteLinkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePeeringRequest {
+  /**
+   * <p>The ID of the peering connection to delete.</p>
+   */
+  PeeringId: string | undefined;
+}
+
+export namespace DeletePeeringRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePeeringRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePeeringResponse {
+  /**
+   * <p>Information about a deleted peering connection.</p>
+   */
+  Peering?: Peering;
+}
+
+export namespace DeletePeeringResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePeeringResponse): any => ({
     ...obj,
   });
 }
@@ -3559,6 +3918,58 @@ export namespace GetCoreNetworkResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetCoreNetworkResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkChangeEventsRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the policy version.</p>
+   */
+  PolicyVersionId: number | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCoreNetworkChangeEventsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkChangeEventsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCoreNetworkChangeEventsResponse {
+  /**
+   * <p>The response to <code>GetCoreNetworkChangeEventsRequest</code>.</p>
+   */
+  CoreNetworkChangeEvents?: CoreNetworkChangeEvent[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCoreNetworkChangeEventsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCoreNetworkChangeEventsResponse): any => ({
     ...obj,
   });
 }
@@ -4362,7 +4773,7 @@ export interface NetworkResource {
   RegisteredGatewayArn?: string;
 
   /**
-   * <p>a core network ID.</p>
+   * <p>The ID of a core network.</p>
    */
   CoreNetworkId?: string;
 
@@ -5444,6 +5855,38 @@ export namespace GetTransitGatewayConnectPeerAssociationsResponse {
   });
 }
 
+export interface GetTransitGatewayPeeringRequest {
+  /**
+   * <p>The ID of the peering request.</p>
+   */
+  PeeringId: string | undefined;
+}
+
+export namespace GetTransitGatewayPeeringRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPeeringRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayPeeringResponse {
+  /**
+   * <p>Returns information about a transit gateway peering. </p>
+   */
+  TransitGatewayPeering?: TransitGatewayPeering;
+}
+
+export namespace GetTransitGatewayPeeringResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayPeeringResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetTransitGatewayRegistrationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -5493,6 +5936,38 @@ export namespace GetTransitGatewayRegistrationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetTransitGatewayRegistrationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayRouteTableAttachmentRequest {
+  /**
+   * <p>The ID of the transit gateway route table attachment.</p>
+   */
+  AttachmentId: string | undefined;
+}
+
+export namespace GetTransitGatewayRouteTableAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTransitGatewayRouteTableAttachmentResponse {
+  /**
+   * <p>Returns information about the transit gateway route table attachment.</p>
+   */
+  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
+}
+
+export namespace GetTransitGatewayRouteTableAttachmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAttachmentResponse): any => ({
     ...obj,
   });
 }
@@ -5733,7 +6208,14 @@ export namespace ListCoreNetworksResponse {
 }
 
 export interface ListOrganizationServiceAccessStatusRequest {
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
 }
 
@@ -5746,10 +6228,28 @@ export namespace ListOrganizationServiceAccessStatusRequest {
   });
 }
 
+/**
+ * <p>The status of an Amazon Web Services Organization and the accounts within that organization.</p>
+ */
 export interface OrganizationStatus {
+  /**
+   * <p>The ID of an Amazon Web Services Organization.</p>
+   */
   OrganizationId?: string;
+
+  /**
+   * <p>The status  of the organization's AWS service access. This will be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
   OrganizationAwsServiceAccessStatus?: string;
+
+  /**
+   * <p>The status of the SLR deployment for the account. This will be either <code>SUCCEEDED</code> or <code>IN_PROGRESS</code>.</p>
+   */
   SLRDeploymentStatus?: string;
+
+  /**
+   * <p>The current service-linked role (SLR) deployment status for an Amazon Web Services Organization's accounts. This will be either <code>SUCCEEDED</code> or <code>IN_PROGRESS</code>.</p>
+   */
   AccountStatusList?: AccountStatus[];
 }
 
@@ -5763,7 +6263,14 @@ export namespace OrganizationStatus {
 }
 
 export interface ListOrganizationServiceAccessStatusResponse {
+  /**
+   * <p>Displays the status of an Amazon Web Services Organization.</p>
+   */
   OrganizationStatus?: OrganizationStatus;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
 }
 
@@ -5772,6 +6279,68 @@ export namespace ListOrganizationServiceAccessStatusResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListOrganizationServiceAccessStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPeeringsRequest {
+  /**
+   * <p>The ID of a core network.</p>
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>Returns a list of a peering requests.</p>
+   */
+  PeeringType?: PeeringType | string;
+
+  /**
+   * <p>Returns a list edge locations for the </p>
+   */
+  EdgeLocation?: string;
+
+  /**
+   * <p>Returns a list of the peering request states.</p>
+   */
+  State?: PeeringState | string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPeeringsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPeeringsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPeeringsResponse {
+  /**
+   * <p>Lists the transit gateway peerings for the <code>ListPeerings</code> request.</p>
+   */
+  Peerings?: Peering[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPeeringsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPeeringsResponse): any => ({
     ...obj,
   });
 }
@@ -5999,6 +6568,9 @@ export namespace RestoreCoreNetworkPolicyVersionResponse {
 }
 
 export interface StartOrganizationServiceAccessUpdateRequest {
+  /**
+   * <p>The action to take for the update request. This can be either <code>ENABLE</code> or <code>DISABLE</code>.</p>
+   */
   Action: string | undefined;
 }
 
@@ -6012,6 +6584,9 @@ export namespace StartOrganizationServiceAccessUpdateRequest {
 }
 
 export interface StartOrganizationServiceAccessUpdateResponse {
+  /**
+   * <p>The status of the service access update request for an Amazon Web Services Organization.</p>
+   */
   OrganizationStatus?: OrganizationStatus;
 }
 
