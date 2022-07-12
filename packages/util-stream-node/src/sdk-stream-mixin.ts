@@ -5,6 +5,11 @@ import { Readable } from "stream";
 
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 
+/**
+ * The function that mixes in the utility functions to help consuming runtime-specific payload stream.
+ *
+ * @internal
+ */
 export const sdkStreamMixin = (stream: unknown): SdkStream<Readable> => {
   if (!(stream instanceof Readable)) {
     // @ts-ignore
