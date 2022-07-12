@@ -8,6 +8,8 @@ const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transfo
 
 /**
  * The stream handling utility functions for browsers and React Native
+ *
+ * @internal
  */
 export const sdkStreamMixin = (stream: unknown): SdkStream<ReadableStream | Blob> => {
   if (!isBlobInstance(stream) && !isReadableStreamIntance(stream)) {
