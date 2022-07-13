@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.128.0...v3.129.0) (2022-07-13)
+
+
+### Features
+
+* **util-stream-browser:** provide handling utilities for browser stream  ([#3783](https://github.com/aws/aws-sdk-js-v3/issues/3783)) ([2255877](https://github.com/aws/aws-sdk-js-v3/commit/22558772713236a7d20f37ec158ceb39190a013f))
+
+
+
+
+
 # [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
 
 **Note:** Version bump only for package @aws-sdk/util-stream-browser

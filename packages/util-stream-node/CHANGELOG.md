@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.128.0...v3.129.0) (2022-07-13)
+
+
+### Features
+
+* **util-stream-node:** provide handling utilities for Node.js stream ([#3778](https://github.com/aws/aws-sdk-js-v3/issues/3778)) ([0ef4af6](https://github.com/aws/aws-sdk-js-v3/commit/0ef4af643a23d9580df511e60eff52f6dbe6d2ec))
+
+
+
+
+
 # [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
 
 **Note:** Version bump only for package @aws-sdk/util-stream-node

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.128.0...v3.129.0) (2022-07-13)
+
+
+### Features
+
+* **client-appconfig:** Adding Create, Get, Update, Delete, and List APIs for new two new resources: Extensions and ExtensionAssociations. ([c2d6378](https://github.com/aws/aws-sdk-js-v3/commit/c2d6378294250be09870dabdaa0c743abf5415af))
+* **util-stream-browser:** provide handling utilities for browser stream  ([#3783](https://github.com/aws/aws-sdk-js-v3/issues/3783)) ([2255877](https://github.com/aws/aws-sdk-js-v3/commit/22558772713236a7d20f37ec158ceb39190a013f))
+* **util-stream-node:** provide handling utilities for Node.js stream ([#3778](https://github.com/aws/aws-sdk-js-v3/issues/3778)) ([0ef4af6](https://github.com/aws/aws-sdk-js-v3/commit/0ef4af643a23d9580df511e60eff52f6dbe6d2ec))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 
