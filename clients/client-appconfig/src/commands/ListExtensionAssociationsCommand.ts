@@ -13,42 +13,44 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
+import { ExtensionAssociations, ListExtensionAssociationsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateHostedConfigurationVersionCommand,
-  serializeAws_restJson1CreateHostedConfigurationVersionCommand,
+  deserializeAws_restJson1ListExtensionAssociationsCommand,
+  serializeAws_restJson1ListExtensionAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
-export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
+export interface ListExtensionAssociationsCommandInput extends ListExtensionAssociationsRequest {}
+export interface ListExtensionAssociationsCommandOutput extends ExtensionAssociations, __MetadataBearer {}
 
 /**
- * <p>Creates a new configuration in the AppConfig hosted configuration
- *          store.</p>
+ * <p>Lists all AppConfig extension associations in the account. For more
+ *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
+ *                AppConfig extensions</a> in the
+ *          <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListExtensionAssociationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, ListExtensionAssociationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const command = new CreateHostedConfigurationVersionCommand(input);
+ * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateHostedConfigurationVersionCommandInput} for command's `input` shape.
- * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
+ * @see {@link ListExtensionAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListExtensionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
-export class CreateHostedConfigurationVersionCommand extends $Command<
-  CreateHostedConfigurationVersionCommandInput,
-  CreateHostedConfigurationVersionCommandOutput,
+export class ListExtensionAssociationsCommand extends $Command<
+  ListExtensionAssociationsCommandInput,
+  ListExtensionAssociationsCommandOutput,
   AppConfigClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateHostedConfigurationVersionCommandInput) {
+  constructor(readonly input: ListExtensionAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +63,20 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateHostedConfigurationVersionCommandInput, CreateHostedConfigurationVersionCommandOutput> {
+  ): Handler<ListExtensionAssociationsCommandInput, ListExtensionAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppConfigClient";
-    const commandName = "CreateHostedConfigurationVersionCommand";
+    const commandName = "ListExtensionAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHostedConfigurationVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: HostedConfigurationVersion.filterSensitiveLog,
+      inputFilterSensitiveLog: ListExtensionAssociationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ExtensionAssociations.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +86,15 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateHostedConfigurationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateHostedConfigurationVersionCommand(input, context);
+  private serialize(input: ListExtensionAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListExtensionAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<CreateHostedConfigurationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateHostedConfigurationVersionCommand(output, context);
+  ): Promise<ListExtensionAssociationsCommandOutput> {
+    return deserializeAws_restJson1ListExtensionAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

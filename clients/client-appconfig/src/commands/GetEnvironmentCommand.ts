@@ -23,11 +23,12 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an environment. An environment is a logical deployment group
- *          of AppConfig applications, such as applications in a <code>Production</code> environment or
- *          in an <code>EU_Region</code> environment. Each configuration deployment targets an
- *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is
- *          triggered during a deployment, AppConfig roles back the configuration.</p>
+ * <p>Retrieves information about an environment. An environment is a deployment group of
+ *             AppConfig applications, such as applications in a <code>Production</code>
+ *          environment or in an <code>EU_Region</code> environment. Each configuration deployment
+ *          targets an environment. You can enable one or more Amazon CloudWatch alarms for an environment. If
+ *          an alarm is triggered during a deployment, AppConfig roles back the
+ *          configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

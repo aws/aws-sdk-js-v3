@@ -5,4 +5,6 @@ export * from "./ListConfigurationProfilesPaginator";
 export * from "./ListDeploymentStrategiesPaginator";
 export * from "./ListDeploymentsPaginator";
 export * from "./ListEnvironmentsPaginator";
+export * from "./ListExtensionAssociationsPaginator";
+export * from "./ListExtensionsPaginator";
 export * from "./ListHostedConfigurationVersionsPaginator";

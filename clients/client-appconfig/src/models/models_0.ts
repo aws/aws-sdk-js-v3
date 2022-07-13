@@ -3,6 +3,145 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
+/**
+ * <p>An action defines the tasks the extension performs during the AppConfig
+ *          workflow. Each action includes an action point such as
+ *             <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or
+ *             <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management
+ *          assume role. You specify the name, URI, and ARN for each <i>action point</i>
+ *          defined in the extension. You can specify the following actions for an extension:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>PRE_CREATE_HOSTED_CONFIGURATION_VERSION</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PRE_START_DEPLOYMENT</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ON_DEPLOYMENT_START</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ON_DEPLOYMENT_STEP</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ON_DEPLOYMENT_BAKING</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ON_DEPLOYMENT_COMPLETE</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ON_DEPLOYMENT_ROLLED_BACK</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface Action {
+  /**
+   * <p>The action name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Information about the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The extension URI associated to the action point in the extension definition. The URI
+   *          can be an Amazon Resource Name (ARN) for one of the following: an Lambda
+   *          function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.</p>
+   */
+  Uri?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) for an Identity and Access Management assume role.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace Action {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Action): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An extension that was invoked as part of a deployment event.</p>
+ */
+export interface ActionInvocation {
+  /**
+   * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
+   */
+  ExtensionIdentifier?: string;
+
+  /**
+   * <p>The name of the action.</p>
+   */
+  ActionName?: string;
+
+  /**
+   * <p>The extension URI associated to the action point in the extension definition. The URI
+   *          can be an Amazon Resource Name (ARN) for one of the following: an Lambda
+   *          function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.</p>
+   */
+  Uri?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) for an Identity and Access Management assume role.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The error message when an extension invocation fails.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The error code when an extension invocation fails.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>A system-generated ID for this invocation.</p>
+   */
+  InvocationId?: string;
+}
+
+export namespace ActionInvocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ActionInvocation): any => ({
+    ...obj,
+  });
+}
+
+export enum ActionPoint {
+  ON_DEPLOYMENT_BAKING = "ON_DEPLOYMENT_BAKING",
+  ON_DEPLOYMENT_COMPLETE = "ON_DEPLOYMENT_COMPLETE",
+  ON_DEPLOYMENT_ROLLED_BACK = "ON_DEPLOYMENT_ROLLED_BACK",
+  ON_DEPLOYMENT_START = "ON_DEPLOYMENT_START",
+  ON_DEPLOYMENT_STEP = "ON_DEPLOYMENT_STEP",
+  PRE_CREATE_HOSTED_CONFIGURATION_VERSION = "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
+  PRE_START_DEPLOYMENT = "PRE_START_DEPLOYMENT",
+}
+
 export interface Application {
   /**
    * <p>The application ID.</p>
@@ -55,6 +194,12 @@ export interface InvalidConfigurationDetail {
    * <p>The type of error for an invalid configuration.</p>
    */
   Type?: string;
+
+  /**
+   * <p>Details about an error with Lambda when a synchronous extension
+   *          experiences an error during an invocation.</p>
+   */
+  Value?: string;
 }
 
 export namespace InvalidConfigurationDetail {
@@ -156,9 +301,8 @@ export interface CreateApplicationRequest {
   Description?: string;
 
   /**
-   * <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
+   *          you define.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -208,7 +352,7 @@ export enum ValidatorType {
 export interface Validator {
   /**
    * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and
-   *          <code>LAMBDA</code>
+   *             <code>LAMBDA</code>
    *          </p>
    */
   Type: ValidatorType | string | undefined;
@@ -268,11 +412,11 @@ export interface ConfigurationProfile {
   Validators?: Validator[];
 
   /**
-   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
-   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
-   *          flag configurations to enable or disable new features and freeform configurations to
-   *          distribute configurations to an application. When calling this API, enter one of the
-   *          following values for <code>Type</code>:</p>
+   * <p>The type of configurations contained in the profile. AppConfig supports
+   *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
+   *          create feature flag configurations to enable or disable new features and freeform
+   *          configurations to distribute configurations to an application. When calling this API, enter
+   *          one of the following values for <code>Type</code>:</p>
    *          <p>
    *             <code>AWS.AppConfig.FeatureFlags</code>
    *          </p>
@@ -310,10 +454,10 @@ export interface CreateConfigurationProfileRequest {
   Description?: string;
 
   /**
-   * <p>A URI to locate the configuration. You can specify the AppConfig hosted configuration
-   *          store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the
-   *          hosted configuration store and for feature flags, specify <code>hosted</code>. For an SSM
-   *          document, specify either the document name in the format
+   * <p>A URI to locate the configuration. You can specify the AppConfig hosted
+   *          configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3
+   *          object. For the hosted configuration store and for feature flags, specify
+   *             <code>hosted</code>. For an SSM document, specify either the document name in the format
    *             <code>ssm-document://<Document_name></code> or the Amazon Resource Name (ARN). For
    *          a parameter, specify either the parameter name in the format
    *             <code>ssm-parameter://<Parameter_name></code> or the ARN. For an Amazon S3 object,
@@ -328,9 +472,8 @@ export interface CreateConfigurationProfileRequest {
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
    *          <important>
-   *             <p>A retrieval role ARN is not required for configurations stored in the AppConfig
-   *             hosted configuration store. It is required for all other sources that store your
-   *             configuration. </p>
+   *             <p>A retrieval role ARN is not required for configurations stored in the AppConfig hosted configuration store. It is required for all other sources that
+   *             store your configuration. </p>
    *          </important>
    */
   RetrievalRoleArn?: string;
@@ -342,17 +485,17 @@ export interface CreateConfigurationProfileRequest {
 
   /**
    * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   *             AppConfig resources. Each tag consists of a key and an optional value, both of
+   *          which you define.</p>
    */
   Tags?: Record<string, string>;
 
   /**
-   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
-   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
-   *          flag configurations to enable or disable new features and freeform configurations to
-   *          distribute configurations to an application. When calling this API, enter one of the
-   *          following values for <code>Type</code>:</p>
+   * <p>The type of configurations contained in the profile. AppConfig supports
+   *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
+   *          create feature flag configurations to enable or disable new features and freeform
+   *          configurations to distribute configurations to an application. When calling this API, enter
+   *          one of the following values for <code>Type</code>:</p>
    *          <p>
    *             <code>AWS.AppConfig.FeatureFlags</code>
    *          </p>
@@ -423,8 +566,12 @@ export interface CreateDeploymentStrategyRequest {
   DeploymentDurationInMinutes: number | undefined;
 
   /**
-   * <p>The amount of time AppConfig monitors for alarms before considering the deployment to be
-   *          complete and no longer eligible for automatic roll back.</p>
+   * <p>Specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms after the
+   *          configuration has been deployed to 100% of its targets, before considering the deployment
+   *          to be complete. If an alarm is triggered during this time, AppConfig rolls back
+   *          the deployment. You must configure permissions for AppConfig to roll back based
+   *          on CloudWatch alarms. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html">Configuring permissions for rollback based on Amazon CloudWatch alarms</a> in the
+   *             <i>AppConfig User Guide</i>.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -435,24 +582,24 @@ export interface CreateDeploymentStrategyRequest {
   GrowthFactor: number | undefined;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time. AppConfig supports the
-   *          following growth types:</p>
+   * <p>The algorithm used to define how percentage grows over time. AppConfig
+   *          supports the following growth types:</p>
    *          <p>
-   *             <b>Linear</b>: For this type, AppConfig processes the
-   *          deployment by dividing the total number of targets by the value specified for <code>Step
-   *             percentage</code>. For example, a linear deployment that uses a <code>Step
+   *             <b>Linear</b>: For this type, AppConfig processes
+   *          the deployment by dividing the total number of targets by the value specified for
+   *             <code>Step percentage</code>. For example, a linear deployment that uses a <code>Step
    *             percentage</code> of 10 deploys the configuration to 10 percent of the hosts. After
    *          those deployments are complete, the system deploys the configuration to the next 10
    *          percent. This continues until 100% of the targets have successfully received the
    *          configuration.</p>
    *
    *          <p>
-   *             <b>Exponential</b>: For this type, AppConfig processes the
-   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
-   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
-   *          the number of steps until the configuration is deployed to all targets. For example, if you
-   *          specify a growth factor of 2, then the system rolls out the configuration as
-   *          follows:</p>
+   *             <b>Exponential</b>: For this type, AppConfig
+   *          processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.
+   *          In this formula, <code>G</code> is the growth factor specified by the user and
+   *             <code>N</code> is the number of steps until the configuration is deployed to all
+   *          targets. For example, if you specify a growth factor of 2, then the system rolls out the
+   *          configuration as follows:</p>
    *          <p>
    *             <code>2*(2^0)</code>
    *          </p>
@@ -471,12 +618,12 @@ export interface CreateDeploymentStrategyRequest {
   /**
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo: ReplicateTo | string | undefined;
+  ReplicateTo?: ReplicateTo | string;
 
   /**
    * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   *             AppConfig resources. Each tag consists of a key and an optional value, both of
+   *          which you define.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -523,8 +670,8 @@ export interface DeploymentStrategy {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time that AppConfig monitored for alarms before considering the deployment
-   *          to be complete and no longer eligible for automatic rollback.</p>
+   * <p>The amount of time that AppConfig monitored for alarms before considering the
+   *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -553,7 +700,8 @@ export interface Monitor {
   AlarmArn: string | undefined;
 
   /**
-   * <p>ARN of an Identity and Access Management (IAM) role for AppConfig to monitor <code>AlarmArn</code>.</p>
+   * <p>ARN of an Identity and Access Management (IAM) role for AppConfig to monitor
+   *             <code>AlarmArn</code>.</p>
    */
   AlarmRoleArn?: string;
 }
@@ -589,9 +737,8 @@ export interface CreateEnvironmentRequest {
   Monitors?: Monitor[];
 
   /**
-   * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
+   *          you define.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -676,6 +823,236 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * <p>A value such as an Amazon Resource Name (ARN) or an Amazon Simple Notification Service topic entered
+ *          in an extension when invoked. Parameter values are specified in an extension association.
+ *          For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
+ *                AppConfig extensions</a> in the
+ *          <i>AppConfig User Guide</i>.</p>
+ */
+export interface Parameter {
+  /**
+   * <p>Information about the parameter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A parameter value must be specified in the extension association.</p>
+   */
+  Required?: boolean;
+}
+
+export namespace Parameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Parameter): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExtensionRequest {
+  /**
+   * <p>A name for the extension. Each extension name in your account must be unique. Extension
+   *          versions use the same name.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Information about the extension.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The actions defined in the extension.</p>
+   */
+  Actions: Record<string, Action[]> | undefined;
+
+  /**
+   * <p>The parameters accepted by the extension. You specify parameter values when you
+   *          associate the extension to an AppConfig resource by using the
+   *             <code>CreateExtensionAssociation</code> API action. For Lambda extension
+   *          actions, these parameters are included in the Lambda request object.</p>
+   */
+  Parameters?: Record<string, Parameter>;
+
+  /**
+   * <p>Adds one or more tags for the specified extension. Tags are metadata that help you
+   *          categorize resources in different ways, for example, by purpose, owner, or environment.
+   *          Each tag consists of a key and an optional value, both of which you define. </p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>You can omit this field when you create an extension. When you create a new version,
+   *          specify the most recent current version number. For example, you create version 3, enter 2
+   *          for this field.</p>
+   */
+  LatestVersionNumber?: number;
+}
+
+export namespace CreateExtensionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExtensionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface Extension {
+  /**
+   * <p>The system-generated ID of the extension.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The extension name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The extension version number.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Information about the extension.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The actions defined in the extension.</p>
+   */
+  Actions?: Record<string, Action[]>;
+
+  /**
+   * <p>The parameters accepted by the extension. You specify parameter values when you
+   *          associate the extension to an AppConfig resource by using the
+   *             <code>CreateExtensionAssociation</code> API action. For Lambda extension
+   *          actions, these parameters are included in the Lambda request object.</p>
+   */
+  Parameters?: Record<string, Parameter>;
+}
+
+export namespace Extension {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Extension): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface CreateExtensionAssociationRequest {
+  /**
+   * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
+   */
+  ExtensionIdentifier: string | undefined;
+
+  /**
+   * <p>The version number of the extension. If not specified, AppConfig uses the
+   *          maximum version of the extension.</p>
+   */
+  ExtensionVersionNumber?: number;
+
+  /**
+   * <p>The ARN of an application, configuration profile, or environment.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The parameter names and values defined in the extensions. Extension parameters marked
+   *             <code>Required</code> must be entered for this field.</p>
+   */
+  Parameters?: Record<string, string>;
+
+  /**
+   * <p>Adds one or more tags for the specified extension association. Tags are metadata that
+   *          help you categorize resources in different ways, for example, by purpose, owner, or
+   *          environment. Each tag consists of a key and an optional value, both of which you define.
+   *       </p>
+   */
+  Tags?: Record<string, string>;
+}
+
+export namespace CreateExtensionAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExtensionAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ExtensionAssociation {
+  /**
+   * <p>The system-generated ID for the association.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN of the extension defined in the association.</p>
+   */
+  ExtensionArn?: string;
+
+  /**
+   * <p>The ARNs of applications, configuration profiles, or environments defined in the
+   *          association.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The parameter names and values defined in the association.</p>
+   */
+  Parameters?: Record<string, string>;
+
+  /**
+   * <p>The version number for the extension defined in the association.</p>
+   */
+  ExtensionVersionNumber?: number;
+}
+
+export namespace ExtensionAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExtensionAssociation): any => ({
+    ...obj,
+  });
 }
 
 export interface CreateHostedConfigurationVersionRequest {
@@ -798,28 +1175,6 @@ export class PayloadTooLargeException extends __BaseException {
   }
 }
 
-/**
- * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted
- *          configuration store. Delete one or more versions and try again.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the application to delete.</p>
@@ -894,6 +1249,44 @@ export namespace DeleteEnvironmentRequest {
   });
 }
 
+export interface DeleteExtensionRequest {
+  /**
+   * <p>The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.</p>
+   */
+  ExtensionIdentifier: string | undefined;
+
+  /**
+   * <p>A specific version of an extension to delete. If omitted, the highest version is
+   *          deleted.</p>
+   */
+  VersionNumber?: number;
+}
+
+export namespace DeleteExtensionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExtensionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteExtensionAssociationRequest {
+  /**
+   * <p>The ID of the extension association to delete.</p>
+   */
+  ExtensionAssociationId: string | undefined;
+}
+
+export namespace DeleteExtensionAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExtensionAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -943,8 +1336,8 @@ export interface Configuration {
    *             <p>The <code>Content</code> attribute only contains data if the system finds new or
    *             updated configuration data. If there is no new or updated data and
    *                <code>ClientConfigurationVersion</code> matches the version of the current
-   *             configuration, AppConfig returns a <code>204 No Content</code> HTTP response code and
-   *             the <code>Content</code> value will be empty.</p>
+   *             configuration, AppConfig returns a <code>204 No Content</code> HTTP response
+   *             code and the <code>Content</code> value will be empty.</p>
    *          </important>
    */
   Content?: Uint8Array;
@@ -992,8 +1385,8 @@ export interface GetConfigurationRequest {
 
   /**
    * <p>The clientId parameter in the following command is a unique, user-specified ID to
-   *          identify the client for the configuration. This ID enables AppConfig to deploy the
-   *          configuration in intervals, as defined in the deployment strategy. </p>
+   *          identify the client for the configuration. This ID enables AppConfig to deploy
+   *          the configuration in intervals, as defined in the deployment strategy. </p>
    */
   ClientId: string | undefined;
 
@@ -1001,8 +1394,8 @@ export interface GetConfigurationRequest {
    * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
    *          response.</p>
    *          <important>
-   *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to
-   *             identify the configuration version on your clients. If you don’t send
+   *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>
+   *             parameter to identify the configuration version on your clients. If you don’t send
    *                <code>ClientConfigurationVersion</code> with each call to
    *                <code>GetConfiguration</code>, your clients receive the current configuration. You
    *             are charged each time your clients receive a configuration.</p>
@@ -1049,6 +1442,40 @@ export namespace GetConfigurationProfileRequest {
   });
 }
 
+/**
+ * <p>An extension that was invoked during a deployment.</p>
+ */
+export interface AppliedExtension {
+  /**
+   * <p>The system-generated ID of the extension.</p>
+   */
+  ExtensionId?: string;
+
+  /**
+   * <p>The system-generated ID for the association.</p>
+   */
+  ExtensionAssociationId?: string;
+
+  /**
+   * <p>The extension version number.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>One or more parameters for the actions called by the extension.</p>
+   */
+  Parameters?: Record<string, string>;
+}
+
+export namespace AppliedExtension {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppliedExtension): any => ({
+    ...obj,
+  });
+}
+
 export enum DeploymentEventType {
   BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
   DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
@@ -1078,7 +1505,7 @@ export interface DeploymentEvent {
 
   /**
    * <p>The entity that triggered the deployment event. Events can be triggered by a user,
-   *          AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
+   *             AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
   TriggeredBy?: TriggeredBy | string;
 
@@ -1089,6 +1516,11 @@ export interface DeploymentEvent {
    *          attempt a new deployment.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The list of extensions that were invoked as part of the deployment.</p>
+   */
+  ActionInvocations?: ActionInvocation[];
 
   /**
    * <p>The date and time the event occurred.</p>
@@ -1177,8 +1609,8 @@ export interface Deployment {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time that AppConfig monitored for alarms before considering the deployment
-   *          to be complete and no longer eligible for automatic rollback.</p>
+   * <p>The amount of time that AppConfig monitored for alarms before considering the
+   *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -1207,6 +1639,13 @@ export interface Deployment {
    * <p>The time the deployment completed. </p>
    */
   CompletedAt?: Date;
+
+  /**
+   * <p>A list of extensions that were processed as part of the deployment. The extensions that
+   *          were previously associated to the configuration profile, environment, or the application
+   *          when <code>StartDeployment</code> was called.</p>
+   */
+  AppliedExtensions?: AppliedExtension[];
 }
 
 export namespace Deployment {
@@ -1281,6 +1720,44 @@ export namespace GetEnvironmentRequest {
   });
 }
 
+export interface GetExtensionRequest {
+  /**
+   * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
+   */
+  ExtensionIdentifier: string | undefined;
+
+  /**
+   * <p>The extension version number. If no version number was defined, AppConfig uses
+   *          the highest version.</p>
+   */
+  VersionNumber?: number;
+}
+
+export namespace GetExtensionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExtensionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExtensionAssociationRequest {
+  /**
+   * <p>The extension association ID to get.</p>
+   */
+  ExtensionAssociationId: string | undefined;
+}
+
+export namespace GetExtensionAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExtensionAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface GetHostedConfigurationVersionRequest {
   /**
    * <p>The application ID.</p>
@@ -1337,11 +1814,10 @@ export interface ListApplicationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Next token is a pagination token generated by AppConfig to
-   *          describe what page the previous List call ended on. For the first List request, the
-   *          nextToken should not be set. On subsequent calls, the nextToken parameter should be set to
-   *          the previous responses nextToken value. Use this token to get the next set of results.
-   *       </p>
+   * <p>A token to start the list. Next token is a pagination token generated by AppConfig to describe what page the previous List call ended on. For the first List
+   *          request, the nextToken should not be set. On subsequent calls, the nextToken parameter
+   *          should be set to the previous responses nextToken value. Use this token to get the next set
+   *          of results. </p>
    */
   NextToken?: string;
 }
@@ -1385,11 +1861,11 @@ export interface ConfigurationProfileSummary {
   ValidatorTypes?: (ValidatorType | string)[];
 
   /**
-   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
-   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
-   *          flag configurations to enable or disable new features and freeform configurations to
-   *          distribute configurations to an application. When calling this API, enter one of the
-   *          following values for <code>Type</code>:</p>
+   * <p>The type of configurations contained in the profile. AppConfig supports
+   *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
+   *          create feature flag configurations to enable or disable new features and freeform
+   *          configurations to distribute configurations to an application. When calling this API, enter
+   *          one of the following values for <code>Type</code>:</p>
    *          <p>
    *             <code>AWS.AppConfig.FeatureFlags</code>
    *          </p>
@@ -1500,8 +1976,8 @@ export interface DeploymentSummary {
   GrowthFactor?: number;
 
   /**
-   * <p>The amount of time that AppConfig monitors for alarms before considering the deployment
-   *          to be complete and no longer eligible for automatic rollback.</p>
+   * <p>The amount of time that AppConfig monitors for alarms before considering the
+   *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -1686,6 +2162,192 @@ export namespace ListEnvironmentsRequest {
 }
 
 /**
+ * <p>Information about an association between an extension and an AppConfig
+ *          resource such as an application, environment, or configuration profile. Call
+ *             <code>GetExtensionAssociation</code> to get more information about an
+ *          association.</p>
+ */
+export interface ExtensionAssociationSummary {
+  /**
+   * <p>The extension association ID. This ID is used to call other
+   *             <code>ExtensionAssociation</code> API actions such as
+   *             <code>GetExtensionAssociation</code> or <code>DeleteExtensionAssociation</code>.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
+   */
+  ExtensionArn?: string;
+
+  /**
+   * <p>The ARNs of applications, configuration profiles, or environments defined in the
+   *          association.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace ExtensionAssociationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExtensionAssociationSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ExtensionAssociations {
+  /**
+   * <p>The list of extension associations. Each item represents an extension association to an
+   *          application, environment, or configuration profile. </p>
+   */
+  Items?: ExtensionAssociationSummary[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ExtensionAssociations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExtensionAssociations): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExtensionAssociationsRequest {
+  /**
+   * <p>The ARN of an application, configuration profile, or environment.</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
+   */
+  ExtensionIdentifier?: string;
+
+  /**
+   * <p>The version number for the extension defined in the association.</p>
+   */
+  ExtensionVersionNumber?: number;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results or pass null to
+   *          get the first set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListExtensionAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExtensionAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an extension. Call <code>GetExtension</code> to get more information
+ *          about an extension.</p>
+ */
+export interface ExtensionSummary {
+  /**
+   * <p>The system-generated ID of the extension.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The extension name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The extension version number.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Information about the extension.</p>
+   */
+  Description?: string;
+}
+
+export namespace ExtensionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExtensionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface Extensions {
+  /**
+   * <p>The list of available extensions. The list includes Amazon Web Services-authored and
+   *          user-created extensions.</p>
+   */
+  Items?: ExtensionSummary[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace Extensions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Extensions): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExtensionsRequest {
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The extension name.</p>
+   */
+  Name?: string;
+}
+
+export namespace ListExtensionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExtensionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the configuration.</p>
  */
 export interface HostedConfigurationVersionSummary {
@@ -1797,9 +2459,9 @@ export namespace ListTagsForResourceRequest {
 
 export interface ResourceTags {
   /**
-   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your
-   *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize
+   *          your AppConfig resources. Each tag consists of a key and an optional value, both
+   *          of which you define.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -1845,9 +2507,8 @@ export interface StartDeploymentRequest {
   Description?: string;
 
   /**
-   * <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig
-   *          resources. Each tag consists of a key and an optional value, both of which you
-   *          define.</p>
+   * <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
+   *          you define.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2017,8 +2678,8 @@ export interface UpdateDeploymentStrategyRequest {
   DeploymentDurationInMinutes?: number;
 
   /**
-   * <p>The amount of time that AppConfig monitors for alarms before considering the deployment
-   *          to be complete and no longer eligible for automatic rollback.</p>
+   * <p>The amount of time that AppConfig monitors for alarms before considering the
+   *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
@@ -2029,23 +2690,23 @@ export interface UpdateDeploymentStrategyRequest {
   GrowthFactor?: number;
 
   /**
-   * <p>The algorithm used to define how percentage grows over time. AppConfig supports the
-   *          following growth types:</p>
+   * <p>The algorithm used to define how percentage grows over time. AppConfig
+   *          supports the following growth types:</p>
    *          <p>
-   *             <b>Linear</b>: For this type, AppConfig processes the
-   *          deployment by increments of the growth factor evenly distributed over the deployment time.
-   *          For example, a linear deployment that uses a growth factor of 20 initially makes the
+   *             <b>Linear</b>: For this type, AppConfig processes
+   *          the deployment by increments of the growth factor evenly distributed over the deployment
+   *          time. For example, a linear deployment that uses a growth factor of 20 initially makes the
    *          configuration available to 20 percent of the targets. After 1/5th of the deployment time
    *          has passed, the system updates the percentage to 40 percent. This continues until 100% of
    *          the targets are set to receive the deployed configuration.</p>
    *
    *          <p>
-   *             <b>Exponential</b>: For this type, AppConfig processes the
-   *          deployment exponentially using the following formula: <code>G*(2^N)</code>. In this
-   *          formula, <code>G</code> is the growth factor specified by the user and <code>N</code> is
-   *          the number of steps until the configuration is deployed to all targets. For example, if you
-   *          specify a growth factor of 2, then the system rolls out the configuration as
-   *          follows:</p>
+   *             <b>Exponential</b>: For this type, AppConfig
+   *          processes the deployment exponentially using the following formula: <code>G*(2^N)</code>.
+   *          In this formula, <code>G</code> is the growth factor specified by the user and
+   *             <code>N</code> is the number of steps until the configuration is deployed to all
+   *          targets. For example, if you specify a growth factor of 2, then the system rolls out the
+   *          configuration as follows:</p>
    *          <p>
    *             <code>2*(2^0)</code>
    *          </p>
@@ -2103,6 +2764,63 @@ export namespace UpdateEnvironmentRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExtensionRequest {
+  /**
+   * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
+   */
+  ExtensionIdentifier: string | undefined;
+
+  /**
+   * <p>Information about the extension.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The actions defined in the extension.</p>
+   */
+  Actions?: Record<string, Action[]>;
+
+  /**
+   * <p>One or more parameters for the actions called by the extension.</p>
+   */
+  Parameters?: Record<string, Parameter>;
+
+  /**
+   * <p>The extension version number.</p>
+   */
+  VersionNumber?: number;
+}
+
+export namespace UpdateExtensionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExtensionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateExtensionAssociationRequest {
+  /**
+   * <p>The system-generated ID for the association.</p>
+   */
+  ExtensionAssociationId: string | undefined;
+
+  /**
+   * <p>The parameter names and values defined in the extension.</p>
+   */
+  Parameters?: Record<string, string>;
+}
+
+export namespace UpdateExtensionAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExtensionAssociationRequest): any => ({
     ...obj,
   });
 }

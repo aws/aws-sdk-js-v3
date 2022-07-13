@@ -24,7 +24,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
 
 /**
  * <p>Creates an environment. For each application, you define one or more environments. An
- *          environment is a logical deployment group of AppConfig targets, such as applications in a
+ *          environment is a deployment group of AppConfig targets, such as applications in a
  *             <code>Beta</code> or <code>Production</code> environment. You can also define
  *          environments for application subcomponents such as the <code>Web</code>,
  *             <code>Mobile</code> and <code>Back-end</code> components for your application. You can

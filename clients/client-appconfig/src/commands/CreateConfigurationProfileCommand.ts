@@ -23,10 +23,9 @@ export interface CreateConfigurationProfileCommandInput extends CreateConfigurat
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration profile, which is information that enables AppConfig to access
- *          the configuration source. Valid configuration sources include the AppConfig hosted
- *          configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store parameters, Amazon S3
- *          objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
+ * <p>Creates a configuration profile, which is information that enables AppConfig
+ *          to access the configuration source. Valid configuration sources include the AppConfig hosted configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter Store
+ *          parameters, Amazon S3 objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration source
  *             action</a> supported by CodePipeline. A configuration profile includes the following
  *          information:</p>
  *
@@ -43,8 +42,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
- *             Configuration and a Configuration Profile</a> in the <i>AppConfig User
- *             Guide</i>.</p>
+ *             Configuration and a Configuration Profile</a> in the <i>AppConfig
+ *             User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

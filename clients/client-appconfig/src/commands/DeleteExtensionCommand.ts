@@ -13,45 +13,42 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Application, CreateApplicationRequest } from "../models/models_0";
+import { DeleteExtensionRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
+  deserializeAws_restJson1DeleteExtensionCommand,
+  serializeAws_restJson1DeleteExtensionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
-export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
+export interface DeleteExtensionCommandInput extends DeleteExtensionRequest {}
+export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates an application. In AppConfig, an application is simply an
- *          organizational construct like a folder. This organizational construct has a relationship
- *          with some unit of executable code. For example, you could create an application called
- *          MyMobileApp to organize and manage configuration data for a mobile application installed by
- *          your users.</p>
+ * <p>Deletes an AppConfig extension. You must delete all associations to an
+ *          extension before you delete the extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, DeleteExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, DeleteExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const command = new CreateApplicationCommand(input);
+ * const command = new DeleteExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateApplicationCommandInput} for command's `input` shape.
- * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link DeleteExtensionCommandInput} for command's `input` shape.
+ * @see {@link DeleteExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
-export class CreateApplicationCommand extends $Command<
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+export class DeleteExtensionCommand extends $Command<
+  DeleteExtensionCommandInput,
+  DeleteExtensionCommandOutput,
   AppConfigClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateApplicationCommandInput) {
+  constructor(readonly input: DeleteExtensionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +61,20 @@ export class CreateApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
+  ): Handler<DeleteExtensionCommandInput, DeleteExtensionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppConfigClient";
-    const commandName = "CreateApplicationCommand";
+    const commandName = "DeleteExtensionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Application.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExtensionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +84,12 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+  private serialize(input: DeleteExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteExtensionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExtensionCommandOutput> {
+    return deserializeAws_restJson1DeleteExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,45 +13,44 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Application, CreateApplicationRequest } from "../models/models_0";
+import { Extensions, ListExtensionsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
+  deserializeAws_restJson1ListExtensionsCommand,
+  serializeAws_restJson1ListExtensionsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
-export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
+export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
+export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
- * <p>Creates an application. In AppConfig, an application is simply an
- *          organizational construct like a folder. This organizational construct has a relationship
- *          with some unit of executable code. For example, you could create an application called
- *          MyMobileApp to organize and manage configuration data for a mobile application installed by
- *          your users.</p>
+ * <p>Lists all custom and Amazon Web Services-authored AppConfig extensions in the
+ *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
+ *                AppConfig extensions</a> in the
+ *          <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
- * // const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * import { AppConfigClient, ListExtensionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, ListExtensionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
- * const command = new CreateApplicationCommand(input);
+ * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateApplicationCommandInput} for command's `input` shape.
- * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ListExtensionsCommandInput} for command's `input` shape.
+ * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
-export class CreateApplicationCommand extends $Command<
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+export class ListExtensionsCommand extends $Command<
+  ListExtensionsCommandInput,
+  ListExtensionsCommandOutput,
   AppConfigClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateApplicationCommandInput) {
+  constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +63,20 @@ export class CreateApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
+  ): Handler<ListExtensionsCommandInput, ListExtensionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppConfigClient";
-    const commandName = "CreateApplicationCommand";
+    const commandName = "ListExtensionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Application.filterSensitiveLog,
+      inputFilterSensitiveLog: ListExtensionsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: Extensions.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +86,12 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+  private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListExtensionsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
+    return deserializeAws_restJson1ListExtensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

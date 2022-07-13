@@ -23,11 +23,9 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Assigns
- *          metadata
- *          to an AppConfig resource. Tags help organize and categorize your AppConfig resources. Each
- *          tag consists of a key and an optional value, both of which you define. You can specify a
- *          maximum of 50 tags for a resource.</p>
+ * <p>Assigns metadata to an AppConfig resource. Tags help organize and categorize
+ *          your AppConfig resources. Each tag consists of a key and an optional value, both
+ *          of which you define. You can specify a maximum of 50 tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
