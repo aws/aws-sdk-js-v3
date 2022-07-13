@@ -108,14 +108,6 @@ export class Upload extends EventEmitter {
     const uploadEventListener = (event: ProgressEvent) => {
       this.bytesUploadedSoFar = event.loaded;
       this.totalBytes = event.total;
-      console.log(
-        "UPLOAD",
-        "EventEmitter-single",
-        (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
-        "of",
-        this.totalBytes,
-        dataPart.partNumber
-      );
       this.__notifyProgress({
         loaded: this.bytesUploadedSoFar,
         total: this.totalBytes,
@@ -156,14 +148,6 @@ export class Upload extends EventEmitter {
     };
     const totalSize = byteLength(dataPart.data);
 
-    console.log(
-      "UPLOAD",
-      "completion-single",
-      (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
-      "of",
-      this.totalBytes,
-      dataPart.partNumber
-    );
     this.__notifyProgress({
       loaded: totalSize,
       total: totalSize,
@@ -223,25 +207,8 @@ export class Upload extends EventEmitter {
 
           if (event.total && partSize) {
             this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
-            console.log(
-              "debug eventRatio" + dataPart.partNumber + "x",
-              event.loaded / event.total,
-              partSize,
-              "seen:" + lastSeenBytes,
-              "part:" + dataPart.partNumber,
-              "incr:" + (event.loaded - lastSeenBytes)
-            );
             lastSeenBytes = event.loaded;
           }
-
-          console.log(
-            "UPLOAD",
-            "EventEmitter-multi",
-            (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
-            "of",
-            this.totalBytes,
-            dataPart.partNumber
-          );
 
           this.__notifyProgress({
             loaded: this.bytesUploadedSoFar,
@@ -288,14 +255,6 @@ export class Upload extends EventEmitter {
           this.bytesUploadedSoFar += partSize;
         }
 
-        console.log(
-          "UPLOAD",
-          "completion-multi",
-          (this.bytesUploadedSoFar / this.totalBytes!).toFixed(2),
-          "of",
-          this.totalBytes,
-          dataPart.partNumber
-        );
         this.__notifyProgress({
           loaded: this.bytesUploadedSoFar,
           total: this.totalBytes,
