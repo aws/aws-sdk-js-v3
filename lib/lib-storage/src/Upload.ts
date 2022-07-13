@@ -60,8 +60,6 @@ export class Upload extends EventEmitter {
   private isMultiPart = true;
   private singleUploadResult?: CompleteMultipartUploadCommandOutput;
 
-  private notificationTimeout = -1;
-
   constructor(options: Options) {
     super();
 
@@ -118,6 +116,7 @@ export class Upload extends EventEmitter {
     };
 
     if (eventEmitter !== null) {
+      // The requestHandler is the xhr-http-handler.
       eventEmitter.on("upload.progress", uploadEventListener);
     }
 
@@ -220,8 +219,7 @@ export class Upload extends EventEmitter {
         };
 
         if (eventEmitter !== null) {
-          // This means the requestHandler may be the xhr-http-handler.
-          // We can listen for progress.
+          // The requestHandler is the xhr-http-handler.
           eventEmitter.on("upload.progress", uploadEventListener);
         }
 

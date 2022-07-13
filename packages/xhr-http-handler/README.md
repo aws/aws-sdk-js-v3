@@ -3,9 +3,39 @@
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/xhr-http-handler/latest.svg)](https://www.npmjs.com/package/@aws-sdk/xhr-http-handler)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/xhr-http-handler.svg)](https://www.npmjs.com/package/@aws-sdk/xhr-http-handler)
 
-While the default and recommended browser `HttpHandler` implementation is `@aws-sdk/fetch-http-handler`, this alternative
-based on `XMLHttpRequest` can be substituted if requiring a specific use case not covered by `fetch`.
+This `HttpHandler` is based on `XMLHttpRequest` and can be substituted if 
+requiring a specific use case not covered by `fetch`.
 
-### Example: Using XMLHttpRequest events
+## Warning :warning:
+The recommended `HttpHandler` for browser-like environments is `@aws-sdk/fetch-http-handler`, 
+which is the default.
+This alternative has only been tested against `S3` in browsers. 
 
-TODO
+### Use case: XMLHttpRequest upload progress events
+
+Use the `Upload` class from the `@aws-sdk/lib-upload` package as normal, except supplying a different
+`HttpHandler` when creating the `S3Client` or `S3` object(s).
+
+See also: [lib-storage/README.md](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
+
+```javascript
+const client = new S3Client({
+  requestHandler: new XhrHttpHandler({}), // overrides default FetchHttpHandler in browsers.
+});
+
+const upload = new Upload({
+  client,
+  params: {
+    /* ... */
+  },
+});
+
+upload.on("httpUploadProgress", (progress) => {
+  // Note, this event will be emitted much more frequently when using the XhrHttpHandler.
+  // Your application should be ready to throttle the event listener if it is
+  // computationally expensive.
+  console.log(progress);
+});
+
+await upload.done();
+```

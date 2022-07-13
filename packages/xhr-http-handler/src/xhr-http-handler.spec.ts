@@ -1,288 +1,146 @@
-import { AbortController } from "@aws-sdk/abort-controller";
+import { AbortSignal } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-import { requestTimeout } from "./request-timeout";
 import { XhrHttpHandler } from "./xhr-http-handler";
 
-describe.skip(XhrHttpHandler.name, () => {
+const originalAbortController = global.AbortController;
+const originalXMLHttpRequest = global.XMLHttpRequest;
+
+class XhrMock {
+  public static reset() {
+    XhrMock.captures = [];
+  }
+  public static captures: any[] = [];
+  public static DONE = 4;
+
+  private captureArgs =
+    (caller: string) =>
+    (...args) => {
+      XhrMock.captures.push([caller, ...args]);
+    };
+
+  public upload = {
+    addEventListener: this.captureArgs("upload.addEventListener"),
+  };
+  public readyState = 4;
+  public responseType = "text";
+  public response = "hello, world";
+  public responseText = "hello, world";
+  public status = 200;
+
+  private eventListeners: Record<string, (() => void)[]> = {};
+
+  getAllResponseHeaders() {
+    this.captureArgs("getAllResponseHeaders")();
+    return `responseHeaderKey: responseHeaderValue\r\nrk2: rv2`;
+  }
+  setRequestHeader = this.captureArgs("setRequestHeader");
+  open = this.captureArgs("open");
+  send(...args) {
+    this.captureArgs("send")(...args);
+    this.eventListeners["readystatechange"][0]();
+  }
+  abort = this.captureArgs("abort");
+  addEventListener(...args) {
+    this.captureArgs("addEventListener")(...args);
+    const [event, callback] = args;
+    this.eventListeners[event] = [callback];
+  }
+}
+
+describe(XhrHttpHandler.name, () => {
   beforeEach(() => {
     (global as any).AbortController = void 0;
-    (global as any).XMLHttpRequest = class XhrMock {
-      public readyState = 0;
-      public responseType = '';
-      public response = '';
-      public status = 200;
-
-      public captures = [];
-      
-      getAllResponseHeaeders() {}
-      setRequestHeader(key, value) {}
-      open() {}
-      send() {}
-      abort() {}
-      addEventListener() {}
-    }
+    (global as any).XMLHttpRequest = XhrMock;
   });
 
   afterEach(() => {
+    global.XMLHttpRequest = originalXMLHttpRequest;
+    global.AbortController = originalAbortController;
+    XhrMock.reset();
   });
 
-  it("makes requests using Xhr", async () => {
-    const mockResponse = {
-      headers: {
-        entries: jest.fn().mockReturnValue([
-          ["foo", "bar"],
-          ["bizz", "bazz"],
-        ]),
-      },
-      blob: jest.fn().mockResolvedValue(new Blob(["FOO"])),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+  it("should use global XMLHttpRequest to handle requests by default", async () => {
+    const handler = new XhrHttpHandler();
 
-    (global as any).XMLHttpRequest = mockFetch;
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    const response = await xhrHttpHandler.handle({} as any, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    expect(await blobToText(response.response.body)).toBe("FOO");
-  });
-
-  it("properly constructs url", async () => {
-    const mockResponse = {
-      headers: {
-        entries: jest.fn().mockReturnValue([
-          ["foo", "bar"],
-          ["bizz", "bazz"],
-        ]),
-      },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-
-    (global as any).fetch = mockFetch;
-
-    const httpRequest = new HttpRequest({
-      headers: {},
-      hostname: "foo.amazonaws.com",
-      method: "GET",
-      path: "/test/?bar=baz",
-      protocol: "https:",
-      port: 443,
-    });
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    await xhrHttpHandler.handle(httpRequest, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    const requestCall = mockRequest.mock.calls[0];
-    expect(requestCall[0]).toBe("https://foo.amazonaws.com:443/test/?bar=baz");
-  });
-
-  it("will omit body if method is GET", async () => {
-    const mockResponse = {
-      headers: { entries: jest.fn().mockReturnValue([]) },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-
-    (global as any).fetch = mockFetch;
-
-    const httpRequest = new HttpRequest({
-      headers: {},
-      hostname: "foo.amazonaws.com",
-      method: "GET",
-      path: "/",
-      body: "will be omitted",
-    });
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    await xhrHttpHandler.handle(httpRequest, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    const requestCall = mockRequest.mock.calls[0];
-    expect(requestCall[1].body).toBeUndefined();
-  });
-
-  it("will omit body if method is HEAD", async () => {
-    const mockResponse = {
-      headers: { entries: jest.fn().mockReturnValue([]) },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-
-    (global as any).fetch = mockFetch;
-
-    const httpRequest = new HttpRequest({
-      headers: {},
-      hostname: "foo.amazonaws.com",
-      method: "HEAD",
-      path: "/",
-      body: "will be omitted",
-    });
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    await xhrHttpHandler.handle(httpRequest, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    const requestCall = mockRequest.mock.calls[0];
-    expect(requestCall[1].body).toBeUndefined();
-  });
-
-  it("will not make request if already aborted", async () => {
-    const mockResponse = {
-      headers: {
-        entries: jest.fn().mockReturnValue([
-          ["foo", "bar"],
-          ["bizz", "bazz"],
-        ]),
-      },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-
-    (global as any).fetch = mockFetch;
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    await expect(
-      xhrHttpHandler.handle({} as any, {
-        abortSignal: {
-          aborted: true,
-          onabort: null,
-        },
+    await handler.handle(
+      new HttpRequest({
+        method: "PUT",
+        hostname: "localhost",
+        port: 3000,
+        query: { k: "v" },
+        headers: { h: "1" },
+        body: "hello",
+        protocol: "http:",
+        path: "/api",
       })
-    ).rejects.toHaveProperty("name", "AbortError");
+    );
 
-    expect(mockFetch.mock.calls.length).toBe(0);
+    expect(XhrMock.captures).toEqual([
+      ["upload.addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "readystatechange", expect.any(Function)],
+      ["open", "PUT", "http://localhost:3000/api?k=v"],
+      ["setRequestHeader", "h", "1"],
+      ["send", "hello"],
+      ["getAllResponseHeaders"],
+    ]);
   });
 
-  it("will pass abortSignal to fetch if supported", async () => {
-    const mockResponse = {
-      headers: {
-        entries: jest.fn().mockReturnValue([
-          ["foo", "bar"],
-          ["bizz", "bazz"],
-        ]),
-      },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-    (global as any).fetch = mockFetch;
-    (global as any).AbortController = jest.fn();
-    const xhrHttpHandler = new XhrHttpHandler();
+  it("should respond to AbortSignal", async () => {
+    const handler = new XhrHttpHandler();
+    const abortSignal = new AbortSignal();
 
-    await xhrHttpHandler.handle({} as any, {
-      abortSignal: {
-        aborted: false,
-        onabort: null,
-      },
-    });
+    handler.handle(
+      new HttpRequest({
+        method: "PUT",
+        hostname: "localhost",
+        port: 3000,
+        query: { k: "v" },
+        headers: { h: "1" },
+        body: "hello",
+        protocol: "http:",
+        path: "/api",
+      }),
+      { abortSignal }
+    );
+    abortSignal.abort();
 
-    expect(mockRequest.mock.calls[0][1]).toHaveProperty("signal");
-    expect(mockFetch.mock.calls.length).toBe(1);
+    expect(XhrMock.captures).toEqual([
+      ["upload.addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "readystatechange", expect.any(Function)],
+      ["open", "PUT", "http://localhost:3000/api?k=v"],
+      ["setRequestHeader", "h", "1"],
+      ["send", "hello"],
+      ["getAllResponseHeaders"],
+      ["abort"],
+    ]);
   });
 
-  it("will pass timeout to request timeout", async () => {
-    const mockResponse = {
-      headers: {
-        entries: jest.fn().mockReturnValue([
-          ["foo", "bar"],
-          ["bizz", "bazz"],
-        ]),
-      },
-      blob: jest.fn().mockResolvedValue(new Blob()),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-    (global as any).fetch = mockFetch;
+  it("should ignore forbidden request headers", async () => {
+    const handler = new XhrHttpHandler();
 
-    timeoutSpy = jest.spyOn({ requestTimeout }, "requestTimeout");
-    const xhrHttpHandler = new XhrHttpHandler({
-      requestTimeout: 500,
-    });
-
-    await xhrHttpHandler.handle({} as any, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    expect(timeoutSpy.mock.calls[0][0]).toBe(500);
-  });
-
-  it("will pass timeout from a provider to request timeout", async () => {
-    const mockResponse = {
-      headers: {
-        entries: () => [],
-      },
-      blob: new Blob(),
-    };
-    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
-    (global as any).fetch = mockFetch;
-
-    timeoutSpy = jest.spyOn({ requestTimeout }, "requestTimeout");
-    const xhrHttpHandler = new XhrHttpHandler(async () => ({
-      requestTimeout: 500,
-    }));
-
-    await xhrHttpHandler.handle({} as any, {});
-
-    expect(mockFetch.mock.calls.length).toBe(1);
-    expect(timeoutSpy.mock.calls[0][0]).toBe(500);
-  });
-
-  it("will throw timeout error it timeout finishes before request", async () => {
-    const mockFetch = jest.fn(() => {
-      return new Promise(() => {});
-    });
-    (global as any).fetch = mockFetch;
-    const xhrHttpHandler = new XhrHttpHandler({
-      requestTimeout: 5,
-    });
-
-    await expect(xhrHttpHandler.handle({} as any, {})).rejects.toHaveProperty("name", "TimeoutError");
-    expect(mockFetch.mock.calls.length).toBe(1);
-  });
-
-  it("can be aborted before fetch completes", async () => {
-    const abortController = new AbortController();
-
-    const mockFetch = jest.fn(() => {
-      return new Promise(() => {});
-    });
-    (global as any).fetch = mockFetch;
-
-    setTimeout(() => {
-      abortController.abort();
-    }, 100);
-    const xhrHttpHandler = new XhrHttpHandler();
-
-    await expect(
-      xhrHttpHandler.handle({} as any, {
-        abortSignal: abortController.signal,
+    handler.handle(
+      new HttpRequest({
+        method: "PUT",
+        hostname: "localhost",
+        port: 3000,
+        query: { k: "v" },
+        headers: { Host: "1", Origin: "1", Referer: "1" },
+        body: "hello",
+        protocol: "http:",
+        path: "/api",
       })
-    ).rejects.toHaveProperty("name", "AbortError");
+    );
 
-    // ensure that fetch's built-in mechanism isn't being used
-    expect(mockRequest.mock.calls[0][1]).not.toHaveProperty("signal");
+    expect(XhrMock.captures).toEqual([
+      ["upload.addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "readystatechange", expect.any(Function)],
+      ["open", "PUT", "http://localhost:3000/api?k=v"],
+      ["send", "hello"],
+      ["getAllResponseHeaders"],
+    ]);
   });
-
-  describe("#destroy", () => {
-    it("should be callable and return nothing", () => {
-      const httpHandler = new XhrHttpHandler();
-      expect(httpHandler.destroy()).toBeUndefined();
-    });
-  });
-
-  // The Blob implementation does not implement Blob.text, so we deal with it here.
-  async function blobToText(blob: Blob): Promise<string> {
-    const reader = new FileReader();
-
-    return new Promise((resolve) => {
-      // This fires after the blob has been read/loaded.
-      reader.addEventListener("loadend", (e) => {
-        const text = e.target!.result as string;
-        resolve(text);
-      });
-
-      // Start reading the blob as text.
-      reader.readAsText(blob);
-    });
-  }
 });

@@ -50,8 +50,6 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
     UPLOAD_PROGRESS: "upload.progress",
   };
 
-  public static PROGRESS_EVENT_NAME = "progress";
-
   private config?: XhrHttpHandlerOptions;
   private readonly configProvider?: Provider<XhrHttpHandlerOptions>;
 
@@ -136,7 +134,9 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
 
         xhr.open(method, url);
         for (const [header, value] of Object.entries(request.headers)) {
-          xhr.setRequestHeader(header, value);
+          if (!isForbiddenRequestHeader(header)) {
+            xhr.setRequestHeader(header, value);
+          }
         }
         if (typeof this.config!.xhrBeforeSend === "function") {
           this.config!.xhrBeforeSend(xhr);
@@ -177,3 +177,43 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
     }, {});
   }
 }
+
+/**
+ * @private
+ */
+function isForbiddenRequestHeader(header: string): boolean {
+  header = header.toLowerCase();
+  if (header.startsWith("proxy-")) {
+    return true;
+  }
+  if (header.startsWith("sec-")) {
+    return true;
+  }
+  return forbiddenHeaders.includes(header);
+}
+
+/**
+ * @private
+ */
+const forbiddenHeaders = [
+  "Accept-Charset",
+  "Accept-Encoding",
+  "Access-Control-Request-Headers",
+  "Access-Control-Request-Method",
+  "Connection",
+  "Content-Length",
+  "Cookie",
+  "Date",
+  "DNT",
+  "Expect",
+  "Feature-Policy",
+  "Host",
+  "Keep-Alive",
+  "Origin",
+  "Referer",
+  "TE",
+  "Trailer",
+  "Transfer-Encoding",
+  "Upgrade",
+  "Via",
+].map((_) => _.toLowerCase());
