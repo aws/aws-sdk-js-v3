@@ -7,7 +7,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "exit 0"
+    "test": "jest"
   },
   "main": "./dist-es/index.js",
   "module": "./dist-es/index.js",
@@ -18,11 +18,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/fetch-http-handler": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-base64-browser": "*",
+    "@aws-sdk/util-hex-encoding": "*",
+    "@aws-sdk/util-utf8-browser": "*",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@types/node": "^10.0.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
