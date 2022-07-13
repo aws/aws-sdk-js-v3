@@ -98,13 +98,16 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
       typeof this.config!.xhrFactory === "function" ? await this.config!.xhrFactory() : new XMLHttpRequest();
 
     const raceOfPromises: Promise<{ response: HttpResponse }>[] = [
-      new Promise((resolve) => {
+      new Promise((resolve, reject) => {
         xhr.upload.addEventListener("progress", (event: ProgressEvent) => {
           this.emit(XhrHttpHandler.EVENTS.UPLOAD_PROGRESS, event, request);
         });
         xhr.addEventListener("progress", (event: ProgressEvent) => {
           this.emit(XhrHttpHandler.EVENTS.PROGRESS, event, request);
         });
+        xhr.addEventListener('error', (error) => {
+          reject(error);
+        })
         xhr.addEventListener("readystatechange", () => {
           switch (xhr.readyState) {
             case XMLHttpRequest.DONE:

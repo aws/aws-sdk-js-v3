@@ -79,6 +79,7 @@ describe(XhrHttpHandler.name, () => {
     expect(XhrMock.captures).toEqual([
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "error", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["setRequestHeader", "h", "1"],
@@ -109,6 +110,7 @@ describe(XhrHttpHandler.name, () => {
     expect(XhrMock.captures).toEqual([
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "error", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["setRequestHeader", "h", "1"],
@@ -137,6 +139,7 @@ describe(XhrHttpHandler.name, () => {
     expect(XhrMock.captures).toEqual([
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
+      ["addEventListener", "error", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["send", "hello"],
