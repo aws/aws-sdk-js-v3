@@ -54,14 +54,18 @@ describe("getCanonicalHeaders", () => {
     const headers: HeaderBag = {
       "x-amz-user-agent": "aws-sdk-js-v3",
       host: "foo.us-east-1.amazonaws.com",
+      ":authority": "",
     };
 
-    (headers.foo as any) = undefined;
     const request = new HttpRequest({
       method: "POST",
       protocol: "https:",
       path: "/",
-      headers,
+      headers: {
+        ...headers,
+        foo: undefined,
+        bar: null,
+      },
       hostname: "foo.us-east-1.amazonaws.com",
     });
 

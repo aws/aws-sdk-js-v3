@@ -12,7 +12,7 @@ export const getCanonicalHeaders = (
 ): HeaderBag => {
   const canonical: HeaderBag = {};
   for (const headerName of Object.keys(headers).sort()) {
-    if (!headers[headerName]) {
+    if (headers[headerName] == undefined) {
       continue;
     }
 
