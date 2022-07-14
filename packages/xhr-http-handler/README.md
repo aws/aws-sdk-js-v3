@@ -25,7 +25,7 @@ that do not implement them natively.
 
 ### Use case: XMLHttpRequest upload progress events
 
-Use the `Upload` class from the `@aws-sdk/lib-upload` package as normal, except supplying a different
+Use the `Upload` class from the `@aws-sdk/lib-storage` package as normal, except supplying a different
 `HttpHandler` when creating the `S3Client` or `S3` object(s).
 
 See also: [lib-storage/README.md](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
