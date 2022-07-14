@@ -65,6 +65,7 @@ import {
   InstanceTypeItem,
   InternalServerException,
   LineItem,
+  LineItemAssetInformation,
   LineItemRequest,
   LineItemStatus,
   NotFoundException,
@@ -73,6 +74,7 @@ import {
   Outpost,
   RackPhysicalProperties,
   ServiceQuotaExceededException,
+  ShipmentInformation,
   Site,
   SupportedStorageEnum,
   ValidationException,
@@ -2663,11 +2665,47 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
 
 const deserializeAws_restJson1LineItem = (output: any, context: __SerdeContext): LineItem => {
   return {
+    AssetInformationList:
+      output.AssetInformationList != null
+        ? deserializeAws_restJson1LineItemAssetInformationList(output.AssetInformationList, context)
+        : undefined,
     CatalogItemId: __expectString(output.CatalogItemId),
     LineItemId: __expectString(output.LineItemId),
     Quantity: __expectInt32(output.Quantity),
+    ShipmentInformation:
+      output.ShipmentInformation != null
+        ? deserializeAws_restJson1ShipmentInformation(output.ShipmentInformation, context)
+        : undefined,
     Status: __expectString(output.Status),
   } as any;
+};
+
+const deserializeAws_restJson1LineItemAssetInformation = (
+  output: any,
+  context: __SerdeContext
+): LineItemAssetInformation => {
+  return {
+    AssetId: __expectString(output.AssetId),
+    MacAddressList:
+      output.MacAddressList != null
+        ? deserializeAws_restJson1MacAddressList(output.MacAddressList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LineItemAssetInformationList = (
+  output: any,
+  context: __SerdeContext
+): LineItemAssetInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LineItemAssetInformation(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __SerdeContext): LineItem[] => {
@@ -2692,6 +2730,18 @@ const deserializeAws_restJson1LineItemStatusCounts = (output: any, context: __Se
       [key]: __expectInt32(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1MacAddressList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Order = (output: any, context: __SerdeContext): Order => {
@@ -2789,6 +2839,13 @@ const deserializeAws_restJson1RackPhysicalProperties = (
     PowerPhase: __expectString(output.PowerPhase),
     UplinkCount: __expectString(output.UplinkCount),
     UplinkGbps: __expectString(output.UplinkGbps),
+  } as any;
+};
+
+const deserializeAws_restJson1ShipmentInformation = (output: any, context: __SerdeContext): ShipmentInformation => {
+  return {
+    ShipmentCarrier: __expectString(output.ShipmentCarrier),
+    ShipmentTrackingNumber: __expectString(output.ShipmentTrackingNumber),
   } as any;
 };
 

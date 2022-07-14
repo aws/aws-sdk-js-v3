@@ -567,6 +567,73 @@ export namespace CreateOrderInput {
   });
 }
 
+/**
+ * <p>
+ *       Information about a line item asset.
+ *     </p>
+ */
+export interface LineItemAssetInformation {
+  /**
+   * <p>
+   *       The ID of the asset.
+   *     </p>
+   */
+  AssetId?: string;
+
+  /**
+   * <p>
+   *       MAC addresses of the asset.
+   *     </p>
+   */
+  MacAddressList?: string[];
+}
+
+export namespace LineItemAssetInformation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LineItemAssetInformation): any => ({
+    ...obj,
+  });
+}
+
+export enum ShipmentCarrier {
+  DBS = "DBS",
+  DHL = "DHL",
+  FEDEX = "FEDEX",
+  UPS = "UPS",
+}
+
+/**
+ * <p>
+ *       Information about a line item shipment.
+ *     </p>
+ */
+export interface ShipmentInformation {
+  /**
+   * <p>
+   *       The tracking number of the shipment.
+   *     </p>
+   */
+  ShipmentTrackingNumber?: string;
+
+  /**
+   * <p>
+   *       The carrier of the shipment.
+   *     </p>
+   */
+  ShipmentCarrier?: ShipmentCarrier | string;
+}
+
+export namespace ShipmentInformation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ShipmentInformation): any => ({
+    ...obj,
+  });
+}
+
 export enum LineItemStatus {
   BUILDING = "BUILDING",
   CANCELLED = "CANCELLED",
@@ -603,6 +670,20 @@ export interface LineItem {
    * <p>The status of the line item.</p>
    */
   Status?: LineItemStatus | string;
+
+  /**
+   * <p>
+   *       Information about a line item shipment.
+   *     </p>
+   */
+  ShipmentInformation?: ShipmentInformation;
+
+  /**
+   * <p>
+   *       Information about assets.
+   *     </p>
+   */
+  AssetInformationList?: LineItemAssetInformation[];
 }
 
 export namespace LineItem {
