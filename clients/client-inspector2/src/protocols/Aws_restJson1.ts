@@ -57,6 +57,7 @@ import {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "../commands/EnableDelegatedAdminAccountCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
@@ -93,6 +94,10 @@ import {
 import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "../commands/ListUsageTotalsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "../commands/UpdateConfigurationCommand";
 import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "../commands/UpdateFilterCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
@@ -131,8 +136,11 @@ import {
   Ec2InstanceAggregation,
   Ec2InstanceAggregationResponse,
   Ec2Metadata,
+  EcrConfiguration,
+  EcrConfigurationState,
   EcrContainerImageMetadata,
   EcrRepositoryMetadata,
+  EcrRescanDurationState,
   FailedAccount,
   Filter,
   FilterCriteria,
@@ -302,6 +310,7 @@ export const serializeAws_restJson1CreateFilterCommand = async (
       filterCriteria: serializeAws_restJson1FilterCriteria(input.filterCriteria, context),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.reason != null && { reason: input.reason }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -511,6 +520,28 @@ export const serializeAws_restJson1EnableDelegatedAdminAccountCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.delegatedAdminAccountId != null && { delegatedAdminAccountId: input.delegatedAdminAccountId }),
   });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetConfigurationCommand = async (
+  input: GetConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/get";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -939,6 +970,32 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateConfigurationCommand = async (
+  input: UpdateConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ecrConfiguration != null && {
+      ecrConfiguration: serializeAws_restJson1EcrConfiguration(input.ecrConfiguration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateFilterCommand = async (
   input: UpdateFilterCommandInput,
   context: __SerdeContext
@@ -957,6 +1014,7 @@ export const serializeAws_restJson1UpdateFilterCommand = async (
       filterCriteria: serializeAws_restJson1FilterCriteria(input.filterCriteria, context),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.reason != null && { reason: input.reason }),
   });
   return new __HttpRequest({
     protocol,
@@ -1739,6 +1797,57 @@ const deserializeAws_restJson1EnableDelegatedAdminAccountCommandError = async (
     case "ValidationException":
     case "com.amazonaws.inspector2#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetConfigurationCommandError(output, context);
+  }
+  const contents: GetConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ecrConfiguration: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ecrConfiguration !== undefined && data.ecrConfiguration !== null) {
+    contents.ecrConfiguration = deserializeAws_restJson1EcrConfigurationState(data.ecrConfiguration, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.inspector2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -2621,6 +2730,56 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConfigurationCommandError(output, context);
+  }
+  const contents: UpdateConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3085,6 +3244,12 @@ const serializeAws_restJson1Ec2InstanceAggregation = (input: Ec2InstanceAggregat
     }),
     ...(input.sortBy != null && { sortBy: input.sortBy }),
     ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
+  };
+};
+
+const serializeAws_restJson1EcrConfiguration = (input: EcrConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.rescanDuration != null && { rescanDuration: input.rescanDuration }),
   };
 };
 
@@ -3798,6 +3963,15 @@ const deserializeAws_restJson1Ec2Metadata = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1EcrConfigurationState = (output: any, context: __SerdeContext): EcrConfigurationState => {
+  return {
+    rescanDurationState:
+      output.rescanDurationState != null
+        ? deserializeAws_restJson1EcrRescanDurationState(output.rescanDurationState, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EcrContainerImageMetadata = (
   output: any,
   context: __SerdeContext
@@ -3811,6 +3985,18 @@ const deserializeAws_restJson1EcrRepositoryMetadata = (output: any, context: __S
   return {
     name: __expectString(output.name),
     scanFrequency: __expectString(output.scanFrequency),
+  } as any;
+};
+
+const deserializeAws_restJson1EcrRescanDurationState = (
+  output: any,
+  context: __SerdeContext
+): EcrRescanDurationState => {
+  return {
+    rescanDuration: __expectString(output.rescanDuration),
+    status: __expectString(output.status),
+    updatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
   } as any;
 };
 

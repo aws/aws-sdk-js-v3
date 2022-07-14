@@ -200,6 +200,7 @@ export namespace AccountAggregationResponse {
 
 export enum ErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
+  ACCOUNT_IS_ISOLATED = "ACCOUNT_IS_ISOLATED",
   ALREADY_ENABLED = "ALREADY_ENABLED",
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   DISASSOCIATE_ALL_MEMBERS = "DISASSOCIATE_ALL_MEMBERS",
@@ -2198,7 +2199,7 @@ export interface CoverageFilterCriteria {
   resourceId?: CoverageStringFilter[];
 
   /**
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for.</p>
+   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code> or <code>AWS_ECR_REPOSITORY</code>.</p>
    */
   resourceType?: CoverageStringFilter[];
 
@@ -2357,6 +2358,7 @@ export enum ScanStatusReason {
   IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   NO_RESOURCES_FOUND = "NO_RESOURCES_FOUND",
+  PENDING_DISABLE = "PENDING_DISABLE",
   PENDING_INITIAL_SCAN = "PENDING_INITIAL_SCAN",
   RESOURCE_TERMINATED = "RESOURCE_TERMINATED",
   SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
@@ -2762,6 +2764,11 @@ export interface CreateFilterRequest {
    * <p>A list of tags for the filter.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The reason for creating the filter.</p>
+   */
+  reason?: string;
 }
 
 export namespace CreateFilterRequest {
@@ -3242,6 +3249,85 @@ export namespace DisassociateMemberResponse {
   });
 }
 
+export enum EcrRescanDuration {
+  DAYS_180 = "DAYS_180",
+  DAYS_30 = "DAYS_30",
+  LIFETIME = "LIFETIME",
+}
+
+/**
+ * <p>Details about the ECR automated re-scan duration setting for your environment</p>
+ */
+export interface EcrConfiguration {
+  /**
+   * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+   */
+  rescanDuration: EcrRescanDuration | string | undefined;
+}
+
+export namespace EcrConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EcrConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum EcrRescanDurationStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>Details about the state of any changes to the ECR automated re-scan duration setting.</p>
+ */
+export interface EcrRescanDurationState {
+  /**
+   * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+   */
+  rescanDuration?: EcrRescanDuration | string;
+
+  /**
+   * <p>The status of changes to the ECR automated re-scan duration.</p>
+   */
+  status?: EcrRescanDurationStatus | string;
+
+  /**
+   * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
+   */
+  updatedAt?: Date;
+}
+
+export namespace EcrRescanDurationState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EcrRescanDurationState): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the state of the ECR scans for your environment.</p>
+ */
+export interface EcrConfigurationState {
+  /**
+   * <p>An object that contains details about the state of the ECR automated re-scan setting.</p>
+   */
+  rescanDurationState?: EcrRescanDurationState;
+}
+
+export namespace EcrConfigurationState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EcrConfigurationState): any => ({
+    ...obj,
+  });
+}
+
 export interface EnableRequest {
   /**
    * <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
@@ -3526,11 +3612,15 @@ export enum PackageManager {
   GOBINARY = "GOBINARY",
   GOMOD = "GOMOD",
   JAR = "JAR",
+  NODEPKG = "NODEPKG",
   NPM = "NPM",
   NUGET = "NUGET",
   OS = "OS",
+  PIP = "PIP",
   PIPENV = "PIPENV",
   POETRY = "POETRY",
+  POM = "POM",
+  PYTHONPKG = "PYTHONPKG",
   YARN = "YARN",
 }
 
@@ -3888,6 +3978,33 @@ export namespace Finding {
   });
 }
 
+export interface GetConfigurationRequest {}
+
+export namespace GetConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConfigurationResponse {
+  /**
+   * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
+   */
+  ecrConfiguration?: EcrConfigurationState;
+}
+
+export namespace GetConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDelegatedAdminAccountRequest {}
 
 export namespace GetDelegatedAdminAccountRequest {
@@ -3932,8 +4049,12 @@ export namespace GetFindingsReportStatusRequest {
 }
 
 export enum ReportingErrorCode {
+  BUCKET_NOT_FOUND = "BUCKET_NOT_FOUND",
+  INCOMPATIBLE_BUCKET_REGION = "INCOMPATIBLE_BUCKET_REGION",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
+  MALFORMED_KMS_KEY = "MALFORMED_KMS_KEY",
+  NO_FINDINGS_FOUND = "NO_FINDINGS_FOUND",
 }
 
 export interface GetFindingsReportStatusResponse {
@@ -4786,6 +4907,33 @@ export namespace UntagResourceResponse {
   });
 }
 
+export interface UpdateConfigurationRequest {
+  /**
+   * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
+   */
+  ecrConfiguration: EcrConfiguration | undefined;
+}
+
+export namespace UpdateConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConfigurationResponse {}
+
+export namespace UpdateConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
@@ -4811,6 +4959,11 @@ export interface UpdateFilterRequest {
    * <p>The Amazon Resource Number (ARN) of the filter to update.</p>
    */
   filterArn: string | undefined;
+
+  /**
+   * <p>The reason the filter was updated.</p>
+   */
+  reason?: string;
 }
 
 export namespace UpdateFilterRequest {

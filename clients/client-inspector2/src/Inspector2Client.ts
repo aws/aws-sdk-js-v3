@@ -87,6 +87,7 @@ import {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "./commands/EnableDelegatedAdminAccountCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
@@ -123,6 +124,10 @@ import {
 import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "./commands/ListUsageTotalsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand";
 import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
@@ -144,6 +149,7 @@ export type ServiceInputTypes =
   | DisassociateMemberCommandInput
   | EnableCommandInput
   | EnableDelegatedAdminAccountCommandInput
+  | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetFindingsReportStatusCommandInput
   | GetMemberCommandInput
@@ -159,6 +165,7 @@ export type ServiceInputTypes =
   | ListUsageTotalsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateConfigurationCommandInput
   | UpdateFilterCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
@@ -176,6 +183,7 @@ export type ServiceOutputTypes =
   | DisassociateMemberCommandOutput
   | EnableCommandOutput
   | EnableDelegatedAdminAccountCommandOutput
+  | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetFindingsReportStatusCommandOutput
   | GetMemberCommandOutput
@@ -191,6 +199,7 @@ export type ServiceOutputTypes =
   | ListUsageTotalsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateConfigurationCommandOutput
   | UpdateFilterCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 

@@ -59,6 +59,11 @@ import {
   EnableDelegatedAdminAccountCommandOutput,
 } from "./commands/EnableDelegatedAdminAccountCommand";
 import {
+  GetConfigurationCommand,
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput,
+} from "./commands/GetConfigurationCommand";
+import {
   GetDelegatedAdminAccountCommand,
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
@@ -117,6 +122,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateConfigurationCommand,
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand";
 import {
   UpdateFilterCommand,
   UpdateFilterCommandInput,
@@ -523,6 +533,38 @@ export class Inspector2 extends Inspector2Client {
     cb?: (err: any, data?: EnableDelegatedAdminAccountCommandOutput) => void
   ): Promise<EnableDelegatedAdminAccountCommandOutput> | void {
     const command = new EnableDelegatedAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves setting configurations for Inspector scans.</p>
+   */
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCommandOutput>;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  public getConfiguration(
+    args: GetConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): Promise<GetConfigurationCommandOutput> | void {
+    const command = new GetConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -976,6 +1018,38 @@ export class Inspector2 extends Inspector2Client {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.</p>
+   */
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationCommandOutput>;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): Promise<UpdateConfigurationCommandOutput> | void {
+    const command = new UpdateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
