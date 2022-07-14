@@ -23,7 +23,7 @@ export interface ListStreamingSessionsCommandInput extends ListStreamingSessions
 export interface ListStreamingSessionsCommandOutput extends ListStreamingSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the streaming image resources in a studio.</p>
+ * <p>Lists the streaming sessions in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

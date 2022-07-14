@@ -500,12 +500,12 @@ export interface StreamConfigurationCreate {
    *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
    *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
    *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated by AWS (instead of stopped).</p>
+   *             session will automatically be terminated (instead of stopped).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
    *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
    *             that a session stays in the READY state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-   *             stopped by AWS (instead of terminated).</p>
+   *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
@@ -658,12 +658,12 @@ export interface StreamConfiguration {
    *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
    *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
    *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated by AWS (instead of stopped).</p>
+   *             session will automatically be terminated (instead of stopped).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
    *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
    *             that a session stays in the READY state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-   *             stopped by AWS (instead of terminated).</p>
+   *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
@@ -1932,6 +1932,16 @@ export interface CreateStudioComponentRequest {
    * <p>The type of the studio component.</p>
    */
   type: StudioComponentType | string | undefined;
+
+  /**
+   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   */
+  secureInitializationRoleArn?: string;
+
+  /**
+   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 export namespace CreateStudioComponentRequest {
@@ -2078,6 +2088,16 @@ export interface StudioComponent {
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
+
+  /**
+   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   */
+  secureInitializationRoleArn?: string;
+
+  /**
+   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 export namespace StudioComponent {
@@ -2840,6 +2860,16 @@ export interface LaunchProfileInitializationScript {
    * <p>The name for the studio component.</p>
    */
   studioComponentName?: string;
+
+  /**
+   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   */
+  secureInitializationRoleArn?: string;
+
+  /**
+   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 export namespace LaunchProfileInitializationScript {
@@ -4163,6 +4193,16 @@ export interface UpdateStudioComponentRequest {
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
+
+  /**
+   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   */
+  secureInitializationRoleArn?: string;
+
+  /**
+   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   */
+  runtimeRoleArn?: string;
 }
 
 export namespace UpdateStudioComponentRequest {

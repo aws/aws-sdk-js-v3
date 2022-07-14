@@ -1192,7 +1192,7 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Lists the streaming image resources in a studio.</p>
+   * <p>Lists the streaming sessions in a studio.</p>
    */
   public listStreamingSessions(
     args: ListStreamingSessionsCommandInput,

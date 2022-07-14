@@ -232,10 +232,9 @@
           }
         },
         "endpoint": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The endpoint of the ComputeFarm that is accessed by the studio component\n            resource.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The endpoint of the ComputeFarm that is accessed by the studio component\n            resource.</p>"
           }
         }
       },
@@ -476,8 +475,7 @@
         "description": {
           "target": "com.amazonaws.nimble#StreamingImageDescription",
           "traits": {
-            "smithy.api#documentation": "<p>A human-readable description of the streaming image.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>A human-readable description of the streaming image.</p>"
           }
         },
         "ec2ImageId": {
@@ -491,8 +489,7 @@
           "target": "com.amazonaws.nimble#StreamingImageName",
           "traits": {
             "smithy.api#documentation": "<p>A friendly name for a streaming image resource.</p>",
-            "smithy.api#required": {},
-            "smithy.api#sensitive": {}
+            "smithy.api#required": {}
           }
         },
         "studioId": {
@@ -822,7 +819,12 @@
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to create a studio component. A studio component designates a network resource to which a launch profile will provide access",
         "aws.iam#conditionKeys": ["aws:TagKeys", "aws:RequestTag/${TagKey}"],
-        "aws.iam#requiredActions": ["ec2:DescribeSecurityGroups", "fsx:DescribeFileSystems", "ds:DescribeDirectories"],
+        "aws.iam#requiredActions": [
+          "ec2:DescribeSecurityGroups",
+          "fsx:DescribeFileSystems",
+          "ds:DescribeDirectories",
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Creates a studio component resource.</p>",
         "smithy.api#http": {
           "method": "POST",
@@ -909,6 +911,22 @@
             "smithy.api#documentation": "<p>The type of the studio component.</p>",
             "smithy.api#required": {}
           }
+        },
+        "secureInitializationRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
+        },
+        "runtimeRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
         }
       },
       "traits": {
@@ -934,7 +952,7 @@
       "type": "structure",
       "members": {
         "adminRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio\n            portal.</p>",
             "smithy.api#required": {}
@@ -954,8 +972,7 @@
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>A friendly name for the studio.</p>",
-            "smithy.api#required": {},
-            "smithy.api#sensitive": {}
+            "smithy.api#required": {}
           }
         },
         "studioEncryptionConfiguration": {
@@ -979,7 +996,7 @@
           }
         },
         "userRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>The IAM role that Studio Users will assume when logging in to the Nimble Studio\n            portal.</p>",
@@ -1704,10 +1721,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "eula-acceptance/{eulaAcceptanceId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "eula-acceptance/{eulaAcceptanceId}"
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -1766,10 +1780,7 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "eula/{eulaId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "eula/{eulaId}"
         },
         "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}", "aws:RequestTag/${TagKey}", "aws:TagKeys"],
         "aws.iam#disableConditionKeyInference": {},
@@ -1897,6 +1908,8 @@
         "smithy.waiters#waitable": {
           "LaunchProfileReady": {
             "documentation": "Wait until a LaunchProfile is Ready. Use this after invoking CreateLaunchProfile or UpdateLaunchProfile",
+            "minDelay": 5,
+            "maxDelay": 750,
             "acceptors": [
               {
                 "state": "success",
@@ -1928,12 +1941,12 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 750
+            ]
           },
           "LaunchProfileDeleted": {
             "documentation": "Wait until a LaunchProfile is Deleted. Use this after invoking DeleteLaunchProfile",
+            "minDelay": 5,
+            "maxDelay": 750,
             "acceptors": [
               {
                 "state": "success",
@@ -1955,9 +1968,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 750
+            ]
           }
         }
       }
@@ -2442,6 +2453,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "StreamingSessionReady": {
+            "minDelay": 10,
+            "maxDelay": 1800,
             "documentation": "Wait until a StreamingSession is ready. Use this after invoking CreateStreamingSession, StartStreamingSession",
             "acceptors": [
               {
@@ -2474,11 +2487,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 10,
-            "maxDelay": 1800
+            ]
           },
           "StreamingSessionStopped": {
+            "minDelay": 5,
+            "maxDelay": 900,
             "documentation": "Wait until a StreamingSessionStopped. Use this after invoking StopStreamingSession",
             "acceptors": [
               {
@@ -2501,11 +2514,11 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 900
+            ]
           },
           "StreamingSessionDeleted": {
+            "minDelay": 5,
+            "maxDelay": 900,
             "documentation": "Wait until a StreamingSessionDeleted. Use this after invoking Deletesession",
             "acceptors": [
               {
@@ -2528,9 +2541,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 900
+            ]
           }
         }
       }
@@ -2610,6 +2621,8 @@
         "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "StreamingSessionStreamReady": {
+            "minDelay": 5,
+            "maxDelay": 150,
             "documentation": "Wait until a StreamingSessionStream is ready. Use this after invoking CreateStreamingSessionStream",
             "acceptors": [
               {
@@ -2632,9 +2645,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 5,
-            "maxDelay": 150
+            ]
           }
         }
       }
@@ -2860,6 +2871,8 @@
             ]
           },
           "StudioComponentDeleted": {
+            "minDelay": 1,
+            "maxDelay": 120,
             "documentation": "Wait until a StudioComponent Deleted. Use this after invoking DeleteStudioComponent",
             "acceptors": [
               {
@@ -2882,8 +2895,7 @@
                   }
                 }
               }
-            ],
-            "minDelay": 1
+            ]
           }
         }
       }
@@ -3330,6 +3342,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The name for the studio component.</p>"
           }
+        },
+        "secureInitializationRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
+        },
+        "runtimeRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
         }
       },
       "traits": {
@@ -3492,14 +3518,11 @@
       ],
       "traits": {
         "aws.api#arn": {
-          "template": "launch-profile/{launchProfileId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "launch-profile/{launchProfileId}"
         },
         "aws.cloudformation#cfnResource": {
-          "additionalSchemas": ["com.amazonaws.nimble#LaunchProfile"],
-          "name": "LaunchProfile"
+          "name": "LaunchProfile",
+          "additionalSchemas": ["com.amazonaws.nimble#LaunchProfile"]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -3752,10 +3775,9 @@
       "type": "structure",
       "members": {
         "endpoint": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The endpoint of the license service that is accessed by the studio component\n            resource.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The endpoint of the license service that is accessed by the studio component\n            resource.</p>"
           }
         }
       },
@@ -3990,8 +4012,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "members",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "members"
         },
         "smithy.api#readonly": {}
       }
@@ -4091,8 +4113,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "launchProfiles",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "launchProfiles"
         },
         "smithy.api#readonly": {}
       }
@@ -4280,7 +4302,7 @@
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to list streaming sessions",
         "aws.iam#conditionKeys": ["nimble:createdBy", "nimble:ownedBy", "nimble:requesterPrincipalId"],
-        "smithy.api#documentation": "<p>Lists the streaming image resources in a studio.</p>",
+        "smithy.api#documentation": "<p>Lists the streaming sessions in a studio.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/2020-08-01/studios/{studioId}/streaming-sessions",
@@ -4394,8 +4416,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "studioComponents",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "studioComponents"
         },
         "smithy.api#readonly": {}
       }
@@ -4500,8 +4522,8 @@
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
-          "items": "members",
-          "pageSize": "maxResults"
+          "pageSize": "maxResults",
+          "items": "members"
         },
         "smithy.api#readonly": {}
       }
@@ -5012,6 +5034,15 @@
         "smithy.api#httpError": 404
       }
     },
+    "com.amazonaws.nimble#RoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        }
+      }
+    },
     "com.amazonaws.nimble#ScriptParameterKey": {
       "type": "string",
       "traits": {
@@ -5056,6 +5087,12 @@
     "com.amazonaws.nimble#SecurityGroupId": {
       "type": "string"
     },
+    "com.amazonaws.nimble#SensitiveString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.nimble#ServiceQuotaExceededException": {
       "type": "structure",
       "members": {
@@ -5088,10 +5125,9 @@
       "type": "structure",
       "members": {
         "endpoint": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The endpoint of the shared file system that is accessed by the studio component\n            resource.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The endpoint of the shared file system that is accessed by the studio component\n            resource.</p>"
           }
         },
         "fileSystemId": {
@@ -5107,10 +5143,9 @@
           }
         },
         "shareName": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the file share.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The name of the file share.</p>"
           }
         },
         "windowsMountDrive": {
@@ -5397,7 +5432,7 @@
         "maxStoppedSessionLengthInMinutes": {
           "target": "com.amazonaws.nimble#StreamConfigurationMaxStoppedSessionLengthInMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>Integer that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>\n        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call\n                <code>StopStreamingSession</code>, the session fails. If the time that a session\n            stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the\n            session will automatically be terminated by AWS (instead of stopped).</p>\n        <p>If the value is set to a positive number, the session can be stopped. You can call\n                <code>StopStreamingSession</code> to stop sessions in the READY state. If the time\n            that a session stays in the READY state exceeds the\n                <code>maxSessionLengthInMinutes</code> value, the session will automatically be\n            stopped by AWS (instead of terminated).</p>",
+            "smithy.api#documentation": "<p>Integer that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>\n        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call\n                <code>StopStreamingSession</code>, the session fails. If the time that a session\n            stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the\n            session will automatically be terminated (instead of stopped).</p>\n        <p>If the value is set to a positive number, the session can be stopped. You can call\n                <code>StopStreamingSession</code> to stop sessions in the READY state. If the time\n            that a session stays in the READY state exceeds the\n                <code>maxSessionLengthInMinutes</code> value, the session will automatically be\n            stopped (instead of terminated).</p>",
             "smithy.api#tags": ["stop_start_streaming_session"]
           }
         },
@@ -5446,7 +5481,7 @@
         "maxStoppedSessionLengthInMinutes": {
           "target": "com.amazonaws.nimble#StreamConfigurationMaxStoppedSessionLengthInMinutes",
           "traits": {
-            "smithy.api#documentation": "<p>Integer that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>\n        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call\n                <code>StopStreamingSession</code>, the session fails. If the time that a session\n            stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the\n            session will automatically be terminated by AWS (instead of stopped).</p>\n        <p>If the value is set to a positive number, the session can be stopped. You can call\n                <code>StopStreamingSession</code> to stop sessions in the READY state. If the time\n            that a session stays in the READY state exceeds the\n                <code>maxSessionLengthInMinutes</code> value, the session will automatically be\n            stopped by AWS (instead of terminated).</p>",
+            "smithy.api#documentation": "<p>Integer that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>\n        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call\n                <code>StopStreamingSession</code>, the session fails. If the time that a session\n            stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the\n            session will automatically be terminated (instead of stopped).</p>\n        <p>If the value is set to a positive number, the session can be stopped. You can call\n                <code>StopStreamingSession</code> to stop sessions in the READY state. If the time\n            that a session stays in the READY state exceeds the\n                <code>maxSessionLengthInMinutes</code> value, the session will automatically be\n            stopped (instead of terminated).</p>",
             "smithy.api#tags": ["stop_start_streaming_session"]
           }
         },
@@ -5530,8 +5565,7 @@
           "target": "com.amazonaws.nimble#StreamingImageDescription",
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
-            "smithy.api#documentation": "<p>A human-readable description of the streaming image.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>A human-readable description of the streaming image.</p>"
           }
         },
         "ec2ImageId": {
@@ -5559,8 +5593,7 @@
           "target": "com.amazonaws.nimble#StreamingImageName",
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
-            "smithy.api#documentation": "<p>A friendly name for a streaming image resource.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>A friendly name for a streaming image resource.</p>"
           }
         },
         "owner": {
@@ -5623,7 +5656,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 256
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.nimble#StreamingImageEncryptionConfiguration": {
@@ -5703,7 +5737,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 64
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.nimble#StreamingImageOwner": {
@@ -5743,14 +5778,11 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "streaming-image/{streamingImageId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "streaming-image/{streamingImageId}"
         },
         "aws.cloudformation#cfnResource": {
-          "additionalSchemas": ["com.amazonaws.nimble#StreamingImage"],
-          "name": "StreamingImage"
+          "name": "StreamingImage",
+          "additionalSchemas": ["com.amazonaws.nimble#StreamingImage"]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -5868,7 +5900,8 @@
             "value": "g4dn.16xlarge",
             "name": "g4dn_16xlarge"
           }
-        ]
+        ],
+        "smithy.api#suppress": ["EnumTrait"]
       }
     },
     "com.amazonaws.nimble#StreamingInstanceTypeList": {
@@ -6061,10 +6094,7 @@
       ],
       "traits": {
         "aws.api#arn": {
-          "template": "streaming-session/{sessionId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "streaming-session/{sessionId}"
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -6309,10 +6339,9 @@
           }
         },
         "url": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#SensitiveString",
           "traits": {
-            "smithy.api#documentation": "<p>The URL to connect to this stream using the DCV client.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The URL to connect to this stream using the DCV client.</p>"
           }
         }
       },
@@ -6404,7 +6433,7 @@
       "type": "structure",
       "members": {
         "adminRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>The IAM role that studio admins assume when logging in to the Nimble Studio\n            portal.</p>"
@@ -6427,8 +6456,7 @@
         "displayName": {
           "target": "com.amazonaws.nimble#StudioDisplayName",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name for the studio.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>A friendly name for the studio.</p>"
           }
         },
         "homeRegion": {
@@ -6507,7 +6535,7 @@
           }
         },
         "userRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "aws.cloudformation#cfnMutability": "full",
             "smithy.api#documentation": "<p>The IAM role that studio users assume when logging in to the Nimble Studio\n            portal.</p>"
@@ -6643,6 +6671,22 @@
           "traits": {
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>The user ID of the user that most recently updated the resource.</p>"
+          }
+        },
+        "secureInitializationRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
+        },
+        "runtimeRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>",
+            "smithy.api#tags": ["studio_component_roles"]
           }
         }
       },
@@ -6811,14 +6855,11 @@
       },
       "traits": {
         "aws.api#arn": {
-          "template": "studio-component/{studioComponentId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "studio-component/{studioComponentId}"
         },
         "aws.cloudformation#cfnResource": {
-          "additionalSchemas": ["com.amazonaws.nimble#StudioComponent"],
-          "name": "StudioComponent"
+          "name": "StudioComponent",
+          "additionalSchemas": ["com.amazonaws.nimble#StudioComponent"]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -7082,7 +7123,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 64
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.nimble#StudioEncryptionConfiguration": {
@@ -7244,14 +7286,11 @@
       ],
       "traits": {
         "aws.api#arn": {
-          "template": "studio/{studioId}",
-          "absolute": false,
-          "noAccount": false,
-          "noRegion": false
+          "template": "studio/{studioId}"
         },
         "aws.cloudformation#cfnResource": {
-          "additionalSchemas": ["com.amazonaws.nimble#Studio"],
-          "name": "Studio"
+          "name": "Studio",
+          "additionalSchemas": ["com.amazonaws.nimble#Studio"]
         },
         "aws.iam#conditionKeys": [
           "aws:ResourceTag/${TagKey}",
@@ -7900,15 +7939,13 @@
         "description": {
           "target": "com.amazonaws.nimble#StreamingImageDescription",
           "traits": {
-            "smithy.api#documentation": "<p>The description.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The description.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.nimble#StreamingImageName",
           "traits": {
-            "smithy.api#documentation": "<p>The name for the streaming image.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>The name for the streaming image.</p>"
           }
         },
         "streamingImageId": {
@@ -8012,7 +8049,12 @@
       ],
       "traits": {
         "aws.iam#actionPermissionDescription": "Grants permission to update a studio component",
-        "aws.iam#requiredActions": ["ec2:DescribeSecurityGroups", "fsx:DescribeFileSystems", "ds:DescribeDirectories"],
+        "aws.iam#requiredActions": [
+          "ec2:DescribeSecurityGroups",
+          "fsx:DescribeFileSystems",
+          "ds:DescribeDirectories",
+          "iam:PassRole"
+        ],
         "smithy.api#documentation": "<p>Updates a studio component resource.</p>",
         "smithy.api#http": {
           "method": "PATCH",
@@ -8096,6 +8138,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The type of the studio component.</p>"
           }
+        },
+        "secureInitializationRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
+        },
+        "runtimeRoleArn": {
+          "target": "com.amazonaws.nimble#RoleArn",
+          "traits": {
+            "aws.cloudformation#cfnMutability": "full",
+            "smithy.api#documentation": "<p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>",
+            "smithy.api#tags": ["studio_component_roles"]
+          }
         }
       }
     },
@@ -8114,7 +8172,7 @@
       "type": "structure",
       "members": {
         "adminRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio\n            portal.</p>"
           }
@@ -8131,8 +8189,7 @@
         "displayName": {
           "target": "com.amazonaws.nimble#StudioDisplayName",
           "traits": {
-            "smithy.api#documentation": "<p>A friendly name for the studio.</p>",
-            "smithy.api#sensitive": {}
+            "smithy.api#documentation": "<p>A friendly name for the studio.</p>"
           }
         },
         "studioId": {
@@ -8144,7 +8201,7 @@
           }
         },
         "userRoleArn": {
-          "target": "com.amazonaws.nimble#String",
+          "target": "com.amazonaws.nimble#RoleArn",
           "traits": {
             "smithy.api#documentation": "<p>The IAM role that Studio Users will assume when logging in to the Nimble Studio\n            portal.</p>"
           }
@@ -8244,18 +8301,37 @@
       "traits": {
         "aws.api#service": {
           "sdkId": "nimble",
-          "arnNamespace": "nimble",
           "cloudFormationName": "NimbleStudio",
-          "cloudTrailEventSource": "nimble.amazonaws.com",
-          "endpointPrefix": "nimble"
+          "arnNamespace": "nimble",
+          "cloudTrailEventSource": "nimble.amazonaws.com"
         },
         "aws.auth#sigv4": {
           "name": "nimble"
         },
         "aws.iam#defineConditionKeys": {
-          "nimble:ownedBy": {
+          "aws:ResourceTag/${TagKey}": {
             "type": "String",
-            "documentation": "Filters access by the ownedBy request parameter or the ID of the owner of the resource",
+            "documentation": "Filters access by a tag key and value pair of a resource",
+            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag"
+          },
+          "aws:RequestTag/${TagKey}": {
+            "type": "String",
+            "documentation": "Filters access by a tag key and value pair that is allowed in the request",
+            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag"
+          },
+          "aws:TagKeys": {
+            "type": "ArrayOfString",
+            "documentation": "Filters access by a list of tag keys that are allowed in the request",
+            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
+          },
+          "nimble:studioId": {
+            "type": "String",
+            "documentation": "Filters access by a specific studio",
+            "externalDocumentation": "${ContextKeysDocRoot}"
+          },
+          "nimble:requesterPrincipalId": {
+            "type": "String",
+            "documentation": "Filters access by the ID of the logged in user",
             "externalDocumentation": "${ContextKeysDocRoot}"
           },
           "nimble:principalId": {
@@ -8268,47 +8344,28 @@
             "documentation": "Filters access by the createdBy request parameter or the ID of the creator of the resource",
             "externalDocumentation": "${ContextKeysDocRoot}"
           },
-          "nimble:studioId": {
+          "nimble:ownedBy": {
             "type": "String",
-            "documentation": "Filters access by a specific studio",
+            "documentation": "Filters access by the ownedBy request parameter or the ID of the owner of the resource",
             "externalDocumentation": "${ContextKeysDocRoot}"
-          },
-          "aws:RequestTag/${TagKey}": {
-            "type": "String",
-            "documentation": "Filters access by a tag key and value pair that is allowed in the request",
-            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag"
-          },
-          "aws:TagKeys": {
-            "type": "String",
-            "documentation": "Filters access by a list of tag keys that are allowed in the request",
-            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys"
-          },
-          "nimble:requesterPrincipalId": {
-            "type": "String",
-            "documentation": "Filters access by the ID of the logged in user",
-            "externalDocumentation": "${ContextKeysDocRoot}"
-          },
-          "aws:ResourceTag/${TagKey}": {
-            "type": "String",
-            "documentation": "Filters access by a tag key and value pair of a resource",
-            "externalDocumentation": "${DocHomeURL}IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag"
           }
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
           "additionalAllowedHeaders": [
-            "authorization",
-            "x-amz-content-sha256",
-            "x-amzn-trace-id",
-            "x-amz-date",
-            "x-api-key",
-            "x-amz-client-token",
-            "x-amz-user-agent",
             "*",
             "content-type",
-            "x-amz-dryrun"
+            "authorization",
+            "x-amz-date",
+            "x-amz-content-sha256",
+            "x-amz-user-agent",
+            "x-amzn-trace-id",
+            "x-amz-dryrun",
+            "x-amz-client-token",
+            "x-api-key"
           ],
-          "additionalExposedHeaders": ["x-amz-apigw-id", "x-amzn-trace-id", "x-amzn-errortype", "x-amzn-requestid"]
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"],
+          "maxAge": 600
         },
         "smithy.api#documentation": "<p>Welcome to the Amazon Nimble Studio API reference. This API reference provides\n            methods, schema, resources, parameters, and more to help you get the most out of Nimble\n            Studio.</p>\n        <p>Nimble Studio is a virtual studio that empowers visual effects, animation, and\n            interactive content teams to create content securely within a scalable, private cloud\n            service.</p>",
         "smithy.api#title": "AmazonNimbleStudio"

@@ -479,11 +479,15 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
       ),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
     ...(input.scriptParameters != null && {
       scriptParameters: serializeAws_restJson1StudioComponentScriptParameterKeyValueList(
         input.scriptParameters,
         context
       ),
+    }),
+    ...(input.secureInitializationRoleArn != null && {
+      secureInitializationRoleArn: input.secureInitializationRoleArn,
     }),
     ...(input.subtype != null && { subtype: input.subtype }),
     ...(input.tags != null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
@@ -2060,11 +2064,15 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
       ),
     }),
     ...(input.name != null && { name: input.name }),
+    ...(input.runtimeRoleArn != null && { runtimeRoleArn: input.runtimeRoleArn }),
     ...(input.scriptParameters != null && {
       scriptParameters: serializeAws_restJson1StudioComponentScriptParameterKeyValueList(
         input.scriptParameters,
         context
       ),
+    }),
+    ...(input.secureInitializationRoleArn != null && {
+      secureInitializationRoleArn: input.secureInitializationRoleArn,
     }),
     ...(input.subtype != null && { subtype: input.subtype }),
     ...(input.type != null && { type: input.type }),
@@ -5801,7 +5809,9 @@ const deserializeAws_restJson1LaunchProfileInitializationScript = (
   context: __SerdeContext
 ): LaunchProfileInitializationScript => {
   return {
+    runtimeRoleArn: __expectString(output.runtimeRoleArn),
     script: __expectString(output.script),
+    secureInitializationRoleArn: __expectString(output.secureInitializationRoleArn),
     studioComponentId: __expectString(output.studioComponentId),
     studioComponentName: __expectString(output.studioComponentName),
   } as any;
@@ -6151,10 +6161,12 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1StudioComponentInitializationScriptList(output.initializationScripts, context)
         : undefined,
     name: __expectString(output.name),
+    runtimeRoleArn: __expectString(output.runtimeRoleArn),
     scriptParameters:
       output.scriptParameters != null
         ? deserializeAws_restJson1StudioComponentScriptParameterKeyValueList(output.scriptParameters, context)
         : undefined,
+    secureInitializationRoleArn: __expectString(output.secureInitializationRoleArn),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
