@@ -31,6 +31,10 @@ Use the `Upload` class from the `@aws-sdk/lib-storage` package as normal, except
 See also: [lib-storage/README.md](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
 
 ```javascript
+import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
+import { S3Client } from "@aws-sdk/client-s3";
+import { Upload } from "@aws-sdk/lib-storage";
+
 const client = new S3Client({
   requestHandler: new XhrHttpHandler({}), // overrides default FetchHttpHandler in browsers.
 });
