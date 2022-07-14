@@ -3,8 +3,8 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 
 import { XhrHttpHandler } from "./xhr-http-handler";
 
-const originalAbortController = global.AbortController;
 const originalXMLHttpRequest = global.XMLHttpRequest;
+const originalTextEncoder = global.TextEncoder;
 
 class XhrMock {
   public static reset() {
@@ -50,13 +50,13 @@ class XhrMock {
 
 describe(XhrHttpHandler.name, () => {
   beforeEach(() => {
-    (global as any).AbortController = void 0;
     (global as any).XMLHttpRequest = XhrMock;
+    (global as any).TextEncoder = class {};
   });
 
   afterEach(() => {
     global.XMLHttpRequest = originalXMLHttpRequest;
-    global.AbortController = originalAbortController;
+    global.TextEncoder = originalTextEncoder;
     XhrMock.reset();
   });
 
@@ -92,7 +92,7 @@ describe(XhrHttpHandler.name, () => {
     const handler = new XhrHttpHandler();
     const abortSignal = new AbortSignal();
 
-    handler.handle(
+    const handleResult = handler.handle(
       new HttpRequest({
         method: "PUT",
         hostname: "localhost",
@@ -106,6 +106,7 @@ describe(XhrHttpHandler.name, () => {
       { abortSignal }
     );
     abortSignal.abort();
+    await handleResult;
 
     expect(XhrMock.captures).toEqual([
       ["upload.addEventListener", "progress", expect.any(Function)],

@@ -11,6 +11,18 @@ The recommended `HttpHandler` for browser-like environments is `@aws-sdk/fetch-h
 which is the default.
 This alternative has only been tested against `S3` in browsers. 
 
+## Polyfills
+
+The following global-scope implementations are accessed by this package:
+
+- `XMLHttpRequest`
+- `TextEncoder`
+- `TransformStream`
+- `Blob`
+
+You will have to supply polyfills, for example for `TextEncoder` and `TransformStream`, for environments
+that do not implement them natively.
+
 ### Use case: XMLHttpRequest upload progress events
 
 Use the `Upload` class from the `@aws-sdk/lib-upload` package as normal, except supplying a different

@@ -117,7 +117,7 @@ export class Upload extends EventEmitter {
 
     if (eventEmitter !== null) {
       // The requestHandler is the xhr-http-handler.
-      eventEmitter.on("upload.progress", uploadEventListener);
+      eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
     const [putResult, endpoint] = await Promise.all([
@@ -126,7 +126,7 @@ export class Upload extends EventEmitter {
     ]);
 
     if (eventEmitter !== null) {
-      eventEmitter.off("upload.progress", uploadEventListener);
+      eventEmitter.off("xhr.upload.progress", uploadEventListener);
     }
 
     const locationKey = this.params
@@ -220,7 +220,7 @@ export class Upload extends EventEmitter {
 
         if (eventEmitter !== null) {
           // The requestHandler is the xhr-http-handler.
-          eventEmitter.on("upload.progress", uploadEventListener);
+          eventEmitter.on("xhr.upload.progress", uploadEventListener);
         }
 
         const partResult = await this.client.send(
@@ -233,11 +233,17 @@ export class Upload extends EventEmitter {
         );
 
         if (eventEmitter !== null) {
-          eventEmitter.off("upload.progress", uploadEventListener);
+          eventEmitter.off("xhr.upload.progress", uploadEventListener);
         }
 
         if (this.abortController.signal.aborted) {
           return;
+        }
+
+        if (!partResult.ETag) {
+          throw new Error(
+            `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+          );
         }
 
         this.uploadedParts.push({

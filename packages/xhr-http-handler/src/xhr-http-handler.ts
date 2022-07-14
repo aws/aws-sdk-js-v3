@@ -14,52 +14,63 @@ export interface XhrHttpHandlerOptions {
    * terminated.
    */
   requestTimeout?: number;
-
-  /**
-   * Optionally way to provide instances of xhr.
-   * The default is `new XMLHttpRequest()` from the global scope.
-   * This can be used to attach listeners or other customization.
-   */
-  xhrFactory?: () => XMLHttpRequest | Promise<XMLHttpRequest>;
-
-  /**
-   * Will be called with the xhr instance before calling xhr.send.
-   * Can be used to attach additional event listeners.
-   */
-  xhrBeforeSend?: (xhr: XMLHttpRequest) => void;
 }
+
+/**
+ * Events emitted as an EventEmitter.
+ */
+const EVENTS = {
+  /**
+   * Emitted for xhr on progress.
+   * Payload is the native ProgressEvent.
+   */
+  get PROGRESS() {
+    return "xhr.progress";
+  },
+  /**
+   * Emitted for xhr.upload on progress.
+   * Payload is the native ProgressEvent.
+   */
+  get UPLOAD_PROGRESS() {
+    return "xhr.upload.progress";
+  },
+
+  /**
+   * Emits with the xhr object after it is instantiated with new.
+   * You can attach additional custom event listeners at this point.
+   */
+  get XHR_INSTANTIATED() {
+    return "after.xhr.new";
+  },
+
+  /**
+   * Emits with the xhr object before the send method is called on it.
+   * You can attach additional custom event listeners at this point.
+   */
+  get BEFORE_XHR_SEND() {
+    return "before.xhr.send";
+  },
+};
 
 /**
  * An implementation of HttpHandler that uses XMLHttpRequest, which is
  * traditionally associated with browsers.
  */
 export class XhrHttpHandler extends EventEmitter implements HttpHandler {
-  /**
-   * Events emitted as an EventEmitter.
-   */
-  public static EVENTS = {
-    /**
-     * Emitted for xhr on progress.
-     * Payload is the native ProgressEvent.
-     */
-    PROGRESS: "progress",
-    /**
-     * Emitted for xhr.upload on progress.
-     * Payload is the native ProgressEvent.
-     */
-    UPLOAD_PROGRESS: "upload.progress",
-  };
+  public static readonly EVENTS = EVENTS;
 
   private config?: XhrHttpHandlerOptions;
-  private readonly configProvider?: Provider<XhrHttpHandlerOptions>;
+  private readonly configProvider: Promise<XhrHttpHandlerOptions>;
 
   public constructor(options?: XhrHttpHandlerOptions | Provider<XhrHttpHandlerOptions | undefined>) {
     super();
-    if (typeof options === "function") {
-      this.configProvider = async () => (await options()) || {};
-    } else {
-      this.config = options ?? {};
-    }
+    this.configProvider = new Promise((resolve, reject) => {
+      if (typeof options === "function") {
+        (options as () => Promise<XhrHttpHandlerOptions>)().then(resolve).catch(reject);
+      } else {
+        resolve(options || {});
+      }
+    });
   }
 
   public destroy(): void {
@@ -70,8 +81,8 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
     request: HttpRequest,
     { abortSignal }: HttpHandlerOptions = {}
   ): Promise<{ response: HttpResponse }> {
-    if (!this.config && this.configProvider) {
-      this.config = await this.configProvider();
+    if (!this.config) {
+      this.config = await this.configProvider;
     }
     const requestTimeoutInMs = Number(this.config!.requestTimeout) | 0;
 
@@ -94,35 +105,54 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
     const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ""}${path}`;
     const body = method === "GET" || method === "HEAD" ? undefined : request.body;
 
-    const xhr: XMLHttpRequest =
-      typeof this.config!.xhrFactory === "function" ? await this.config!.xhrFactory() : new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
+
+    this.emit(EVENTS.XHR_INSTANTIATED, xhr);
 
     const raceOfPromises: Promise<{ response: HttpResponse }>[] = [
       new Promise((resolve, reject) => {
+        let streamCursor = 0;
+        let stream: TransformStream<string, string>;
+        let writer: WritableStreamDefaultWriter;
+
         xhr.upload.addEventListener("progress", (event: ProgressEvent) => {
           this.emit(XhrHttpHandler.EVENTS.UPLOAD_PROGRESS, event, request);
         });
         xhr.addEventListener("progress", (event: ProgressEvent) => {
           this.emit(XhrHttpHandler.EVENTS.PROGRESS, event, request);
         });
-        xhr.addEventListener('error', (error) => {
-          reject(error);
-        })
+        xhr.addEventListener("error", reject);
+        xhr.addEventListener("timeout", () => {
+          reject(new Error("XMLHttpRequest timed out."));
+        });
         xhr.addEventListener("readystatechange", () => {
+          const isArrayBuffer: boolean = xhr.responseType === "arraybuffer" && xhr.response;
+          const isText = !isArrayBuffer && typeof xhr.responseText === "string";
+
+          if (isText && !stream) {
+            ({ stream, writer } = this.initializeTransformStream());
+          }
+
           switch (xhr.readyState) {
+            case XMLHttpRequest.LOADING:
+              if (isText) {
+                writer.write(xhr.responseText.slice(streamCursor));
+                streamCursor = xhr.responseText.length;
+              }
+              break;
             case XMLHttpRequest.DONE:
               const body = (() => {
-                switch (xhr.responseType) {
-                  case "document":
-                  case "json":
-                  case "text":
-                  default:
-                    const data = xhr.responseText.split("");
-                    return new Blob(data);
-                  case "arraybuffer":
-                  case "blob":
-                    return xhr.response;
+                if (isArrayBuffer) {
+                  return new Blob([xhr.response]);
                 }
+
+                if (isText) {
+                  writer.releaseLock();
+                  stream.writable.close();
+                  return stream.readable;
+                }
+
+                reject(new Error(`Unexpected XHR response type ${xhr.responseType}. Expected string or arraybuffer.`));
               })();
               resolve({
                 response: new HttpResponse({
@@ -141,9 +171,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
             xhr.setRequestHeader(header, value);
           }
         }
-        if (typeof this.config!.xhrBeforeSend === "function") {
-          this.config!.xhrBeforeSend(xhr);
-        }
+        this.emit(EVENTS.BEFORE_XHR_SEND, xhr);
         xhr.send(body);
       }),
       requestTimeout(requestTimeoutInMs),
@@ -179,12 +207,34 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
       return headerMap;
     }, {});
   }
+
+  /**
+   * @returns a stream and its default writer to be used to map the xhr response text to a readable stream.
+   */
+  private initializeTransformStream(): {
+    stream: TransformStream<string, string>;
+    writer: WritableStreamDefaultWriter;
+  } {
+    const textEncoder = new TextEncoder();
+    const stream = new TransformStream({
+      start() {},
+      async transform(chunk: any, controller: TransformStreamDefaultController) {
+        controller.enqueue(textEncoder.encode(String(chunk)));
+      },
+      flush() {},
+    });
+    const writer = stream.writable.getWriter();
+    return {
+      stream,
+      writer,
+    };
+  }
 }
 
 /**
  * @private
  */
-function isForbiddenRequestHeader(header: string): boolean {
+const isForbiddenRequestHeader = (header: string): boolean => {
   header = header.toLowerCase();
   if (header.startsWith("proxy-")) {
     return true;
@@ -193,7 +243,7 @@ function isForbiddenRequestHeader(header: string): boolean {
     return true;
   }
   return forbiddenHeaders.includes(header);
-}
+};
 
 /**
  * @private
