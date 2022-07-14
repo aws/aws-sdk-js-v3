@@ -11165,8 +11165,7 @@
         "TrafficType": {
           "target": "com.amazonaws.ec2#TrafficType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>"
           }
         },
         "LogDestinationType": {
@@ -37266,6 +37265,14 @@
           {
             "value": "NetworkInterface",
             "name": "NetworkInterface"
+          },
+          {
+            "value": "TransitGateway",
+            "name": "TransitGateway"
+          },
+          {
+            "value": "TransitGatewayAttachment",
+            "name": "TransitGatewayAttachment"
           }
         ]
       }

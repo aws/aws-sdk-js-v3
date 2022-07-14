@@ -1991,7 +1991,12 @@ export namespace DestinationOptionsRequest {
 
 export type LogDestinationType = "cloud-watch-logs" | "s3";
 
-export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
+export type FlowLogsResourceType =
+  | "NetworkInterface"
+  | "Subnet"
+  | "TransitGateway"
+  | "TransitGatewayAttachment"
+  | "VPC";
 
 export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
 
@@ -2040,7 +2045,7 @@ export interface CreateFlowLogsRequest {
   /**
    * <p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>
    */
-  TrafficType: TrafficType | string | undefined;
+  TrafficType?: TrafficType | string;
 
   /**
    * <p>The type of destination to which the flow log data is to be published. Flow log data can be
