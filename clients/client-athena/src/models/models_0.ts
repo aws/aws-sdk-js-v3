@@ -35,6 +35,9 @@ export namespace AclConfiguration {
   });
 }
 
+/**
+ * <p>Contains an array of named query IDs.</p>
+ */
 export interface BatchGetNamedQueryInput {
   /**
    * <p>An array of query IDs.</p>
@@ -327,6 +330,9 @@ export namespace BatchGetPreparedStatementOutput {
   });
 }
 
+/**
+ * <p>Contains an array of query execution IDs.</p>
+ */
 export interface BatchGetQueryExecutionInput {
   /**
    * <p>An array of query execution IDs.</p>
