@@ -43,6 +43,7 @@ import {
   DeleteRepositoryPermissionsPolicyCommandOutput,
 } from "../commands/DeleteRepositoryPermissionsPolicyCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "../commands/DescribeDomainCommand";
+import { DescribePackageCommandInput, DescribePackageCommandOutput } from "../commands/DescribePackageCommand";
 import {
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -108,6 +109,10 @@ import {
   PutDomainPermissionsPolicyCommandOutput,
 } from "../commands/PutDomainPermissionsPolicyCommand";
 import {
+  PutPackageOriginConfigurationCommandInput,
+  PutPackageOriginConfigurationCommandOutput,
+} from "../commands/PutPackageOriginConfigurationCommand";
+import {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "../commands/PutRepositoryPermissionsPolicyCommand";
@@ -124,14 +129,19 @@ import {
   AssetSummary,
   ConflictException,
   DomainDescription,
+  DomainEntryPoint,
   DomainSummary,
   HashAlgorithm,
   InternalServerException,
   LicenseInfo,
   PackageDependency,
+  PackageDescription,
+  PackageOriginConfiguration,
+  PackageOriginRestrictions,
   PackageSummary,
   PackageVersionDescription,
   PackageVersionError,
+  PackageVersionOrigin,
   PackageVersionSummary,
   RepositoryDescription,
   RepositoryExternalConnectionInfo,
@@ -424,6 +434,34 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribePackageCommand = async (
+  input: DescribePackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  const query: any = {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
   };
   let body: any;
   return new __HttpRequest({
@@ -764,6 +802,8 @@ export const serializeAws_restJson1ListPackagesCommand = async (
     ...(input.packagePrefix !== undefined && { "package-prefix": input.packagePrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
+    ...(input.publish !== undefined && { publish: input.publish }),
+    ...(input.upstream !== undefined && { upstream: input.upstream }),
   };
   let body: any;
   return new __HttpRequest({
@@ -859,6 +899,7 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
     ...(input.sortBy !== undefined && { sortBy: input.sortBy }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
+    ...(input.originType !== undefined && { originType: input.originType }),
   };
   let body: any;
   return new __HttpRequest({
@@ -974,6 +1015,41 @@ export const serializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
     method: "PUT",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutPackageOriginConfigurationCommand = async (
+  input: PutPackageOriginConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  const query: any = {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.package !== undefined && { package: input.package }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.restrictions != null && {
+      restrictions: serializeAws_restJson1PackageOriginRestrictions(input.restrictions, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1723,6 +1799,63 @@ const deserializeAws_restJson1DescribeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.codeartifact#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribePackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePackageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribePackageCommandError(output, context);
+  }
+  const contents: DescribePackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    package: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.package !== undefined && data.package !== null) {
+    contents.package = deserializeAws_restJson1PackageDescription(data.package, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribePackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePackageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2978,6 +3111,66 @@ const deserializeAws_restJson1PutDomainPermissionsPolicyCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1PutPackageOriginConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPackageOriginConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutPackageOriginConfigurationCommandError(output, context);
+  }
+  const contents: PutPackageOriginConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    originConfiguration: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.originConfiguration !== undefined && data.originConfiguration !== null) {
+    contents.originConfiguration = deserializeAws_restJson1PackageOriginConfiguration(
+      data.originConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutPackageOriginConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPackageOriginConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.codeartifact#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3410,6 +3603,16 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1PackageOriginRestrictions = (
+  input: PackageOriginRestrictions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.publish != null && { publish: input.publish }),
+    ...(input.upstream != null && { upstream: input.upstream }),
+  };
+};
+
 const serializeAws_restJson1PackageVersionList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3531,6 +3734,13 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1DomainEntryPoint = (output: any, context: __SerdeContext): DomainEntryPoint => {
+  return {
+    externalConnectionName: __expectString(output.externalConnectionName),
+    repositoryName: __expectString(output.repositoryName),
+  } as any;
+};
+
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
     arn: __expectString(output.arn),
@@ -3597,10 +3807,48 @@ const deserializeAws_restJson1PackageDependencyList = (output: any, context: __S
   return retVal;
 };
 
+const deserializeAws_restJson1PackageDescription = (output: any, context: __SerdeContext): PackageDescription => {
+  return {
+    format: __expectString(output.format),
+    name: __expectString(output.name),
+    namespace: __expectString(output.namespace),
+    originConfiguration:
+      output.originConfiguration != null
+        ? deserializeAws_restJson1PackageOriginConfiguration(output.originConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PackageOriginConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PackageOriginConfiguration => {
+  return {
+    restrictions:
+      output.restrictions != null
+        ? deserializeAws_restJson1PackageOriginRestrictions(output.restrictions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PackageOriginRestrictions = (
+  output: any,
+  context: __SerdeContext
+): PackageOriginRestrictions => {
+  return {
+    publish: __expectString(output.publish),
+    upstream: __expectString(output.upstream),
+  } as any;
+};
+
 const deserializeAws_restJson1PackageSummary = (output: any, context: __SerdeContext): PackageSummary => {
   return {
     format: __expectString(output.format),
     namespace: __expectString(output.namespace),
+    originConfiguration:
+      output.originConfiguration != null
+        ? deserializeAws_restJson1PackageOriginConfiguration(output.originConfiguration, context)
+        : undefined,
     package: __expectString(output.package),
   } as any;
 };
@@ -3627,6 +3875,7 @@ const deserializeAws_restJson1PackageVersionDescription = (
     homePage: __expectString(output.homePage),
     licenses: output.licenses != null ? deserializeAws_restJson1LicenseInfoList(output.licenses, context) : undefined,
     namespace: __expectString(output.namespace),
+    origin: output.origin != null ? deserializeAws_restJson1PackageVersionOrigin(output.origin, context) : undefined,
     packageName: __expectString(output.packageName),
     publishedTime:
       output.publishedTime != null
@@ -3662,8 +3911,19 @@ const deserializeAws_restJson1PackageVersionErrorMap = (
   }, {});
 };
 
+const deserializeAws_restJson1PackageVersionOrigin = (output: any, context: __SerdeContext): PackageVersionOrigin => {
+  return {
+    domainEntryPoint:
+      output.domainEntryPoint != null
+        ? deserializeAws_restJson1DomainEntryPoint(output.domainEntryPoint, context)
+        : undefined,
+    originType: __expectString(output.originType),
+  } as any;
+};
+
 const deserializeAws_restJson1PackageVersionSummary = (output: any, context: __SerdeContext): PackageVersionSummary => {
   return {
+    origin: output.origin != null ? deserializeAws_restJson1PackageVersionOrigin(output.origin, context) : undefined,
     revision: __expectString(output.revision),
     status: __expectString(output.status),
     version: __expectString(output.version),

@@ -149,6 +149,11 @@ contains information about the requested domain.</p>
 </li>
 <li>
 <p>
+<code>DescribePackage</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
+object that contains details about a package. </p>
+</li>
+<li>
+<p>
 <code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
 object that contains details about a package version. </p>
 </li>
@@ -253,6 +258,11 @@ package in a repository.</p>
 <li>
 <p>
 <code>PutDomainPermissionsPolicy</code>: Attaches a resource policy to a domain.</p>
+</li>
+<li>
+<p>
+<code>PutPackageOriginConfiguration</code>: Sets the package origin configuration for a package, which determine
+how new versions of the package can be added to a specific repository.</p>
 </li>
 <li>
 <p>

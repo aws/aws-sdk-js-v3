@@ -25,6 +25,16 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum AllowPublish {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+}
+
+export enum AllowUpstream {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+}
+
 export enum HashAlgorithm {
   MD5 = "MD5",
   SHA1 = "SHA-1",
@@ -98,11 +108,6 @@ export interface AssociateExternalConnectionRequest {
    *             <li>
    *                <p>
    *                   <code>public:npmjs</code> - for the npm public repository.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
    *         </p>
    *             </li>
    *             <li>
@@ -545,7 +550,7 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *          The name of the repository that contains the package versions to copy.
+   *          The name of the repository that contains the package versions to be copied.
    *        </p>
    */
   sourceRepository: string | undefined;
@@ -559,31 +564,30 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *       The format of the package that is copied.
+   *       The format of the package versions to be copied.
    *     </p>
    */
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package versions to be copied. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>. The namespace is required when copying Maven package versions.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -592,14 +596,14 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *       The name of the package that is copied.
+   *       The name of the package that contains the versions to be copied.
    *     </p>
    */
   package: string | undefined;
 
   /**
    * <p>
-   *         The versions of the package to copy.
+   *         The versions of the package to be copied.
    *       </p>
    *          <note>
    *             <p>
@@ -660,7 +664,7 @@ export enum PackageVersionErrorCode {
 }
 
 /**
- * <p>
+ * <p>l
  *        An error associated with package.
  *    </p>
  */
@@ -1229,26 +1233,25 @@ export interface DeletePackageVersionsRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package versions to be deleted. The package version component that specifies its
+   *         namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
+   *             The namespace of a Maven package version is its <code>groupId</code>. The namespace is required when deleting Maven package versions.
+   *           </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
+   *             The namespace of an npm package version is its <code>scope</code>.
+   *           </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
+   *             Python and NuGet package versions do not contain a corresponding component, package versions
+   *             of those formats do not have a namespace.
+   *           </p>
    *             </li>
    *          </ul>
    */
@@ -1497,6 +1500,187 @@ export namespace DescribeDomainResult {
   });
 }
 
+export interface DescribePackageRequest {
+  /**
+   * <p>The name of the domain that contains the repository that contains the package.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The name of the repository that contains the requested package. </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>A format that specifies the type of the requested package.</p>
+   */
+  format: PackageFormat | string | undefined;
+
+  /**
+   * <p>The namespace of the requested package. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>. The namespace is required when requesting Maven packages.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the requested package.</p>
+   */
+  package: string | undefined;
+}
+
+export namespace DescribePackageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePackageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the origin restrictions set on the package.
+ *       The package origin restrictions determine how new versions of a package
+ *       can be added to a specific repository.</p>
+ */
+export interface PackageOriginRestrictions {
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
+   */
+  publish: AllowPublish | string | undefined;
+
+  /**
+   * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
+   */
+  upstream: AllowUpstream | string | undefined;
+}
+
+export namespace PackageOriginRestrictions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the package origin configuration of a package.</p>
+ */
+export interface PackageOriginConfiguration {
+  /**
+   * <p>A <code>PackageOriginRestrictions</code> object that contains information
+   *     about the upstream and publish package origin configuration for the package.</p>
+   */
+  restrictions?: PackageOriginRestrictions;
+}
+
+export namespace PackageOriginConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a package.</p>
+ */
+export interface PackageDescription {
+  /**
+   * <p>A format that specifies the type of the package.</p>
+   */
+  format?: PackageFormat | string;
+
+  /**
+   * <p>The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The package origin configuration for the package.</p>
+   */
+  originConfiguration?: PackageOriginConfiguration;
+}
+
+export namespace PackageDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PackageDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePackageResult {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
+   *       object that contains information about the requested package.</p>
+   */
+  package: PackageDescription | undefined;
+}
+
+export namespace DescribePackageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePackageResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribePackageVersionRequest {
   /**
    * <p>
@@ -1526,25 +1710,24 @@ export interface DescribePackageVersionRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the requested package version. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -1604,6 +1787,64 @@ export namespace LicenseInfo {
 }
 
 /**
+ * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
+ *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
+ *     connection is a CodeArtifact repository that is connected to an external repository such as the npm registry or NuGet gallery.</p>
+ */
+export interface DomainEntryPoint {
+  /**
+   * <p>The name of the repository that a package was originally published to.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The name of the external connection that a package was ingested from.</p>
+   */
+  externalConnectionName?: string;
+}
+
+export namespace DomainEntryPoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainEntryPoint): any => ({
+    ...obj,
+  });
+}
+
+export enum PackageVersionOriginType {
+  EXTERNAL = "EXTERNAL",
+  INTERNAL = "INTERNAL",
+  UNKNOWN = "UNKNOWN",
+}
+
+/**
+ * <p>Information about how a package version was added to a repository.</p>
+ */
+export interface PackageVersionOrigin {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainEntryPoint.html">DomainEntryPoint</a> object that contains
+   *     information about from which repository or external connection the package version was added to the domain.</p>
+   */
+  domainEntryPoint?: DomainEntryPoint;
+
+  /**
+   * <p>Describes how the package version was originally added to the domain. An <code>INTERNAL</code> origin type means the package version was published
+   *     directly to a repository in the domain. An <code>EXTERNAL</code> origin type means the package version was ingested from an external connection.</p>
+   */
+  originType?: PackageVersionOriginType | string;
+}
+
+export namespace PackageVersionOrigin {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PackageVersionOrigin): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>
  *       Details about a package version.
  *     </p>
@@ -1617,25 +1858,24 @@ export interface PackageVersionDescription {
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -1715,6 +1955,12 @@ export interface PackageVersionDescription {
    *     </p>
    */
   status?: PackageVersionStatus | string;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains
+   *     information about how the package version was added to the repository.</p>
+   */
+  origin?: PackageVersionOrigin;
 }
 
 export namespace PackageVersionDescription {
@@ -1880,25 +2126,24 @@ export interface DisposePackageVersionsRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package versions to be disposed. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2135,25 +2380,24 @@ export interface GetPackageVersionAssetRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2262,33 +2506,28 @@ export interface GetPackageVersionReadmeRequest {
    * <p>
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
-   *          <note>
-   *             <p>Although <code>maven</code> is
-   *       listed as a valid value, CodeArtifact does not support displaying readme files for Maven packages.</p>
-   *          </note>
    */
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2328,25 +2567,24 @@ export interface GetPackageVersionReadmeResult {
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2613,7 +2851,7 @@ export namespace ListDomainsResult {
 export interface ListPackagesRequest {
   /**
    * <p>
-   *         The name of the domain that contains the repository that contains the requested list of packages.
+   *         The name of the domain that contains the repository that contains the requested packages.
    *       </p>
    */
   domain: string | undefined;
@@ -2628,23 +2866,20 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *          The name of the repository from which packages are to be listed.
+   *          The name of the repository that contains the requested packages.
    *        </p>
    */
   repository: string | undefined;
 
   /**
-   * <p>
-   *       The format of the packages.
-   *     </p>
+   * <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
    */
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace used to filter requested packages. Only packages with the provided namespace will be returned.
+   *       The package component that specifies its namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2658,8 +2893,8 @@ export interface ListPackagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2668,7 +2903,7 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *       A prefix used to filter returned packages. Only packages with names that start with
+   *       A prefix used to filter requested packages. Only packages with names that start with
    *       <code>packagePrefix</code> are returned.
    *     </p>
    */
@@ -2687,6 +2922,19 @@ export interface ListPackagesRequest {
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages.
+   *       Only packages with the provided restriction are returned.
+   *       For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
+   */
+  publish?: AllowPublish | string;
+
+  /**
+   * <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages.
+   *       Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
+   */
+  upstream?: AllowUpstream | string;
 }
 
 export namespace ListPackagesRequest {
@@ -2714,10 +2962,9 @@ export interface PackageSummary {
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2731,8 +2978,8 @@ export interface PackageSummary {
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2745,6 +2992,13 @@ export interface PackageSummary {
    *     </p>
    */
   package?: string;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
+   *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
+   *       that contains information about the upstream and publish package origin restrictions.</p>
+   */
+  originConfiguration?: PackageOriginConfiguration;
 }
 
 export namespace PackageSummary {
@@ -2800,38 +3054,37 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *       The name of the repository that contains the package that contains the returned package version assets.
+   *       The name of the repository that contains the package that contains the requested package version assets.
    *     </p>
    */
   repository: string | undefined;
 
   /**
    * <p>
-   *       The format of the package that contains the returned package version assets.
+   *       The format of the package that contains the requested package version assets.
    *     </p>
    */
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2840,7 +3093,7 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *          The name of the package that contains the returned package version assets.
+   *          The name of the package that contains the requested package version assets.
    *        </p>
    */
   package: string | undefined;
@@ -2879,32 +3132,31 @@ export namespace ListPackageVersionAssetsRequest {
 export interface ListPackageVersionAssetsResult {
   /**
    * <p>
-   *       The format of the package that contains the returned package version assets.
+   *       The format of the package that contains the requested package version assets.
    *     </p>
    */
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
+   *        namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
+   *            The namespace of a Maven package version is its <code>groupId</code>.
+   *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
+   *            The namespace of an npm package version is its <code>scope</code>.
+   *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
+   *            Python and NuGet package versions do not contain a corresponding component, package versions
+   *            of those formats do not have a namespace.
+   *          </p>
    *             </li>
    *          </ul>
    */
@@ -2912,14 +3164,14 @@ export interface ListPackageVersionAssetsResult {
 
   /**
    * <p>
-   *       The name of the package that contains the returned package version assets.
+   *       The name of the package that contains the requested package version assets.
    *     </p>
    */
   package?: string;
 
   /**
    * <p>
-   *       The version of the package associated with the returned assets.
+   *       The version of the package associated with the requested assets.
    *     </p>
    */
   version?: string;
@@ -2986,25 +3238,24 @@ export interface ListPackageVersionDependenciesRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3049,26 +3300,25 @@ export namespace ListPackageVersionDependenciesRequest {
  */
 export interface PackageDependency {
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package that this package depends on. The package component that specifies its
+   *        namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
-   *         </p>
+   *            The namespace of a Maven package is its <code>groupId</code>.
+   *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
+   *            The namespace of an npm package is its <code>scope</code>.
+   *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
-   *         </p>
+   *            Python and NuGet packages do not contain a corresponding component, packages
+   *            of those formats do not have a namespace.
+   *          </p>
    *             </li>
    *          </ul>
    */
@@ -3116,25 +3366,24 @@ export interface ListPackageVersionDependenciesResult {
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3193,7 +3442,7 @@ export enum PackageVersionSortType {
 export interface ListPackageVersionsRequest {
   /**
    * <p>
-   *          The name of the domain that contains the repository that contains the returned package versions.
+   *          The name of the domain that contains the repository that contains the requested package versions.
    *        </p>
    */
   domain: string | undefined;
@@ -3208,23 +3457,22 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *          The name of the repository that contains the package.
+   *          The name of the repository that contains the requested package versions.
    *        </p>
    */
   repository: string | undefined;
 
   /**
    * <p>
-   *       The format of the returned packages.
+   *       The format of the returned package versions.
    *     </p>
    */
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3238,8 +3486,8 @@ export interface ListPackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3248,21 +3496,21 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *       The name of the package for which you want to return a list of package versions.
+   *       The name of the package for which you want to request package versions.
    *     </p>
    */
   package: string | undefined;
 
   /**
    * <p>
-   *       A string that specifies the status of the package versions to include in the returned list.
+   *       A string that filters the requested package versions by status.
    *     </p>
    */
   status?: PackageVersionStatus | string;
 
   /**
    * <p>
-   *       How to sort the returned list of package versions.
+   *       How to sort the requested list of package versions.
    *     </p>
    */
   sortBy?: PackageVersionSortType | string;
@@ -3280,6 +3528,12 @@ export interface ListPackageVersionsRequest {
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The <code>originType</code> used to filter package versions.
+   *       Only package versions with the provided <code>originType</code> will be returned.</p>
+   */
+  originType?: PackageVersionOriginType | string;
 }
 
 export namespace ListPackageVersionsRequest {
@@ -3319,6 +3573,12 @@ export interface PackageVersionSummary {
    *     </p>
    */
   status: PackageVersionStatus | string | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information
+   *     about how the package version was added to the repository.</p>
+   */
+  origin?: PackageVersionOrigin;
 }
 
 export namespace PackageVersionSummary {
@@ -3359,10 +3619,9 @@ export interface ListPackageVersionsResult {
   format?: PackageFormat | string;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
@@ -3376,8 +3635,8 @@ export interface ListPackageVersionsResult {
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3699,6 +3958,99 @@ export namespace PutDomainPermissionsPolicyResult {
   });
 }
 
+export interface PutPackageOriginConfigurationRequest {
+  /**
+   * <p>The name of the domain that contains the repository that contains the package.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The name of the repository that contains the package.</p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>A format that specifies the type of the package to be updated.</p>
+   */
+  format: PackageFormat | string | undefined;
+
+  /**
+   * <p>The namespace of the package to be updated. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm package is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The name of the package to be updated.</p>
+   */
+  package: string | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>
+   *       object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions.
+   *       The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories.
+   *     The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
+   *
+   *          <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
+   */
+  restrictions: PackageOriginRestrictions | undefined;
+}
+
+export namespace PutPackageOriginConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPackageOriginConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPackageOriginConfigurationResult {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
+   *       object that describes the origin configuration set for the package. It contains a
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>
+   *       object that describes how new versions of the package can be introduced to the repository.</p>
+   */
+  originConfiguration?: PackageOriginConfiguration;
+}
+
+export namespace PutPackageOriginConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPackageOriginConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
 export interface PutRepositoryPermissionsPolicyRequest {
   /**
    * <p>
@@ -3856,25 +4208,24 @@ export interface UpdatePackageVersionsStatusRequest {
   format: PackageFormat | string | undefined;
 
   /**
-   * <p>
-   *       The namespace of the package. The package component that specifies its
-   *       namespace depends on its type. For example:
-   *     </p>
+   * <p>The namespace of the package version to be updated. The package version component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           A Python package does not contain a corresponding component, so
-   *           Python packages do not have a namespace.
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>

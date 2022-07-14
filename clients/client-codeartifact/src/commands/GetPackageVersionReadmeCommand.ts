@@ -24,7 +24,9 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
 
 /**
  * <p>
- *          Gets the readme file or descriptive text for a package version.
+ *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
+ *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
+ *         <code>pom.xml</code> file of a Maven package.
  *       </p>
  *          <p>
  *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.

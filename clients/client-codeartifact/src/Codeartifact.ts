@@ -53,6 +53,11 @@ import {
   DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
 import {
+  DescribePackageCommand,
+  DescribePackageCommandInput,
+  DescribePackageCommandOutput,
+} from "./commands/DescribePackageCommand";
+import {
   DescribePackageVersionCommand,
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -143,6 +148,11 @@ import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
+import {
+  PutPackageOriginConfigurationCommand,
+  PutPackageOriginConfigurationCommandInput,
+  PutPackageOriginConfigurationCommandOutput,
+} from "./commands/PutPackageOriginConfigurationCommand";
 import {
   PutRepositoryPermissionsPolicyCommand,
   PutRepositoryPermissionsPolicyCommandInput,
@@ -306,6 +316,11 @@ import {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DescribePackage</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
+ *           object that contains details about a package. </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
  *           object that contains details about a package version. </p>
  *             </li>
@@ -410,6 +425,11 @@ import {
  *             <li>
  *                <p>
  *                   <code>PutDomainPermissionsPolicy</code>: Attaches a resource policy to a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PutPackageOriginConfiguration</code>: Sets the package origin configuration for a package, which determine
+ *         how new versions of the package can be added to a specific repository.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -789,6 +809,40 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * <p> Returns a
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
+   *       object that contains information about the requested package.</p>
+   */
+  public describePackage(
+    args: DescribePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePackageCommandOutput>;
+  public describePackage(
+    args: DescribePackageCommandInput,
+    cb: (err: any, data?: DescribePackageCommandOutput) => void
+  ): void;
+  public describePackage(
+    args: DescribePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePackageCommandOutput) => void
+  ): void;
+  public describePackage(
+    args: DescribePackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackageCommandOutput) => void),
+    cb?: (err: any, data?: DescribePackageCommandOutput) => void
+  ): Promise<DescribePackageCommandOutput> | void {
+    const command = new DescribePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *        Returns a
    *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
@@ -1069,7 +1123,9 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *          Gets the readme file or descriptive text for a package version.
+   *          Gets the readme file or descriptive text for a package version. For packages that do not contain a readme file, CodeArtifact
+   *          extracts a description from a metadata file. For example, from the <code><description></code> element in the
+   *         <code>pom.xml</code> file of a Maven package.
    *       </p>
    *          <p>
    *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
@@ -1501,6 +1557,46 @@ export class Codeartifact extends CodeartifactClient {
     cb?: (err: any, data?: PutDomainPermissionsPolicyCommandOutput) => void
   ): Promise<PutDomainPermissionsPolicyCommandOutput> | void {
     const command = new PutDomainPermissionsPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the package origin configuration for a package.</p>
+   *          <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
+   *     publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
+   *     For more information about package origin controls and configuration, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html">Editing package origin controls</a> in the <i>CodeArtifact User Guide</i>.</p>
+   *          <p>
+   *             <code>PutPackageOriginConfiguration</code> can be called on a package that doesn't yet exist in the repository. When called
+   *       on a package that does not exist, a package is created in the repository with no versions and the requested restrictions are set on the package.
+   *       This can be used to preemptively block ingesting or retaining any versions from external connections or upstream repositories, or to block
+   *       publishing any versions of the package into the repository before connecting any package managers or publishers to the repository.</p>
+   */
+  public putPackageOriginConfiguration(
+    args: PutPackageOriginConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPackageOriginConfigurationCommandOutput>;
+  public putPackageOriginConfiguration(
+    args: PutPackageOriginConfigurationCommandInput,
+    cb: (err: any, data?: PutPackageOriginConfigurationCommandOutput) => void
+  ): void;
+  public putPackageOriginConfiguration(
+    args: PutPackageOriginConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPackageOriginConfigurationCommandOutput) => void
+  ): void;
+  public putPackageOriginConfiguration(
+    args: PutPackageOriginConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPackageOriginConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutPackageOriginConfigurationCommandOutput) => void
+  ): Promise<PutPackageOriginConfigurationCommandOutput> | void {
+    const command = new PutPackageOriginConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
