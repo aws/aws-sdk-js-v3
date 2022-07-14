@@ -329,12 +329,29 @@ export enum ProductionVariantInstanceType {
   ML_C5_9XLARGE = "ml.c5.9xlarge",
   ML_C5_LARGE = "ml.c5.large",
   ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_C6I_12XLARGE = "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE = "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE = "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE = "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE = "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE = "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE = "ml.c6i.8xlarge",
+  ML_C6I_LARGE = "ml.c6i.large",
+  ML_C6I_XLARGE = "ml.c6i.xlarge",
   ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
   ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
   ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
   ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_G5_12XLARGE = "ml.g5.12xlarge",
+  ML_G5_16XLARGE = "ml.g5.16xlarge",
+  ML_G5_24XLARGE = "ml.g5.24xlarge",
+  ML_G5_2XLARGE = "ml.g5.2xlarge",
+  ML_G5_48XLARGE = "ml.g5.48xlarge",
+  ML_G5_4XLARGE = "ml.g5.4xlarge",
+  ML_G5_8XLARGE = "ml.g5.8xlarge",
+  ML_G5_XLARGE = "ml.g5.xlarge",
   ML_INF1_24XLARGE = "ml.inf1.24xlarge",
   ML_INF1_2XLARGE = "ml.inf1.2xlarge",
   ML_INF1_6XLARGE = "ml.inf1.6xlarge",
@@ -362,6 +379,7 @@ export enum ProductionVariantInstanceType {
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
   ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
   ML_R5D_12XLARGE = "ml.r5d.12xlarge",
   ML_R5D_24XLARGE = "ml.r5d.24xlarge",
   ML_R5D_2XLARGE = "ml.r5d.2xlarge",
@@ -1310,7 +1328,7 @@ export enum TrainingInstanceType {
 /**
  * <p>Defines an instance group for heterogeneous cluster training.
  *             When requesting a training job using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API,
- *             you can configure up to 5 different ML training instance groups.</p>
+ *             you can configure multiple instance groups .</p>
  */
 export interface InstanceGroup {
   /**
@@ -11435,9 +11453,10 @@ export namespace IntegerParameterRange {
  *             result in the training job with the best performance as measured by the objective metric
  *             of the hyperparameter tuning job.</p>
  *         <note>
- *             <p>You can specify a maximum of 20 hyperparameters that a hyperparameter tuning job
- *                 can search over. Every possible value of a categorical parameter range counts
- *                 against this limit.</p>
+ *             <p>The maximum number of items specified for <code>Array Members</code> refers to
+ *                 the maximum number of hyperparameters for each range and also the maximum for the
+ *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
+ *                 for all the ranges can't exceed the maximum number specified.</p>
  *         </note>
  */
 export interface ParameterRanges {
@@ -11734,9 +11753,10 @@ export interface HyperParameterTrainingJobDefinition {
    *             result in the training job with the best performance as measured by the objective metric
    *             of the hyperparameter tuning job.</p>
    *         <note>
-   *             <p>You can specify a maximum of 20 hyperparameters that a hyperparameter tuning job
-   *                 can search over. Every possible value of a categorical parameter range counts
-   *                 against this limit.</p>
+   *             <p>The maximum number of items specified for <code>Array Members</code> refers to
+   *                 the maximum number of hyperparameters for each range and also the maximum for the
+   *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
+   *                 for all the ranges can't exceed the maximum number specified.</p>
    *         </note>
    */
   HyperParameterRanges?: ParameterRanges;
