@@ -1,4 +1,4 @@
-export const requestTimeout = (timeoutInMs = 0): Promise<never> => 
+export const requestTimeout = (timeoutInMs = 0): Promise<never> =>
   new Promise((resolve, reject) => {
     if (timeoutInMs) {
       setTimeout(() => {
@@ -8,4 +8,3 @@ export const requestTimeout = (timeoutInMs = 0): Promise<never> =>
       }, timeoutInMs);
     }
   });
-}

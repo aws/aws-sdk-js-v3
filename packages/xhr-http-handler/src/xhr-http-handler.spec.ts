@@ -5,6 +5,7 @@ import { XhrHttpHandler } from "./xhr-http-handler";
 
 const originalXMLHttpRequest = global.XMLHttpRequest;
 const originalTextEncoder = global.TextEncoder;
+const originalTransformStream = global.TransformStream;
 
 class XhrMock {
   public static reset() {
@@ -49,15 +50,30 @@ class XhrMock {
 }
 
 describe(XhrHttpHandler.name, () => {
-  beforeEach(() => {
+  beforeAll(() => {
     (global as any).XMLHttpRequest = XhrMock;
     (global as any).TextEncoder = class {};
+    (global as any).TransformStream = class {
+      public writable = {
+        getWriter() {
+          return {
+            releaseLock: jest.fn(),
+          };
+        },
+        close() {},
+      };
+      public readable = {};
+    };
   });
 
   afterEach(() => {
+    XhrMock.reset();
+  });
+
+  afterAll(() => {
     global.XMLHttpRequest = originalXMLHttpRequest;
     global.TextEncoder = originalTextEncoder;
-    XhrMock.reset();
+    global.TransformStream = originalTransformStream;
   });
 
   it("should use global XMLHttpRequest to handle requests by default", async () => {
@@ -80,6 +96,7 @@ describe(XhrHttpHandler.name, () => {
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "error", expect.any(Function)],
+      ["addEventListener", "timeout", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["setRequestHeader", "h", "1"],
@@ -92,7 +109,7 @@ describe(XhrHttpHandler.name, () => {
     const handler = new XhrHttpHandler();
     const abortSignal = new AbortSignal();
 
-    const handleResult = handler.handle(
+    await handler.handle(
       new HttpRequest({
         method: "PUT",
         hostname: "localhost",
@@ -105,13 +122,18 @@ describe(XhrHttpHandler.name, () => {
       }),
       { abortSignal }
     );
-    abortSignal.abort();
-    await handleResult;
+
+    try {
+      abortSignal.abort();
+    } catch (e) {
+      expect(e.toString()).toContain("Request aborted");
+    }
 
     expect(XhrMock.captures).toEqual([
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "error", expect.any(Function)],
+      ["addEventListener", "timeout", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["setRequestHeader", "h", "1"],
@@ -124,7 +146,7 @@ describe(XhrHttpHandler.name, () => {
   it("should ignore forbidden request headers", async () => {
     const handler = new XhrHttpHandler();
 
-    handler.handle(
+    await handler.handle(
       new HttpRequest({
         method: "PUT",
         hostname: "localhost",
@@ -141,6 +163,7 @@ describe(XhrHttpHandler.name, () => {
       ["upload.addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "progress", expect.any(Function)],
       ["addEventListener", "error", expect.any(Function)],
+      ["addEventListener", "timeout", expect.any(Function)],
       ["addEventListener", "readystatechange", expect.any(Function)],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["send", "hello"],

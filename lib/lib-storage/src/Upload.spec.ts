@@ -635,7 +635,7 @@ describe(Upload.name, () => {
     });
     await upload.done();
     expect(received.length).toBe(2);
-    expect(mockAddListener).toHaveBeenCalledWith("upload.progress", expect.any(Function));
-    expect(mockRemoveListener).toHaveBeenCalledWith("upload.progress", expect.any(Function));
+    expect(mockAddListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
+    expect(mockRemoveListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
   });
 });
