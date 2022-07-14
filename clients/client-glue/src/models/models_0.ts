@@ -2040,7 +2040,7 @@ export namespace BatchGetDevEndpointsRequest {
   });
 }
 
-export type WorkerType = "G.1X" | "G.2X" | "Standard";
+export type WorkerType = "G.025X" | "G.1X" | "G.2X" | "Standard";
 
 /**
  * <p>A development endpoint where a developer can remotely debug extract, transform, and load
@@ -5443,8 +5443,8 @@ export namespace BlueprintDetails {
 }
 
 /**
- * <p>An edge represents a directed connection between two components
- *       on a workflow graph.</p>
+ * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
+ *       edge belongs to.</p>
  */
 export interface Edge {
   /**
@@ -5665,14 +5665,14 @@ export interface JobRun {
    *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
    *             </li>
    *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate a minimum of 2 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
    *          </ul>
    */
   MaxCapacity?: number;
 
   /**
-   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
    *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
@@ -5683,14 +5683,15 @@ export interface JobRun {
    *             <li>
    *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
    *             </li>
+   *             <li>
+   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPU, 4 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
+   *             </li>
    *          </ul>
    */
   WorkerType?: WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    */
   NumberOfWorkers?: number;
 
@@ -8555,7 +8556,7 @@ export namespace CreateSecurityConfigurationResponse {
  */
 export interface SessionCommand {
   /**
-   * <p>Specifies the name of the SessionCommand.Can be 'glueetl' or 'gluestreaming'.</p>
+   * <p>Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.</p>
    */
   Name?: string;
 
@@ -8619,18 +8620,32 @@ export interface CreateSessionRequest {
   Connections?: ConnectionsList;
 
   /**
-   * <p>The number of AWS Glue data processing units (DPUs) that can be allocated when the job runs.
+   * <p>The number of Glue data processing units (DPUs) that can be allocated when the job runs.
    *       A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB memory. </p>
    */
   MaxCapacity?: number;
 
   /**
-   * <p>The number of workers to use for the session. </p>
+   * <p>The number of workers of a defined <code>WorkerType</code> to use for the session. </p>
    */
   NumberOfWorkers?: number;
 
   /**
-   * <p>The Worker Type. Can be one of G.1X, G.2X, Standard </p>
+   * <p>The type of predefined worker that is allocated to use for the session. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPU, 4 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
+   *             </li>
+   *          </ul>
    */
   WorkerType?: WorkerType | string;
 
@@ -8640,7 +8655,7 @@ export interface CreateSessionRequest {
   SecurityConfiguration?: string;
 
   /**
-   * <p>The Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
+   * <p>The Glue version determines the versions of Apache Spark and Python that Glue supports.
    *       The GlueVersion must be greater than 2.0. </p>
    */
   GlueVersion?: string;
@@ -8729,7 +8744,7 @@ export interface Session {
   Progress?: number;
 
   /**
-   * <p>The number of AWS Glue data processing units (DPUs) that can be allocated when the job runs.
+   * <p>The number of Glue data processing units (DPUs) that can be allocated when the job runs.
    *       A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB memory. </p>
    */
   MaxCapacity?: number;
@@ -8740,7 +8755,7 @@ export interface Session {
   SecurityConfiguration?: string;
 
   /**
-   * <p>The Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
+   * <p>The Glue version determines the versions of Apache Spark and Python that Glue supports.
    *       The GlueVersion must be greater than 2.0.</p>
    */
   GlueVersion?: string;

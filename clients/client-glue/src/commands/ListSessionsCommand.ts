@@ -23,7 +23,7 @@ export interface ListSessionsCommandInput extends ListSessionsRequest {}
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve a session..</p>
+ * <p>Retrieve a list of sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -7686,7 +7686,7 @@ export namespace ListSessionsRequest {
 
 export interface ListSessionsResponse {
   /**
-   * <p>Returns the Id of the session. </p>
+   * <p>Returns the ID of the session. </p>
    */
   Ids?: string[];
 
@@ -7721,6 +7721,9 @@ export interface ListStatementsRequest {
    */
   RequestOrigin?: string;
 
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
   NextToken?: string;
 }
 
@@ -7739,6 +7742,9 @@ export interface ListStatementsResponse {
    */
   Statements?: Statement[];
 
+  /**
+   * <p>A continuation token, if not all statements have yet been returned.</p>
+   */
   NextToken?: string;
 }
 

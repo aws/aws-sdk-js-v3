@@ -23,7 +23,7 @@ export interface CancelStatementCommandInput extends CancelStatementRequest {}
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels the statement..</p>
+ * <p>Cancels the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

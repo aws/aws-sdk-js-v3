@@ -1326,7 +1326,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Cancels the statement..</p>
+   * <p>Cancels the statement.</p>
    */
   public cancelStatement(
     args: CancelStatementCommandInput,
@@ -5052,7 +5052,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Retrieve a session..</p>
+   * <p>Retrieve a list of sessions.</p>
    */
   public listSessions(
     args: ListSessionsCommandInput,
@@ -6394,7 +6394,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Updates an existing job definition.</p>
+   * <p>Updates an existing job definition. The previous job definition is completely overwritten by this information.</p>
    */
   public updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
   public updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
