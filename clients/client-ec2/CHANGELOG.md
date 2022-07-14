@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Features
+
+* **client-ec2:** This release adds flow logs for Transit Gateway to  allow customers to gain deeper visibility and insights into network traffic through their Transit Gateways. ([57b3f71](https://github.com/aws/aws-sdk-js-v3/commit/57b3f71b0466f9b6048ce4368a4d7f75dc38bab8))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

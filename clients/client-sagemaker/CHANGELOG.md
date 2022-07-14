@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Bug Fixes
+
+* **codegen:** fix error code parsing when it's a number ([#3371](https://github.com/aws/aws-sdk-js-v3/issues/3371)) ([c2d8522](https://github.com/aws/aws-sdk-js-v3/commit/c2d852279a3d23958521a6ceb4f4c642b0cb1848))
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for G5, P4d, and C6i instance types in Amazon SageMaker Inference and increases the number of hyperparameters that can be searched from 20 to 30 in Amazon SageMaker Automatic Model Tuning ([4d43eac](https://github.com/aws/aws-sdk-js-v3/commit/4d43eac453ff4e4b772ad4cc978e321eb64d38ee))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

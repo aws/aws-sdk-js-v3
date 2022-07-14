@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Bug Fixes
+
+* **codegen:** fix error code parsing when it's a number ([#3371](https://github.com/aws/aws-sdk-js-v3/issues/3371)) ([c2d8522](https://github.com/aws/aws-sdk-js-v3/commit/c2d852279a3d23958521a6ceb4f4c642b0cb1848))
+
+
+### Features
+
+* **client-inspector2:** This release adds support for Inspector V2 scan configurations through the get and update configuration APIs. Currently this allows configuring ECR automated re-scan duration to lifetime or 180 days or 30 days. ([36bccb8](https://github.com/aws/aws-sdk-js-v3/commit/36bccb8557955688b1589fad74f5354b6e929a16))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

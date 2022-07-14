@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Bug Fixes
+
+* **codegen:** fix error code parsing when it's a number ([#3371](https://github.com/aws/aws-sdk-js-v3/issues/3371)) ([c2d8522](https://github.com/aws/aws-sdk-js-v3/commit/c2d852279a3d23958521a6ceb4f4c642b0cb1848))
+
+
+### Features
+
+* **client-glue:** This release adds an additional worker type for Glue Streaming jobs. ([f47fa13](https://github.com/aws/aws-sdk-js-v3/commit/f47fa1366d13d05326cc44a2de29968f5ed555e0))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

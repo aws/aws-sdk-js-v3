@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Bug Fixes
+
+* **signature-v4:** allow empty string as canonical header value ([#3797](https://github.com/aws/aws-sdk-js-v3/issues/3797)) ([0dd60ed](https://github.com/aws/aws-sdk-js-v3/commit/0dd60edd14699712e0634da5469ac61dade90279))
+
+
+
+
+
 # [3.128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.127.0...v3.128.0) (2022-07-12)
 
 

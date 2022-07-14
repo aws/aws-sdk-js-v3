@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
+
+
+### Bug Fixes
+
+* **codegen:** fix error code parsing when it's a number ([#3371](https://github.com/aws/aws-sdk-js-v3/issues/3371)) ([c2d8522](https://github.com/aws/aws-sdk-js-v3/commit/c2d852279a3d23958521a6ceb4f4c642b0cb1848))
+* **signature-v4:** allow empty string as canonical header value ([#3797](https://github.com/aws/aws-sdk-js-v3/issues/3797)) ([0dd60ed](https://github.com/aws/aws-sdk-js-v3/commit/0dd60edd14699712e0634da5469ac61dade90279))
+
+
+### Features
+
+* **client-athena:** This release updates data types that contain either QueryExecutionId, NamedQueryId or ExpectedBucketOwner. Ids must be between 1 and 128 characters and contain only non-whitespace characters. ExpectedBucketOwner must be 12-digit string. ([a22c328](https://github.com/aws/aws-sdk-js-v3/commit/a22c32898c1fca2b4dc5eb3d897c3560f578f524))
+* **client-codeartifact:** This release introduces Package Origin Controls, a mechanism used to counteract Dependency Confusion attacks. Adds two new APIs, PutPackageOriginConfiguration and DescribePackage, and updates the ListPackage, DescribePackageVersion and ListPackageVersion APIs in support of the feature. ([ac9d765](https://github.com/aws/aws-sdk-js-v3/commit/ac9d765c47c18635c9e98922ba9a04eb785ca0fa))
+* **client-config-service:** Update ResourceType enum with values for Route53Resolver, Batch, DMS, Workspaces, Stepfunctions, SageMaker, ElasticLoadBalancingV2, MSK types ([58d673a](https://github.com/aws/aws-sdk-js-v3/commit/58d673a3dad680d9f11644c60c2d7c4f9e6ee5b4))
+* **client-ec2:** This release adds flow logs for Transit Gateway to  allow customers to gain deeper visibility and insights into network traffic through their Transit Gateways. ([57b3f71](https://github.com/aws/aws-sdk-js-v3/commit/57b3f71b0466f9b6048ce4368a4d7f75dc38bab8))
+* **client-fms:** Adds support for strict ordering in stateful rule groups in Network Firewall policies. ([b6f9a9f](https://github.com/aws/aws-sdk-js-v3/commit/b6f9a9f9e59ce61790e5832dd60e43fe0b622c67))
+* **client-glue:** This release adds an additional worker type for Glue Streaming jobs. ([f47fa13](https://github.com/aws/aws-sdk-js-v3/commit/f47fa1366d13d05326cc44a2de29968f5ed555e0))
+* **client-inspector2:** This release adds support for Inspector V2 scan configurations through the get and update configuration APIs. Currently this allows configuring ECR automated re-scan duration to lifetime or 180 days or 30 days. ([36bccb8](https://github.com/aws/aws-sdk-js-v3/commit/36bccb8557955688b1589fad74f5354b6e929a16))
+* **client-kendra:** This release adds AccessControlConfigurations which allow you to redefine your document level access control without the need for content re-indexing. ([b1c43cf](https://github.com/aws/aws-sdk-js-v3/commit/b1c43cf3b7afdaa0816cceaba2538243536074b6))
+* **client-nimble:** Amazon Nimble Studio adds support for IAM-based access to AWS resources for Nimble Studio components and custom studio components. Studio Component scripts use these roles on Nimble Studio workstation to mount filesystems, access S3 buckets, or other configured resources in the Studio's AWS account ([bae6c59](https://github.com/aws/aws-sdk-js-v3/commit/bae6c592854d1e806e074a214bc833b5cbe4c939))
+* **client-outposts:** This release adds the ShipmentInformation and AssetInformationList fields to the GetOrder API response. ([cf80140](https://github.com/aws/aws-sdk-js-v3/commit/cf8014052790df08d75b5bbb57566f619081bb72))
+* **client-sagemaker:** This release adds support for G5, P4d, and C6i instance types in Amazon SageMaker Inference and increases the number of hyperparameters that can be searched from 20 to 30 in Amazon SageMaker Automatic Model Tuning ([4d43eac](https://github.com/aws/aws-sdk-js-v3/commit/4d43eac453ff4e4b772ad4cc978e321eb64d38ee))
+* **clients:** update client endpoints as of 2022-07-14 ([93c74f4](https://github.com/aws/aws-sdk-js-v3/commit/93c74f43be2841c5918e2e1ae7aee4671c7c05b6))
+
+
+
+
+
 # [3.129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.128.0...v3.129.0) (2022-07-13)
 
 
