@@ -205,6 +205,7 @@ import {
   SecurityGroupRemediationAction,
   SecurityGroupRuleDescription,
   SecurityServicePolicyData,
+  StatefulEngineOptions,
   StatefulRuleGroup,
   StatelessRuleGroup,
   Tag,
@@ -3543,6 +3544,14 @@ const deserializeAws_json1_1NetworkFirewallPolicyDescription = (
   context: __SerdeContext
 ): NetworkFirewallPolicyDescription => {
   return {
+    StatefulDefaultActions:
+      output.StatefulDefaultActions != null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatefulDefaultActions, context)
+        : undefined,
+    StatefulEngineOptions:
+      output.StatefulEngineOptions != null
+        ? deserializeAws_json1_1StatefulEngineOptions(output.StatefulEngineOptions, context)
+        : undefined,
     StatefulRuleGroups:
       output.StatefulRuleGroups != null
         ? deserializeAws_json1_1StatefulRuleGroupList(output.StatefulRuleGroups, context)
@@ -4275,8 +4284,15 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
   } as any;
 };
 
+const deserializeAws_json1_1StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
+  return {
+    RuleOrder: __expectString(output.RuleOrder),
+  } as any;
+};
+
 const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
   return {
+    Priority: __expectInt32(output.Priority),
     ResourceId: __expectString(output.ResourceId),
     RuleGroupName: __expectString(output.RuleGroupName),
   } as any;
