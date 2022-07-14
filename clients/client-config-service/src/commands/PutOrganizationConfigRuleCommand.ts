@@ -24,10 +24,13 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
 
 /**
  * <p>Adds or updates organization Config rule for your entire organization evaluating whether your Amazon Web Services resources comply with your
- * 			desired configurations.</p>
+ * 			desired configurations. For information on how many organization Config rules you can have per account,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  * 	        <p> Only a master account and a delegated administrator can create or update an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
- * 		<code>ListDelegatedAdministrator</code> permissions are added. </p>
+ * 		<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
  * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked
  * 			role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated administrator account of your organization.
  * 			The service linked role is created only when the role does not exist in the caller account.
@@ -40,7 +43,6 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * 			When you use the <code>PutOrganizationConfigRule</code> action to add the rule to Config, you must
  * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.
  * 			If you are adding an Config managed rule, specify the rule's identifier for the <code>RuleIdentifier</code> key.</p>
- * 		       <p>The maximum number of organization Config rules that Config supports is 150 and 3 delegated administrator per organization. </p>
  * 		       <note>
  *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
  * 			         <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>

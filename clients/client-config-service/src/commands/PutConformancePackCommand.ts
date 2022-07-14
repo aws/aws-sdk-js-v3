@@ -23,7 +23,11 @@ export interface PutConformancePackCommandInput extends PutConformancePackReques
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across Amazon Web Services Organization.</p>
+ * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across Amazon Web Services Organization.
+ * 			For information on how many conformance packs you can have per account,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
  * 		       <p>This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service linked role is created only when the role does not exist in your account. </p>
  * 		       <note>
