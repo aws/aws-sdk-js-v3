@@ -13,48 +13,46 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeQuerySuggestionsConfigRequest, DescribeQuerySuggestionsConfigResponse } from "../models/models_0";
+import { ListAccessControlConfigurationsRequest, ListAccessControlConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
+  deserializeAws_json1_1ListAccessControlConfigurationsCommand,
+  serializeAws_json1_1ListAccessControlConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeQuerySuggestionsConfigCommandInput extends DescribeQuerySuggestionsConfigRequest {}
-export interface DescribeQuerySuggestionsConfigCommandOutput
-  extends DescribeQuerySuggestionsConfigResponse,
+export interface ListAccessControlConfigurationsCommandInput extends ListAccessControlConfigurationsRequest {}
+export interface ListAccessControlConfigurationsCommandOutput
+  extends ListAccessControlConfigurationsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Gets information on the settings of query suggestions for an index.</p>
- *         <p>This is used to check the current settings applied
- *             to query suggestions.</p>
- *         <p>
- *             <code>DescribeQuerySuggestionsConfig</code> is currently not supported in the
- *             Amazon Web Services GovCloud (US-West) region.</p>
+ * <p>Lists one or more access control configurations for an index. This
+ *             includes user and group access information for your documents. This
+ *             is useful for user context filtering, where search results are filtered
+ *             based on the user or their group access to documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, ListAccessControlConfigurationsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, ListAccessControlConfigurationsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const command = new DescribeQuerySuggestionsConfigCommand(input);
+ * const command = new ListAccessControlConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
- * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
+ * @see {@link ListAccessControlConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListAccessControlConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
-export class DescribeQuerySuggestionsConfigCommand extends $Command<
-  DescribeQuerySuggestionsConfigCommandInput,
-  DescribeQuerySuggestionsConfigCommandOutput,
+export class ListAccessControlConfigurationsCommand extends $Command<
+  ListAccessControlConfigurationsCommandInput,
+  ListAccessControlConfigurationsCommandOutput,
   KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeQuerySuggestionsConfigCommandInput) {
+  constructor(readonly input: ListAccessControlConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -67,20 +65,20 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeQuerySuggestionsConfigCommandInput, DescribeQuerySuggestionsConfigCommandOutput> {
+  ): Handler<ListAccessControlConfigurationsCommandInput, ListAccessControlConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KendraClient";
-    const commandName = "DescribeQuerySuggestionsConfigCommand";
+    const commandName = "ListAccessControlConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuerySuggestionsConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuerySuggestionsConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccessControlConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAccessControlConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,17 +89,17 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
   }
 
   private serialize(
-    input: DescribeQuerySuggestionsConfigCommandInput,
+    input: ListAccessControlConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsConfigCommand(input, context);
+    return serializeAws_json1_1ListAccessControlConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeQuerySuggestionsConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand(output, context);
+  ): Promise<ListAccessControlConfigurationsCommandOutput> {
+    return deserializeAws_json1_1ListAccessControlConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

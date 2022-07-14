@@ -1,6 +1,7 @@
 export * from "./GetSnapshotsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAccessControlConfigurationsPaginator";
 export * from "./ListDataSourceSyncJobsPaginator";
 export * from "./ListDataSourcesPaginator";
 export * from "./ListEntityPersonasPaginator";

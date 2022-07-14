@@ -23,7 +23,7 @@ export interface ListThesauriCommandInput extends ListThesauriRequest {}
 export interface ListThesauriCommandOutput extends ListThesauriResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Kendra thesauri associated with an index.</p>
+ * <p>Lists the thesauri for an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

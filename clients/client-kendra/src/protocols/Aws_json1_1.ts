@@ -41,6 +41,10 @@ import {
   ClearQuerySuggestionsCommandInput,
   ClearQuerySuggestionsCommandOutput,
 } from "../commands/ClearQuerySuggestionsCommand";
+import {
+  CreateAccessControlConfigurationCommandInput,
+  CreateAccessControlConfigurationCommandOutput,
+} from "../commands/CreateAccessControlConfigurationCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "../commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "../commands/CreateFaqCommand";
@@ -50,6 +54,10 @@ import {
   CreateQuerySuggestionsBlockListCommandOutput,
 } from "../commands/CreateQuerySuggestionsBlockListCommand";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "../commands/CreateThesaurusCommand";
+import {
+  DeleteAccessControlConfigurationCommandInput,
+  DeleteAccessControlConfigurationCommandOutput,
+} from "../commands/DeleteAccessControlConfigurationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteExperienceCommandInput, DeleteExperienceCommandOutput } from "../commands/DeleteExperienceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "../commands/DeleteFaqCommand";
@@ -63,6 +71,10 @@ import {
   DeleteQuerySuggestionsBlockListCommandOutput,
 } from "../commands/DeleteQuerySuggestionsBlockListCommand";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "../commands/DeleteThesaurusCommand";
+import {
+  DescribeAccessControlConfigurationCommandInput,
+  DescribeAccessControlConfigurationCommandOutput,
+} from "../commands/DescribeAccessControlConfigurationCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
 import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "../commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "../commands/DescribeFaqCommand";
@@ -93,6 +105,10 @@ import {
   GetQuerySuggestionsCommandOutput,
 } from "../commands/GetQuerySuggestionsCommand";
 import { GetSnapshotsCommandInput, GetSnapshotsCommandOutput } from "../commands/GetSnapshotsCommand";
+import {
+  ListAccessControlConfigurationsCommandInput,
+  ListAccessControlConfigurationsCommandOutput,
+} from "../commands/ListAccessControlConfigurationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
@@ -135,6 +151,10 @@ import {
 import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "../commands/SubmitFeedbackCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAccessControlConfigurationCommandInput,
+  UpdateAccessControlConfigurationCommandOutput,
+} from "../commands/UpdateAccessControlConfigurationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "../commands/UpdateExperienceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
@@ -149,6 +169,7 @@ import {
 import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "../commands/UpdateThesaurusCommand";
 import { KendraServiceException as __BaseException } from "../models/KendraServiceException";
 import {
+  AccessControlConfigurationSummary,
   AccessControlListConfiguration,
   AccessDeniedException,
   AclConfiguration,
@@ -190,6 +211,8 @@ import {
   ConnectionConfiguration,
   ContentSourceConfiguration,
   Correction,
+  CreateAccessControlConfigurationRequest,
+  CreateAccessControlConfigurationResponse,
   CreateDataSourceRequest,
   CreateDataSourceResponse,
   CreateExperienceRequest,
@@ -212,6 +235,8 @@ import {
   DataSourceSyncJobMetricTarget,
   DataSourceToIndexFieldMapping,
   DataSourceVpcConfiguration,
+  DeleteAccessControlConfigurationRequest,
+  DeleteAccessControlConfigurationResponse,
   DeleteDataSourceRequest,
   DeleteExperienceRequest,
   DeleteExperienceResponse,
@@ -220,6 +245,8 @@ import {
   DeletePrincipalMappingRequest,
   DeleteQuerySuggestionsBlockListRequest,
   DeleteThesaurusRequest,
+  DescribeAccessControlConfigurationRequest,
+  DescribeAccessControlConfigurationResponse,
   DescribeDataSourceRequest,
   DescribeDataSourceResponse,
   DescribeExperienceRequest,
@@ -285,6 +312,8 @@ import {
   JiraConfiguration,
   JsonTokenTypeConfiguration,
   JwtTokenTypeConfiguration,
+  ListAccessControlConfigurationsRequest,
+  ListAccessControlConfigurationsResponse,
   ListDataSourcesRequest,
   ListDataSourcesResponse,
   ListDataSourceSyncJobsRequest,
@@ -316,7 +345,6 @@ import {
   Principal,
   ProxyConfiguration,
   PutPrincipalMappingRequest,
-  QueryRequest,
   QueryResult,
   QueryResultItem,
   QuerySuggestionsBlockListSummary,
@@ -374,6 +402,8 @@ import {
   TimeRange,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateAccessControlConfigurationRequest,
+  UpdateAccessControlConfigurationResponse,
   UpdateDataSourceRequest,
   UpdateExperienceRequest,
   UpdateIndexRequest,
@@ -390,6 +420,7 @@ import {
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
+import { QueryRequest } from "../models/models_1";
 
 export const serializeAws_json1_1AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
@@ -469,6 +500,19 @@ export const serializeAws_json1_1ClearQuerySuggestionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateAccessControlConfigurationCommand = async (
+  input: CreateAccessControlConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.CreateAccessControlConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAccessControlConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
@@ -544,6 +588,19 @@ export const serializeAws_json1_1CreateThesaurusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateThesaurusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAccessControlConfigurationCommand = async (
+  input: DeleteAccessControlConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DeleteAccessControlConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -635,6 +692,19 @@ export const serializeAws_json1_1DeleteThesaurusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteThesaurusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeAccessControlConfigurationCommand = async (
+  input: DescribeAccessControlConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DescribeAccessControlConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -791,6 +861,19 @@ export const serializeAws_json1_1GetSnapshotsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSnapshotsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListAccessControlConfigurationsCommand = async (
+  input: ListAccessControlConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.ListAccessControlConfigurations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAccessControlConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1025,6 +1108,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateAccessControlConfigurationCommand = async (
+  input: UpdateAccessControlConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.UpdateAccessControlConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAccessControlConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1460,6 +1556,68 @@ const deserializeAws_json1_1ClearQuerySuggestionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateAccessControlConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessControlConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAccessControlConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAccessControlConfigurationResponse(data, context);
+  const response: CreateAccessControlConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAccessControlConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessControlConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1CreateDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1816,6 +1974,65 @@ const deserializeAws_json1_1CreateThesaurusCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
       throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteAccessControlConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessControlConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAccessControlConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAccessControlConfigurationResponse(data, context);
+  const response: DeleteAccessControlConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAccessControlConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessControlConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
       throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2205,6 +2422,62 @@ const deserializeAws_json1_1DeleteThesaurusCommandError = async (
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeAccessControlConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessControlConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAccessControlConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAccessControlConfigurationResponse(data, context);
+  const response: DescribeAccessControlConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAccessControlConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessControlConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
       throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
@@ -2892,6 +3165,62 @@ const deserializeAws_json1_1GetSnapshotsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListAccessControlConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessControlConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAccessControlConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAccessControlConfigurationsResponse(data, context);
+  const response: ListAccessControlConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAccessControlConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessControlConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -3928,6 +4257,68 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateAccessControlConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessControlConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateAccessControlConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAccessControlConfigurationResponse(data, context);
+  const response: UpdateAccessControlConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAccessControlConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessControlConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UpdateDataSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4931,6 +5322,27 @@ const serializeAws_json1_1ContentSourceConfiguration = (
   };
 };
 
+const serializeAws_json1_1CreateAccessControlConfigurationRequest = (
+  input: CreateAccessControlConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessControlList != null && {
+      AccessControlList: serializeAws_json1_1PrincipalList(input.AccessControlList, context),
+    }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HierarchicalAccessControlList != null && {
+      HierarchicalAccessControlList: serializeAws_json1_1HierarchicalPrincipalList(
+        input.HierarchicalAccessControlList,
+        context
+      ),
+    }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -5226,6 +5638,16 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
   };
 };
 
+const serializeAws_json1_1DeleteAccessControlConfigurationRequest = (
+  input: DeleteAccessControlConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+  };
+};
+
 const serializeAws_json1_1DeleteDataSourceRequest = (input: DeleteDataSourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
@@ -5276,6 +5698,16 @@ const serializeAws_json1_1DeleteQuerySuggestionsBlockListRequest = (
 };
 
 const serializeAws_json1_1DeleteThesaurusRequest = (input: DeleteThesaurusRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+  };
+};
+
+const serializeAws_json1_1DescribeAccessControlConfigurationRequest = (
+  input: DescribeAccessControlConfigurationRequest,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
     ...(input.IndexId != null && { IndexId: input.IndexId }),
@@ -5392,6 +5824,9 @@ const serializeAws_json1_1DisassociatePersonasFromEntitiesRequest = (
 
 const serializeAws_json1_1Document = (input: Document, context: __SerdeContext): any => {
   return {
+    ...(input.AccessControlConfigurationId != null && {
+      AccessControlConfigurationId: input.AccessControlConfigurationId,
+    }),
     ...(input.AccessControlList != null && {
       AccessControlList: serializeAws_json1_1PrincipalList(input.AccessControlList, context),
     }),
@@ -6094,6 +6529,17 @@ const serializeAws_json1_1JwtTokenTypeConfiguration = (
     ...(input.SecretManagerArn != null && { SecretManagerArn: input.SecretManagerArn }),
     ...(input.URL != null && { URL: input.URL }),
     ...(input.UserNameAttributeField != null && { UserNameAttributeField: input.UserNameAttributeField }),
+  };
+};
+
+const serializeAws_json1_1ListAccessControlConfigurationsRequest = (
+  input: ListAccessControlConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7072,6 +7518,27 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateAccessControlConfigurationRequest = (
+  input: UpdateAccessControlConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessControlList != null && {
+      AccessControlList: serializeAws_json1_1PrincipalList(input.AccessControlList, context),
+    }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.HierarchicalAccessControlList != null && {
+      HierarchicalAccessControlList: serializeAws_json1_1HierarchicalPrincipalList(
+        input.HierarchicalAccessControlList,
+        context
+      ),
+    }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.IndexId != null && { IndexId: input.IndexId }),
+    ...(input.Name != null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1UpdateDataSourceRequest = (input: UpdateDataSourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Configuration != null && {
@@ -7310,6 +7777,30 @@ const serializeAws_json1_1WorkDocsConfiguration = (input: WorkDocsConfiguration,
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UseChangeLog != null && { UseChangeLog: input.UseChangeLog }),
   };
+};
+
+const deserializeAws_json1_1AccessControlConfigurationSummary = (
+  output: any,
+  context: __SerdeContext
+): AccessControlConfigurationSummary => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1AccessControlConfigurationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): AccessControlConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccessControlConfigurationSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccessControlListConfiguration = (
@@ -7950,6 +8441,15 @@ const deserializeAws_json1_1CorrectionList = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1CreateAccessControlConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAccessControlConfigurationResponse => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDataSourceResponse = (
   output: any,
   context: __SerdeContext
@@ -8257,11 +8757,37 @@ const deserializeAws_json1_1DataSourceVpcConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteAccessControlConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteAccessControlConfigurationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteExperienceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteExperienceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DescribeAccessControlConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAccessControlConfigurationResponse => {
+  return {
+    AccessControlList:
+      output.AccessControlList != null
+        ? deserializeAws_json1_1PrincipalList(output.AccessControlList, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    HierarchicalAccessControlList:
+      output.HierarchicalAccessControlList != null
+        ? deserializeAws_json1_1HierarchicalPrincipalList(output.HierarchicalAccessControlList, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDataSourceResponse = (
@@ -9126,6 +9652,28 @@ const deserializeAws_json1_1GroupSummary = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_1HierarchicalPrincipal = (output: any, context: __SerdeContext): HierarchicalPrincipal => {
+  return {
+    PrincipalList:
+      output.PrincipalList != null ? deserializeAws_json1_1PrincipalList(output.PrincipalList, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HierarchicalPrincipalList = (
+  output: any,
+  context: __SerdeContext
+): HierarchicalPrincipal[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HierarchicalPrincipal(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Highlight = (output: any, context: __SerdeContext): Highlight => {
   return {
     BeginOffset: __expectInt32(output.BeginOffset),
@@ -9358,6 +9906,19 @@ const deserializeAws_json1_1JwtTokenTypeConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1ListAccessControlConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAccessControlConfigurationsResponse => {
+  return {
+    AccessControlConfigurations:
+      output.AccessControlConfigurations != null
+        ? deserializeAws_json1_1AccessControlConfigurationSummaryList(output.AccessControlConfigurations, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListDataSourcesResponse = (
   output: any,
   context: __SerdeContext
@@ -9571,6 +10132,27 @@ const deserializeAws_json1_1PersonasSummaryList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_json1_1PersonasSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Principal = (output: any, context: __SerdeContext): Principal => {
+  return {
+    Access: __expectString(output.Access),
+    DataSourceId: __expectString(output.DataSourceId),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1PrincipalList = (output: any, context: __SerdeContext): Principal[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Principal(entry, context);
     });
   return retVal;
 };
@@ -10527,6 +11109,13 @@ const deserializeAws_json1_1TimeRange = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateAccessControlConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateAccessControlConfigurationResponse => {
   return {} as any;
 };
 

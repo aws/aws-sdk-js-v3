@@ -32,9 +32,9 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *             in research and engineering, and therefore belong in the intellectual
  *             property group, can see top-secret company documents in their search
  *             results.</p>
- *         <p>You map users to their groups when you want to filter search results
- *             for different users based on their group’s access to documents. For more
- *             information on filtering search results for different users, see
+ *         <p>This is useful for user context filtering, where search results are
+ *             filtered based on the user or their group access to documents. For more
+ *             information, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
  *                 on user context</a>.</p>
  *         <p>If more than five <code>PUT</code> actions for a group are currently

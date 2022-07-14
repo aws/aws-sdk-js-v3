@@ -23,7 +23,7 @@ export interface CreateIndexCommandInput extends CreateIndexRequest {}
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous
+ * <p>Creates an Amazon Kendra index. Index creation is an asynchronous
  *       API. To determine if index creation has completed, check the
  *         <code>Status</code> field returned from a call to
  *         <code>DescribeIndex</code>. The <code>Status</code> field is set to

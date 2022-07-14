@@ -23,7 +23,7 @@ export interface UpdateThesaurusCommandInput extends UpdateThesaurusRequest {}
 export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a thesaurus file associated with an index.</p>
+ * <p>Updates a thesaurus for an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

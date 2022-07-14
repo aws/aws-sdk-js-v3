@@ -74,6 +74,10 @@ import {
   ClearQuerySuggestionsCommandInput,
   ClearQuerySuggestionsCommandOutput,
 } from "./commands/ClearQuerySuggestionsCommand";
+import {
+  CreateAccessControlConfigurationCommandInput,
+  CreateAccessControlConfigurationCommandOutput,
+} from "./commands/CreateAccessControlConfigurationCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateExperienceCommandInput, CreateExperienceCommandOutput } from "./commands/CreateExperienceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
@@ -83,6 +87,10 @@ import {
   CreateQuerySuggestionsBlockListCommandOutput,
 } from "./commands/CreateQuerySuggestionsBlockListCommand";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
+import {
+  DeleteAccessControlConfigurationCommandInput,
+  DeleteAccessControlConfigurationCommandOutput,
+} from "./commands/DeleteAccessControlConfigurationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteExperienceCommandInput, DeleteExperienceCommandOutput } from "./commands/DeleteExperienceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
@@ -96,6 +104,10 @@ import {
   DeleteQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DeleteQuerySuggestionsBlockListCommand";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
+import {
+  DescribeAccessControlConfigurationCommandInput,
+  DescribeAccessControlConfigurationCommandOutput,
+} from "./commands/DescribeAccessControlConfigurationCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeExperienceCommandInput, DescribeExperienceCommandOutput } from "./commands/DescribeExperienceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
@@ -126,6 +138,10 @@ import {
   GetQuerySuggestionsCommandOutput,
 } from "./commands/GetQuerySuggestionsCommand";
 import { GetSnapshotsCommandInput, GetSnapshotsCommandOutput } from "./commands/GetSnapshotsCommand";
+import {
+  ListAccessControlConfigurationsCommandInput,
+  ListAccessControlConfigurationsCommandOutput,
+} from "./commands/ListAccessControlConfigurationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
@@ -168,6 +184,10 @@ import {
 import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccessControlConfigurationCommandInput,
+  UpdateAccessControlConfigurationCommandOutput,
+} from "./commands/UpdateAccessControlConfigurationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateExperienceCommandInput, UpdateExperienceCommandOutput } from "./commands/UpdateExperienceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
@@ -189,12 +209,14 @@ export type ServiceInputTypes =
   | BatchGetDocumentStatusCommandInput
   | BatchPutDocumentCommandInput
   | ClearQuerySuggestionsCommandInput
+  | CreateAccessControlConfigurationCommandInput
   | CreateDataSourceCommandInput
   | CreateExperienceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
   | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
+  | DeleteAccessControlConfigurationCommandInput
   | DeleteDataSourceCommandInput
   | DeleteExperienceCommandInput
   | DeleteFaqCommandInput
@@ -202,6 +224,7 @@ export type ServiceInputTypes =
   | DeletePrincipalMappingCommandInput
   | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
+  | DescribeAccessControlConfigurationCommandInput
   | DescribeDataSourceCommandInput
   | DescribeExperienceCommandInput
   | DescribeFaqCommandInput
@@ -214,6 +237,7 @@ export type ServiceInputTypes =
   | DisassociatePersonasFromEntitiesCommandInput
   | GetQuerySuggestionsCommandInput
   | GetSnapshotsCommandInput
+  | ListAccessControlConfigurationsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListEntityPersonasCommandInput
@@ -232,6 +256,7 @@ export type ServiceInputTypes =
   | SubmitFeedbackCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessControlConfigurationCommandInput
   | UpdateDataSourceCommandInput
   | UpdateExperienceCommandInput
   | UpdateIndexCommandInput
@@ -246,12 +271,14 @@ export type ServiceOutputTypes =
   | BatchGetDocumentStatusCommandOutput
   | BatchPutDocumentCommandOutput
   | ClearQuerySuggestionsCommandOutput
+  | CreateAccessControlConfigurationCommandOutput
   | CreateDataSourceCommandOutput
   | CreateExperienceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
   | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
+  | DeleteAccessControlConfigurationCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteExperienceCommandOutput
   | DeleteFaqCommandOutput
@@ -259,6 +286,7 @@ export type ServiceOutputTypes =
   | DeletePrincipalMappingCommandOutput
   | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
+  | DescribeAccessControlConfigurationCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeExperienceCommandOutput
   | DescribeFaqCommandOutput
@@ -271,6 +299,7 @@ export type ServiceOutputTypes =
   | DisassociatePersonasFromEntitiesCommandOutput
   | GetQuerySuggestionsCommandOutput
   | GetSnapshotsCommandOutput
+  | ListAccessControlConfigurationsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListEntityPersonasCommandOutput
@@ -289,6 +318,7 @@ export type ServiceOutputTypes =
   | SubmitFeedbackCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessControlConfigurationCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateExperienceCommandOutput
   | UpdateIndexCommandOutput

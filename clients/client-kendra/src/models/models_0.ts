@@ -4,6 +4,26 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
 
 /**
+ * <p>Summary information on an access control configuration that you created for
+ *             your documents in an index.</p>
+ */
+export interface AccessControlConfigurationSummary {
+  /**
+   * <p>The identifier of the access control configuration.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace AccessControlConfigurationSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessControlConfigurationSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Access Control List files for the documents in a data source. For
  *             the format of the file, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html">Access control for S3 data
  *                 sources</a>.</p>
@@ -286,6 +306,11 @@ export namespace DataSourceVpcConfiguration {
 /**
  * <p>Provides the configuration information to connect to Alfresco as your
  *             data source.</p>
+ *         <note>
+ *             <p>Alfresco data source connector is currently in preview mode. Basic
+ *                 authentication is currently supported. If you would like to use Alfresco
+ *                 connector in production, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ *         </note>
  */
 export interface AlfrescoConfiguration {
   /**
@@ -327,7 +352,7 @@ export interface AlfrescoConfiguration {
 
   /**
    * <p>
-   *             <code>TRUE</code> to index comments of wikis and blogs.</p>
+   *             <code>TRUE</code> to index comments of blogs and other content.</p>
    */
   CrawlComments?: boolean;
 
@@ -1399,8 +1424,7 @@ export enum PrincipalType {
 }
 
 /**
- * <p>Provides user and group information for document access
- *             filtering.</p>
+ * <p>Provides user and group information for <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">user context filtering</a>.</p>
  */
 export interface Principal {
   /**
@@ -1414,7 +1438,7 @@ export interface Principal {
   Type: PrincipalType | string | undefined;
 
   /**
-   * <p>Whether to allow or deny access to the principal.</p>
+   * <p>Whether to allow or deny document access to the principal.</p>
    */
   Access: ReadAccessType | string | undefined;
 
@@ -1515,8 +1539,10 @@ export interface Document {
   Attributes?: DocumentAttribute[];
 
   /**
-   * <p>Information on user and group access rights, which is used for
-   *             user context filtering.</p>
+   * <p>Information on principals (users and/or groups) and which documents
+   *             they should have access to. This is useful for user context filtering,
+   *             where search results are filtered based on the user or their group
+   *             access to documents.</p>
    */
   AccessControlList?: Principal[];
 
@@ -1531,6 +1557,12 @@ export interface Document {
    *             field.</p>
    */
   ContentType?: ContentType | string;
+
+  /**
+   * <p>The identifier of the access control configuration that you want
+   *             to apply to the document.</p>
+   */
+  AccessControlConfigurationId?: string;
 }
 
 export namespace Document {
@@ -1686,6 +1718,70 @@ export namespace ClearQuerySuggestionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ClearQuerySuggestionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAccessControlConfigurationRequest {
+  /**
+   * <p>The identifier of the index to create an access control configuration for
+   *             your documents.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>A name for the access control configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description for the access control configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information on principals (users and/or groups) and which documents they
+   *             should have access to. This is useful for user context filtering, where
+   *             search results are filtered based on the user or their group access to
+   *             documents.</p>
+   */
+  AccessControlList?: Principal[];
+
+  /**
+   * <p>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that
+   *             define the hierarchy for which documents users should have access to.</p>
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[];
+
+  /**
+   * <p>A token that you provide to identify the request to create an access control
+   *             configuration. Multiple calls to the <code>CreateAccessControlConfiguration</code>
+   *             API with the same client token will create only one access control configuration.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateAccessControlConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccessControlConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAccessControlConfigurationResponse {
+  /**
+   * <p>The identifier of the access control configuration for your documents in an index.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace CreateAccessControlConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccessControlConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -2203,12 +2299,12 @@ export interface ConfluenceConfiguration {
    *             Confluence instance. If you use Confluence cloud, you use a
    *             generated API token as the password. For more information, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html">Using a
-   *                 Confluemce data source</a>.</p>
+   *                 Confluence data source</a>.</p>
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>The version or the type of the Confluence installation to connect to.</p>
+   * <p>The version or the type of Confluence installation to connect to.</p>
    */
   Version: ConfluenceVersion | string | undefined;
 
@@ -3240,7 +3336,7 @@ export interface QuipConfiguration {
   CrawlAttachments?: boolean;
 
   /**
-   * <p>The identifier of the Quip folders you want to index.</p>
+   * <p>The identifiers of the Quip folders you want to index.</p>
    */
   FolderIds?: string[];
 
@@ -3807,8 +3903,8 @@ export enum ServiceNowAuthenticationType {
  */
 export interface ServiceNowKnowledgeArticleConfiguration {
   /**
-   * <p>Indicates whether Amazon Kendra should index attachments to knowledge
-   *             articles.</p>
+   * <p>
+   *             <code>TRUE</code> to index attachments to knowledge articles.</p>
    */
   CrawlAttachments?: boolean;
 
@@ -3881,8 +3977,8 @@ export namespace ServiceNowKnowledgeArticleConfiguration {
  */
 export interface ServiceNowServiceCatalogConfiguration {
   /**
-   * <p>Indicates whether Amazon Kendra should crawl attachments to the service
-   *             catalog items. </p>
+   * <p>
+   *             <code>TRUE</code> to index attachments to service catalog items.</p>
    */
   CrawlAttachments?: boolean;
 
@@ -3988,11 +4084,9 @@ export interface ServiceNowConfiguration {
    * <p>The type of authentication used to connect to the
    *             ServiceNow instance. If you choose <code>HTTP_BASIC</code>, Amazon Kendra is
    *             authenticated using the user name and password provided in the
-   *             Secrets Manager secret in the <code>SecretArn</code> field. When you
-   *             choose <code>OAUTH2</code>, Amazon Kendra is authenticated using the OAuth
-   *             token and secret provided in the Secrets Manager secret, and the
-   *             user name and password are used to determine which information Amazon Kendra
-   *             has access to.</p>
+   *             Secrets Manager secret in the <code>SecretArn</code> field. If you
+   *             choose <code>OAUTH2</code>, Amazon Kendra is authenticated using the
+   *             credentials of client ID, client secret, user name and password.</p>
    *         <p>When you use <code>OAUTH2</code> authentication, you must generate
    *             a token and a client secret using the ServiceNow console. For more
    *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html">Using a
@@ -4520,11 +4614,12 @@ export interface WebCrawlerConfiguration {
   /**
    * <p>Configuration information required to connect to websites using
    *             authentication.</p>
-   *         <p>You can connect to websites using basic authentication of user name and password.</p>
+   *         <p>You can connect to websites using basic authentication of user name and password.
+   *             You use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a> to store
+   *             your authentication credentials.</p>
    *         <p>You must provide the website host name and port number. For example, the host name
    *             of https://a.example.com/page1.html is "a.example.com" and the port is 443, the
-   *             standard port for HTTPS. You use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">Secrets Manager</a> to store
-   *             your authentication credentials.</p>
+   *             standard port for HTTPS.</p>
    */
   AuthenticationConfiguration?: AuthenticationConfiguration;
 }
@@ -4783,25 +4878,23 @@ export enum DataSourceType {
 
 export interface CreateDataSourceRequest {
   /**
-   * <p>A unique name for the data source. A data source name can't be changed
-   *       without deleting and recreating the data source.</p>
+   * <p>A unique name for the data source connector. A data source name can't be changed
+   *       without deleting and recreating the data source connector.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier of the index that should be associated with this data
-   *       source.</p>
+   * <p>The identifier of the index you want to use with the data source connector.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The type of repository that contains the data source.</p>
+   * <p>The type of data source repository. For example, <code>SHAREPOINT</code>.</p>
    */
   Type: DataSourceType | string | undefined;
 
   /**
-   * <p>Configuration information that is required to access the data source
-   *       repository.</p>
+   * <p>Configuration information to connect to your data source repository.</p>
    *          <p>You can't specify the <code>Configuration</code> parameter when the
    *         <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
    *       you receive a <code>ValidationException</code> exception.</p>
@@ -4811,14 +4904,14 @@ export interface CreateDataSourceRequest {
   Configuration?: DataSourceConfiguration;
 
   /**
-   * <p>A description for the data source.</p>
+   * <p>A description for the data source connector.</p>
    */
   Description?: string;
 
   /**
    * <p>Sets the frequency for Amazon Kendra to check the documents in your
-   *       repository and update the index. If you don't set a schedule Amazon Kendra
-   *       will not periodically update the index. You can call the
+   *       data source repository and update the index. If you don't set a schedule
+   *       Amazon Kendra will not periodically update the index. You can call the
    *         <code>StartDataSourceSyncJob</code> API to update the
    *       index.</p>
    *          <p>You can't specify the <code>Schedule</code> parameter when the
@@ -4829,7 +4922,7 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the
-   *       data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
+   *       data source connector. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
    *         Amazon Kendra</a>.</p>
    *          <p>You can't specify the <code>RoleArn</code> parameter when the
    *         <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
@@ -4840,7 +4933,7 @@ export interface CreateDataSourceRequest {
   RoleArn?: string;
 
   /**
-   * <p>A list of key-value pairs that identify the data source. You can use
+   * <p>A list of key-value pairs that identify the data source connector. You can use
    *       the tags to identify and organize your resources and to control access to
    *       resources.</p>
    */
@@ -4848,14 +4941,14 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>A token that you provide to identify the request to create a data
-   *       source. Multiple calls to the <code>CreateDataSource</code> API with
-   *       the same client token will create only one data source.</p>
+   *       source connector. Multiple calls to the <code>CreateDataSource</code> API
+   *       with the same client token will create only one data source connector.</p>
    */
   ClientToken?: string;
 
   /**
    * <p>The code for a language. This allows you to support a language for all
-   *             documents when creating the data source. English is supported
+   *             documents when creating the data source connector. English is supported
    *             by default. For more information on supported languages, including their codes,
    *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
    *                 documents in languages other than English</a>.</p>
@@ -4864,7 +4957,7 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>Configuration information for altering document metadata and content during the
-   *             document ingestion process when you create a data source.</p>
+   *             document ingestion process.</p>
    *         <p>For more information on how to create, modify and delete document metadata, or make
    *             other content alterations when you ingest documents into Amazon Kendra, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
@@ -4884,7 +4977,7 @@ export namespace CreateDataSourceRequest {
 
 export interface CreateDataSourceResponse {
   /**
-   * <p>A unique identifier for the data source.</p>
+   * <p>The identifier of the data source connector.</p>
    */
   Id: string | undefined;
 }
@@ -5057,22 +5150,22 @@ export enum FaqFileFormat {
 
 export interface CreateFaqRequest {
   /**
-   * <p>The identifier of the index that contains the FAQ.</p>
+   * <p>The identifier of the index for the FAQ.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The name that should be associated with the FAQ.</p>
+   * <p>A name for the FAQ.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>A description of the FAQ.</p>
+   * <p>A description for the FAQ.</p>
    */
   Description?: string;
 
   /**
-   * <p>The S3 location of the FAQ input data.</p>
+   * <p>The path to the FAQ file in S3.</p>
    */
   S3Path: S3Path | undefined;
 
@@ -5089,7 +5182,7 @@ export interface CreateFaqRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The format of the input file. You can choose between a basic CSV format, a CSV format
+   * <p>The format of the FAQ input file. You can choose between a basic CSV format, a CSV format
    *             that includes customs attributes in a header, and a JSON format that includes custom
    *             attributes.</p>
    *         <p>The format must match the format of the file stored in the S3 bucket identified in the
@@ -5182,12 +5275,11 @@ export enum UserGroupResolutionMode {
 /**
  * <p>Provides the configuration information to fetch access levels
  *          of groups and users from an Amazon Web Services Single Sign On identity
- *          source. This is useful for setting up user context filtering, where
- *          Amazon Kendra filters search results for different users based on their
- *          group's access to documents. You can also map your users to their
- *          groups for user context filtering using the
- *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping
- *             API</a>.</p>
+ *          source. This is useful for user context filtering, where search
+ *          results are filtered based on the user or their group access to
+ *          documents. You can also use the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping</a>
+ *          API to map users to their groups so that you only need to provide
+ *          the user ID when you issue the query.</p>
  *          <p>To set up an Amazon Web Services SSO identity source in the console to use with
  *          Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting started
  *             with an Amazon Web Services SSO identity source</a>. You must also grant the required
@@ -5322,7 +5414,7 @@ export namespace UserTokenConfiguration {
 
 export interface CreateIndexRequest {
   /**
-   * <p>The name for the new index.</p>
+   * <p>A name for the index.</p>
    */
   Name: string | undefined;
 
@@ -5522,18 +5614,17 @@ export namespace CreateQuerySuggestionsBlockListResponse {
 
 export interface CreateThesaurusRequest {
   /**
-   * <p>The unique identifier of the index for the new thesaurus.
-   *       </p>
+   * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The name for the new thesaurus.</p>
+   * <p>A name for the thesaurus.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The description for the new thesaurus.</p>
+   * <p>A description for the thesaurus.</p>
    */
   Description?: string;
 
@@ -5553,8 +5644,7 @@ export interface CreateThesaurusRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The thesaurus file Amazon S3 source path.
-   *       </p>
+   * <p>The path to the thesaurus file in S3.</p>
    */
   SourceS3Path: S3Path | undefined;
 
@@ -5593,15 +5683,46 @@ export namespace CreateThesaurusResponse {
   });
 }
 
+export interface DeleteAccessControlConfigurationRequest {
+  /**
+   * <p>The identifier of the index for an access control configuration.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the access control configuration you want to delete.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteAccessControlConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAccessControlConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAccessControlConfigurationResponse {}
+
+export namespace DeleteAccessControlConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAccessControlConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The unique identifier of the data source to delete.</p>
+   * <p>The identifier of the data source you want to delete.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the index associated with the data
-   *       source.</p>
+   * <p>The identifier of the index used with the data source.</p>
    */
   IndexId: string | undefined;
 }
@@ -5622,7 +5743,7 @@ export interface DeleteExperienceRequest {
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index for your Amazon Kendra experience you want to delete.</p>
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
    */
   IndexId: string | undefined;
 }
@@ -5649,12 +5770,12 @@ export namespace DeleteExperienceResponse {
 
 export interface DeleteFaqRequest {
   /**
-   * <p>The identifier of the FAQ to remove.</p>
+   * <p>The identifier of the FAQ you want to remove.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The index to remove the FAQ from.</p>
+   * <p>The identifier of the index for the FAQ.</p>
    */
   IndexId: string | undefined;
 }
@@ -5670,7 +5791,7 @@ export namespace DeleteFaqRequest {
 
 export interface DeleteIndexRequest {
   /**
-   * <p>The identifier of the index to delete.</p>
+   * <p>The identifier of the index you want to delete.</p>
    */
   Id: string | undefined;
 }
@@ -5692,8 +5813,8 @@ export interface DeletePrincipalMappingRequest {
 
   /**
    * <p>The identifier of the data source you want to delete a group from.</p>
-   *         <p>This is useful if a group is tied to multiple data sources and you want
-   *             to delete a group from accessing documents in a certain data source. For example,
+   *         <p>A group can be tied to multiple data sources. You can
+   *             delete a group from accessing documents in a certain data source. For example,
    *             the groups "Research", "Engineering", and "Sales and Marketing" are all tied to
    *             the company's documents stored in the data sources Confluence and Salesforce.
    *             You want to delete "Research" and "Engineering" groups from Salesforce, so that
@@ -5738,12 +5859,12 @@ export namespace DeletePrincipalMappingRequest {
 
 export interface DeleteQuerySuggestionsBlockListRequest {
   /**
-   * <p>The identifier of the you want to delete a block list from.</p>
+   * <p>The identifier of the index for the block list.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The unique identifier of the block list that needs to be deleted.</p>
+   * <p>The identifier of the block list you want to delete.</p>
    */
   Id: string | undefined;
 }
@@ -5759,12 +5880,12 @@ export namespace DeleteQuerySuggestionsBlockListRequest {
 
 export interface DeleteThesaurusRequest {
   /**
-   * <p>The identifier of the thesaurus to delete.</p>
+   * <p>The identifier of the thesaurus you want to delete.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index associated with the thesaurus to delete.</p>
+   * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId: string | undefined;
 }
@@ -5778,14 +5899,75 @@ export namespace DeleteThesaurusRequest {
   });
 }
 
+export interface DescribeAccessControlConfigurationRequest {
+  /**
+   * <p>The identifier of the index for an access control configuration.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The identifier of the access control configuration you want to get information on.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DescribeAccessControlConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccessControlConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccessControlConfigurationResponse {
+  /**
+   * <p>The name for the access control configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description for the access control configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The error message containing details if there are issues processing the access
+   *             control configuration.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>Information on principals (users and/or groups) and which documents they
+   *             should have access to. This is useful for user context filtering, where search
+   *             results are filtered based on the user or their group access to documents.</p>
+   */
+  AccessControlList?: Principal[];
+
+  /**
+   * <p>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that
+   *             define the hierarchy for which documents users should have access to.</p>
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[];
+}
+
+export namespace DescribeAccessControlConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccessControlConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDataSourceRequest {
   /**
-   * <p>The unique identifier of the data source to describe.</p>
+   * <p>The identifier of the data source.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with the data source.</p>
    */
   IndexId: string | undefined;
 }
@@ -5829,8 +6011,9 @@ export interface DescribeDataSourceResponse {
   Type?: DataSourceType | string;
 
   /**
-   * <p>Describes how the data source is configured. The specific information in the description
-   *       depends on the data source provider.</p>
+   * <p>Configuration details for the data source. This shows how the
+   *       data source is configured. The configuration options for a data
+   *       source depend on the data source provider.</p>
    */
   Configuration?: DataSourceConfiguration;
 
@@ -5845,7 +6028,7 @@ export interface DescribeDataSourceResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>The description of the data source.</p>
+   * <p>The description for the data source.</p>
    */
   Description?: string;
 
@@ -5911,8 +6094,7 @@ export interface DescribeExperienceRequest {
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index for your Amazon Kendra experience you want to get
-   *             information on.</p>
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
    */
   IndexId: string | undefined;
 }
@@ -6042,12 +6224,12 @@ export namespace DescribeExperienceResponse {
 
 export interface DescribeFaqRequest {
   /**
-   * <p>The unique identifier of the FAQ.</p>
+   * <p>The identifier of the FAQ you want to get information on.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index that contains the FAQ.</p>
+   * <p>The identifier of the index for the FAQ.</p>
    */
   IndexId: string | undefined;
 }
@@ -6076,7 +6258,7 @@ export interface DescribeFaqResponse {
   Id?: string;
 
   /**
-   * <p>The identifier of the index that contains the FAQ.</p>
+   * <p>The identifier of the index for the FAQ.</p>
    */
   IndexId?: string;
 
@@ -6150,7 +6332,7 @@ export namespace DescribeFaqResponse {
 
 export interface DescribeIndexRequest {
   /**
-   * <p>The identifier of the index to describe.</p>
+   * <p>The identifier of the index you want to get information on.</p>
    */
   Id: string | undefined;
 }
@@ -6210,7 +6392,7 @@ export enum Order {
 }
 
 /**
- * <p>Provides information for manually tuning the relevance of a field
+ * <p>Provides information for tuning the relevance of a field
  *             in a search. When a query includes terms that match the field, the
  *             results are given a boost in the response based on these tuning
  *             parameters.</p>
@@ -6337,7 +6519,8 @@ export enum DocumentAttributeValueType {
 }
 
 /**
- * <p>Specifies the properties of a custom index field.</p>
+ * <p>Specifies the properties, such as relevance tuning
+ *             and searchability, of an index field.</p>
  */
 export interface DocumentMetadataConfiguration {
   /**
@@ -6351,7 +6534,7 @@ export interface DocumentMetadataConfiguration {
   Type: DocumentAttributeValueType | string | undefined;
 
   /**
-   * <p>Provides manual tuning parameters to determine how the field
+   * <p>Provides tuning parameters to determine how the field
    *             affects the search results.</p>
    */
   Relevance?: Relevance;
@@ -6507,8 +6690,9 @@ export interface DescribeIndexResponse {
   UpdatedAt?: Date;
 
   /**
-   * <p>Configuration settings for any metadata applied to the documents in
-   *       the index.</p>
+   * <p>Configuration information for document metadata or fields. Document metadata
+   *       are fields or attributes associated with your documents. For example, the company
+   *       department name associated with each document.</p>
    */
   DocumentMetadataConfigurations?: DocumentMetadataConfiguration[];
 
@@ -6547,7 +6731,7 @@ export interface DescribeIndexResponse {
   UserContextPolicy?: UserContextPolicy | string;
 
   /**
-   * <p>Shows whether you have enabled the configuration for fetching access
+   * <p>Whether you have enabled the configuration for fetching access
    *          levels of groups and users from an Amazon Web Services Single Sign On identity source.</p>
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
@@ -6608,7 +6792,7 @@ export enum PrincipalMappingStatus {
 }
 
 /**
- * <p>Information on the processing of <code>PUT</code> and <code>DELETE</code> actions
+ * <p>Summary information on the processing of <code>PUT</code> and <code>DELETE</code> actions
  *             for mapping users to their groups.</p>
  */
 export interface GroupOrderingIdSummary {
@@ -6722,7 +6906,7 @@ export interface DescribeQuerySuggestionsBlockListRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>The unique identifier of the block list.</p>
+   * <p>The identifier of the block list you want to get information on.</p>
    */
   Id: string | undefined;
 }
@@ -6747,44 +6931,44 @@ export enum QuerySuggestionsBlockListStatus {
 
 export interface DescribeQuerySuggestionsBlockListResponse {
   /**
-   * <p>Shows the identifier of the index for the block list.</p>
+   * <p>The identifier of the index for the block list.</p>
    */
   IndexId?: string;
 
   /**
-   * <p>Shows the unique identifier of the block list.</p>
+   * <p>The identifier of the block list.</p>
    */
   Id?: string;
 
   /**
-   * <p>Shows the name of the block list.</p>
+   * <p>The name of the block list.</p>
    */
   Name?: string;
 
   /**
-   * <p>Shows the description for the block list.</p>
+   * <p>The description for the block list.</p>
    */
   Description?: string;
 
   /**
-   * <p>Shows whether the current status of the block list is
-   *             <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   * <p>The current status of the block list. When the value is
+   *             <code>ACTIVE</code>, the block list is ready for use.</p>
    */
   Status?: QuerySuggestionsBlockListStatus | string;
 
   /**
-   * <p>Shows the error message with details when there are issues in
-   *             processing the block list.</p>
+   * <p>The error message containing details if there are issues processing
+   *             the block list.</p>
    */
   ErrorMessage?: string;
 
   /**
-   * <p>Shows the date-time a block list for query suggestions was created.</p>
+   * <p>The date-time a block list for query suggestions was created.</p>
    */
   CreatedAt?: Date;
 
   /**
-   * <p>Shows the date-time a block list for query suggestions was last updated.</p>
+   * <p>The date-time a block list for query suggestions was last updated.</p>
    */
   UpdatedAt?: Date;
 
@@ -6798,18 +6982,18 @@ export interface DescribeQuerySuggestionsBlockListResponse {
   SourceS3Path?: S3Path;
 
   /**
-   * <p>Shows the current number of valid, non-empty words or phrases in
+   * <p>The current number of valid, non-empty words or phrases in
    *             the block list text file.</p>
    */
   ItemCount?: number;
 
   /**
-   * <p>Shows the current size of the block list text file in S3.</p>
+   * <p>The current size of the block list text file in S3.</p>
    */
   FileSizeBytes?: number;
 
   /**
-   * <p>Shows the current IAM (Identity and Access Management) role used by
+   * <p>The IAM (Identity and Access Management) role used by
    *             Amazon Kendra to access the block list text file in S3.</p>
    *         <p>The role needs S3 read permissions to your file in S3 and needs to
    *             give STS (Security Token Service) assume role permissions to
@@ -6829,8 +7013,8 @@ export namespace DescribeQuerySuggestionsBlockListResponse {
 
 export interface DescribeQuerySuggestionsConfigRequest {
   /**
-   * <p>The identifier of the index you want to describe query suggestions
-   *             settings for.</p>
+   * <p>The identifier of the index with query suggestions that you want to get
+   *             information on.</p>
    */
   IndexId: string | undefined;
 }
@@ -6856,7 +7040,7 @@ export enum QuerySuggestionsStatus {
 
 export interface DescribeQuerySuggestionsConfigResponse {
   /**
-   * <p>Shows whether query suggestions are currently in
+   * <p>Whether query suggestions are currently in
    *             <code>ENABLED</code> mode or <code>LEARN_ONLY</code> mode.</p>
    *         <p>By default, Amazon Kendra enables query suggestions.<code>LEARN_ONLY</code>
    *             turns off query suggestions for your users. You can change the mode using
@@ -6866,44 +7050,45 @@ export interface DescribeQuerySuggestionsConfigResponse {
   Mode?: Mode | string;
 
   /**
-   * <p>Shows whether the status of query suggestions settings is currently
-   *             Active or Updating.</p>
+   * <p>Whether the status of query suggestions settings is currently
+   *             <code>ACTIVE</code> or <code>UPDATING</code>.</p>
    *         <p>Active means the current settings apply and Updating means your
    *             changed settings are in the process of applying.</p>
    */
   Status?: QuerySuggestionsStatus | string;
 
   /**
-   * <p>Shows how recent your queries are in your query log time
+   * <p>How recent your queries are in your query log time
    *             window (in days).</p>
    */
   QueryLogLookBackWindowInDays?: number;
 
   /**
-   * <p>Shows whether Amazon Kendra uses all queries or only uses queries that
-   *             include user information to generate query suggestions.</p>
+   * <p>
+   *             <code>TRUE</code> to use all queries, otherwise use only queries that include
+   *             user information to generate the query suggestions.</p>
    */
   IncludeQueriesWithoutUserInformation?: boolean;
 
   /**
-   * <p>Shows the minimum number of unique users who must search a query in
+   * <p>The minimum number of unique users who must search a query in
    *             order for the query to be eligible to suggest to your users.</p>
    */
   MinimumNumberOfQueryingUsers?: number;
 
   /**
-   * <p>Shows the minimum number of times a query must be searched in order for
+   * <p>The minimum number of times a query must be searched in order for
    *             the query to be eligible to suggest to your users.</p>
    */
   MinimumQueryCount?: number;
 
   /**
-   * <p>Shows the date-time query suggestions for an index was last updated.</p>
+   * <p>The date-time query suggestions for an index was last updated.</p>
    */
   LastSuggestionsBuildTime?: Date;
 
   /**
-   * <p>Shows the date-time query suggestions for an index was last cleared.</p>
+   * <p>The date-time query suggestions for an index was last cleared.</p>
    *         <p>After you clear suggestions, Amazon Kendra learns new suggestions based
    *             on new queries added to the query log from the time you cleared suggestions.
    *             Amazon Kendra only considers re-occurences of a query from the time you cleared
@@ -6912,7 +7097,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
   LastClearTime?: Date;
 
   /**
-   * <p>Shows the current total count of query suggestions for an index.</p>
+   * <p>The current total count of query suggestions for an index.</p>
    *         <p>This count can change when you update your query suggestions settings,
    *             if you filter out certain queries from suggestions using a block list,
    *             and as the query log accumulates more queries for Amazon Kendra to learn from.</p>
@@ -6931,12 +7116,12 @@ export namespace DescribeQuerySuggestionsConfigResponse {
 
 export interface DescribeThesaurusRequest {
   /**
-   * <p>The identifier of the thesaurus to describe.</p>
+   * <p>The identifier of the thesaurus you want to get information on.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index associated with the thesaurus to describe.</p>
+   * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId: string | undefined;
 }
@@ -6966,7 +7151,7 @@ export interface DescribeThesaurusResponse {
   Id?: string;
 
   /**
-   * <p>The identifier of the index associated with the thesaurus to describe.</p>
+   * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId?: string;
 
@@ -7462,9 +7647,61 @@ export class InvalidRequestException extends __BaseException {
   }
 }
 
+export interface ListAccessControlConfigurationsRequest {
+  /**
+   * <p>The identifier of the index for the access control configuration.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data
+   *             to retrieve), Amazon Kendra returns a pagination token in the response.
+   *             You can use this pagination token to retrieve the next set of access
+   *             control configurations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of access control configurations to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListAccessControlConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAccessControlConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAccessControlConfigurationsResponse {
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token
+   *             that you can use in the subsequent request to retrieve the next set of
+   *             access control configurations.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The details of your access control configurations.</p>
+   */
+  AccessControlConfigurations: AccessControlConfigurationSummary[] | undefined;
+}
+
+export namespace ListAccessControlConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAccessControlConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListDataSourcesRequest {
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with one or more data sources.</p>
    */
   IndexId: string | undefined;
 
@@ -7586,7 +7823,7 @@ export interface ListDataSourceSyncJobsRequest {
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the index that contains the data source.</p>
+   * <p>The identifier of the index used with the data source.</p>
    */
   IndexId: string | undefined;
 
@@ -8116,8 +8353,8 @@ export namespace ListFaqsRequest {
 }
 
 /**
- * <p>Provides information about a frequently asked questions and answer
- *             contained in an index.</p>
+ * <p>Summary information for frequently asked questions and answers
+ *             included in an index.</p>
  */
 export interface FaqSummary {
   /**
@@ -8241,23 +8478,17 @@ export namespace ListGroupsOlderThanOrderingIdRequest {
 }
 
 /**
- * <p>
- *             Group summary information.
- *         </p>
+ * <p>Summary information for groups.</p>
  */
 export interface GroupSummary {
   /**
-   * <p>
-   *             The identifier of the group you want group summary information on.
-   *         </p>
+   * <p>The identifier of the group you want group summary information on.</p>
    */
   GroupId?: string;
 
   /**
-   * <p>
-   *             The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
-   *             action.
-   *         </p>
+   * <p>The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
+   *             action.</p>
    */
   OrderingId?: number;
 }
@@ -8324,7 +8555,7 @@ export namespace ListIndicesRequest {
 }
 
 /**
- * <p>A summary of information on the configuration of an index.</p>
+ * <p>Summary information on the configuration of an index.</p>
  */
 export interface IndexConfigurationSummary {
   /**
@@ -8563,7 +8794,7 @@ export class ResourceUnavailableException extends __BaseException {
 
 export interface ListThesauriRequest {
   /**
-   * <p>The identifier of the index associated with the thesaurus to list.</p>
+   * <p>The identifier of the index with one or more thesauri.</p>
    */
   IndexId: string | undefined;
 
@@ -8698,9 +8929,9 @@ export namespace MemberUser {
 }
 
 /**
- * <p>A list of users or sub groups that belong to a group. Users and groups
- *             are useful for filtering search results to different users based on their
- *             group's access to documents.</p>
+ * <p>A list of users or sub groups that belong to a group. This is useful for
+ *             user context filtering, where search results are filtered based on the user
+ *             or their group access to documents.</p>
  */
 export interface GroupMembers {
   /**
@@ -8815,16 +9046,15 @@ export namespace PutPrincipalMappingRequest {
  */
 export interface DocumentRelevanceConfiguration {
   /**
-   * <p>The name of the tuning configuration to override document relevance
-   *          at the index level.</p>
+   * <p>The name of the index field.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>Provides information for manually tuning the relevance of a field
-   *             in a search. When a query includes terms that match the field, the
-   *             results are given a boost in the response based on these tuning
-   *             parameters.</p>
+   * <p>Provides information for tuning the relevance of a field
+   *          in a search. When a query includes terms that match the field, the
+   *          results are given a boost in the response based on these tuning
+   *          parameters.</p>
    */
   Relevance: Relevance | undefined;
 }
@@ -8975,8 +9205,13 @@ export namespace DataSourceGroup {
 /**
  * <p>Provides information about the user context for
  *          an Amazon Kendra index.</p>
- *          <p>This is used for filtering search results for different users based on their access
- *          to documents.</p>
+ *          <p>User context filtering is a kind of personalized search with
+ *          the benefit of controlling access to documents. For example, not
+ *          all teams that search the company portal for information should
+ *          access top-secret company documents, nor are these documents
+ *          relevant to all users. Only specific users or groups of teams given
+ *          access to top-secret documents should see these documents in their
+ *          search results.</p>
  *          <p>You provide one of the following:</p>
  *          <ul>
  *             <li>
@@ -9469,48 +9704,105 @@ export namespace UntagResourceResponse {
   });
 }
 
-export interface UpdateDataSourceRequest {
+export interface UpdateAccessControlConfigurationRequest {
   /**
-   * <p>The unique identifier of the data source to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the data source to update. The name of the data source
-   *       can't be updated. To rename a data source you must delete the data source
-   *       and re-create it.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The identifier of the index that contains the data source to
-   *       update.</p>
+   * <p>The identifier of the index for an access control configuration.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>Configuration information for an Amazon Kendra data source you want to update.</p>
+   * <p>The identifier of the access control configuration you want to update.</p>
    */
-  Configuration?: DataSourceConfiguration;
+  Id: string | undefined;
 
   /**
-   * <p>The new description for the data source.</p>
+   * <p>A new name for the access control configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A new description for the access control configuration.</p>
    */
   Description?: string;
 
   /**
-   * <p>The new update schedule for the data source.</p>
+   * <p>Information you want to update on principals (users and/or groups) and which
+   *             documents they should have access to. This is useful for user context filtering,
+   *             where search results are filtered based on the user or their group access to
+   *             documents.</p>
+   */
+  AccessControlList?: Principal[];
+
+  /**
+   * <p>The updated list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that
+   *             define the hierarchy for which documents users should have access to.</p>
+   */
+  HierarchicalAccessControlList?: HierarchicalPrincipal[];
+}
+
+export namespace UpdateAccessControlConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccessControlConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccessControlConfigurationResponse {}
+
+export namespace UpdateAccessControlConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccessControlConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDataSourceRequest {
+  /**
+   * <p>The identifier of the data source you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A new name for the data source connector. You must
+   *       first delete the data source and re-create it to change the
+   *       name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the index used with the data source connector.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Configuration information you want to update for the data source connector.</p>
+   */
+  Configuration?: DataSourceConfiguration;
+
+  /**
+   * <p>A new description for the data source connector.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The sync schedule you want to update for the data source connector.</p>
    */
   Schedule?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the new role to use when the data
-   *       source is accessing resources on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of a role with permission to access
+   *       the data source. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
+   *         Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>The code for a language. This allows you to support a language for all
+   * <p>The code for a language you want to update for the data source connector.
+   *             This allows you to support a language for all
    *             documents when updating the data source. English is supported
    *             by default. For more information on supported languages, including their codes,
    *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
@@ -9519,8 +9811,8 @@ export interface UpdateDataSourceRequest {
   LanguageCode?: string;
 
   /**
-   * <p>Configuration information for altering document metadata and content during the
-   *             document ingestion process when you update a data source.</p>
+   * <p>Configuration information you want to update for altering document metadata
+   *             and content during the document ingestion process.</p>
    *         <p>For more information on how to create, modify and delete document metadata, or make
    *             other content alterations when you ingest documents into Amazon Kendra, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
@@ -9545,12 +9837,12 @@ export interface UpdateExperienceRequest {
   Id: string | undefined;
 
   /**
-   * <p>The name of your Amazon Kendra experience you want to update.</p>
+   * <p>A new name for your Amazon Kendra experience.</p>
    */
   Name?: string;
 
   /**
-   * <p>The identifier of the index for your Amazon Kendra experience you want to update.</p>
+   * <p>The identifier of the index for your Amazon Kendra experience.</p>
    */
   IndexId: string | undefined;
 
@@ -9563,12 +9855,12 @@ export interface UpdateExperienceRequest {
   RoleArn?: string;
 
   /**
-   * <p>Configuration information for your Amazon Kendra you want to update.</p>
+   * <p>Configuration information you want to update for your Amazon Kendra experience.</p>
    */
   Configuration?: ExperienceConfiguration;
 
   /**
-   * <p>The description of your Amazon Kendra experience you want to update.</p>
+   * <p>A new description for your Amazon Kendra experience.</p>
    */
   Description?: string;
 }
@@ -9584,18 +9876,19 @@ export namespace UpdateExperienceRequest {
 
 export interface UpdateIndexRequest {
   /**
-   * <p>The identifier of the index to update.</p>
+   * <p>The identifier of the index you want to update.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of the index to update.</p>
+   * <p>The name of the index you want to update.</p>
    */
   Name?: string;
 
   /**
-   * <p>A new IAM role that gives Amazon Kendra permission to access your
-   *       Amazon CloudWatch logs.</p>
+   * <p>An Identity and Access Management (IAM) role that
+   *       gives Amazon Kendra permission to access Amazon CloudWatch
+   *       logs and metrics.</p>
    */
   RoleArn?: string;
 
@@ -9605,7 +9898,9 @@ export interface UpdateIndexRequest {
   Description?: string;
 
   /**
-   * <p>The document metadata you want to update.</p>
+   * <p>The document metadata configuration you want to update for the index.
+   *       Document metadata are fields or attributes associated with your documents.
+   *       For example, the company department name associated with each document.</p>
    */
   DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
@@ -9648,22 +9943,22 @@ export namespace UpdateIndexRequest {
 
 export interface UpdateQuerySuggestionsBlockListRequest {
   /**
-   * <p>The identifier of the index for a block list.</p>
+   * <p>The identifier of the index for the block list.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The unique identifier of a block list.</p>
+   * <p>The identifier of the block list you want to update.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The name of a block list.</p>
+   * <p>A new name for the block list.</p>
    */
   Name?: string;
 
   /**
-   * <p>The description for a block list.</p>
+   * <p>A new description for the block list.</p>
    */
   Description?: string;
 
@@ -9698,7 +9993,7 @@ export namespace UpdateQuerySuggestionsBlockListRequest {
 
 export interface UpdateQuerySuggestionsConfigRequest {
   /**
-   * <p>The identifier of the index you want to update query suggestions settings for.</p>
+   * <p> The identifier of the index with query suggestions you want to update.</p>
    */
   IndexId: string | undefined;
 
@@ -9767,27 +10062,28 @@ export namespace UpdateQuerySuggestionsConfigRequest {
 
 export interface UpdateThesaurusRequest {
   /**
-   * <p>The identifier of the thesaurus to update.</p>
+   * <p>The identifier of the thesaurus you want to update.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated name of the thesaurus.</p>
+   * <p>A new name for the thesaurus.</p>
    */
   Name?: string;
 
   /**
-   * <p>The identifier of the index associated with the thesaurus to update.</p>
+   * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>The updated description of the thesaurus.</p>
+   * <p>A new description for the thesaurus.</p>
    */
   Description?: string;
 
   /**
-   * <p>The updated role ARN of the thesaurus.</p>
+   * <p>An IAM role that gives Amazon Kendra permissions to
+   *          access thesaurus file specified in <code>SourceS3Path</code>.</p>
    */
   RoleArn?: string;
 
@@ -10079,116 +10375,6 @@ export namespace QueryResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: QueryResult): any => ({
-    ...obj,
-  });
-}
-
-export interface QueryRequest {
-  /**
-   * <p>The unique identifier of the index to search. The identifier is
-   *          returned in the response from the <code>CreateIndex</code>
-   *          API.</p>
-   */
-  IndexId: string | undefined;
-
-  /**
-   * <p>The text to search for.</p>
-   */
-  QueryText?: string;
-
-  /**
-   * <p>Enables filtered searches based on document attributes. You can only
-   *          provide one attribute filter; however, the <code>AndAllFilters</code>,
-   *             <code>NotFilter</code>, and <code>OrAllFilters</code> parameters
-   *          contain a list of other filters.</p>
-   *          <p>The <code>AttributeFilter</code> parameter enables you to create a
-   *          set of filtering rules that a document must satisfy to be included in
-   *          the query results.</p>
-   */
-  AttributeFilter?: AttributeFilter;
-
-  /**
-   * <p>An array of documents attributes. Amazon Kendra returns a count for
-   *          each attribute key specified. This helps your users narrow their search.</p>
-   */
-  Facets?: Facet[];
-
-  /**
-   * <p>An array of document attributes to include in the response.
-   *          You can limit the response to include certain document attributes.
-   *          By default all document attributes are included in the response.</p>
-   */
-  RequestedDocumentAttributes?: string[];
-
-  /**
-   * <p>Sets the type of query. Only results for the specified query type
-   *          are returned.</p>
-   */
-  QueryResultTypeFilter?: QueryResultType | string;
-
-  /**
-   * <p>Overrides relevance tuning configurations of fields or attributes set at the index level.</p>
-   *          <p>If you use this API to override the relevance tuning configured at the index
-   *          level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p>
-   *          <p>If there is relevance tuning configured at the index level, but you do not use this API
-   *          to override any relevance tuning in the index, then Amazon Kendra uses the relevance tuning that is configured at the index level.</p>
-   *          <p>If there is relevance tuning configured for fields at the index level,
-   *          but you use this API to override only some of these fields, then for the fields you did not override,
-   *          the importance is set to 1.</p>
-   */
-  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
-
-  /**
-   * <p>Query results are returned in pages the size of the
-   *          <code>PageSize</code> parameter. By default, Amazon Kendra returns
-   *          the first page of results. Use this parameter to get result pages after
-   *          the first one.</p>
-   */
-  PageNumber?: number;
-
-  /**
-   * <p>Sets the number of results that are returned in each page of
-   *          results. The default page size is 10. The maximum number of results
-   *          returned is 100. If you ask for more than 100 results, only 100 are
-   *          returned.</p>
-   */
-  PageSize?: number;
-
-  /**
-   * <p>Provides information that determines how the results of the query
-   *          are sorted. You can set the field that Amazon Kendra should sort the results
-   *          on, and specify whether the results should be sorted in ascending or
-   *          descending order. In the case of ties in sorting the results, the
-   *          results are sorted by relevance.</p>
-   *          <p>If you don't provide sorting configuration, the results are sorted
-   *          by the relevance that Amazon Kendra determines for the result.</p>
-   */
-  SortingConfiguration?: SortingConfiguration;
-
-  /**
-   * <p>The user context token or user and group information.</p>
-   */
-  UserContext?: UserContext;
-
-  /**
-   * <p>Provides an identifier for a specific user. The
-   *             <code>VisitorId</code> should be a unique identifier, such as a
-   *          GUID. Don't use personally identifiable information, such as the user's
-   *          email address, as the <code>VisitorId</code>.</p>
-   */
-  VisitorId?: string;
-
-  /**
-   * <p>Enables suggested spell corrections for queries.</p>
-   */
-  SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
-}
-
-export namespace QueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRequest): any => ({
     ...obj,
   });
 }

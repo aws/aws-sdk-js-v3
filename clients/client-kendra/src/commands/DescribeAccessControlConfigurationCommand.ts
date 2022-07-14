@@ -14,51 +14,48 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
-  DescribeQuerySuggestionsBlockListRequest,
-  DescribeQuerySuggestionsBlockListResponse,
+  DescribeAccessControlConfigurationRequest,
+  DescribeAccessControlConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
+  deserializeAws_json1_1DescribeAccessControlConfigurationCommand,
+  serializeAws_json1_1DescribeAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeQuerySuggestionsBlockListCommandInput extends DescribeQuerySuggestionsBlockListRequest {}
-export interface DescribeQuerySuggestionsBlockListCommandOutput
-  extends DescribeQuerySuggestionsBlockListResponse,
+export interface DescribeAccessControlConfigurationCommandInput extends DescribeAccessControlConfigurationRequest {}
+export interface DescribeAccessControlConfigurationCommandOutput
+  extends DescribeAccessControlConfigurationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Gets information about a block list used for query suggestions for
- *             an index.</p>
- *         <p>This is used to check the current settings that are applied to a
- *             block list.</p>
- *         <p>
- *             <code>DescribeQuerySuggestionsBlockList</code> is currently not supported in the
- *             Amazon Web Services GovCloud (US-West) region.</p>
+ * <p>Gets information about an access control configuration that you created for your
+ *             documents in an index. This includes user and group access information for your
+ *             documents. This is useful for user context filtering, where search results are
+ *             filtered based on the user or their group access to documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KendraClient, DescribeQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
- * // const { KendraClient, DescribeQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * import { KendraClient, DescribeAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, DescribeAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
- * const command = new DescribeQuerySuggestionsBlockListCommand(input);
+ * const command = new DescribeAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeQuerySuggestionsBlockListCommandInput} for command's `input` shape.
- * @see {@link DescribeQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
+ * @see {@link DescribeAccessControlConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
-export class DescribeQuerySuggestionsBlockListCommand extends $Command<
-  DescribeQuerySuggestionsBlockListCommandInput,
-  DescribeQuerySuggestionsBlockListCommandOutput,
+export class DescribeAccessControlConfigurationCommand extends $Command<
+  DescribeAccessControlConfigurationCommandInput,
+  DescribeAccessControlConfigurationCommandOutput,
   KendraClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeQuerySuggestionsBlockListCommandInput) {
+  constructor(readonly input: DescribeAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -71,20 +68,20 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeQuerySuggestionsBlockListCommandInput, DescribeQuerySuggestionsBlockListCommandOutput> {
+  ): Handler<DescribeAccessControlConfigurationCommandInput, DescribeAccessControlConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KendraClient";
-    const commandName = "DescribeQuerySuggestionsBlockListCommand";
+    const commandName = "DescribeAccessControlConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuerySuggestionsBlockListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuerySuggestionsBlockListResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccessControlConfigurationRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccessControlConfigurationResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,17 +92,17 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
   }
 
   private serialize(
-    input: DescribeQuerySuggestionsBlockListCommandInput,
+    input: DescribeAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(input, context);
+    return serializeAws_json1_1DescribeAccessControlConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand(output, context);
+  ): Promise<DescribeAccessControlConfigurationCommandOutput> {
+    return deserializeAws_json1_1DescribeAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

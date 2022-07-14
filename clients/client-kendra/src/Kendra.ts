@@ -32,6 +32,11 @@ import {
   ClearQuerySuggestionsCommandOutput,
 } from "./commands/ClearQuerySuggestionsCommand";
 import {
+  CreateAccessControlConfigurationCommand,
+  CreateAccessControlConfigurationCommandInput,
+  CreateAccessControlConfigurationCommandOutput,
+} from "./commands/CreateAccessControlConfigurationCommand";
+import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
@@ -53,6 +58,11 @@ import {
   CreateThesaurusCommandInput,
   CreateThesaurusCommandOutput,
 } from "./commands/CreateThesaurusCommand";
+import {
+  DeleteAccessControlConfigurationCommand,
+  DeleteAccessControlConfigurationCommandInput,
+  DeleteAccessControlConfigurationCommandOutput,
+} from "./commands/DeleteAccessControlConfigurationCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
@@ -80,6 +90,11 @@ import {
   DeleteThesaurusCommandInput,
   DeleteThesaurusCommandOutput,
 } from "./commands/DeleteThesaurusCommand";
+import {
+  DescribeAccessControlConfigurationCommand,
+  DescribeAccessControlConfigurationCommandInput,
+  DescribeAccessControlConfigurationCommandOutput,
+} from "./commands/DescribeAccessControlConfigurationCommand";
 import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
@@ -136,6 +151,11 @@ import {
   GetSnapshotsCommandInput,
   GetSnapshotsCommandOutput,
 } from "./commands/GetSnapshotsCommand";
+import {
+  ListAccessControlConfigurationsCommand,
+  ListAccessControlConfigurationsCommandInput,
+  ListAccessControlConfigurationsCommandOutput,
+} from "./commands/ListAccessControlConfigurationsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -210,6 +230,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccessControlConfigurationCommand,
+  UpdateAccessControlConfigurationCommandInput,
+  UpdateAccessControlConfigurationCommandOutput,
+} from "./commands/UpdateAccessControlConfigurationCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
@@ -479,6 +504,62 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Creates an access configuration for your documents. This includes
+   *             user and group access information for your documents. This is useful
+   *             for user context filtering, where search results are filtered based
+   *             on the user or their group access to documents.</p>
+   *         <p>You can use this to re-configure your existing document level access
+   *             control without indexing all of your documents again. For example, your
+   *             index contains top-secret company documents that only certain employees
+   *             or users should access. One of these users leaves the company or switches
+   *             to a team that should be blocked from access to top-secret documents.
+   *             Your documents in your index still give this user access to top-secret
+   *             documents due to the user having access at the time your documents were
+   *             indexed. You can create a specific access control configuration for this
+   *             user with deny access. You can later update the access control
+   *             configuration to allow access in the case the user returns to the company
+   *             and re-joins the 'top-secret' team. You can re-configure access control
+   *             for your documents circumstances change.</p>
+   *         <p>To apply your access control configuration to certain documents, you call
+   *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
+   *             API with the <code>AccessControlConfigurationId</code> included in the
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+   *             object. If you use an S3 bucket as a data source, you update the
+   *             <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code>
+   *             and synchronize your data source. Amazon Kendra currently only supports
+   *             access control configuration for S3 data sources and documents indexed using the
+   *             <code>BatchPutDocument</code> API.</p>
+   */
+  public createAccessControlConfiguration(
+    args: CreateAccessControlConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessControlConfigurationCommandOutput>;
+  public createAccessControlConfiguration(
+    args: CreateAccessControlConfigurationCommandInput,
+    cb: (err: any, data?: CreateAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public createAccessControlConfiguration(
+    args: CreateAccessControlConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public createAccessControlConfiguration(
+    args: CreateAccessControlConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessControlConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessControlConfigurationCommandOutput) => void
+  ): Promise<CreateAccessControlConfigurationCommandOutput> | void {
+    const command = new CreateAccessControlConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a data source that you want to use with an Amazon Kendra index. </p>
    *          <p>You specify a name, data source connector type and description for
    *       your data source. You also specify configuration information for the
@@ -562,7 +643,7 @@ export class Kendra extends KendraClient {
    * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
    *         <p>Adding FAQs to an index is an asynchronous operation.</p>
    *         <p>For an example of adding an FAQ to an index using Python and Java SDKs,
-   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using you
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
    *                 FAQ file</a>.</p>
    */
   public createFaq(args: CreateFaqCommandInput, options?: __HttpHandlerOptions): Promise<CreateFaqCommandOutput>;
@@ -589,7 +670,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous
+   * <p>Creates an Amazon Kendra index. Index creation is an asynchronous
    *       API. To determine if index creation has completed, check the
    *         <code>Status</code> field returned from a call to
    *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
@@ -697,6 +778,41 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: CreateThesaurusCommandOutput) => void
   ): Promise<CreateThesaurusCommandOutput> | void {
     const command = new CreateThesaurusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an access control configuration that you created for your
+   *             documents in an index. This includes user and group access information
+   *             for your documents. This is useful for user context filtering, where search
+   *             results are filtered based on the user or their group access to documents.</p>
+   */
+  public deleteAccessControlConfiguration(
+    args: DeleteAccessControlConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessControlConfigurationCommandOutput>;
+  public deleteAccessControlConfiguration(
+    args: DeleteAccessControlConfigurationCommandInput,
+    cb: (err: any, data?: DeleteAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public deleteAccessControlConfiguration(
+    args: DeleteAccessControlConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public deleteAccessControlConfiguration(
+    args: DeleteAccessControlConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessControlConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessControlConfigurationCommandOutput) => void
+  ): Promise<DeleteAccessControlConfigurationCommandOutput> | void {
+    const command = new DeleteAccessControlConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -951,6 +1067,41 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Gets information about an access control configuration that you created for your
+   *             documents in an index. This includes user and group access information for your
+   *             documents. This is useful for user context filtering, where search results are
+   *             filtered based on the user or their group access to documents.</p>
+   */
+  public describeAccessControlConfiguration(
+    args: DescribeAccessControlConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccessControlConfigurationCommandOutput>;
+  public describeAccessControlConfiguration(
+    args: DescribeAccessControlConfigurationCommandInput,
+    cb: (err: any, data?: DescribeAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public describeAccessControlConfiguration(
+    args: DescribeAccessControlConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public describeAccessControlConfiguration(
+    args: DescribeAccessControlConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccessControlConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccessControlConfigurationCommandOutput) => void
+  ): Promise<DescribeAccessControlConfigurationCommandOutput> | void {
+    const command = new DescribeAccessControlConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about an Amazon Kendra data source.</p>
    */
   public describeDataSource(
@@ -1044,7 +1195,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Describes an existing Amazon Kendra index.</p>
+   * <p>Gets information about an existing Amazon Kendra index.</p>
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -1116,7 +1267,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Describes a block list used for query suggestions for an index.</p>
+   * <p>Gets information about a block list used for query suggestions for
+   *             an index.</p>
    *         <p>This is used to check the current settings that are applied to a
    *             block list.</p>
    *         <p>
@@ -1153,7 +1305,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Describes the settings of query suggestions for an index.</p>
+   * <p>Gets information on the settings of query suggestions for an index.</p>
    *         <p>This is used to check the current settings applied
    *             to query suggestions.</p>
    *         <p>
@@ -1190,7 +1342,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Describes an existing Amazon Kendra thesaurus.</p>
+   * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
    */
   public describeThesaurus(
     args: DescribeThesaurusCommandInput,
@@ -1349,6 +1501,41 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: GetSnapshotsCommandOutput) => void
   ): Promise<GetSnapshotsCommandOutput> | void {
     const command = new GetSnapshotsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists one or more access control configurations for an index. This
+   *             includes user and group access information for your documents. This
+   *             is useful for user context filtering, where search results are filtered
+   *             based on the user or their group access to documents.</p>
+   */
+  public listAccessControlConfigurations(
+    args: ListAccessControlConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessControlConfigurationsCommandOutput>;
+  public listAccessControlConfigurations(
+    args: ListAccessControlConfigurationsCommandInput,
+    cb: (err: any, data?: ListAccessControlConfigurationsCommandOutput) => void
+  ): void;
+  public listAccessControlConfigurations(
+    args: ListAccessControlConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessControlConfigurationsCommandOutput) => void
+  ): void;
+  public listAccessControlConfigurations(
+    args: ListAccessControlConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessControlConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessControlConfigurationsCommandOutput) => void
+  ): Promise<ListAccessControlConfigurationsCommandOutput> | void {
+    const command = new ListAccessControlConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1688,7 +1875,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Lists the Amazon Kendra thesauri associated with an index.</p>
+   * <p>Lists the thesauri for an index.</p>
    */
   public listThesauri(
     args: ListThesauriCommandInput,
@@ -1726,9 +1913,9 @@ export class Kendra extends KendraClient {
    *             in research and engineering, and therefore belong in the intellectual
    *             property group, can see top-secret company documents in their search
    *             results.</p>
-   *         <p>You map users to their groups when you want to filter search results
-   *             for different users based on their group’s access to documents. For more
-   *             information on filtering search results for different users, see
+   *         <p>This is useful for user context filtering, where search results are
+   *             filtered based on the user or their group access to documents. For more
+   *             information, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
    *                 on user context</a>.</p>
    *         <p>If more than five <code>PUT</code> actions for a group are currently
@@ -1977,6 +2164,57 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Updates an access control configuration for your documents in an index. This
+   *             includes user and group access information for your documents. This is useful
+   *             for user context filtering, where search results are filtered based on the user
+   *             or their group access to documents.</p>
+   *         <p>You can update an access control configuration you created without indexing all
+   *             of your documents again. For example, your index contains top-secret company
+   *             documents that only certain employees or users should access. You created an 'allow'
+   *             access control configuration for one user who recently joined the 'top-secret' team,
+   *             switching from a team with 'deny' access to top-secret documents. However, the user
+   *             suddenly returns to their previous team and should no longer have access to top secret
+   *             documents. You can update the access control configuration to re-configure access
+   *             control for your documents as circumstances change.</p>
+   *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
+   *             API to apply the updated access control configuration, with the
+   *             <code>AccessControlConfigurationId</code> included in the
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
+   *             object. If you use an S3 bucket as a data source, you synchronize your data source to
+   *             apply the the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
+   *             Amazon Kendra currently only supports access control configuration for S3 data
+   *             sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
+   */
+  public updateAccessControlConfiguration(
+    args: UpdateAccessControlConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessControlConfigurationCommandOutput>;
+  public updateAccessControlConfiguration(
+    args: UpdateAccessControlConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public updateAccessControlConfiguration(
+    args: UpdateAccessControlConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessControlConfigurationCommandOutput) => void
+  ): void;
+  public updateAccessControlConfiguration(
+    args: UpdateAccessControlConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessControlConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAccessControlConfigurationCommandOutput) => void
+  ): Promise<UpdateAccessControlConfigurationCommandOutput> | void {
+    const command = new UpdateAccessControlConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing Amazon Kendra data source.</p>
    */
   public updateDataSource(
@@ -2154,7 +2392,7 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Updates a thesaurus file associated with an index.</p>
+   * <p>Updates a thesaurus for an index.</p>
    */
   public updateThesaurus(
     args: UpdateThesaurusCommandInput,
