@@ -17,37 +17,45 @@ export interface XhrHttpHandlerOptions {
 }
 
 /**
- * Events emitted as an EventEmitter.
+ * Events emitted by the XhrHttpHandler class as an EventEmitter.
  */
-const EVENTS = {
+export type XhrHttpHandlerEvents = {
   /**
    * Emitted for xhr on progress.
    * Payload is the native ProgressEvent.
    */
-  get PROGRESS() {
-    return "xhr.progress";
-  },
+  readonly PROGRESS: "xhr.progress";
+
   /**
    * Emitted for xhr.upload on progress.
    * Payload is the native ProgressEvent.
    */
-  get UPLOAD_PROGRESS() {
-    return "xhr.upload.progress";
-  },
+  readonly UPLOAD_PROGRESS: "xhr.upload.progress";
 
   /**
    * Emits with the xhr object after it is instantiated with new.
    * You can attach additional custom event listeners at this point.
    */
-  get XHR_INSTANTIATED() {
-    return "after.xhr.new";
-  },
+  readonly XHR_INSTANTIATED: "after.xhr.new";
 
   /**
    * Emits with the xhr object before the send method is called on it.
    * You can attach additional custom event listeners at this point.
    */
-  get BEFORE_XHR_SEND() {
+  readonly BEFORE_XHR_SEND: "before.xhr.send";
+};
+
+const EVENTS: XhrHttpHandlerEvents = {
+  get PROGRESS(): "xhr.progress" {
+    return "xhr.progress";
+  },
+  get UPLOAD_PROGRESS(): "xhr.upload.progress" {
+    return "xhr.upload.progress";
+  },
+  get XHR_INSTANTIATED(): "after.xhr.new" {
+    return "after.xhr.new";
+  },
+  get BEFORE_XHR_SEND(): "before.xhr.send" {
     return "before.xhr.send";
   },
 };
@@ -57,20 +65,19 @@ const EVENTS = {
  * traditionally associated with browsers.
  */
 export class XhrHttpHandler extends EventEmitter implements HttpHandler {
-  public static readonly EVENTS = EVENTS;
+  public static readonly EVENTS: XhrHttpHandlerEvents = EVENTS;
 
   private config?: XhrHttpHandlerOptions;
   private readonly configProvider: Promise<XhrHttpHandlerOptions>;
 
-  public constructor(options?: XhrHttpHandlerOptions | Provider<XhrHttpHandlerOptions | undefined>) {
+  public constructor(options?: XhrHttpHandlerOptions | Provider<XhrHttpHandlerOptions>) {
     super();
-    this.configProvider = new Promise((resolve, reject) => {
-      if (typeof options === "function") {
-        (options as () => Promise<XhrHttpHandlerOptions>)().then(resolve).catch(reject);
-      } else {
-        resolve(options || {});
-      }
-    });
+    if (typeof options === "function") {
+      this.configProvider = options();
+    } else {
+      this.config = options ?? {};
+      this.configProvider = Promise.resolve(this.config);
+    }
   }
 
   public destroy(): void {
@@ -136,7 +143,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
           switch (xhr.readyState) {
             case XMLHttpRequest.LOADING:
               if (isText) {
-                writer.write(xhr.responseText.slice(streamCursor));
+                writer.write(streamCursor > 0 ? xhr.responseText.slice(streamCursor) : xhr.responseText);
                 streamCursor = xhr.responseText.length;
               }
               break;
@@ -232,6 +239,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler {
 }
 
 /**
+ * Used to omit headers that will be ignored by XHR to prevent excessive logging.
  * @private
  */
 const isForbiddenRequestHeader = (header: string): boolean => {

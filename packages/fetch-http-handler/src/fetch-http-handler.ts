@@ -21,13 +21,14 @@ type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
 
 export class FetchHttpHandler implements HttpHandler {
   private config?: FetchHttpHandlerConfig;
-  private readonly configProvider?: Provider<FetchHttpHandlerConfig>;
+  private readonly configProvider: Promise<FetchHttpHandlerConfig>;
 
   constructor(options?: FetchHttpHandlerOptions | Provider<FetchHttpHandlerOptions | undefined>) {
     if (typeof options === "function") {
-      this.configProvider = async () => (await options()) || {};
+      this.configProvider = options().then((opts) => opts || {});
     } else {
       this.config = options ?? {};
+      this.configProvider = Promise.resolve(this.config);
     }
   }
 
@@ -36,8 +37,8 @@ export class FetchHttpHandler implements HttpHandler {
   }
 
   async handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
-    if (!this.config && this.configProvider) {
-      this.config = await this.configProvider();
+    if (!this.config) {
+      this.config = await this.configProvider;
     }
     const requestTimeoutInMs = this.config!.requestTimeout;
 

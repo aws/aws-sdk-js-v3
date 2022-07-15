@@ -56,7 +56,70 @@ upload.on("httpUploadProgress", (progress) => {
   // part, a minimum of 5 MB. Using XHR will emit this event continuously, including
   // for files smaller than the chunk size, which use single-part upload.
   console.log(progress);
+
+  console.log(
+    progress.loaded, // Bytes uploaded so far.
+    progress.total // Total bytes. Divide these two for progress percentage.
+  );
 });
 
-await upload.done();
+const completeMultiPartUpload = await upload.done();
 ```
+
+### Use case: XMLHttpRequest download progress and other events
+
+`XhrHttpHandler` extends `EventEmitter`.
+
+##### Download progress
+
+```javascript
+import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+
+const handler = new XhrHttpHandler({});
+
+handler.on(XhrHttpHandler.EVENTS.PROGRESS, (progress) => {
+  console.log(
+    progress.loaded, // bytes
+    progress.total, // bytes
+  );
+});
+
+const client = new S3Client({
+  requestHandler: handler,
+});
+
+await client.send(new GetObjectCommand(/*...*/));
+```
+
+##### Accessing the `XMLHttpRequest` object.
+
+You can access the `XMLHttpRequest` object to inspect it or to
+attach addiional event listeners.
+
+```javascript
+import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+
+const handler = new XhrHttpHandler({});
+
+handler.on(XhrHttpHandler.EVENTS.XHR_INSTANTIATED, (xhr) => {
+  // a new XMLHttpRequest is created for each command sent.
+  // this is immediately after instantiation.
+});
+
+handler.on(XhrHttpHandler.EVENTS.BEFORE_XHR_SEND, (xhr) => {
+  // a new XMLHttpRequest is created for each command sent.
+  // this is immediately before calling `xhr.send(body)`.
+});
+
+const client = new S3Client({
+  requestHandler: handler,
+});
+
+await client.send(new GetObjectCommand(/*...*/));
+```
+
+You can check the source `.ts` file or published `.d.ts` file
+for the full list of events, or inspect the `XhrHttpHandler.EVENTS` 
+object at runtime.
