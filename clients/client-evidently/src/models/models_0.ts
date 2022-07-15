@@ -638,6 +638,12 @@ export interface CreateExperimentRequest {
   onlineAbConfig?: OnlineAbConfig;
 
   /**
+   * <p>Specifies an audience <i>segment</i> to use in the experiment. When a segment is used in an experiment, only
+   *       user sessions that match the segment pattern are used in the experiment.</p>
+   */
+  segment?: string;
+
+  /**
    * <p>Assigns one or more tags (key-value pairs) to the experiment.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *        permissions by granting a user
@@ -928,6 +934,11 @@ export interface Experiment {
    *          <p>This is represented in thousandths of a percent, so a value of 10,000 is 10% of the available audience.</p>
    */
   samplingRate?: number;
+
+  /**
+   * <p>The audience segment being used for the experiment, if a segment is being used.</p>
+   */
+  segment?: string;
 
   /**
    * <p>The type of this experiment. Currently, this value must be <code>aws.experiment.onlineab</code>.</p>
@@ -1349,6 +1360,40 @@ export namespace MetricMonitorConfig {
 }
 
 /**
+ * <p>This structure specifies a segment
+ *       that you have already created, and defines the traffic split for that segment to be used in a launch.</p>
+ */
+export interface SegmentOverride {
+  /**
+   * <p>The ARN of the segment to use.</p>
+   */
+  segment: string | undefined;
+
+  /**
+   * <p>A number indicating the order to use to evaluate segment overrides, if there are more
+   *     than one. Segment overrides with lower numbers are evaluated first.</p>
+   */
+  evaluationOrder: number | undefined;
+
+  /**
+   * <p>The traffic allocation percentages among the feature variations to assign to this
+   *       segment. This is a set of key-value pairs.   The keys are variation names. The values represent
+   *       the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent,
+   *     so a weight of 50000 represents 50% of traffic.</p>
+   */
+  weights: Record<string, number> | undefined;
+}
+
+export namespace SegmentOverride {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SegmentOverride): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>This structure defines the traffic allocation percentages among the feature
  *        variations during one step of a launch, and the start time of that step.</p>
  */
@@ -1362,8 +1407,25 @@ export interface ScheduledSplitConfig {
    * <p>The traffic allocation percentages among the feature variations during one step of a
    *       launch. This is a set of key-value pairs. The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
+   *
+   *          <p>The values is expressed in thousandths of a percent,
+   *        so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>
+   *          <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000,
+   *        then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves
+   *        on to the next segment override or the default traffic split.</p>
    */
   groupWeights: Record<string, number> | undefined;
+
+  /**
+   * <p>Use this parameter to specify different traffic splits for one or more audience <i>segments</i>.
+   *       A segment
+   *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
+   *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
+   *       such as age.</p>
+   *          <p>This parameter is an array of up to six segment override objects. Each of these objects specifies a segment
+   *       that you have already created, and defines the traffic split for that segment.</p>
+   */
+  segmentOverrides?: SegmentOverride[];
 }
 
 export namespace ScheduledSplitConfig {
@@ -1434,7 +1496,7 @@ export interface CreateLaunchRequest {
    * <p>When Evidently assigns a particular user session to a launch, it must use a randomization ID
    *         to determine which variation the user session is served. This randomization ID is a combination of the entity ID
    *         and <code>randomizationSalt</code>. If you omit <code>randomizationSalt</code>, Evidently uses
-   *       the launch name as the <code>randomizationsSalt</code>.</p>
+   *       the launch name as the <code>randomizationSalt</code>.</p>
    */
   randomizationSalt?: string;
 
@@ -1547,8 +1609,24 @@ export interface ScheduledSplit {
    * <p>The traffic allocation percentages among the feature variations during one step of a
    *       launch. This is a set of key-value pairs.   The keys are variation names. The values represent
    *       the percentage of traffic to allocate to that variation during this step.</p>
+   *          <p>The values is expressed in thousandths of a percent,
+   *        so assigning a weight of 50000 assigns 50% of traffic to that variation.</p>
+   *          <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000,
+   *      then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves
+   *      on to the next segment override or the default traffic split.</p>
    */
   groupWeights?: Record<string, number>;
+
+  /**
+   * <p>Use this parameter to specify different traffic splits for one or more audience <i>segments</i>.
+   *       A segment
+   *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
+   *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
+   *       such as age.</p>
+   *          <p>This parameter is an array of up to six segment override objects. Each of these objects specifies a segment
+   *     that you have already created, and defines the traffic split for that segment.</p>
+   */
+  segmentOverrides?: SegmentOverride[];
 }
 
 export namespace ScheduledSplit {
@@ -1952,6 +2030,125 @@ export namespace CreateProjectResponse {
   });
 }
 
+export interface CreateSegmentRequest {
+  /**
+   * <p>A name for the segment.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The pattern to use for the segment. For more information about pattern syntax,
+   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html">
+   *         Segment rule pattern syntax</a>.</p>
+   */
+  pattern: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>An optional description for this segment.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Assigns one or more tags (key-value pairs) to the segment.</p>
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   *       permissions by granting a user
+   *       permission to access or change only resources with certain tag values.</p>
+   *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
+   *
+   *          <p>You can associate as many as 50 tags with a segment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export namespace CreateSegmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSegmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure contains information about one audience <i>segment</i>. You can use segments
+ *     in your experiments and launches to narrow the user sessions used for experiment or launch to only the user
+ *     sessions that match one or more criteria.</p>
+ */
+export interface Segment {
+  /**
+   * <p>The ARN of the segment.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the segment.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p/>
+   */
+  pattern: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>The date and time that this segment was created.</p>
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The date and time that this segment was most recently updated.</p>
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The customer-created description for this segment.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The number of experiments that this segment is used in. This count includes all current experiments, not just
+   *     those that are currently running.</p>
+   */
+  experimentCount?: number;
+
+  /**
+   * <p>The number of launches that this segment is used in. This count includes all current launches, not just
+   *       those that are currently running.</p>
+   */
+  launchCount?: number;
+
+  /**
+   * <p>The list of tag keys and values associated with this launch.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export namespace Segment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Segment): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSegmentResponse {
+  /**
+   * <p>A structure that contains the complete information about the segment that was just created.</p>
+   */
+  segment: Segment | undefined;
+}
+
+export namespace CreateSegmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSegmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteExperimentRequest {
   /**
    * <p>The name or ARN of the project that contains the experiment to delete.</p>
@@ -2113,6 +2310,33 @@ export namespace DeleteProjectResponse {
   });
 }
 
+export interface DeleteSegmentRequest {
+  /**
+   * <p>Specifies the segment to delete.</p>
+   */
+  segment: string | undefined;
+}
+
+export namespace DeleteSegmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSegmentResponse {}
+
+export namespace DeleteSegmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface EvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains this feature.</p>
@@ -2132,8 +2356,13 @@ export interface EvaluateFeatureRequest {
   entityId: string | undefined;
 
   /**
-   * <p>A JSON block of attributes that you can optionally pass in. This JSON block is included
-   *       in the evaluation events sent to Evidently from the user session. </p>
+   * <p>A JSON object of attributes that you can optionally pass in as part of the evaluation event
+   *       sent to Evidently from the user session. Evidently can use
+   *       this value to match user sessions with defined audience segments. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
+   *         audience</a>.</p>
+   *
+   *          <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
    */
   evaluationContext?: __LazyJsonString | string;
 }
@@ -2702,6 +2931,20 @@ export interface UpdateExperimentRequest {
    *          <p>This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the available audience.</p>
    */
   samplingRate?: number;
+
+  /**
+   * <p>Adds an audience <i>segment</i> to an experiment. When a segment is used in an experiment, only
+   *       user sessions that match the segment pattern are used in the experiment. You can't use this parameter if the
+   *       experiment is currently
+   *       running.</p>
+   */
+  segment?: string;
+
+  /**
+   * <p>Removes a segment from being used in an experiment. You can't use this parameter if the experiment is currently
+   *       running.</p>
+   */
+  removeSegment?: boolean;
 
   /**
    * <p>A structure that contains the configuration of which variation o use as the "control"
@@ -3532,6 +3775,192 @@ export namespace UpdateProjectDataDeliveryResponse {
   });
 }
 
+export interface GetSegmentRequest {
+  /**
+   * <p>The ARN of the segment to return information for.</p>
+   */
+  segment: string | undefined;
+}
+
+export namespace GetSegmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSegmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSegmentResponse {
+  /**
+   * <p>A structure that contains the complete information about the segment.</p>
+   */
+  segment: Segment | undefined;
+}
+
+export namespace GetSegmentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSegmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SegmentReferenceResourceType {
+  EXPERIMENT = "EXPERIMENT",
+  LAUNCH = "LAUNCH",
+}
+
+export interface ListSegmentReferencesRequest {
+  /**
+   * <p>The ARN of the segment that you want to view information for.</p>
+   */
+  segment: string | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to use when requesting the next set of results. You received this token from a previous
+   *       <code>ListSegmentReferences</code> operation.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Specifies whether to return information about launches or experiments that use this segment.</p>
+   */
+  type: SegmentReferenceResourceType | string | undefined;
+}
+
+export namespace ListSegmentReferencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSegmentReferencesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that contains information about one experiment or launch that
+ *       uses the specified segment.  </p>
+ */
+export interface RefResource {
+  /**
+   * <p>The name of the experiment or launch.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies whether the resource that this structure contains information about is an experiment or a launch.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The ARN of the experiment or launch.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The status of the experiment or launch.</p>
+   */
+  status?: string;
+
+  /**
+   * <p>The day and time that this experiment or launch started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>The day and time that this experiment or launch ended.</p>
+   */
+  endTime?: string;
+
+  /**
+   * <p>The day and time that this experiment or launch was most recently updated.</p>
+   */
+  lastUpdatedOn?: string;
+}
+
+export namespace RefResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RefResource): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSegmentReferencesResponse {
+  /**
+   * <p>An array of structures, where each structure contains information about one experiment or launch that
+   *       uses this segment.  </p>
+   */
+  referencedBy?: RefResource[];
+
+  /**
+   * <p>The token to use in a subsequent <code>ListSegmentReferences</code> operation to return
+   *       the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSegmentReferencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSegmentReferencesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSegmentsRequest {
+  /**
+   * <p>The maximum number of results to include in the response. If you omit this, the default of 50 is used.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to use when requesting the next set of results. You received this token from a previous
+   *       <code>ListSegments</code> operation.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSegmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSegmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSegmentsResponse {
+  /**
+   * <p>An array of structures that contain information about the segments in this Region.</p>
+   */
+  segments?: Segment[];
+
+  /**
+   * <p>The token to use in a subsequent <code>ListSegments</code> operation to return
+   *       the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListSegmentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSegmentsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the CloudWatch Evidently resource that you're adding tags to.</p>
@@ -3560,6 +3989,43 @@ export namespace TagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TestSegmentPatternRequest {
+  /**
+   * <p>The pattern to test.</p>
+   */
+  pattern: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>A sample <code>evaluationContext</code> JSON block to test against the specified pattern.</p>
+   */
+  payload: __LazyJsonString | string | undefined;
+}
+
+export namespace TestSegmentPatternRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestSegmentPatternRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TestSegmentPatternResponse {
+  /**
+   * <p>Returns <code>true</code> if the pattern matches the payload.</p>
+   */
+  match: boolean | undefined;
+}
+
+export namespace TestSegmentPatternResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestSegmentPatternResponse): any => ({
     ...obj,
   });
 }

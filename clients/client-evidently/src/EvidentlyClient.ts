@@ -61,10 +61,12 @@ import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "./c
 import { CreateFeatureCommandInput, CreateFeatureCommandOutput } from "./commands/CreateFeatureCommand";
 import { CreateLaunchCommandInput, CreateLaunchCommandOutput } from "./commands/CreateLaunchCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "./commands/CreateSegmentCommand";
 import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand";
 import { DeleteFeatureCommandInput, DeleteFeatureCommandOutput } from "./commands/DeleteFeatureCommand";
 import { DeleteLaunchCommandInput, DeleteLaunchCommandOutput } from "./commands/DeleteLaunchCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "./commands/DeleteSegmentCommand";
 import { EvaluateFeatureCommandInput, EvaluateFeatureCommandOutput } from "./commands/EvaluateFeatureCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "./commands/GetExperimentCommand";
 import {
@@ -74,10 +76,16 @@ import {
 import { GetFeatureCommandInput, GetFeatureCommandOutput } from "./commands/GetFeatureCommand";
 import { GetLaunchCommandInput, GetLaunchCommandOutput } from "./commands/GetLaunchCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
 import { ListFeaturesCommandInput, ListFeaturesCommandOutput } from "./commands/ListFeaturesCommand";
 import { ListLaunchesCommandInput, ListLaunchesCommandOutput } from "./commands/ListLaunchesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import {
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+} from "./commands/ListSegmentReferencesCommand";
+import { ListSegmentsCommandInput, ListSegmentsCommandOutput } from "./commands/ListSegmentsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -88,6 +96,7 @@ import { StartLaunchCommandInput, StartLaunchCommandOutput } from "./commands/St
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "./commands/StopExperimentCommand";
 import { StopLaunchCommandInput, StopLaunchCommandOutput } from "./commands/StopLaunchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestSegmentPatternCommandInput, TestSegmentPatternCommandOutput } from "./commands/TestSegmentPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
 import { UpdateFeatureCommandInput, UpdateFeatureCommandOutput } from "./commands/UpdateFeatureCommand";
@@ -105,20 +114,25 @@ export type ServiceInputTypes =
   | CreateFeatureCommandInput
   | CreateLaunchCommandInput
   | CreateProjectCommandInput
+  | CreateSegmentCommandInput
   | DeleteExperimentCommandInput
   | DeleteFeatureCommandInput
   | DeleteLaunchCommandInput
   | DeleteProjectCommandInput
+  | DeleteSegmentCommandInput
   | EvaluateFeatureCommandInput
   | GetExperimentCommandInput
   | GetExperimentResultsCommandInput
   | GetFeatureCommandInput
   | GetLaunchCommandInput
   | GetProjectCommandInput
+  | GetSegmentCommandInput
   | ListExperimentsCommandInput
   | ListFeaturesCommandInput
   | ListLaunchesCommandInput
   | ListProjectsCommandInput
+  | ListSegmentReferencesCommandInput
+  | ListSegmentsCommandInput
   | ListTagsForResourceCommandInput
   | PutProjectEventsCommandInput
   | StartExperimentCommandInput
@@ -126,6 +140,7 @@ export type ServiceInputTypes =
   | StopExperimentCommandInput
   | StopLaunchCommandInput
   | TagResourceCommandInput
+  | TestSegmentPatternCommandInput
   | UntagResourceCommandInput
   | UpdateExperimentCommandInput
   | UpdateFeatureCommandInput
@@ -139,20 +154,25 @@ export type ServiceOutputTypes =
   | CreateFeatureCommandOutput
   | CreateLaunchCommandOutput
   | CreateProjectCommandOutput
+  | CreateSegmentCommandOutput
   | DeleteExperimentCommandOutput
   | DeleteFeatureCommandOutput
   | DeleteLaunchCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteSegmentCommandOutput
   | EvaluateFeatureCommandOutput
   | GetExperimentCommandOutput
   | GetExperimentResultsCommandOutput
   | GetFeatureCommandOutput
   | GetLaunchCommandOutput
   | GetProjectCommandOutput
+  | GetSegmentCommandOutput
   | ListExperimentsCommandOutput
   | ListFeaturesCommandOutput
   | ListLaunchesCommandOutput
   | ListProjectsCommandOutput
+  | ListSegmentReferencesCommandOutput
+  | ListSegmentsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutProjectEventsCommandOutput
   | StartExperimentCommandOutput
@@ -160,6 +180,7 @@ export type ServiceOutputTypes =
   | StopExperimentCommandOutput
   | StopLaunchCommandOutput
   | TagResourceCommandOutput
+  | TestSegmentPatternCommandOutput
   | UntagResourceCommandOutput
   | UpdateExperimentCommandOutput
   | UpdateFeatureCommandOutput
@@ -321,7 +342,8 @@ type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface EvidentlyClientResolvedConfig extends EvidentlyClientResolvedConfigType {}
 
 /**
- * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving them to a specified percentage
+ * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
+ *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature
  *       to help you decide when to ramp up traffic to your users. This helps you
  *       reduce risk and identify unintended consequences before you fully launch the feature.</p>

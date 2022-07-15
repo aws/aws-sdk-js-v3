@@ -1,0 +1,96 @@
+// smithy-typescript generated code
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
+import { ListSegmentReferencesRequest, ListSegmentReferencesResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1ListSegmentReferencesCommand,
+  serializeAws_restJson1ListSegmentReferencesCommand,
+} from "../protocols/Aws_restJson1";
+
+export interface ListSegmentReferencesCommandInput extends ListSegmentReferencesRequest {}
+export interface ListSegmentReferencesCommandOutput extends ListSegmentReferencesResponse, __MetadataBearer {}
+
+/**
+ * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EvidentlyClient, ListSegmentReferencesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
+ * // const { EvidentlyClient, ListSegmentReferencesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
+ * const client = new EvidentlyClient(config);
+ * const command = new ListSegmentReferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSegmentReferencesCommandInput} for command's `input` shape.
+ * @see {@link ListSegmentReferencesCommandOutput} for command's `response` shape.
+ * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
+ *
+ */
+export class ListSegmentReferencesCommand extends $Command<
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+  EvidentlyClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ListSegmentReferencesCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: EvidentlyClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<ListSegmentReferencesCommandInput, ListSegmentReferencesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "EvidentlyClient";
+    const commandName = "ListSegmentReferencesCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: ListSegmentReferencesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSegmentReferencesResponse.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: ListSegmentReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListSegmentReferencesCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentReferencesCommandOutput> {
+    return deserializeAws_restJson1ListSegmentReferencesCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

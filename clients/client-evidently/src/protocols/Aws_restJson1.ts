@@ -34,10 +34,12 @@ import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "../
 import { CreateFeatureCommandInput, CreateFeatureCommandOutput } from "../commands/CreateFeatureCommand";
 import { CreateLaunchCommandInput, CreateLaunchCommandOutput } from "../commands/CreateLaunchCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
+import { CreateSegmentCommandInput, CreateSegmentCommandOutput } from "../commands/CreateSegmentCommand";
 import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "../commands/DeleteExperimentCommand";
 import { DeleteFeatureCommandInput, DeleteFeatureCommandOutput } from "../commands/DeleteFeatureCommand";
 import { DeleteLaunchCommandInput, DeleteLaunchCommandOutput } from "../commands/DeleteLaunchCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
+import { DeleteSegmentCommandInput, DeleteSegmentCommandOutput } from "../commands/DeleteSegmentCommand";
 import { EvaluateFeatureCommandInput, EvaluateFeatureCommandOutput } from "../commands/EvaluateFeatureCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "../commands/GetExperimentCommand";
 import {
@@ -47,10 +49,16 @@ import {
 import { GetFeatureCommandInput, GetFeatureCommandOutput } from "../commands/GetFeatureCommand";
 import { GetLaunchCommandInput, GetLaunchCommandOutput } from "../commands/GetLaunchCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "../commands/GetSegmentCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "../commands/ListExperimentsCommand";
 import { ListFeaturesCommandInput, ListFeaturesCommandOutput } from "../commands/ListFeaturesCommand";
 import { ListLaunchesCommandInput, ListLaunchesCommandOutput } from "../commands/ListLaunchesCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import {
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+} from "../commands/ListSegmentReferencesCommand";
+import { ListSegmentsCommandInput, ListSegmentsCommandOutput } from "../commands/ListSegmentsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -61,6 +69,7 @@ import { StartLaunchCommandInput, StartLaunchCommandOutput } from "../commands/S
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "../commands/StopExperimentCommand";
 import { StopLaunchCommandInput, StopLaunchCommandOutput } from "../commands/StopLaunchCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestSegmentPatternCommandInput, TestSegmentPatternCommandOutput } from "../commands/TestSegmentPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "../commands/UpdateExperimentCommand";
 import { UpdateFeatureCommandInput, UpdateFeatureCommandOutput } from "../commands/UpdateFeatureCommand";
@@ -107,6 +116,7 @@ import {
   ProjectDataDeliveryConfig,
   ProjectSummary,
   PutProjectEventsResultEntry,
+  RefResource,
   ResourceNotFoundException,
   S3Destination,
   S3DestinationConfig,
@@ -114,6 +124,8 @@ import {
   ScheduledSplitConfig,
   ScheduledSplitsLaunchConfig,
   ScheduledSplitsLaunchDefinition,
+  Segment,
+  SegmentOverride,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   ThrottlingException,
@@ -198,6 +210,7 @@ export const serializeAws_restJson1CreateExperimentCommand = async (
     }),
     ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
     ...(input.samplingRate != null && { samplingRate: input.samplingRate }),
+    ...(input.segment != null && { segment: input.segment }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.treatments != null && {
       treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
@@ -318,6 +331,33 @@ export const serializeAws_restJson1CreateProjectCommand = async (
     }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateSegmentCommand = async (
+  input: CreateSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.pattern != null && { pattern: __LazyJsonString.fromObject(input.pattern) }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -461,6 +501,34 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     resolvedPath = resolvedPath.replace("{project}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: project.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteSegmentCommand = async (
+  input: DeleteSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
+  if (input.segment !== undefined) {
+    const labelValue: string = input.segment;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: segment.");
+    }
+    resolvedPath = resolvedPath.replace("{segment}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: segment.");
   }
   let body: any;
   return new __HttpRequest({
@@ -725,6 +793,34 @@ export const serializeAws_restJson1GetProjectCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetSegmentCommand = async (
+  input: GetSegmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
+  if (input.segment !== undefined) {
+    const labelValue: string = input.segment;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: segment.");
+    }
+    resolvedPath = resolvedPath.replace("{segment}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: segment.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
@@ -836,6 +932,65 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSegmentReferencesCommand = async (
+  input: ListSegmentReferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}/references";
+  if (input.segment !== undefined) {
+    const labelValue: string = input.segment;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: segment.");
+    }
+    resolvedPath = resolvedPath.replace("{segment}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: segment.");
+  }
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.type !== undefined && { type: input.type }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSegmentsCommand = async (
+  input: ListSegmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1130,6 +1285,31 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1TestSegmentPatternCommand = async (
+  input: TestSegmentPatternCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/test-segment-pattern";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.pattern != null && { pattern: __LazyJsonString.fromObject(input.pattern) }),
+    ...(input.payload != null && { payload: __LazyJsonString.fromObject(input.payload) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
@@ -1201,7 +1381,9 @@ export const serializeAws_restJson1UpdateExperimentCommand = async (
       onlineAbConfig: serializeAws_restJson1OnlineAbConfig(input.onlineAbConfig, context),
     }),
     ...(input.randomizationSalt != null && { randomizationSalt: input.randomizationSalt }),
+    ...(input.removeSegment != null && { removeSegment: input.removeSegment }),
     ...(input.samplingRate != null && { samplingRate: input.samplingRate }),
+    ...(input.segment != null && { segment: input.segment }),
     ...(input.treatments != null && {
       treatments: serializeAws_restJson1TreatmentConfigList(input.treatments, context),
     }),
@@ -1673,6 +1855,60 @@ const deserializeAws_restJson1CreateProjectCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateSegmentCommandError(output, context);
+  }
+  const contents: CreateSegmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    segment: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.segment !== undefined && data.segment !== null) {
+    contents.segment = deserializeAws_restJson1Segment(data.segment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSegmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.evidently#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DeleteExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1853,6 +2089,59 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteSegmentCommandError(output, context);
+  }
+  const contents: DeleteSegmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSegmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2239,6 +2528,60 @@ const deserializeAws_restJson1GetProjectCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetSegmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSegmentCommandError(output, context);
+  }
+  const contents: GetSegmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    segment: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.segment !== undefined && data.segment !== null) {
+    contents.segment = deserializeAws_restJson1Segment(data.segment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetSegmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListExperimentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2433,6 +2776,119 @@ const deserializeAws_restJson1ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListSegmentReferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentReferencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSegmentReferencesCommandError(output, context);
+  }
+  const contents: ListSegmentReferencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    referencedBy: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.referencedBy !== undefined && data.referencedBy !== null) {
+    contents.referencedBy = deserializeAws_restJson1RefResourceList(data.referencedBy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSegmentReferencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentReferencesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.evidently#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListSegmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSegmentsCommandError(output, context);
+  }
+  const contents: ListSegmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    segments: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.segments !== undefined && data.segments !== null) {
+    contents.segments = deserializeAws_restJson1SegmentList(data.segments, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSegmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSegmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2852,6 +3308,57 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1TestSegmentPatternCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestSegmentPatternCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TestSegmentPatternCommandError(output, context);
+  }
+  const contents: TestSegmentPatternCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    match: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.match !== undefined && data.match !== null) {
+    contents.match = __expectBoolean(data.match);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TestSegmentPatternCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestSegmentPatternCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.evidently#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3096,6 +3603,9 @@ const deserializeAws_restJson1UpdateProjectCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.evidently#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3553,6 +4063,9 @@ const serializeAws_restJson1ScheduledSplitConfig = (input: ScheduledSplitConfig,
     ...(input.groupWeights != null && {
       groupWeights: serializeAws_restJson1GroupToWeightMap(input.groupWeights, context),
     }),
+    ...(input.segmentOverrides != null && {
+      segmentOverrides: serializeAws_restJson1SegmentOverridesList(input.segmentOverrides, context),
+    }),
     ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   };
 };
@@ -3578,6 +4091,25 @@ const serializeAws_restJson1ScheduledSplitsLaunchConfig = (
   return {
     ...(input.steps != null && { steps: serializeAws_restJson1ScheduledSplitConfigList(input.steps, context) }),
   };
+};
+
+const serializeAws_restJson1SegmentOverride = (input: SegmentOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.evaluationOrder != null && { evaluationOrder: input.evaluationOrder }),
+    ...(input.segment != null && { segment: input.segment }),
+    ...(input.weights != null && { weights: serializeAws_restJson1GroupToWeightMap(input.weights, context) }),
+  };
+};
+
+const serializeAws_restJson1SegmentOverridesList = (input: SegmentOverride[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SegmentOverride(entry, context);
+    });
 };
 
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -3777,6 +4309,7 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
     samplingRate: __expectLong(output.samplingRate),
     schedule:
       output.schedule != null ? deserializeAws_restJson1ExperimentSchedule(output.schedule, context) : undefined,
+    segment: __expectString(output.segment),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -4199,6 +4732,30 @@ const deserializeAws_restJson1PutProjectEventsResultEntryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1RefResource = (output: any, context: __SerdeContext): RefResource => {
+  return {
+    arn: __expectString(output.arn),
+    endTime: __expectString(output.endTime),
+    lastUpdatedOn: __expectString(output.lastUpdatedOn),
+    name: __expectString(output.name),
+    startTime: __expectString(output.startTime),
+    status: __expectString(output.status),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1RefResourceList = (output: any, context: __SerdeContext): RefResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RefResource(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
     bucket: __expectString(output.bucket),
@@ -4210,6 +4767,10 @@ const deserializeAws_restJson1ScheduledSplit = (output: any, context: __SerdeCon
   return {
     groupWeights:
       output.groupWeights != null ? deserializeAws_restJson1GroupToWeightMap(output.groupWeights, context) : undefined,
+    segmentOverrides:
+      output.segmentOverrides != null
+        ? deserializeAws_restJson1SegmentOverridesList(output.segmentOverrides, context)
+        : undefined,
     startTime:
       output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
   } as any;
@@ -4232,6 +4793,58 @@ const deserializeAws_restJson1ScheduledStepList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_restJson1ScheduledSplit(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Segment = (output: any, context: __SerdeContext): Segment => {
+  return {
+    arn: __expectString(output.arn),
+    createdTime:
+      output.createdTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
+        : undefined,
+    description: __expectString(output.description),
+    experimentCount: __expectLong(output.experimentCount),
+    lastUpdatedTime:
+      output.lastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedTime)))
+        : undefined,
+    launchCount: __expectLong(output.launchCount),
+    name: __expectString(output.name),
+    pattern: output.pattern != null ? new __LazyJsonString(output.pattern) : undefined,
+    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SegmentList = (output: any, context: __SerdeContext): Segment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Segment(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SegmentOverride = (output: any, context: __SerdeContext): SegmentOverride => {
+  return {
+    evaluationOrder: __expectLong(output.evaluationOrder),
+    segment: __expectString(output.segment),
+    weights: output.weights != null ? deserializeAws_restJson1GroupToWeightMap(output.weights, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SegmentOverridesList = (output: any, context: __SerdeContext): SegmentOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SegmentOverride(entry, context);
     });
   return retVal;
 };

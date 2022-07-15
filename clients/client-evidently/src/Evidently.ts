@@ -27,6 +27,11 @@ import {
   CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
+  CreateSegmentCommand,
+  CreateSegmentCommandInput,
+  CreateSegmentCommandOutput,
+} from "./commands/CreateSegmentCommand";
+import {
   DeleteExperimentCommand,
   DeleteExperimentCommandInput,
   DeleteExperimentCommandOutput,
@@ -47,6 +52,11 @@ import {
   DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
+  DeleteSegmentCommand,
+  DeleteSegmentCommandInput,
+  DeleteSegmentCommandOutput,
+} from "./commands/DeleteSegmentCommand";
+import {
   EvaluateFeatureCommand,
   EvaluateFeatureCommandInput,
   EvaluateFeatureCommandOutput,
@@ -64,6 +74,7 @@ import {
 import { GetFeatureCommand, GetFeatureCommandInput, GetFeatureCommandOutput } from "./commands/GetFeatureCommand";
 import { GetLaunchCommand, GetLaunchCommandInput, GetLaunchCommandOutput } from "./commands/GetLaunchCommand";
 import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetSegmentCommand, GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import {
   ListExperimentsCommand,
   ListExperimentsCommandInput,
@@ -84,6 +95,16 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import {
+  ListSegmentReferencesCommand,
+  ListSegmentReferencesCommandInput,
+  ListSegmentReferencesCommandOutput,
+} from "./commands/ListSegmentReferencesCommand";
+import {
+  ListSegmentsCommand,
+  ListSegmentsCommandInput,
+  ListSegmentsCommandOutput,
+} from "./commands/ListSegmentsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -107,6 +128,11 @@ import {
 } from "./commands/StopExperimentCommand";
 import { StopLaunchCommand, StopLaunchCommandInput, StopLaunchCommandOutput } from "./commands/StopLaunchCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestSegmentPatternCommand,
+  TestSegmentPatternCommandInput,
+  TestSegmentPatternCommandOutput,
+} from "./commands/TestSegmentPatternCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -140,7 +166,8 @@ import {
 import { EvidentlyClient } from "./EvidentlyClient";
 
 /**
- * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving them to a specified percentage
+ * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
+ *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature
  *       to help you decide when to ramp up traffic to your users. This helps you
  *       reduce risk and identify unintended consequences before you fully launch the feature.</p>
@@ -204,6 +231,8 @@ export class Evidently extends EvidentlyClient {
    *        decisions based on evidence and data. An experiment can test as
    *        many as five variations at once. Evidently collects experiment data and analyzes it by statistical methods, and provides
    *        clear recommendations about which variations perform better.</p>
+   *          <p>You can optionally specify a <code>segment</code> to have the experiment consider only certain audience
+   *      types in the experiment, such as using only user sessions from a certain location or who use a certain internet browser.</p>
    *          <p>Don't use this operation to update an existing experiment. Instead, use
    *        <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html">UpdateExperiment</a>. </p>
    */
@@ -343,6 +372,52 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * <p>Use this operation to define a <i>segment</i> of your audience. A segment
+   *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
+   *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
+   *       such as age.</p>
+   *          <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment
+   *       criteria. Using one or more segments in a launch allow you to define different traffic splits for the different
+   *       audience segments.</p>
+   *
+   *          <p>For more information about segment pattern syntax, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html">
+   *         Segment rule pattern syntax</a>.</p>
+   *
+   *          <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which
+   *       is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation,
+   *       when Evidently assigns a feature variation to a user.</p>
+   */
+  public createSegment(
+    args: CreateSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentCommandOutput>;
+  public createSegment(
+    args: CreateSegmentCommandInput,
+    cb: (err: any, data?: CreateSegmentCommandOutput) => void
+  ): void;
+  public createSegment(
+    args: CreateSegmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentCommandOutput) => void
+  ): void;
+  public createSegment(
+    args: CreateSegmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSegmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateSegmentCommandOutput) => void
+  ): Promise<CreateSegmentCommandOutput> | void {
+    const command = new CreateSegmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Evidently experiment. The feature used for the experiment is not deleted.</p>
    *          <p>To stop an experiment without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html">StopExperiment</a>. </p>
    */
@@ -471,19 +546,63 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that
+   *     launch or experiment is not currently running.</p>
+   */
+  public deleteSegment(
+    args: DeleteSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentCommandOutput>;
+  public deleteSegment(
+    args: DeleteSegmentCommandInput,
+    cb: (err: any, data?: DeleteSegmentCommandOutput) => void
+  ): void;
+  public deleteSegment(
+    args: DeleteSegmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSegmentCommandOutput) => void
+  ): void;
+  public deleteSegment(
+    args: DeleteSegmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSegmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSegmentCommandOutput) => void
+  ): Promise<DeleteSegmentCommandOutput> | void {
+    const command = new DeleteSegmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This operation assigns a feature variation to one given user session. You pass in an
    *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
    *       and assigns the variation.</p>
    *          <p>The first rules that are evaluated are the override rules. If the user's
    *         <code>entityID</code> matches an override rule, the user is served the variation specified
    *       by that rule.</p>
-   *          <p>Next, if there is a launch of the feature, the user might be assigned to a variation in
+   *
+   *          <p>If there is a current launch with this feature that uses segment overrides, and
+   *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
+   *       segment override, the configuration in the segment overrides is used. For more information
+   *       about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>
+   *       and
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
+   *         audience</a>.</p>
+   *          <p>If there is a launch with no segment overrides, the user might be assigned to a variation in
    *       the launch. The chance of this depends on the percentage of users that are allocated to that
    *       launch. If the user is enrolled in the launch, the variation they are served depends on the
    *       allocation of the various feature variations used for the launch.</p>
-   *          <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature,  the user might
+   *          <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might
    *       be assigned to a variation in the experiment. The chance of this
-   *       depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment,
+   *       depends on the percentage of users that are allocated to that experiment.</p>
+   *          <p>If the experiment uses a segment, then only
+   *       user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p>
+   *          <p>If the user is enrolled in the experiment,
    *       the variation they are served depends on the allocation of the various feature variations used for the experiment. </p>
    *          <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
    */
@@ -667,6 +786,33 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
+   * <p>Returns information about the specified segment. Specify the segment you want to view
+   *     by specifying its ARN.</p>
+   */
+  public getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
+  public getSegment(args: GetSegmentCommandInput, cb: (err: any, data?: GetSegmentCommandOutput) => void): void;
+  public getSegment(
+    args: GetSegmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentCommandOutput) => void
+  ): void;
+  public getSegment(
+    args: GetSegmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentCommandOutput) => void),
+    cb?: (err: any, data?: GetSegmentCommandOutput) => void
+  ): Promise<GetSegmentCommandOutput> | void {
+    const command = new GetSegmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns configuration details about all the experiments in the specified project.</p>
    */
   public listExperiments(
@@ -776,6 +922,67 @@ export class Evidently extends EvidentlyClient {
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
+   */
+  public listSegmentReferences(
+    args: ListSegmentReferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentReferencesCommandOutput>;
+  public listSegmentReferences(
+    args: ListSegmentReferencesCommandInput,
+    cb: (err: any, data?: ListSegmentReferencesCommandOutput) => void
+  ): void;
+  public listSegmentReferences(
+    args: ListSegmentReferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSegmentReferencesCommandOutput) => void
+  ): void;
+  public listSegmentReferences(
+    args: ListSegmentReferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSegmentReferencesCommandOutput) => void),
+    cb?: (err: any, data?: ListSegmentReferencesCommandOutput) => void
+  ): Promise<ListSegmentReferencesCommandOutput> | void {
+    const command = new ListSegmentReferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
+   */
+  public listSegments(
+    args: ListSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentsCommandOutput>;
+  public listSegments(args: ListSegmentsCommandInput, cb: (err: any, data?: ListSegmentsCommandOutput) => void): void;
+  public listSegments(
+    args: ListSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSegmentsCommandOutput) => void
+  ): void;
+  public listSegments(
+    args: ListSegmentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSegmentsCommandOutput) => void),
+    cb?: (err: any, data?: ListSegmentsCommandOutput) => void
+  ): Promise<ListSegmentsCommandOutput> | void {
+    const command = new ListSegmentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1002,6 +1209,39 @@ export class Evidently extends EvidentlyClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
+   *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
+   */
+  public testSegmentPattern(
+    args: TestSegmentPatternCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestSegmentPatternCommandOutput>;
+  public testSegmentPattern(
+    args: TestSegmentPatternCommandInput,
+    cb: (err: any, data?: TestSegmentPatternCommandOutput) => void
+  ): void;
+  public testSegmentPattern(
+    args: TestSegmentPatternCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestSegmentPatternCommandOutput) => void
+  ): void;
+  public testSegmentPattern(
+    args: TestSegmentPatternCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestSegmentPatternCommandOutput) => void),
+    cb?: (err: any, data?: TestSegmentPatternCommandOutput) => void
+  ): Promise<TestSegmentPatternCommandOutput> | void {
+    const command = new TestSegmentPatternCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
