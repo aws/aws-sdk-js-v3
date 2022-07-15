@@ -525,7 +525,42 @@ export interface FsxProtocolSmb {
   Password: string | undefined;
 
   /**
-   * <p>Specifies a user who has permission to access your SVM.</p>
+   * <p>Specifies a user name that can mount the location and access the files, folders, and metadata that you need in the SVM.</p>
+   *          <p>If you provide a user in your Active Directory, note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you're using Directory Service for Microsoft Active Directory, the user
+   *           must be a member of the Amazon Web Services Delegated
+   *             FSx Administrators group.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you're using a self-managed Active Directory, the user must be a member of either
+   *           the Domain Admins group or a custom group that you specified for file system
+   *           administration when you created your file system.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Make sure that the user has the permissions it needs
+   *       to copy the data you want:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SE_TCB_NAME</code>: Required to
+   *           set object ownership and file metadata. With this
+   *           privilege, you also can copy NTFS discretionary
+   *           access lists (DACLs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SE_SECURITY_NAME</code>: May be
+   *           needed to copy NTFS system access control lists
+   *           (SACLs). This operation specifically requires the
+   *           Windows privilege, which is granted to members of
+   *           the Domain Admins group. If
+   *           you configure your task to copy SACLs, make sure
+   *           that the user has the required privileges. For
+   *           information about copying SACLs, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership and permissions-related options</a>.</p>
+   *             </li>
+   *          </ul>
    */
   User: string | undefined;
 }
@@ -572,19 +607,22 @@ export interface CreateLocationFsxOntapRequest {
   Protocol: FsxProtocol | undefined;
 
   /**
-   * <p>Specifies the security groups that DataSync can use to access your FSx for ONTAP file system. You must configure the security groups to allow outbound
-   *       traffic on the following ports (depending on the protocol that you're using):</p>
+   * <p>Specifies the Amazon EC2 security groups that provide access to your file system's preferred subnet.</p>
+   *          <p>The security groups must allow outbound traffic on the following ports (depending on the
+   *       protocol you use):</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Network File System (NFS)</b>: TCP port 2049</p>
+   *                   <b>Network File System (NFS)</b>: TCP ports 111, 635, and
+   *           2049</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Server Message Block (SMB)</b>: TCP port 445</p>
    *             </li>
    *          </ul>
-   *          <p>Your file system's security groups must also allow inbound traffic on the same port.</p>
+   *          <p>Your file system's security groups must also allow inbound traffic on the same
+   *       ports.</p>
    */
   SecurityGroupArns: string[] | undefined;
 
@@ -696,46 +734,60 @@ export namespace CreateLocationFsxOpenZfsResponse {
 
 export interface CreateLocationFsxWindowsRequest {
   /**
-   * <p>A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
-   *       File Server file system is used to read data from the Amazon FSx for Windows File Server
-   *       source location or write data to the FSx for Windows File Server destination.</p>
+   * <p>Specifies a mount path for your file system using forward slashes. This is where DataSync reads or
+   *       writes data (depending on if this is a source or destination location).</p>
    */
   Subdirectory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file
+   *       system.</p>
    */
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>The ARNs of the security groups that are used to configure the
-   *       FSx for Windows File Server file system.</p>
+   * <p>Specifies the ARNs of the security groups that provide access to your file system's
+   *       preferred subnet.</p>
+   *          <note>
+   *             <p>If you choose a security group that doesn't allow connections from within
+   *         itself, do one of the following:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Configure the security group to allow it to communicate within
+   *             itself.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Choose a different security group that can communicate with the
+   *             mount target's security group.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   SecurityGroupArns: string[] | undefined;
 
   /**
-   * <p>The key-value pair that represents a tag that you want to add to the resource. The
-   *       value can be an empty string. This value helps you manage, filter, and search for your
-   *       resources. We recommend that you create a name tag for your location.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We
+   *       recommend creating at least a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
 
   /**
-   * <p>The user who has the permissions to access files and folders in the FSx for Windows File
-   *       Server file system.</p>
+   * <p>Specifies the user who has the permissions to access files and folders in the file
+   *       system.</p>
    *          <p>For information about choosing a user name that ensures sufficient permissions to files,
    *       folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</p>
    */
   User: string | undefined;
 
   /**
-   * <p>The name of the Windows domain that the FSx for Windows File Server belongs to.</p>
+   * <p>Specifies the name of the Windows domain that the FSx for Windows File Server belongs
+   *       to.</p>
    */
   Domain?: string;
 
   /**
-   * <p>The password of the user who has the permissions to access files and folders in the FSx
-   *       for Windows File Server file system.</p>
+   * <p>Specifies the password of the user who has the permissions to access files and folders in
+   *       the file system.</p>
    */
   Password: string | undefined;
 }
@@ -752,8 +804,7 @@ export namespace CreateLocationFsxWindowsRequest {
 
 export interface CreateLocationFsxWindowsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server file system location
-   *       you created.</p>
+   * <p>The ARN of the FSx for Windows File Server file system location you created.</p>
    */
   LocationArn?: string;
 }
@@ -3177,9 +3228,12 @@ export enum Operator {
 }
 
 /**
- * <p>You can use API filters to narrow down the list of resources returned by <code>ListLocations</code>.
- *       For example, to retrieve all your Amazon S3 locations, you can use <code>ListLocations</code> with
- *       filter name <code>LocationType S3</code> and <code>Operator Equals</code>.</p>
+ * <p>Narrow down the list of resources returned by <code>ListLocations</code>. For example, to
+ *       see all your Amazon S3 locations, create a filter using <code>"Name":
+ *         "LocationType"</code>, <code>"Operator": "Equals"</code>, and <code>"Values":
+ *       "S3"</code>.</p>
+ *          <p>For more information, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">filtering resources</a>.</p>
  */
 export interface LocationFilter {
   /**
@@ -3196,8 +3250,7 @@ export interface LocationFilter {
 
   /**
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
-   *       <code>Contains</code>). For more about API filtering operators, see
-   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
+   *       <code>Contains</code>).</p>
    */
   Operator: Operator | string | undefined;
 }
@@ -3459,6 +3512,7 @@ export enum TaskFilterName {
  *       For example, to retrieve all tasks on a source location, you can use <code>ListTasks</code>
  *       with filter name <code>LocationId</code> and <code>Operator Equals</code> with the ARN for the
  *       location.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">filtering DataSync resources</a>.</p>
  */
 export interface TaskFilter {
   /**
@@ -3475,8 +3529,7 @@ export interface TaskFilter {
 
   /**
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
-   *       <code>Contains</code>). For more about API filtering operators, see
-   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
+   *       <code>Contains</code>).</p>
    */
   Operator: Operator | string | undefined;
 }

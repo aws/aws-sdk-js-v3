@@ -20,7 +20,7 @@ export interface ListTasksCommandInput extends ListTasksRequest {}
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the tasks.</p>
+ * <p>Returns a list of the DataSync tasks you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
