@@ -78,11 +78,17 @@ import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 
 const handler = new XhrHttpHandler({});
 
-handler.on(XhrHttpHandler.EVENTS.PROGRESS, (progress) => {
-  console.log(
-    progress.loaded, // bytes
-    progress.total, // bytes
-  );
+handler.on(XhrHttpHandler.EVENTS.PROGRESS, (progress, request) => {
+  if (progress.lengthComputable) {
+    console.log(
+      progress.loaded, // bytes
+      progress.total, // bytes
+    );
+    console.log(
+      request // contains the request information to differentiate
+              // different requests from the same handler.
+    )
+  }
 });
 
 const client = new S3Client({

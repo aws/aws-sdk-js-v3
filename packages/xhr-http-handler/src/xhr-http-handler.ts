@@ -22,13 +22,15 @@ export interface XhrHttpHandlerOptions {
 export type XhrHttpHandlerEvents = {
   /**
    * Emitted for xhr on progress.
-   * Payload is the native ProgressEvent.
+   * Payload is the native ProgressEvent and the HttpRequest to allow
+   * differentiation of multiple concurrent request events.
    */
   readonly PROGRESS: "xhr.progress";
-
+  
   /**
    * Emitted for xhr.upload on progress.
-   * Payload is the native ProgressEvent.
+   * Payload is the native ProgressEvent and the HttpRequest to allow
+   * differentiation of multiple concurrent request events.
    */
   readonly UPLOAD_PROGRESS: "xhr.upload.progress";
 
