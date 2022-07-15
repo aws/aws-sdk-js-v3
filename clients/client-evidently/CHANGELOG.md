@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
+
+
+### Features
+
+* **client-evidently:** This release adds support for the new segmentation feature. ([a60dfd8](https://github.com/aws/aws-sdk-js-v3/commit/a60dfd85abe9cb21c6e19ca2aaf189c09804d83b))
+
+
+
+
+
 # [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
 
 

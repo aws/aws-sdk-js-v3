@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
+
+
+### Features
+
+* **client-drs:** Changed existing APIs to allow choosing a dynamic volume type for replicating volumes, to reduce costs for customers. ([91e2660](https://github.com/aws/aws-sdk-js-v3/commit/91e2660097d923991b080d9318fd03019c3a8048))
+* **client-evidently:** This release adds support for the new segmentation feature. ([a60dfd8](https://github.com/aws/aws-sdk-js-v3/commit/a60dfd85abe9cb21c6e19ca2aaf189c09804d83b))
+* **client-wafv2:** This SDK release provide customers ability to add sensitivity level for WAF SQLI Match Statements. ([2b37799](https://github.com/aws/aws-sdk-js-v3/commit/2b37799fd6fde067ffb5d9ab4db60b0a927f775d))
+* **clients:** update client endpoints as of 2022-07-15 ([145ed3a](https://github.com/aws/aws-sdk-js-v3/commit/145ed3aeffd2c08bed0c7f92e5cc17a253c14c40))
+* **xhr-http-handler:** add XMLHttpRequest http handler to use with lib-storage Upload ([#3798](https://github.com/aws/aws-sdk-js-v3/issues/3798)) ([7462b07](https://github.com/aws/aws-sdk-js-v3/commit/7462b0731e54a29290b9b4c359a7f5581a3c78f9))
+
+
+
+
+
 # [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
 
 

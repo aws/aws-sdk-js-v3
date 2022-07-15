@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
+
+
+### Features
+
+* **client-drs:** Changed existing APIs to allow choosing a dynamic volume type for replicating volumes, to reduce costs for customers. ([91e2660](https://github.com/aws/aws-sdk-js-v3/commit/91e2660097d923991b080d9318fd03019c3a8048))
+
+
+
+
+
 # [3.130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.129.0...v3.130.0) (2022-07-14)
 
 
