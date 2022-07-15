@@ -29,6 +29,19 @@ const endpointMock = jest.fn().mockResolvedValue({
   query: undefined,
 });
 
+import { EventEmitter, Readable } from "stream";
+
+const mockAddListener = jest.fn();
+const mockRemoveListener = jest.fn();
+const requestHandlerMock = (() => {
+  const mock = {
+    on: mockAddListener,
+    off: mockRemoveListener,
+  };
+  Object.setPrototypeOf(mock, EventEmitter.prototype);
+  return mock;
+})();
+
 jest.mock("@aws-sdk/client-s3", () => ({
   ...(jest.requireActual("@aws-sdk/client-s3") as {}),
   S3: jest.fn().mockReturnValue({
@@ -41,6 +54,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
     send: sendMock,
     config: {
       endpoint: endpointMock,
+      requestHandler: requestHandlerMock,
     },
   }),
   CreateMultipartUploadCommand: createMultipartMock,
@@ -50,9 +64,8 @@ jest.mock("@aws-sdk/client-s3", () => ({
   PutObjectCommand: putObjectMock,
 }));
 
-import { CompleteMultipartUploadCommandOutput, S3 } from "@aws-sdk/client-s3";
+import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/client-s3";
 import { createHash } from "crypto";
-import { Readable } from "stream";
 
 import { Progress, Upload } from "./index";
 
@@ -498,7 +511,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    const received = [];
+    const received: Progress[] = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -534,7 +547,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    const received = [];
+    const received: Progress[] = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -564,7 +577,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    const received = [];
+    const received: Progress[] = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -587,7 +600,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    const received = [];
+    const received: Progress[] = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -600,5 +613,29 @@ describe(Upload.name, () => {
       total: 0,
     });
     expect(received.length).toBe(1);
+  });
+
+  it("listens to the requestHandler for updates if it is an EventEmitter", async () => {
+    const partSize = 1024 * 1024 * 5;
+    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
+    const streamBody = Readable.from(
+      (function* () {
+        yield largeBuffer;
+      })()
+    );
+    const actionParams = { ...params, Body: streamBody };
+    const upload = new Upload({
+      params: actionParams,
+      client: new S3Client({}),
+    });
+
+    const received: Progress[] = [];
+    upload.on("httpUploadProgress", (progress: Progress) => {
+      received.push(progress);
+    });
+    await upload.done();
+    expect(received.length).toBe(2);
+    expect(mockAddListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
+    expect(mockRemoveListener).toHaveBeenCalledWith("xhr.upload.progress", expect.any(Function));
   });
 });

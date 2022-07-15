@@ -1,0 +1,55 @@
+{
+  "name": "@aws-sdk/xhr-http-handler",
+  "version": "3.0.0",
+  "description": "Provides a way to make requests using XMLHttpRequest",
+  "scripts": {
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "test": "jest --coverage"
+  },
+  "author": "AWS SDK for JavaScript Team (https://aws.amazon.com/javascript/)",
+  "license": "Apache-2.0",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "dependencies": {
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/querystring-builder": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-base64-browser": "*",
+    "events": "3.3.0",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/abort-controller": "*",
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.7.0",
+    "rimraf": "3.0.2",
+    "typedoc": "0.19.2",
+    "typescript": "~4.6.2"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xhr-http-handler",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/xhr-http-handler"
+  },
+  "bugs": {
+    "url": "https://github.com/aws/aws-sdk-js-v3/issues"
+  }
+}

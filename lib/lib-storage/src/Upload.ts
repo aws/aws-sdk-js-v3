@@ -13,6 +13,7 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { EventEmitter } from "events";
 
@@ -99,10 +100,34 @@ export class Upload extends EventEmitter {
   private async __uploadUsingPut(dataPart: RawDataPart): Promise<void> {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
+
+    const requestHandler = this.client.config.requestHandler;
+    const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+    const uploadEventListener = (event: ProgressEvent) => {
+      this.bytesUploadedSoFar = event.loaded;
+      this.totalBytes = event.total;
+      this.__notifyProgress({
+        loaded: this.bytesUploadedSoFar,
+        total: this.totalBytes,
+        part: dataPart.partNumber,
+        Key: this.params.Key,
+        Bucket: this.params.Bucket,
+      });
+    };
+
+    if (eventEmitter !== null) {
+      // The requestHandler is the xhr-http-handler.
+      eventEmitter.on("xhr.upload.progress", uploadEventListener);
+    }
+
     const [putResult, endpoint] = await Promise.all([
       this.client.send(new PutObjectCommand(params)),
       this.client.config.endpoint(),
     ]);
+
+    if (eventEmitter !== null) {
+      eventEmitter.off("xhr.upload.progress", uploadEventListener);
+    }
 
     const locationKey = this.params
       .Key!.split("/")
@@ -121,6 +146,7 @@ export class Upload extends EventEmitter {
       Location,
     };
     const totalSize = byteLength(dataPart.data);
+
     this.__notifyProgress({
       loaded: totalSize,
       total: totalSize,
@@ -164,6 +190,39 @@ export class Upload extends EventEmitter {
           }
         }
 
+        const partSize: number = byteLength(dataPart.data) || 0;
+
+        const requestHandler = this.client.config.requestHandler;
+        const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+
+        let lastSeenBytes = 0;
+        const uploadEventListener = (event: ProgressEvent, request: HttpRequest) => {
+          const requestPartSize = Number(request.query["partNumber"]) || -1;
+
+          if (requestPartSize !== dataPart.partNumber) {
+            // ignored, because the emitted event is not for this part.
+            return;
+          }
+
+          if (event.total && partSize) {
+            this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
+            lastSeenBytes = event.loaded;
+          }
+
+          this.__notifyProgress({
+            loaded: this.bytesUploadedSoFar,
+            total: this.totalBytes,
+            part: dataPart.partNumber,
+            Key: this.params.Key,
+            Bucket: this.params.Bucket,
+          });
+        };
+
+        if (eventEmitter !== null) {
+          // The requestHandler is the xhr-http-handler.
+          eventEmitter.on("xhr.upload.progress", uploadEventListener);
+        }
+
         const partResult = await this.client.send(
           new UploadPartCommand({
             ...this.params,
@@ -173,8 +232,18 @@ export class Upload extends EventEmitter {
           })
         );
 
+        if (eventEmitter !== null) {
+          eventEmitter.off("xhr.upload.progress", uploadEventListener);
+        }
+
         if (this.abortController.signal.aborted) {
           return;
+        }
+
+        if (!partResult.ETag) {
+          throw new Error(
+            `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+          );
         }
 
         this.uploadedParts.push({
@@ -186,7 +255,10 @@ export class Upload extends EventEmitter {
           ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
         });
 
-        this.bytesUploadedSoFar += byteLength(dataPart.data);
+        if (eventEmitter === null) {
+          this.bytesUploadedSoFar += partSize;
+        }
+
         this.__notifyProgress({
           loaded: this.bytesUploadedSoFar,
           total: this.totalBytes,
