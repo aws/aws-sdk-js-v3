@@ -3674,6 +3674,7 @@ const serializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
     ...(input.deviceName != null && { deviceName: input.deviceName }),
     ...(input.iops != null && { iops: input.iops }),
     ...(input.isBootDisk != null && { isBootDisk: input.isBootDisk }),
+    ...(input.optimizedStagingDiskType != null && { optimizedStagingDiskType: input.optimizedStagingDiskType }),
     ...(input.stagingDiskType != null && { stagingDiskType: input.stagingDiskType }),
     ...(input.throughput != null && { throughput: input.throughput }),
   };
@@ -4383,6 +4384,7 @@ const deserializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
     deviceName: __expectString(output.deviceName),
     iops: __expectLong(output.iops),
     isBootDisk: __expectBoolean(output.isBootDisk),
+    optimizedStagingDiskType: __expectString(output.optimizedStagingDiskType),
     stagingDiskType: __expectString(output.stagingDiskType),
     throughput: __expectLong(output.throughput),
   } as any;

@@ -980,6 +980,7 @@ export enum ReplicationConfigurationDataPlaneRouting {
 }
 
 export enum ReplicationConfigurationDefaultLargeStagingDiskType {
+  AUTO = "AUTO",
   GP2 = "GP2",
   GP3 = "GP3",
   ST1 = "ST1",
@@ -1240,7 +1241,7 @@ export namespace DeleteJobResponse {
 
 export interface DeleteRecoveryInstanceRequest {
   /**
-   * <p>RThe ID of the Recovery Instance to be deleted.</p>
+   * <p>The ID of the Recovery Instance to be deleted.</p>
    */
   recoveryInstanceID: string | undefined;
 }
@@ -2998,6 +2999,11 @@ export interface ReplicationConfigurationReplicatedDisk {
    * <p>The throughput to use for the EBS volume in MiB/s. This parameter is valid only for gp3 volumes.</p>
    */
   throughput?: number;
+
+  /**
+   * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
+   */
+  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }
 
 export namespace ReplicationConfigurationReplicatedDisk {
