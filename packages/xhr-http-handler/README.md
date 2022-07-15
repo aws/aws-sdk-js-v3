@@ -86,7 +86,7 @@ handler.on(XhrHttpHandler.EVENTS.PROGRESS, (progress, request) => {
     );
     console.log(
       request // contains the request information to differentiate
-              // different requests from the same handler.
+              // requests from the same handler.
     )
   }
 });
