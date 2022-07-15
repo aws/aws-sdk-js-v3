@@ -23,7 +23,8 @@ export interface GetMobileSdkReleaseCommandInput extends GetMobileSdkReleaseRequ
 export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information for the specified mobile SDK release, including release notes and tags.</p>
+ * <p>Retrieves information for the specified mobile SDK release, including release notes and
+ *          tags.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
  * @example

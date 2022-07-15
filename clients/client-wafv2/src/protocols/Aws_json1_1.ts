@@ -5067,6 +5067,7 @@ const serializeAws_json1_1SizeConstraintStatement = (input: SizeConstraintStatem
 const serializeAws_json1_1SqliMatchStatement = (input: SqliMatchStatement, context: __SerdeContext): any => {
   return {
     ...(input.FieldToMatch != null && { FieldToMatch: serializeAws_json1_1FieldToMatch(input.FieldToMatch, context) }),
+    ...(input.SensitivityLevel != null && { SensitivityLevel: input.SensitivityLevel }),
     ...(input.TextTransformations != null && {
       TextTransformations: serializeAws_json1_1TextTransformations(input.TextTransformations, context),
     }),
@@ -6897,6 +6898,7 @@ const deserializeAws_json1_1SqliMatchStatement = (output: any, context: __SerdeC
   return {
     FieldToMatch:
       output.FieldToMatch != null ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context) : undefined,
+    SensitivityLevel: __expectString(output.SensitivityLevel),
     TextTransformations:
       output.TextTransformations != null
         ? deserializeAws_json1_1TextTransformations(output.TextTransformations, context)

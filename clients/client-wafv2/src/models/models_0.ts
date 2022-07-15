@@ -33,8 +33,7 @@ export namespace ActionCondition {
 
 /**
  * <p>Inspect all of the elements that WAF has parsed and extracted from the web request
- *          component that you've identified in your <a>FieldToMatch</a> specifications.
- *       </p>
+ *          component that you've identified in your <a>FieldToMatch</a> specifications. </p>
  *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"All": {}</code>
  *          </p>
@@ -127,7 +126,7 @@ export namespace AllowAction {
 
 /**
  * <p>Inspect all query arguments of the web request. </p>
- *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"AllQueryArguments": {}</code>
  *          </p>
  */
@@ -149,8 +148,9 @@ export enum OversizeHandling {
 }
 
 /**
- * <p>Inspect the body of the web request. The body immediately follows the request headers.</p>
- *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect the body of the web request. The body immediately follows the request
+ *          headers.</p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface Body {
   /**
@@ -195,7 +195,7 @@ export namespace Body {
 /**
  * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
- *          <p>Example JSON: <code>"CookieMatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
+ *          <p>Example JSON: <code>"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
  *          </p>
  */
 export interface CookieMatchPattern {
@@ -205,12 +205,14 @@ export interface CookieMatchPattern {
   All?: All;
 
   /**
-   * <p>Inspect only the cookies that have a key that matches one of the strings specified here. </p>
+   * <p>Inspect only the cookies that have a key that matches one of the strings specified here.
+   *       </p>
    */
   IncludedCookies?: string[];
 
   /**
-   * <p>Inspect only the cookies whose keys don't match any of the strings specified here. </p>
+   * <p>Inspect only the cookies whose keys don't match any of the strings specified here.
+   *       </p>
    */
   ExcludedCookies?: string[];
 }
@@ -231,24 +233,26 @@ export enum MapMatchScope {
 }
 
 /**
- * <p>Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow
- *    the set of cookies to inspect by including or excluding specific keys.</p>
- *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
- *          <p>Example JSON: <code>"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }</code>
+ * <p>Inspect the cookies in the web request. You can specify the parts of the cookies to
+ *          inspect and you can narrow the set of cookies to inspect by including or excluding specific
+ *          keys.</p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Example JSON: <code>"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY",
+ *             "OversizeHandling": "MATCH" }</code>
  *          </p>
  */
 export interface Cookies {
   /**
    * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
    *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
-   *          <p>Example JSON: <code>"CookieMatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
+   *          <p>Example JSON: <code>"MatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
    *          </p>
    */
   MatchPattern: CookieMatchPattern | undefined;
 
   /**
-   * <p>The parts of the cookies to inspect with the rule inspection criteria. If you
-   *          specify <code>All</code>, WAF inspects both keys and values. </p>
+   * <p>The parts of the cookies to inspect with the rule inspection criteria. If you specify
+   *             <code>All</code>, WAF inspects both keys and values. </p>
    */
   MatchScope: MapMatchScope | string | undefined;
 
@@ -290,7 +294,7 @@ export namespace Cookies {
 /**
  * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
- *          <p>Example JSON: <code>"HeaderMatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
+ *          <p>Example JSON: <code>"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
  *          </p>
  */
 export interface HeaderMatchPattern {
@@ -300,12 +304,14 @@ export interface HeaderMatchPattern {
   All?: All;
 
   /**
-   * <p>Inspect only the headers that have a key that matches one of the strings specified here. </p>
+   * <p>Inspect only the headers that have a key that matches one of the strings specified here.
+   *       </p>
    */
   IncludedHeaders?: string[];
 
   /**
-   * <p>Inspect only the headers whose keys don't match any of the strings specified here. </p>
+   * <p>Inspect only the headers whose keys don't match any of the strings specified here.
+   *       </p>
    */
   ExcludedHeaders?: string[];
 }
@@ -320,26 +326,29 @@ export namespace HeaderMatchPattern {
 }
 
 /**
- * <p>Inspect the headers in the web request. You can specify the parts of the headers to inspect and you can narrow
- *    the set of headers to inspect by including or excluding specific keys.</p>
- *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
- *          <p>Alternately, you can use the <code>SingleHeader</code>
- *             <code>FieldToMatch</code> setting to inspect the value of a single header, identified by its key. </p>
- *          <p>Example JSON: <code>"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }</code>
+ * <p>Inspect all headers in the web request. You can specify the parts of the headers to
+ *          inspect and you can narrow the set of headers to inspect by including or excluding specific
+ *          keys.</p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>If you want to inspect just the value of a single header, use the
+ *             <code>SingleHeader</code>
+ *             <code>FieldToMatch</code> setting instead.</p>
+ *          <p>Example JSON: <code>"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY",
+ *             "OversizeHandling": "MATCH" }</code>
  *          </p>
  */
 export interface Headers {
   /**
    * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
    *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
-   *          <p>Example JSON: <code>"HeaderMatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
+   *          <p>Example JSON: <code>"MatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
    *          </p>
    */
   MatchPattern: HeaderMatchPattern | undefined;
 
   /**
-   * <p>The parts of the headers to match with the rule inspection criteria. If you
-   *          specify <code>All</code>, WAF inspects both keys and values. </p>
+   * <p>The parts of the headers to match with the rule inspection criteria. If you specify
+   *             <code>All</code>, WAF inspects both keys and values. </p>
    */
   MatchScope: MapMatchScope | string | undefined;
 
@@ -434,13 +443,13 @@ export enum JsonMatchScope {
 /**
  * <p>Inspect the body of the web request as JSON. The body immediately follows the request
  *          headers. </p>
- *           <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Use the specifications in this object to indicate which parts of the JSON body to
  *          inspect using the rule's inspection criteria. WAF inspects only the parts of the JSON
- *          that result from the matches that you
- *          indicate.
+ *          that result from the matches that you indicate.
  *       </p>
- *          <p>Example JSON: <code>"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }</code>
+ *          <p>Example JSON: <code>"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL"
+ *             }</code>
  *          </p>
  */
 export interface JsonBody {
@@ -462,14 +471,14 @@ export interface JsonBody {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>EVALUATE_AS_STRING</code> - Inspect the body as plain text. WAF applies
-   *                the text transformations and inspection criteria that you defined for the JSON
-   *                inspection to the body text string.</p>
+   *                   <code>EVALUATE_AS_STRING</code> - Inspect the body as plain text. WAF
+   *                applies the text transformations and inspection criteria that you defined for the
+   *                JSON inspection to the body text string.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
-   *                applies the rule action to the request.</p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement.
+   *                WAF applies the rule action to the request.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -540,8 +549,9 @@ export namespace JsonBody {
 }
 
 /**
- * <p>Inspect the HTTP method of the web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
- *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ * <p>Inspect the HTTP method of the web request. The method indicates the type of operation
+ *          that the request is asking the origin to perform. </p>
+ *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"Method": {}</code>
  *          </p>
  */
@@ -557,8 +567,9 @@ export namespace Method {
 }
 
 /**
- * <p>Inspect the query string of the web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
- *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
+ * <p>Inspect the query string of the web request. This is the part of a URL that appears
+ *          after a <code>?</code> character, if any.</p>
+ *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"QueryString": {}</code>
  *          </p>
  */
@@ -576,8 +587,9 @@ export namespace QueryString {
 /**
  * <p>Inspect one of the headers in the web request, identified by name, for example,
  *             <code>User-Agent</code> or <code>Referer</code>. The name isn't case sensitive.</p>
- *          <p>You can filter and inspect all headers with the <code>FieldToMatch</code> setting <code>Headers</code>.</p>
- *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>You can filter and inspect all headers with the <code>FieldToMatch</code> setting
+ *             <code>Headers</code>.</p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Example JSON: <code>"SingleHeader": { "Name": "haystack" }</code>
  *          </p>
  */
@@ -599,8 +611,9 @@ export namespace SingleHeader {
 
 /**
  * <p>Inspect one query argument in the web request, identified by name, for example
- *             <i>UserName</i> or <i>SalesRegion</i>. The name isn't case sensitive. </p>
- *           <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *             <i>UserName</i> or <i>SalesRegion</i>. The name isn't case
+ *          sensitive. </p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Example JSON: <code>"SingleQueryArgument": { "Name": "myArgument" }</code>
  *          </p>
  */
@@ -621,7 +634,8 @@ export namespace SingleQueryArgument {
 }
 
 /**
- * <p>Inspect the path component of the URI of the web request. This is the part of the web request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
+ * <p>Inspect the path component of the URI of the web request. This is the part of the web
+ *          request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
  *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"UriPath": {}</code>
  *          </p>
@@ -638,14 +652,19 @@ export namespace UriPath {
 }
 
 /**
- * <p>The part of the web request that you want WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.</p>
+ * <p>The part of the web request that you want WAF to inspect. Include the single
+ *             <code>FieldToMatch</code> type that you want to inspect, with additional specifications
+ *          as needed, according to the type. You specify a single request component in
+ *             <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than
+ *          one component of the web request, create a separate rule statement for each
+ *          component.</p>
  *          <p>Example JSON for a <code>QueryString</code> field to match: </p>
  *          <p>
- *             <code>    "FieldToMatch": { "QueryString": {} }</code>
+ *             <code> "FieldToMatch": { "QueryString": {} }</code>
  *          </p>
  *          <p>Example JSON for a <code>Method</code> field to match specification:</p>
  *          <p>
- *             <code>    "FieldToMatch": { "Method": { "Name": "DELETE" } }</code>
+ *             <code> "FieldToMatch": { "Method": { "Name": "DELETE" } }</code>
  *          </p>
  */
 export interface FieldToMatch {
@@ -690,9 +709,9 @@ export interface FieldToMatch {
    * <p>Inspect the request body as plain text. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to
-   *           WAF for inspection by the underlying host service. For information about how to
-   *       handle oversized request bodies, see the <code>Body</code> object configuration. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to WAF for
+   *          inspection by the underlying host service. For information about how to handle oversized
+   *          request bodies, see the <code>Body</code> object configuration. </p>
    */
   Body?: Body;
 
@@ -706,29 +725,33 @@ export interface FieldToMatch {
    * <p>Inspect the request body as JSON. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to
-   *           WAF for inspection by the underlying host service. For information about how to
-   *       handle oversized request bodies, see the <code>JsonBody</code> object configuration. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to WAF for
+   *          inspection by the underlying host service. For information about how to handle oversized
+   *          request bodies, see the <code>JsonBody</code> object configuration. </p>
    */
   JsonBody?: JsonBody;
 
   /**
-   * <p>Inspect the request headers. You must configure scope and pattern matching filters
-   *            in the <code>Headers</code> object, to define the set of headers to and the parts of the headers that WAF inspects. </p>
-   *          <p>Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to
-   *           WAF for inspection by the underlying host service. You must configure
-   *           how to handle any oversize header content in the <code>Headers</code> object. WAF applies the pattern matching filters
-   *           to the headers that it receives from the underlying host service. </p>
+   * <p>Inspect the request headers. You must configure scope and pattern matching filters in
+   *          the <code>Headers</code> object, to define the set of headers to and the parts of the
+   *          headers that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers
+   *          are forwarded to WAF for inspection by the underlying host service. You must
+   *          configure how to handle any oversize header content in the <code>Headers</code> object.
+   *          WAF applies the pattern matching filters to the headers that it receives from the
+   *          underlying host service. </p>
    */
   Headers?: Headers;
 
   /**
-   * <p>Inspect the request cookies. You must configure scope and pattern matching filters
-   *            in the <code>Cookies</code> object, to define the set of cookies and the parts of the cookies that WAF inspects. </p>
-   *          <p>Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to
-   *           WAF for inspection by the underlying host service. You must configure
-   *           how to handle any oversize cookie content in the <code>Cookies</code> object. WAF applies the pattern matching filters
-   *           to the cookies that it receives from the underlying host service. </p>
+   * <p>Inspect the request cookies. You must configure scope and pattern matching filters in
+   *          the <code>Cookies</code> object, to define the set of cookies and the parts of the cookies
+   *          that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies
+   *          are forwarded to WAF for inspection by the underlying host service. You must
+   *          configure how to handle any oversize cookie content in the <code>Cookies</code> object.
+   *          WAF applies the pattern matching filters to the cookies that it receives from the
+   *          underlying host service. </p>
    */
   Cookies?: Cookies;
 }
@@ -790,8 +813,8 @@ export interface TextTransformation {
   /**
    * <p>You can specify the following transformation types:</p>
    *          <p>
-   *             <b>BASE64_DECODE</b> - Decode a <code>Base64</code>-encoded
-   *          string.</p>
+   *             <b>BASE64_DECODE</b> - Decode a
+   *          <code>Base64</code>-encoded string.</p>
    *          <p>
    *             <b>BASE64_DECODE_EXT</b> - Decode a
    *          <code>Base64</code>-encoded string, but use a forgiving implementation that ignores
@@ -820,7 +843,6 @@ export interface TextTransformation {
    *                <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p>
    *             </li>
    *          </ul>
-   *
    *          <p>
    *             <b>COMPRESS_WHITE_SPACE</b> - Replace these characters
    *          with a space character (decimal 32): </p>
@@ -853,17 +875,20 @@ export interface TextTransformation {
    *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
    *          <p>
    *             <b>CSS_DECODE</b> - Decode characters that were encoded
-   *          using CSS 2.x escape rules <code>syndata.html#characters</code>. This function uses up to two bytes in
-   *          the decoding process, so it can help to uncover ASCII characters that were encoded using
-   *          CSS encoding that wouldn’t typically be encoded. It's also useful in countering evasion,
-   *          which is a combination of a backslash and non-hexadecimal characters. For example,
-   *          <code>ja\vascript</code> for javascript. </p>
+   *          using CSS 2.x escape rules <code>syndata.html#characters</code>. This function uses up to
+   *          two bytes in the decoding process, so it can help to uncover ASCII characters that were
+   *          encoded using CSS encoding that wouldn’t typically be encoded. It's also useful in
+   *          countering evasion, which is a combination of a backslash and non-hexadecimal characters.
+   *          For example, <code>ja\vascript</code> for javascript. </p>
    *          <p>
-   *             <b>ESCAPE_SEQ_DECODE</b> - Decode the following ANSI C escape sequences:
-   *          <code>\a</code>, <code>\b</code>, <code>\f</code>, <code>\n</code>, <code>\r</code>, <code>\t</code>, <code>\v</code>, <code>\\</code>, <code>\?</code>, <code>\'</code>, <code>\"</code>, <code>\xHH</code> (hexadecimal), <code>\0OOO</code> (octal). Encodings
-   *          that aren't valid remain in the output. </p>
+   *             <b>ESCAPE_SEQ_DECODE</b> - Decode the following ANSI C
+   *          escape sequences: <code>\a</code>, <code>\b</code>, <code>\f</code>, <code>\n</code>,
+   *             <code>\r</code>, <code>\t</code>, <code>\v</code>, <code>\\</code>, <code>\?</code>,
+   *             <code>\'</code>, <code>\"</code>, <code>\xHH</code> (hexadecimal), <code>\0OOO</code>
+   *          (octal). Encodings that aren't valid remain in the output. </p>
    *          <p>
-   *             <b>HEX_DECODE</b> - Decode a string of hexadecimal characters into a binary.</p>
+   *             <b>HEX_DECODE</b> - Decode a string of hexadecimal
+   *          characters into a binary.</p>
    *          <p>
    *             <b>HTML_ENTITY_DECODE</b> - Replace HTML-encoded
    *          characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs these
@@ -874,7 +899,8 @@ export interface TextTransformation {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p>
+   *                <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal
+   *                160</p>
    *             </li>
    *             <li>
    *                <p>Replaces <code>(ampersand)lt;</code> with a "less than" symbol</p>
@@ -884,19 +910,22 @@ export interface TextTransformation {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding characters</p>
+   *                <p>Replaces characters that are represented in hexadecimal format,
+   *                   <code>(ampersand)#xhhhh;</code>, with the corresponding characters</p>
    *             </li>
    *             <li>
-   *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
-   *                characters</p>
+   *                <p>Replaces characters that are represented in decimal format,
+   *                   <code>(ampersand)#nnnn;</code>, with the corresponding characters</p>
    *             </li>
    *          </ul>
    *          <p>
    *             <b>JS_DECODE</b> - Decode JavaScript escape sequences. If
-   *          a <code>\</code>
+   *          a
+   *          <code>\</code>
    *             <code>u</code>
-   *             <code>HHHH</code> code is in the full-width ASCII code range of <code>FF01-FF5E</code>, then the higher byte is
-   *          used to detect and adjust the lower byte. If not, only the lower byte is used and the
+   *             <code>HHHH</code>
+   *          code is in the full-width ASCII code range of <code>FF01-FF5E</code>, then the higher byte
+   *          is used to detect and adjust the lower byte. If not, only the lower byte is used and the
    *          higher byte is zeroed, causing a possible loss of information. </p>
    *          <p>
    *             <b>LOWERCASE</b> - Convert uppercase letters (A-Z) to
@@ -905,35 +934,37 @@ export interface TextTransformation {
    *             <b>MD5</b> - Calculate an MD5 hash from the data in the
    *          input. The computed hash is in a raw binary form. </p>
    *          <p>
-   *             <b>NONE</b> - Specify <code>NONE</code> if you don't want any text transformations.
-   *       </p>
+   *             <b>NONE</b> - Specify <code>NONE</code> if you don't want
+   *          any text transformations. </p>
    *          <p>
    *             <b>NORMALIZE_PATH</b> - Remove multiple slashes, directory
    *          self-references, and directory back-references that are not at the beginning of the input
    *          from an input string. </p>
    *          <p>
    *             <b>NORMALIZE_PATH_WIN</b> - This is the same as
-   *          <code>NORMALIZE_PATH</code>, but first converts backslash characters to forward slashes. </p>
+   *             <code>NORMALIZE_PATH</code>, but first converts backslash characters to forward slashes. </p>
    *          <p>
    *             <b>REMOVE_NULLS</b> - Remove all <code>NULL</code> bytes
    *          from the input. </p>
    *          <p>
    *             <b>REPLACE_COMMENTS</b> - Replace each occurrence of a
-   *          C-style comment (<code>/* ... *\/</code>) with a single space. Multiple consecutive occurrences are not
-   *          compressed. Unterminated comments are also replaced with a space (ASCII 0x20). However, a
-   *          standalone termination of a comment (<code>*\/</code>) is not acted upon. </p>
+   *          C-style comment (<code>/* ... *\/</code>) with a single space. Multiple consecutive
+   *          occurrences are not compressed. Unterminated comments are also replaced with a space (ASCII
+   *          0x20). However, a standalone termination of a comment (<code>*\/</code>) is not acted upon. </p>
    *          <p>
    *             <b>REPLACE_NULLS</b> - Replace NULL bytes in the input
    *          with space characters (ASCII <code>0x20</code>). </p>
    *          <p>
-   *             <b>SQL_HEX_DECODE</b> - Decode SQL hex data. Example (<code>0x414243</code>) will be decoded to (<code>ABC</code>).</p>
+   *             <b>SQL_HEX_DECODE</b> - Decode SQL hex data. Example
+   *             (<code>0x414243</code>) will be decoded to (<code>ABC</code>).</p>
    *          <p>
    *             <b>URL_DECODE</b> - Decode a URL-encoded value. </p>
    *          <p>
-   *             <b>URL_DECODE_UNI</b> - Like <code>URL_DECODE</code>, but with support
-   *          for Microsoft-specific <code>%u</code> encoding. If the code is in the full-width ASCII code range of
-   *          <code>FF01-FF5E</code>, the higher byte is used to detect and adjust the lower byte. Otherwise, only the
-   *          lower byte is used and the higher byte is zeroed. </p>
+   *             <b>URL_DECODE_UNI</b> - Like <code>URL_DECODE</code>, but
+   *          with support for Microsoft-specific <code>%u</code> encoding. If the code is in the
+   *          full-width ASCII code range of <code>FF01-FF5E</code>, the higher byte is used to detect
+   *          and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is
+   *          zeroed. </p>
    *          <p>
    *             <b>UTF8_TO_UNICODE</b> - Convert all UTF-8 character
    *          sequences to Unicode. This helps input normalization, and minimizing false-positives and
@@ -952,7 +983,7 @@ export namespace TextTransformation {
 }
 
 /**
- * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is refered to as a string match statement.</p>
+ * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is called a string match statement.</p>
  */
 export interface ByteMatchStatement {
   /**
@@ -994,7 +1025,7 @@ export interface ByteMatchStatement {
   SearchString: Uint8Array | undefined;
 
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1560,9 +1591,10 @@ export namespace LabelMatchStatement {
 }
 
 /**
- * <p>Specifies a single rule in a rule group whose action you want to override to <code>Count</code>. When you exclude a rule,
- *            WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>. This is a useful option for
- *            testing the rules in a rule group without modifying how they handle your web traffic. </p>
+ * <p>Specifies a single rule in a rule group whose action you want to override to
+ *             <code>Count</code>. When you exclude a rule, WAF evaluates it exactly as it would if
+ *          the rule action setting were <code>Count</code>. This is a useful option for testing the
+ *          rules in a rule group without modifying how they handle your web traffic. </p>
  */
 export interface ExcludedRule {
   /**
@@ -1581,7 +1613,8 @@ export namespace ExcludedRule {
 }
 
 /**
- * <p>Details about your login page password field, used in a <code>ManagedRuleGroupConfig</code>. </p>
+ * <p>Details about your login page password field, used in a
+ *             <code>ManagedRuleGroupConfig</code>. </p>
  */
 export interface PasswordField {
   /**
@@ -1605,7 +1638,8 @@ export enum PayloadType {
 }
 
 /**
- * <p>Details about your login page username field, used in a <code>ManagedRuleGroupConfig</code>. </p>
+ * <p>Details about your login page username field, used in a
+ *             <code>ManagedRuleGroupConfig</code>. </p>
  */
 export interface UsernameField {
   /**
@@ -1631,7 +1665,9 @@ export namespace UsernameField {
  */
 export interface ManagedRuleGroupConfig {
   /**
-   * <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>.</p>
+   * <p>The path of the login endpoint for your application. For example, for the URL
+   *             <code>https://example.com/web/login</code>, you would provide the path
+   *             <code>/web/login</code>.</p>
    */
   LoginPath?: string;
 
@@ -1675,7 +1711,7 @@ export interface RegexMatchStatement {
   RegexString: string | undefined;
 
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1708,7 +1744,7 @@ export interface RegexPatternSetReferenceStatement {
   ARN: string | undefined;
 
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1741,9 +1777,10 @@ export interface RuleGroupReferenceStatement {
   ARN: string | undefined;
 
   /**
-   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>.
-   *        When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>.
-   *        This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.</p>
+   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When
+   *          you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were
+   *             <code>Count</code>. This is a useful option for testing the rules in a rule group
+   *          without modifying how they handle your web traffic.</p>
    */
   ExcludedRules?: ExcludedRule[];
 }
@@ -1768,12 +1805,12 @@ export enum ComparisonOperator {
 
 /**
  * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
- *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p>
+ *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.</p>
  *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
  */
 export interface SizeConstraintStatement {
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1804,12 +1841,17 @@ export namespace SizeConstraintStatement {
   });
 }
 
+export enum SensitivityLevel {
+  HIGH = "HIGH",
+  LOW = "LOW",
+}
+
 /**
- * <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
+ * <p>A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it. </p>
  */
 export interface SqliMatchStatement {
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1819,6 +1861,22 @@ export interface SqliMatchStatement {
    *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>The sensitivity that you want WAF to use to inspect for SQL injection attacks. </p>
+   *          <p>
+   *             <code>HIGH</code> detects more attacks, but might generate more false positives,
+   *        especially if your web requests frequently contain unusual strings.
+   *        For information about identifying and mitigating false positives, see
+   *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html">Testing and tuning</a> in the
+   *            <i>WAF Developer Guide</i>.</p>
+   *          <p>
+   *             <code>LOW</code> is generally a better choice for resources that already have other
+   *            protections against SQL injection attacks or that have a low tolerance for false positives. </p>
+   *          <p>Default: <code>LOW</code>
+   *          </p>
+   */
+  SensitivityLevel?: SensitivityLevel | string;
 }
 
 export namespace SqliMatchStatement {
@@ -1831,15 +1889,12 @@ export namespace SqliMatchStatement {
 }
 
 /**
- * <p>A rule statement that defines a cross-site scripting (XSS) match search for WAF to apply to web requests.
- *          XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious
- *          client-site scripts into other legitimate web browsers.
- *          The XSS match statement provides the location in requests that you want WAF to search and text transformations
- *          to use on the search area before WAF searches for character sequences that are likely to be malicious strings. </p>
+ * <p>A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker
+ * uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. </p>
  */
 export interface XssMatchStatement {
   /**
-   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -2037,7 +2092,8 @@ export enum ParameterExceptionField {
  *                isn't among the types available at <a>DefaultAction</a>.</p>
  *             </li>
  *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.</p>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
  *             </li>
  *          </ul>
  */
@@ -2097,7 +2153,9 @@ export class WAFNonexistentItemException extends __BaseException {
 }
 
 /**
- * <p>WAF couldn’t retrieve a resource that you specified for this operation. Verify the resources that you are specifying in your request parameters and then retry the operation.</p>
+ * <p>WAF couldn’t retrieve a resource that you specified for this operation. Verify the
+ *          resources that you are specifying in your request parameters and then retry the
+ *          operation.</p>
  */
 export class WAFUnavailableEntityException extends __BaseException {
   readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
@@ -2126,7 +2184,7 @@ export class WAFUnavailableEntityException extends __BaseException {
 export interface CustomResponse {
   /**
    * <p>The HTTP status code to return to the client. </p>
-   *          <p>For a list of status codes that you can use in your custom reqponses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the
+   *          <p>For a list of status codes that you can use in your custom responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   ResponseCode: number | undefined;
@@ -2210,7 +2268,6 @@ export namespace BlockAction {
  *                in the <code>CaptchaConfig</code>
  *             <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>
  *          <p>This action option is available for rules. It isn't available for web ACL default actions. </p>
- *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
 export interface CaptchaAction {
   /**
@@ -2289,11 +2346,13 @@ export namespace RuleAction {
 }
 
 /**
- * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client successfully solves a <code>CAPTCHA</code> puzzle. </p>
+ * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client
+ *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
  */
 export interface ImmunityTimeProperty {
   /**
-   * <p>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default setting is 300.</p>
+   * <p>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default
+   *          setting is 300.</p>
    */
   ImmunityTime: number | undefined;
 }
@@ -2308,11 +2367,13 @@ export namespace ImmunityTimeProperty {
 }
 
 /**
- * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. This is available at the web ACL level and in each rule.  </p>
+ * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. This is
+ *          available at the web ACL level and in each rule. </p>
  */
 export interface CaptchaConfig {
   /**
-   * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client successfully solves a <code>CAPTCHA</code> puzzle. </p>
+   * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client
+   *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
    */
   ImmunityTimeProperty?: ImmunityTimeProperty;
 }
@@ -2327,8 +2388,9 @@ export namespace CaptchaConfig {
 }
 
 /**
- * <p>Specifies that WAF should do nothing. This is used for the <code>OverrideAction</code> setting
- *            on a <a>Rule</a> when the rule uses a rule group reference statement. </p>
+ * <p>Specifies that WAF should do nothing. This is used for the
+ *             <code>OverrideAction</code> setting on a <a>Rule</a> when the rule uses a
+ *          rule group reference statement. </p>
  *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  *          <p>JSON specification: <code>"None": {}</code>
  *          </p>
@@ -2418,8 +2480,8 @@ export interface VisibilityConfig {
   /**
    * <p>A name of the Amazon CloudWatch metric. The name can contain only the characters: A-Z, a-z, 0-9,
    *          - (hyphen), and _ (underscore). The name can be from one to 128 characters long. It can't
-   *          contain whitespace or metric names reserved for WAF, for example "All" and
-   *          "Default_Action." </p>
+   *       contain whitespace or metric names reserved for WAF, for example <code>All</code> and
+   *       <code>Default_Action</code>. </p>
    */
   MetricName: string | undefined;
 }
@@ -2794,7 +2856,7 @@ export class WAFTagOperationException extends __BaseException {
 
 /**
  * <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
- *          ybjectNoteWebRequestComponentour request.</p>
+ *          your request.</p>
  */
 export class WAFTagOperationInternalErrorException extends __BaseException {
   readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
@@ -3107,12 +3169,17 @@ export namespace CreateWebACLResponse {
 }
 
 /**
- * <p>The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components.
- *        Rules that inspect the body must either provide an <code>OversizeHandling</code> configuration or they must
- *        be preceded by a <code>SizeConstraintStatement</code> that blocks the body content from being too large.
- *        Rules that inspect the headers or cookies must provide an <code>OversizeHandling</code> configuration. </p>
+ * <p>The operation failed because you are inspecting the web request body, headers, or
+ *          cookies without specifying how to handle oversize components. Rules that inspect the body
+ *          must either provide an <code>OversizeHandling</code> configuration or they must be preceded
+ *          by a <code>SizeConstraintStatement</code> that blocks the body content from being too
+ *          large. Rules that inspect the headers or cookies must provide an
+ *             <code>OversizeHandling</code> configuration. </p>
  *          <p>Provide the handling configuration and retry your operation.</p>
- *          <p>Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: <code>Tag</code> (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>, value:<code>true</code>).</p>
+ *          <p>Alternately, you can suppress this warning by adding the following tag to the resource
+ *          that you provide to this operation: <code>Tag</code>
+ *             (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>,
+ *          value:<code>true</code>).</p>
  */
 export class WAFConfigurationWarningException extends __BaseException {
   readonly name: "WAFConfigurationWarningException" = "WAFConfigurationWarningException";
@@ -3221,9 +3288,11 @@ export namespace DeleteIPSetResponse {
 }
 
 /**
- * <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
- *          <p>For <code>DeleteWebACL</code>, you will only get this exception if the web ACL is still associated with
- *           a regional resource. Deleting a web ACL that is still associated with an Amazon CloudFront distribution won't get this exception. </p>
+ * <p>WAF couldn’t perform the operation because your resource is being used by another
+ *          resource or it’s associated with another resource. </p>
+ *          <p>For <code>DeleteWebACL</code>, you will only get this exception if the web ACL is still
+ *          associated with a regional resource. Deleting a web ACL that is still associated with an
+ *          Amazon CloudFront distribution won't get this exception. </p>
  */
 export class WAFAssociatedItemException extends __BaseException {
   readonly name: "WAFAssociatedItemException" = "WAFAssociatedItemException";
@@ -3245,8 +3314,7 @@ export class WAFAssociatedItemException extends __BaseException {
 
 export interface DeleteLoggingConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the
-   *        <a>LoggingConfiguration</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -3479,9 +3547,8 @@ export interface DescribeManagedRuleGroupRequest {
   Scope: Scope | string | undefined;
 
   /**
-   * <p>The version of the rule group. You can only use a version that is not
-   *        scheduled for expiration. If you don't provide this, WAF uses the vendor's default version.
-   *       </p>
+   * <p>The version of the rule group. You can only use a version that is not scheduled for
+   *          expiration. If you don't provide this, WAF uses the vendor's default version. </p>
    */
   VersionName?: string;
 }
@@ -3678,7 +3745,8 @@ export interface GenerateMobileSdkReleaseUrlRequest {
   Platform: Platform | string | undefined;
 
   /**
-   * <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+   * <p>The release version. For the latest available version, specify
+   *          <code>LATEST</code>.</p>
    */
   ReleaseVersion: string | undefined;
 }
@@ -3850,8 +3918,7 @@ export namespace GetIPSetResponse {
 
 export interface GetLoggingConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the
-   *        <a>LoggingConfiguration</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -3896,12 +3963,13 @@ export namespace LabelNameCondition {
  */
 export interface Condition {
   /**
-   * <p>A single action condition.</p>
+   * <p>A single action condition. This is the action setting that a log record must contain in order to meet the condition.</p>
    */
   ActionCondition?: ActionCondition;
 
   /**
-   * <p>A single label name condition.</p>
+   * <p>A single label name condition. This is the fully qualified label name that a log record must contain in order to meet the condition.
+   *        Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.  </p>
    */
   LabelNameCondition?: LabelNameCondition;
 }
@@ -3979,10 +4047,10 @@ export namespace LoggingFilter {
 }
 
 /**
- * <p>Defines an association between logging destinations and a web ACL
- *          resource, for logging from WAF. As part of the association, you can specify parts of
- *          the standard logging fields to keep out of the logs and you can specify filters so that you
- *          log only a subset of the logging records. </p>
+ * <p>Defines an association between logging destinations and a web ACL resource, for logging
+ *          from WAF. As part of the association, you can specify parts of the standard logging
+ *          fields to keep out of the logs and you can specify filters so that you log only a subset of
+ *          the logging records. </p>
  *          <note>
  *             <p>You can define one logging destination per web ACL.</p>
  *          </note>
@@ -4016,8 +4084,8 @@ export interface LoggingConfiguration {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The logging destination configuration that you want to associate
-   *          with the web ACL.</p>
+   * <p>The logging destination configuration that you want to associate with the web
+   *          ACL.</p>
    *          <note>
    *             <p>You can associate one logging destination to a web ACL.</p>
    *          </note>
@@ -4025,10 +4093,13 @@ export interface LoggingConfiguration {
   LogDestinationConfigs: string[] | undefined;
 
   /**
-   * <p>The parts of the request that you want to keep out of the logs. For
-   *           example, if you redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs will be <code>xxx</code>. </p>
+   * <p>The parts of the request that you want to keep out of the logs. For example, if you
+   *          redact the <code>SingleHeader</code> field, the <code>HEADER</code> field in the logs will
+   *          be <code>xxx</code>. </p>
    *          <note>
-   *            <p>You can specify only the following fields for redaction: <code>UriPath</code>, <code>QueryString</code>, <code>SingleHeader</code>, <code>Method</code>, and <code>JsonBody</code>.</p>
+   *             <p>You can specify only the following fields for redaction: <code>UriPath</code>,
+   *                <code>QueryString</code>, <code>SingleHeader</code>, <code>Method</code>, and
+   *                <code>JsonBody</code>.</p>
    *          </note>
    */
   RedactedFields?: FieldToMatch[];
@@ -4267,7 +4338,8 @@ export interface GetMobileSdkReleaseRequest {
   Platform: Platform | string | undefined;
 
   /**
-   * <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+   * <p>The release version. For the latest available version, specify
+   *          <code>LATEST</code>.</p>
    */
   ReleaseVersion: string | undefined;
 }
@@ -4392,13 +4464,15 @@ export interface GetRateBasedStatementManagedKeysRequest {
   WebACLId: string | undefined;
 
   /**
-   * <p>The name of the rule group reference statement in your web ACL. This is required only when you have the rate-based rule nested
-   * inside a rule group. </p>
+   * <p>The name of the rule group reference statement in your web ACL. This is required only
+   *          when you have the rate-based rule nested inside a rule group. </p>
    */
   RuleGroupRuleName?: string;
 
   /**
-   * <p>The name of the rate-based rule to get the keys for. If you have the rule defined inside a rule group that you're using in your web ACL, also provide the name of the rule group reference statement in the request parameter <code>RuleGroupRuleName</code>.</p>
+   * <p>The name of the rate-based rule to get the keys for. If you have the rule defined inside
+   *          a rule group that you're using in your web ACL, also provide the name of the rule group
+   *          reference statement in the request parameter <code>RuleGroupRuleName</code>.</p>
    */
   RuleName: string | undefined;
 }
@@ -4700,11 +4774,14 @@ export enum FailureReason {
 }
 
 /**
- * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code> token. </p>
+ * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code>
+ *          token. </p>
  */
 export interface CaptchaResponse {
   /**
-   * <p>The HTTP response code indicating the status of the <code>CAPTCHA</code> token in the web request. If the token is missing, invalid, or expired, this code is <code>405 Method Not Allowed</code>.</p>
+   * <p>The HTTP response code indicating the status of the <code>CAPTCHA</code> token in the
+   *          web request. If the token is missing, invalid, or expired, this code is <code>405 Method
+   *             Not Allowed</code>.</p>
    */
   ResponseCode?: number;
 
@@ -5036,7 +5113,8 @@ export interface ManagedRuleGroupSummary {
   Name?: string;
 
   /**
-   * <p>Indicates whether the managed rule group is versioned. If it is, you can retrieve the versions list by calling <a>ListAvailableManagedRuleGroupVersions</a>. </p>
+   * <p>Indicates whether the managed rule group is versioned. If it is, you can retrieve the
+   *          versions list by calling <a>ListAvailableManagedRuleGroupVersions</a>. </p>
    */
   VersioningSupported?: boolean;
 
@@ -5856,9 +5934,9 @@ export namespace PutLoggingConfigurationResponse {
 }
 
 /**
- * <p>The operation failed because you don't have the permissions that your logging configuration requires. For information, see
- *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
- *                in the <i>WAF Developer Guide</i>.</p>
+ * <p>The operation failed because you don't have the permissions that your logging
+ *          configuration requires. For information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *          in the <i>WAF Developer Guide</i>.</p>
  */
 export class WAFLogDestinationPermissionIssueException extends __BaseException {
   readonly name: "WAFLogDestinationPermissionIssueException" = "WAFLogDestinationPermissionIssueException";
@@ -6450,31 +6528,29 @@ export namespace UpdateWebACLResponse {
 }
 
 /**
- * <p>The processing guidance for a <a>Rule</a>, used by WAF to determine whether a web request matches the rule. </p>
+ * <p>The processing guidance for a <a>Rule</a>, used by WAF to determine whether
+ *          a web request matches the rule. </p>
  */
 export interface Statement {
   /**
-   * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is refered to as a string match statement.</p>
+   * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is called a string match statement.</p>
    */
   ByteMatchStatement?: ByteMatchStatement;
 
   /**
-   * <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
+   * <p>A rule statement that inspects for malicious SQL code. Attackers insert malicious SQL code into web requests to do things like modify your database or extract data from it. </p>
    */
   SqliMatchStatement?: SqliMatchStatement;
 
   /**
-   * <p>A rule statement that defines a cross-site scripting (XSS) match search for WAF to apply to web requests.
-   *          XSS attacks are those where the attacker uses vulnerabilities in a benign website as a vehicle to inject malicious
-   *          client-site scripts into other legitimate web browsers.
-   *          The XSS match statement provides the location in requests that you want WAF to search and text transformations
-   *          to use on the search area before WAF searches for character sequences that are likely to be malicious strings. </p>
+   * <p>A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker
+   * uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. </p>
    */
   XssMatchStatement?: XssMatchStatement;
 
   /**
    * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
-   *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you can create a size constraint condition and block requests that have a request body greater than 8192 bytes.</p>
+   *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.</p>
    *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
    */
   SizeConstraintStatement?: SizeConstraintStatement;
@@ -6516,7 +6592,7 @@ export interface Statement {
    *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
    *             </li>
    *          </ul>
-   *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>
+   *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.</p>
    *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
    */
   RateBasedStatement?: RateBasedStatement;
@@ -6580,16 +6656,17 @@ export interface ManagedRuleGroupStatement {
 
   /**
    * <p>The version of the managed rule group to use. If you specify this, the version setting
-   *        is fixed until you change it.
-   *       If you don't specify this, WAF uses the vendor's default version, and then keeps the version
-   *       at the vendor's default when the vendor updates the managed rule group settings. </p>
+   *          is fixed until you change it. If you don't specify this, WAF uses the vendor's
+   *          default version, and then keeps the version at the vendor's default when the vendor updates
+   *          the managed rule group settings. </p>
    */
   Version?: string;
 
   /**
-   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>.
-   *        When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>.
-   *        This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.</p>
+   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>. When
+   *          you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were
+   *             <code>Count</code>. This is a useful option for testing the rules in a rule group
+   *          without modifying how they handle your web traffic.</p>
    */
   ExcludedRules?: ExcludedRule[];
 
@@ -6652,7 +6729,7 @@ export namespace NotStatement {
  *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
  *             </li>
  *          </ul>
- *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet both of the conditions in the statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet both conditions are not counted towards the rate limit and are not affected by this rule.</p>
+ *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.</p>
  *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
  */
 export interface RateBasedStatement {
