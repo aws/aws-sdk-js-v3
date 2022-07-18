@@ -88,6 +88,14 @@ import {
 import { CreateDeviceFleetCommandInput, CreateDeviceFleetCommandOutput } from "./commands/CreateDeviceFleetCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import {
+  CreateEdgeDeploymentPlanCommandInput,
+  CreateEdgeDeploymentPlanCommandOutput,
+} from "./commands/CreateEdgeDeploymentPlanCommand";
+import {
+  CreateEdgeDeploymentStageCommandInput,
+  CreateEdgeDeploymentStageCommandOutput,
+} from "./commands/CreateEdgeDeploymentStageCommand";
+import {
   CreateEdgePackagingJobCommandInput,
   CreateEdgePackagingJobCommandOutput,
 } from "./commands/CreateEdgePackagingJobCommand";
@@ -192,6 +200,14 @@ import {
 } from "./commands/DeleteDataQualityJobDefinitionCommand";
 import { DeleteDeviceFleetCommandInput, DeleteDeviceFleetCommandOutput } from "./commands/DeleteDeviceFleetCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import {
+  DeleteEdgeDeploymentPlanCommandInput,
+  DeleteEdgeDeploymentPlanCommandOutput,
+} from "./commands/DeleteEdgeDeploymentPlanCommand";
+import {
+  DeleteEdgeDeploymentStageCommandInput,
+  DeleteEdgeDeploymentStageCommandOutput,
+} from "./commands/DeleteEdgeDeploymentStageCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEndpointConfigCommandInput,
@@ -284,6 +300,10 @@ import {
   DescribeDeviceFleetCommandOutput,
 } from "./commands/DescribeDeviceFleetCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import {
+  DescribeEdgeDeploymentPlanCommandInput,
+  DescribeEdgeDeploymentPlanCommandOutput,
+} from "./commands/DescribeEdgeDeploymentPlanCommand";
 import {
   DescribeEdgePackagingJobCommandInput,
   DescribeEdgePackagingJobCommandOutput,
@@ -468,6 +488,10 @@ import { ListDeviceFleetsCommandInput, ListDeviceFleetsCommandOutput } from "./c
 import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  ListEdgeDeploymentPlansCommandInput,
+  ListEdgeDeploymentPlansCommandOutput,
+} from "./commands/ListEdgeDeploymentPlansCommand";
+import {
   ListEdgePackagingJobsCommandInput,
   ListEdgePackagingJobsCommandOutput,
 } from "./commands/ListEdgePackagingJobsCommand";
@@ -549,6 +573,7 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "./commands/ListStageDevicesCommand";
 import {
   ListStudioLifecycleConfigsCommandInput,
   ListStudioLifecycleConfigsCommandOutput,
@@ -593,6 +618,10 @@ import {
   SendPipelineExecutionStepSuccessCommandOutput,
 } from "./commands/SendPipelineExecutionStepSuccessCommand";
 import {
+  StartEdgeDeploymentStageCommandInput,
+  StartEdgeDeploymentStageCommandOutput,
+} from "./commands/StartEdgeDeploymentStageCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "./commands/StartMonitoringScheduleCommand";
@@ -606,6 +635,10 @@ import {
 } from "./commands/StartPipelineExecutionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "./commands/StopCompilationJobCommand";
+import {
+  StopEdgeDeploymentStageCommandInput,
+  StopEdgeDeploymentStageCommandOutput,
+} from "./commands/StopEdgeDeploymentStageCommand";
 import {
   StopEdgePackagingJobCommandInput,
   StopEdgePackagingJobCommandOutput,
@@ -707,6 +740,8 @@ export type ServiceInputTypes =
   | CreateDataQualityJobDefinitionCommandInput
   | CreateDeviceFleetCommandInput
   | CreateDomainCommandInput
+  | CreateEdgeDeploymentPlanCommandInput
+  | CreateEdgeDeploymentStageCommandInput
   | CreateEdgePackagingJobCommandInput
   | CreateEndpointCommandInput
   | CreateEndpointConfigCommandInput
@@ -752,6 +787,8 @@ export type ServiceInputTypes =
   | DeleteDataQualityJobDefinitionCommandInput
   | DeleteDeviceFleetCommandInput
   | DeleteDomainCommandInput
+  | DeleteEdgeDeploymentPlanCommandInput
+  | DeleteEdgeDeploymentStageCommandInput
   | DeleteEndpointCommandInput
   | DeleteEndpointConfigCommandInput
   | DeleteExperimentCommandInput
@@ -793,6 +830,7 @@ export type ServiceInputTypes =
   | DescribeDeviceCommandInput
   | DescribeDeviceFleetCommandInput
   | DescribeDomainCommandInput
+  | DescribeEdgeDeploymentPlanCommandInput
   | DescribeEdgePackagingJobCommandInput
   | DescribeEndpointCommandInput
   | DescribeEndpointConfigCommandInput
@@ -853,6 +891,7 @@ export type ServiceInputTypes =
   | ListDeviceFleetsCommandInput
   | ListDevicesCommandInput
   | ListDomainsCommandInput
+  | ListEdgeDeploymentPlansCommandInput
   | ListEdgePackagingJobsCommandInput
   | ListEndpointConfigsCommandInput
   | ListEndpointsCommandInput
@@ -884,6 +923,7 @@ export type ServiceInputTypes =
   | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
   | ListProjectsCommandInput
+  | ListStageDevicesCommandInput
   | ListStudioLifecycleConfigsCommandInput
   | ListSubscribedWorkteamsCommandInput
   | ListTagsCommandInput
@@ -903,11 +943,13 @@ export type ServiceInputTypes =
   | SearchCommandInput
   | SendPipelineExecutionStepFailureCommandInput
   | SendPipelineExecutionStepSuccessCommandInput
+  | StartEdgeDeploymentStageCommandInput
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
   | StopAutoMLJobCommandInput
   | StopCompilationJobCommandInput
+  | StopEdgeDeploymentStageCommandInput
   | StopEdgePackagingJobCommandInput
   | StopHyperParameterTuningJobCommandInput
   | StopInferenceRecommendationsJobCommandInput
@@ -963,6 +1005,8 @@ export type ServiceOutputTypes =
   | CreateDataQualityJobDefinitionCommandOutput
   | CreateDeviceFleetCommandOutput
   | CreateDomainCommandOutput
+  | CreateEdgeDeploymentPlanCommandOutput
+  | CreateEdgeDeploymentStageCommandOutput
   | CreateEdgePackagingJobCommandOutput
   | CreateEndpointCommandOutput
   | CreateEndpointConfigCommandOutput
@@ -1008,6 +1052,8 @@ export type ServiceOutputTypes =
   | DeleteDataQualityJobDefinitionCommandOutput
   | DeleteDeviceFleetCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteEdgeDeploymentPlanCommandOutput
+  | DeleteEdgeDeploymentStageCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEndpointConfigCommandOutput
   | DeleteExperimentCommandOutput
@@ -1049,6 +1095,7 @@ export type ServiceOutputTypes =
   | DescribeDeviceCommandOutput
   | DescribeDeviceFleetCommandOutput
   | DescribeDomainCommandOutput
+  | DescribeEdgeDeploymentPlanCommandOutput
   | DescribeEdgePackagingJobCommandOutput
   | DescribeEndpointCommandOutput
   | DescribeEndpointConfigCommandOutput
@@ -1109,6 +1156,7 @@ export type ServiceOutputTypes =
   | ListDeviceFleetsCommandOutput
   | ListDevicesCommandOutput
   | ListDomainsCommandOutput
+  | ListEdgeDeploymentPlansCommandOutput
   | ListEdgePackagingJobsCommandOutput
   | ListEndpointConfigsCommandOutput
   | ListEndpointsCommandOutput
@@ -1140,6 +1188,7 @@ export type ServiceOutputTypes =
   | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
   | ListProjectsCommandOutput
+  | ListStageDevicesCommandOutput
   | ListStudioLifecycleConfigsCommandOutput
   | ListSubscribedWorkteamsCommandOutput
   | ListTagsCommandOutput
@@ -1159,11 +1208,13 @@ export type ServiceOutputTypes =
   | SearchCommandOutput
   | SendPipelineExecutionStepFailureCommandOutput
   | SendPipelineExecutionStepSuccessCommandOutput
+  | StartEdgeDeploymentStageCommandOutput
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput
   | StopAutoMLJobCommandOutput
   | StopCompilationJobCommandOutput
+  | StopEdgeDeploymentStageCommandOutput
   | StopEdgePackagingJobCommandOutput
   | StopHyperParameterTuningJobCommandOutput
   | StopInferenceRecommendationsJobCommandOutput

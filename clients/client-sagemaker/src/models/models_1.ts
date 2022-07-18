@@ -47,7 +47,10 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DeploymentConfig,
+  DeviceSelectionConfig,
   DomainSettings,
+  EdgeDeploymentConfig,
+  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
@@ -58,14 +61,13 @@ import {
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningJobConfig,
-  HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobWarmStartConfig,
+  HyperParameterTuningJobObjective,
+  HyperParameterTuningJobStrategyType,
   InferenceSpecification,
   InputConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
+  MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
   ModelDeployConfig,
@@ -76,11 +78,11 @@ import {
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
-  ObjectiveStatus,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
   OutputDataConfig,
+  ParameterRanges,
   ProblemType,
   ProcessingInstanceType,
   ProcessingS3DataDistributionType,
@@ -92,19 +94,535 @@ import {
   ProductionVariantServerlessConfig,
   PublicWorkforceTaskPrice,
   ResourceConfig,
+  ResourceLimits,
   ResourceSpec,
-  RetryStrategy,
   StoppingCondition,
   Tag,
+  TrainingInputMode,
+  TrainingJobEarlyStoppingType,
   TrainingSpecification,
   TransformInput,
   TransformJobDefinition,
   TransformOutput,
   TransformResources,
+  TuningJobCompletionCriteria,
   UserContext,
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Configures a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTuningJobConfig {
+  /**
+   * <p>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
+   *             to use for the training job it launches. To use the Bayesian search strategy, set this
+   *             to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>. For
+   *             information about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+   *                 Hyperparameter Tuning Works</a>.</p>
+   */
+  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+
+  /**
+   * <p>The <a>HyperParameterTuningJobObjective</a> object that specifies the
+   *             objective
+   *             metric for this tuning job.</p>
+   */
+  HyperParameterTuningJobObjective?: HyperParameterTuningJobObjective;
+
+  /**
+   * <p>The <a>ResourceLimits</a> object that specifies the
+   *             maximum
+   *             number of training jobs and parallel training jobs for this tuning
+   *             job.</p>
+   */
+  ResourceLimits: ResourceLimits | undefined;
+
+  /**
+   * <p>The <a>ParameterRanges</a> object that specifies the ranges of
+   *             hyperparameters
+   *             that this tuning job searches.</p>
+   */
+  ParameterRanges?: ParameterRanges;
+
+  /**
+   * <p>Specifies whether to use early stopping for training jobs launched by the
+   *             hyperparameter tuning job. This can be one of the following values (the default value is
+   *                 <code>OFF</code>):</p>
+   *         <dl>
+   *             <dt>OFF</dt>
+   *             <dd>
+   *                     <p>Training jobs launched by the hyperparameter tuning job do not use early
+   *                         stopping.</p>
+   *                 </dd>
+   *             <dt>AUTO</dt>
+   *             <dd>
+   *                     <p>SageMaker stops training jobs launched by the hyperparameter tuning job when
+   *                         they are unlikely to perform better than previously completed training jobs.
+   *                         For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop Training Jobs Early</a>.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType | string;
+
+  /**
+   * <p>The tuning job's completion criteria.</p>
+   */
+  TuningJobCompletionCriteria?: TuningJobCompletionCriteria;
+}
+
+export namespace HyperParameterTuningJobConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies
+ *             which
+ *             training algorithm to use for training jobs that a hyperparameter
+ *             tuning job launches and the metrics to monitor.</p>
+ */
+export interface HyperParameterAlgorithmSpecification {
+  /**
+   * <p> The registry path of the Docker image that contains the training algorithm. For
+   *             information about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
+   *                 Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
+   *                 SageMaker</a>.</p>
+   */
+  TrainingImage?: string;
+
+  /**
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
+   */
+  TrainingInputMode: TrainingInputMode | string | undefined;
+
+  /**
+   * <p>The name of the resource algorithm to use for the hyperparameter tuning job. If you
+   *             specify a value for this parameter, do not specify a value for
+   *                 <code>TrainingImage</code>.</p>
+   */
+  AlgorithmName?: string;
+
+  /**
+   * <p>An array of <a>MetricDefinition</a> objects that specify the
+   *             metrics
+   *             that the algorithm emits.</p>
+   */
+  MetricDefinitions?: MetricDefinition[];
+}
+
+export namespace HyperParameterAlgorithmSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterAlgorithmSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The retry strategy to use when a training job fails due to an
+ *                 <code>InternalServerError</code>. <code>RetryStrategy</code> is specified as part of
+ *             the <code>CreateTrainingJob</code> and <code>CreateHyperParameterTuningJob</code>
+ *             requests. You can add the <code>StoppingCondition</code> parameter to the request to
+ *             limit the training time for the complete job.</p>
+ */
+export interface RetryStrategy {
+  /**
+   * <p>The number of times to retry the job. When the job is retried, it's
+   *                 <code>SecondaryStatus</code> is changed to <code>STARTING</code>.</p>
+   */
+  MaximumRetryAttempts: number | undefined;
+}
+
+export namespace RetryStrategy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryStrategy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines
+ *             the training jobs launched by a hyperparameter tuning job.</p>
+ */
+export interface HyperParameterTrainingJobDefinition {
+  /**
+   * <p>The job definition name.</p>
+   */
+  DefinitionName?: string;
+
+  /**
+   * <p>Defines the objective metric for a hyperparameter tuning job.
+   *             Hyperparameter
+   *             tuning uses the value of this metric to evaluate the training jobs it launches, and
+   *             returns the training job that results in either the highest or lowest value for this
+   *             metric, depending on the value you specify for the <code>Type</code>
+   *             parameter.</p>
+   */
+  TuningObjective?: HyperParameterTuningJobObjective;
+
+  /**
+   * <p>Specifies ranges of integer, continuous, and categorical hyperparameters that a
+   *             hyperparameter tuning job searches. The hyperparameter tuning job launches training jobs
+   *             with hyperparameter values within these ranges to find the combination of values that
+   *             result in the training job with the best performance as measured by the objective metric
+   *             of the hyperparameter tuning job.</p>
+   *         <note>
+   *             <p>The maximum number of items specified for <code>Array Members</code> refers to
+   *                 the maximum number of hyperparameters for each range and also the maximum for the
+   *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
+   *                 for all the ranges can't exceed the maximum number specified.</p>
+   *         </note>
+   */
+  HyperParameterRanges?: ParameterRanges;
+
+  /**
+   * <p>Specifies the values of hyperparameters
+   *             that
+   *             do not change for the tuning job.</p>
+   */
+  StaticHyperParameters?: Record<string, string>;
+
+  /**
+   * <p>The <a>HyperParameterAlgorithmSpecification</a> object that
+   *             specifies
+   *             the resource algorithm to use for the training jobs that the tuning
+   *             job launches.</p>
+   */
+  AlgorithmSpecification: HyperParameterAlgorithmSpecification | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the
+   *             IAM
+   *             role associated with the training jobs that the tuning job
+   *             launches.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of <a>Channel</a> objects that specify
+   *             the
+   *             input for the training jobs that the tuning job launches.</p>
+   */
+  InputDataConfig?: Channel[];
+
+  /**
+   * <p>The <a>VpcConfig</a> object that
+   *             specifies
+   *             the VPC that you want the training jobs that this hyperparameter
+   *             tuning job launches to connect to. Control access to and from your
+   *             training
+   *             container by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs
+   *                 by Using an Amazon Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Specifies the path to the Amazon S3 bucket where you
+   *             store
+   *             model artifacts from the training jobs that the tuning job
+   *             launches.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The resources,
+   *             including
+   *             the compute instances and storage volumes, to use for the training
+   *             jobs that the tuning job launches.</p>
+   *         <p>Storage volumes store model artifacts and
+   *             incremental
+   *             states. Training algorithms might also use storage volumes for
+   *             scratch
+   *             space. If you want SageMaker to use the storage volume to store the
+   *             training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the
+   *             algorithm specification. For distributed training algorithms, specify an instance count
+   *             greater than 1.</p>
+   */
+  ResourceConfig: ResourceConfig | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
+   *             specifies how long a managed spot training job has to complete. When the job reaches the
+   *             time limit, SageMaker ends the training job. Use this API to cap model training costs.</p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>Isolates the training container. No inbound or outbound network calls can be made,
+   *             except for calls between peers within a training cluster for distributed training. If
+   *             network isolation is used for training jobs that are configured to use a VPC, SageMaker
+   *             downloads and uploads customer data and model artifacts through the specified VPC, but
+   *             the training container does not have network access.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+
+  /**
+   * <p>To encrypt all communications between ML compute instances in distributed training,
+   *             choose <code>True</code>. Encryption provides greater security for distributed training,
+   *             but training might take longer. How long it takes depends on the amount of communication
+   *             between compute instances, especially if you use a deep learning algorithm in
+   *             distributed training.</p>
+   */
+  EnableInterContainerTrafficEncryption?: boolean;
+
+  /**
+   * <p>A Boolean indicating whether managed spot training is enabled (<code>True</code>) or
+   *             not (<code>False</code>).</p>
+   */
+  EnableManagedSpotTraining?: boolean;
+
+  /**
+   * <p>Contains information about the output location for managed spot training checkpoint
+   *             data. </p>
+   */
+  CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
+}
+
+export namespace HyperParameterTrainingJobDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTrainingJobDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A previously completed or stopped hyperparameter tuning job to be used as a starting
+ *             point for a new hyperparameter tuning job.</p>
+ */
+export interface ParentHyperParameterTuningJob {
+  /**
+   * <p>The name of the hyperparameter tuning job to be used as a starting point for a new
+   *             hyperparameter tuning job.</p>
+   */
+  HyperParameterTuningJobName?: string;
+}
+
+export namespace ParentHyperParameterTuningJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ParentHyperParameterTuningJob): any => ({
+    ...obj,
+  });
+}
+
+export enum HyperParameterTuningJobWarmStartType {
+  IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
+  TRANSFER_LEARNING = "TransferLearning",
+}
+
+/**
+ * <p>Specifies the configuration for a hyperparameter tuning job that uses one or more
+ *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
+ *             jobs are used to inform which combinations of hyperparameters to search over in the new
+ *             tuning job.</p>
+ *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+ *             the objective metric, and the training job that performs the best is compared to the
+ *             best training jobs from the parent tuning jobs. From these, the training job that
+ *             performs the best as measured by the objective metric is returned as the overall best
+ *             training job.</p>
+ *         <note>
+ *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+ *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+ *                 job.</p>
+ *         </note>
+ */
+export interface HyperParameterTuningJobWarmStartConfig {
+  /**
+   * <p>An array of hyperparameter tuning jobs that are used as the starting point for the new
+   *             hyperparameter tuning job. For more information about warm starting a hyperparameter
+   *             tuning job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html">Using a Previous
+   *                 Hyperparameter Tuning Job as a Starting Point</a>.</p>
+   *         <p>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
+   *             jobs for warm start tuning jobs.</p>
+   */
+  ParentHyperParameterTuningJobs: ParentHyperParameterTuningJob[] | undefined;
+
+  /**
+   * <p>Specifies one of the following:</p>
+   *         <dl>
+   *             <dt>IDENTICAL_DATA_AND_ALGORITHM</dt>
+   *             <dd>
+   *                     <p>The new hyperparameter tuning job uses the same input data and training
+   *                         image as the parent tuning jobs. You can change the hyperparameter ranges to
+   *                         search and the maximum number of training jobs that the hyperparameter
+   *                         tuning job launches. You cannot use a new version of the training algorithm,
+   *                         unless the changes in the new version do not affect the algorithm itself.
+   *                         For example, changes that improve logging or adding support for a different
+   *                         data format are allowed. You can also change hyperparameters from tunable to
+   *                         static, and from static to tunable, but the total number of static plus
+   *                         tunable hyperparameters must remain the same as it is in all parent jobs.
+   *                         The objective metric for the new tuning job must be the same as for all
+   *                         parent jobs.</p>
+   *                 </dd>
+   *             <dt>TRANSFER_LEARNING</dt>
+   *             <dd>
+   *                     <p>The new hyperparameter tuning job can include input data, hyperparameter
+   *                         ranges, maximum number of concurrent training jobs, and maximum number of
+   *                         training jobs that are different than those of its parent hyperparameter
+   *                         tuning jobs. The training image can also be a different version from the
+   *                         version used in the parent hyperparameter tuning job. You can also change
+   *                         hyperparameters from tunable to static, and from static to tunable, but the
+   *                         total number of static plus tunable hyperparameters must remain the same as
+   *                         it is in all parent jobs. The objective metric for the new tuning job must
+   *                         be the same as for all parent jobs.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  WarmStartType: HyperParameterTuningJobWarmStartType | string | undefined;
+}
+
+export namespace HyperParameterTuningJobWarmStartConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HyperParameterTuningJobWarmStartConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job. This name is the prefix for the names of all training jobs
+   *             that this tuning job launches. The name must be unique within the same Amazon Web Services account and
+   *             Amazon Web Services Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9,
+   *             and : + = @ _ % - (hyphen). The name is not case sensitive.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>The <a>HyperParameterTuningJobConfig</a> object that describes the tuning
+   *             job, including the search strategy, the objective metric used to evaluate training jobs,
+   *             ranges of parameters to search, and resource limits for the tuning job. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+   *                 Hyperparameter Tuning Works</a>.</p>
+   */
+  HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
+
+  /**
+   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that describes the
+   *             training jobs that this tuning job launches, including static hyperparameters, input
+   *             data configuration, output data configuration, resource configuration, and stopping
+   *             condition.</p>
+   */
+  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
+
+  /**
+   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
+   *             for this tuning job.</p>
+   */
+  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
+
+  /**
+   * <p>Specifies the configuration for starting the hyperparameter tuning job using one or
+   *             more previous tuning jobs as a starting point. The results of previous tuning jobs are
+   *             used to inform which combinations of hyperparameters to search over in the new tuning
+   *             job.</p>
+   *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *             the objective metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the
+   *                 <code>WarmStartType</code> value for the warm start configuration, the training job
+   *             that performs the best in the new tuning job is compared to the best training jobs from
+   *             the parent tuning jobs. From these, the training job that performs the best as measured
+   *             by the objective metric is returned as the overall best training job.</p>
+   *         <note>
+   *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
+   *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
+   *                 job.</p>
+   *         </note>
+   */
+  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
+   *             different ways, for example, by purpose, owner, or environment. For more information,
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *                 Resources</a>.</p>
+   *         <p>Tags that you specify for the tuning job are also added to all training jobs that the
+   *             tuning job launches.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateHyperParameterTuningJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateHyperParameterTuningJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateHyperParameterTuningJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job. SageMaker assigns an ARN to a
+   *             hyperparameter tuning job when you create it.</p>
+   */
+  HyperParameterTuningJobArn: string | undefined;
+}
+
+export namespace CreateHyperParameterTuningJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateHyperParameterTuningJobResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateImageRequest {
   /**
@@ -7561,6 +8079,43 @@ export namespace DeleteDomainRequest {
   });
 }
 
+export interface DeleteEdgeDeploymentPlanRequest {
+  /**
+   * <p>The name of the edge deployment plan to delete.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+}
+
+export namespace DeleteEdgeDeploymentPlanRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEdgeDeploymentPlanRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan from which the stage will be deleted.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+}
+
+export namespace DeleteEdgeDeploymentStageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEdgeDeploymentStageRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteEndpointInput {
   /**
    * <p>The name of the endpoint that you want to delete.</p>
@@ -8198,6 +8753,95 @@ export namespace DeployedImage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeployedImage): any => ({
+    ...obj,
+  });
+}
+
+export enum StageStatus {
+  Creating = "CREATING",
+  Deployed = "DEPLOYED",
+  Failed = "FAILED",
+  InProgress = "INPROGRESS",
+  ReadyToDeploy = "READYTODEPLOY",
+  Starting = "STARTING",
+  Stopped = "STOPPED",
+  Stopping = "STOPPING",
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface EdgeDeploymentStatus {
+  /**
+   * <p>The general status of the current stage.</p>
+   */
+  StageStatus: StageStatus | string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment in the current stage.</p>
+   */
+  EdgeDeploymentSuccessInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices yet to pick up the deployment in current stage, or in progress.</p>
+   */
+  EdgeDeploymentPendingInStage: number | undefined;
+
+  /**
+   * <p>The number of edge devices that failed the deployment in current stage.</p>
+   */
+  EdgeDeploymentFailedInStage: number | undefined;
+
+  /**
+   * <p>A detailed message about deployment status in current stage.</p>
+   */
+  EdgeDeploymentStatusMessage?: string;
+
+  /**
+   * <p>The time when the deployment API started.</p>
+   */
+  EdgeDeploymentStageStartTime?: Date;
+}
+
+export namespace EdgeDeploymentStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information summarizing the deployment stage results.</p>
+ */
+export interface DeploymentStageStatusSummary {
+  /**
+   * <p>The name of the stage.</p>
+   */
+  StageName: string | undefined;
+
+  /**
+   * <p>Configuration of the devices in the stage.</p>
+   */
+  DeviceSelectionConfig: DeviceSelectionConfig | undefined;
+
+  /**
+   * <p>Configuration of the deployment details.</p>
+   */
+  DeploymentConfig: EdgeDeploymentConfig | undefined;
+
+  /**
+   * <p>General status of the current state.</p>
+   */
+  DeploymentStatus: EdgeDeploymentStatus | undefined;
+}
+
+export namespace DeploymentStageStatusSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
     ...obj,
   });
 }
@@ -9570,6 +10214,98 @@ export namespace DescribeDomainResponse {
   });
 }
 
+export interface DescribeEdgeDeploymentPlanRequest {
+  /**
+   * <p>The name of the deployment plan to describe.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>If the edge deployment plan has enough stages to require tokening, then this is the response from the last list of stages returned.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to select (50 by default).</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeEdgeDeploymentPlanRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEdgeDeploymentPlanRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEdgeDeploymentPlanResponse {
+  /**
+   * <p>The ARN of edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanArn: string | undefined;
+
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>List of models associated with the edge deployment plan.</p>
+   */
+  ModelConfigs: EdgeDeploymentModelConfig[] | undefined;
+
+  /**
+   * <p>The device fleet used for this edge deployment plan.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The number of edge devices with the successful deployment.</p>
+   */
+  EdgeDeploymentSuccess?: number;
+
+  /**
+   * <p>The number of edge devices yet to pick up deployment, or in progress.</p>
+   */
+  EdgeDeploymentPending?: number;
+
+  /**
+   * <p>The number of edge devices that failed the deployment.</p>
+   */
+  EdgeDeploymentFailed?: number;
+
+  /**
+   * <p>List of stages in the edge deployment plan.</p>
+   */
+  Stages: DeploymentStageStatusSummary[] | undefined;
+
+  /**
+   * <p>Token to use when calling the next set of stages in the edge deployment plan.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The time when the edge deployment plan was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time when the edge deployment plan was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace DescribeEdgeDeploymentPlanResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEdgeDeploymentPlanResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -10752,593 +11488,6 @@ export namespace DescribeHumanTaskUiResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-}
-
-export namespace DescribeHyperParameterTuningJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Shows the final value for the
- *             objective
- *             metric for a training job that was launched by a hyperparameter
- *             tuning job. You define the objective metric in the
- *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
- */
-export interface FinalHyperParameterTuningJobObjectiveMetric {
-  /**
-   * <p>Whether to
-   *             minimize
-   *             or maximize the objective metric. Valid values are Minimize and
-   *             Maximize.</p>
-   */
-  Type?: HyperParameterTuningJobObjectiveType | string;
-
-  /**
-   * <p>The name of the
-   *             objective
-   *             metric.</p>
-   */
-  MetricName: string | undefined;
-
-  /**
-   * <p>The value of the objective metric.</p>
-   */
-  Value: number | undefined;
-}
-
-export namespace FinalHyperParameterTuningJobObjectiveMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalHyperParameterTuningJobObjectiveMetric): any => ({
-    ...obj,
-  });
-}
-
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>The container for the summary information about a training job.</p>
- */
-export interface HyperParameterTrainingJobSummary {
-  /**
-   * <p>The training job definition name.</p>
-   */
-  TrainingJobDefinitionName?: string;
-
-  /**
-   * <p>The name of the training job.</p>
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   */
-  TrainingJobArn: string | undefined;
-
-  /**
-   * <p>The HyperParameter tuning job that launched the training job.</p>
-   */
-  TuningJobName?: string;
-
-  /**
-   * <p>The date and time that the training job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the training job started.</p>
-   */
-  TrainingStartTime?: Date;
-
-  /**
-   * <p>Specifies the time when the training job ends on training instances. You are billed
-   *             for the time interval between the value of <code>TrainingStartTime</code> and this time.
-   *             For successful jobs and stopped jobs, this is the time after model artifacts are
-   *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
-   */
-  TrainingEndTime?: Date;
-
-  /**
-   * <p>The
-   *             status
-   *             of the training job.</p>
-   */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
-
-  /**
-   * <p>A
-   *             list of the hyperparameters for which you specified ranges to
-   *             search.</p>
-   */
-  TunedHyperParameters: Record<string, string> | undefined;
-
-  /**
-   * <p>The
-   *             reason that the training job failed.
-   *         </p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The <a>FinalHyperParameterTuningJobObjectiveMetric</a> object that
-   *             specifies the
-   *             value
-   *             of the
-   *             objective
-   *             metric of the tuning job that launched this training job.</p>
-   */
-  FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric;
-
-  /**
-   * <p>The status of the objective metric for the training job:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Succeeded: The
-   *                     final
-   *                     objective metric for the training job was evaluated by the
-   *                     hyperparameter tuning job and
-   *                     used
-   *                     in the hyperparameter tuning process.</p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Pending: The training job is in progress and evaluation of its final objective
-   *                     metric is pending.</p>
-   *             </li>
-   *          </ul>
-   *         <ul>
-   *             <li>
-   *                 <p>Failed:
-   *                     The final objective metric for the training job was not evaluated, and was not
-   *                     used in the hyperparameter tuning process. This typically occurs when the
-   *                     training job failed or did not emit an objective
-   *                     metric.</p>
-   *             </li>
-   *          </ul>
-   */
-  ObjectiveStatus?: ObjectiveStatus | string;
-}
-
-export namespace HyperParameterTrainingJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HyperParameterTrainingJobSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
-
-/**
- * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
- *             categorized by the status of their objective metric. The objective metric status shows
- *             whether the
- *             final
- *             objective metric for the training job has been evaluated by the
- *             tuning job and used in the hyperparameter tuning process.</p>
- */
-export interface ObjectiveStatusCounters {
-  /**
-   * <p>The number of training jobs whose final objective metric was evaluated by the
-   *             hyperparameter tuning job and used in the hyperparameter tuning process.</p>
-   */
-  Succeeded?: number;
-
-  /**
-   * <p>The number of training jobs that are in progress and pending evaluation of their final
-   *             objective metric.</p>
-   */
-  Pending?: number;
-
-  /**
-   * <p>The number of training jobs whose final objective metric was not evaluated and used in
-   *             the hyperparameter tuning process. This typically occurs when the training job failed or
-   *             did not emit an objective metric.</p>
-   */
-  Failed?: number;
-}
-
-export namespace ObjectiveStatusCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
- *             status.</p>
- */
-export interface TrainingJobStatusCounters {
-  /**
-   * <p>The number of completed training jobs launched by the hyperparameter tuning
-   *             job.</p>
-   */
-  Completed?: number;
-
-  /**
-   * <p>The number of in-progress training jobs launched by a hyperparameter tuning
-   *             job.</p>
-   */
-  InProgress?: number;
-
-  /**
-   * <p>The number of training jobs that failed, but can be retried. A failed training job can
-   *             be retried only if it failed because an internal service error occurred.</p>
-   */
-  RetryableError?: number;
-
-  /**
-   * <p>The number of training jobs that failed and can't be retried. A failed training job
-   *             can't be retried if it failed because a client error occurred.</p>
-   */
-  NonRetryableError?: number;
-
-  /**
-   * <p>The number of training jobs launched by a hyperparameter tuning job that were
-   *             manually
-   *             stopped.</p>
-   */
-  Stopped?: number;
-}
-
-export namespace TrainingJobStatusCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHyperParameterTuningJobResponse {
-  /**
-   * <p>The name of the tuning job.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-
-  /**
-   * <p>The
-   *             Amazon Resource Name (ARN) of the tuning job.</p>
-   */
-  HyperParameterTuningJobArn: string | undefined;
-
-  /**
-   * <p>The <a>HyperParameterTuningJobConfig</a> object that specifies the
-   *             configuration of the tuning job.</p>
-   */
-  HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
-
-  /**
-   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that specifies the
-   *             definition of the training jobs that this tuning job launches.</p>
-   */
-  TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
-
-  /**
-   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
-   *             for this tuning job.</p>
-   */
-  TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
-
-  /**
-   * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
-   *             Stopped.</p>
-   */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
-
-  /**
-   * <p>The date and time that the tuning job started.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the tuning job ended.</p>
-   */
-  HyperParameterTuningEndTime?: Date;
-
-  /**
-   * <p>The date and time that the status of the tuning job was modified. </p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the number of
-   *             training jobs, categorized by status, that this tuning job launched.</p>
-   */
-  TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
-
-  /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the number of
-   *             training jobs, categorized by the status of their final objective metric, that this
-   *             tuning job launched.</p>
-   */
-  ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
-
-  /**
-   * <p>A <a>TrainingJobSummary</a> object that describes the training job that
-   *             completed with the best current <a>HyperParameterTuningJobObjective</a>.</p>
-   */
-  BestTrainingJob?: HyperParameterTrainingJobSummary;
-
-  /**
-   * <p>If the hyperparameter tuning job is an warm start tuning job with a
-   *                 <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the
-   *                 <a>TrainingJobSummary</a> for the training job with the best objective
-   *             metric value of all training jobs launched by this tuning job and all parent jobs
-   *             specified for the warm start tuning job.</p>
-   */
-  OverallBestTrainingJob?: HyperParameterTrainingJobSummary;
-
-  /**
-   * <p>The configuration for starting the hyperparameter parameter tuning job using one or
-   *             more previous tuning jobs as a starting point. The results of previous tuning jobs are
-   *             used to inform which combinations of hyperparameters to search over in the new tuning
-   *             job.</p>
-   */
-  WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
-
-  /**
-   * <p>If the tuning job failed, the reason it failed.</p>
-   */
-  FailureReason?: string;
-}
-
-export namespace DescribeHyperParameterTuningJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImageRequest {
-  /**
-   * <p>The name of the image to describe.</p>
-   */
-  ImageName: string | undefined;
-}
-
-export namespace DescribeImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ImageStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
-
-export interface DescribeImageResponse {
-  /**
-   * <p>When the image was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The description of the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the image as displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>When a create, update, or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>The status of the image.</p>
-   */
-  ImageStatus?: ImageStatus | string;
-
-  /**
-   * <p>When the image was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
-   */
-  RoleArn?: string;
-}
-
-export namespace DescribeImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version of the image. If not specified, the latest version is described.</p>
-   */
-  Version?: number;
-}
-
-export namespace DescribeImageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ImageVersionStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
-
-export interface DescribeImageVersionResponse {
-  /**
-   * <p>The registry path of the container image on which this image version is based.</p>
-   */
-  BaseImage?: string;
-
-  /**
-   * <p>The registry path of the container image that contains this image version.</p>
-   */
-  ContainerImage?: string;
-
-  /**
-   * <p>When the version was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When a create or delete operation fails, the reason for the failure.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The ARN of the version.</p>
-   */
-  ImageVersionArn?: string;
-
-  /**
-   * <p>The status of the version.</p>
-   */
-  ImageVersionStatus?: ImageVersionStatus | string;
-
-  /**
-   * <p>When the version was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
-}
-
-export namespace DescribeImageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInferenceRecommendationsJobRequest {
-  /**
-   * <p>The name of the job. The name must be unique within an
-   *            Amazon Web Services Region in the Amazon Web Services account.</p>
-   */
-  JobName: string | undefined;
-}
-
-export namespace DescribeInferenceRecommendationsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceRecommendationsJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
- */
-export interface EndpointOutputConfiguration {
-  /**
-   * <p>The name of the endpoint made during a recommendation job.</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the production variant (deployed model) made during a recommendation job.</p>
-   */
-  VariantName: string | undefined;
-
-  /**
-   * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
-   */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
-
-  /**
-   * <p>The number of instances recommended to launch initially.</p>
-   */
-  InitialInstanceCount: number | undefined;
-}
-
-export namespace EndpointOutputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointOutputConfiguration): any => ({
     ...obj,
   });
 }

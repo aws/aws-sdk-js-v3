@@ -74,6 +74,16 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreateEdgeDeploymentPlanCommand,
+  CreateEdgeDeploymentPlanCommandInput,
+  CreateEdgeDeploymentPlanCommandOutput,
+} from "./commands/CreateEdgeDeploymentPlanCommand";
+import {
+  CreateEdgeDeploymentStageCommand,
+  CreateEdgeDeploymentStageCommandInput,
+  CreateEdgeDeploymentStageCommandOutput,
+} from "./commands/CreateEdgeDeploymentStageCommand";
+import {
   CreateEdgePackagingJobCommand,
   CreateEdgePackagingJobCommandInput,
   CreateEdgePackagingJobCommandOutput,
@@ -283,6 +293,16 @@ import {
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  DeleteEdgeDeploymentPlanCommand,
+  DeleteEdgeDeploymentPlanCommandInput,
+  DeleteEdgeDeploymentPlanCommandOutput,
+} from "./commands/DeleteEdgeDeploymentPlanCommand";
+import {
+  DeleteEdgeDeploymentStageCommand,
+  DeleteEdgeDeploymentStageCommandInput,
+  DeleteEdgeDeploymentStageCommandOutput,
+} from "./commands/DeleteEdgeDeploymentStageCommand";
+import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -467,6 +487,11 @@ import {
   DescribeDomainCommandInput,
   DescribeDomainCommandOutput,
 } from "./commands/DescribeDomainCommand";
+import {
+  DescribeEdgeDeploymentPlanCommand,
+  DescribeEdgeDeploymentPlanCommandInput,
+  DescribeEdgeDeploymentPlanCommandOutput,
+} from "./commands/DescribeEdgeDeploymentPlanCommand";
 import {
   DescribeEdgePackagingJobCommand,
   DescribeEdgePackagingJobCommandInput,
@@ -752,6 +777,11 @@ import {
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  ListEdgeDeploymentPlansCommand,
+  ListEdgeDeploymentPlansCommandInput,
+  ListEdgeDeploymentPlansCommandOutput,
+} from "./commands/ListEdgeDeploymentPlansCommand";
+import {
   ListEdgePackagingJobsCommand,
   ListEdgePackagingJobsCommandInput,
   ListEdgePackagingJobsCommandOutput,
@@ -899,6 +929,11 @@ import {
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
+  ListStageDevicesCommand,
+  ListStageDevicesCommandInput,
+  ListStageDevicesCommandOutput,
+} from "./commands/ListStageDevicesCommand";
+import {
   ListStudioLifecycleConfigsCommand,
   ListStudioLifecycleConfigsCommandInput,
   ListStudioLifecycleConfigsCommandOutput,
@@ -982,6 +1017,11 @@ import {
   SendPipelineExecutionStepSuccessCommandOutput,
 } from "./commands/SendPipelineExecutionStepSuccessCommand";
 import {
+  StartEdgeDeploymentStageCommand,
+  StartEdgeDeploymentStageCommandInput,
+  StartEdgeDeploymentStageCommandOutput,
+} from "./commands/StartEdgeDeploymentStageCommand";
+import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
@@ -1006,6 +1046,11 @@ import {
   StopCompilationJobCommandInput,
   StopCompilationJobCommandOutput,
 } from "./commands/StopCompilationJobCommand";
+import {
+  StopEdgeDeploymentStageCommand,
+  StopEdgeDeploymentStageCommandInput,
+  StopEdgeDeploymentStageCommandOutput,
+} from "./commands/StopEdgeDeploymentStageCommand";
 import {
   StopEdgePackagingJobCommand,
   StopEdgePackagingJobCommandInput,
@@ -1823,6 +1868,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a different deployment configuration and devices.</p>
+   */
+  public createEdgeDeploymentPlan(
+    args: CreateEdgeDeploymentPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEdgeDeploymentPlanCommandOutput>;
+  public createEdgeDeploymentPlan(
+    args: CreateEdgeDeploymentPlanCommandInput,
+    cb: (err: any, data?: CreateEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public createEdgeDeploymentPlan(
+    args: CreateEdgeDeploymentPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public createEdgeDeploymentPlan(
+    args: CreateEdgeDeploymentPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEdgeDeploymentPlanCommandOutput) => void),
+    cb?: (err: any, data?: CreateEdgeDeploymentPlanCommandOutput) => void
+  ): Promise<CreateEdgeDeploymentPlanCommandOutput> | void {
+    const command = new CreateEdgeDeploymentPlanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new stage in an existing edge deployment plan.</p>
+   */
+  public createEdgeDeploymentStage(
+    args: CreateEdgeDeploymentStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEdgeDeploymentStageCommandOutput>;
+  public createEdgeDeploymentStage(
+    args: CreateEdgeDeploymentStageCommandInput,
+    cb: (err: any, data?: CreateEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public createEdgeDeploymentStage(
+    args: CreateEdgeDeploymentStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public createEdgeDeploymentStage(
+    args: CreateEdgeDeploymentStageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEdgeDeploymentStageCommandOutput) => void),
+    cb?: (err: any, data?: CreateEdgeDeploymentStageCommandOutput) => void
+  ): Promise<CreateEdgeDeploymentStageCommandOutput> | void {
+    const command = new CreateEdgeDeploymentStageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3709,6 +3818,70 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
+   */
+  public deleteEdgeDeploymentPlan(
+    args: DeleteEdgeDeploymentPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEdgeDeploymentPlanCommandOutput>;
+  public deleteEdgeDeploymentPlan(
+    args: DeleteEdgeDeploymentPlanCommandInput,
+    cb: (err: any, data?: DeleteEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public deleteEdgeDeploymentPlan(
+    args: DeleteEdgeDeploymentPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public deleteEdgeDeploymentPlan(
+    args: DeleteEdgeDeploymentPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEdgeDeploymentPlanCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEdgeDeploymentPlanCommandOutput) => void
+  ): Promise<DeleteEdgeDeploymentPlanCommandOutput> | void {
+    const command = new DeleteEdgeDeploymentPlanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete a stage in an edge deployment plan if (and only if) the stage is inactive.</p>
+   */
+  public deleteEdgeDeploymentStage(
+    args: DeleteEdgeDeploymentStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEdgeDeploymentStageCommandOutput>;
+  public deleteEdgeDeploymentStage(
+    args: DeleteEdgeDeploymentStageCommandInput,
+    cb: (err: any, data?: DeleteEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public deleteEdgeDeploymentStage(
+    args: DeleteEdgeDeploymentStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public deleteEdgeDeploymentStage(
+    args: DeleteEdgeDeploymentStageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEdgeDeploymentStageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEdgeDeploymentStageCommandOutput) => void
+  ): Promise<DeleteEdgeDeploymentStageCommandOutput> | void {
+    const command = new DeleteEdgeDeploymentStageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
    *             endpoint was created. </p>
    *         <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
@@ -5060,6 +5233,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an edge deployment plan with deployment status per stage.</p>
+   */
+  public describeEdgeDeploymentPlan(
+    args: DescribeEdgeDeploymentPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEdgeDeploymentPlanCommandOutput>;
+  public describeEdgeDeploymentPlan(
+    args: DescribeEdgeDeploymentPlanCommandInput,
+    cb: (err: any, data?: DescribeEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public describeEdgeDeploymentPlan(
+    args: DescribeEdgeDeploymentPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEdgeDeploymentPlanCommandOutput) => void
+  ): void;
+  public describeEdgeDeploymentPlan(
+    args: DescribeEdgeDeploymentPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEdgeDeploymentPlanCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEdgeDeploymentPlanCommandOutput) => void
+  ): Promise<DescribeEdgeDeploymentPlanCommandOutput> | void {
+    const command = new DescribeEdgeDeploymentPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7021,6 +7226,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists all edge deployment plans.</p>
+   */
+  public listEdgeDeploymentPlans(
+    args: ListEdgeDeploymentPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEdgeDeploymentPlansCommandOutput>;
+  public listEdgeDeploymentPlans(
+    args: ListEdgeDeploymentPlansCommandInput,
+    cb: (err: any, data?: ListEdgeDeploymentPlansCommandOutput) => void
+  ): void;
+  public listEdgeDeploymentPlans(
+    args: ListEdgeDeploymentPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEdgeDeploymentPlansCommandOutput) => void
+  ): void;
+  public listEdgeDeploymentPlans(
+    args: ListEdgeDeploymentPlansCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEdgeDeploymentPlansCommandOutput) => void),
+    cb?: (err: any, data?: ListEdgeDeploymentPlansCommandOutput) => void
+  ): Promise<ListEdgeDeploymentPlansCommandOutput> | void {
+    const command = new ListEdgeDeploymentPlansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of edge packaging jobs.</p>
    */
   public listEdgePackagingJobs(
@@ -8010,6 +8247,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
+   */
+  public listStageDevices(
+    args: ListStageDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStageDevicesCommandOutput>;
+  public listStageDevices(
+    args: ListStageDevicesCommandInput,
+    cb: (err: any, data?: ListStageDevicesCommandOutput) => void
+  ): void;
+  public listStageDevices(
+    args: ListStageDevicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStageDevicesCommandOutput) => void
+  ): void;
+  public listStageDevices(
+    args: ListStageDevicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStageDevicesCommandOutput) => void),
+    cb?: (err: any, data?: ListStageDevicesCommandOutput) => void
+  ): Promise<ListStageDevicesCommandOutput> | void {
+    const command = new ListStageDevicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
    */
   public listStudioLifecycleConfigs(
@@ -8660,6 +8929,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Starts a stage in an edge deployment plan.</p>
+   */
+  public startEdgeDeploymentStage(
+    args: StartEdgeDeploymentStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEdgeDeploymentStageCommandOutput>;
+  public startEdgeDeploymentStage(
+    args: StartEdgeDeploymentStageCommandInput,
+    cb: (err: any, data?: StartEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public startEdgeDeploymentStage(
+    args: StartEdgeDeploymentStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public startEdgeDeploymentStage(
+    args: StartEdgeDeploymentStageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEdgeDeploymentStageCommandOutput) => void),
+    cb?: (err: any, data?: StartEdgeDeploymentStageCommandOutput) => void
+  ): Promise<StartEdgeDeploymentStageCommandOutput> | void {
+    const command = new StartEdgeDeploymentStageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts a previously stopped monitoring schedule.</p>
    *          <note>
    *             <p>By default, when you successfully create a new schedule, the status of a monitoring
@@ -8821,6 +9122,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: StopCompilationJobCommandOutput) => void
   ): Promise<StopCompilationJobCommandOutput> | void {
     const command = new StopCompilationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a stage in an edge deployment plan.</p>
+   */
+  public stopEdgeDeploymentStage(
+    args: StopEdgeDeploymentStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopEdgeDeploymentStageCommandOutput>;
+  public stopEdgeDeploymentStage(
+    args: StopEdgeDeploymentStageCommandInput,
+    cb: (err: any, data?: StopEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public stopEdgeDeploymentStage(
+    args: StopEdgeDeploymentStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopEdgeDeploymentStageCommandOutput) => void
+  ): void;
+  public stopEdgeDeploymentStage(
+    args: StopEdgeDeploymentStageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEdgeDeploymentStageCommandOutput) => void),
+    cb?: (err: any, data?: StopEdgeDeploymentStageCommandOutput) => void
+  ): Promise<StopEdgeDeploymentStageCommandOutput> | void {
+    const command = new StopEdgeDeploymentStageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

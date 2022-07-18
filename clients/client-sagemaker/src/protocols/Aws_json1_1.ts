@@ -58,6 +58,14 @@ import {
 import { CreateDeviceFleetCommandInput, CreateDeviceFleetCommandOutput } from "../commands/CreateDeviceFleetCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
+  CreateEdgeDeploymentPlanCommandInput,
+  CreateEdgeDeploymentPlanCommandOutput,
+} from "../commands/CreateEdgeDeploymentPlanCommand";
+import {
+  CreateEdgeDeploymentStageCommandInput,
+  CreateEdgeDeploymentStageCommandOutput,
+} from "../commands/CreateEdgeDeploymentStageCommand";
+import {
   CreateEdgePackagingJobCommandInput,
   CreateEdgePackagingJobCommandOutput,
 } from "../commands/CreateEdgePackagingJobCommand";
@@ -162,6 +170,14 @@ import {
 } from "../commands/DeleteDataQualityJobDefinitionCommand";
 import { DeleteDeviceFleetCommandInput, DeleteDeviceFleetCommandOutput } from "../commands/DeleteDeviceFleetCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import {
+  DeleteEdgeDeploymentPlanCommandInput,
+  DeleteEdgeDeploymentPlanCommandOutput,
+} from "../commands/DeleteEdgeDeploymentPlanCommand";
+import {
+  DeleteEdgeDeploymentStageCommandInput,
+  DeleteEdgeDeploymentStageCommandOutput,
+} from "../commands/DeleteEdgeDeploymentStageCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "../commands/DeleteEndpointCommand";
 import {
   DeleteEndpointConfigCommandInput,
@@ -254,6 +270,10 @@ import {
   DescribeDeviceFleetCommandOutput,
 } from "../commands/DescribeDeviceFleetCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "../commands/DescribeDomainCommand";
+import {
+  DescribeEdgeDeploymentPlanCommandInput,
+  DescribeEdgeDeploymentPlanCommandOutput,
+} from "../commands/DescribeEdgeDeploymentPlanCommand";
 import {
   DescribeEdgePackagingJobCommandInput,
   DescribeEdgePackagingJobCommandOutput,
@@ -438,6 +458,10 @@ import { ListDeviceFleetsCommandInput, ListDeviceFleetsCommandOutput } from "../
 import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import {
+  ListEdgeDeploymentPlansCommandInput,
+  ListEdgeDeploymentPlansCommandOutput,
+} from "../commands/ListEdgeDeploymentPlansCommand";
+import {
   ListEdgePackagingJobsCommandInput,
   ListEdgePackagingJobsCommandOutput,
 } from "../commands/ListEdgePackagingJobsCommand";
@@ -519,6 +543,7 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "../commands/ListStageDevicesCommand";
 import {
   ListStudioLifecycleConfigsCommandInput,
   ListStudioLifecycleConfigsCommandOutput,
@@ -563,6 +588,10 @@ import {
   SendPipelineExecutionStepSuccessCommandOutput,
 } from "../commands/SendPipelineExecutionStepSuccessCommand";
 import {
+  StartEdgeDeploymentStageCommandInput,
+  StartEdgeDeploymentStageCommandOutput,
+} from "../commands/StartEdgeDeploymentStageCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "../commands/StartMonitoringScheduleCommand";
@@ -576,6 +605,10 @@ import {
 } from "../commands/StartPipelineExecutionCommand";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "../commands/StopAutoMLJobCommand";
 import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "../commands/StopCompilationJobCommand";
+import {
+  StopEdgeDeploymentStageCommandInput,
+  StopEdgeDeploymentStageCommandOutput,
+} from "../commands/StopEdgeDeploymentStageCommand";
 import {
   StopEdgePackagingJobCommandInput,
   StopEdgePackagingJobCommandOutput,
@@ -763,6 +796,9 @@ import {
   CreateDeviceFleetRequest,
   CreateDomainRequest,
   CreateDomainResponse,
+  CreateEdgeDeploymentPlanRequest,
+  CreateEdgeDeploymentPlanResponse,
+  CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
   CreateEndpointConfigInput,
   CreateEndpointConfigOutput,
@@ -776,8 +812,6 @@ import {
   CreateFlowDefinitionResponse,
   CreateHumanTaskUiRequest,
   CreateHumanTaskUiResponse,
-  CreateHyperParameterTuningJobRequest,
-  CreateHyperParameterTuningJobResponse,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -786,7 +820,11 @@ import {
   DataQualityJobInput,
   DataSource,
   DeploymentConfig,
+  DeploymentStage,
+  DeviceSelectionConfig,
   DomainSettings,
+  EdgeDeploymentConfig,
+  EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
   FeatureDefinition,
@@ -799,12 +837,8 @@ import {
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
-  HyperParameterAlgorithmSpecification,
   HyperParameterSpecification,
-  HyperParameterTrainingJobDefinition,
-  HyperParameterTuningJobConfig,
   HyperParameterTuningJobObjective,
-  HyperParameterTuningJobWarmStartConfig,
   ImageConfig,
   InferenceSpecification,
   InputConfig,
@@ -841,7 +875,6 @@ import {
   OutputParameter,
   ParameterRange,
   ParameterRanges,
-  ParentHyperParameterTuningJob,
   ProductionVariant,
   ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
@@ -854,7 +887,6 @@ import {
   ResourceLimits,
   ResourceNotFound,
   ResourceSpec,
-  RetryStrategy,
   RSessionAppSettings,
   RStudioServerProAppSettings,
   RStudioServerProDomainSettings,
@@ -886,6 +918,8 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateHyperParameterTuningJobRequest,
+  CreateHyperParameterTuningJobResponse,
   CreateImageRequest,
   CreateImageResponse,
   CreateImageVersionRequest,
@@ -959,6 +993,8 @@ import {
   DeleteDataQualityJobDefinitionRequest,
   DeleteDeviceFleetRequest,
   DeleteDomainRequest,
+  DeleteEdgeDeploymentPlanRequest,
+  DeleteEdgeDeploymentStageRequest,
   DeleteEndpointConfigInput,
   DeleteEndpointInput,
   DeleteExperimentRequest,
@@ -998,6 +1034,7 @@ import {
   DeleteWorkteamRequest,
   DeleteWorkteamResponse,
   DeployedImage,
+  DeploymentStageStatusSummary,
   DeregisterDevicesRequest,
   DescribeActionRequest,
   DescribeActionResponse,
@@ -1025,6 +1062,8 @@ import {
   DescribeDeviceResponse,
   DescribeDomainRequest,
   DescribeDomainResponse,
+  DescribeEdgeDeploymentPlanRequest,
+  DescribeEdgeDeploymentPlanResponse,
   DescribeEdgePackagingJobRequest,
   DescribeEdgePackagingJobResponse,
   DescribeEndpointConfigInput,
@@ -1041,31 +1080,26 @@ import {
   DescribeFlowDefinitionResponse,
   DescribeHumanTaskUiRequest,
   DescribeHumanTaskUiResponse,
-  DescribeHyperParameterTuningJobRequest,
-  DescribeHyperParameterTuningJobResponse,
-  DescribeImageRequest,
-  DescribeImageResponse,
-  DescribeImageVersionRequest,
-  DescribeImageVersionResponse,
-  DescribeInferenceRecommendationsJobRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
   DriftCheckModelDataQuality,
   DriftCheckModelQuality,
+  EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
   EndpointInputConfiguration,
-  EndpointOutputConfiguration,
   EnvironmentParameterRanges,
   ExperimentConfig,
   ExperimentSource,
   Explainability,
   FeatureParameter,
   FileSource,
-  FinalHyperParameterTuningJobObjectiveMetric,
   HumanTaskConfig,
-  HyperParameterTrainingJobSummary,
+  HyperParameterAlgorithmSpecification,
+  HyperParameterTrainingJobDefinition,
+  HyperParameterTuningJobConfig,
+  HyperParameterTuningJobWarmStartConfig,
   InferenceExecutionConfig,
   InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
@@ -1108,11 +1142,11 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  ObjectiveStatusCounters,
   OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
   ParallelismConfiguration,
+  ParentHyperParameterTuningJob,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
   Phase,
@@ -1139,6 +1173,7 @@ import {
   RedshiftDatasetDefinition,
   ResolvedAttributes,
   RetentionPolicy,
+  RetryStrategy,
   ScheduleConfig,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithm,
@@ -1146,7 +1181,6 @@ import {
   SourceIpConfig,
   TensorBoardOutputConfig,
   TrafficPattern,
-  TrainingJobStatusCounters,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -1155,6 +1189,13 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeHyperParameterTuningJobRequest,
+  DescribeHyperParameterTuningJobResponse,
+  DescribeImageRequest,
+  DescribeImageResponse,
+  DescribeImageVersionRequest,
+  DescribeImageVersionResponse,
+  DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
@@ -1208,6 +1249,7 @@ import {
   DescribeWorkteamResponse,
   DesiredWeightAndCapacity,
   Device,
+  DeviceDeploymentSummary,
   DeviceFleetSummary,
   DeviceStats,
   DeviceSummary,
@@ -1218,6 +1260,7 @@ import {
   DomainDetails,
   DomainSettingsForUpdate,
   Edge,
+  EdgeDeploymentPlanSummary,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
@@ -1226,6 +1269,7 @@ import {
   EnableSagemakerServicecatalogPortfolioOutput,
   Endpoint,
   EndpointConfigSummary,
+  EndpointOutputConfiguration,
   EndpointSummary,
   EnvironmentParameter,
   Experiment,
@@ -1235,6 +1279,7 @@ import {
   FeatureGroupSummary,
   FeatureMetadata,
   Filter,
+  FinalHyperParameterTuningJobObjectiveMetric,
   FlowDefinitionSummary,
   GetDeviceFleetReportRequest,
   GetDeviceFleetReportResponse,
@@ -1248,6 +1293,7 @@ import {
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
   HumanTaskUiSummary,
+  HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
@@ -1291,6 +1337,8 @@ import {
   ListDevicesResponse,
   ListDomainsRequest,
   ListDomainsResponse,
+  ListEdgeDeploymentPlansRequest,
+  ListEdgeDeploymentPlansResponse,
   ListEdgePackagingJobsRequest,
   ListEdgePackagingJobsResponse,
   ListEndpointConfigsInput,
@@ -1343,14 +1391,6 @@ import {
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
-  ListPipelineExecutionStepsRequest,
-  ListPipelineExecutionStepsResponse,
-  ListPipelineParametersForExecutionRequest,
-  ListPipelineParametersForExecutionResponse,
-  ListPipelinesRequest,
-  ListPipelinesResponse,
-  ListProcessingJobsRequest,
-  ListProcessingJobsResponse,
   MetricData,
   ModelConfiguration,
   ModelMetadataFilter,
@@ -1360,7 +1400,6 @@ import {
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   ModelPackageSummary,
-  ModelStepMetadata,
   ModelSummary,
   MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
@@ -1368,39 +1407,40 @@ import {
   MonitoringScheduleSummary,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
+  ObjectiveStatusCounters,
   OidcConfigForResponse,
-  Parameter,
-  PipelineExecutionStep,
-  PipelineExecutionStepMetadata,
   PipelineExecutionSummary,
   PipelineExperimentConfig,
-  PipelineSummary,
-  ProcessingJobStepMetadata,
-  ProcessingJobSummary,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
-  QualityCheckStepMetadata,
   RecommendationMetrics,
-  RegisterModelStepMetadata,
   RStudioServerProDomainSettingsForUpdate,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
   SuggestionQuery,
-  TrainingJobStepMetadata,
-  TransformJobStepMetadata,
+  TrainingJobStatusCounters,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
-  TuningJobStepMetaData,
   Workforce,
   WorkforceVpcConfigResponse,
   Workteam,
 } from "../models/models_2";
 import {
+  ListPipelineExecutionStepsRequest,
+  ListPipelineExecutionStepsResponse,
+  ListPipelineParametersForExecutionRequest,
+  ListPipelineParametersForExecutionResponse,
+  ListPipelinesRequest,
+  ListPipelinesResponse,
+  ListProcessingJobsRequest,
+  ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  ListStageDevicesRequest,
+  ListStageDevicesResponse,
   ListStudioLifecycleConfigsRequest,
   ListStudioLifecycleConfigsResponse,
   ListSubscribedWorkteamsRequest,
@@ -1425,20 +1465,29 @@ import {
   ListWorkteamsResponse,
   ModelPackage,
   ModelPackageGroup,
+  ModelStepMetadata,
   NestedFilters,
+  Parameter,
   Parent,
   Pipeline,
   PipelineExecution,
+  PipelineExecutionStep,
+  PipelineExecutionStepMetadata,
+  PipelineSummary,
   ProcessingJob,
+  ProcessingJobStepMetadata,
+  ProcessingJobSummary,
   ProfilerConfigForUpdate,
   Project,
   ProjectSummary,
   PutModelPackageGroupPolicyInput,
   PutModelPackageGroupPolicyOutput,
+  QualityCheckStepMetadata,
   QueryFilters,
   QueryLineageRequest,
   QueryLineageResponse,
   RegisterDevicesRequest,
+  RegisterModelStepMetadata,
   RenderableTask,
   RenderingError,
   RenderUiTemplateRequest,
@@ -1454,12 +1503,14 @@ import {
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
   ServiceCatalogProvisioningUpdateDetails,
+  StartEdgeDeploymentStageRequest,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
   StartPipelineExecutionResponse,
   StopAutoMLJobRequest,
   StopCompilationJobRequest,
+  StopEdgeDeploymentStageRequest,
   StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
   StopInferenceRecommendationsJobRequest,
@@ -1473,8 +1524,10 @@ import {
   StopTransformJobRequest,
   StudioLifecycleConfigDetails,
   TrainingJob,
+  TrainingJobStepMetadata,
   TrainingJobSummary,
   TransformJob,
+  TransformJobStepMetadata,
   TransformJobSummary,
   Trial,
   TrialComponent,
@@ -1482,6 +1535,7 @@ import {
   TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
+  TuningJobStepMetaData,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -1744,6 +1798,32 @@ export const serializeAws_json1_1CreateDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateEdgeDeploymentPlanCommand = async (
+  input: CreateEdgeDeploymentPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateEdgeDeploymentPlan",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateEdgeDeploymentPlanRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateEdgeDeploymentStageCommand = async (
+  input: CreateEdgeDeploymentStageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateEdgeDeploymentStage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2332,6 +2412,32 @@ export const serializeAws_json1_1DeleteDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEdgeDeploymentPlanCommand = async (
+  input: DeleteEdgeDeploymentPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteEdgeDeploymentPlan",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEdgeDeploymentPlanRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteEdgeDeploymentStageCommand = async (
+  input: DeleteEdgeDeploymentStageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DeleteEdgeDeploymentStage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEdgeDeploymentStageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
@@ -2862,6 +2968,19 @@ export const serializeAws_json1_1DescribeDomainCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEdgeDeploymentPlanCommand = async (
+  input: DescribeEdgeDeploymentPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeEdgeDeploymentPlan",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeEdgeDeploymentPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3645,6 +3764,19 @@ export const serializeAws_json1_1ListDomainsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListEdgeDeploymentPlansCommand = async (
+  input: ListEdgeDeploymentPlansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListEdgeDeploymentPlans",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEdgeDeploymentPlansRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListEdgePackagingJobsCommand = async (
   input: ListEdgePackagingJobsCommandInput,
   context: __SerdeContext
@@ -4048,6 +4180,19 @@ export const serializeAws_json1_1ListProjectsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListStageDevicesCommand = async (
+  input: ListStageDevicesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListStageDevices",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListStageDevicesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListStudioLifecycleConfigsCommand = async (
   input: ListStudioLifecycleConfigsCommandInput,
   context: __SerdeContext
@@ -4295,6 +4440,19 @@ export const serializeAws_json1_1SendPipelineExecutionStepSuccessCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartEdgeDeploymentStageCommand = async (
+  input: StartEdgeDeploymentStageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StartEdgeDeploymentStage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartEdgeDeploymentStageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartMonitoringScheduleCommand = async (
   input: StartMonitoringScheduleCommandInput,
   context: __SerdeContext
@@ -4357,6 +4515,19 @@ export const serializeAws_json1_1StopCompilationJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopCompilationJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopEdgeDeploymentStageCommand = async (
+  input: StopEdgeDeploymentStageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.StopEdgeDeploymentStage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopEdgeDeploymentStageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5538,6 +5709,91 @@ const deserializeAws_json1_1CreateDomainCommandError = async (
     case "ResourceInUse":
     case "com.amazonaws.sagemaker#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateEdgeDeploymentPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEdgeDeploymentPlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateEdgeDeploymentPlanCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateEdgeDeploymentPlanResponse(data, context);
+  const response: CreateEdgeDeploymentPlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateEdgeDeploymentPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEdgeDeploymentPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateEdgeDeploymentStageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEdgeDeploymentStageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateEdgeDeploymentStageCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: CreateEdgeDeploymentStageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateEdgeDeploymentStageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEdgeDeploymentStageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -7576,6 +7832,88 @@ const deserializeAws_json1_1DeleteDomainCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeDeploymentPlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEdgeDeploymentPlanCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEdgeDeploymentPlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEdgeDeploymentPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeDeploymentPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteEdgeDeploymentStageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeDeploymentStageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEdgeDeploymentStageCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEdgeDeploymentStageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEdgeDeploymentStageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeDeploymentStageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9288,6 +9626,50 @@ const deserializeAws_json1_1DescribeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEdgeDeploymentPlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeEdgeDeploymentPlanCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEdgeDeploymentPlanResponse(data, context);
+  const response: DescribeEdgeDeploymentPlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEdgeDeploymentPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEdgeDeploymentPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -11870,6 +12252,47 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListEdgeDeploymentPlansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEdgeDeploymentPlansCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEdgeDeploymentPlansCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEdgeDeploymentPlansResponse(data, context);
+  const response: ListEdgeDeploymentPlansCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEdgeDeploymentPlansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEdgeDeploymentPlansCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListEdgePackagingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13156,6 +13579,47 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListStageDevicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStageDevicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListStageDevicesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListStageDevicesResponse(data, context);
+  const response: ListStageDevicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListStageDevicesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStageDevicesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListStudioLifecycleConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13974,6 +14438,44 @@ const deserializeAws_json1_1SendPipelineExecutionStepSuccessCommandError = async
   }
 };
 
+export const deserializeAws_json1_1StartEdgeDeploymentStageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEdgeDeploymentStageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartEdgeDeploymentStageCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StartEdgeDeploymentStageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartEdgeDeploymentStageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEdgeDeploymentStageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1StartMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14172,6 +14674,44 @@ const deserializeAws_json1_1StopCompilationJobCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StopEdgeDeploymentStageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEdgeDeploymentStageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopEdgeDeploymentStageCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopEdgeDeploymentStageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopEdgeDeploymentStageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEdgeDeploymentStageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -16836,6 +17376,31 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
   };
 };
 
+const serializeAws_json1_1CreateEdgeDeploymentPlanRequest = (
+  input: CreateEdgeDeploymentPlanRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.ModelConfigs != null && {
+      ModelConfigs: serializeAws_json1_1EdgeDeploymentModelConfigs(input.ModelConfigs, context),
+    }),
+    ...(input.Stages != null && { Stages: serializeAws_json1_1DeploymentStages(input.Stages, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateEdgeDeploymentStageRequest = (
+  input: CreateEdgeDeploymentStageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.Stages != null && { Stages: serializeAws_json1_1DeploymentStages(input.Stages, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateEdgePackagingJobRequest = (
   input: CreateEdgePackagingJobRequest,
   context: __SerdeContext
@@ -17912,6 +18477,25 @@ const serializeAws_json1_1DeleteDomainRequest = (input: DeleteDomainRequest, con
   };
 };
 
+const serializeAws_json1_1DeleteEdgeDeploymentPlanRequest = (
+  input: DeleteEdgeDeploymentPlanRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+  };
+};
+
+const serializeAws_json1_1DeleteEdgeDeploymentStageRequest = (
+  input: DeleteEdgeDeploymentStageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.StageName != null && { StageName: input.StageName }),
+  };
+};
+
 const serializeAws_json1_1DeleteEndpointConfigInput = (
   input: DeleteEndpointConfigInput,
   context: __SerdeContext
@@ -18139,6 +18723,29 @@ const serializeAws_json1_1DeploymentConfig = (input: DeploymentConfig, context: 
   };
 };
 
+const serializeAws_json1_1DeploymentStage = (input: DeploymentStage, context: __SerdeContext): any => {
+  return {
+    ...(input.DeploymentConfig != null && {
+      DeploymentConfig: serializeAws_json1_1EdgeDeploymentConfig(input.DeploymentConfig, context),
+    }),
+    ...(input.DeviceSelectionConfig != null && {
+      DeviceSelectionConfig: serializeAws_json1_1DeviceSelectionConfig(input.DeviceSelectionConfig, context),
+    }),
+    ...(input.StageName != null && { StageName: input.StageName }),
+  };
+};
+
+const serializeAws_json1_1DeploymentStages = (input: DeploymentStage[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DeploymentStage(entry, context);
+    });
+};
+
 const serializeAws_json1_1DeregisterDevicesRequest = (
   input: DeregisterDevicesRequest,
   context: __SerdeContext
@@ -18247,6 +18854,17 @@ const serializeAws_json1_1DescribeDeviceRequest = (input: DescribeDeviceRequest,
 const serializeAws_json1_1DescribeDomainRequest = (input: DescribeDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainId != null && { DomainId: input.DomainId }),
+  };
+};
+
+const serializeAws_json1_1DescribeEdgeDeploymentPlanRequest = (
+  input: DescribeEdgeDeploymentPlanRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -18625,6 +19243,15 @@ const serializeAws_json1_1Devices = (input: Device[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1DeviceSelectionConfig = (input: DeviceSelectionConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DeviceNameContains != null && { DeviceNameContains: input.DeviceNameContains }),
+    ...(input.DeviceNames != null && { DeviceNames: serializeAws_json1_1DeviceNames(input.DeviceNames, context) }),
+    ...(input.DeviceSubsetType != null && { DeviceSubsetType: input.DeviceSubsetType }),
+    ...(input.Percentage != null && { Percentage: input.Percentage }),
+  };
+};
+
 const serializeAws_json1_1DisableSagemakerServicecatalogPortfolioInput = (
   input: DisableSagemakerServicecatalogPortfolioInput,
   context: __SerdeContext
@@ -18730,6 +19357,36 @@ const serializeAws_json1_1DriftCheckModelQuality = (input: DriftCheckModelQualit
     ...(input.Constraints != null && { Constraints: serializeAws_json1_1MetricsSource(input.Constraints, context) }),
     ...(input.Statistics != null && { Statistics: serializeAws_json1_1MetricsSource(input.Statistics, context) }),
   };
+};
+
+const serializeAws_json1_1EdgeDeploymentConfig = (input: EdgeDeploymentConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.FailureHandlingPolicy != null && { FailureHandlingPolicy: input.FailureHandlingPolicy }),
+  };
+};
+
+const serializeAws_json1_1EdgeDeploymentModelConfig = (
+  input: EdgeDeploymentModelConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgePackagingJobName != null && { EdgePackagingJobName: input.EdgePackagingJobName }),
+    ...(input.ModelHandle != null && { ModelHandle: input.ModelHandle }),
+  };
+};
+
+const serializeAws_json1_1EdgeDeploymentModelConfigs = (
+  input: EdgeDeploymentModelConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EdgeDeploymentModelConfig(entry, context);
+    });
 };
 
 const serializeAws_json1_1EdgeOutputConfig = (input: EdgeOutputConfig, context: __SerdeContext): any => {
@@ -19895,6 +20552,30 @@ const serializeAws_json1_1ListDomainsRequest = (input: ListDomainsRequest, conte
   };
 };
 
+const serializeAws_json1_1ListEdgeDeploymentPlansRequest = (
+  input: ListEdgeDeploymentPlansRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter != null && { CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000) }),
+    ...(input.CreationTimeBefore != null && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.DeviceFleetNameContains != null && { DeviceFleetNameContains: input.DeviceFleetNameContains }),
+    ...(input.LastModifiedTimeAfter != null && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore != null && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NameContains != null && { NameContains: input.NameContains }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
 const serializeAws_json1_1ListEdgePackagingJobsRequest = (
   input: ListEdgePackagingJobsRequest,
   context: __SerdeContext
@@ -20490,6 +21171,18 @@ const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListStageDevicesRequest = (input: ListStageDevicesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.ExcludeDevicesDeployedInOtherStage != null && {
+      ExcludeDevicesDeployedInOtherStage: input.ExcludeDevicesDeployedInOtherStage,
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StageName != null && { StageName: input.StageName }),
   };
 };
 
@@ -22346,6 +23039,16 @@ const serializeAws_json1_1SourceIpConfig = (input: SourceIpConfig, context: __Se
   };
 };
 
+const serializeAws_json1_1StartEdgeDeploymentStageRequest = (
+  input: StartEdgeDeploymentStageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.StageName != null && { StageName: input.StageName }),
+  };
+};
+
 const serializeAws_json1_1StartMonitoringScheduleRequest = (
   input: StartMonitoringScheduleRequest,
   context: __SerdeContext
@@ -22398,6 +23101,16 @@ const serializeAws_json1_1StopCompilationJobRequest = (
 ): any => {
   return {
     ...(input.CompilationJobName != null && { CompilationJobName: input.CompilationJobName }),
+  };
+};
+
+const serializeAws_json1_1StopEdgeDeploymentStageRequest = (
+  input: StopEdgeDeploymentStageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EdgeDeploymentPlanName != null && { EdgeDeploymentPlanName: input.EdgeDeploymentPlanName }),
+    ...(input.StageName != null && { StageName: input.StageName }),
   };
 };
 
@@ -24860,6 +25573,15 @@ const deserializeAws_json1_1CreateDomainResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1CreateEdgeDeploymentPlanResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateEdgeDeploymentPlanResponse => {
+  return {
+    EdgeDeploymentPlanArn: __expectString(output.EdgeDeploymentPlanArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateEndpointConfigOutput = (
   output: any,
   context: __SerdeContext
@@ -25509,6 +26231,42 @@ const deserializeAws_json1_1DeploymentConfig = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1DeploymentStageStatusSummaries = (
+  output: any,
+  context: __SerdeContext
+): DeploymentStageStatusSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DeploymentStageStatusSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DeploymentStageStatusSummary = (
+  output: any,
+  context: __SerdeContext
+): DeploymentStageStatusSummary => {
+  return {
+    DeploymentConfig:
+      output.DeploymentConfig != null
+        ? deserializeAws_json1_1EdgeDeploymentConfig(output.DeploymentConfig, context)
+        : undefined,
+    DeploymentStatus:
+      output.DeploymentStatus != null
+        ? deserializeAws_json1_1EdgeDeploymentStatus(output.DeploymentStatus, context)
+        : undefined,
+    DeviceSelectionConfig:
+      output.DeviceSelectionConfig != null
+        ? deserializeAws_json1_1DeviceSelectionConfig(output.DeviceSelectionConfig, context)
+        : undefined,
+    StageName: __expectString(output.StageName),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeActionResponse = (output: any, context: __SerdeContext): DescribeActionResponse => {
   return {
     ActionArn: __expectString(output.ActionArn),
@@ -25922,6 +26680,35 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
     SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1Subnets(output.SubnetIds, context) : undefined,
     Url: __expectString(output.Url),
     VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeEdgeDeploymentPlanResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEdgeDeploymentPlanResponse => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DeviceFleetName: __expectString(output.DeviceFleetName),
+    EdgeDeploymentFailed: __expectInt32(output.EdgeDeploymentFailed),
+    EdgeDeploymentPending: __expectInt32(output.EdgeDeploymentPending),
+    EdgeDeploymentPlanArn: __expectString(output.EdgeDeploymentPlanArn),
+    EdgeDeploymentPlanName: __expectString(output.EdgeDeploymentPlanName),
+    EdgeDeploymentSuccess: __expectInt32(output.EdgeDeploymentSuccess),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelConfigs:
+      output.ModelConfigs != null
+        ? deserializeAws_json1_1EdgeDeploymentModelConfigs(output.ModelConfigs, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+    Stages:
+      output.Stages != null ? deserializeAws_json1_1DeploymentStageStatusSummaries(output.Stages, context) : undefined,
   } as any;
 };
 
@@ -27203,6 +27990,43 @@ const deserializeAws_json1_1DescribeWorkteamResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DeviceDeploymentSummaries = (
+  output: any,
+  context: __SerdeContext
+): DeviceDeploymentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DeviceDeploymentSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DeviceDeploymentSummary = (
+  output: any,
+  context: __SerdeContext
+): DeviceDeploymentSummary => {
+  return {
+    DeployedStageName: __expectString(output.DeployedStageName),
+    DeploymentStartTime:
+      output.DeploymentStartTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeploymentStartTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    DeviceArn: __expectString(output.DeviceArn),
+    DeviceDeploymentStatus: __expectString(output.DeviceDeploymentStatus),
+    DeviceDeploymentStatusMessage: __expectString(output.DeviceDeploymentStatusMessage),
+    DeviceFleetName: __expectString(output.DeviceFleetName),
+    DeviceName: __expectString(output.DeviceName),
+    EdgeDeploymentPlanArn: __expectString(output.EdgeDeploymentPlanArn),
+    EdgeDeploymentPlanName: __expectString(output.EdgeDeploymentPlanName),
+    StageName: __expectString(output.StageName),
+  } as any;
+};
+
 const deserializeAws_json1_1DeviceFleetSummaries = (output: any, context: __SerdeContext): DeviceFleetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -27227,6 +28051,28 @@ const deserializeAws_json1_1DeviceFleetSummary = (output: any, context: __SerdeC
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeviceNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DeviceSelectionConfig = (output: any, context: __SerdeContext): DeviceSelectionConfig => {
+  return {
+    DeviceNameContains: __expectString(output.DeviceNameContains),
+    DeviceNames:
+      output.DeviceNames != null ? deserializeAws_json1_1DeviceNames(output.DeviceNames, context) : undefined,
+    DeviceSubsetType: __expectString(output.DeviceSubsetType),
+    Percentage: __expectInt32(output.Percentage),
   } as any;
 };
 
@@ -27408,6 +28254,88 @@ const deserializeAws_json1_1Edge = (output: any, context: __SerdeContext): Edge 
     AssociationType: __expectString(output.AssociationType),
     DestinationArn: __expectString(output.DestinationArn),
     SourceArn: __expectString(output.SourceArn),
+  } as any;
+};
+
+const deserializeAws_json1_1EdgeDeploymentConfig = (output: any, context: __SerdeContext): EdgeDeploymentConfig => {
+  return {
+    FailureHandlingPolicy: __expectString(output.FailureHandlingPolicy),
+  } as any;
+};
+
+const deserializeAws_json1_1EdgeDeploymentModelConfig = (
+  output: any,
+  context: __SerdeContext
+): EdgeDeploymentModelConfig => {
+  return {
+    EdgePackagingJobName: __expectString(output.EdgePackagingJobName),
+    ModelHandle: __expectString(output.ModelHandle),
+  } as any;
+};
+
+const deserializeAws_json1_1EdgeDeploymentModelConfigs = (
+  output: any,
+  context: __SerdeContext
+): EdgeDeploymentModelConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EdgeDeploymentModelConfig(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1EdgeDeploymentPlanSummaries = (
+  output: any,
+  context: __SerdeContext
+): EdgeDeploymentPlanSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EdgeDeploymentPlanSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1EdgeDeploymentPlanSummary = (
+  output: any,
+  context: __SerdeContext
+): EdgeDeploymentPlanSummary => {
+  return {
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DeviceFleetName: __expectString(output.DeviceFleetName),
+    EdgeDeploymentFailed: __expectInt32(output.EdgeDeploymentFailed),
+    EdgeDeploymentPending: __expectInt32(output.EdgeDeploymentPending),
+    EdgeDeploymentPlanArn: __expectString(output.EdgeDeploymentPlanArn),
+    EdgeDeploymentPlanName: __expectString(output.EdgeDeploymentPlanName),
+    EdgeDeploymentSuccess: __expectInt32(output.EdgeDeploymentSuccess),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EdgeDeploymentStatus = (output: any, context: __SerdeContext): EdgeDeploymentStatus => {
+  return {
+    EdgeDeploymentFailedInStage: __expectInt32(output.EdgeDeploymentFailedInStage),
+    EdgeDeploymentPendingInStage: __expectInt32(output.EdgeDeploymentPendingInStage),
+    EdgeDeploymentStageStartTime:
+      output.EdgeDeploymentStageStartTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EdgeDeploymentStageStartTime)))
+        : undefined,
+    EdgeDeploymentStatusMessage: __expectString(output.EdgeDeploymentStatusMessage),
+    EdgeDeploymentSuccessInStage: __expectInt32(output.EdgeDeploymentSuccessInStage),
+    StageStatus: __expectString(output.StageStatus),
   } as any;
 };
 
@@ -29352,6 +30280,19 @@ const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ListEdgeDeploymentPlansResponse = (
+  output: any,
+  context: __SerdeContext
+): ListEdgeDeploymentPlansResponse => {
+  return {
+    EdgeDeploymentPlanSummaries:
+      output.EdgeDeploymentPlanSummaries != null
+        ? deserializeAws_json1_1EdgeDeploymentPlanSummaries(output.EdgeDeploymentPlanSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListEdgePackagingJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -29730,6 +30671,19 @@ const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeC
       output.ProjectSummaryList != null
         ? deserializeAws_json1_1ProjectSummaryList(output.ProjectSummaryList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListStageDevicesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListStageDevicesResponse => {
+  return {
+    DeviceDeploymentSummaries:
+      output.DeviceDeploymentSummaries != null
+        ? deserializeAws_json1_1DeviceDeploymentSummaries(output.DeviceDeploymentSummaries, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 

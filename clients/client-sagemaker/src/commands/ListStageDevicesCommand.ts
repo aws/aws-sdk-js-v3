@@ -12,42 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_2";
+import { ListStageDevicesRequest, ListStageDevicesResponse } from "../models/models_3";
 import {
-  deserializeAws_json1_1DescribeImageVersionCommand,
-  serializeAws_json1_1DescribeImageVersionCommand,
+  deserializeAws_json1_1ListStageDevicesCommand,
+  serializeAws_json1_1ListStageDevicesCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
-export interface DescribeImageVersionCommandInput extends DescribeImageVersionRequest {}
-export interface DescribeImageVersionCommandOutput extends DescribeImageVersionResponse, __MetadataBearer {}
+export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
+export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a version of a SageMaker image.</p>
+ * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListStageDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListStageDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new DescribeImageVersionCommand(input);
+ * const command = new ListStageDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeImageVersionCommandInput} for command's `input` shape.
- * @see {@link DescribeImageVersionCommandOutput} for command's `response` shape.
+ * @see {@link ListStageDevicesCommandInput} for command's `input` shape.
+ * @see {@link ListStageDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
-export class DescribeImageVersionCommand extends $Command<
-  DescribeImageVersionCommandInput,
-  DescribeImageVersionCommandOutput,
+export class ListStageDevicesCommand extends $Command<
+  ListStageDevicesCommandInput,
+  ListStageDevicesCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeImageVersionCommandInput) {
+  constructor(readonly input: ListStageDevicesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class DescribeImageVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeImageVersionCommandInput, DescribeImageVersionCommandOutput> {
+  ): Handler<ListStageDevicesCommandInput, ListStageDevicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "DescribeImageVersionCommand";
+    const commandName = "ListStageDevicesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStageDevicesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListStageDevicesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class DescribeImageVersionCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageVersionCommand(input, context);
+  private serialize(input: ListStageDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListStageDevicesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeImageVersionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStageDevicesCommandOutput> {
+    return deserializeAws_json1_1ListStageDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

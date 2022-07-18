@@ -12,42 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_2";
+import { DeleteEdgeDeploymentPlanRequest } from "../models/models_1";
 import {
-  deserializeAws_json1_1DescribeImageVersionCommand,
-  serializeAws_json1_1DescribeImageVersionCommand,
+  deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
+  serializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
-export interface DescribeImageVersionCommandInput extends DescribeImageVersionRequest {}
-export interface DescribeImageVersionCommandOutput extends DescribeImageVersionResponse, __MetadataBearer {}
+export interface DeleteEdgeDeploymentPlanCommandInput extends DeleteEdgeDeploymentPlanRequest {}
+export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Describes a version of a SageMaker image.</p>
+ * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new DescribeImageVersionCommand(input);
+ * const command = new DeleteEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeImageVersionCommandInput} for command's `input` shape.
- * @see {@link DescribeImageVersionCommandOutput} for command's `response` shape.
+ * @see {@link DeleteEdgeDeploymentPlanCommandInput} for command's `input` shape.
+ * @see {@link DeleteEdgeDeploymentPlanCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
-export class DescribeImageVersionCommand extends $Command<
-  DescribeImageVersionCommandInput,
-  DescribeImageVersionCommandOutput,
+export class DeleteEdgeDeploymentPlanCommand extends $Command<
+  DeleteEdgeDeploymentPlanCommandInput,
+  DeleteEdgeDeploymentPlanCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeImageVersionCommandInput) {
+  constructor(readonly input: DeleteEdgeDeploymentPlanCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class DescribeImageVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeImageVersionCommandInput, DescribeImageVersionCommandOutput> {
+  ): Handler<DeleteEdgeDeploymentPlanCommandInput, DeleteEdgeDeploymentPlanCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "DescribeImageVersionCommand";
+    const commandName = "DeleteEdgeDeploymentPlanCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEdgeDeploymentPlanRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class DescribeImageVersionCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageVersionCommand(input, context);
+  private serialize(input: DeleteEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteEdgeDeploymentPlanCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeImageVersionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEdgeDeploymentPlanCommandOutput> {
+    return deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

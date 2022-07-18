@@ -12,42 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_2";
+import { StartEdgeDeploymentStageRequest } from "../models/models_3";
 import {
-  deserializeAws_json1_1DescribeImageVersionCommand,
-  serializeAws_json1_1DescribeImageVersionCommand,
+  deserializeAws_json1_1StartEdgeDeploymentStageCommand,
+  serializeAws_json1_1StartEdgeDeploymentStageCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
-export interface DescribeImageVersionCommandInput extends DescribeImageVersionRequest {}
-export interface DescribeImageVersionCommandOutput extends DescribeImageVersionResponse, __MetadataBearer {}
+export interface StartEdgeDeploymentStageCommandInput extends StartEdgeDeploymentStageRequest {}
+export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Describes a version of a SageMaker image.</p>
+ * <p>Starts a stage in an edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DescribeImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DescribeImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, StartEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StartEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new DescribeImageVersionCommand(input);
+ * const command = new StartEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeImageVersionCommandInput} for command's `input` shape.
- * @see {@link DescribeImageVersionCommandOutput} for command's `response` shape.
+ * @see {@link StartEdgeDeploymentStageCommandInput} for command's `input` shape.
+ * @see {@link StartEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
-export class DescribeImageVersionCommand extends $Command<
-  DescribeImageVersionCommandInput,
-  DescribeImageVersionCommandOutput,
+export class StartEdgeDeploymentStageCommand extends $Command<
+  StartEdgeDeploymentStageCommandInput,
+  StartEdgeDeploymentStageCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeImageVersionCommandInput) {
+  constructor(readonly input: StartEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class DescribeImageVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeImageVersionCommandInput, DescribeImageVersionCommandOutput> {
+  ): Handler<StartEdgeDeploymentStageCommandInput, StartEdgeDeploymentStageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "DescribeImageVersionCommand";
+    const commandName = "StartEdgeDeploymentStageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartEdgeDeploymentStageRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class DescribeImageVersionCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageVersionCommand(input, context);
+  private serialize(input: StartEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StartEdgeDeploymentStageCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeImageVersionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEdgeDeploymentStageCommandOutput> {
+    return deserializeAws_json1_1StartEdgeDeploymentStageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -6,8 +6,12 @@ import {
   AppSpecification,
   BatchStrategy,
   BooleanOperator,
+  CacheHitResult,
+  CallbackStepMetadata,
   Channel,
   CheckpointConfig,
+  ClarifyCheckStepMetadata,
+  ConditionStepMetadata,
   DeploymentConfig,
   EdgeOutputConfig,
   FeatureDefinition,
@@ -19,7 +23,6 @@ import {
   OutputDataConfig,
   OutputParameter,
   ResourceConfig,
-  RetryStrategy,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -39,7 +42,6 @@ import {
   DriftCheckBaselines,
   ExperimentConfig,
   FeatureParameter,
-  HyperParameterTrainingJobSummary,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
   ModelArtifacts,
@@ -60,13 +62,13 @@ import {
   ProcessingStoppingCondition,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
+  RetryStrategy,
   RootAccess,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
   SourceIpConfig,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
-  TrainingJobStatus,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
@@ -75,20 +77,24 @@ import {
 import {
   DesiredWeightAndCapacity,
   Device,
+  DeviceDeploymentSummary,
   Direction,
   DomainSettingsForUpdate,
   Edge,
+  EMRStepMetadata,
   Endpoint,
   Experiment,
+  FailStepMetadata,
   FeatureGroup,
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HyperParameterTrainingJobSummary,
+  LambdaStepMetadata,
   LineageType,
   MetricData,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  Parameter,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
@@ -101,6 +107,7 @@ import {
   SortBy,
   SortOrder,
   SubscribedWorkteam,
+  TrainingJobStatus,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -109,6 +116,808 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListPipelineExecutionStepsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipeline execution steps to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListPipelineExecutionStepsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionStepsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for Model steps.</p>
+ */
+export interface ModelStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created model.</p>
+   */
+  Arn?: string;
+}
+
+export namespace ModelStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a processing job step.</p>
+ */
+export interface ProcessingJobStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
+   */
+  Arn?: string;
+}
+
+export namespace ProcessingJobStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProcessingJobStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container for the metadata for a Quality check step. For more information, see
+ *          the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-quality-check">QualityCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
+ *       </p>
+ */
+export interface QualityCheckStepMetadata {
+  /**
+   * <p>The type of the Quality check step.</p>
+   */
+  CheckType?: string;
+
+  /**
+   * <p>The Amazon S3 URI of the baseline statistics file used for the drift check.</p>
+   */
+  BaselineUsedForDriftCheckStatistics?: string;
+
+  /**
+   * <p>The Amazon S3 URI of the baseline constraints file used for the drift check.</p>
+   */
+  BaselineUsedForDriftCheckConstraints?: string;
+
+  /**
+   * <p>The Amazon S3 URI of the newly calculated baseline statistics file.</p>
+   */
+  CalculatedBaselineStatistics?: string;
+
+  /**
+   * <p>The Amazon S3 URI of the newly calculated baseline constraints file.</p>
+   */
+  CalculatedBaselineConstraints?: string;
+
+  /**
+   * <p>The model package group name.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * <p>The Amazon S3 URI of violation report if violations are detected.</p>
+   */
+  ViolationReport?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Quality check processing job that was run by this step execution.</p>
+   */
+  CheckJobArn?: string;
+
+  /**
+   * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
+   *          If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
+   */
+  SkipCheck?: boolean;
+
+  /**
+   * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
+   *          <code>BaselineUsedForDriftCheckConstraints</code> and <code>BaselineUsedForDriftCheckStatistics</code>.
+   *          If it is set to <code>False</code>, the previous baseline of the configured check type must also be available.
+   *          These can be accessed through the <code>BaselineUsedForDriftCheckConstraints</code> and <code>
+   *             BaselineUsedForDriftCheckStatistics</code> properties. </p>
+   */
+  RegisterNewBaseline?: boolean;
+}
+
+export namespace QualityCheckStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QualityCheckStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a register model job step.</p>
+ */
+export interface RegisterModelStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  Arn?: string;
+}
+
+export namespace RegisterModelStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterModelStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a training job step.</p>
+ */
+export interface TrainingJobStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
+
+export namespace TrainingJobStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingJobStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a transform job step.</p>
+ */
+export interface TransformJobStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
+
+export namespace TransformJobStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransformJobStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a tuning step.</p>
+ */
+export interface TuningJobStepMetaData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
+
+export namespace TuningJobStepMetaData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TuningJobStepMetaData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata for a step execution.</p>
+ */
+export interface PipelineExecutionStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
+   */
+  TrainingJob?: TrainingJobStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
+   */
+  ProcessingJob?: ProcessingJobStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
+   */
+  TransformJob?: TransformJobStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  TuningJob?: TuningJobStepMetaData;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
+   */
+  Model?: ModelStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package the model was registered to by this step execution.</p>
+   */
+  RegisterModel?: RegisterModelStepMetadata;
+
+  /**
+   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
+   */
+  Condition?: ConditionStepMetadata;
+
+  /**
+   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token,
+   *         and a list of output parameters.</p>
+   */
+  Callback?: CallbackStepMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of
+   *         output parameters.</p>
+   */
+  Lambda?: LambdaStepMetadata;
+
+  /**
+   * <p>The configurations and outcomes of the check step execution. This includes: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The type of the check conducted,</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
+   *             </li>
+   *             <li>
+   *                <p>The model package group name provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
+   *             </li>
+   *             <li>
+   *                <p>The boolean flags indicating if the drift check is skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
+   *             <code>CalculatedBaseline</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  QualityCheck?: QualityCheckStepMetadata;
+
+  /**
+   * <p>Container for the metadata for a Clarify check step. The configurations
+   *          and outcomes of the check step execution. This includes: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The type of the check conducted,</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
+   *             </li>
+   *             <li>
+   *                <p>The model package group name provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
+   *             </li>
+   *             <li>
+   *                <p>The boolean flags indicating if the drift check is skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
+   *             <code>CalculatedBaseline</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  ClarifyCheck?: ClarifyCheckStepMetadata;
+
+  /**
+   * <p>The configurations and outcomes of an EMR step execution.</p>
+   */
+  EMR?: EMRStepMetadata;
+
+  /**
+   * <p>The configurations and outcomes of a Fail step execution.</p>
+   */
+  Fail?: FailStepMetadata;
+}
+
+export namespace PipelineExecutionStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PipelineExecutionStepMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum StepStatus {
+  EXECUTING = "Executing",
+  FAILED = "Failed",
+  STARTING = "Starting",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+  SUCCEEDED = "Succeeded",
+}
+
+/**
+ * <p>An execution of a step in a pipeline.</p>
+ */
+export interface PipelineExecutionStep {
+  /**
+   * <p>The name of the step that is executed.</p>
+   */
+  StepName?: string;
+
+  /**
+   * <p>The display name of the step.</p>
+   */
+  StepDisplayName?: string;
+
+  /**
+   * <p>The description of the step.</p>
+   */
+  StepDescription?: string;
+
+  /**
+   * <p>The time that the step started executing.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time that the step stopped executing.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of the step execution.</p>
+   */
+  StepStatus?: StepStatus | string;
+
+  /**
+   * <p>If this pipeline execution step was cached, details on the cache hit.</p>
+   */
+  CacheHitResult?: CacheHitResult;
+
+  /**
+   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
+   */
+  AttemptCount?: number;
+
+  /**
+   * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Metadata for the step execution.</p>
+   */
+  Metadata?: PipelineExecutionStepMetadata;
+}
+
+export namespace PipelineExecutionStep {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PipelineExecutionStep): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineExecutionStepsResponse {
+  /**
+   * <p>A list of <code>PipeLineExecutionStep</code> objects. Each
+   *             <code>PipeLineExecutionStep</code> consists of StepName, StartTime, EndTime, StepStatus,
+   *          and Metadata. Metadata is an object with properties for each job that contains relevant
+   *          information about the job created by the step.</p>
+   */
+  PipelineExecutionSteps?: PipelineExecutionStep[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelineExecutionStepsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineExecutionStepsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineParametersForExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of parameters to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListPipelineParametersForExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineParametersForExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Assigns a value to a named Pipeline parameter.</p>
+ */
+export interface Parameter {
+  /**
+   * <p>The name of the parameter to assign a value to. This
+   *          parameter name must match a named parameter in the
+   *          pipeline definition.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The literal value for the parameter.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Parameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Parameter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelineParametersForExecutionResponse {
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelineParametersForExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelineParametersForExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SortPipelinesBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
+
+export interface ListPipelinesRequest {
+  /**
+   * <p>The prefix of the pipeline name.</p>
+   */
+  PipelineNamePrefix?: string;
+
+  /**
+   * <p>A filter that returns the pipelines that were created after a specified
+   *          time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns the pipelines that were created before a specified
+   *          time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   */
+  SortBy?: SortPipelinesBy | string;
+
+  /**
+   * <p>The sort order for results.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipelines to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListPipelinesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of a pipeline.</p>
+ */
+export interface PipelineSummary {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the pipeline.</p>
+   */
+  PipelineArn?: string;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   */
+  PipelineName?: string;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline used to execute.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The creation time of the pipeline.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time that the pipeline was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The last time that a pipeline execution began.</p>
+   */
+  LastExecutionTime?: Date;
+}
+
+export namespace PipelineSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PipelineSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPipelinesResponse {
+  /**
+   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified
+   *          filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName,
+   *          ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and
+   *          RoleArn. This list can be empty. </p>
+   */
+  PipelineSummaries?: PipelineSummary[];
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPipelinesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProcessingJobsRequest {
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs modified after the specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only processing jobs modified before the specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A string in the processing job name. This filter returns only processing jobs whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that retrieves only processing jobs with a specific status.</p>
+   */
+  StatusEquals?: ProcessingJobStatus | string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
+   *             the response includes a <code>NextToken</code>. To retrieve the next set of processing
+   *             jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of processing jobs to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListProcessingJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProcessingJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of information about a processing job.</p>
+ */
+export interface ProcessingJobSummary {
+  /**
+   * <p>The name of the processing job.</p>
+   */
+  ProcessingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job..</p>
+   */
+  ProcessingJobArn: string | undefined;
+
+  /**
+   * <p>The time at which the processing job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time at which the processing job completed.</p>
+   */
+  ProcessingEndTime?: Date;
+
+  /**
+   * <p>A timestamp that indicates the last time the processing job was modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The status of the processing job.</p>
+   */
+  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+
+  /**
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
+   *             it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>An optional string, up to one KB in size, that contains metadata from the processing
+   *             container when the processing job exits.</p>
+   */
+  ExitMessage?: string;
+}
+
+export namespace ProcessingJobSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProcessingJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListProcessingJobsResponse {
+  /**
+   * <p>An array of <code>ProcessingJobSummary</code> objects, each listing a processing
+   *             job.</p>
+   */
+  ProcessingJobSummaries: ProcessingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             processing jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListProcessingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
+    ...obj,
+  });
+}
 
 export enum ProjectSortBy {
   CREATION_TIME = "CreationTime",
@@ -233,6 +1042,63 @@ export namespace ListProjectsOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStageDevicesRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to neeed tokening.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of requests to select.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name of the edge deployment plan.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>Toggle for excluding devices deployed in other stages.</p>
+   */
+  ExcludeDevicesDeployedInOtherStage?: boolean;
+
+  /**
+   * <p>The name of the stage in the deployment.</p>
+   */
+  StageName: string | undefined;
+}
+
+export namespace ListStageDevicesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStageDevicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStageDevicesResponse {
+  /**
+   * <p>List of summaries of devices allocated to the stage.</p>
+   */
+  DeviceDeploymentSummaries: DeviceDeploymentSummary[] | undefined;
+
+  /**
+   * <p>The token to use when calling the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListStageDevicesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStageDevicesResponse): any => ({
     ...obj,
   });
 }
@@ -3563,6 +4429,27 @@ export namespace SendPipelineExecutionStepSuccessResponse {
   });
 }
 
+export interface StartEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to start.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to start.</p>
+   */
+  StageName: string | undefined;
+}
+
+export namespace StartEdgeDeploymentStageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartEdgeDeploymentStageRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface StartMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to start.</p>
@@ -3682,6 +4569,27 @@ export namespace StopCompilationJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to stop.</p>
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to stop.</p>
+   */
+  StageName: string | undefined;
+}
+
+export namespace StopEdgeDeploymentStageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopEdgeDeploymentStageRequest): any => ({
     ...obj,
   });
 }
