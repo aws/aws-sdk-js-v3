@@ -2,7 +2,26 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "aws-cn-global": {
+    variants: [
+      {
+        hostname: "global.health.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
+    signingRegion: "cn-northwest-1",
+  },
+  "aws-global": {
+    variants: [
+      {
+        hostname: "global.health.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -16,6 +35,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -50,9 +70,10 @@ const partitionHash: PartitionHash = {
         tags: ["dualstack"],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
-    regions: ["cn-north-1", "cn-northwest-1"],
+    regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     variants: [
       {
@@ -72,6 +93,7 @@ const partitionHash: PartitionHash = {
         tags: ["dualstack"],
       },
     ],
+    endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
