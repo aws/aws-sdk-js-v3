@@ -2363,6 +2363,7 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
     ...(input.AdTriggers != null && { adTriggers: serializeAws_restJson1AdTriggers(input.AdTriggers, context) }),
     ...(input.AdsOnDeliveryRestrictions != null && { adsOnDeliveryRestrictions: input.AdsOnDeliveryRestrictions }),
     ...(input.Encryption != null && { encryption: serializeAws_restJson1DashEncryption(input.Encryption, context) }),
+    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
     ...(input.ManifestLayout != null && { manifestLayout: input.ManifestLayout }),
     ...(input.ManifestWindowSeconds != null && { manifestWindowSeconds: input.ManifestWindowSeconds }),
     ...(input.MinBufferTimeSeconds != null && { minBufferTimeSeconds: input.MinBufferTimeSeconds }),
@@ -2703,6 +2704,7 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
     AdsOnDeliveryRestrictions: __expectString(output.adsOnDeliveryRestrictions),
     Encryption:
       output.encryption != null ? deserializeAws_restJson1DashEncryption(output.encryption, context) : undefined,
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     ManifestLayout: __expectString(output.manifestLayout),
     ManifestWindowSeconds: __expectInt32(output.manifestWindowSeconds),
     MinBufferTimeSeconds: __expectInt32(output.minBufferTimeSeconds),

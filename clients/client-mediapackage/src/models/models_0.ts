@@ -460,10 +460,23 @@ export namespace Authorization {
 
 export enum PresetSpeke20Audio {
   PRESET_AUDIO_1 = "PRESET-AUDIO-1",
+  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
+  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
+  SHARED = "SHARED",
+  UNENCRYPTED = "UNENCRYPTED",
 }
 
 export enum PresetSpeke20Video {
   PRESET_VIDEO_1 = "PRESET-VIDEO-1",
+  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
+  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
+  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
+  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
+  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
+  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
+  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
+  SHARED = "SHARED",
+  UNENCRYPTED = "UNENCRYPTED",
 }
 
 /**
@@ -727,6 +740,11 @@ export interface DashPackage {
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
    */
   Encryption?: DashEncryption;
+
+  /**
+   * When enabled, an I-Frame only stream will be included in the output.
+   */
+  IncludeIframeOnlyStream?: boolean;
 
   /**
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
