@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.131.0...v3.132.0) (2022-07-18)
+
+
+### Features
+
+* **client-application-discovery-service:** Add AWS Agentless Collector details to the GetDiscoverySummary API response ([d790bda](https://github.com/aws/aws-sdk-js-v3/commit/d790bda6e7dffcb5a74c12550d4bbd14bdb4051c))
+* **client-elasticache:** Adding AutoMinorVersionUpgrade in the DescribeReplicationGroups API ([e694134](https://github.com/aws/aws-sdk-js-v3/commit/e694134054db9c206aec4b6e6fa26b8ab807d6eb))
+* **client-kms:** Added support for the SM2 KeySpec in China Partition Regions ([250fd19](https://github.com/aws/aws-sdk-js-v3/commit/250fd19d65a83b3d183ced9863bf6aba8f1fb698))
+* **client-mediapackage:** This release adds "IncludeIframeOnlyStream" for Dash endpoints and increases the number of supported video and audio encryption presets for Speke v2 ([1af0368](https://github.com/aws/aws-sdk-js-v3/commit/1af0368f117fcf8c5bc43659183aec028b2ecc8e))
+* **client-sagemaker:** Amazon SageMaker Edge Manager provides lightweight model deployment feature to deploy machine learning models on requested devices. ([3f89139](https://github.com/aws/aws-sdk-js-v3/commit/3f891393cfe5002f24317a340f88ce0e1df7aa44))
+* **client-sso-admin:** AWS SSO now supports attaching customer managed policies and a permissions boundary to your permission sets. This release adds new API operations to manage and view the customer managed policies and the permissions boundary for a given permission set. ([e65c9b2](https://github.com/aws/aws-sdk-js-v3/commit/e65c9b2e1203291d68d0fdb11d1b467d83e37cf5))
+* **clients:** update client endpoints as of 2022-07-18 ([87e9e29](https://github.com/aws/aws-sdk-js-v3/commit/87e9e2970f5fd24742968462e3944235c5e08380))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 
