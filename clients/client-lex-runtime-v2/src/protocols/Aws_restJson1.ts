@@ -13,6 +13,7 @@ import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   Message as __Message,
+  MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
@@ -439,9 +440,7 @@ export const serializeAws_restJson1StartConversationCommand = async (
   }
   let body: any;
   if (input.requestEventStream !== undefined) {
-    body = context.eventStreamMarshaller.serialize(input.requestEventStream, (event) =>
-      serializeAws_restJson1StartConversationRequestEventStream_event(event, context)
-    );
+    body = serializeAws_restJson1StartConversationRequestEventStream(input.requestEventStream, context);
   }
   return new __HttpRequest({
     protocol,
@@ -868,22 +867,8 @@ export const deserializeAws_restJson1StartConversationCommand = async (
     $metadata: deserializeMetadata(output),
     responseEventStream: undefined,
   };
-  const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
-    const eventName = Object.keys(event)[0];
-    const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
-      accummulator[curr[0]] = curr[1].value;
-      return accummulator;
-    }, {} as Record<string, any>);
-    const eventMessage = {
-      headers: eventHeaders,
-      body: event[eventName].body,
-    };
-    const parsedEvent = {
-      [eventName]: eventMessage,
-    };
-    return await deserializeAws_restJson1StartConversationResponseEventStream_event(parsedEvent, context);
-  });
-  contents.responseEventStream = data;
+  const data: any = output.body;
+  contents.responseEventStream = deserializeAws_restJson1StartConversationResponseEventStream(data, context);
   return Promise.resolve(contents);
 };
 
@@ -923,359 +908,6 @@ const deserializeAws_restJson1StartConversationCommandError = async (
   }
 };
 
-const serializeAws_restJson1StartConversationRequestEventStream_event = (
-  input: any,
-  context: __SerdeContext
-): __Message => {
-  return StartConversationRequestEventStream.visit(input, {
-    ConfigurationEvent: (value) => serializeAws_restJson1ConfigurationEvent_event(value, context),
-    AudioInputEvent: (value) => serializeAws_restJson1AudioInputEvent_event(value, context),
-    DTMFInputEvent: (value) => serializeAws_restJson1DTMFInputEvent_event(value, context),
-    TextInputEvent: (value) => serializeAws_restJson1TextInputEvent_event(value, context),
-    PlaybackCompletionEvent: (value) => serializeAws_restJson1PlaybackCompletionEvent_event(value, context),
-    DisconnectionEvent: (value) => serializeAws_restJson1DisconnectionEvent_event(value, context),
-    _: (value) => value as any,
-  });
-};
-const deserializeAws_restJson1StartConversationResponseEventStream_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<StartConversationResponseEventStream> => {
-  if (output["PlaybackInterruptionEvent"] !== undefined) {
-    return {
-      PlaybackInterruptionEvent: await deserializeAws_restJson1PlaybackInterruptionEvent_event(
-        output["PlaybackInterruptionEvent"],
-        context
-      ),
-    };
-  }
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
-    };
-  }
-  if (output["IntentResultEvent"] !== undefined) {
-    return {
-      IntentResultEvent: await deserializeAws_restJson1IntentResultEvent_event(output["IntentResultEvent"], context),
-    };
-  }
-  if (output["TextResponseEvent"] !== undefined) {
-    return {
-      TextResponseEvent: await deserializeAws_restJson1TextResponseEvent_event(output["TextResponseEvent"], context),
-    };
-  }
-  if (output["AudioResponseEvent"] !== undefined) {
-    return {
-      AudioResponseEvent: await deserializeAws_restJson1AudioResponseEvent_event(output["AudioResponseEvent"], context),
-    };
-  }
-  if (output["HeartbeatEvent"] !== undefined) {
-    return {
-      HeartbeatEvent: await deserializeAws_restJson1HeartbeatEvent_event(output["HeartbeatEvent"], context),
-    };
-  }
-  if (output["AccessDeniedException"] !== undefined) {
-    return {
-      AccessDeniedException: await deserializeAws_restJson1AccessDeniedException_event(
-        output["AccessDeniedException"],
-        context
-      ),
-    };
-  }
-  if (output["ResourceNotFoundException"] !== undefined) {
-    return {
-      ResourceNotFoundException: await deserializeAws_restJson1ResourceNotFoundException_event(
-        output["ResourceNotFoundException"],
-        context
-      ),
-    };
-  }
-  if (output["ValidationException"] !== undefined) {
-    return {
-      ValidationException: await deserializeAws_restJson1ValidationException_event(
-        output["ValidationException"],
-        context
-      ),
-    };
-  }
-  if (output["ThrottlingException"] !== undefined) {
-    return {
-      ThrottlingException: await deserializeAws_restJson1ThrottlingException_event(
-        output["ThrottlingException"],
-        context
-      ),
-    };
-  }
-  if (output["InternalServerException"] !== undefined) {
-    return {
-      InternalServerException: await deserializeAws_restJson1InternalServerException_event(
-        output["InternalServerException"],
-        context
-      ),
-    };
-  }
-  if (output["ConflictException"] !== undefined) {
-    return {
-      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
-    };
-  }
-  if (output["DependencyFailedException"] !== undefined) {
-    return {
-      DependencyFailedException: await deserializeAws_restJson1DependencyFailedException_event(
-        output["DependencyFailedException"],
-        context
-      ),
-    };
-  }
-  if (output["BadGatewayException"] !== undefined) {
-    return {
-      BadGatewayException: await deserializeAws_restJson1BadGatewayException_event(
-        output["BadGatewayException"],
-        context
-      ),
-    };
-  }
-  return { $unknown: output };
-};
-const serializeAws_restJson1AudioInputEvent_event = (input: AudioInputEvent, context: __SerdeContext): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "AudioInputEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1AudioInputEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const serializeAws_restJson1ConfigurationEvent_event = (
-  input: ConfigurationEvent,
-  context: __SerdeContext
-): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "ConfigurationEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1ConfigurationEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const serializeAws_restJson1DisconnectionEvent_event = (
-  input: DisconnectionEvent,
-  context: __SerdeContext
-): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "DisconnectionEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1DisconnectionEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, context: __SerdeContext): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "DTMFInputEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1DTMFInputEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const serializeAws_restJson1PlaybackCompletionEvent_event = (
-  input: PlaybackCompletionEvent,
-  context: __SerdeContext
-): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "PlaybackCompletionEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1PlaybackCompletionEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "TextInputEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/json" },
-    },
-    body: new Uint8Array(),
-  };
-  const body = serializeAws_restJson1TextInputEvent(input, context);
-  message.body = context.utf8Decoder(JSON.stringify(body));
-  return message;
-};
-const deserializeAws_restJson1AccessDeniedException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<AccessDeniedException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1AudioResponseEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<AudioResponseEvent> => {
-  let contents: AudioResponseEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1AudioResponseEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1BadGatewayException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<BadGatewayException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1ConflictException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1DependencyFailedException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<DependencyFailedException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1HeartbeatEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<HeartbeatEvent> => {
-  let contents: HeartbeatEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1HeartbeatEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1IntentResultEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<IntentResultEvent> => {
-  let contents: IntentResultEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1IntentResultEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1InternalServerException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<InternalServerException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1PlaybackInterruptionEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<PlaybackInterruptionEvent> => {
-  let contents: PlaybackInterruptionEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1PlaybackInterruptionEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1ResourceNotFoundException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ResourceNotFoundException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1TextResponseEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TextResponseEvent> => {
-  let contents: TextResponseEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1TextResponseEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1ThrottlingException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1TranscriptEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TranscriptEvent> => {
-  let contents: TranscriptEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1TranscriptEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1ValidationException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
-};
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1404,6 +1036,336 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1StartConversationRequestEventStream = (
+  input: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): any => {
+  const eventMarshallingVisitor = (event: any): __Message =>
+    StartConversationRequestEventStream.visit(event, {
+      ConfigurationEvent: (value) => serializeAws_restJson1ConfigurationEvent_event(value, context),
+      AudioInputEvent: (value) => serializeAws_restJson1AudioInputEvent_event(value, context),
+      DTMFInputEvent: (value) => serializeAws_restJson1DTMFInputEvent_event(value, context),
+      TextInputEvent: (value) => serializeAws_restJson1TextInputEvent_event(value, context),
+      PlaybackCompletionEvent: (value) => serializeAws_restJson1PlaybackCompletionEvent_event(value, context),
+      DisconnectionEvent: (value) => serializeAws_restJson1DisconnectionEvent_event(value, context),
+      _: (value) => value as any,
+    });
+  return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
+};
+const serializeAws_restJson1AudioInputEvent_event = (input: AudioInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "AudioInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1AudioInputEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const serializeAws_restJson1ConfigurationEvent_event = (
+  input: ConfigurationEvent,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1ConfigurationEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const serializeAws_restJson1DisconnectionEvent_event = (
+  input: DisconnectionEvent,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "DisconnectionEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1DisconnectionEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const serializeAws_restJson1DTMFInputEvent_event = (input: DTMFInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "DTMFInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1DTMFInputEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const serializeAws_restJson1PlaybackCompletionEvent_event = (
+  input: PlaybackCompletionEvent,
+  context: __SerdeContext
+): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "PlaybackCompletionEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1PlaybackCompletionEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const serializeAws_restJson1TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "TextInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = serializeAws_restJson1TextInputEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const deserializeAws_restJson1StartConversationResponseEventStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<StartConversationResponseEventStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["PlaybackInterruptionEvent"] != null) {
+      return {
+        PlaybackInterruptionEvent: await deserializeAws_restJson1PlaybackInterruptionEvent_event(
+          event["PlaybackInterruptionEvent"],
+          context
+        ),
+      };
+    }
+    if (event["TranscriptEvent"] != null) {
+      return {
+        TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(event["TranscriptEvent"], context),
+      };
+    }
+    if (event["IntentResultEvent"] != null) {
+      return {
+        IntentResultEvent: await deserializeAws_restJson1IntentResultEvent_event(event["IntentResultEvent"], context),
+      };
+    }
+    if (event["TextResponseEvent"] != null) {
+      return {
+        TextResponseEvent: await deserializeAws_restJson1TextResponseEvent_event(event["TextResponseEvent"], context),
+      };
+    }
+    if (event["AudioResponseEvent"] != null) {
+      return {
+        AudioResponseEvent: await deserializeAws_restJson1AudioResponseEvent_event(
+          event["AudioResponseEvent"],
+          context
+        ),
+      };
+    }
+    if (event["HeartbeatEvent"] != null) {
+      return {
+        HeartbeatEvent: await deserializeAws_restJson1HeartbeatEvent_event(event["HeartbeatEvent"], context),
+      };
+    }
+    if (event["AccessDeniedException"] != null) {
+      return {
+        AccessDeniedException: await deserializeAws_restJson1AccessDeniedException_event(
+          event["AccessDeniedException"],
+          context
+        ),
+      };
+    }
+    if (event["ResourceNotFoundException"] != null) {
+      return {
+        ResourceNotFoundException: await deserializeAws_restJson1ResourceNotFoundException_event(
+          event["ResourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["ValidationException"] != null) {
+      return {
+        ValidationException: await deserializeAws_restJson1ValidationException_event(
+          event["ValidationException"],
+          context
+        ),
+      };
+    }
+    if (event["ThrottlingException"] != null) {
+      return {
+        ThrottlingException: await deserializeAws_restJson1ThrottlingException_event(
+          event["ThrottlingException"],
+          context
+        ),
+      };
+    }
+    if (event["InternalServerException"] != null) {
+      return {
+        InternalServerException: await deserializeAws_restJson1InternalServerException_event(
+          event["InternalServerException"],
+          context
+        ),
+      };
+    }
+    if (event["ConflictException"] != null) {
+      return {
+        ConflictException: await deserializeAws_restJson1ConflictException_event(event["ConflictException"], context),
+      };
+    }
+    if (event["DependencyFailedException"] != null) {
+      return {
+        DependencyFailedException: await deserializeAws_restJson1DependencyFailedException_event(
+          event["DependencyFailedException"],
+          context
+        ),
+      };
+    }
+    if (event["BadGatewayException"] != null) {
+      return {
+        BadGatewayException: await deserializeAws_restJson1BadGatewayException_event(
+          event["BadGatewayException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const deserializeAws_restJson1AccessDeniedException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1AudioResponseEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AudioResponseEvent> => {
+  const contents: AudioResponseEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1AudioResponseEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1BadGatewayException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<BadGatewayException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1ConflictException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1DependencyFailedException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<DependencyFailedException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1DependencyFailedExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1HeartbeatEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<HeartbeatEvent> => {
+  const contents: HeartbeatEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1HeartbeatEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1IntentResultEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<IntentResultEvent> => {
+  const contents: IntentResultEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1IntentResultEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1InternalServerException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1PlaybackInterruptionEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<PlaybackInterruptionEvent> => {
+  const contents: PlaybackInterruptionEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1PlaybackInterruptionEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1ResourceNotFoundException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1TextResponseEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TextResponseEvent> => {
+  const contents: TextResponseEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1TextResponseEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1ThrottlingException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1TranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TranscriptEvent> => {
+  const contents: TranscriptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1TranscriptEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1ValidationException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+};
 const serializeAws_restJson1ActiveContext = (input: ActiveContext, context: __SerdeContext): any => {
   return {
     ...(input.contextAttributes != null && {
@@ -1669,23 +1631,6 @@ const serializeAws_restJson1Slots = (input: Record<string, Slot>, context: __Ser
   }, {});
 };
 
-const serializeAws_restJson1StartConversationRequestEventStream = (
-  input: StartConversationRequestEventStream,
-  context: __SerdeContext
-): any => {
-  return StartConversationRequestEventStream.visit(input, {
-    AudioInputEvent: (value) => ({ AudioInputEvent: serializeAws_restJson1AudioInputEvent(value, context) }),
-    ConfigurationEvent: (value) => ({ ConfigurationEvent: serializeAws_restJson1ConfigurationEvent(value, context) }),
-    DTMFInputEvent: (value) => ({ DTMFInputEvent: serializeAws_restJson1DTMFInputEvent(value, context) }),
-    DisconnectionEvent: (value) => ({ DisconnectionEvent: serializeAws_restJson1DisconnectionEvent(value, context) }),
-    PlaybackCompletionEvent: (value) => ({
-      PlaybackCompletionEvent: serializeAws_restJson1PlaybackCompletionEvent(value, context),
-    }),
-    TextInputEvent: (value) => ({ TextInputEvent: serializeAws_restJson1TextInputEvent(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
-
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1736,12 +1681,6 @@ const serializeAws_restJson1Values = (input: Slot[], context: __SerdeContext): a
       }
       return serializeAws_restJson1Slot(entry, context);
     });
-};
-
-const deserializeAws_restJson1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
 };
 
 const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
@@ -1803,12 +1742,6 @@ const deserializeAws_restJson1AudioResponseEvent = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1BadGatewayException = (output: any, context: __SerdeContext): BadGatewayException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
 const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
   return {
     text: __expectString(output.text),
@@ -1831,21 +1764,6 @@ const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
   return {
     score: __limitedParseDouble(output.score),
-  } as any;
-};
-
-const deserializeAws_restJson1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_restJson1DependencyFailedException = (
-  output: any,
-  context: __SerdeContext
-): DependencyFailedException => {
-  return {
-    message: __expectString(output.message),
   } as any;
 };
 
@@ -1896,15 +1814,6 @@ const deserializeAws_restJson1IntentResultEvent = (output: any, context: __Serde
     sessionId: __expectString(output.sessionId),
     sessionState:
       output.sessionState != null ? deserializeAws_restJson1SessionState(output.sessionState, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    message: __expectString(output.message),
   } as any;
 };
 
@@ -1963,15 +1872,6 @@ const deserializeAws_restJson1PlaybackInterruptionEvent = (
     causedByEventId: __expectString(output.causedByEventId),
     eventId: __expectString(output.eventId),
     eventReason: __expectString(output.eventReason),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
   } as any;
 };
 
@@ -2100,92 +2000,6 @@ const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): Re
   }, {});
 };
 
-const deserializeAws_restJson1StartConversationResponseEventStream = (
-  output: any,
-  context: __SerdeContext
-): StartConversationResponseEventStream => {
-  if (output.AccessDeniedException !== undefined && output.AccessDeniedException !== null) {
-    return {
-      AccessDeniedException: deserializeAws_restJson1AccessDeniedException(output.AccessDeniedException, context),
-    };
-  }
-  if (output.AudioResponseEvent !== undefined && output.AudioResponseEvent !== null) {
-    return {
-      AudioResponseEvent: deserializeAws_restJson1AudioResponseEvent(output.AudioResponseEvent, context),
-    };
-  }
-  if (output.BadGatewayException !== undefined && output.BadGatewayException !== null) {
-    return {
-      BadGatewayException: deserializeAws_restJson1BadGatewayException(output.BadGatewayException, context),
-    };
-  }
-  if (output.ConflictException !== undefined && output.ConflictException !== null) {
-    return {
-      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
-    };
-  }
-  if (output.DependencyFailedException !== undefined && output.DependencyFailedException !== null) {
-    return {
-      DependencyFailedException: deserializeAws_restJson1DependencyFailedException(
-        output.DependencyFailedException,
-        context
-      ),
-    };
-  }
-  if (output.HeartbeatEvent !== undefined && output.HeartbeatEvent !== null) {
-    return {
-      HeartbeatEvent: deserializeAws_restJson1HeartbeatEvent(output.HeartbeatEvent, context),
-    };
-  }
-  if (output.IntentResultEvent !== undefined && output.IntentResultEvent !== null) {
-    return {
-      IntentResultEvent: deserializeAws_restJson1IntentResultEvent(output.IntentResultEvent, context),
-    };
-  }
-  if (output.InternalServerException !== undefined && output.InternalServerException !== null) {
-    return {
-      InternalServerException: deserializeAws_restJson1InternalServerException(output.InternalServerException, context),
-    };
-  }
-  if (output.PlaybackInterruptionEvent !== undefined && output.PlaybackInterruptionEvent !== null) {
-    return {
-      PlaybackInterruptionEvent: deserializeAws_restJson1PlaybackInterruptionEvent(
-        output.PlaybackInterruptionEvent,
-        context
-      ),
-    };
-  }
-  if (output.ResourceNotFoundException !== undefined && output.ResourceNotFoundException !== null) {
-    return {
-      ResourceNotFoundException: deserializeAws_restJson1ResourceNotFoundException(
-        output.ResourceNotFoundException,
-        context
-      ),
-    };
-  }
-  if (output.TextResponseEvent !== undefined && output.TextResponseEvent !== null) {
-    return {
-      TextResponseEvent: deserializeAws_restJson1TextResponseEvent(output.TextResponseEvent, context),
-    };
-  }
-  if (output.ThrottlingException !== undefined && output.ThrottlingException !== null) {
-    return {
-      ThrottlingException: deserializeAws_restJson1ThrottlingException(output.ThrottlingException, context),
-    };
-  }
-  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
-    return {
-      TranscriptEvent: deserializeAws_restJson1TranscriptEvent(output.TranscriptEvent, context),
-    };
-  }
-  if (output.ValidationException !== undefined && output.ValidationException !== null) {
-    return {
-      ValidationException: deserializeAws_restJson1ValidationException(output.ValidationException, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -2217,22 +2031,10 @@ const deserializeAws_restJson1TextResponseEvent = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
 const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
   return {
     eventId: __expectString(output.eventId),
     transcript: __expectString(output.transcript),
-  } as any;
-};
-
-const deserializeAws_restJson1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    message: __expectString(output.message),
   } as any;
 };
 
