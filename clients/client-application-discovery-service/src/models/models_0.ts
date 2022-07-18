@@ -1521,6 +1521,25 @@ export namespace GetDiscoverySummaryRequest {
   });
 }
 
+export interface CustomerAgentlessCollectorInfo {
+  activeAgentlessCollectors: number | undefined;
+  healthyAgentlessCollectors: number | undefined;
+  denyListedAgentlessCollectors: number | undefined;
+  shutdownAgentlessCollectors: number | undefined;
+  unhealthyAgentlessCollectors: number | undefined;
+  totalAgentlessCollectors: number | undefined;
+  unknownAgentlessCollectors: number | undefined;
+}
+
+export namespace CustomerAgentlessCollectorInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomerAgentlessCollectorInfo): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Inventory data for installed discovery agents.</p>
  */
@@ -1721,6 +1740,8 @@ export interface GetDiscoverySummaryResponse {
    *     </p>
    */
   meCollectorSummary?: CustomerMeCollectorInfo;
+
+  agentlessCollectorSummary?: CustomerAgentlessCollectorInfo;
 }
 
 export namespace GetDiscoverySummaryResponse {

@@ -107,6 +107,7 @@ import {
   CreateTagsRequest,
   CreateTagsResponse,
   CustomerAgentInfo,
+  CustomerAgentlessCollectorInfo,
   CustomerConnectorInfo,
   CustomerMeCollectorInfo,
   DeleteApplicationsRequest,
@@ -2758,6 +2759,21 @@ const deserializeAws_json1_1CustomerAgentInfo = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1CustomerAgentlessCollectorInfo = (
+  output: any,
+  context: __SerdeContext
+): CustomerAgentlessCollectorInfo => {
+  return {
+    activeAgentlessCollectors: __expectInt32(output.activeAgentlessCollectors),
+    denyListedAgentlessCollectors: __expectInt32(output.denyListedAgentlessCollectors),
+    healthyAgentlessCollectors: __expectInt32(output.healthyAgentlessCollectors),
+    shutdownAgentlessCollectors: __expectInt32(output.shutdownAgentlessCollectors),
+    totalAgentlessCollectors: __expectInt32(output.totalAgentlessCollectors),
+    unhealthyAgentlessCollectors: __expectInt32(output.unhealthyAgentlessCollectors),
+    unknownAgentlessCollectors: __expectInt32(output.unknownAgentlessCollectors),
+  } as any;
+};
+
 const deserializeAws_json1_1CustomerConnectorInfo = (output: any, context: __SerdeContext): CustomerConnectorInfo => {
   return {
     activeConnectors: __expectInt32(output.activeConnectors),
@@ -2954,6 +2970,10 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
   return {
     agentSummary:
       output.agentSummary != null ? deserializeAws_json1_1CustomerAgentInfo(output.agentSummary, context) : undefined,
+    agentlessCollectorSummary:
+      output.agentlessCollectorSummary != null
+        ? deserializeAws_json1_1CustomerAgentlessCollectorInfo(output.agentlessCollectorSummary, context)
+        : undefined,
     applications: __expectLong(output.applications),
     connectorSummary:
       output.connectorSummary != null
