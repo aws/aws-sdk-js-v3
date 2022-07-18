@@ -11326,6 +11326,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     LogDeliveryConfigurations: undefined,
     ReplicationGroupCreateTime: undefined,
     DataTiering: undefined,
+    AutoMinorVersionUpgrade: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -11441,6 +11442,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output["DataTiering"] !== undefined) {
     contents.DataTiering = __expectString(output["DataTiering"]);
+  }
+  if (output["AutoMinorVersionUpgrade"] !== undefined) {
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   return contents;
 };
