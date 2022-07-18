@@ -25,7 +25,7 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
 /**
  * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not delete the CloudHSM cluster that is
  *       associated with the custom key store, or affect any users or keys in the cluster.</p>
- *          <p>The custom key store that you delete cannot contain any KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a>. Before deleting the key store,
+ *          <p>The custom key store that you delete cannot contain any <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a>. Before deleting the key store,
  *       verify that you will never need to use any of the KMS keys in the key store for any
  *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. Then, use <a>ScheduleKeyDeletion</a> to delete the KMS keys from the
  *       key store. When the scheduled waiting period expires, the <code>ScheduleKeyDeletion</code>
@@ -39,7 +39,7 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  *       delete KMS keys and you can reconnect a disconnected custom key store at any time.</p>
  *          <p>If the operation succeeds, it returns a JSON object with no
  * properties.</p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in KMS, which
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store feature</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * single-tenant key store.</p>
  *          <p>

@@ -25,7 +25,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
 /**
  * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">CloudHSM cluster</a> that you own and
  *     manage.</p>
- *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in KMS, which
+ *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store feature</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * single-tenant key store.</p>
  *          <p>Before you create the custom key store, you must assemble

@@ -34,7 +34,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             <dd>
  *                <p>To create a symmetric encryption KMS key, you aren't required to specify any parameters. The default value for
  *             <code>KeySpec</code>, <code>SYMMETRIC_DEFAULT</code>, and the default value for
- *             <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, create a symmetric encryption KMS key.</p>
+ *             <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, create a symmetric encryption KMS key. For technical details, see
+ *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default">
+ *               SYMMETRIC_DEFAULT key spec</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p>If you need a key for basic encryption and decryption or you
  *             are creating a KMS key to protect your resources in an Amazon Web Services service, create a symmetric encryption KMS key. The key material in a symmetric encryption key never leaves KMS unencrypted. You can use a symmetric encryption KMS key to encrypt and decrypt data up to 4,096 bytes, but they are typically used to generate data keys and data keys pairs. For details, see <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
  *                <p> </p>
@@ -45,9 +47,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             the type of key material in the KMS key. Then, use the <code>KeyUsage</code> parameter
  *             to determine whether the KMS key will be used to encrypt and decrypt or sign and verify.
  *             You can't change these properties after the KMS key is created.</p>
- *                <p>Asymmetric KMS keys contain an RSA key pair or an Elliptic Curve (ECC) key pair. The private key in an asymmetric
+ *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an SM2 key pair (China Regions only). The private key in an asymmetric
  *             KMS key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key
- *             so it can be used outside of KMS. KMS keys with RSA key pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
+ *             so it can be used outside of KMS. KMS keys with RSA or SM2 key pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
  *             KMS keys with ECC key pairs can be used only to sign and verify messages.
  *             For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>

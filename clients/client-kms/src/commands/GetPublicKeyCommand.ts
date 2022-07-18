@@ -32,8 +32,11 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       KMS by calling the <a>Encrypt</a>, <a>ReEncrypt</a>, or <a>Verify</a> operations with the identifier of an asymmetric KMS key. When you use the
  *       public key within KMS, you benefit from the authentication, authorization, and logging that
  *       are part of every KMS operation. You also reduce of risk of encrypting data that cannot be
- *       decrypted. These features are not effective outside of KMS. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/download-public-key.html#download-public-key-considerations">Special
- *         Considerations for Downloading Public Keys</a>.</p>
+ *       decrypted. These features are not effective outside of KMS.</p>
+ *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you must
+ *       specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as the
+ *       distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification
+ *       with SM2 key pairs</a>.</p>
  *          <p>To help you use the public key safely outside of KMS, <code>GetPublicKey</code> returns
  *       important information about the public key in the response, including:</p>
  *          <ul>

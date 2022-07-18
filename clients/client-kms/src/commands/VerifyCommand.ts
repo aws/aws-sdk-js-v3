@@ -35,7 +35,11 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *       signature.</p>
  *          <p>You can also verify the digital signature by using the public key of the KMS key outside
  *       of KMS. Use the <a>GetPublicKey</a> operation to download the public key in the
- *       asymmetric KMS key and then use the public key to verify the signature outside of KMS. The
+ *       asymmetric KMS key and then use the public key to verify the signature outside of KMS. To
+ *       verify a signature outside of KMS with an SM2 public key, you must specify the distinguishing
+ *       ID. By default, KMS uses <code>1234567812345678</code> as the distinguishing ID. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+ *       verification with SM2 key pairs</a> in <i>Key Management Service Developer Guide</i>. The
  *       advantage of using the <code>Verify</code> operation is that it is performed within KMS. As
  *       a result, it's easy to call, the operation is performed within the FIPS boundary, it is logged
  *       in CloudTrail, and you can use key policy and IAM policy to determine who is authorized to use
