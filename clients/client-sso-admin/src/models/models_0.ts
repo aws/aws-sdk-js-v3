@@ -1,10 +1,10 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
 
 /**
- * <p>The value used for mapping a specified attribute to an identity source.</p>
+ * <p>The value used for mapping a specified attribute to an identity source. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html">Attribute mappings</a> in the Amazon Web Services Single Sign-On User Guide.</p>
  */
 export interface AccessControlAttributeValue {
   /**
@@ -222,65 +222,62 @@ export namespace AccountAssignmentOperationStatusMetadata {
 }
 
 /**
- * <p>A structure that stores the details of the IAM managed policy.</p>
+ * <p>Specifies the name and path of the IAM customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
  */
-export interface AttachedManagedPolicy {
+export interface CustomerManagedPolicyReference {
   /**
-   * <p>The name of the IAM managed policy.</p>
+   * <p>The name of the policy document.</p>
    */
-  Name?: string;
+  Name: string | undefined;
 
   /**
-   * <p>The ARN of the IAM managed policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The path for the policy. The default is <code>/</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly names and paths</a> in the Identity and Access Management user guide.</p>
    */
-  Arn?: string;
+  Path?: string;
 }
 
-export namespace AttachedManagedPolicy {
+export namespace CustomerManagedPolicyReference {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
+  export const filterSensitiveLog = (obj: CustomerManagedPolicyReference): any => ({
     ...obj,
   });
 }
 
-export interface AttachManagedPolicyToPermissionSetRequest {
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   /**
-   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached
-   *       to.</p>
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
    */
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The IAM managed policy ARN to be attached to a permission set.</p>
+   * <p>Specifies the name and path of the IAM customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
    */
-  ManagedPolicyArn: string | undefined;
+  CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
-export namespace AttachManagedPolicyToPermissionSetRequest {
+export namespace AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetRequest): any => ({
+  export const filterSensitiveLog = (obj: AttachCustomerManagedPolicyReferenceToPermissionSetRequest): any => ({
     ...obj,
   });
 }
 
-export interface AttachManagedPolicyToPermissionSetResponse {}
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
 
-export namespace AttachManagedPolicyToPermissionSetResponse {
+export namespace AttachCustomerManagedPolicyReferenceToPermissionSetResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetResponse): any => ({
+  export const filterSensitiveLog = (obj: AttachCustomerManagedPolicyReferenceToPermissionSetResponse): any => ({
     ...obj,
   });
 }
@@ -417,6 +414,70 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * <p>A structure that stores the details of the Amazon Web Services managed IAM policy.</p>
+ */
+export interface AttachedManagedPolicy {
+  /**
+   * <p>The name of the Amazon Web Services managed IAM policy.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the Amazon Web Services managed IAM policy. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  Arn?: string;
+}
+
+export namespace AttachedManagedPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
+    ...obj,
+  });
+}
+
+export interface AttachManagedPolicyToPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
+   * Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <a>PermissionSet</a> that the managed policy should be attached
+   *       to.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services managed policy ARN to be attached to a permission set.</p>
+   */
+  ManagedPolicyArn: string | undefined;
+}
+
+export namespace AttachManagedPolicyToPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AttachManagedPolicyToPermissionSetResponse {}
+
+export namespace AttachManagedPolicyToPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAccountAssignmentRequest {
   /**
    * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -543,12 +604,12 @@ export interface Tag {
   /**
    * <p>The key for the tag.</p>
    */
-  Key?: string;
+  Key: string | undefined;
 
   /**
    * <p>The value of the tag.</p>
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -781,6 +842,38 @@ export namespace DeleteInstanceAccessControlAttributeConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePermissionsBoundaryFromPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+}
+
+export namespace DeletePermissionsBoundaryFromPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePermissionsBoundaryFromPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
+
+export namespace DeletePermissionsBoundaryFromPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePermissionsBoundaryFromPermissionSetResponse): any => ({
     ...obj,
   });
 }
@@ -1067,6 +1160,43 @@ export namespace DescribePermissionSetProvisioningStatusResponse {
   });
 }
 
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * <p>Specifies the name and path of the IAM customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+   */
+  CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
+}
+
+export namespace DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
+
+export namespace DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetachCustomerManagedPolicyReferenceFromPermissionSetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DetachManagedPolicyFromPermissionSetRequest {
   /**
    * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1081,7 +1211,7 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 
   /**
-   * <p>The IAM managed policy ARN to be attached to a permission set.</p>
+   * <p>The Amazon Web Services managed policy ARN to be detached from a permission set.</p>
    */
   ManagedPolicyArn: string | undefined;
 }
@@ -1141,7 +1271,72 @@ export namespace GetInlinePolicyForPermissionSetResponse {
    */
   export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetResponse): any => ({
     ...obj,
-    ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
+  });
+}
+
+export interface GetPermissionsBoundaryForPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+}
+
+export namespace GetPermissionsBoundaryForPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPermissionsBoundaryForPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration of the Amazon Web Services managed or customer managed policy that you want to set as a permissions boundary. Specify either <code>CustomerManagedPolicyReference</code>
+ *       to use the name and path of a customer managed policy, or <code>ManagedPolicyArn</code> to use the ARN of an Amazon Web Services managed IAM policy. A permissions boundary represents the maximum permissions that any policy
+ *       can grant your role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>Identity and Access Management User Guide</i>.</p>
+ *          <important>
+ *             <p>Policies used as permissions boundaries do not provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy evaluation logic</a> in the <i>Identity and Access Management User Guide</i>.</p>
+ *          </important>
+ */
+export interface PermissionsBoundary {
+  /**
+   * <p>Specifies the name and path of the IAM customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
+   */
+  CustomerManagedPolicyReference?: CustomerManagedPolicyReference;
+
+  /**
+   * <p>The Amazon Web Services managed policy ARN that you want to attach to a permission set as a permissions boundary.</p>
+   */
+  ManagedPolicyArn?: string;
+}
+
+export namespace PermissionsBoundary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PermissionsBoundary): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPermissionsBoundaryForPermissionSetResponse {
+  /**
+   * <p>The permissions boundary attached to the specified permission set.</p>
+   */
+  PermissionsBoundary?: PermissionsBoundary;
+}
+
+export namespace GetPermissionsBoundaryForPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPermissionsBoundaryForPermissionSetResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1413,6 +1608,58 @@ export namespace ListAccountsForProvisionedPermissionSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to display for the list call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCustomerManagedPolicyReferencesInPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomerManagedPolicyReferencesInPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
+  /**
+   * <p>Specifies the names and paths of the IAM customer managed policies that you have attached to your permission set.</p>
+   */
+  CustomerManagedPolicyReferences?: CustomerManagedPolicyReference[];
+
+  /**
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListCustomerManagedPolicyReferencesInPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomerManagedPolicyReferencesInPermissionSetResponse): any => ({
     ...obj,
   });
 }
@@ -1827,7 +2074,6 @@ export namespace PutInlinePolicyToPermissionSetRequest {
    */
   export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetRequest): any => ({
     ...obj,
-    ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
   });
 }
 
@@ -1838,6 +2084,43 @@ export namespace PutInlinePolicyToPermissionSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPermissionsBoundaryToPermissionSetRequest {
+  /**
+   * <p>The ARN of the SSO instance under which the operation will be executed. </p>
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the <code>PermissionSet</code>.</p>
+   */
+  PermissionSetArn: string | undefined;
+
+  /**
+   * <p>The permissions boundary that you want to attach to a <code>PermissionSet</code>.</p>
+   */
+  PermissionsBoundary: PermissionsBoundary | undefined;
+}
+
+export namespace PutPermissionsBoundaryToPermissionSetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPermissionsBoundaryToPermissionSetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPermissionsBoundaryToPermissionSetResponse {}
+
+export namespace PutPermissionsBoundaryToPermissionSetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPermissionsBoundaryToPermissionSetResponse): any => ({
     ...obj,
   });
 }

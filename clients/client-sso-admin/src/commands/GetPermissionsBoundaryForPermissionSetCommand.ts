@@ -13,46 +13,47 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DetachManagedPolicyFromPermissionSetRequest,
-  DetachManagedPolicyFromPermissionSetResponse,
+  GetPermissionsBoundaryForPermissionSetRequest,
+  GetPermissionsBoundaryForPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
-  serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
+  deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
+  serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
-export interface DetachManagedPolicyFromPermissionSetCommandInput extends DetachManagedPolicyFromPermissionSetRequest {}
-export interface DetachManagedPolicyFromPermissionSetCommandOutput
-  extends DetachManagedPolicyFromPermissionSetResponse,
+export interface GetPermissionsBoundaryForPermissionSetCommandInput
+  extends GetPermissionsBoundaryForPermissionSetRequest {}
+export interface GetPermissionsBoundaryForPermissionSetCommandOutput
+  extends GetPermissionsBoundaryForPermissionSetResponse,
     __MetadataBearer {}
 
 /**
- * <p>Detaches the attached Amazon Web Services managed IAM policy ARN from the specified permission set.</p>
+ * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, GetPermissionsBoundaryForPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const command = new DetachManagedPolicyFromPermissionSetCommand(input);
+ * const command = new GetPermissionsBoundaryForPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DetachManagedPolicyFromPermissionSetCommandInput} for command's `input` shape.
- * @see {@link DetachManagedPolicyFromPermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link GetPermissionsBoundaryForPermissionSetCommandInput} for command's `input` shape.
+ * @see {@link GetPermissionsBoundaryForPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
-export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
-  DetachManagedPolicyFromPermissionSetCommandInput,
-  DetachManagedPolicyFromPermissionSetCommandOutput,
+export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
+  GetPermissionsBoundaryForPermissionSetCommandInput,
+  GetPermissionsBoundaryForPermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DetachManagedPolicyFromPermissionSetCommandInput) {
+  constructor(readonly input: GetPermissionsBoundaryForPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +66,20 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DetachManagedPolicyFromPermissionSetCommandInput, DetachManagedPolicyFromPermissionSetCommandOutput> {
+  ): Handler<GetPermissionsBoundaryForPermissionSetCommandInput, GetPermissionsBoundaryForPermissionSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSOAdminClient";
-    const commandName = "DetachManagedPolicyFromPermissionSetCommand";
+    const commandName = "GetPermissionsBoundaryForPermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPermissionsBoundaryForPermissionSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPermissionsBoundaryForPermissionSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,17 +90,17 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
   }
 
   private serialize(
-    input: DetachManagedPolicyFromPermissionSetCommandInput,
+    input: GetPermissionsBoundaryForPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(input, context);
+    return serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(output, context);
+  ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> {
+    return deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

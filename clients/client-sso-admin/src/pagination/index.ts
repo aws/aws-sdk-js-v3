@@ -4,6 +4,7 @@ export * from "./ListAccountAssignmentCreationStatusPaginator";
 export * from "./ListAccountAssignmentDeletionStatusPaginator";
 export * from "./ListAccountAssignmentsPaginator";
 export * from "./ListAccountsForProvisionedPermissionSetPaginator";
+export * from "./ListCustomerManagedPolicyReferencesInPermissionSetPaginator";
 export * from "./ListInstancesPaginator";
 export * from "./ListManagedPoliciesInPermissionSetPaginator";
 export * from "./ListPermissionSetProvisioningStatusPaginator";

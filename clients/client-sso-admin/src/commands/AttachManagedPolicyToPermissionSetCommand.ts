@@ -28,7 +28,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Attaches an IAM managed policy ARN to a permission set.</p>
+ * <p>Attaches an Amazon Web Services managed IAM policy ARN to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments, you will
  *         need to call <code>

@@ -9,14 +9,7 @@
 
 AWS SDK for JavaScript SSOAdmin Client for Node.js, Browser and React Native.
 
-<p>Amazon Web Services Single Sign On (SSO) is a cloud SSO service that makes it easy to centrally manage SSO
-access to multiple Amazon Web Services accounts and business applications. This guide provides information on
-SSO operations which could be used for access management of Amazon Web Services accounts. For information about
-Amazon Web Services SSO features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services Single Sign-On User Guide</a>.</p>
-<p>Many operations in the SSO APIs rely on identifiers for users and groups, known as
-principals. For more information about how to work with principals and principal IDs in Amazon Web Services SSO,
-see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API
-Reference</a>.</p>
+<p></p>
 
 ## Installing
 
@@ -33,16 +26,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSOAdminClient` and
-the commands you need, for example `AttachManagedPolicyToPermissionSetCommand`:
+the commands you need, for example `AttachCustomerManagedPolicyReferenceToPermissionSetCommand`:
 
 ```js
 // ES5 example
-const { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin");
+const {
+  SSOAdminClient,
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+} = require("@aws-sdk/client-sso-admin");
 ```
 
 ```ts
 // ES6+ example
-import { SSOAdminClient, AttachManagedPolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin";
+import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin";
 ```
 
 ### Usage
@@ -61,7 +57,7 @@ const client = new SSOAdminClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AttachManagedPolicyToPermissionSetCommand(params);
+const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +136,7 @@ const client = new AWS.SSOAdmin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.attachManagedPolicyToPermissionSet(params);
+  const data = await client.attachCustomerManagedPolicyReferenceToPermissionSet(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +144,7 @@ try {
 
 // Promises.
 client
-  .attachManagedPolicyToPermissionSet(params)
+  .attachCustomerManagedPolicyReferenceToPermissionSet(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +153,7 @@ client
   });
 
 // callbacks.
-client.attachManagedPolicyToPermissionSet(params, (err, data) => {
+client.attachCustomerManagedPolicyReferenceToPermissionSet(params, (err, data) => {
   // process err and data.
 });
 ```

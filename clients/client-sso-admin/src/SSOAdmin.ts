@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
+} from "./commands/AttachCustomerManagedPolicyReferenceToPermissionSetCommand";
+import {
   AttachManagedPolicyToPermissionSetCommand,
   AttachManagedPolicyToPermissionSetCommandInput,
   AttachManagedPolicyToPermissionSetCommandOutput,
@@ -37,6 +42,11 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
 import {
+  DeletePermissionsBoundaryFromPermissionSetCommand,
+  DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  DeletePermissionsBoundaryFromPermissionSetCommandOutput,
+} from "./commands/DeletePermissionsBoundaryFromPermissionSetCommand";
+import {
   DeletePermissionSetCommand,
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
@@ -67,6 +77,11 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
+} from "./commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
+import {
   DetachManagedPolicyFromPermissionSetCommand,
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
@@ -76,6 +91,11 @@ import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
 } from "./commands/GetInlinePolicyForPermissionSetCommand";
+import {
+  GetPermissionsBoundaryForPermissionSetCommand,
+  GetPermissionsBoundaryForPermissionSetCommandInput,
+  GetPermissionsBoundaryForPermissionSetCommandOutput,
+} from "./commands/GetPermissionsBoundaryForPermissionSetCommand";
 import {
   ListAccountAssignmentCreationStatusCommand,
   ListAccountAssignmentCreationStatusCommandInput,
@@ -96,6 +116,11 @@ import {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListCustomerManagedPolicyReferencesInPermissionSetCommand,
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
+} from "./commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
@@ -136,6 +161,11 @@ import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
 } from "./commands/PutInlinePolicyToPermissionSetCommand";
+import {
+  PutPermissionsBoundaryToPermissionSetCommand,
+  PutPermissionsBoundaryToPermissionSetCommandInput,
+  PutPermissionsBoundaryToPermissionSetCommandOutput,
+} from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -155,18 +185,45 @@ import {
 import { SSOAdminClient } from "./SSOAdminClient";
 
 /**
- * <p>Amazon Web Services Single Sign On (SSO) is a cloud SSO service that makes it easy to centrally manage SSO
- *       access to multiple Amazon Web Services accounts and business applications. This guide provides information on
- *       SSO operations which could be used for access management of Amazon Web Services accounts. For information about
- *       Amazon Web Services SSO features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services Single Sign-On User Guide</a>.</p>
- *          <p>Many operations in the SSO APIs rely on identifiers for users and groups, known as
- *       principals. For more information about how to work with principals and principal IDs in Amazon Web Services SSO,
- *       see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API
- *         Reference</a>.</p>
+ * <p></p>
  */
 export class SSOAdmin extends SSOAdminClient {
   /**
-   * <p>Attaches an IAM managed policy ARN to a permission set.</p>
+   * <p>Attaches the specified IAM customer managed policy to the specified <a>PermissionSet</a>.</p>
+   */
+  public attachCustomerManagedPolicyReferenceToPermissionSet(
+    args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput>;
+  public attachCustomerManagedPolicyReferenceToPermissionSet(
+    args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+    cb: (err: any, data?: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput) => void
+  ): void;
+  public attachCustomerManagedPolicyReferenceToPermissionSet(
+    args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput) => void
+  ): void;
+  public attachCustomerManagedPolicyReferenceToPermissionSet(
+    args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput) => void
+  ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> | void {
+    const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches an Amazon Web Services managed IAM policy ARN to a permission set.</p>
    *          <note>
    *             <p>If the permission set is already referenced by one or more account assignments, you will
    *         need to call <code>
@@ -427,6 +484,40 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
+   */
+  public deletePermissionsBoundaryFromPermissionSet(
+    args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput>;
+  public deletePermissionsBoundaryFromPermissionSet(
+    args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
+    cb: (err: any, data?: DeletePermissionsBoundaryFromPermissionSetCommandOutput) => void
+  ): void;
+  public deletePermissionsBoundaryFromPermissionSet(
+    args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePermissionsBoundaryFromPermissionSetCommandOutput) => void
+  ): void;
+  public deletePermissionsBoundaryFromPermissionSet(
+    args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePermissionsBoundaryFromPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: DeletePermissionsBoundaryFromPermissionSetCommandOutput) => void
+  ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> | void {
+    const command = new DeletePermissionsBoundaryFromPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified permission set.</p>
    */
   public deletePermissionSet(
@@ -630,7 +721,41 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Detaches the attached IAM managed policy ARN from the specified permission set.</p>
+   * <p>Detaches the specified IAM customer managed policy from the specified <a>PermissionSet</a>.</p>
+   */
+  public detachCustomerManagedPolicyReferenceFromPermissionSet(
+    args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput>;
+  public detachCustomerManagedPolicyReferenceFromPermissionSet(
+    args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+    cb: (err: any, data?: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput) => void
+  ): void;
+  public detachCustomerManagedPolicyReferenceFromPermissionSet(
+    args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput) => void
+  ): void;
+  public detachCustomerManagedPolicyReferenceFromPermissionSet(
+    args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput) => void
+  ): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput> | void {
+    const command = new DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Detaches the attached Amazon Web Services managed IAM policy ARN from the specified permission set.</p>
    */
   public detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
@@ -683,6 +808,40 @@ export class SSOAdmin extends SSOAdminClient {
     cb?: (err: any, data?: GetInlinePolicyForPermissionSetCommandOutput) => void
   ): Promise<GetInlinePolicyForPermissionSetCommandOutput> | void {
     const command = new GetInlinePolicyForPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Obtains the permissions boundary for a specified <a>PermissionSet</a>.</p>
+   */
+  public getPermissionsBoundaryForPermissionSet(
+    args: GetPermissionsBoundaryForPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput>;
+  public getPermissionsBoundaryForPermissionSet(
+    args: GetPermissionsBoundaryForPermissionSetCommandInput,
+    cb: (err: any, data?: GetPermissionsBoundaryForPermissionSetCommandOutput) => void
+  ): void;
+  public getPermissionsBoundaryForPermissionSet(
+    args: GetPermissionsBoundaryForPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPermissionsBoundaryForPermissionSetCommandOutput) => void
+  ): void;
+  public getPermissionsBoundaryForPermissionSet(
+    args: GetPermissionsBoundaryForPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPermissionsBoundaryForPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: GetPermissionsBoundaryForPermissionSetCommandOutput) => void
+  ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> | void {
+    const command = new GetPermissionsBoundaryForPermissionSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -827,6 +986,40 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
+   * <p>Lists all IAM customer managed policies attached to a specified <a>PermissionSet</a>.</p>
+   */
+  public listCustomerManagedPolicyReferencesInPermissionSet(
+    args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput>;
+  public listCustomerManagedPolicyReferencesInPermissionSet(
+    args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+    cb: (err: any, data?: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput) => void
+  ): void;
+  public listCustomerManagedPolicyReferencesInPermissionSet(
+    args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput) => void
+  ): void;
+  public listCustomerManagedPolicyReferencesInPermissionSet(
+    args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput) => void
+  ): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput> | void {
+    const command = new ListCustomerManagedPolicyReferencesInPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the SSO instances that the caller has access to.</p>
    */
   public listInstances(
@@ -859,7 +1052,7 @@ export class SSOAdmin extends SSOAdminClient {
   }
 
   /**
-   * <p>Lists the IAM managed policy that is attached to a specified permission set.</p>
+   * <p>Lists the Amazon Web Services managed IAM policy that is attached to a specified permission set.</p>
    */
   public listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
@@ -1083,6 +1276,40 @@ export class SSOAdmin extends SSOAdminClient {
     cb?: (err: any, data?: PutInlinePolicyToPermissionSetCommandOutput) => void
   ): Promise<PutInlinePolicyToPermissionSetCommandOutput> | void {
     const command = new PutInlinePolicyToPermissionSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches an Amazon Web Services managed or customer managed IAM policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
+   */
+  public putPermissionsBoundaryToPermissionSet(
+    args: PutPermissionsBoundaryToPermissionSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput>;
+  public putPermissionsBoundaryToPermissionSet(
+    args: PutPermissionsBoundaryToPermissionSetCommandInput,
+    cb: (err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void
+  ): void;
+  public putPermissionsBoundaryToPermissionSet(
+    args: PutPermissionsBoundaryToPermissionSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void
+  ): void;
+  public putPermissionsBoundaryToPermissionSet(
+    args: PutPermissionsBoundaryToPermissionSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void),
+    cb?: (err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void
+  ): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput> | void {
+    const command = new PutPermissionsBoundaryToPermissionSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

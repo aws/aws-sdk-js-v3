@@ -13,46 +13,47 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DetachManagedPolicyFromPermissionSetRequest,
-  DetachManagedPolicyFromPermissionSetResponse,
+  DeletePermissionsBoundaryFromPermissionSetRequest,
+  DeletePermissionsBoundaryFromPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
-  serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
+  deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
+  serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
-export interface DetachManagedPolicyFromPermissionSetCommandInput extends DetachManagedPolicyFromPermissionSetRequest {}
-export interface DetachManagedPolicyFromPermissionSetCommandOutput
-  extends DetachManagedPolicyFromPermissionSetResponse,
+export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
+  extends DeletePermissionsBoundaryFromPermissionSetRequest {}
+export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
+  extends DeletePermissionsBoundaryFromPermissionSetResponse,
     __MetadataBearer {}
 
 /**
- * <p>Detaches the attached Amazon Web Services managed IAM policy ARN from the specified permission set.</p>
+ * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
- * // const { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * import { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
- * const command = new DetachManagedPolicyFromPermissionSetCommand(input);
+ * const command = new DeletePermissionsBoundaryFromPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DetachManagedPolicyFromPermissionSetCommandInput} for command's `input` shape.
- * @see {@link DetachManagedPolicyFromPermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandInput} for command's `input` shape.
+ * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
-export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
-  DetachManagedPolicyFromPermissionSetCommandInput,
-  DetachManagedPolicyFromPermissionSetCommandOutput,
+export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
+  DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  DeletePermissionsBoundaryFromPermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DetachManagedPolicyFromPermissionSetCommandInput) {
+  constructor(readonly input: DeletePermissionsBoundaryFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,20 +66,23 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DetachManagedPolicyFromPermissionSetCommandInput, DetachManagedPolicyFromPermissionSetCommandOutput> {
+  ): Handler<
+    DeletePermissionsBoundaryFromPermissionSetCommandInput,
+    DeletePermissionsBoundaryFromPermissionSetCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSOAdminClient";
-    const commandName = "DetachManagedPolicyFromPermissionSetCommand";
+    const commandName = "DeletePermissionsBoundaryFromPermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,17 +93,17 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
   }
 
   private serialize(
-    input: DetachManagedPolicyFromPermissionSetCommandInput,
+    input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(input, context);
+    return serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(output, context);
+  ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> {
+    return deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

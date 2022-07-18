@@ -54,6 +54,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
+} from "./commands/AttachCustomerManagedPolicyReferenceToPermissionSetCommand";
+import {
   AttachManagedPolicyToPermissionSetCommandInput,
   AttachManagedPolicyToPermissionSetCommandOutput,
 } from "./commands/AttachManagedPolicyToPermissionSetCommand";
@@ -82,6 +86,10 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
 import {
+  DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  DeletePermissionsBoundaryFromPermissionSetCommandOutput,
+} from "./commands/DeletePermissionsBoundaryFromPermissionSetCommand";
+import {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
@@ -106,6 +114,10 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
+} from "./commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
+import {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "./commands/DetachManagedPolicyFromPermissionSetCommand";
@@ -113,6 +125,10 @@ import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
 } from "./commands/GetInlinePolicyForPermissionSetCommand";
+import {
+  GetPermissionsBoundaryForPermissionSetCommandInput,
+  GetPermissionsBoundaryForPermissionSetCommandOutput,
+} from "./commands/GetPermissionsBoundaryForPermissionSetCommand";
 import {
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
@@ -129,6 +145,10 @@ import {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
+} from "./commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import {
   ListManagedPoliciesInPermissionSetCommandInput,
@@ -155,6 +175,10 @@ import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
 } from "./commands/PutInlinePolicyToPermissionSetCommand";
+import {
+  PutPermissionsBoundaryToPermissionSetCommandInput,
+  PutPermissionsBoundaryToPermissionSetCommandOutput,
+} from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -168,6 +192,7 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
   | AttachManagedPolicyToPermissionSetCommandInput
   | CreateAccountAssignmentCommandInput
   | CreateInstanceAccessControlAttributeConfigurationCommandInput
@@ -176,17 +201,21 @@ export type ServiceInputTypes =
   | DeleteInlinePolicyFromPermissionSetCommandInput
   | DeleteInstanceAccessControlAttributeConfigurationCommandInput
   | DeletePermissionSetCommandInput
+  | DeletePermissionsBoundaryFromPermissionSetCommandInput
   | DescribeAccountAssignmentCreationStatusCommandInput
   | DescribeAccountAssignmentDeletionStatusCommandInput
   | DescribeInstanceAccessControlAttributeConfigurationCommandInput
   | DescribePermissionSetCommandInput
   | DescribePermissionSetProvisioningStatusCommandInput
+  | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   | DetachManagedPolicyFromPermissionSetCommandInput
   | GetInlinePolicyForPermissionSetCommandInput
+  | GetPermissionsBoundaryForPermissionSetCommandInput
   | ListAccountAssignmentCreationStatusCommandInput
   | ListAccountAssignmentDeletionStatusCommandInput
   | ListAccountAssignmentsCommandInput
   | ListAccountsForProvisionedPermissionSetCommandInput
+  | ListCustomerManagedPolicyReferencesInPermissionSetCommandInput
   | ListInstancesCommandInput
   | ListManagedPoliciesInPermissionSetCommandInput
   | ListPermissionSetProvisioningStatusCommandInput
@@ -195,12 +224,14 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ProvisionPermissionSetCommandInput
   | PutInlinePolicyToPermissionSetCommandInput
+  | PutPermissionsBoundaryToPermissionSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateInstanceAccessControlAttributeConfigurationCommandInput
   | UpdatePermissionSetCommandInput;
 
 export type ServiceOutputTypes =
+  | AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
   | AttachManagedPolicyToPermissionSetCommandOutput
   | CreateAccountAssignmentCommandOutput
   | CreateInstanceAccessControlAttributeConfigurationCommandOutput
@@ -209,17 +240,21 @@ export type ServiceOutputTypes =
   | DeleteInlinePolicyFromPermissionSetCommandOutput
   | DeleteInstanceAccessControlAttributeConfigurationCommandOutput
   | DeletePermissionSetCommandOutput
+  | DeletePermissionsBoundaryFromPermissionSetCommandOutput
   | DescribeAccountAssignmentCreationStatusCommandOutput
   | DescribeAccountAssignmentDeletionStatusCommandOutput
   | DescribeInstanceAccessControlAttributeConfigurationCommandOutput
   | DescribePermissionSetCommandOutput
   | DescribePermissionSetProvisioningStatusCommandOutput
+  | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
   | DetachManagedPolicyFromPermissionSetCommandOutput
   | GetInlinePolicyForPermissionSetCommandOutput
+  | GetPermissionsBoundaryForPermissionSetCommandOutput
   | ListAccountAssignmentCreationStatusCommandOutput
   | ListAccountAssignmentDeletionStatusCommandOutput
   | ListAccountAssignmentsCommandOutput
   | ListAccountsForProvisionedPermissionSetCommandOutput
+  | ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
   | ListInstancesCommandOutput
   | ListManagedPoliciesInPermissionSetCommandOutput
   | ListPermissionSetProvisioningStatusCommandOutput
@@ -228,6 +263,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ProvisionPermissionSetCommandOutput
   | PutInlinePolicyToPermissionSetCommandOutput
+  | PutPermissionsBoundaryToPermissionSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateInstanceAccessControlAttributeConfigurationCommandOutput
@@ -387,14 +423,7 @@ type SSOAdminClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConfigType {}
 
 /**
- * <p>Amazon Web Services Single Sign On (SSO) is a cloud SSO service that makes it easy to centrally manage SSO
- *       access to multiple Amazon Web Services accounts and business applications. This guide provides information on
- *       SSO operations which could be used for access management of Amazon Web Services accounts. For information about
- *       Amazon Web Services SSO features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">Amazon Web Services Single Sign-On User Guide</a>.</p>
- *          <p>Many operations in the SSO APIs rely on identifiers for users and groups, known as
- *       principals. For more information about how to work with principals and principal IDs in Amazon Web Services SSO,
- *       see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API
- *         Reference</a>.</p>
+ * <p></p>
  */
 export class SSOAdminClient extends __Client<
   __HttpHandlerOptions,

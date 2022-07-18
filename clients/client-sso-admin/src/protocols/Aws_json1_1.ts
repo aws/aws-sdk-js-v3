@@ -15,6 +15,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+  AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
+} from "../commands/AttachCustomerManagedPolicyReferenceToPermissionSetCommand";
+import {
   AttachManagedPolicyToPermissionSetCommandInput,
   AttachManagedPolicyToPermissionSetCommandOutput,
 } from "../commands/AttachManagedPolicyToPermissionSetCommand";
@@ -43,6 +47,10 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "../commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
 import {
+  DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  DeletePermissionsBoundaryFromPermissionSetCommandOutput,
+} from "../commands/DeletePermissionsBoundaryFromPermissionSetCommand";
+import {
   DeletePermissionSetCommandInput,
   DeletePermissionSetCommandOutput,
 } from "../commands/DeletePermissionSetCommand";
@@ -67,6 +75,10 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "../commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
+} from "../commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
+import {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "../commands/DetachManagedPolicyFromPermissionSetCommand";
@@ -74,6 +86,10 @@ import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
 } from "../commands/GetInlinePolicyForPermissionSetCommand";
+import {
+  GetPermissionsBoundaryForPermissionSetCommandInput,
+  GetPermissionsBoundaryForPermissionSetCommandOutput,
+} from "../commands/GetPermissionsBoundaryForPermissionSetCommand";
 import {
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
@@ -90,6 +106,10 @@ import {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "../commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+  ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
+} from "../commands/ListCustomerManagedPolicyReferencesInPermissionSetCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
 import {
   ListManagedPoliciesInPermissionSetCommandInput,
@@ -116,6 +136,10 @@ import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
 } from "../commands/PutInlinePolicyToPermissionSetCommand";
+import {
+  PutPermissionsBoundaryToPermissionSetCommandInput,
+  PutPermissionsBoundaryToPermissionSetCommandOutput,
+} from "../commands/PutPermissionsBoundaryToPermissionSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -133,6 +157,8 @@ import {
   AccountAssignment,
   AccountAssignmentOperationStatus,
   AccountAssignmentOperationStatusMetadata,
+  AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
+  AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
   AttachedManagedPolicy,
   AttachManagedPolicyToPermissionSetRequest,
   AttachManagedPolicyToPermissionSetResponse,
@@ -143,12 +169,15 @@ import {
   CreateInstanceAccessControlAttributeConfigurationResponse,
   CreatePermissionSetRequest,
   CreatePermissionSetResponse,
+  CustomerManagedPolicyReference,
   DeleteAccountAssignmentRequest,
   DeleteAccountAssignmentResponse,
   DeleteInlinePolicyFromPermissionSetRequest,
   DeleteInlinePolicyFromPermissionSetResponse,
   DeleteInstanceAccessControlAttributeConfigurationRequest,
   DeleteInstanceAccessControlAttributeConfigurationResponse,
+  DeletePermissionsBoundaryFromPermissionSetRequest,
+  DeletePermissionsBoundaryFromPermissionSetResponse,
   DeletePermissionSetRequest,
   DeletePermissionSetResponse,
   DescribeAccountAssignmentCreationStatusRequest,
@@ -161,10 +190,14 @@ import {
   DescribePermissionSetProvisioningStatusResponse,
   DescribePermissionSetRequest,
   DescribePermissionSetResponse,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
+  DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
   DetachManagedPolicyFromPermissionSetRequest,
   DetachManagedPolicyFromPermissionSetResponse,
   GetInlinePolicyForPermissionSetRequest,
   GetInlinePolicyForPermissionSetResponse,
+  GetPermissionsBoundaryForPermissionSetRequest,
+  GetPermissionsBoundaryForPermissionSetResponse,
   InstanceAccessControlAttributeConfiguration,
   InstanceMetadata,
   InternalServerException,
@@ -176,6 +209,8 @@ import {
   ListAccountAssignmentsResponse,
   ListAccountsForProvisionedPermissionSetRequest,
   ListAccountsForProvisionedPermissionSetResponse,
+  ListCustomerManagedPolicyReferencesInPermissionSetRequest,
+  ListCustomerManagedPolicyReferencesInPermissionSetResponse,
   ListInstancesRequest,
   ListInstancesResponse,
   ListManagedPoliciesInPermissionSetRequest,
@@ -189,6 +224,7 @@ import {
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   OperationStatusFilter,
+  PermissionsBoundary,
   PermissionSet,
   PermissionSetProvisioningStatus,
   PermissionSetProvisioningStatusMetadata,
@@ -196,6 +232,8 @@ import {
   ProvisionPermissionSetResponse,
   PutInlinePolicyToPermissionSetRequest,
   PutInlinePolicyToPermissionSetResponse,
+  PutPermissionsBoundaryToPermissionSetRequest,
+  PutPermissionsBoundaryToPermissionSetResponse,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   Tag,
@@ -211,6 +249,19 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { SSOAdminServiceException as __BaseException } from "../models/SSOAdminServiceException";
+
+export const serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand = async (
+  input: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.AttachCustomerManagedPolicyReferenceToPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand = async (
   input: AttachManagedPolicyToPermissionSetCommandInput,
@@ -303,6 +354,19 @@ export const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurati
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand = async (
+  input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.DeletePermissionsBoundaryFromPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeletePermissionSetCommand = async (
   input: DeletePermissionSetCommandInput,
   context: __SerdeContext
@@ -381,6 +445,21 @@ export const serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = async (
+  input: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.DetachCustomerManagedPolicyReferenceFromPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(
+    serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetRequest(input, context)
+  );
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand = async (
   input: DetachManagedPolicyFromPermissionSetCommandInput,
   context: __SerdeContext
@@ -404,6 +483,19 @@ export const serializeAws_json1_1GetInlinePolicyForPermissionSetCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInlinePolicyForPermissionSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand = async (
+  input: GetPermissionsBoundaryForPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.GetPermissionsBoundaryForPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetPermissionsBoundaryForPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -456,6 +548,19 @@ export const serializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand = async (
+  input: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.ListCustomerManagedPolicyReferencesInPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,6 +668,19 @@ export const serializeAws_json1_1PutInlinePolicyToPermissionSetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommand = async (
+  input: PutPermissionsBoundaryToPermissionSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SWBExternalService.PutPermissionsBoundaryToPermissionSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutPermissionsBoundaryToPermissionSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -613,6 +731,68 @@ export const serializeAws_json1_1UpdatePermissionSetCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePermissionSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetResponse(data, context);
+  const response: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
 };
 
 export const deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommand = async (
@@ -1037,6 +1217,62 @@ const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCom
   }
 };
 
+export const deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetResponse(data, context);
+  const response: DeletePermissionsBoundaryFromPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DeletePermissionSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1376,6 +1612,65 @@ const deserializeAws_json1_1DescribePermissionSetProvisioningStatusCommandError 
   }
 };
 
+export const deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetResponse(data, context);
+  const response: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1456,6 +1751,62 @@ const deserializeAws_json1_1GetInlinePolicyForPermissionSetCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInlinePolicyForPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetResponse(data, context);
+  const response: GetPermissionsBoundaryForPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1680,6 +2031,62 @@ const deserializeAws_json1_1ListAccountsForProvisionedPermissionSetCommandError 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsForProvisionedPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetResponse(data, context);
+  const response: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2169,6 +2576,65 @@ const deserializeAws_json1_1PutInlinePolicyToPermissionSetCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetResponse(data, context);
+  const response: PutPermissionsBoundaryToPermissionSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2542,6 +3008,22 @@ const serializeAws_json1_1AccessControlAttributeValueSourceList = (input: string
     });
 };
 
+const serializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetRequest = (
+  input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomerManagedPolicyReference != null && {
+      CustomerManagedPolicyReference: serializeAws_json1_1CustomerManagedPolicyReference(
+        input.CustomerManagedPolicyReference,
+        context
+      ),
+    }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+  };
+};
+
 const serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest = (
   input: AttachManagedPolicyToPermissionSetRequest,
   context: __SerdeContext
@@ -2596,6 +3078,16 @@ const serializeAws_json1_1CreatePermissionSetRequest = (
   };
 };
 
+const serializeAws_json1_1CustomerManagedPolicyReference = (
+  input: CustomerManagedPolicyReference,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Path != null && { Path: input.Path }),
+  };
+};
+
 const serializeAws_json1_1DeleteAccountAssignmentRequest = (
   input: DeleteAccountAssignmentRequest,
   context: __SerdeContext
@@ -2626,6 +3118,16 @@ const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationReque
 ): any => {
   return {
     ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+  };
+};
+
+const serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetRequest = (
+  input: DeletePermissionsBoundaryFromPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2694,6 +3196,22 @@ const serializeAws_json1_1DescribePermissionSetRequest = (
   };
 };
 
+const serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetRequest = (
+  input: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CustomerManagedPolicyReference != null && {
+      CustomerManagedPolicyReference: serializeAws_json1_1CustomerManagedPolicyReference(
+        input.CustomerManagedPolicyReference,
+        context
+      ),
+    }),
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+  };
+};
+
 const serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest = (
   input: DetachManagedPolicyFromPermissionSetRequest,
   context: __SerdeContext
@@ -2707,6 +3225,16 @@ const serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest = (
 
 const serializeAws_json1_1GetInlinePolicyForPermissionSetRequest = (
   input: GetInlinePolicyForPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+  };
+};
+
+const serializeAws_json1_1GetPermissionsBoundaryForPermissionSetRequest = (
+  input: GetPermissionsBoundaryForPermissionSetRequest,
   context: __SerdeContext
 ): any => {
   return {
@@ -2773,6 +3301,18 @@ const serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest = (
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
     ...(input.ProvisioningStatus != null && { ProvisioningStatus: input.ProvisioningStatus }),
+  };
+};
+
+const serializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetRequest = (
+  input: ListCustomerManagedPolicyReferencesInPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -2848,6 +3388,18 @@ const serializeAws_json1_1OperationStatusFilter = (input: OperationStatusFilter,
   };
 };
 
+const serializeAws_json1_1PermissionsBoundary = (input: PermissionsBoundary, context: __SerdeContext): any => {
+  return {
+    ...(input.CustomerManagedPolicyReference != null && {
+      CustomerManagedPolicyReference: serializeAws_json1_1CustomerManagedPolicyReference(
+        input.CustomerManagedPolicyReference,
+        context
+      ),
+    }),
+    ...(input.ManagedPolicyArn != null && { ManagedPolicyArn: input.ManagedPolicyArn }),
+  };
+};
+
 const serializeAws_json1_1ProvisionPermissionSetRequest = (
   input: ProvisionPermissionSetRequest,
   context: __SerdeContext
@@ -2868,6 +3420,19 @@ const serializeAws_json1_1PutInlinePolicyToPermissionSetRequest = (
     ...(input.InlinePolicy != null && { InlinePolicy: input.InlinePolicy }),
     ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
     ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+  };
+};
+
+const serializeAws_json1_1PutPermissionsBoundaryToPermissionSetRequest = (
+  input: PutPermissionsBoundaryToPermissionSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceArn != null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn != null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.PermissionsBoundary != null && {
+      PermissionsBoundary: serializeAws_json1_1PermissionsBoundary(input.PermissionsBoundary, context),
+    }),
   };
 };
 
@@ -3081,6 +3646,13 @@ const deserializeAws_json1_1AccountList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): AttachCustomerManagedPolicyReferenceToPermissionSetResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1AttachedManagedPolicy = (output: any, context: __SerdeContext): AttachedManagedPolicy => {
   return {
     Arn: __expectString(output.Arn),
@@ -3145,6 +3717,31 @@ const deserializeAws_json1_1CreatePermissionSetResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CustomerManagedPolicyReference = (
+  output: any,
+  context: __SerdeContext
+): CustomerManagedPolicyReference => {
+  return {
+    Name: __expectString(output.Name),
+    Path: __expectString(output.Path),
+  } as any;
+};
+
+const deserializeAws_json1_1CustomerManagedPolicyReferenceList = (
+  output: any,
+  context: __SerdeContext
+): CustomerManagedPolicyReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomerManagedPolicyReference(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1DeleteAccountAssignmentResponse = (
   output: any,
   context: __SerdeContext
@@ -3168,6 +3765,13 @@ const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationRes
   output: any,
   context: __SerdeContext
 ): DeleteInstanceAccessControlAttributeConfigurationResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): DeletePermissionsBoundaryFromPermissionSetResponse => {
   return {} as any;
 };
 
@@ -3241,6 +3845,13 @@ const deserializeAws_json1_1DescribePermissionSetResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): DetachCustomerManagedPolicyReferenceFromPermissionSetResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DetachManagedPolicyFromPermissionSetResponse = (
   output: any,
   context: __SerdeContext
@@ -3254,6 +3865,18 @@ const deserializeAws_json1_1GetInlinePolicyForPermissionSetResponse = (
 ): GetInlinePolicyForPermissionSetResponse => {
   return {
     InlinePolicy: __expectString(output.InlinePolicy),
+  } as any;
+};
+
+const deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPermissionsBoundaryForPermissionSetResponse => {
+  return {
+    PermissionsBoundary:
+      output.PermissionsBoundary != null
+        ? deserializeAws_json1_1PermissionsBoundary(output.PermissionsBoundary, context)
+        : undefined,
   } as any;
 };
 
@@ -3346,6 +3969,19 @@ const deserializeAws_json1_1ListAccountsForProvisionedPermissionSetResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomerManagedPolicyReferencesInPermissionSetResponse => {
+  return {
+    CustomerManagedPolicyReferences:
+      output.CustomerManagedPolicyReferences != null
+        ? deserializeAws_json1_1CustomerManagedPolicyReferenceList(output.CustomerManagedPolicyReferences, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
   return {
     Instances: output.Instances != null ? deserializeAws_json1_1InstanceList(output.Instances, context) : undefined,
@@ -3412,6 +4048,16 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PermissionsBoundary = (output: any, context: __SerdeContext): PermissionsBoundary => {
+  return {
+    CustomerManagedPolicyReference:
+      output.CustomerManagedPolicyReference != null
+        ? deserializeAws_json1_1CustomerManagedPolicyReference(output.CustomerManagedPolicyReference, context)
+        : undefined,
+    ManagedPolicyArn: __expectString(output.ManagedPolicyArn),
   } as any;
 };
 
@@ -3503,6 +4149,13 @@ const deserializeAws_json1_1PutInlinePolicyToPermissionSetResponse = (
   output: any,
   context: __SerdeContext
 ): PutInlinePolicyToPermissionSetResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetResponse = (
+  output: any,
+  context: __SerdeContext
+): PutPermissionsBoundaryToPermissionSetResponse => {
   return {} as any;
 };
 
