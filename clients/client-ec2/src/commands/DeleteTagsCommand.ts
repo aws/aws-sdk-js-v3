@@ -21,9 +21,10 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified set of tags from the specified set of resources.</p>
- *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see
- *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a>
- *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about
+ *          tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
+ *             your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3017,7 +3017,12 @@ export interface SpotOptions {
   MinTargetCapacity?: number;
 
   /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend
+   *          using this parameter because it can lead to increased interruptions. If you do not specify
+   *          this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
    */
   MaxTotalPrice?: string;
 }
@@ -10002,17 +10007,19 @@ export interface DescribeLaunchTemplateVersionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of the launch template. To describe one or more versions of a specified launch
-   *             template, you must specify either the launch template ID or the launch template name in
-   *             the request. To describe all the latest or default launch template versions in your
+   * <p>The ID of the launch template.</p>
+   *         <p>To describe one or more versions of a specified launch
+   *             template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *         <p>To describe all the latest or default launch template versions in your
    *             account, you must omit this parameter.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. To describe one or more versions of a specified
-   *             launch template, you must specify either the launch template ID or the launch template
-   *             name in the request. To describe all the latest or default launch template versions in
+   * <p>The name of the launch template.</p>
+   *         <p>To describe one or more versions of a specified
+   *             launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *         <p>To describe all the latest or default launch template versions in
    *             your account, you must omit this parameter.</p>
    */
   LaunchTemplateName?: string;
@@ -10027,7 +10034,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
    *             your account that are defined as the default version, the valid value is
    *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same call. You cannot specify numbers.</p>
+   *                 <code>$Default</code> in the same request. You cannot specify numbers.</p>
    */
   Versions?: string[];
 
@@ -10075,7 +10082,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *                 <p>
    *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
    *                     instance metadata service is enabled (<code>enabled</code> |
-   *                         <code>disabled</code>).</p>
+   *                     <code>disabled</code>).</p>
    *             </li>
    *             <li>
    *                 <p>

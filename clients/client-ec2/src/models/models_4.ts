@@ -4511,10 +4511,11 @@ export interface SpotFleetLaunchSpecification {
   RamdiskId?: string;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.
-   *           If this value is not specified, the default is the Spot price specified for the fleet.
-   *           To determine the Spot price per unit hour, divide the Spot price by the
-   *           value of <code>WeightedCapacity</code>.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
+   *           increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
    */
   SpotPrice?: string;
 
@@ -4570,8 +4571,11 @@ export interface LaunchTemplateOverrides {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot
-   *             Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
+   *             increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   SpotPrice?: string;
 
@@ -4922,8 +4926,11 @@ export interface SpotFleetRequestConfigData {
   LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The
-   *             default is the On-Demand price.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   SpotPrice?: string;
 
@@ -5589,7 +5596,11 @@ export interface SpotInstanceRequest {
   SpotInstanceRequestId?: string;
 
   /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   SpotPrice?: string;
 
@@ -5783,8 +5794,11 @@ export namespace DescribeSpotPriceHistoryRequest {
 }
 
 /**
- * <p>Describes the maximum price per hour that you are willing to pay for a Spot
- *             Instance.</p>
+ * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+ *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+ *         <important>
+ *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+ *         </important>
  */
 export interface SpotPrice {
   /**
@@ -5803,7 +5817,11 @@ export interface SpotPrice {
   ProductDescription?: RIProductDescription | string;
 
   /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   SpotPrice?: string;
 
@@ -9174,7 +9192,7 @@ export namespace PrivateDnsDetails {
  */
 export interface ServiceDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * <p>The name of the service.</p>
    */
   ServiceName?: string;
 

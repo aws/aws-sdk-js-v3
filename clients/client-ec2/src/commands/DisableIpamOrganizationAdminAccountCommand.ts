@@ -28,7 +28,7 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

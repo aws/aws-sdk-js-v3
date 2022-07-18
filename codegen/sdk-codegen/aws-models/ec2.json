@@ -805,7 +805,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#AddIpamOperatingRegionSet": {
@@ -1397,7 +1397,7 @@
         "target": "com.amazonaws.ec2#AllocateIpamPoolCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href=\"/vpc/latest/ipam/allocate-cidrs-ipam.html\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#AllocateIpamPoolCidrRequest": {
@@ -4733,25 +4733,25 @@
         "Ipv4IpamPoolId": {
           "target": "com.amazonaws.ec2#IpamPoolId",
           "traits": {
-            "smithy.api#documentation": "<p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
           }
         },
         "Ipv4NetmaskLength": {
           "target": "com.amazonaws.ec2#NetmaskLength",
           "traits": {
-            "smithy.api#documentation": "<p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+            "smithy.api#documentation": "<p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
           }
         },
         "Ipv6IpamPoolId": {
           "target": "com.amazonaws.ec2#IpamPoolId",
           "traits": {
-            "smithy.api#documentation": "<p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
           }
         },
         "Ipv6NetmaskLength": {
           "target": "com.amazonaws.ec2#NetmaskLength",
           "traits": {
-            "smithy.api#documentation": "<p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>"
+            "smithy.api#documentation": "<p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>"
           }
         }
       }
@@ -11593,7 +11593,7 @@
         "target": "com.amazonaws.ec2#CreateIpamResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use\n         to automate your IP address management workflows including assigning, tracking,\n         troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts\n         throughout your Amazon Web Services Organization.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use\n         to automate your IP address management workflows including assigning, tracking,\n         troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts\n         throughout your Amazon Web Services Organization.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#CreateIpamPool": {
@@ -11605,7 +11605,7 @@
         "target": "com.amazonaws.ec2#CreateIpamPoolResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#CreateIpamPoolRequest": {
@@ -11739,7 +11739,7 @@
         "OperatingRegions": {
           "target": "com.amazonaws.ec2#AddIpamOperatingRegionSet",
           "traits": {
-            "smithy.api#documentation": "<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
+            "smithy.api#documentation": "<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
             "smithy.api#xmlName": "OperatingRegion"
           }
         },
@@ -11781,7 +11781,7 @@
         "target": "com.amazonaws.ec2#CreateIpamScopeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/add-scope-ipam.html\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateIpamScopeRequest": {
@@ -11972,7 +11972,7 @@
         "target": "com.amazonaws.ec2#CreateLaunchTemplateVersionResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new version for a launch template. You can specify an existing version of\n            launch template from which to base the new version.</p>\n        <p>Launch template versions are numbered in the order in which they are created. You\n            cannot specify, change, or replace the numbering of launch template versions.</p>\n        <p>Launch templates are immutable; after you create a launch template, you can't modify it. \n            Instead, you can create a new version of the launch template that includes any changes you require.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\">Modify a launch template (manage launch template versions)</a>in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a new version of a launch template. You can specify an existing version of\n            launch template from which to base the new version.</p>\n        <p>Launch template versions are numbered in the order in which they are created. You\n            cannot specify, change, or replace the numbering of launch template versions.</p>\n        <p>Launch templates are immutable; after you create a launch template, you can't modify it. \n            Instead, you can create a new version of the launch template that includes any changes you require.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\">Modify a launch template (manage launch template versions)</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateLaunchTemplateVersionRequest": {
@@ -11993,13 +11993,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         },
         "SourceVersion": {
@@ -13853,7 +13853,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or\n         resources. When you specify an existing tag key, the value is overwritten with\n         the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and\n         optional value. Tag keys must be unique per resource.</p>\n      \n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Resources</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about\n         creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported\n            Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon\n            Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or\n         resources. When you specify an existing tag key, the value is overwritten with\n         the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and\n         optional value. Tag keys must be unique per resource.</p>\n      \n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about\n         creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported\n            resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon\n            Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTagsRequest": {
@@ -14503,7 +14503,7 @@
         "target": "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Requests a transit gateway peering attachment between the specified transit gateway\n            (requester) and a peer transit gateway (accepter). The transit gateways must be in\n            different Regions. The peer transit gateway can be in your account or a different \n            Amazon Web Services account.</p>\n        <p>After you create the peering attachment, the owner of the accepter transit gateway \n            must accept the attachment request.</p>"
+        "smithy.api#documentation": "<p>Requests a transit gateway peering attachment between the specified transit gateway\n            (requester) and a peer transit gateway (accepter). The peer transit gateway can be in \n            your account or a different Amazon Web Services account.</p>\n        <p>After you create the peering attachment, the owner of the accepter transit gateway \n            must accept the attachment request.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentRequest": {
@@ -14538,7 +14538,10 @@
           }
         },
         "Options": {
-          "target": "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentRequestOptions"
+          "target": "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentRequestOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Requests a transit gateway peering attachment.</p>"
+          }
         },
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#TagSpecificationList",
@@ -14559,8 +14562,14 @@
       "type": "structure",
       "members": {
         "DynamicRouting": {
-          "target": "com.amazonaws.ec2#DynamicRoutingValue"
+          "target": "com.amazonaws.ec2#DynamicRoutingValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether dynamic routing is enabled or disabled.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering request.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTransitGatewayPeeringAttachmentResult": {
@@ -15561,25 +15570,25 @@
         "Ipv4IpamPoolId": {
           "target": "com.amazonaws.ec2#IpamPoolId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n         \n      </p>"
+            "smithy.api#documentation": "<p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n         \n      </p>"
           }
         },
         "Ipv4NetmaskLength": {
           "target": "com.amazonaws.ec2#NetmaskLength",
           "traits": {
-            "smithy.api#documentation": "<p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
           }
         },
         "Ipv6IpamPoolId": {
           "target": "com.amazonaws.ec2#IpamPoolId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
           }
         },
         "Ipv6NetmaskLength": {
           "target": "com.amazonaws.ec2#NetmaskLength",
           "traits": {
-            "smithy.api#documentation": "<p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
           }
         },
         "DryRun": {
@@ -15822,13 +15831,13 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "CpuCredits",
-            "smithy.api#documentation": "<p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are\n                <code>standard</code> and <code>unlimited</code>.</p>",
+            "smithy.api#documentation": "<p>The credit option for CPU usage of a T instance.</p>\n        <p>Valid values: <code>standard</code> | <code>unlimited</code>\n         </p>",
             "smithy.api#xmlName": "cpuCredits"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>"
+        "smithy.api#documentation": "<p>Describes the credit option for CPU usage of a T instance.</p>"
       }
     },
     "com.amazonaws.ec2#CreditSpecificationRequest": {
@@ -15837,13 +15846,13 @@
         "CpuCredits": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are\n                <code>standard</code> and <code>unlimited</code>.</p>",
+            "smithy.api#documentation": "<p>The credit option for CPU usage of a T instance.</p>\n        <p>Valid values: <code>standard</code> | <code>unlimited</code>\n         </p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>"
+        "smithy.api#documentation": "<p>The credit option for CPU usage of a T instance.</p>"
       }
     },
     "com.amazonaws.ec2#CurrencyCodeValues": {
@@ -16678,7 +16687,7 @@
         "target": "com.amazonaws.ec2#DeleteIpamResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#DeleteIpamPool": {
@@ -16690,7 +16699,7 @@
         "target": "com.amazonaws.ec2#DeleteIpamPoolResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Delete an IPAM pool.</p>\n         <note>\n            <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release \n         allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>. To deprovision pool \n         CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>.</p>\n         </note>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/delete-pool-ipam.html\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Delete an IPAM pool.</p>\n         <note>\n            <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release \n         allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>. To deprovision pool \n         CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#DeleteIpamPoolRequest": {
@@ -16770,7 +16779,7 @@
         "target": "com.amazonaws.ec2#DeleteIpamScopeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/delete-scope-ipam.html\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#DeleteIpamScopeRequest": {
@@ -16865,13 +16874,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         }
       }
@@ -16913,13 +16922,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         },
         "Versions": {
@@ -18031,7 +18040,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified set of tags from the specified set of resources.</p>\n         <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see \n         <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Resources</a> \n         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified set of tags from the specified set of resources.</p>\n         <p>To list the current tags, use <a>DescribeTags</a>. For more information about\n         tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag\n            your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User\n            Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DeleteTagsRequest": {
@@ -19128,7 +19137,7 @@
         "target": "com.amazonaws.ec2#DeprovisionIpamPoolCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\"/vpc/latest/ipam/depro-pool-cidr-ipam.html\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#DeprovisionIpamPoolCidrRequest": {
@@ -24028,7 +24037,7 @@
         "target": "com.amazonaws.ec2#DescribeIpamsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Get information about your IPAM pools.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
+        "smithy.api#documentation": "<p>Get information about your IPAM pools.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -24290,19 +24299,19 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. To describe one or more versions of a specified launch\n            template, you must specify either the launch template ID or the launch template name in\n            the request. To describe all the latest or default launch template versions in your\n            account, you must omit this parameter.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>To describe one or more versions of a specified launch\n            template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\n        <p>To describe all the latest or default launch template versions in your\n            account, you must omit this parameter.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. To describe one or more versions of a specified\n            launch template, you must specify either the launch template ID or the launch template\n            name in the request. To describe all the latest or default launch template versions in\n            your account, you must omit this parameter.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>To describe one or more versions of a specified\n            launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\n        <p>To describe all the latest or default launch template versions in\n            your account, you must omit this parameter.</p>"
           }
         },
         "Versions": {
           "target": "com.amazonaws.ec2#VersionStringList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more versions of the launch template. Valid values depend on whether you are\n            describing a specified launch template (by ID or name) or all launch templates in your\n            account.</p>\n        <p>To describe one or more versions of a specified launch template, valid values are\n                <code>$Latest</code>, <code>$Default</code>, and numbers.</p>\n        <p>To describe all launch templates in your account that are defined as the latest\n            version, the valid value is <code>$Latest</code>. To describe all launch templates in\n            your account that are defined as the default version, the valid value is\n                <code>$Default</code>. You can specify <code>$Latest</code> and\n                <code>$Default</code> in the same call. You cannot specify numbers.</p>",
+            "smithy.api#documentation": "<p>One or more versions of the launch template. Valid values depend on whether you are\n            describing a specified launch template (by ID or name) or all launch templates in your\n            account.</p>\n        <p>To describe one or more versions of a specified launch template, valid values are\n                <code>$Latest</code>, <code>$Default</code>, and numbers.</p>\n        <p>To describe all launch templates in your account that are defined as the latest\n            version, the valid value is <code>$Latest</code>. To describe all launch templates in\n            your account that are defined as the default version, the valid value is\n                <code>$Default</code>. You can specify <code>$Latest</code> and\n                <code>$Default</code> in the same request. You cannot specify numbers.</p>",
             "smithy.api#xmlName": "LaunchTemplateVersion"
           }
         },
@@ -24333,7 +24342,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>create-time</code> - The time the launch template version was\n                    created.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ebs-optimized</code> - A boolean that indicates whether the instance is\n                    optimized for Amazon EBS I/O.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on\n                    your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the\n                    instance metadata service is enabled (<code>enabled</code> |\n                        <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>host-resource-group-arn</code> - The ARN of the host resource group in\n                    which to launch the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-tokens</code> - The state of token usage for your instance metadata\n                    requests (<code>optional</code> | <code>required</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>iam-instance-profile</code> - The ARN of the IAM instance\n                    profile.</p>\n            </li>\n            <li>\n                <p>\n                  <code>image-id</code> - The ID of the AMI.</p>\n            </li>\n            <li>\n                <p>\n                  <code>instance-type</code> - The instance type.</p>\n            </li>\n            <li>\n                <p>\n                  <code>is-default-version</code> - A boolean that indicates whether the launch\n                    template version is the default version.</p>\n            </li>\n            <li>\n                <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n                <p>\n                  <code>license-configuration-arn</code> - The ARN of the license\n                    configuration.</p>\n            </li>\n            <li>\n                <p>\n                  <code>network-card-index</code> - The index of the network card.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ram-disk-id</code> - The RAM disk ID.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>create-time</code> - The time the launch template version was\n                    created.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ebs-optimized</code> - A boolean that indicates whether the instance is\n                    optimized for Amazon EBS I/O.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-endpoint</code> - Indicates whether the HTTP metadata endpoint on\n                    your instances is enabled (<code>enabled</code> | <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the\n                    instance metadata service is enabled (<code>enabled</code> |\n                    <code>disabled</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>host-resource-group-arn</code> - The ARN of the host resource group in\n                    which to launch the instances.</p>\n            </li>\n            <li>\n                <p>\n                  <code>http-tokens</code> - The state of token usage for your instance metadata\n                    requests (<code>optional</code> | <code>required</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>iam-instance-profile</code> - The ARN of the IAM instance\n                    profile.</p>\n            </li>\n            <li>\n                <p>\n                  <code>image-id</code> - The ID of the AMI.</p>\n            </li>\n            <li>\n                <p>\n                  <code>instance-type</code> - The instance type.</p>\n            </li>\n            <li>\n                <p>\n                  <code>is-default-version</code> - A boolean that indicates whether the launch\n                    template version is the default version.</p>\n            </li>\n            <li>\n                <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n                <p>\n                  <code>license-configuration-arn</code> - The ARN of the license\n                    configuration.</p>\n            </li>\n            <li>\n                <p>\n                  <code>network-card-index</code> - The index of the network card.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ram-disk-id</code> - The RAM disk ID.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         }
@@ -28445,7 +28454,7 @@
         "target": "com.amazonaws.ec2#DescribeTagsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified tags for your EC2 resources.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Resources</a> in the\n     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes the specified tags for your EC2 resources.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tag your Amazon EC2 resources</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -31960,7 +31969,7 @@
         "target": "com.amazonaws.ec2#DisableIpamOrganizationAdminAccountResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disable the IPAM account. For more information, see <a href=\"/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Disable the IPAM account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#DisableIpamOrganizationAdminAccountRequest": {
@@ -34379,7 +34388,7 @@
         "target": "com.amazonaws.ec2#EnableIpamOrganizationAdminAccountResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\"/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#EnableIpamOrganizationAdminAccountRequest": {
@@ -36733,7 +36742,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "MaxPrice",
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.\n      </p>\n         <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n         </important>",
             "smithy.api#xmlName": "maxPrice"
           }
         },
@@ -36820,7 +36829,7 @@
         "MaxPrice": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>"
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.\n      </p>\n         <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n         </important>"
           }
         },
         "SubnetId": {
@@ -36871,7 +36880,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "LaunchTemplateId",
-            "smithy.api#documentation": "<p>The ID of the launch template. If you specify the template ID, you can't specify the\n            template name.</p>",
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>",
             "smithy.api#xmlName": "launchTemplateId"
           }
         },
@@ -36879,7 +36888,7 @@
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
             "aws.protocols#ec2QueryName": "LaunchTemplateName",
-            "smithy.api#documentation": "<p>The name of the launch template. If you specify the template name, you can't specify\n            the template ID.</p>",
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>",
             "smithy.api#xmlName": "launchTemplateName"
           }
         },
@@ -36893,7 +36902,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the Amazon EC2 launch template and the launch template version that can be used\n            by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launching an instance from a launch template</a> in the\n                <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
+        "smithy.api#documentation": "<p>The Amazon EC2 launch template that can be used by\n            a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>\n            <p>For information about launch templates,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launch an instance from a launch template</a> in the\n                <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
       }
     },
     "com.amazonaws.ec2#FleetLaunchTemplateSpecificationRequest": {
@@ -36902,13 +36911,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n         <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         },
         "Version": {
@@ -36919,7 +36928,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the Amazon EC2 launch template and the launch template version that can be used by\n         an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launching\n            an instance from a launch template</a> in the\n         <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The Amazon EC2 launch template that can be used by\n         an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>\n         <p>For information about launch templates, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launch\n            an instance from a launch template</a> in the\n         <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#FleetOnDemandAllocationStrategy": {
@@ -38591,7 +38600,7 @@
         "target": "com.amazonaws.ec2#GetIpamAddressHistoryResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\"/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -38955,7 +38964,7 @@
         "target": "com.amazonaws.ec2#GetLaunchTemplateDataResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the configuration data of the specified instance. You can use this data to\n            create a launch template. </p>\n        <p>This action calls on other describe actions to get instance information. Depending on\n            your instance configuration, you may need to allow the following actions in your IAM\n            policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications,\n            DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow\n                <code>describe*</code> depending on your instance requirements.</p>"
+        "smithy.api#documentation": "<p>Retrieves the configuration data of the specified instance. You can use this data to\n            create a launch template. </p>\n        <p>This action calls on other describe actions to get instance information. Depending on\n            your instance configuration, you may need to allow the following actions in your IAM\n            policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,\n            <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow\n                <code>describe*</code> depending on your instance requirements.</p>"
       }
     },
     "com.amazonaws.ec2#GetLaunchTemplateDataRequest": {
@@ -39793,7 +39802,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n                <p>\n                  <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>\n            </li>\n            <li>\n                \n                <p>\n                  <code>state</code> - The state of the subnet association. Valid values are\n                        <code>associated</code> |\n                        <code>associating</code>\n                    | <code>disassociated</code> | <code>disassociating</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. The possible values are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>resource-id</code> - The ID of the resource.</p>\n            </li>\n            <li>\n                <p>\n                  <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the subnet association. Valid values are\n                        <code>associated</code> | <code>associating</code> |\n                        <code>disassociated</code> | <code>disassociating</code>.</p>\n            </li>\n            <li>\n                <p>\n                  <code>subnet-id</code> - The ID of the subnet.</p>\n            </li>\n            <li>\n                <p>\n                  <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -45526,7 +45535,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotMaxPricePercentageOverLowestPrice",
-            "smithy.api#documentation": "<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n               <code>memory-mib</code>, the price protection threshold is applied based on the\n            per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>",
+            "smithy.api#documentation": "<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,\n         expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n               <code>memory-mib</code>, the price protection threshold is applied based on the\n            per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>",
             "smithy.api#xmlName": "spotMaxPricePercentageOverLowestPrice"
           }
         },
@@ -45534,7 +45543,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "OnDemandMaxPricePercentageOverLowestPrice",
-            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>",
+            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>",
             "smithy.api#xmlName": "onDemandMaxPricePercentageOverLowestPrice"
           }
         },
@@ -45694,13 +45703,13 @@
         "SpotMaxPricePercentageOverLowestPrice": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>"
+            "smithy.api#documentation": "<p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,\n         expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>"
           }
         },
         "OnDemandMaxPricePercentageOverLowestPrice": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>"
+            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>"
           }
         },
         "BareMetal": {
@@ -49047,7 +49056,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "ScopeCount",
-            "smithy.api#documentation": "<p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href=\"/vpc/latest/ipam/quotas-ipam.html\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
+            "smithy.api#documentation": "<p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
             "smithy.api#xmlName": "scopeCount"
           }
         },
@@ -49063,7 +49072,7 @@
           "target": "com.amazonaws.ec2#IpamOperatingRegionSet",
           "traits": {
             "aws.protocols#ec2QueryName": "OperatingRegionSet",
-            "smithy.api#documentation": "<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "operatingRegionSet"
           }
         },
@@ -49085,7 +49094,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#IpamAddressHistoryMaxResults": {
@@ -49152,7 +49161,7 @@
           "target": "com.amazonaws.ec2#IpamComplianceStatus",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceComplianceStatus",
-            "smithy.api#documentation": "<p>The compliance status of a resource. For more information on compliance statuses, see <a href=\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The compliance status of a resource. For more information on compliance statuses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "resourceComplianceStatus"
           }
         },
@@ -49160,7 +49169,7 @@
           "target": "com.amazonaws.ec2#IpamOverlapStatus",
           "traits": {
             "aws.protocols#ec2QueryName": "ResourceOverlapStatus",
-            "smithy.api#documentation": "<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "resourceOverlapStatus"
           }
         },
@@ -49190,7 +49199,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The historical record of a CIDR within an IPAM scope. For more information, see <a href=\"/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>The historical record of a CIDR within an IPAM scope. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#IpamAddressHistoryRecordSet": {
@@ -49325,7 +49334,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#IpamOperatingRegionSet": {
@@ -49435,7 +49444,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "PoolDepth",
-            "smithy.api#documentation": "<p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href=\"/vpc/latest/ipam/quotas-ipam.html\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
+            "smithy.api#documentation": "<p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>",
             "smithy.api#xmlName": "poolDepth"
           }
         },
@@ -49928,7 +49937,7 @@
           "target": "com.amazonaws.ec2#BoxedDouble",
           "traits": {
             "aws.protocols#ec2QueryName": "IpUsage",
-            "smithy.api#documentation": "<p>The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100.</p>",
+            "smithy.api#documentation": "<p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>\n         <ul>\n            <li>\n               <p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.\n         </p>\n            </li>\n            <li>\n               <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.\n         </p>\n            </li>\n            <li>\n               <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).\n         </p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "ipUsage"
           }
         },
@@ -49936,7 +49945,7 @@
           "target": "com.amazonaws.ec2#IpamComplianceStatus",
           "traits": {
             "aws.protocols#ec2QueryName": "ComplianceStatus",
-            "smithy.api#documentation": "<p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href=\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "complianceStatus"
           }
         },
@@ -49944,7 +49953,7 @@
           "target": "com.amazonaws.ec2#IpamManagementState",
           "traits": {
             "aws.protocols#ec2QueryName": "ManagementState",
-            "smithy.api#documentation": "<p>The management state of the resource. For more information about management states, see <a href=\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The management state of the resource. For more information about management states, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "managementState"
           }
         },
@@ -49952,7 +49961,7 @@
           "target": "com.amazonaws.ec2#IpamOverlapStatus",
           "traits": {
             "aws.protocols#ec2QueryName": "OverlapStatus",
-            "smithy.api#documentation": "<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "overlapStatus"
           }
         },
@@ -50131,7 +50140,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/how-it-works-ipam.html\">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html\">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#IpamScopeId": {
@@ -51342,7 +51351,7 @@
         "ThreadsPerCore": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The number of threads per CPU core. To disable multithreading for the instance,\n            specify a value of 1. Otherwise, specify the default value of 2.</p>"
+            "smithy.api#documentation": "<p>The number of threads per CPU core. To disable multithreading for the instance,\n            specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>"
           }
         }
       },
@@ -51853,7 +51862,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsRequest": {
@@ -51868,7 +51877,7 @@
         "HttpPutResponseHopLimit": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the\n            number, the further instance metadata requests can travel.</p>\n        <p>Default: 1</p>\n        <p>Possible values: Integers from 1 to 64</p>"
+            "smithy.api#documentation": "<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the\n            number, the further instance metadata requests can travel.</p>\n        <p>Default: <code>1</code>\n         </p>\n        <p>Possible values: Integers from 1 to 64</p>"
           }
         },
         "HttpEndpoint": {
@@ -51891,7 +51900,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance metadata and user data</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsState": {
@@ -52324,7 +52333,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot\n            Instance.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to \n            increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -52583,13 +52592,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         },
         "Version": {
@@ -52610,7 +52619,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "MaxPrice",
-            "smithy.api#documentation": "<p>The maximum hourly price you're willing to pay for the Spot Instances.</p>",
+            "smithy.api#documentation": "<p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "maxPrice"
           }
         },
@@ -52657,7 +52666,7 @@
         "MaxPrice": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum hourly price you're willing to pay for the Spot Instances.</p>"
+            "smithy.api#documentation": "<p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>"
           }
         },
         "SpotInstanceType": {
@@ -52669,13 +52678,13 @@
         "BlockDurationMinutes": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.\n            This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>"
+            "smithy.api#documentation": "<p>Deprecated.</p>"
           }
         },
         "ValidUntil": {
           "target": "com.amazonaws.ec2#DateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The end date of the request. For a one-time request, the request remains active until\n            all instances launch, the request is canceled, or this date is reached. If the request\n            is persistent, it remains active until it is canceled or this date and time is reached.\n            The default end date is 7 days from the current date.</p>"
+            "smithy.api#documentation": "<p>The end date of the request, in UTC format\n                (<i>YYYY-MM-DD</i>T<i>HH:MM:SS</i>Z). Supported only for\n            persistent requests.</p>\n        <ul>\n            <li>\n                <p>For a persistent request, the request remains active until the <code>ValidUntil</code> \n                    date and time is reached. Otherwise, the request remains active until you cancel it.</p>\n            </li>\n            <li>\n                <p>For a one-time request, <code>ValidUntil</code> is not supported. The request remains active until \n                    all instances launch or you cancel the request.</p>\n            </li>\n         </ul>\n        <p>Default: 7 days from the current date</p>"
           }
         },
         "InstanceInterruptionBehavior": {
@@ -55711,7 +55720,7 @@
         "target": "com.amazonaws.ec2#ModifyIpamPoolResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modify the configurations of an IPAM pool.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/mod-pool-ipam.html\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Modify the configurations of an IPAM pool.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#ModifyIpamPoolRequest": {
@@ -55769,7 +55778,7 @@
         "AddAllocationResourceTags": {
           "target": "com.amazonaws.ec2#RequestIpamResourceTagList",
           "traits": {
-            "smithy.api#documentation": "<p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href=\"/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "AddAllocationResourceTag"
           }
         },
@@ -55820,7 +55829,7 @@
         "AddOperatingRegions": {
           "target": "com.amazonaws.ec2#AddIpamOperatingRegionSet",
           "traits": {
-            "smithy.api#documentation": "<p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>",
             "smithy.api#xmlName": "AddOperatingRegion"
           }
         },
@@ -55842,7 +55851,7 @@
         "target": "com.amazonaws.ec2#ModifyIpamResourceCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/move-resource-ipam.html\">Move resource CIDRs between scopes</a> and <a href=\"/vpc/latest/ipam/change-monitoring-state-ipam.html\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\">Move resource CIDRs between scopes</a> and <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyIpamResourceCidrRequest": {
@@ -56001,13 +56010,13 @@
         "LaunchTemplateId": {
           "target": "com.amazonaws.ec2#LaunchTemplateId",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The ID of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"
           }
         },
         "LaunchTemplateName": {
           "target": "com.amazonaws.ec2#LaunchTemplateName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the launch template. You must specify either the launch template ID or\n            launch template name in the request.</p>"
+            "smithy.api#documentation": "<p>The name of the launch template.</p>\n        <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>"
           }
         },
         "DefaultVersion": {
@@ -58297,7 +58306,7 @@
         "target": "com.amazonaws.ec2#MoveByoipCidrToIpamResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>\n         <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\"/vpc/latest/ipam/tutorials-byoip-ipam.html\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>"
+        "smithy.api#documentation": "<p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>\n         <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>"
       }
     },
     "com.amazonaws.ec2#MoveByoipCidrToIpamRequest": {
@@ -60990,6 +60999,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "CoreNetworkId",
+            "smithy.api#documentation": "<p>The ID of the core network where the transit gateway peer is located.</p>",
             "smithy.api#xmlName": "coreNetworkId"
           }
         },
@@ -62536,7 +62546,7 @@
         "target": "com.amazonaws.ec2#ProvisionIpamPoolCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/prov-cidr-ipam.html\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#ProvisionIpamPoolCidrRequest": {
@@ -62591,7 +62601,7 @@
         "target": "com.amazonaws.ec2#ProvisionPublicIpv4PoolCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provision a CIDR to a public IPv4 pool.</p>\n         <p>For more information about IPAM, see <a href=\"/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Provision a CIDR to a public IPv4 pool.</p>\n         <p>For more information about IPAM, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ProvisionPublicIpv4PoolCidrRequest": {
@@ -63452,7 +63462,7 @@
         "target": "com.amazonaws.ec2#RegisterImageResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete\n      before you can launch an instance from the AMI. For more information about creating AMIs, see\n        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\">Creating your\n        own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <note>\n     \t      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers \n         \tthe AMI in a single request, so you don't have to register the AMI yourself.</p>\n         </note>\n\n         <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. \n       If you make changes to an image, deregister the previous image and register the new image.</p>\n\n         <p>\n            <b>Register a snapshot of a root device volume</b>\n         </p>\n   \t     <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from\n       a snapshot of a root device volume. You specify the snapshot using a block device mapping.\n       You can't set the encryption state of the volume using the block device mapping. If the \n       snapshot is encrypted, or encryption by default is enabled, the root volume of an instance \n       launched from the AMI is encrypted.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create a Linux AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\">Use encryption with Amazon EBS-backed AMIs</a>\n       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n     \n   \t     <p>\n            <b>Amazon Web Services Marketplace product codes</b>\n         </p>\n   \t     <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new\n      AMI.</p>\n         <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE\n      Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to\n      verify the subscription status for package updates. To create a new AMI for operating systems\n      that require a billing product code, instead of registering the AMI, do the following to\n      preserve the billing product code association:</p>\n         <ol>\n            <li>\n               <p>Launch an instance from an existing AMI with that billing product code.</p>\n            </li>\n            <li>\n               <p>Customize the instance.</p>\n            </li>\n            <li>\n               <p>Create an AMI from the instance using <a>CreateImage</a>.</p>\n            </li>\n         </ol>\n         <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched\n      from an AMI with a billing product code, make sure that the Reserved Instance has the matching\n      billing product code. If you purchase a Reserved Instance without the matching billing product\n      code, the Reserved Instance will not be applied to the On-Demand Instance. For information\n      about how to obtain the platform details and billing information of an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understanding AMI \n      \tbilling</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete\n      before you can launch an instance from the AMI. For more information about creating AMIs, see\n        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\">Creating your\n        own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <note>\n     \t      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI\n        in a single request, so you don't have to register the AMI yourself. We recommend that you\n        always use <a>CreateImage</a> unless you have a specific reason to use\n        RegisterImage.</p>\n         </note>\n\n         <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. \n       If you make changes to an image, deregister the previous image and register the new image.</p>\n\n         <p>\n            <b>Register a snapshot of a root device volume</b>\n         </p>\n   \t     <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from\n       a snapshot of a root device volume. You specify the snapshot using a block device mapping.\n       You can't set the encryption state of the volume using the block device mapping. If the \n       snapshot is encrypted, or encryption by default is enabled, the root volume of an instance \n       launched from the AMI is encrypted.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\">Create a Linux AMI from a snapshot</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\">Use encryption with Amazon EBS-backed AMIs</a>\n       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n     \n   \t     <p>\n            <b>Amazon Web Services Marketplace product codes</b>\n         </p>\n   \t     <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new\n      AMI.</p>\n         <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE\n      Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to\n      verify the subscription status for package updates. To create a new AMI for operating systems\n      that require a billing product code, instead of registering the AMI, do the following to\n      preserve the billing product code association:</p>\n         <ol>\n            <li>\n               <p>Launch an instance from an existing AMI with that billing product code.</p>\n            </li>\n            <li>\n               <p>Customize the instance.</p>\n            </li>\n            <li>\n               <p>Create an AMI from the instance using <a>CreateImage</a>.</p>\n            </li>\n         </ol>\n         <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched\n      from an AMI with a billing product code, make sure that the Reserved Instance has the matching\n      billing product code. If you purchase a Reserved Instance without the matching billing product\n      code, the Reserved Instance will not be applied to the On-Demand Instance. For information\n      about how to obtain the platform details and billing information of an AMI, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understanding AMI \n      \tbilling</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#RegisterImageRequest": {
@@ -64105,7 +64115,7 @@
         "target": "com.amazonaws.ec2#ReleaseIpamPoolAllocationResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\">ModifyIpamResourceCidr</a>. For more information, see <a href=\"/vpc/latest/ipam/release-pool-alloc-ipam.html\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\">ModifyIpamResourceCidr</a>. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#ReleaseIpamPoolAllocationRequest": {
@@ -64164,7 +64174,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>\n         </p>"
+        "smithy.api#documentation": "<p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only\n         discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>\n         <p>For more information about operating Regions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>\n         </p>"
       }
     },
     "com.amazonaws.ec2#RemoveIpamOperatingRegionSet": {
@@ -65317,7 +65327,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per hour that you are willing to pay for a Spot Instance. The\n            default is the On-Demand price.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -68716,14 +68726,14 @@
         "TagSpecifications": {
           "target": "com.amazonaws.ec2#TagSpecificationList",
           "traits": {
-            "smithy.api#documentation": "<p>The tags to apply to the resources during launch. You can only tag instances and\n            volumes on launch. The specified tags are applied to all instances or volumes that are\n            created during launch. To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
+            "smithy.api#documentation": "<p>The tags to apply to the resources that are created during instance launch.</p>\n        <p>You can specify tags for the following resources only:</p>\n        <ul>\n            <li>\n                <p>Instances</p>\n            </li>\n            <li>\n                <p>Volumes</p>\n            </li>\n            <li>\n                <p>Elastic graphics</p>\n            </li>\n            <li>\n                <p>Spot Instance requests</p>\n            </li>\n            <li>\n                <p>Network interfaces</p>\n            </li>\n         </ul>\n        <p>To tag a resource after it has been created, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\">CreateTags</a>.</p>",
             "smithy.api#xmlName": "TagSpecification"
           }
         },
         "LaunchTemplate": {
           "target": "com.amazonaws.ec2#LaunchTemplateSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>The launch template to use to launch the instances. Any parameters that you specify in\n                <a>RunInstances</a> override the same parameters in the launch template.\n            You can specify either the name or ID of a launch template, but not both.</p>"
+            "smithy.api#documentation": "<p>The launch template to use to launch the instances. Any parameters that you specify in\n            <a>RunInstances</a> override the same parameters in the launch template.\n            You can specify either the name or ID of a launch template, but not both.</p>"
           }
         },
         "InstanceMarketOptions": {
@@ -68735,7 +68745,7 @@
         "CreditSpecification": {
           "target": "com.amazonaws.ec2#CreditSpecificationRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The credit option for CPU usage of the burstable performance instance. Valid values\n            are <code>standard</code> and <code>unlimited</code>. To change this attribute after\n            launch, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html\">\n                ModifyInstanceCreditSpecification</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a\n            instances)</p>\n\n        <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is\n            supported.</p>"
+            "smithy.api#documentation": "<p>The credit option for CPU usage of the burstable performance instance. Valid values\n            are <code>standard</code> and <code>unlimited</code>. To change this attribute after\n            launch, use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html\">\n                ModifyInstanceCreditSpecification</a>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                    performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a\n            instances)</p>\n        <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is\n            supported.</p>"
           }
         },
         "CpuOptions": {
@@ -68753,7 +68763,7 @@
         "HibernationOptions": {
           "target": "com.amazonaws.ec2#HibernationOptionsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for hibernation. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate\n                your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same\n            instance.</p>"
+            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for hibernation. For more information, see\n            <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\">Hibernate\n                your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same\n            instance.</p>"
           }
         },
         "LicenseSpecifications": {
@@ -68772,7 +68782,7 @@
         "EnclaveOptions": {
           "target": "com.amazonaws.ec2#EnclaveOptionsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For\n            more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\"> What is Amazon Web Services Nitro\n                Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User\n                Guide</i>.</p>\n        <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same\n            instance.</p>"
+            "smithy.api#documentation": "<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For\n            more information, see <a href=\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\"> What is Amazon Web Services Nitro\n                Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User\n                    Guide</i>.</p>\n        <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same\n            instance.</p>"
           }
         },
         "PrivateDnsNameOptions": {
@@ -68790,7 +68800,7 @@
         "DisableApiStop": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for stop protection. For more information,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop\n                Protection</a>.\n        </p>"
+            "smithy.api#documentation": "<p>Indicates whether an instance is enabled for stop protection. For more information,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\">Stop\n                protection</a>.\n        </p>"
           }
         }
       }
@@ -70524,7 +70534,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "ServiceName",
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the service.</p>",
+            "smithy.api#documentation": "<p>The name of the service.</p>",
             "smithy.api#xmlName": "serviceName"
           }
         },
@@ -71686,7 +71696,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. \n          If this value is not specified, the default is the Spot price specified for the fleet.\n          To determine the Spot price per unit hour, divide the Spot price by the\n          value of <code>WeightedCapacity</code>.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to \n          increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n         <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n         </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -71895,7 +71905,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The\n            default is the On-Demand price.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -72192,7 +72202,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -72398,7 +72408,7 @@
         "MaxPrice": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum hourly price you're willing to pay for the Spot Instances. The default is\n            the On-Demand price.</p>"
+            "smithy.api#documentation": "<p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>"
           }
         },
         "SpotInstanceType": {
@@ -72493,7 +72503,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "MaxTotalPrice",
-            "smithy.api#documentation": "<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>",
+            "smithy.api#documentation": "<p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend\n         using this parameter because it can lead to increased interruptions. If you do not specify\n         this parameter, you will pay the current Spot price.</p>\n         <important>\n            <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>\n         </important>",
             "smithy.api#xmlName": "maxTotalPrice"
           }
         }
@@ -72550,7 +72560,7 @@
         "MaxTotalPrice": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>"
+            "smithy.api#documentation": "<p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend\n         using this parameter because it can lead to increased interruptions. If you do not specify\n         this parameter, you will pay the current Spot price.</p>\n         <important>\n            <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>\n         </important>"
           }
         }
       },
@@ -72680,7 +72690,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotPrice",
-            "smithy.api#documentation": "<p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>",
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>",
             "smithy.api#xmlName": "spotPrice"
           }
         },
@@ -72694,7 +72704,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the maximum price per hour that you are willing to pay for a Spot\n            Instance.</p>"
+        "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend \n            using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>\n        </important>"
       }
     },
     "com.amazonaws.ec2#SpotPriceHistoryList": {
@@ -74035,7 +74045,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The tags to apply to a resource when the resource is being created.</p>"
+        "smithy.api#documentation": "<p>The tags to apply to a resource when the resource is being created.</p>\n         <note>\n            <p>The <code>Valid Values</code> lists all the resource types that can be tagged.\n            However, the action you're using might not support tagging all of these resource types.\n            If you try to tag a resource type that is unsupported for the action you're using,\n            you'll get an error.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#TagSpecificationList": {
@@ -76712,6 +76722,7 @@
           "target": "com.amazonaws.ec2#TransitGatewayPeeringAttachmentOptions",
           "traits": {
             "aws.protocols#ec2QueryName": "Options",
+            "smithy.api#documentation": "<p>Details about the transit gateway peering attachment.</p>",
             "smithy.api#xmlName": "options"
           }
         },
@@ -76768,9 +76779,13 @@
           "target": "com.amazonaws.ec2#DynamicRoutingValue",
           "traits": {
             "aws.protocols#ec2QueryName": "DynamicRouting",
+            "smithy.api#documentation": "<p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>",
             "smithy.api#xmlName": "dynamicRouting"
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes dynamic routing for the transit gateway peering attachment.</p>"
       }
     },
     "com.amazonaws.ec2#TransitGatewayPolicyRule": {
@@ -77321,6 +77336,7 @@
           "target": "com.amazonaws.ec2#TransitGatewayRouteTableAnnouncementId",
           "traits": {
             "aws.protocols#ec2QueryName": "TransitGatewayRouteTableAnnouncementId",
+            "smithy.api#documentation": "<p>The ID of the transit gateway route table announcement. </p>",
             "smithy.api#xmlName": "transitGatewayRouteTableAnnouncementId"
           }
         },
@@ -77517,6 +77533,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "CoreNetworkId",
+            "smithy.api#documentation": "<p>The ID of the core network for the transit gateway route table announcement.</p>",
             "smithy.api#xmlName": "coreNetworkId"
           }
         },
@@ -77532,6 +77549,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "PeerCoreNetworkId",
+            "smithy.api#documentation": "<p>The ID of the core network ID for the peer.</p>",
             "smithy.api#xmlName": "peerCoreNetworkId"
           }
         },

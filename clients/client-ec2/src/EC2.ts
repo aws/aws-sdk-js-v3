@@ -2959,7 +2959,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public allocateIpamPoolCidr(
@@ -5146,7 +5146,7 @@ export class EC2 extends EC2Client {
    *          to automate your IP address management workflows including assigning, tracking,
    *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
    *          throughout your Amazon Web Services Organization.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public createIpam(args: CreateIpamCommandInput, options?: __HttpHandlerOptions): Promise<CreateIpamCommandOutput>;
@@ -5174,7 +5174,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public createIpamPool(
@@ -5208,7 +5208,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public createIpamScope(
     args: CreateIpamScopeCommandInput,
@@ -5323,13 +5323,13 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a new version for a launch template. You can specify an existing version of
+   * <p>Creates a new version of a launch template. You can specify an existing version of
    *             launch template from which to base the new version.</p>
    *         <p>Launch template versions are numbered in the order in which they are created. You
    *             cannot specify, change, or replace the numbering of launch template versions.</p>
    *         <p>Launch templates are immutable; after you create a launch template, you can't modify it.
    *             Instead, you can create a new version of the launch template that includes any changes you require.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a>in the
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createLaunchTemplateVersion(
@@ -6286,10 +6286,10 @@ export class EC2 extends EC2Client {
    *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
    *          optional value. Tag keys must be unique per resource.</p>
    *
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
    *             <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
    *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
-   *             Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon
+   *             resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon
    *             Elastic Compute Cloud User Guide</i>.</p>
    */
   public createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -6606,9 +6606,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Requests a transit gateway peering attachment between the specified transit gateway
-   *             (requester) and a peer transit gateway (accepter). The transit gateways must be in
-   *             different Regions. The peer transit gateway can be in your account or a different
-   *             Amazon Web Services account.</p>
+   *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
+   *             your account or a different Amazon Web Services account.</p>
    *         <p>After you create the peering attachment, the owner of the accepter transit gateway
    *             must accept the attachment request.</p>
    */
@@ -7596,7 +7595,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public deleteIpam(args: DeleteIpamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIpamCommandOutput>;
@@ -7629,7 +7628,7 @@ export class EC2 extends EC2Client {
    *          allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool
    *          CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p>
    *          </note>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public deleteIpamPool(
@@ -7663,7 +7662,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public deleteIpamScope(
@@ -8516,9 +8515,10 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Deletes the specified set of tags from the specified set of resources.</p>
-   *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a>
-   *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about
+   *          tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
+   *             your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User
+   *             Guide</i>.</p>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
   public deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
@@ -9403,7 +9403,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public deprovisionIpamPoolCidr(
     args: DeprovisionIpamPoolCidrCommandInput,
@@ -11504,7 +11504,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Get information about your IPAM pools.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public describeIpams(
@@ -13302,8 +13302,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified tags for your EC2 resources.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the
-   *      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
+   *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -14722,7 +14722,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public disableIpamOrganizationAdminAccount(
@@ -15510,7 +15510,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public enableIpamOrganizationAdminAccount(
@@ -16406,7 +16406,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public getIpamAddressHistory(
     args: GetIpamAddressHistoryCommandInput,
@@ -16538,8 +16538,8 @@ export class EC2 extends EC2Client {
    *             create a launch template. </p>
    *         <p>This action calls on other describe actions to get instance information. Depending on
    *             your instance configuration, you may need to allow the following actions in your IAM
-   *             policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications,
-   *             DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
+   *             policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
+   *             <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow
    *                 <code>describe*</code> depending on your instance requirements.</p>
    */
   public getLaunchTemplateData(
@@ -18320,7 +18320,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modify the configurations of an IPAM pool.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public modifyIpamPool(
@@ -18354,7 +18354,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public modifyIpamResourceCidr(
     args: ModifyIpamResourceCidrCommandInput,
@@ -19649,7 +19649,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
-   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
   public moveByoipCidrToIpam(
     args: MoveByoipCidrToIpamCommandInput,
@@ -19725,7 +19725,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>
-   *          <p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public provisionIpamPoolCidr(
@@ -19759,7 +19759,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Provision a CIDR to a public IPv4 pool.</p>
-   *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public provisionPublicIpv4PoolCidr(
     args: ProvisionPublicIpv4PoolCidrCommandInput,
@@ -19948,8 +19948,10 @@ export class EC2 extends EC2Client {
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
    *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
-   *          	the AMI in a single request, so you don't have to register the AMI yourself.</p>
+   *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
+   *         in a single request, so you don't have to register the AMI yourself. We recommend that you
+   *         always use <a>CreateImage</a> unless you have a specific reason to use
+   *         RegisterImage.</p>
    *          </note>
    *
    *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
@@ -20392,7 +20394,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   public releaseIpamPoolAllocation(

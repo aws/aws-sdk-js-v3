@@ -1285,8 +1285,11 @@ export interface RequestSpotInstancesRequest {
   LaunchSpecification?: RequestSpotLaunchSpecification;
 
   /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance. The
-   *             default is the On-Demand price.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   SpotPrice?: string;
 
@@ -2257,8 +2260,11 @@ export namespace HibernationOptionsRequest {
  */
 export interface SpotMarketOptions {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
-   *             the On-Demand price.</p>
+   * <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   MaxPrice?: string;
 
@@ -2339,11 +2345,13 @@ export namespace InstanceMarketOptionsRequest {
 export interface LaunchTemplateSpecification {
   /**
    * <p>The ID of the launch template.</p>
+   *         <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
+   *         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -2731,15 +2739,32 @@ export interface RunInstancesRequest {
   ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
 
   /**
-   * <p>The tags to apply to the resources during launch. You can only tag instances and
-   *             volumes on launch. The specified tags are applied to all instances or volumes that are
-   *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * <p>The tags to apply to the resources that are created during instance launch.</p>
+   *         <p>You can specify tags for the following resources only:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Instances</p>
+   *             </li>
+   *             <li>
+   *                 <p>Volumes</p>
+   *             </li>
+   *             <li>
+   *                 <p>Elastic graphics</p>
+   *             </li>
+   *             <li>
+   *                 <p>Spot Instance requests</p>
+   *             </li>
+   *             <li>
+   *                 <p>Network interfaces</p>
+   *             </li>
+   *          </ul>
+   *         <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   TagSpecifications?: TagSpecification[];
 
   /**
    * <p>The launch template to use to launch the instances. Any parameters that you specify in
-   *                 <a>RunInstances</a> override the same parameters in the launch template.
+   *             <a>RunInstances</a> override the same parameters in the launch template.
    *             You can specify either the name or ID of a launch template, but not both.</p>
    */
   LaunchTemplate?: LaunchTemplateSpecification;
@@ -2757,10 +2782,9 @@ export interface RunInstancesRequest {
    *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
    *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
    *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                     performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
    *             instances)</p>
-   *
    *         <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
    *             supported.</p>
    */
@@ -2781,7 +2805,7 @@ export interface RunInstancesRequest {
 
   /**
    * <p>Indicates whether an instance is enabled for hibernation. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
    *             instance.</p>
@@ -2802,7 +2826,7 @@ export interface RunInstancesRequest {
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
    *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
    *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
-   *                 Guide</i>.</p>
+   *                     Guide</i>.</p>
    *         <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
    *             instance.</p>
    */
@@ -2822,7 +2846,7 @@ export interface RunInstancesRequest {
   /**
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.
+   *                 protection</a>.
    *         </p>
    */
   DisableApiStop?: boolean;

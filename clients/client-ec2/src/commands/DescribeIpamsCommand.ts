@@ -21,7 +21,7 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
 
 /**
  * <p>Get information about your IPAM pools.</p>
- *          <p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

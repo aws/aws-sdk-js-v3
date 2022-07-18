@@ -24,7 +24,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  *          to automate your IP address management workflows including assigning, tracking,
  *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
  *          throughout your Amazon Web Services Organization.</p>
- *          <p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

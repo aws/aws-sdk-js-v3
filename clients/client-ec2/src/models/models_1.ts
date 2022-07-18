@@ -37,19 +37,22 @@ import {
 } from "./models_0";
 
 /**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
- *          an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
+ * <p>The Amazon EC2 launch template that can be used by
+ *          an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
+ *          <p>For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
  *             an instance from a launch template</a> in the
  *          <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetLaunchTemplateSpecificationRequest {
   /**
-   * <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -339,7 +342,7 @@ export interface InstanceRequirementsRequest {
 
   /**
    * <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified
    *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
    *          types priced above your threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
@@ -357,7 +360,7 @@ export interface InstanceRequirementsRequest {
 
   /**
    * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified
    *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
    *          types priced above your threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
@@ -657,7 +660,11 @@ export interface FleetLaunchTemplateOverridesRequest {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+   *       </p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
    */
   MaxPrice?: string;
 
@@ -1011,7 +1018,12 @@ export interface SpotOptionsRequest {
   MinTargetCapacity?: number;
 
   /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend
+   *          using this parameter because it can lead to increased interruptions. If you do not specify
+   *          this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
    */
   MaxTotalPrice?: string;
 }
@@ -1217,21 +1229,22 @@ export namespace CreateFleetRequest {
 }
 
 /**
- * <p>Describes the Amazon EC2 launch template and the launch template version that can be used
- *             by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the
+ * <p>The Amazon EC2 launch template that can be used by
+ *             a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
+ *             <p>For information about launch templates,
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the
  *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 export interface FleetLaunchTemplateSpecification {
   /**
-   * <p>The ID of the launch template. If you specify the template ID, you can't specify the
-   *             template name.</p>
+   * <p>The ID of the launch template.</p>
+   *         <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. If you specify the template name, you can't specify
-   *             the template ID.</p>
+   * <p>The name of the launch template.</p>
+   *         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -1493,7 +1506,7 @@ export interface InstanceRequirements {
 
   /**
    * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified
    *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
    *          types priced above your threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
@@ -1511,7 +1524,7 @@ export interface InstanceRequirements {
 
   /**
    * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
-   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified
    *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
    *          types priced above your threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
@@ -1755,7 +1768,11 @@ export interface FleetLaunchTemplateOverrides {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+   *       </p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
    */
   MaxPrice?: string;
 
@@ -2914,7 +2931,7 @@ export interface CreateIpamRequest {
   /**
    * <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
    *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
-   *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   OperatingRegions?: AddIpamOperatingRegion[];
@@ -2943,7 +2960,7 @@ export namespace CreateIpamRequest {
 /**
  * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
  *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
- *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 export interface IpamOperatingRegion {
   /**
@@ -2977,7 +2994,7 @@ export enum IpamState {
 }
 
 /**
- * <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 export interface Ipam {
   /**
@@ -3011,7 +3028,7 @@ export interface Ipam {
   PrivateDefaultScopeId?: string;
 
   /**
-   * <p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href="/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   ScopeCount?: number;
@@ -3024,7 +3041,7 @@ export interface Ipam {
   /**
    * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
    *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
-   *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   OperatingRegions?: IpamOperatingRegion[];
 
@@ -3288,7 +3305,7 @@ export interface IpamPool {
   Locale?: string;
 
   /**
-   * <p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href="/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   PoolDepth?: number;
@@ -3444,7 +3461,7 @@ export enum IpamScopeState {
 
 /**
  * <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
- *          <p>For more information, see <a href="/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 export interface IpamScope {
   /**
@@ -3852,7 +3869,7 @@ export interface LaunchTemplateCpuOptionsRequest {
 
   /**
    * <p>The number of threads per CPU core. To disable multithreading for the instance,
-   *             specify a value of 1. Otherwise, specify the default value of 2.</p>
+   *             specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
 }
@@ -3867,12 +3884,13 @@ export namespace LaunchTemplateCpuOptionsRequest {
 }
 
 /**
- * <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ * <p>The credit option for CPU usage of a T instance.</p>
  */
 export interface CreditSpecificationRequest {
   /**
-   * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * <p>The credit option for CPU usage of a T instance.</p>
+   *         <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
    */
   CpuCredits: string | undefined;
 }
@@ -4016,7 +4034,11 @@ export type SpotInstanceType = "one-time" | "persistent";
  */
 export interface LaunchTemplateSpotMarketOptionsRequest {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   MaxPrice?: string;
 
@@ -4026,16 +4048,25 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
   SpotInstanceType?: SpotInstanceType | string;
 
   /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
-   *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+   * <p>Deprecated.</p>
    */
   BlockDurationMinutes?: number;
 
   /**
-   * <p>The end date of the request. For a one-time request, the request remains active until
-   *             all instances launch, the request is canceled, or this date is reached. If the request
-   *             is persistent, it remains active until it is canceled or this date and time is reached.
-   *             The default end date is 7 days from the current date.</p>
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY-MM-DD</i>T<i>HH:MM:SS</i>Z). Supported only for
+   *             persistent requests.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the <code>ValidUntil</code>
+   *                     date and time is reached. Otherwise, the request remains active until you cancel it.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request remains active until
+   *                     all instances launch or you cancel the request.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: 7 days from the current date</p>
    */
   ValidUntil?: Date;
 
@@ -4141,7 +4172,7 @@ export enum LaunchTemplateInstanceMetadataTagsState {
 }
 
 /**
- * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+ * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
@@ -4163,7 +4194,8 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
+   *         <p>Default: <code>1</code>
+   *          </p>
    *         <p>Possible values: Integers from 1 to 64</p>
    */
   HttpPutResponseHopLimit?: number;
@@ -5002,14 +5034,14 @@ export interface CreateLaunchTemplateVersionRequest {
   ClientToken?: string;
 
   /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The ID of the launch template.</p>
+   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The name of the launch template.</p>
+   *         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -5218,12 +5250,13 @@ export namespace LaunchTemplateCpuOptions {
 }
 
 /**
- * <p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ * <p>Describes the credit option for CPU usage of a T instance.</p>
  */
 export interface CreditSpecification {
   /**
-   * <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * <p>The credit option for CPU usage of a T instance.</p>
+   *         <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
    */
   CpuCredits?: string;
 }
@@ -5351,7 +5384,11 @@ export namespace LaunchTemplateIamInstanceProfileSpecification {
  */
 export interface LaunchTemplateSpotMarketOptions {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *         <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *         </important>
    */
   MaxPrice?: string;
 
@@ -5455,7 +5492,7 @@ export namespace LaunchTemplateInstanceMaintenanceOptions {
 export type LaunchTemplateInstanceMetadataOptionsState = "applied" | "pending";
 
 /**
- * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+ * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface LaunchTemplateInstanceMetadataOptions {

@@ -25,8 +25,10 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
  *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <note>
- *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
- *          	the AMI in a single request, so you don't have to register the AMI yourself.</p>
+ *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
+ *         in a single request, so you don't have to register the AMI yourself. We recommend that you
+ *         always use <a>CreateImage</a> unless you have a specific reason to use
+ *         RegisterImage.</p>
  *          </note>
  *
  *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.

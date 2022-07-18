@@ -21,7 +21,7 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
 
 /**
  * <p>Modify the configurations of an IPAM pool.</p>
- *          <p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,7 +21,7 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
 
 /**
  * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
- *          <p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

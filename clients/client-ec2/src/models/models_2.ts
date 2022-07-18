@@ -712,7 +712,13 @@ export namespace CreateTransitGatewayMulticastDomainResult {
   });
 }
 
+/**
+ * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering request.</p>
+ */
 export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
+  /**
+   * <p>Indicates whether dynamic routing is enabled or disabled.</p>
+   */
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
@@ -746,7 +752,11 @@ export interface CreateTransitGatewayPeeringAttachmentRequest {
    */
   PeerRegion: string | undefined;
 
+  /**
+   * <p>Requests a transit gateway peering attachment.</p>
+   */
   Options?: CreateTransitGatewayPeeringAttachmentRequestOptions;
+
   /**
    * <p>The tags to apply to the transit gateway peering attachment.</p>
    */
@@ -1090,7 +1100,11 @@ export interface TransitGatewayRoute {
    */
   PrefixListId?: string;
 
+  /**
+   * <p>The ID of the transit gateway route table announcement. </p>
+   */
   TransitGatewayRouteTableAnnouncementId?: string;
+
   /**
    * <p>The attachments.</p>
    */
@@ -1288,13 +1302,21 @@ export interface TransitGatewayRouteTableAnnouncement {
    */
   TransitGatewayId?: string;
 
+  /**
+   * <p>The ID of the core network for the transit gateway route table announcement.</p>
+   */
   CoreNetworkId?: string;
+
   /**
    * <p>The ID of the peer transit gateway.</p>
    */
   PeerTransitGatewayId?: string;
 
+  /**
+   * <p>The ID of the core network ID for the peer.</p>
+   */
   PeerCoreNetworkId?: string;
+
   /**
    * <p>The ID of the peering attachment.</p>
    */
@@ -1748,24 +1770,24 @@ export interface CreateVpcRequest {
   Ipv6CidrBlock?: string;
 
   /**
-   * <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *
    *       </p>
    */
   Ipv4IpamPoolId?: string;
 
   /**
-   * <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   Ipv4NetmaskLength?: number;
 
   /**
-   * <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   Ipv6IpamPoolId?: string;
 
   /**
-   * <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   Ipv6NetmaskLength?: number;
 
@@ -4515,14 +4537,14 @@ export interface DeleteLaunchTemplateRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The ID of the launch template.</p>
+   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The name of the launch template.</p>
+   *         <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 }
@@ -4562,14 +4584,14 @@ export interface DeleteLaunchTemplateVersionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The ID of the launch template.</p>
+   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
+   * <p>The name of the launch template.</p>
+   *         <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 

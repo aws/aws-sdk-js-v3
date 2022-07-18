@@ -373,7 +373,11 @@ export interface PeeringTgwInfo {
    */
   TransitGatewayId?: string;
 
+  /**
+   * <p>The ID of the core network where the transit gateway peer is located.</p>
+   */
   CoreNetworkId?: string;
+
   /**
    * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
    */
@@ -399,7 +403,13 @@ export enum DynamicRoutingValue {
   enable = "enable",
 }
 
+/**
+ * <p>Describes dynamic routing for the transit gateway peering attachment.</p>
+ */
 export interface TransitGatewayPeeringAttachmentOptions {
+  /**
+   * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
+   */
   DynamicRouting?: DynamicRoutingValue | string;
 }
 
@@ -502,7 +512,11 @@ export interface TransitGatewayPeeringAttachment {
    */
   AccepterTgwInfo?: PeeringTgwInfo;
 
+  /**
+   * <p>Details about the transit gateway peering attachment.</p>
+   */
   Options?: TransitGatewayPeeringAttachmentOptions;
+
   /**
    * <p>The status of the transit gateway peering attachment.</p>
    */
@@ -1866,7 +1880,7 @@ export enum ActivityStatus {
 /**
  * <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
  *          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
- *          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  */
 export interface AddIpamOperatingRegion {
@@ -2230,6 +2244,12 @@ export type ResourceType =
 
 /**
  * <p>The tags to apply to a resource when the resource is being created.</p>
+ *          <note>
+ *             <p>The <code>Valid Values</code> lists all the resource types that can be tagged.
+ *             However, the action you're using might not support tagging all of these resource types.
+ *             If you try to tag a resource type that is unsupported for the action you're using,
+ *             you'll get an error.</p>
+ *          </note>
  */
 export interface TagSpecification {
   /**
@@ -4060,23 +4080,23 @@ export interface AssociateVpcCidrBlockRequest {
   Ipv6CidrBlock?: string;
 
   /**
-   * <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   Ipv4IpamPoolId?: string;
 
   /**
-   * <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   * <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
   Ipv4NetmaskLength?: number;
 
   /**
-   * <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   Ipv6IpamPoolId?: string;
 
   /**
-   * <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+   * <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
    */
   Ipv6NetmaskLength?: number;
 }
