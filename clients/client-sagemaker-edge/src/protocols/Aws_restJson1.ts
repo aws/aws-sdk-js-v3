@@ -13,13 +13,48 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "../commands/GetDeploymentsCommand";
 import {
   GetDeviceRegistrationCommandInput,
   GetDeviceRegistrationCommandOutput,
 } from "../commands/GetDeviceRegistrationCommand";
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
-import { EdgeMetric, InternalServiceException, Model } from "../models/models_0";
+import {
+  Checksum,
+  Definition,
+  DeploymentModel,
+  DeploymentResult,
+  EdgeDeployment,
+  EdgeMetric,
+  InternalServiceException,
+  Model,
+} from "../models/models_0";
 import { SagemakerEdgeServiceException as __BaseException } from "../models/SagemakerEdgeServiceException";
+
+export const serializeAws_restJson1GetDeploymentsCommand = async (
+  input: GetDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeployments";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   input: GetDeviceRegistrationCommandInput,
@@ -59,6 +94,9 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   body = JSON.stringify({
     ...(input.AgentMetrics != null && { AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context) }),
     ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
+    ...(input.DeploymentResult != null && {
+      DeploymentResult: serializeAws_restJson1DeploymentResult(input.DeploymentResult, context),
+    }),
     ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
     ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
     ...(input.Models != null && { Models: serializeAws_restJson1Models(input.Models, context) }),
@@ -72,6 +110,51 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1GetDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetDeploymentsCommandError(output, context);
+  }
+  const contents: GetDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Deployments: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Deployments !== undefined && data.Deployments !== null) {
+    contents.Deployments = deserializeAws_restJson1EdgeDeployments(data.Deployments, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.sagemakeredge#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
 };
 
 export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
@@ -180,6 +263,45 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1DeploymentModel = (input: DeploymentModel, context: __SerdeContext): any => {
+  return {
+    ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
+    ...(input.ModelHandle != null && { ModelHandle: input.ModelHandle }),
+    ...(input.ModelName != null && { ModelName: input.ModelName }),
+    ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
+    ...(input.RollbackFailureReason != null && { RollbackFailureReason: input.RollbackFailureReason }),
+    ...(input.State != null && { State: input.State }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
+  };
+};
+
+const serializeAws_restJson1DeploymentModels = (input: DeploymentModel[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DeploymentModel(entry, context);
+    });
+};
+
+const serializeAws_restJson1DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
+  return {
+    ...(input.DeploymentEndTime != null && { DeploymentEndTime: Math.round(input.DeploymentEndTime.getTime() / 1000) }),
+    ...(input.DeploymentModels != null && {
+      DeploymentModels: serializeAws_restJson1DeploymentModels(input.DeploymentModels, context),
+    }),
+    ...(input.DeploymentName != null && { DeploymentName: input.DeploymentName }),
+    ...(input.DeploymentStartTime != null && {
+      DeploymentStartTime: Math.round(input.DeploymentStartTime.getTime() / 1000),
+    }),
+    ...(input.DeploymentStatus != null && { DeploymentStatus: input.DeploymentStatus }),
+    ...(input.DeploymentStatusMessage != null && { DeploymentStatusMessage: input.DeploymentStatusMessage }),
+  };
+};
+
 const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
   return {
     ...(input.Dimension != null && { Dimension: input.Dimension }),
@@ -219,6 +341,56 @@ const serializeAws_restJson1Models = (input: Model[], context: __SerdeContext): 
       }
       return serializeAws_restJson1Model(entry, context);
     });
+};
+
+const deserializeAws_restJson1Checksum = (output: any, context: __SerdeContext): Checksum => {
+  return {
+    Sum: __expectString(output.Sum),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1Definition = (output: any, context: __SerdeContext): Definition => {
+  return {
+    Checksum: output.Checksum != null ? deserializeAws_restJson1Checksum(output.Checksum, context) : undefined,
+    ModelHandle: __expectString(output.ModelHandle),
+    S3Url: __expectString(output.S3Url),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_restJson1Definitions = (output: any, context: __SerdeContext): Definition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Definition(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EdgeDeployment = (output: any, context: __SerdeContext): EdgeDeployment => {
+  return {
+    Definitions:
+      output.Definitions != null ? deserializeAws_restJson1Definitions(output.Definitions, context) : undefined,
+    DeploymentName: __expectString(output.DeploymentName),
+    FailureHandlingPolicy: __expectString(output.FailureHandlingPolicy),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1EdgeDeployments = (output: any, context: __SerdeContext): EdgeDeployment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EdgeDeployment(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

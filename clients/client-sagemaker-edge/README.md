@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SagemakerEdgeClient` and
-the commands you need, for example `GetDeviceRegistrationCommand`:
+the commands you need, for example `GetDeploymentsCommand`:
 
 ```js
 // ES5 example
-const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require("@aws-sdk/client-sagemaker-edge");
+const { SagemakerEdgeClient, GetDeploymentsCommand } = require("@aws-sdk/client-sagemaker-edge");
 ```
 
 ```ts
 // ES6+ example
-import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from "@aws-sdk/client-sagemaker-edge";
+import { SagemakerEdgeClient, GetDeploymentsCommand } from "@aws-sdk/client-sagemaker-edge";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new SagemakerEdgeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetDeviceRegistrationCommand(params);
+const command = new GetDeploymentsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.SagemakerEdge({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getDeviceRegistration(params);
+  const data = await client.getDeployments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .getDeviceRegistration(params)
+  .getDeployments(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.getDeviceRegistration(params, (err, data) => {
+client.getDeployments(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -53,6 +53,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand";
 import {
   GetDeviceRegistrationCommandInput,
   GetDeviceRegistrationCommandOutput,
@@ -60,9 +61,15 @@ import {
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "./commands/SendHeartbeatCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = GetDeviceRegistrationCommandInput | SendHeartbeatCommandInput;
+export type ServiceInputTypes =
+  | GetDeploymentsCommandInput
+  | GetDeviceRegistrationCommandInput
+  | SendHeartbeatCommandInput;
 
-export type ServiceOutputTypes = GetDeviceRegistrationCommandOutput | SendHeartbeatCommandOutput;
+export type ServiceOutputTypes =
+  | GetDeploymentsCommandOutput
+  | GetDeviceRegistrationCommandOutput
+  | SendHeartbeatCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

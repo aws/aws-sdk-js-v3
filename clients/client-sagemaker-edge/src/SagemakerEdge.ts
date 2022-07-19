@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  GetDeploymentsCommand,
+  GetDeploymentsCommandInput,
+  GetDeploymentsCommandOutput,
+} from "./commands/GetDeploymentsCommand";
+import {
   GetDeviceRegistrationCommand,
   GetDeviceRegistrationCommandInput,
   GetDeviceRegistrationCommandOutput,
@@ -17,6 +22,38 @@ import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
  */
 export class SagemakerEdge extends SagemakerEdgeClient {
+  /**
+   * <p>Use to get the active deployments from a device.</p>
+   */
+  public getDeployments(
+    args: GetDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentsCommandOutput>;
+  public getDeployments(
+    args: GetDeploymentsCommandInput,
+    cb: (err: any, data?: GetDeploymentsCommandOutput) => void
+  ): void;
+  public getDeployments(
+    args: GetDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentsCommandOutput) => void
+  ): void;
+  public getDeployments(
+    args: GetDeploymentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentsCommandOutput) => void),
+    cb?: (err: any, data?: GetDeploymentsCommandOutput) => void
+  ): Promise<GetDeploymentsCommandOutput> | void {
+    const command = new GetDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
    */
