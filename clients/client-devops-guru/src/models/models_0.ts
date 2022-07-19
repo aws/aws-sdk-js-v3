@@ -422,6 +422,156 @@ export namespace AmazonCodeGuruProfilerIntegration {
   });
 }
 
+export enum LogAnomalyType {
+  BLOCK_FORMAT = "BLOCK_FORMAT",
+  FORMAT = "FORMAT",
+  HTTP_CODE = "HTTP_CODE",
+  KEYWORD = "KEYWORD",
+  KEYWORD_TOKEN = "KEYWORD_TOKEN",
+  NEW_FIELD_NAME = "NEW_FIELD_NAME",
+  NUMERICAL_NAN = "NUMERICAL_NAN",
+  NUMERICAL_POINT = "NUMERICAL_POINT",
+}
+
+/**
+ * <p>
+ * 			Information about an anomalous log event found within a log group.
+ * 		</p>
+ */
+export interface LogAnomalyClass {
+  /**
+   * <p>
+   * 			The name of the Amazon CloudWatch log stream that the anomalous log event belongs to. A log stream is a sequence of log events that share the same source.
+   * 		</p>
+   */
+  LogStreamName?: string;
+
+  /**
+   * <p>
+   * 			The type of log anomaly that has been detected.
+   * 		</p>
+   */
+  LogAnomalyType?: LogAnomalyType | string;
+
+  /**
+   * <p>
+   * 			The token where the anomaly was detected. This may refer to an exception or another location, or it may be blank for log anomalies such as format anomalies.
+   * 		</p>
+   */
+  LogAnomalyToken?: string;
+
+  /**
+   * <p>
+   * 			The ID of the log event.
+   * 		</p>
+   */
+  LogEventId?: string;
+
+  /**
+   * <p>
+   * 			The explanation for why the log event is considered an anomaly.
+   * 		</p>
+   */
+  Explanation?: string;
+
+  /**
+   * <p>
+   * 			The number of log lines where this anomalous log event occurs.
+   * 		</p>
+   */
+  NumberOfLogLinesOccurrences?: number;
+
+  /**
+   * <p>
+   * 			The time of the first occurrence of the anomalous log event.
+   * 		</p>
+   */
+  LogEventTimestamp?: Date;
+}
+
+export namespace LogAnomalyClass {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogAnomalyClass): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * 			A cluster of similar anomalous log events found within a log group.
+ * 		</p>
+ */
+export interface LogAnomalyShowcase {
+  /**
+   * <p>
+   * 			A list of anomalous log events that may be related.
+   * 		</p>
+   */
+  LogAnomalyClasses?: LogAnomalyClass[];
+}
+
+export namespace LogAnomalyShowcase {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogAnomalyShowcase): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * 			An Amazon CloudWatch log group that contains log anomalies and is used to generate an insight.
+ * 		</p>
+ */
+export interface AnomalousLogGroup {
+  /**
+   * <p>
+   * 			The name of the CloudWatch log group.
+   * 		</p>
+   */
+  LogGroupName?: string;
+
+  /**
+   * <p>
+   * 			The time the anomalous log events began. The impact start time indicates the time of the first log anomaly event that occurs.
+   * 		</p>
+   */
+  ImpactStartTime?: Date;
+
+  /**
+   * <p>
+   * 			The time the anomalous log events stopped.
+   * 		</p>
+   */
+  ImpactEndTime?: Date;
+
+  /**
+   * <p>
+   * 			The number of log lines that were scanned for anomalous log events.
+   * 		</p>
+   */
+  NumberOfLogLinesScanned?: number;
+
+  /**
+   * <p>
+   * 			The log anomalies in the log group. Each log anomaly displayed represents a cluster of similar anomalous log events.
+   * 		</p>
+   */
+  LogAnomalyShowcases?: LogAnomalyShowcase[];
+}
+
+export namespace AnomalousLogGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnomalousLogGroup): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p> A time range that specifies when DevOps Guru opens and then closes an anomaly. This
  * 			is different from <code>AnomalyTimeRange</code>, which specifies the time range when
@@ -482,7 +632,7 @@ export enum AnomalySeverity {
 }
 
 /**
- * <p> The dimension of am Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
+ * <p> The dimension of an Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
  * 			your account for operational problems and anomalous behavior. A dimension is a
  * 			name/value pair that is part of the identity of a metric. A metric can have up to 10
  * 			dimensions. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension">Dimensions</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
@@ -2595,6 +2745,27 @@ export enum OptInStatus {
 }
 
 /**
+ * <p>
+ * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+ * 		</p>
+ */
+export interface LogsAnomalyDetectionIntegration {
+  /**
+   * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
+   */
+  OptInStatus?: OptInStatus | string;
+}
+
+export namespace LogsAnomalyDetectionIntegration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogsAnomalyDetectionIntegration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
  * 			OpsCenter for each created insight. </p>
  */
@@ -2625,6 +2796,13 @@ export interface ServiceIntegrationConfig {
    * 			OpsCenter for each created insight. </p>
    */
   OpsCenter?: OpsCenterIntegration;
+
+  /**
+   * <p>
+   * 			Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups.
+   * 		</p>
+   */
+  LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
 }
 
 export namespace ServiceIntegrationConfig {
@@ -3405,6 +3583,67 @@ export namespace ListAnomaliesForInsightResponse {
   });
 }
 
+export interface ListAnomalousLogGroupsRequest {
+  /**
+   * <p>
+   * 			The ID of the insight containing the log groups.
+   * 		</p>
+   */
+  InsightId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAnomalousLogGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnomalousLogGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnomalousLogGroupsResponse {
+  /**
+   * <p>
+   * 			The ID of the insight containing the log groups.
+   * 		</p>
+   */
+  InsightId: string | undefined;
+
+  /**
+   * <p>
+   * 			The list of Amazon CloudWatch log groups that are related to an insight.
+   * 		</p>
+   */
+  AnomalousLogGroups: AnomalousLogGroup[] | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAnomalousLogGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAnomalousLogGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum EventDataSource {
   AWS_CLOUD_TRAIL = "AWS_CLOUD_TRAIL",
   AWS_CODE_DEPLOY = "AWS_CODE_DEPLOY",
@@ -3981,6 +4220,136 @@ export namespace ListInsightsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListInsightsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourcePermission {
+  FULL_PERMISSION = "FULL_PERMISSION",
+  MISSING_PERMISSION = "MISSING_PERMISSION",
+}
+
+export enum ResourceTypeFilter {
+  LOG_GROUPS = "LOG_GROUPS",
+}
+
+/**
+ * <p>
+ * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
+ * 		</p>
+ */
+export interface ListMonitoredResourcesFilters {
+  /**
+   * <p>
+   * 			The permission status of a resource.
+   * 		</p>
+   */
+  ResourcePermission: ResourcePermission | string | undefined;
+
+  /**
+   * <p>
+   * 			The type of resource that you wish to retrieve, such as log groups.
+   * 		</p>
+   */
+  ResourceTypeFilters: (ResourceTypeFilter | string)[] | undefined;
+}
+
+export namespace ListMonitoredResourcesFilters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoredResourcesFilters): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoredResourcesRequest {
+  /**
+   * <p>
+   * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
+   * 		</p>
+   */
+  Filters: ListMonitoredResourcesFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMonitoredResourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoredResourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * 			Information about the resource that is being monitored, including the name of the resource, the type of resource, and whether or not permission is given to DevOps Guru to access that resource.
+ * 		</p>
+ */
+export interface MonitoredResourceIdentifier {
+  /**
+   * <p>
+   * 			The name of the resource being monitored.
+   * 		</p>
+   */
+  MonitoredResourceName?: string;
+
+  /**
+   * <p>
+   * 			The type of resource being monitored.
+   * 		</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>
+   * 			The permission status of a resource.
+   * 		</p>
+   */
+  ResourcePermission?: ResourcePermission | string;
+}
+
+export namespace MonitoredResourceIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoredResourceIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMonitoredResourcesResponse {
+  /**
+   * <p>
+   * 			Information about the resource that is being monitored, including the name of the resource, the type of resource, and whether or not permission is given to DevOps Guru to access that resource.
+   * 		</p>
+   */
+  MonitoredResourceIdentifiers: MonitoredResourceIdentifier[] | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve
+   *    the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMonitoredResourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMonitoredResourcesResponse): any => ({
     ...obj,
   });
 }
@@ -5039,8 +5408,29 @@ export namespace UpdateResourceCollectionResponse {
 }
 
 /**
+ * <p>
+ * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection. You can use this to update the configuration.
+ * 		</p>
+ */
+export interface LogsAnomalyDetectionIntegrationConfig {
+  /**
+   * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
+   */
+  OptInStatus?: OptInStatus | string;
+}
+
+export namespace LogsAnomalyDetectionIntegrationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LogsAnomalyDetectionIntegrationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
- * 			OpsCenter for each created insight. </p>
+ * 			OpsCenter for each created insight. You can use this to update the configuration.</p>
  */
 export interface OpsCenterIntegrationConfig {
   /**
@@ -5066,9 +5456,16 @@ export namespace OpsCenterIntegrationConfig {
 export interface UpdateServiceIntegrationConfig {
   /**
    * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
-   * 			OpsCenter for each created insight. </p>
+   * 			OpsCenter for each created insight. You can use this to update the configuration.</p>
    */
   OpsCenter?: OpsCenterIntegrationConfig;
+
+  /**
+   * <p>
+   * 			Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups.
+   * 		</p>
+   */
+  LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
 }
 
 export namespace UpdateServiceIntegrationConfig {

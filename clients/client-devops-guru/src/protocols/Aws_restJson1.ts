@@ -69,8 +69,16 @@ import {
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,
 } from "../commands/ListAnomaliesForInsightCommand";
+import {
+  ListAnomalousLogGroupsCommandInput,
+  ListAnomalousLogGroupsCommandOutput,
+} from "../commands/ListAnomalousLogGroupsCommand";
 import { ListEventsCommandInput, ListEventsCommandOutput } from "../commands/ListEventsCommand";
 import { ListInsightsCommandInput, ListInsightsCommandOutput } from "../commands/ListInsightsCommand";
+import {
+  ListMonitoredResourcesCommandInput,
+  ListMonitoredResourcesCommandOutput,
+} from "../commands/ListMonitoredResourcesCommand";
 import {
   ListNotificationChannelsCommandInput,
   ListNotificationChannelsCommandOutput,
@@ -115,6 +123,7 @@ import {
   AccountHealth,
   AccountInsightHealth,
   AmazonCodeGuruProfilerIntegration,
+  AnomalousLogGroup,
   AnomalyReportedTimeRange,
   AnomalyResource,
   AnomalySourceDetails,
@@ -146,6 +155,12 @@ import {
   ListInsightsClosedStatusFilter,
   ListInsightsOngoingStatusFilter,
   ListInsightsStatusFilter,
+  ListMonitoredResourcesFilters,
+  LogAnomalyClass,
+  LogAnomalyShowcase,
+  LogsAnomalyDetectionIntegration,
+  LogsAnomalyDetectionIntegrationConfig,
+  MonitoredResourceIdentifier,
   NotificationChannel,
   NotificationChannelConfig,
   OpsCenterIntegration,
@@ -179,6 +194,7 @@ import {
   ResourceCollection,
   ResourceCollectionFilter,
   ResourceNotFoundException,
+  ResourceTypeFilter,
   SearchInsightsFilters,
   SearchOrganizationInsightsFilters,
   ServiceCollection,
@@ -654,6 +670,32 @@ export const serializeAws_restJson1ListAnomaliesForInsightCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAnomalousLogGroupsCommand = async (
+  input: ListAnomalousLogGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-log-anomalies";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InsightId != null && { InsightId: input.InsightId }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListEventsCommand = async (
   input: ListEventsCommandInput,
   context: __SerdeContext
@@ -697,6 +739,34 @@ export const serializeAws_restJson1ListInsightsCommand = async (
     ...(input.StatusFilter != null && {
       StatusFilter: serializeAws_restJson1ListInsightsStatusFilter(input.StatusFilter, context),
     }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMonitoredResourcesCommand = async (
+  input: ListMonitoredResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/monitoredResources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters != null && {
+      Filters: serializeAws_restJson1ListMonitoredResourcesFilters(input.Filters, context),
+    }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1801,6 +1871,9 @@ const deserializeAws_restJson1DescribeServiceIntegrationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.devopsguru#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.devopsguru#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.devopsguru#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2026,6 +2099,71 @@ const deserializeAws_restJson1ListAnomaliesForInsightCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListAnomalousLogGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalousLogGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAnomalousLogGroupsCommandError(output, context);
+  }
+  const contents: ListAnomalousLogGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AnomalousLogGroups: undefined,
+    InsightId: undefined,
+    NextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnomalousLogGroups !== undefined && data.AnomalousLogGroups !== null) {
+    contents.AnomalousLogGroups = deserializeAws_restJson1AnomalousLogGroups(data.AnomalousLogGroups, context);
+  }
+  if (data.InsightId !== undefined && data.InsightId !== null) {
+    contents.InsightId = __expectString(data.InsightId);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAnomalousLogGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalousLogGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.devopsguru#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2130,6 +2268,67 @@ const deserializeAws_restJson1ListInsightsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.devopsguru#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListMonitoredResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoredResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMonitoredResourcesCommandError(output, context);
+  }
+  const contents: ListMonitoredResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MonitoredResourceIdentifiers: undefined,
+    NextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MonitoredResourceIdentifiers !== undefined && data.MonitoredResourceIdentifiers !== null) {
+    contents.MonitoredResourceIdentifiers = deserializeAws_restJson1MonitoredResourceIdentifiers(
+      data.MonitoredResourceIdentifiers,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMonitoredResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoredResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.devopsguru#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.devopsguru#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -3138,6 +3337,27 @@ const serializeAws_restJson1ListInsightsStatusFilter = (
   };
 };
 
+const serializeAws_restJson1ListMonitoredResourcesFilters = (
+  input: ListMonitoredResourcesFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourcePermission != null && { ResourcePermission: input.ResourcePermission }),
+    ...(input.ResourceTypeFilters != null && {
+      ResourceTypeFilters: serializeAws_restJson1ResourceTypeFilters(input.ResourceTypeFilters, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LogsAnomalyDetectionIntegrationConfig = (
+  input: LogsAnomalyDetectionIntegrationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OptInStatus != null && { OptInStatus: input.OptInStatus }),
+  };
+};
+
 const serializeAws_restJson1NotificationChannelConfig = (
   input: NotificationChannelConfig,
   context: __SerdeContext
@@ -3174,6 +3394,20 @@ const serializeAws_restJson1ResourceCollection = (input: ResourceCollection, con
     }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagCollections(input.Tags, context) }),
   };
+};
+
+const serializeAws_restJson1ResourceTypeFilters = (
+  input: (ResourceTypeFilter | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SearchInsightsAccountIdList = (input: string[], context: __SerdeContext): any => {
@@ -3340,6 +3574,12 @@ const serializeAws_restJson1UpdateServiceIntegrationConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.LogsAnomalyDetection != null && {
+      LogsAnomalyDetection: serializeAws_restJson1LogsAnomalyDetectionIntegrationConfig(
+        input.LogsAnomalyDetection,
+        context
+      ),
+    }),
     ...(input.OpsCenter != null && {
       OpsCenter: serializeAws_restJson1OpsCenterIntegrationConfig(input.OpsCenter, context),
     }),
@@ -3425,6 +3665,37 @@ const deserializeAws_restJson1AmazonCodeGuruProfilerIntegration = (
   return {
     Status: __expectString(output.Status),
   } as any;
+};
+
+const deserializeAws_restJson1AnomalousLogGroup = (output: any, context: __SerdeContext): AnomalousLogGroup => {
+  return {
+    ImpactEndTime:
+      output.ImpactEndTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImpactEndTime)))
+        : undefined,
+    ImpactStartTime:
+      output.ImpactStartTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ImpactStartTime)))
+        : undefined,
+    LogAnomalyShowcases:
+      output.LogAnomalyShowcases != null
+        ? deserializeAws_restJson1LogAnomalyShowcases(output.LogAnomalyShowcases, context)
+        : undefined,
+    LogGroupName: __expectString(output.LogGroupName),
+    NumberOfLogLinesScanned: __expectInt32(output.NumberOfLogLinesScanned),
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalousLogGroups = (output: any, context: __SerdeContext): AnomalousLogGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AnomalousLogGroup(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1AnomalyReportedTimeRange = (
@@ -3769,6 +4040,89 @@ const deserializeAws_restJson1InsightTimeRange = (output: any, context: __SerdeC
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LogAnomalyClass = (output: any, context: __SerdeContext): LogAnomalyClass => {
+  return {
+    Explanation: __expectString(output.Explanation),
+    LogAnomalyToken: __expectString(output.LogAnomalyToken),
+    LogAnomalyType: __expectString(output.LogAnomalyType),
+    LogEventId: __expectString(output.LogEventId),
+    LogEventTimestamp:
+      output.LogEventTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LogEventTimestamp)))
+        : undefined,
+    LogStreamName: __expectString(output.LogStreamName),
+    NumberOfLogLinesOccurrences: __expectInt32(output.NumberOfLogLinesOccurrences),
+  } as any;
+};
+
+const deserializeAws_restJson1LogAnomalyClasses = (output: any, context: __SerdeContext): LogAnomalyClass[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LogAnomalyClass(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LogAnomalyShowcase = (output: any, context: __SerdeContext): LogAnomalyShowcase => {
+  return {
+    LogAnomalyClasses:
+      output.LogAnomalyClasses != null
+        ? deserializeAws_restJson1LogAnomalyClasses(output.LogAnomalyClasses, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LogAnomalyShowcases = (output: any, context: __SerdeContext): LogAnomalyShowcase[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LogAnomalyShowcase(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LogsAnomalyDetectionIntegration = (
+  output: any,
+  context: __SerdeContext
+): LogsAnomalyDetectionIntegration => {
+  return {
+    OptInStatus: __expectString(output.OptInStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1MonitoredResourceIdentifier = (
+  output: any,
+  context: __SerdeContext
+): MonitoredResourceIdentifier => {
+  return {
+    MonitoredResourceName: __expectString(output.MonitoredResourceName),
+    ResourcePermission: __expectString(output.ResourcePermission),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1MonitoredResourceIdentifiers = (
+  output: any,
+  context: __SerdeContext
+): MonitoredResourceIdentifier[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MonitoredResourceIdentifier(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1NotificationChannel = (output: any, context: __SerdeContext): NotificationChannel => {
@@ -4639,6 +4993,10 @@ const deserializeAws_restJson1ServiceIntegrationConfig = (
   context: __SerdeContext
 ): ServiceIntegrationConfig => {
   return {
+    LogsAnomalyDetection:
+      output.LogsAnomalyDetection != null
+        ? deserializeAws_restJson1LogsAnomalyDetectionIntegration(output.LogsAnomalyDetection, context)
+        : undefined,
     OpsCenter:
       output.OpsCenter != null ? deserializeAws_restJson1OpsCenterIntegration(output.OpsCenter, context) : undefined,
   } as any;

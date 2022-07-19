@@ -102,8 +102,16 @@ import {
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,
 } from "./commands/ListAnomaliesForInsightCommand";
+import {
+  ListAnomalousLogGroupsCommandInput,
+  ListAnomalousLogGroupsCommandOutput,
+} from "./commands/ListAnomalousLogGroupsCommand";
 import { ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
+import {
+  ListMonitoredResourcesCommandInput,
+  ListMonitoredResourcesCommandOutput,
+} from "./commands/ListMonitoredResourcesCommand";
 import {
   ListNotificationChannelsCommandInput,
   ListNotificationChannelsCommandOutput,
@@ -161,8 +169,10 @@ export type ServiceInputTypes =
   | GetCostEstimationCommandInput
   | GetResourceCollectionCommandInput
   | ListAnomaliesForInsightCommandInput
+  | ListAnomalousLogGroupsCommandInput
   | ListEventsCommandInput
   | ListInsightsCommandInput
+  | ListMonitoredResourcesCommandInput
   | ListNotificationChannelsCommandInput
   | ListOrganizationInsightsCommandInput
   | ListRecommendationsCommandInput
@@ -192,8 +202,10 @@ export type ServiceOutputTypes =
   | GetCostEstimationCommandOutput
   | GetResourceCollectionCommandOutput
   | ListAnomaliesForInsightCommandOutput
+  | ListAnomalousLogGroupsCommandOutput
   | ListEventsCommandOutput
   | ListInsightsCommandOutput
+  | ListMonitoredResourcesCommandOutput
   | ListNotificationChannelsCommandOutput
   | ListOrganizationInsightsCommandOutput
   | ListRecommendationsCommandOutput

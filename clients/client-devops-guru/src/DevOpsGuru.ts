@@ -81,12 +81,22 @@ import {
   ListAnomaliesForInsightCommandInput,
   ListAnomaliesForInsightCommandOutput,
 } from "./commands/ListAnomaliesForInsightCommand";
+import {
+  ListAnomalousLogGroupsCommand,
+  ListAnomalousLogGroupsCommandInput,
+  ListAnomalousLogGroupsCommandOutput,
+} from "./commands/ListAnomalousLogGroupsCommand";
 import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "./commands/ListEventsCommand";
 import {
   ListInsightsCommand,
   ListInsightsCommandInput,
   ListInsightsCommandOutput,
 } from "./commands/ListInsightsCommand";
+import {
+  ListMonitoredResourcesCommand,
+  ListMonitoredResourcesCommandInput,
+  ListMonitoredResourcesCommandOutput,
+} from "./commands/ListMonitoredResourcesCommand";
 import {
   ListNotificationChannelsCommand,
   ListNotificationChannelsCommandInput,
@@ -707,6 +717,40 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * <p>
+   * 			Returns the list of log groups that contain log anomalies.
+   * 		</p>
+   */
+  public listAnomalousLogGroups(
+    args: ListAnomalousLogGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnomalousLogGroupsCommandOutput>;
+  public listAnomalousLogGroups(
+    args: ListAnomalousLogGroupsCommandInput,
+    cb: (err: any, data?: ListAnomalousLogGroupsCommandOutput) => void
+  ): void;
+  public listAnomalousLogGroups(
+    args: ListAnomalousLogGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnomalousLogGroupsCommandOutput) => void
+  ): void;
+  public listAnomalousLogGroups(
+    args: ListAnomalousLogGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnomalousLogGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListAnomalousLogGroupsCommandOutput) => void
+  ): Promise<ListAnomalousLogGroupsCommandOutput> | void {
+    const command = new ListAnomalousLogGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
    * 			You can use filters to specify which events are returned. </p>
    */
@@ -754,6 +798,40 @@ export class DevOpsGuru extends DevOpsGuruClient {
     cb?: (err: any, data?: ListInsightsCommandOutput) => void
   ): Promise<ListInsightsCommandOutput> | void {
     const command = new ListInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * 			Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
+   * 		</p>
+   */
+  public listMonitoredResources(
+    args: ListMonitoredResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitoredResourcesCommandOutput>;
+  public listMonitoredResources(
+    args: ListMonitoredResourcesCommandInput,
+    cb: (err: any, data?: ListMonitoredResourcesCommandOutput) => void
+  ): void;
+  public listMonitoredResources(
+    args: ListMonitoredResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMonitoredResourcesCommandOutput) => void
+  ): void;
+  public listMonitoredResources(
+    args: ListMonitoredResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitoredResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListMonitoredResourcesCommandOutput) => void
+  ): Promise<ListMonitoredResourcesCommandOutput> | void {
+    const command = new ListMonitoredResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -8,8 +8,10 @@ export * from "./GetResourceCollectionPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAnomaliesForInsightPaginator";
+export * from "./ListAnomalousLogGroupsPaginator";
 export * from "./ListEventsPaginator";
 export * from "./ListInsightsPaginator";
+export * from "./ListMonitoredResourcesPaginator";
 export * from "./ListNotificationChannelsPaginator";
 export * from "./ListOrganizationInsightsPaginator";
 export * from "./ListRecommendationsPaginator";
