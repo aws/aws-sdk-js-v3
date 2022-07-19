@@ -5644,8 +5644,9 @@ export interface JobRun {
 
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
+   *
+   *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
    */
   Timeout?: number;
 
@@ -5726,7 +5727,7 @@ export interface JobRun {
   GlueVersion?: string;
 
   /**
-   * <p>This field populates only when an Auto Scaling job run completes, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code> and 2 for <code>G.2X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
+   * <p>This field populates only for Auto Scaling job runs, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code>, 2 for <code>G.2X</code>, or 0.25 for <code>G.025X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
    */
   DPUSeconds?: number;
 }
