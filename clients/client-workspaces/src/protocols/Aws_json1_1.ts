@@ -3119,6 +3119,9 @@ const deserializeAws_json1_1ImportClientBrandingCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
