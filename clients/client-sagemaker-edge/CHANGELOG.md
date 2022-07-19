@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.132.0...v3.133.0) (2022-07-19)
+
+
+### Features
+
+* **client-sagemaker-edge:** Amazon SageMaker Edge Manager provides lightweight model deployment feature to deploy machine learning models on requested devices. ([316a691](https://github.com/aws/aws-sdk-js-v3/commit/316a691491232facc572b8482f9084355702bfbf))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-edge

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.132.0...v3.133.0) (2022-07-19)
+
+
+### Features
+
+* **client-devops-guru:** Added new APIs for log anomaly detection feature. ([90ed85b](https://github.com/aws/aws-sdk-js-v3/commit/90ed85b6817d3f035124d62818670b3b4807c492))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 

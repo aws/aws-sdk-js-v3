@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.132.0...v3.133.0) (2022-07-19)
+
+
+### Features
+
+* **client-devops-guru:** Added new APIs for log anomaly detection feature. ([90ed85b](https://github.com/aws/aws-sdk-js-v3/commit/90ed85b6817d3f035124d62818670b3b4807c492))
+* **client-sagemaker-edge:** Amazon SageMaker Edge Manager provides lightweight model deployment feature to deploy machine learning models on requested devices. ([316a691](https://github.com/aws/aws-sdk-js-v3/commit/316a691491232facc572b8482f9084355702bfbf))
+* **client-sagemaker:** Fixed an issue with cross account QueryLineage ([ed39bc2](https://github.com/aws/aws-sdk-js-v3/commit/ed39bc2c1bd0d2bad021a043b7642fae5ea9263d))
+* **client-workspaces:** Increased the character limit of the login message from 850 to 2000 characters. ([6481e59](https://github.com/aws/aws-sdk-js-v3/commit/6481e598bf2360dfe18714996867eeed605a6f82))
+
+
+
+
+
 # [3.132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.131.0...v3.132.0) (2022-07-18)
 
 

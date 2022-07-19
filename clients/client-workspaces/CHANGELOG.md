@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.132.0...v3.133.0) (2022-07-19)
+
+
+### Features
+
+* **client-workspaces:** Increased the character limit of the login message from 850 to 2000 characters. ([6481e59](https://github.com/aws/aws-sdk-js-v3/commit/6481e598bf2360dfe18714996867eeed605a6f82))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces
