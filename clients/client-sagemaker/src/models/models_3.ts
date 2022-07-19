@@ -3096,7 +3096,7 @@ export interface QueryLineageRequest {
   /**
    * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
    */
-  StartArns: string[] | undefined;
+  StartArns?: string[];
 
   /**
    * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
