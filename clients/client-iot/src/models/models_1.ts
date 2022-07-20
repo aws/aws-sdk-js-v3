@@ -4181,6 +4181,30 @@ export enum DeviceDefenderIndexingMode {
   VIOLATIONS = "VIOLATIONS",
 }
 
+/**
+ * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
+ *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
+ *       specify your shadow names in <code>filter</code>.</p>
+ */
+export interface IndexingFilter {
+  /**
+   * <p>The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase
+   *       the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management
+   *         Quotas</a> in the <i>Amazon Web Services General Reference</i>.
+   *     </p>
+   */
+  namedShadowNames?: string[];
+}
+
+export namespace IndexingFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IndexingFilter): any => ({
+    ...obj,
+  });
+}
+
 export enum NamedShadowIndexingMode {
   OFF = "OFF",
   ON = "ON",
@@ -4277,6 +4301,13 @@ export interface ThingIndexingConfiguration {
    * <p>Contains custom field names and their data type.</p>
    */
   customFields?: Field[];
+
+  /**
+   * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
+   *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
+   *       specify your shadow names in <code>filter</code>.</p>
+   */
+  filter?: IndexingFilter;
 }
 
 export namespace ThingIndexingConfiguration {
@@ -8392,27 +8423,6 @@ export namespace ListThingGroupsForThingRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListThingGroupsForThingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingGroupsForThingResponse {
-  /**
-   * <p>The thing groups.</p>
-   */
-  thingGroups?: GroupNameAndArn[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingGroupsForThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
     ...obj,
   });
 }

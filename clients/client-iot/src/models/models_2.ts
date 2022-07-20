@@ -49,6 +49,7 @@ import {
   Configuration,
   DetectMitigationActionsTaskTarget,
   DomainConfigurationStatus,
+  GroupNameAndArn,
   LogTargetType,
   RegistrationConfig,
   Status,
@@ -57,6 +58,27 @@ import {
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListThingGroupsForThingResponse {
+  /**
+   * <p>The thing groups.</p>
+   */
+  thingGroups?: GroupNameAndArn[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingGroupsForThingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The input for the ListThingPrincipal operation.</p>

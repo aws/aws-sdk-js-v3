@@ -837,6 +837,7 @@ import {
   Field,
   FleetMetricNameAndArn,
   GroupNameAndArn,
+  IndexingFilter,
   InternalServerException,
   Job,
   JobExecution,
@@ -24326,6 +24327,14 @@ const serializeAws_restJson1HttpUrlDestinationConfiguration = (
   };
 };
 
+const serializeAws_restJson1IndexingFilter = (input: IndexingFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.namedShadowNames != null && {
+      namedShadowNames: serializeAws_restJson1NamedShadowNamesFilter(input.namedShadowNames, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1IotAnalyticsAction = (input: IotAnalyticsAction, context: __SerdeContext): any => {
   return {
     ...(input.batchMode != null && { batchMode: input.batchMode }),
@@ -24521,6 +24530,17 @@ const serializeAws_restJson1MqttContext = (input: MqttContext, context: __SerdeC
     ...(input.password != null && { password: context.base64Encoder(input.password) }),
     ...(input.username != null && { username: input.username }),
   };
+};
+
+const serializeAws_restJson1NamedShadowNamesFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1NumberList = (input: number[], context: __SerdeContext): any => {
@@ -25095,6 +25115,7 @@ const serializeAws_restJson1ThingIndexingConfiguration = (
   return {
     ...(input.customFields != null && { customFields: serializeAws_restJson1Fields(input.customFields, context) }),
     ...(input.deviceDefenderIndexingMode != null && { deviceDefenderIndexingMode: input.deviceDefenderIndexingMode }),
+    ...(input.filter != null && { filter: serializeAws_restJson1IndexingFilter(input.filter, context) }),
     ...(input.managedFields != null && { managedFields: serializeAws_restJson1Fields(input.managedFields, context) }),
     ...(input.namedShadowIndexingMode != null && { namedShadowIndexingMode: input.namedShadowIndexingMode }),
     ...(input.thingConnectivityIndexingMode != null && {
@@ -26777,6 +26798,15 @@ const deserializeAws_restJson1ImplicitDeny = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1IndexingFilter = (output: any, context: __SerdeContext): IndexingFilter => {
+  return {
+    namedShadowNames:
+      output.namedShadowNames != null
+        ? deserializeAws_restJson1NamedShadowNamesFilter(output.namedShadowNames, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1IndexNamesList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -27351,6 +27381,18 @@ const deserializeAws_restJson1MitigationActionParams = (
         ? deserializeAws_restJson1UpdateDeviceCertificateParams(output.updateDeviceCertificateParams, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1NamedShadowNamesFilter = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1NonCompliantResource = (output: any, context: __SerdeContext): NonCompliantResource => {
@@ -28581,6 +28623,7 @@ const deserializeAws_restJson1ThingIndexingConfiguration = (
     customFields:
       output.customFields != null ? deserializeAws_restJson1Fields(output.customFields, context) : undefined,
     deviceDefenderIndexingMode: __expectString(output.deviceDefenderIndexingMode),
+    filter: output.filter != null ? deserializeAws_restJson1IndexingFilter(output.filter, context) : undefined,
     managedFields:
       output.managedFields != null ? deserializeAws_restJson1Fields(output.managedFields, context) : undefined,
     namedShadowIndexingMode: __expectString(output.namedShadowIndexingMode),

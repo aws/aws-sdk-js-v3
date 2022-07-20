@@ -1331,7 +1331,8 @@ export class IoT extends IoTClient {
    * <p>Attaches the specified policy to the specified principal (certificate or other
    *          credential).</p>
    *          <p>
-   *             <b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+   *             <b>Note:</b> This action is deprecated and works as
+   *          expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
    */
   public attachPrincipalPolicy(
