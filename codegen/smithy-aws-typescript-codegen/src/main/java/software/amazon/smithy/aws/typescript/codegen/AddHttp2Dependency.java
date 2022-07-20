@@ -49,7 +49,11 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
                     writer.addImport("NodeHttp2Handler", "RequestHandler",
                             TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                    writer.write("new RequestHandler(defaultConfigProvider)");
+                    writer.openBlock("new RequestHandler(async () => ({", "}))", () -> {
+                        writer.write("...await defaultConfigProvider(),");
+                        // TODO: remove this when root cause of #3809 is found
+                        writer.write("disableConcurrentStreams: true");
+                    });
                 });
             default:
                 return Collections.emptyMap();

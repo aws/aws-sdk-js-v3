@@ -77,14 +77,6 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                 });
 
         switch (target) {
-            case NODE:
-                return MapUtils.of(
-                    "requestHandler", writer -> {
-                        writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
-                        writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
-                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                         writer.write("new NodeHttp2Handler({ disableConcurrentStreams: true })");
-                    });
             case REACT_NATIVE:
             case BROWSER:
                 return transcribeStreamingHandlerConfig;
