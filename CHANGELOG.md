@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.133.0...v3.134.0) (2022-07-20)
+
+
+### Features
+
+* **client-iot:** GA release the ability to enable/disable IoT Fleet Indexing for Device Defender and Named Shadow information, and search them through IoT Fleet Indexing APIs. This includes Named Shadow Selection as a part of the UpdateIndexingConfiguration API. ([358a73e](https://github.com/aws/aws-sdk-js-v3/commit/358a73e37eca1782a115e9c304bdc27889fc7026))
+* **clients:** update client endpoints as of 2022-07-20 ([e67364c](https://github.com/aws/aws-sdk-js-v3/commit/e67364c42bb347d50bd98d1a3be547dae722cea8))
+
+
+
+
+
 # [3.133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.132.0...v3.133.0) (2022-07-19)
 
 
