@@ -8,17 +8,14 @@ import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceExcept
  */
 export interface CustomAttribute {
   /**
-   * <p>Specifies the object identifier (OID) of the attribute type of
-   * 			the
-   * 			relative distinguished name
-   * 			(RDN).</p>
+   * <p>Specifies the object identifier (OID) of the attribute type of the relative
+   * 			distinguished name (RDN).</p>
    */
   ObjectIdentifier: string | undefined;
 
   /**
    * <p></p>
-   * 		       <p>Specifies the attribute value of relative distinguished name
-   * 			(RDN).</p>
+   * 		       <p>Specifies the attribute value of relative distinguished name (RDN).</p>
    */
   Value: string | undefined;
 }
@@ -125,16 +122,9 @@ export interface ASN1Subject {
 
   /**
    * <p></p>
-   * 		       <p>Contains a sequence of one or more X.500 relative distinguished
-   * 			names
-   * 			(RDNs),
-   * 			each of which consists of an object identifier (OID) and
-   * 			a
-   * 			value. For more information, see NIST’s definition of
-   * 			<a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
-   * 				Identifier
-   * 				(OID)</a>.</p>
-   *
+   * 		       <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of
+   * 			which consists of an object identifier (OID) and a value. For more information, see
+   * 			NIST’s definition of  <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
    * 		       <note>
    * 			         <p>Custom attributes cannot be used in combination with standard attributes.</p>
    * 		       </note>
@@ -504,11 +494,9 @@ export enum S3ObjectAcl {
  * 			certificate's expiration date or when a certificate is revoked. When a certificate is
  * 			revoked, it appears in the CRL until the certificate expires, and then in one additional
  * 			CRL after expiration, and it always appears in the audit report.</p>
- *
  * 		       <p>A CRL is typically updated approximately 30 minutes after a certificate
  * 	is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts
  * 	every 15 minutes.</p>
- *
  * 		       <p>CRLs contain the following fields:</p>
  * 		       <ul>
  *             <li>
@@ -792,11 +780,22 @@ export interface CreateCertificateAuthorityRequest {
   IdempotencyToken?: string;
 
   /**
-   * <p>Specifies a
-   * 			cryptographic key management compliance standard used for handling CA keys.</p>
+   * <p>Specifies a cryptographic key management compliance standard used for handling CA
+   * 			keys.</p>
    * 		       <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
-   * 		       <p>Note: <code>FIPS_140_2_LEVEL_3_OR_HIGHER</code> is not supported in Region
-   * 			ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide
+   * 		       <p>
+   *             <i>Note:</i>
+   * 			         <code>FIPS_140_2_LEVEL_3_OR_HIGHER</code> is not supported in the following
+   * 			Regions:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>ap-northeast-3</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>ap-southeast-3</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>When creating a CA in these Regions, you must provide
    * 				<code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument for
    * 				<code>KeyStorageSecurityStandard</code>. Failure to do this results in an
    * 				<code>InvalidArgsException</code> with the message, "A certificate authority cannot
@@ -1819,8 +1818,7 @@ export namespace PolicyInformation {
 
 /**
  * <p></p>
- * 		       <p>Specifies the X.509 extension information for a
- * 			certificate.</p>
+ * 		       <p>Specifies the X.509 extension information for a certificate.</p>
  * 		       <p>Extensions present in <code>CustomExtensions</code> follow the
  * 				<code>ApiPassthrough</code>
  * 			         <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">template
@@ -1829,27 +1827,21 @@ export namespace PolicyInformation {
 export interface CustomExtension {
   /**
    * <p></p>
-   * 		       <p>Specifies the object identifier (OID) of the X.509 extension. For more information,
-   * 			see the
-   * 				<a href="https://oidref.com/2.5.29">Global OID reference
-   * 				database.</a>
+   * 		       <p>Specifies the object identifier (OID) of the X.509 extension. For more information, see the
+   * 				<a href="https://oidref.com/2.5.29">Global OID reference database.</a>
    * 		       </p>
    */
   ObjectIdentifier: string | undefined;
 
   /**
    * <p></p>
-   * 		       <p>Specifies the base64-encoded value of the X.509
-   * 			extension.</p>
+   * 		       <p>Specifies the base64-encoded value of the X.509 extension.</p>
    */
   Value: string | undefined;
 
   /**
    * <p></p>
-   * 		       <p>Specifies the critical flag of
-   * 			the
-   * 			X.509
-   * 			extension.</p>
+   * 		       <p>Specifies the critical flag of the X.509 extension.</p>
    */
   Critical?: boolean;
 }
@@ -1940,19 +1932,10 @@ export interface Extensions {
   /**
    * <p></p>
    * 		       <p>Contains a sequence of one or more X.509 extensions, each of which consists of an
-   * 			object identifier (OID), a base64-encoded
-   * 			value,
-   * 			and the
-   * 			critical flag.
-   * 			For
-   * 			more information, see the <a href="https://oidref.com/2.5.29">Global OID reference
+   * 			object identifier (OID), a base64-encoded value, and the critical flag. For more
+   * 			information, see the <a href="https://oidref.com/2.5.29">Global OID reference
    * 				database.</a>
    *          </p>
-   *
-   * 		       <note>
-   * 			         <p>The OID value of a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CustomExtension.html">CustomExtension</a> must not
-   * 				match the OID of a predefined extension.</p>
-   * 		       </note>
    */
   CustomExtensions?: CustomExtension[];
 }

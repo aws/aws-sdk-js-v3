@@ -120,7 +120,6 @@ import {
  * 			request because the request exceeds the operation's quota for the number of requests per
  * 			second. When a request is throttled, ACM Private CA returns a <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html">ThrottlingException</a> error. ACM Private CA does not guarantee a minimum request
  * 			rate for APIs. </p>
- *
  * 		       <p>To see an up-to-date list of your ACM Private CA quotas, or to request a quota increase,
  * 			log into your Amazon Web Services account and visit the <a href="https://console.aws.amazon.com/servicequotas/">Service Quotas</a>
  * 			console.</p>
