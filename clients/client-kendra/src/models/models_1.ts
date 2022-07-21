@@ -3,11 +3,65 @@ import {
   AttributeFilter,
   DocumentRelevanceConfiguration,
   Facet,
+  FacetResult,
+  QueryResultItem,
   QueryResultType,
   SortingConfiguration,
+  SpellCorrectedQuery,
   SpellCorrectionConfiguration,
   UserContext,
+  Warning,
 } from "./models_0";
+
+export interface QueryResult {
+  /**
+   * <p>The unique identifier for the search. You use <code>QueryId</code>
+   *          to identify the search when using the feedback API.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The results of the search.</p>
+   */
+  ResultItems?: QueryResultItem[];
+
+  /**
+   * <p>Contains the facet results. A <code>FacetResult</code> contains the
+   *          counts for each attribute key that was specified in the
+   *             <code>Facets</code> input parameter.</p>
+   */
+  FacetResults?: FacetResult[];
+
+  /**
+   * <p>The total number of items found by the search; however, you can only
+   *          retrieve up to 100 items. For example, if the search found 192 items,
+   *          you can only retrieve the first 100 of the items.</p>
+   */
+  TotalNumberOfResults?: number;
+
+  /**
+   * <p>A list of warning codes and their messages on problems with your query.</p>
+   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
+   *          on invalid syntax used in the query. For examples of invalid query syntax,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+   *             with advanced query syntax</a>.</p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>A list of information related to suggested spell corrections for a query.</p>
+   */
+  SpellCorrectedQueries?: SpellCorrectedQuery[];
+}
+
+export namespace QueryResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryResult): any => ({
+    ...obj,
+  });
+}
 
 export interface QueryRequest {
   /**

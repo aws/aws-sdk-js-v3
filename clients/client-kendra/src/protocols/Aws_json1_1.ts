@@ -345,7 +345,6 @@ import {
   Principal,
   ProxyConfiguration,
   PutPrincipalMappingRequest,
-  QueryResult,
   QueryResultItem,
   QuerySuggestionsBlockListSummary,
   QuipConfiguration,
@@ -420,7 +419,7 @@ import {
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
-import { QueryRequest } from "../models/models_1";
+import { QueryRequest, QueryResult } from "../models/models_1";
 
 export const serializeAws_json1_1AssociateEntitiesToExperienceCommand = async (
   input: AssociateEntitiesToExperienceCommandInput,
@@ -7290,6 +7289,7 @@ const serializeAws_json1_1ServiceNowServiceCatalogConfiguration = (
 
 const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.AuthenticationType != null && { AuthenticationType: input.AuthenticationType }),
     ...(input.CrawlAttachments != null && { CrawlAttachments: input.CrawlAttachments }),
     ...(input.DisableLocalGroups != null && { DisableLocalGroups: input.DisableLocalGroups }),
     ...(input.DocumentTitleFieldName != null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
@@ -10761,6 +10761,7 @@ const deserializeAws_json1_1SharePointConfiguration = (
   context: __SerdeContext
 ): SharePointConfiguration => {
   return {
+    AuthenticationType: __expectString(output.AuthenticationType),
     CrawlAttachments: __expectBoolean(output.CrawlAttachments),
     DisableLocalGroups: __expectBoolean(output.DisableLocalGroups),
     DocumentTitleFieldName: __expectString(output.DocumentTitleFieldName),

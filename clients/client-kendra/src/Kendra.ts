@@ -508,18 +508,16 @@ export class Kendra extends KendraClient {
    *             user and group access information for your documents. This is useful
    *             for user context filtering, where search results are filtered based
    *             on the user or their group access to documents.</p>
-   *         <p>You can use this to re-configure your existing document level access
-   *             control without indexing all of your documents again. For example, your
-   *             index contains top-secret company documents that only certain employees
-   *             or users should access. One of these users leaves the company or switches
-   *             to a team that should be blocked from access to top-secret documents.
-   *             Your documents in your index still give this user access to top-secret
-   *             documents due to the user having access at the time your documents were
-   *             indexed. You can create a specific access control configuration for this
-   *             user with deny access. You can later update the access control
-   *             configuration to allow access in the case the user returns to the company
-   *             and re-joins the 'top-secret' team. You can re-configure access control
-   *             for your documents circumstances change.</p>
+   *         <p>You can use this to re-configure your existing document level access control without
+   *             indexing all of your documents again. For example, your index contains top-secret
+   *             company documents that only certain employees or users should access. One of these users
+   *             leaves the company or switches to a team that should be blocked from accessing
+   *             top-secret documents. The user still has access to top-secret documents because the user
+   *             had access when your documents were previously indexed. You
+   *             can create a specific access control configuration for the user with deny
+   *             access. You can later update the access control configuration to allow access if the
+   *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
+   *             access control for your documents as circumstances change.</p>
    *         <p>To apply your access control configuration to certain documents, you call
    *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
    *             API with the <code>AccessControlConfigurationId</code> included in the
@@ -2176,12 +2174,12 @@ export class Kendra extends KendraClient {
    *             suddenly returns to their previous team and should no longer have access to top secret
    *             documents. You can update the access control configuration to re-configure access
    *             control for your documents as circumstances change.</p>
-   *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
-   *             API to apply the updated access control configuration, with the
-   *             <code>AccessControlConfigurationId</code> included in the
+   *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
+   *             apply the updated access control configuration, with the
+   *                 <code>AccessControlConfigurationId</code> included in the
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
    *             object. If you use an S3 bucket as a data source, you synchronize your data source to
-   *             apply the the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
+   *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
    *             Amazon Kendra currently only supports access control configuration for S3 data
    *             sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
    */

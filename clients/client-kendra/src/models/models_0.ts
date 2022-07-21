@@ -4104,6 +4104,11 @@ export namespace ServiceNowConfiguration {
   });
 }
 
+export enum SharePointOnlineAuthenticationType {
+  HTTP_BASIC = "HTTP_BASIC",
+  OAUTH2 = "OAUTH2",
+}
+
 export enum SharePointVersion {
   SHAREPOINT_2013 = "SHAREPOINT_2013",
   SHAREPOINT_2016 = "SHAREPOINT_2016",
@@ -4133,6 +4138,10 @@ export interface SharePointConfiguration {
    *             domain name as part of the credentials. For
    *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html">Using a
    *                 Microsoft SharePoint Data Source</a>.</p>
+   *         <p>You can also provide OAuth authentication credentials of user name,
+   *             password, client ID, and client secret. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html#sharepoint-authentication">Authentication
+   *                 for a SharePoint data source</a>.</p>
    */
   SecretArn: string | undefined;
 
@@ -4207,6 +4216,14 @@ export interface SharePointConfiguration {
    *             this to connect to SharePoint.</p>
    */
   SslCertificateS3Path?: S3Path;
+
+  /**
+   * <p>Whether you want to connect to SharePoint using basic authentication of
+   *             user name and password, or OAuth authentication of user name, password,
+   *             client ID, and client secret. You can use OAuth authentication for
+   *             SharePoint Online.</p>
+   */
+  AuthenticationType?: SharePointOnlineAuthenticationType | string;
 }
 
 export namespace SharePointConfiguration {
@@ -5906,7 +5923,8 @@ export interface DescribeAccessControlConfigurationRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>The identifier of the access control configuration you want to get information on.</p>
+   * <p>The identifier of the access control configuration
+   *             you want to get information on.</p>
    */
   Id: string | undefined;
 }
@@ -5945,8 +5963,8 @@ export interface DescribeAccessControlConfigurationResponse {
   AccessControlList?: Principal[];
 
   /**
-   * <p>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a> lists that
-   *             define the hierarchy for which documents users should have access to.</p>
+   * <p>The list of <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html">principal</a>
+   *             lists that define the hierarchy for which documents users should have access to.</p>
    */
   HierarchicalAccessControlList?: HierarchicalPrincipal[];
 }
@@ -7654,10 +7672,10 @@ export interface ListAccessControlConfigurationsRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>If the previous response was incomplete (because there is more data
-   *             to retrieve), Amazon Kendra returns a pagination token in the response.
-   *             You can use this pagination token to retrieve the next set of access
-   *             control configurations.</p>
+   * <p>If the previous response was incomplete (because
+   *             there's more data to retrieve), Amazon Kendra returns a pagination token
+   *             in the response. You can use this pagination token to retrieve the next set
+   *             of access control configurations.</p>
    */
   NextToken?: string;
 
@@ -7678,9 +7696,9 @@ export namespace ListAccessControlConfigurationsRequest {
 
 export interface ListAccessControlConfigurationsResponse {
   /**
-   * <p>If the response is truncated, Amazon Kendra returns this token
-   *             that you can use in the subsequent request to retrieve the next set of
-   *             access control configurations.</p>
+   * <p>If the response is truncated, Amazon Kendra returns this
+   *             token, which you can use in the subsequent request to retrieve the
+   *             next set of access control configurations.</p>
    */
   NextToken?: string;
 
@@ -10325,56 +10343,6 @@ export namespace AttributeFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: AttributeFilter): any => ({
-    ...obj,
-  });
-}
-
-export interface QueryResult {
-  /**
-   * <p>The unique identifier for the search. You use <code>QueryId</code>
-   *          to identify the search when using the feedback API.</p>
-   */
-  QueryId?: string;
-
-  /**
-   * <p>The results of the search.</p>
-   */
-  ResultItems?: QueryResultItem[];
-
-  /**
-   * <p>Contains the facet results. A <code>FacetResult</code> contains the
-   *          counts for each attribute key that was specified in the
-   *             <code>Facets</code> input parameter.</p>
-   */
-  FacetResults?: FacetResult[];
-
-  /**
-   * <p>The total number of items found by the search; however, you can only
-   *          retrieve up to 100 items. For example, if the search found 192 items,
-   *          you can only retrieve the first 100 of the items.</p>
-   */
-  TotalNumberOfResults?: number;
-
-  /**
-   * <p>A list of warning codes and their messages on problems with your query.</p>
-   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
-   *          on invalid syntax used in the query. For examples of invalid query syntax,
-   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
-   *             with advanced query syntax</a>.</p>
-   */
-  Warnings?: Warning[];
-
-  /**
-   * <p>A list of information related to suggested spell corrections for a query.</p>
-   */
-  SpellCorrectedQueries?: SpellCorrectedQuery[];
-}
-
-export namespace QueryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResult): any => ({
     ...obj,
   });
 }

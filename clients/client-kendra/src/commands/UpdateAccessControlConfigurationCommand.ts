@@ -37,12 +37,12 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *             suddenly returns to their previous team and should no longer have access to top secret
  *             documents. You can update the access control configuration to re-configure access
  *             control for your documents as circumstances change.</p>
- *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
- *             API to apply the updated access control configuration, with the
- *             <code>AccessControlConfigurationId</code> included in the
+ *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
+ *             apply the updated access control configuration, with the
+ *                 <code>AccessControlConfigurationId</code> included in the
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
  *             object. If you use an S3 bucket as a data source, you synchronize your data source to
- *             apply the the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
+ *             apply the <code>AccessControlConfigurationId</code> in the <code>.metadata.json</code> file.
  *             Amazon Kendra currently only supports access control configuration for S3 data
  *             sources and documents indexed using the <code>BatchPutDocument</code> API.</p>
  * @example

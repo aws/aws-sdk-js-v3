@@ -13,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { QueryResult } from "../models/models_0";
-import { QueryRequest } from "../models/models_1";
+import { QueryRequest, QueryResult } from "../models/models_1";
 import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
 
 export interface QueryCommandInput extends QueryRequest {}
