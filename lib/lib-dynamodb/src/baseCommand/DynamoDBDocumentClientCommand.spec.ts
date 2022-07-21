@@ -39,7 +39,7 @@ describe("DynamoDBDocumentClientCommand", () => {
       const [middleware, options] = command.argCaptor[0];
       expect(middleware.toString()).toContain(`marshallInput`);
       expect(options).toEqual({
-        name: "AnyCommandMarshall",
+        name: "DocumentMarshall",
         override: true,
         step: "initialize",
       });
@@ -48,7 +48,7 @@ describe("DynamoDBDocumentClientCommand", () => {
       const [middleware, options] = command.argCaptor[1];
       expect(middleware.toString()).toContain(`unmarshallOutput`);
       expect(options).toEqual({
-        name: "AnyCommandUnmarshall",
+        name: "DocumentUnmarshall",
         override: true,
         step: "deserialize",
       });
