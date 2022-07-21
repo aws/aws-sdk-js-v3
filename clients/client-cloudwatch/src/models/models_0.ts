@@ -3,6 +3,12 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
 
+export enum ActionsSuppressedBy {
+  Alarm = "Alarm",
+  ExtensionPeriod = "ExtensionPeriod",
+  WaitPeriod = "WaitPeriod",
+}
+
 export type AlarmType = "CompositeAlarm" | "MetricAlarm";
 
 export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
@@ -606,7 +612,7 @@ export interface CompositeAlarm {
   StateReasonData?: string;
 
   /**
-   * <p>The time stamp of the last update to the alarm state.</p>
+   * <p>Tracks the timestamp of any state update, even if <code>StateValue</code> doesn't change.</p>
    */
   StateUpdatedTimestamp?: Date;
 
@@ -614,6 +620,107 @@ export interface CompositeAlarm {
    * <p>The state value for the alarm.</p>
    */
   StateValue?: StateValue | string;
+
+  /**
+   * <p>
+   * 			The timestamp
+   * 			of the last change
+   * 			to the alarm's <code>StateValue</code>.
+   * 		</p>
+   */
+  StateTransitionedTimestamp?: Date;
+
+  /**
+   * <p>
+   * 			When the value is <code>ALARM</code>,
+   * 			it means
+   * 			that the actions are suppressed
+   * 			because the suppressor alarm is
+   * 			in <code>ALARM</code>
+   * 			When the value is <code>WaitPeriod</code>,
+   * 			it means that
+   * 			the actions are suppressed
+   * 			because the composite alarm is waiting
+   * 			for the suppressor alarm
+   * 			to go
+   * 			into
+   * 			into the <code>ALARM</code> state.
+   * 			The maximum waiting time is as specified
+   * 			in <code>ActionsSuppressorWaitPeriod</code>.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 			When the value is <code>ExtensionPeriod</code>,
+   * 			it means
+   * 			that the actions are suppressed
+   * 			because the composite alarm is waiting
+   * 			after the suppressor alarm went out
+   * 			of the <code>ALARM</code> state.
+   * 			The maximum waiting time is as specified
+   * 			in <code>ActionsSuppressorExtensionPeriod</code>.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 		</p>
+   */
+  ActionsSuppressedBy?: ActionsSuppressedBy | string;
+
+  /**
+   * <p>
+   * 			Captures the reason for action suppression.
+   * 		</p>
+   */
+  ActionsSuppressedReason?: string;
+
+  /**
+   * <p>
+   * 			Actions will be suppressed
+   * 			if the suppressor alarm is
+   * 			in the <code>ALARM</code> state.
+   * 			<code>ActionsSuppressor</code> can be an AlarmName or an Amazon Resource Name (ARN)
+   * 			from an existing alarm.
+   * 		</p>
+   */
+  ActionsSuppressor?: string;
+
+  /**
+   * <p>
+   * 			The maximum time
+   * 			in seconds
+   * 			that the composite alarm waits
+   * 			for the suppressor alarm
+   * 			to go
+   * 			into the <code>ALARM</code> state.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 		</p>
+   * 		       <important>
+   * 			         <p>
+   * 				           <code>WaitPeriod</code>
+   * 				is required only
+   * 				when <code>ActionsSuppressor</code> is specified.
+   * 			</p>
+   * 		       </important>
+   */
+  ActionsSuppressorWaitPeriod?: number;
+
+  /**
+   * <p>
+   * 			The maximum time
+   * 			in seconds
+   * 			that the composite alarm waits
+   * 			after suppressor alarm goes out
+   * 			of the <code>ALARM</code> state.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 		</p>
+   * 		       <important>
+   * 			         <p>
+   * 				           <code>ExtensionPeriod</code>
+   * 				is required only
+   * 				when <code>ActionsSuppressor</code> is specified.
+   * 			</p>
+   * 		       </important>
+   */
+  ActionsSuppressorExtensionPeriod?: number;
 }
 
 export namespace CompositeAlarm {
@@ -3398,6 +3505,58 @@ export interface PutCompositeAlarmInput {
    * 			certain tag values.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>
+   * 			Actions will be suppressed
+   * 			if the suppressor alarm is
+   * 			in the <code>ALARM</code> state.
+   * 			<code>ActionsSuppressor</code> can be an AlarmName or an Amazon Resource Name (ARN)
+   * 			from an existing alarm.
+   * 		</p>
+   */
+  ActionsSuppressor?: string;
+
+  /**
+   * <p>
+   * 			The maximum time
+   * 			in seconds
+   * 			that the composite alarm waits
+   * 			for the suppressor alarm
+   * 			to go
+   * 			into the <code>ALARM</code> state.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 		</p>
+   * 		       <important>
+   * 			         <p>
+   * 				           <code>WaitPeriod</code>
+   * 				is required only
+   * 				when <code>ActionsSuppressor</code> is specified.
+   * 			</p>
+   * 		       </important>
+   */
+  ActionsSuppressorWaitPeriod?: number;
+
+  /**
+   * <p>
+   * 			The maximum time
+   * 			in seconds
+   * 			that the composite alarm waits
+   * 			after suppressor alarm goes out
+   * 			of the <code>ALARM</code> state.
+   * 			After this time,
+   * 			the composite alarm performs its actions.
+   * 		</p>
+   * 		       <important>
+   * 			         <p>
+   * 				           <code>ExtensionPeriod</code>
+   * 				is required only
+   * 				when <code>ActionsSuppressor</code> is specified.
+   * 			</p>
+   * 		       </important>
+   */
+  ActionsSuppressorExtensionPeriod?: number;
 }
 
 export namespace PutCompositeAlarmInput {

@@ -3741,6 +3741,15 @@ const serializeAws_queryPutCompositeAlarmInput = (input: PutCompositeAlarmInput,
       entries[loc] = value;
     });
   }
+  if (input.ActionsSuppressor !== undefined && input.ActionsSuppressor !== null) {
+    entries["ActionsSuppressor"] = input.ActionsSuppressor;
+  }
+  if (input.ActionsSuppressorWaitPeriod !== undefined && input.ActionsSuppressorWaitPeriod !== null) {
+    entries["ActionsSuppressorWaitPeriod"] = input.ActionsSuppressorWaitPeriod;
+  }
+  if (input.ActionsSuppressorExtensionPeriod !== undefined && input.ActionsSuppressorExtensionPeriod !== null) {
+    entries["ActionsSuppressorExtensionPeriod"] = input.ActionsSuppressorExtensionPeriod;
+  }
   return entries;
 };
 
@@ -4296,6 +4305,12 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
     StateReasonData: undefined,
     StateUpdatedTimestamp: undefined,
     StateValue: undefined,
+    StateTransitionedTimestamp: undefined,
+    ActionsSuppressedBy: undefined,
+    ActionsSuppressedReason: undefined,
+    ActionsSuppressor: undefined,
+    ActionsSuppressorWaitPeriod: undefined,
+    ActionsSuppressorExtensionPeriod: undefined,
   };
   if (output["ActionsEnabled"] !== undefined) {
     contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
@@ -4355,6 +4370,26 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
   }
   if (output["StateValue"] !== undefined) {
     contents.StateValue = __expectString(output["StateValue"]);
+  }
+  if (output["StateTransitionedTimestamp"] !== undefined) {
+    contents.StateTransitionedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["StateTransitionedTimestamp"]));
+  }
+  if (output["ActionsSuppressedBy"] !== undefined) {
+    contents.ActionsSuppressedBy = __expectString(output["ActionsSuppressedBy"]);
+  }
+  if (output["ActionsSuppressedReason"] !== undefined) {
+    contents.ActionsSuppressedReason = __expectString(output["ActionsSuppressedReason"]);
+  }
+  if (output["ActionsSuppressor"] !== undefined) {
+    contents.ActionsSuppressor = __expectString(output["ActionsSuppressor"]);
+  }
+  if (output["ActionsSuppressorWaitPeriod"] !== undefined) {
+    contents.ActionsSuppressorWaitPeriod = __strictParseInt32(output["ActionsSuppressorWaitPeriod"]) as number;
+  }
+  if (output["ActionsSuppressorExtensionPeriod"] !== undefined) {
+    contents.ActionsSuppressorExtensionPeriod = __strictParseInt32(
+      output["ActionsSuppressorExtensionPeriod"]
+    ) as number;
   }
   return contents;
 };
