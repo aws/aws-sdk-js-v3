@@ -470,7 +470,75 @@ export namespace Attachment {
   });
 }
 
+/**
+ * <p>General information about the IP set.</p>
+ */
+export interface IPSetMetadata {
+  /**
+   * <p>Describes the total number of CIDR blocks currently in use by the IP set references in a firewall. To determine how many CIDR blocks are available for you to use in a firewall, you can call <code>AvailableCIDRCount</code>.</p>
+   */
+  ResolvedCIDRCount?: number;
+}
+
+export namespace IPSetMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IPSetMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summarizes the CIDR blocks used by the IP set references in a firewall. Network Firewall calculates the number of CIDRs by taking an aggregated count of all CIDRs used by the IP sets you are referencing.</p>
+ */
+export interface CIDRSummary {
+  /**
+   * <p>The number of CIDR blocks available for use by the IP set references in a firewall.</p>
+   */
+  AvailableCIDRCount?: number;
+
+  /**
+   * <p>The number of CIDR blocks used by the IP set references in a firewall.</p>
+   */
+  UtilizedCIDRCount?: number;
+
+  /**
+   * <p>The list of the IP set references used by a firewall.</p>
+   */
+  IPSetReferences?: Record<string, IPSetMetadata>;
+}
+
+export namespace CIDRSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CIDRSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The capacity usage summary of the resources used by the <a>ReferenceSets</a> in a firewall.</p>
+ */
+export interface CapacityUsageSummary {
+  /**
+   * <p>Describes the capacity usage of the CIDR blocks used by the IP set references in a firewall.</p>
+   */
+  CIDRs?: CIDRSummary;
+}
+
+export namespace CapacityUsageSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityUsageSummary): any => ({
+    ...obj,
+  });
+}
+
 export enum ConfigurationSyncState {
+  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
   IN_SYNC = "IN_SYNC",
   PENDING = "PENDING",
 }
@@ -699,6 +767,7 @@ export enum FirewallStatusValue {
 }
 
 export enum PerObjectSyncStatus {
+  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
   IN_SYNC = "IN_SYNC",
   PENDING = "PENDING",
 }
@@ -810,6 +879,11 @@ export interface FirewallStatus {
    *          and configuration object. </p>
    */
   SyncStates?: Record<string, SyncState>;
+
+  /**
+   * <p>Describes the capacity usage of the resources contained in a firewall's reference sets. Network Firewall calclulates the capacity usage by taking an aggregated count of all of the resources used by all of the reference sets in a firewall.</p>
+   */
+  CapacityUsageSummary?: CapacityUsageSummary;
 }
 
 export namespace FirewallStatus {
@@ -1264,6 +1338,47 @@ export namespace CreateFirewallPolicyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateFirewallPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references a resource that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the IP set you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <p>
+ *         Network Firewall currently supports only <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> as IP set references.
+ *       </p>
+ */
+export interface IPSetReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you are referencing in your rule group.</p>
+   */
+  ReferenceArn?: string;
+}
+
+export namespace IPSetReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IPSetReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a set of IP set references.</p>
+ */
+export interface ReferenceSets {
+  /**
+   * <p>The list of IP set references.</p>
+   */
+  IPSetReferences?: Record<string, IPSetReference>;
+}
+
+export namespace ReferenceSets {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReferenceSets): any => ({
     ...obj,
   });
 }
@@ -1913,6 +2028,11 @@ export interface RuleGroup {
    *          these for stateful rule groups. </p>
    */
   RuleVariables?: RuleVariables;
+
+  /**
+   * <p>The list of a rule group's reference sets.</p>
+   */
+  ReferenceSets?: ReferenceSets;
 
   /**
    * <p>The stateful rules or stateless rules for the rule group. </p>

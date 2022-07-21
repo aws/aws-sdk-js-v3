@@ -109,6 +109,8 @@ import {
   AssociateSubnetsRequest,
   AssociateSubnetsResponse,
   Attachment,
+  CapacityUsageSummary,
+  CIDRSummary,
   CreateFirewallPolicyRequest,
   CreateFirewallPolicyResponse,
   CreateFirewallRequest,
@@ -154,6 +156,8 @@ import {
   InvalidResourcePolicyException,
   InvalidTokenException,
   IPSet,
+  IPSetMetadata,
+  IPSetReference,
   LimitExceededException,
   ListFirewallPoliciesRequest,
   ListFirewallPoliciesResponse,
@@ -173,6 +177,7 @@ import {
   PublishMetricAction,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
+  ReferenceSets,
   ResourceNotFoundException,
   ResourceOwnerCheckException,
   RuleDefinition,
@@ -2842,6 +2847,24 @@ const serializeAws_json1_0IPSet = (input: IPSet, context: __SerdeContext): any =
   };
 };
 
+const serializeAws_json1_0IPSetReference = (input: IPSetReference, context: __SerdeContext): any => {
+  return {
+    ...(input.ReferenceArn != null && { ReferenceArn: input.ReferenceArn }),
+  };
+};
+
+const serializeAws_json1_0IPSetReferenceMap = (input: Record<string, IPSetReference>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_0IPSetReference(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_json1_0IPSets = (input: Record<string, IPSet>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3012,6 +3035,14 @@ const serializeAws_json1_0PutResourcePolicyRequest = (
   };
 };
 
+const serializeAws_json1_0ReferenceSets = (input: ReferenceSets, context: __SerdeContext): any => {
+  return {
+    ...(input.IPSetReferences != null && {
+      IPSetReferences: serializeAws_json1_0IPSetReferenceMap(input.IPSetReferences, context),
+    }),
+  };
+};
+
 const serializeAws_json1_0RuleDefinition = (input: RuleDefinition, context: __SerdeContext): any => {
   return {
     ...(input.Actions != null && { Actions: serializeAws_json1_0StatelessActions(input.Actions, context) }),
@@ -3023,6 +3054,9 @@ const serializeAws_json1_0RuleDefinition = (input: RuleDefinition, context: __Se
 
 const serializeAws_json1_0RuleGroup = (input: RuleGroup, context: __SerdeContext): any => {
   return {
+    ...(input.ReferenceSets != null && {
+      ReferenceSets: serializeAws_json1_0ReferenceSets(input.ReferenceSets, context),
+    }),
     ...(input.RuleVariables != null && {
       RuleVariables: serializeAws_json1_0RuleVariables(input.RuleVariables, context),
     }),
@@ -3544,6 +3578,23 @@ const deserializeAws_json1_0Attachment = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_0CapacityUsageSummary = (output: any, context: __SerdeContext): CapacityUsageSummary => {
+  return {
+    CIDRs: output.CIDRs != null ? deserializeAws_json1_0CIDRSummary(output.CIDRs, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CIDRSummary = (output: any, context: __SerdeContext): CIDRSummary => {
+  return {
+    AvailableCIDRCount: __expectInt32(output.AvailableCIDRCount),
+    IPSetReferences:
+      output.IPSetReferences != null
+        ? deserializeAws_json1_0IPSetMetadataMap(output.IPSetReferences, context)
+        : undefined,
+    UtilizedCIDRCount: __expectInt32(output.UtilizedCIDRCount),
+  } as any;
+};
+
 const deserializeAws_json1_0CreateFirewallPolicyResponse = (
   output: any,
   context: __SerdeContext
@@ -3880,6 +3931,10 @@ const deserializeAws_json1_0Firewalls = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0FirewallStatus = (output: any, context: __SerdeContext): FirewallStatus => {
   return {
+    CapacityUsageSummary:
+      output.CapacityUsageSummary != null
+        ? deserializeAws_json1_0CapacityUsageSummary(output.CapacityUsageSummary, context)
+        : undefined,
     ConfigurationSyncStateSummary: __expectString(output.ConfigurationSyncStateSummary),
     Status: __expectString(output.Status),
     SyncStates: output.SyncStates != null ? deserializeAws_json1_0SyncStates(output.SyncStates, context) : undefined,
@@ -3962,6 +4017,48 @@ const deserializeAws_json1_0IPSet = (output: any, context: __SerdeContext): IPSe
     Definition:
       output.Definition != null ? deserializeAws_json1_0VariableDefinitionList(output.Definition, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0IPSetMetadata = (output: any, context: __SerdeContext): IPSetMetadata => {
+  return {
+    ResolvedCIDRCount: __expectInt32(output.ResolvedCIDRCount),
+  } as any;
+};
+
+const deserializeAws_json1_0IPSetMetadataMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IPSetMetadata> => {
+  return Object.entries(output).reduce((acc: Record<string, IPSetMetadata>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_json1_0IPSetMetadata(value, context),
+    };
+  }, {});
+};
+
+const deserializeAws_json1_0IPSetReference = (output: any, context: __SerdeContext): IPSetReference => {
+  return {
+    ReferenceArn: __expectString(output.ReferenceArn),
+  } as any;
+};
+
+const deserializeAws_json1_0IPSetReferenceMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, IPSetReference> => {
+  return Object.entries(output).reduce((acc: Record<string, IPSetReference>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_json1_0IPSetReference(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): Record<string, IPSet> => {
@@ -4155,6 +4252,15 @@ const deserializeAws_json1_0PutResourcePolicyResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_0ReferenceSets = (output: any, context: __SerdeContext): ReferenceSets => {
+  return {
+    IPSetReferences:
+      output.IPSetReferences != null
+        ? deserializeAws_json1_0IPSetReferenceMap(output.IPSetReferences, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -4185,6 +4291,8 @@ const deserializeAws_json1_0RuleDefinition = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
   return {
+    ReferenceSets:
+      output.ReferenceSets != null ? deserializeAws_json1_0ReferenceSets(output.ReferenceSets, context) : undefined,
     RuleVariables:
       output.RuleVariables != null ? deserializeAws_json1_0RuleVariables(output.RuleVariables, context) : undefined,
     RulesSource:
