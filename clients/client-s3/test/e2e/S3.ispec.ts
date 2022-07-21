@@ -281,6 +281,7 @@ esfuture,29`;
       });
       const events: SelectObjectContentEventStream[] = [];
       for await (const event of Payload!) {
+        console.log(event);
         events.push(event);
       }
       expect(events.length).to.equal(3);

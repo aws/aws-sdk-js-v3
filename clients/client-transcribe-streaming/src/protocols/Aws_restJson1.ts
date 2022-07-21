@@ -12,6 +12,7 @@ import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   Message as __Message,
+  MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
@@ -84,9 +85,7 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/medical-stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
-    body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
-      serializeAws_restJson1AudioStream_event(event, context)
-    );
+    body = serializeAws_restJson1AudioStream(input.AudioStream, context);
   }
   return new __HttpRequest({
     protocol,
@@ -166,9 +165,7 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
-    body = context.eventStreamMarshaller.serialize(input.AudioStream, (event) =>
-      serializeAws_restJson1AudioStream_event(event, context)
-    );
+    body = serializeAws_restJson1AudioStream(input.AudioStream, context);
   }
   return new __HttpRequest({
     protocol,
@@ -242,22 +239,8 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
   if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
     contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
   }
-  const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
-    const eventName = Object.keys(event)[0];
-    const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
-      accummulator[curr[0]] = curr[1].value;
-      return accummulator;
-    }, {} as Record<string, any>);
-    const eventMessage = {
-      headers: eventHeaders,
-      body: event[eventName].body,
-    };
-    const parsedEvent = {
-      [eventName]: eventMessage,
-    };
-    return await deserializeAws_restJson1MedicalTranscriptResultStream_event(parsedEvent, context);
-  });
-  contents.TranscriptResultStream = data;
+  const data: any = output.body;
+  contents.TranscriptResultStream = deserializeAws_restJson1MedicalTranscriptResultStream(data, context);
   return Promise.resolve(contents);
 };
 
@@ -403,22 +386,8 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.headers["x-amzn-transcribe-vocabulary-filter-names"] !== undefined) {
     contents.VocabularyFilterNames = output.headers["x-amzn-transcribe-vocabulary-filter-names"];
   }
-  const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
-    const eventName = Object.keys(event)[0];
-    const eventHeaders = Object.entries(event[eventName].headers).reduce((accummulator, curr) => {
-      accummulator[curr[0]] = curr[1].value;
-      return accummulator;
-    }, {} as Record<string, any>);
-    const eventMessage = {
-      headers: eventHeaders,
-      body: event[eventName].body,
-    };
-    const parsedEvent = {
-      [eventName]: eventMessage,
-    };
-    return await deserializeAws_restJson1TranscriptResultStream_event(parsedEvent, context);
-  });
-  contents.TranscriptResultStream = data;
+  const data: any = output.body;
+  contents.TranscriptResultStream = deserializeAws_restJson1TranscriptResultStream(data, context);
   return Promise.resolve(contents);
 };
 
@@ -461,194 +430,6 @@ const deserializeAws_restJson1StartStreamTranscriptionCommandError = async (
   }
 };
 
-const serializeAws_restJson1AudioStream_event = (input: any, context: __SerdeContext): __Message => {
-  return AudioStream.visit(input, {
-    AudioEvent: (value) => serializeAws_restJson1AudioEvent_event(value, context),
-    _: (value) => value as any,
-  });
-};
-const deserializeAws_restJson1MedicalTranscriptResultStream_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<MedicalTranscriptResultStream> => {
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1MedicalTranscriptEvent_event(output["TranscriptEvent"], context),
-    };
-  }
-  if (output["BadRequestException"] !== undefined) {
-    return {
-      BadRequestException: await deserializeAws_restJson1BadRequestException_event(
-        output["BadRequestException"],
-        context
-      ),
-    };
-  }
-  if (output["LimitExceededException"] !== undefined) {
-    return {
-      LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
-        output["LimitExceededException"],
-        context
-      ),
-    };
-  }
-  if (output["InternalFailureException"] !== undefined) {
-    return {
-      InternalFailureException: await deserializeAws_restJson1InternalFailureException_event(
-        output["InternalFailureException"],
-        context
-      ),
-    };
-  }
-  if (output["ConflictException"] !== undefined) {
-    return {
-      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
-    };
-  }
-  if (output["ServiceUnavailableException"] !== undefined) {
-    return {
-      ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
-        output["ServiceUnavailableException"],
-        context
-      ),
-    };
-  }
-  return { $unknown: output };
-};
-const deserializeAws_restJson1TranscriptResultStream_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TranscriptResultStream> => {
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
-    };
-  }
-  if (output["BadRequestException"] !== undefined) {
-    return {
-      BadRequestException: await deserializeAws_restJson1BadRequestException_event(
-        output["BadRequestException"],
-        context
-      ),
-    };
-  }
-  if (output["LimitExceededException"] !== undefined) {
-    return {
-      LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
-        output["LimitExceededException"],
-        context
-      ),
-    };
-  }
-  if (output["InternalFailureException"] !== undefined) {
-    return {
-      InternalFailureException: await deserializeAws_restJson1InternalFailureException_event(
-        output["InternalFailureException"],
-        context
-      ),
-    };
-  }
-  if (output["ConflictException"] !== undefined) {
-    return {
-      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
-    };
-  }
-  if (output["ServiceUnavailableException"] !== undefined) {
-    return {
-      ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
-        output["ServiceUnavailableException"],
-        context
-      ),
-    };
-  }
-  return { $unknown: output };
-};
-const serializeAws_restJson1AudioEvent_event = (input: AudioEvent, context: __SerdeContext): __Message => {
-  const message: __Message = {
-    headers: {
-      ":event-type": { type: "string", value: "AudioEvent" },
-      ":message-type": { type: "string", value: "event" },
-      ":content-type": { type: "string", value: "application/octet-stream" },
-    },
-    body: new Uint8Array(),
-  };
-  message.body = input.AudioChunk || message.body;
-  return message;
-};
-const deserializeAws_restJson1BadRequestException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1ConflictException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1InternalFailureException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<InternalFailureException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1LimitExceededException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<LimitExceededException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1MedicalTranscriptEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<MedicalTranscriptEvent> => {
-  let contents: MedicalTranscriptEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1MedicalTranscriptEvent(data, context),
-  } as any;
-  return contents;
-};
-const deserializeAws_restJson1ServiceUnavailableException_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<ServiceUnavailableException> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  return deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
-};
-const deserializeAws_restJson1TranscriptEvent_event = async (
-  output: any,
-  context: __SerdeContext
-): Promise<TranscriptEvent> => {
-  let contents: TranscriptEvent = {} as any;
-  const data: any = await parseBody(output.body, context);
-  contents = {
-    ...contents,
-    ...deserializeAws_restJson1TranscriptEvent(data, context),
-  } as any;
-  return contents;
-};
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -729,19 +510,194 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AudioEvent = (input: AudioEvent, context: __SerdeContext): any => {
-  return {
-    ...(input.AudioChunk != null && { AudioChunk: context.base64Encoder(input.AudioChunk) }),
-  };
+const serializeAws_restJson1AudioStream = (input: any, context: __SerdeContext & __EventStreamSerdeContext): any => {
+  const eventMarshallingVisitor = (event: any): __Message =>
+    AudioStream.visit(event, {
+      AudioEvent: (value) => serializeAws_restJson1AudioEvent_event(value, context),
+      _: (value) => value as any,
+    });
+  return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
 };
-
-const serializeAws_restJson1AudioStream = (input: AudioStream, context: __SerdeContext): any => {
-  return AudioStream.visit(input, {
-    AudioEvent: (value) => ({ AudioEvent: serializeAws_restJson1AudioEvent(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+const serializeAws_restJson1AudioEvent_event = (input: AudioEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "AudioEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/octet-stream" },
+  };
+  let body = new Uint8Array();
+  if (input.AudioChunk != null) {
+    body = input.AudioChunk;
+  }
+  return { headers, body };
+};
+const deserializeAws_restJson1MedicalTranscriptResultStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<MedicalTranscriptResultStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["TranscriptEvent"] != null) {
+      return {
+        TranscriptEvent: await deserializeAws_restJson1MedicalTranscriptEvent_event(event["TranscriptEvent"], context),
+      };
+    }
+    if (event["BadRequestException"] != null) {
+      return {
+        BadRequestException: await deserializeAws_restJson1BadRequestException_event(
+          event["BadRequestException"],
+          context
+        ),
+      };
+    }
+    if (event["LimitExceededException"] != null) {
+      return {
+        LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
+          event["LimitExceededException"],
+          context
+        ),
+      };
+    }
+    if (event["InternalFailureException"] != null) {
+      return {
+        InternalFailureException: await deserializeAws_restJson1InternalFailureException_event(
+          event["InternalFailureException"],
+          context
+        ),
+      };
+    }
+    if (event["ConflictException"] != null) {
+      return {
+        ConflictException: await deserializeAws_restJson1ConflictException_event(event["ConflictException"], context),
+      };
+    }
+    if (event["ServiceUnavailableException"] != null) {
+      return {
+        ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
+          event["ServiceUnavailableException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
   });
 };
-
+const deserializeAws_restJson1TranscriptResultStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<TranscriptResultStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["TranscriptEvent"] != null) {
+      return {
+        TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(event["TranscriptEvent"], context),
+      };
+    }
+    if (event["BadRequestException"] != null) {
+      return {
+        BadRequestException: await deserializeAws_restJson1BadRequestException_event(
+          event["BadRequestException"],
+          context
+        ),
+      };
+    }
+    if (event["LimitExceededException"] != null) {
+      return {
+        LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
+          event["LimitExceededException"],
+          context
+        ),
+      };
+    }
+    if (event["InternalFailureException"] != null) {
+      return {
+        InternalFailureException: await deserializeAws_restJson1InternalFailureException_event(
+          event["InternalFailureException"],
+          context
+        ),
+      };
+    }
+    if (event["ConflictException"] != null) {
+      return {
+        ConflictException: await deserializeAws_restJson1ConflictException_event(event["ConflictException"], context),
+      };
+    }
+    if (event["ServiceUnavailableException"] != null) {
+      return {
+        ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
+          event["ServiceUnavailableException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const deserializeAws_restJson1BadRequestException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<BadRequestException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1ConflictException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1InternalFailureException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1LimitExceededException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1MedicalTranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MedicalTranscriptEvent> => {
+  const contents: MedicalTranscriptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1MedicalTranscriptEvent(data, context));
+  return contents;
+};
+const deserializeAws_restJson1ServiceUnavailableException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1TranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TranscriptEvent> => {
+  const contents: TranscriptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_restJson1TranscriptEvent(data, context));
+  return contents;
+};
 const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContext): Alternative => {
   return {
     Entities: output.Entities != null ? deserializeAws_restJson1EntityList(output.Entities, context) : undefined,
@@ -760,18 +716,6 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
       return deserializeAws_restJson1Alternative(entry, context);
     });
   return retVal;
-};
-
-const deserializeAws_restJson1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_restJson1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
 };
 
 const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
@@ -795,15 +739,6 @@ const deserializeAws_restJson1EntityList = (output: any, context: __SerdeContext
       return deserializeAws_restJson1Entity(entry, context);
     });
   return retVal;
-};
-
-const deserializeAws_restJson1InternalFailureException = (
-  output: any,
-  context: __SerdeContext
-): InternalFailureException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
 };
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
@@ -847,15 +782,6 @@ const deserializeAws_restJson1LanguageWithScore = (output: any, context: __Serde
   return {
     LanguageCode: __expectString(output.LanguageCode),
     Score: __limitedParseDouble(output.Score),
-  } as any;
-};
-
-const deserializeAws_restJson1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -966,49 +892,6 @@ const deserializeAws_restJson1MedicalTranscriptEvent = (
   } as any;
 };
 
-const deserializeAws_restJson1MedicalTranscriptResultStream = (
-  output: any,
-  context: __SerdeContext
-): MedicalTranscriptResultStream => {
-  if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
-    return {
-      BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),
-    };
-  }
-  if (output.ConflictException !== undefined && output.ConflictException !== null) {
-    return {
-      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
-    };
-  }
-  if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
-    return {
-      InternalFailureException: deserializeAws_restJson1InternalFailureException(
-        output.InternalFailureException,
-        context
-      ),
-    };
-  }
-  if (output.LimitExceededException !== undefined && output.LimitExceededException !== null) {
-    return {
-      LimitExceededException: deserializeAws_restJson1LimitExceededException(output.LimitExceededException, context),
-    };
-  }
-  if (output.ServiceUnavailableException !== undefined && output.ServiceUnavailableException !== null) {
-    return {
-      ServiceUnavailableException: deserializeAws_restJson1ServiceUnavailableException(
-        output.ServiceUnavailableException,
-        context
-      ),
-    };
-  }
-  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
-    return {
-      TranscriptEvent: deserializeAws_restJson1MedicalTranscriptEvent(output.TranscriptEvent, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
   return {
     Alternatives:
@@ -1038,15 +921,6 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ServiceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
     Results: output.Results != null ? deserializeAws_restJson1ResultList(output.Results, context) : undefined,
@@ -1057,49 +931,6 @@ const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeCo
   return {
     Transcript: output.Transcript != null ? deserializeAws_restJson1Transcript(output.Transcript, context) : undefined,
   } as any;
-};
-
-const deserializeAws_restJson1TranscriptResultStream = (
-  output: any,
-  context: __SerdeContext
-): TranscriptResultStream => {
-  if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
-    return {
-      BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),
-    };
-  }
-  if (output.ConflictException !== undefined && output.ConflictException !== null) {
-    return {
-      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
-    };
-  }
-  if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
-    return {
-      InternalFailureException: deserializeAws_restJson1InternalFailureException(
-        output.InternalFailureException,
-        context
-      ),
-    };
-  }
-  if (output.LimitExceededException !== undefined && output.LimitExceededException !== null) {
-    return {
-      LimitExceededException: deserializeAws_restJson1LimitExceededException(output.LimitExceededException, context),
-    };
-  }
-  if (output.ServiceUnavailableException !== undefined && output.ServiceUnavailableException !== null) {
-    return {
-      ServiceUnavailableException: deserializeAws_restJson1ServiceUnavailableException(
-        output.ServiceUnavailableException,
-        context
-      ),
-    };
-  }
-  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
-    return {
-      TranscriptEvent: deserializeAws_restJson1TranscriptEvent(output.TranscriptEvent, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
