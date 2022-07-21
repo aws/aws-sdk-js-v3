@@ -37,7 +37,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *                 that are critical when creating the default database for a DB cluster, such as the character set
  *                 for the default database defined by the <code>character_set_database</code> parameter. You can use the
  *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
- *                 <code>DescribeDBClusterParameters</code> action to verify
+ *                 <code>DescribeDBClusterParameters</code> operation to verify
  *                 that your DB cluster parameter group has been created or modified.</p>
  *             <p>If the modified DB cluster parameter group is used by an Aurora Serverless v1 cluster, Aurora
  *                applies the update immediately. The cluster restart might interrupt your workload. In that case,

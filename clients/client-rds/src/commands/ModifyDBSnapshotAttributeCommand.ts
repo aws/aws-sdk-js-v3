@@ -38,7 +38,7 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *             list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You
  *             can't use <code>all</code> as a value for that parameter in this case.</p>
  *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB snapshot, or
- *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
+ *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API operation. The accounts are returned as
  *             values for the <code>restore</code> attribute.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

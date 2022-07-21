@@ -32,6 +32,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *         <p>For more information about rebooting, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html">Rebooting a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  *         <p>This command doesn't apply to RDS Custom.</p>
+ *         <p>If your DB instance is part of a Multi-AZ DB cluster, you can reboot the DB cluster with the <code>RebootDBCluster</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

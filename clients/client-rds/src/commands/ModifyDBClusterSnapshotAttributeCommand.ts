@@ -42,7 +42,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *             parameter. You can't use <code>all</code> as a value for that parameter in this
  *             case.</p>
  *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
- *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
+ *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API operation. The accounts are
  *             returned as values for the <code>restore</code> attribute.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
