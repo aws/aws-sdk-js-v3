@@ -85,6 +85,10 @@ import {
 } from "./commands/GetPreparedStatementCommand";
 import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import {
+  GetQueryRuntimeStatisticsCommandInput,
+  GetQueryRuntimeStatisticsCommandOutput,
+} from "./commands/GetQueryRuntimeStatisticsCommand";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
@@ -139,6 +143,7 @@ export type ServiceInputTypes =
   | GetPreparedStatementCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
+  | GetQueryRuntimeStatisticsCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
   | ListDataCatalogsCommandInput
@@ -177,6 +182,7 @@ export type ServiceOutputTypes =
   | GetPreparedStatementCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
+  | GetQueryRuntimeStatisticsCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
   | ListDataCatalogsCommandOutput

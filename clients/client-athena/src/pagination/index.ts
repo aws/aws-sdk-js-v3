@@ -3,6 +3,7 @@ export * from "./GetQueryResultsPaginator";
 export * from "./Interfaces";
 export * from "./ListDataCatalogsPaginator";
 export * from "./ListDatabasesPaginator";
+export * from "./ListEngineVersionsPaginator";
 export * from "./ListNamedQueriesPaginator";
 export * from "./ListPreparedStatementsPaginator";
 export * from "./ListQueryExecutionsPaginator";

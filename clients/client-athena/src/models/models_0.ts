@@ -1873,6 +1873,103 @@ export namespace GetQueryResultsOutput {
   });
 }
 
+export interface GetQueryRuntimeStatisticsInput {
+  /**
+   * <p>The unique ID of the query execution.</p>
+   */
+  QueryExecutionId: string | undefined;
+}
+
+export namespace GetQueryRuntimeStatisticsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetQueryRuntimeStatisticsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by the query,
+ *             and the number of rows written by the query.</p>
+ */
+export interface QueryRuntimeStatisticsRows {
+  /**
+   * <p>The number of rows read to execute the query.</p>
+   */
+  InputRows?: number;
+
+  /**
+   * <p>The number of bytes read to execute the query.</p>
+   */
+  InputBytes?: number;
+
+  /**
+   * <p>The number of bytes returned by the query.</p>
+   */
+  OutputBytes?: number;
+
+  /**
+   * <p>The number of rows returned by the query.</p>
+   */
+  OutputRows?: number;
+}
+
+export namespace QueryRuntimeStatisticsRows {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryRuntimeStatisticsRows): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Timeline statistics such as query queue time, planning time, execution time, service processing
+ *             time, and total execution time.</p>
+ */
+export interface QueryRuntimeStatisticsTimeline {
+  /**
+   * <p>The number of milliseconds that the query was in your query queue waiting for
+   *             resources. Note that if transient errors occur, Athena might automatically
+   *             add the query back to the queue.</p>
+   */
+  QueryQueueTimeInMillis?: number;
+
+  /**
+   * <p>The number of milliseconds that Athena took to plan the query processing
+   *             flow. This includes the time spent retrieving table partitions from the data source.
+   *             Note that because the query engine performs the query planning, query planning time is a
+   *             subset of engine processing time.</p>
+   */
+  QueryPlanningTimeInMillis?: number;
+
+  /**
+   * <p>The number of milliseconds that the query took to execute.</p>
+   */
+  EngineExecutionTimeInMillis?: number;
+
+  /**
+   * <p>The number of milliseconds that Athena took to finalize and publish the
+   *             query results after the query engine finished running the query.</p>
+   */
+  ServiceProcessingTimeInMillis?: number;
+
+  /**
+   * <p>The number of milliseconds that Athena took to run the query.</p>
+   */
+  TotalExecutionTimeInMillis?: number;
+}
+
+export namespace QueryRuntimeStatisticsTimeline {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryRuntimeStatisticsTimeline): any => ({
+    ...obj,
+  });
+}
+
 export interface GetTableMetadataInput {
   /**
    * <p>The name of the data catalog that contains the database and table metadata to
@@ -3195,6 +3292,150 @@ export namespace UpdateWorkGroupOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateWorkGroupOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Stage plan information such as name, identifier, sub plans, and remote sources.</p>
+ */
+export interface QueryStagePlanNode {
+  /**
+   * <p>Name of the query stage plan that describes the operation this stage is performing as part of
+   *             query execution.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Information about the operation this query stage plan node is performing.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>Stage plan information such as name, identifier, sub plans, and remote sources of child plan nodes/</p>
+   */
+  Children?: QueryStagePlanNode[];
+
+  /**
+   * <p>Source plan node IDs.</p>
+   */
+  RemoteSources?: string[];
+}
+
+export namespace QueryStagePlanNode {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryStagePlanNode): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Stage statistics such as input and output rows and bytes, execution time and stage state. This
+ *             information also includes substages and the query stage plan.</p>
+ */
+export interface QueryStage {
+  /**
+   * <p>The identifier for a stage.</p>
+   */
+  StageId?: number;
+
+  /**
+   * <p>State of the stage after query execution.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The number of bytes output from the stage after execution.</p>
+   */
+  OutputBytes?: number;
+
+  /**
+   * <p>The number of rows output from the stage after execution.</p>
+   */
+  OutputRows?: number;
+
+  /**
+   * <p>The number of bytes input into the stage for execution.</p>
+   */
+  InputBytes?: number;
+
+  /**
+   * <p>The number of rows input into the stage for execution.</p>
+   */
+  InputRows?: number;
+
+  /**
+   * <p>Time taken to execute this stage.</p>
+   */
+  ExecutionTime?: number;
+
+  /**
+   * <p>Stage plan information such as name, identifier, sub plans, and source stages.</p>
+   */
+  QueryStagePlan?: QueryStagePlanNode;
+
+  /**
+   * <p>List of sub query stages that form this stage execution plan.</p>
+   */
+  SubStages?: QueryStage[];
+}
+
+export namespace QueryStage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryStage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The query execution timeline, statistics on input and output rows and bytes, and the different
+ *             query stages that form the query execution plan.</p>
+ */
+export interface QueryRuntimeStatistics {
+  /**
+   * <p>Timeline statistics such as query queue time, planning time, execution time, service processing
+   *             time, and total execution time.</p>
+   */
+  Timeline?: QueryRuntimeStatisticsTimeline;
+
+  /**
+   * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by the query,
+   *             and the number of rows written by the query.</p>
+   */
+  Rows?: QueryRuntimeStatisticsRows;
+
+  /**
+   * <p>Stage statistics such as input and output rows and bytes, execution time, and stage state. This
+   *             information also includes substages and the query stage plan.</p>
+   */
+  OutputStage?: QueryStage;
+}
+
+export namespace QueryRuntimeStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryRuntimeStatistics): any => ({
+    ...obj,
+  });
+}
+
+export interface GetQueryRuntimeStatisticsOutput {
+  /**
+   * <p>Runtime statistics about the query execution.</p>
+   */
+  QueryRuntimeStatistics?: QueryRuntimeStatistics;
+}
+
+export namespace GetQueryRuntimeStatisticsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetQueryRuntimeStatisticsOutput): any => ({
     ...obj,
   });
 }

@@ -84,6 +84,11 @@ import {
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  GetQueryRuntimeStatisticsCommand,
+  GetQueryRuntimeStatisticsCommandInput,
+  GetQueryRuntimeStatisticsCommandOutput,
+} from "./commands/GetQueryRuntimeStatisticsCommand";
+import {
   GetTableMetadataCommand,
   GetTableMetadataCommandInput,
   GetTableMetadataCommandOutput,
@@ -762,6 +767,41 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns query execution runtime statistics related to a single execution of a query if you
+   *             have access to the workgroup in which the query ran. The query execution runtime statistics
+   *             is returned only when <a>QueryExecutionStatus$State</a> is in a SUCCEEDED
+   *             or FAILED state.</p>
+   */
+  public getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryRuntimeStatisticsCommandOutput>;
+  public getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    cb: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
+  ): void;
+  public getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
+  ): void;
+  public getQueryRuntimeStatistics(
+    args: GetQueryRuntimeStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
+  ): Promise<GetQueryRuntimeStatisticsCommandOutput> | void {
+    const command = new GetQueryRuntimeStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -50,6 +50,10 @@ import {
 } from "../commands/GetPreparedStatementCommand";
 import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "../commands/GetQueryExecutionCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import {
+  GetQueryRuntimeStatisticsCommandInput,
+  GetQueryRuntimeStatisticsCommandOutput,
+} from "../commands/GetQueryRuntimeStatisticsCommand";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "../commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "../commands/GetWorkGroupCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
@@ -130,6 +134,8 @@ import {
   GetQueryExecutionOutput,
   GetQueryResultsInput,
   GetQueryResultsOutput,
+  GetQueryRuntimeStatisticsInput,
+  GetQueryRuntimeStatisticsOutput,
   GetTableMetadataInput,
   GetTableMetadataOutput,
   GetWorkGroupInput,
@@ -162,6 +168,11 @@ import {
   QueryExecutionContext,
   QueryExecutionStatistics,
   QueryExecutionStatus,
+  QueryRuntimeStatistics,
+  QueryRuntimeStatisticsRows,
+  QueryRuntimeStatisticsTimeline,
+  QueryStage,
+  QueryStagePlanNode,
   ResourceNotFoundException,
   ResultConfiguration,
   ResultConfigurationUpdates,
@@ -414,6 +425,19 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetQueryResultsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetQueryRuntimeStatisticsCommand = async (
+  input: GetQueryRuntimeStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonAthena.GetQueryRuntimeStatistics",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetQueryRuntimeStatisticsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1446,6 +1470,53 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQueryResultsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GetQueryRuntimeStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryRuntimeStatisticsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetQueryRuntimeStatisticsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetQueryRuntimeStatisticsOutput(data, context);
+  const response: GetQueryRuntimeStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetQueryRuntimeStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryRuntimeStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2632,6 +2703,15 @@ const serializeAws_json1_1GetQueryResultsInput = (input: GetQueryResultsInput, c
   };
 };
 
+const serializeAws_json1_1GetQueryRuntimeStatisticsInput = (
+  input: GetQueryRuntimeStatisticsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.QueryExecutionId != null && { QueryExecutionId: input.QueryExecutionId }),
+  };
+};
+
 const serializeAws_json1_1GetTableMetadataInput = (input: GetTableMetadataInput, context: __SerdeContext): any => {
   return {
     ...(input.CatalogName != null && { CatalogName: input.CatalogName }),
@@ -3280,6 +3360,18 @@ const deserializeAws_json1_1GetQueryResultsOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1GetQueryRuntimeStatisticsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetQueryRuntimeStatisticsOutput => {
+  return {
+    QueryRuntimeStatistics:
+      output.QueryRuntimeStatistics != null
+        ? deserializeAws_json1_1QueryRuntimeStatistics(output.QueryRuntimeStatistics, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetTableMetadataOutput = (output: any, context: __SerdeContext): GetTableMetadataOutput => {
   return {
     TableMetadata:
@@ -3608,6 +3700,93 @@ const deserializeAws_json1_1QueryExecutionStatus = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1QueryRuntimeStatistics = (output: any, context: __SerdeContext): QueryRuntimeStatistics => {
+  return {
+    OutputStage: output.OutputStage != null ? deserializeAws_json1_1QueryStage(output.OutputStage, context) : undefined,
+    Rows: output.Rows != null ? deserializeAws_json1_1QueryRuntimeStatisticsRows(output.Rows, context) : undefined,
+    Timeline:
+      output.Timeline != null
+        ? deserializeAws_json1_1QueryRuntimeStatisticsTimeline(output.Timeline, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryRuntimeStatisticsRows = (
+  output: any,
+  context: __SerdeContext
+): QueryRuntimeStatisticsRows => {
+  return {
+    InputBytes: __expectLong(output.InputBytes),
+    InputRows: __expectLong(output.InputRows),
+    OutputBytes: __expectLong(output.OutputBytes),
+    OutputRows: __expectLong(output.OutputRows),
+  } as any;
+};
+
+const deserializeAws_json1_1QueryRuntimeStatisticsTimeline = (
+  output: any,
+  context: __SerdeContext
+): QueryRuntimeStatisticsTimeline => {
+  return {
+    EngineExecutionTimeInMillis: __expectLong(output.EngineExecutionTimeInMillis),
+    QueryPlanningTimeInMillis: __expectLong(output.QueryPlanningTimeInMillis),
+    QueryQueueTimeInMillis: __expectLong(output.QueryQueueTimeInMillis),
+    ServiceProcessingTimeInMillis: __expectLong(output.ServiceProcessingTimeInMillis),
+    TotalExecutionTimeInMillis: __expectLong(output.TotalExecutionTimeInMillis),
+  } as any;
+};
+
+const deserializeAws_json1_1QueryStage = (output: any, context: __SerdeContext): QueryStage => {
+  return {
+    ExecutionTime: __expectLong(output.ExecutionTime),
+    InputBytes: __expectLong(output.InputBytes),
+    InputRows: __expectLong(output.InputRows),
+    OutputBytes: __expectLong(output.OutputBytes),
+    OutputRows: __expectLong(output.OutputRows),
+    QueryStagePlan:
+      output.QueryStagePlan != null
+        ? deserializeAws_json1_1QueryStagePlanNode(output.QueryStagePlan, context)
+        : undefined,
+    StageId: __expectLong(output.StageId),
+    State: __expectString(output.State),
+    SubStages: output.SubStages != null ? deserializeAws_json1_1QueryStages(output.SubStages, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryStagePlanNode = (output: any, context: __SerdeContext): QueryStagePlanNode => {
+  return {
+    Children: output.Children != null ? deserializeAws_json1_1QueryStagePlanNodes(output.Children, context) : undefined,
+    Identifier: __expectString(output.Identifier),
+    Name: __expectString(output.Name),
+    RemoteSources:
+      output.RemoteSources != null ? deserializeAws_json1_1StringList(output.RemoteSources, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QueryStagePlanNodes = (output: any, context: __SerdeContext): QueryStagePlanNode[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QueryStagePlanNode(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1QueryStages = (output: any, context: __SerdeContext): QueryStage[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QueryStage(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -3682,6 +3861,18 @@ const deserializeAws_json1_1StopQueryExecutionOutput = (
   context: __SerdeContext
 ): StopQueryExecutionOutput => {
   return {} as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TableMetadata = (output: any, context: __SerdeContext): TableMetadata => {

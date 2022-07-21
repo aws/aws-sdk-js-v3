@@ -16,6 +16,7 @@ export * from "./GetNamedQueryCommand";
 export * from "./GetPreparedStatementCommand";
 export * from "./GetQueryExecutionCommand";
 export * from "./GetQueryResultsCommand";
+export * from "./GetQueryRuntimeStatisticsCommand";
 export * from "./GetTableMetadataCommand";
 export * from "./GetWorkGroupCommand";
 export * from "./ListDataCatalogsCommand";
