@@ -5068,6 +5068,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.DBClusterIdentifier !== undefined && input.DBClusterIdentifier !== null) {
     entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
   }
+  if (input.CopyTagsToSnapshot !== undefined && input.CopyTagsToSnapshot !== null) {
+    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  }
   if (input.PromotionTier !== undefined && input.PromotionTier !== null) {
     entries["PromotionTier"] = input.PromotionTier;
   }
@@ -5914,6 +5917,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.CACertificateIdentifier !== undefined && input.CACertificateIdentifier !== null) {
     entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
   }
+  if (input.CopyTagsToSnapshot !== undefined && input.CopyTagsToSnapshot !== null) {
+    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  }
   if (input.PromotionTier !== undefined && input.PromotionTier !== null) {
     entries["PromotionTier"] = input.PromotionTier;
   }
@@ -6187,6 +6193,9 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   const entries: any = {};
   if (input.DBClusterIdentifier !== undefined && input.DBClusterIdentifier !== null) {
     entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  }
+  if (input.RestoreType !== undefined && input.RestoreType !== null) {
+    entries["RestoreType"] = input.RestoreType;
   }
   if (input.SourceDBClusterIdentifier !== undefined && input.SourceDBClusterIdentifier !== null) {
     entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
@@ -6620,6 +6629,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     DbClusterResourceId: undefined,
     DBClusterArn: undefined,
     AssociatedRoles: undefined,
+    CloneGroupId: undefined,
     ClusterCreateTime: undefined,
     EnabledCloudwatchLogsExports: undefined,
     DeletionProtection: undefined,
@@ -6741,6 +6751,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       __getArrayIfSingleItem(output["AssociatedRoles"]["DBClusterRole"]),
       context
     );
+  }
+  if (output["CloneGroupId"] !== undefined) {
+    contents.CloneGroupId = __expectString(output["CloneGroupId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
     contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ClusterCreateTime"]));
@@ -7306,6 +7319,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     KmsKeyId: undefined,
     DbiResourceId: undefined,
     CACertificateIdentifier: undefined,
+    CopyTagsToSnapshot: undefined,
     PromotionTier: undefined,
     DBInstanceArn: undefined,
     EnabledCloudwatchLogsExports: undefined,
@@ -7394,6 +7408,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["CACertificateIdentifier"] !== undefined) {
     contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
+  }
+  if (output["CopyTagsToSnapshot"] !== undefined) {
+    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
   }
   if (output["PromotionTier"] !== undefined) {
     contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;

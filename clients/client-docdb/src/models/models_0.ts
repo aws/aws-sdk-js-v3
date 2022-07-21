@@ -1483,6 +1483,11 @@ export interface DBCluster {
   AssociatedRoles?: DBClusterRole[];
 
   /**
+   * <p>Identifies the clone group to which the DB cluster is associated.</p>
+   */
+  CloneGroupId?: string;
+
+  /**
    * <p>Specifies the time when the cluster was created, in Universal Coordinated Time
    *             (UTC).</p>
    */
@@ -1987,6 +1992,11 @@ export interface CreateDBInstanceMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
    *             primary instance after a failure of the existing primary instance.</p>
    *         <p>Default: 1</p>
@@ -2433,6 +2443,11 @@ export interface DBInstance {
    * <p>The identifier of the CA certificate for this DB instance.</p>
    */
   CACertificateIdentifier?: string;
+
+  /**
+   * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
@@ -5685,6 +5700,11 @@ export interface ModifyDBInstanceMessage {
   CACertificateIdentifier?: string;
 
   /**
+   * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
    *         <p>Default: 1</p>
    *         <p>Valid values: 0-15</p>
@@ -6325,6 +6345,26 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </ul>
    */
   DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The type of restore to be performed. You can specify one of the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the
+   *                 source DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>copy-on-write</code> - The new DB cluster is restored as a clone of the
+   *                 source DB cluster.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Constraints: You can't specify <code>copy-on-write</code> if the engine version of the source DB cluster is earlier than 1.11.</p>
+   *         <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
+   *             restored as a full copy of the source DB cluster.</p>
+   */
+  RestoreType?: string;
 
   /**
    * <p>The identifier of the source cluster from which to restore.</p>
