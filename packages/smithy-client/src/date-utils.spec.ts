@@ -63,11 +63,29 @@ describe("parseRfc7231DateTime", () => {
         expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1994, 10, 6, 8, 49, 37, 520)));
       });
     });
+    describe("with fractional seconds - single digit hour", () => {
+      it.each([
+        ["imf-fixdate", "Sun, 06 Nov 1994 8:49:37.52 GMT"],
+        ["rfc-850", "Sunday, 06-Nov-94 8:49:37.52 GMT"],
+        ["asctime", "Sun Nov  6 8:49:37.52 1994"],
+      ])("in format %s", (_, value) => {
+        expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1994, 10, 6, 8, 49, 37, 520)));
+      });
+    });
     describe("without fractional seconds", () => {
       it.each([
         ["imf-fixdate", "Sun, 06 Nov 1994 08:49:37 GMT"],
         ["rfc-850", "Sunday, 06-Nov-94 08:49:37 GMT"],
         ["asctime", "Sun Nov  6 08:49:37 1994"],
+      ])("in format %s", (_, value) => {
+        expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1994, 10, 6, 8, 49, 37, 0)));
+      });
+    });
+    describe("without fractional seconds - single digit hour", () => {
+      it.each([
+        ["imf-fixdate", "Sun, 06 Nov 1994 8:49:37 GMT"],
+        ["rfc-850", "Sunday, 06-Nov-94 8:49:37 GMT"],
+        ["asctime", "Sun Nov  6 8:49:37 1994"],
       ])("in format %s", (_, value) => {
         expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1994, 10, 6, 8, 49, 37, 0)));
       });
@@ -81,6 +99,15 @@ describe("parseRfc7231DateTime", () => {
         expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1990, 11, 31, 15, 59, 60, 0)));
       });
     });
+    describe("with leap seconds - single digit hour", () => {
+      it.each([
+        ["imf-fixdate", "Mon, 31 Dec 1990 8:59:60 GMT"],
+        ["rfc-850", "Monday, 31-Dec-90 8:59:60 GMT"],
+        ["asctime", "Mon Dec 31 8:59:60 1990"],
+      ])("in format %s", (_, value) => {
+        expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(1990, 11, 31, 8, 59, 60, 0)));
+      });
+    });
     describe("with leap days", () => {
       it.each([
         ["imf-fixdate", "Sun, 29 Feb 2004 15:59:59 GMT"],
@@ -88,6 +115,15 @@ describe("parseRfc7231DateTime", () => {
         ["asctime", "Sun Feb 29 15:59:59 2004"],
       ])("in format %s", (_, value) => {
         expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(2004, 1, 29, 15, 59, 59, 0)));
+      });
+    });
+    describe("with leap days - single digit hour", () => {
+      it.each([
+        ["imf-fixdate", "Sun, 29 Feb 2004 8:59:59 GMT"],
+        ["rfc-850", "Sunday, 29-Feb-04 8:59:59 GMT"],
+        ["asctime", "Sun Feb 29 8:59:59 2004"],
+      ])("in format %s", (_, value) => {
+        expect(parseRfc7231DateTime(value)).toEqual(new Date(Date.UTC(2004, 1, 29, 8, 59, 59, 0)));
       });
     });
     describe("with leading zeroes", () => {
