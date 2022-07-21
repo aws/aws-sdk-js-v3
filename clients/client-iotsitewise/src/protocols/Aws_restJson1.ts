@@ -57,6 +57,10 @@ import {
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "../commands/CreateAccessPolicyCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../commands/CreateAssetModelCommand";
+import {
+  CreateBulkImportJobCommandInput,
+  CreateBulkImportJobCommandOutput,
+} from "../commands/CreateBulkImportJobCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
@@ -79,6 +83,10 @@ import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
 } from "../commands/DescribeAssetPropertyCommand";
+import {
+  DescribeBulkImportJobCommandInput,
+  DescribeBulkImportJobCommandOutput,
+} from "../commands/DescribeBulkImportJobCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommandInput,
@@ -132,6 +140,7 @@ import {
   ListAssociatedAssetsCommandInput,
   ListAssociatedAssetsCommandOutput,
 } from "../commands/ListAssociatedAssetsCommand";
+import { ListBulkImportJobsCommandInput, ListBulkImportJobsCommandOutput } from "../commands/ListBulkImportJobsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
@@ -211,15 +220,20 @@ import {
   BatchGetAssetPropertyValueSuccessEntry,
   BatchPutAssetPropertyError,
   BatchPutAssetPropertyErrorEntry,
+  ColumnName,
   CompositeModelProperty,
   ConfigurationErrorDetails,
   ConfigurationStatus,
   ConflictingOperationException,
+  Csv,
   CustomerManagedS3Storage,
   DashboardSummary,
   DetailedError,
   ErrorDetails,
+  ErrorReportLocation,
   ExpressionVariable,
+  File,
+  FileFormat,
   ForwardingConfig,
   GatewayCapabilitySummary,
   GatewayPlatform,
@@ -236,6 +250,8 @@ import {
   InternalFailureException,
   InterpolatedAssetPropertyValue,
   InvalidRequestException,
+  JobConfiguration,
+  JobSummary,
   LimitExceededException,
   LoggingOptions,
   Measurement,
@@ -682,6 +698,45 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateBulkImportJobCommand = async (
+  input: CreateBulkImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.errorReportLocation != null && {
+      errorReportLocation: serializeAws_restJson1ErrorReportLocation(input.errorReportLocation, context),
+    }),
+    ...(input.files != null && { files: serializeAws_restJson1Files(input.files, context) }),
+    ...(input.jobConfiguration != null && {
+      jobConfiguration: serializeAws_restJson1JobConfiguration(input.jobConfiguration, context),
+    }),
+    ...(input.jobName != null && { jobName: input.jobName }),
+    ...(input.jobRoleArn != null && { jobRoleArn: input.jobRoleArn }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1292,6 +1347,41 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeBulkImportJobCommand = async (
+  input: DescribeBulkImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs/{jobId}";
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2025,6 +2115,38 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListBulkImportJobsCommand = async (
+  input: ListBulkImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobs";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.filter !== undefined && { filter: input.filter }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -3566,6 +3688,77 @@ const deserializeAws_restJson1CreateAssetModelCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateBulkImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBulkImportJobCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateBulkImportJobCommandError(output, context);
+  }
+  const contents: CreateBulkImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    jobId: undefined,
+    jobName: undefined,
+    jobStatus: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.jobId !== undefined && data.jobId !== null) {
+    contents.jobId = __expectString(data.jobId);
+  }
+  if (data.jobName !== undefined && data.jobName !== null) {
+    contents.jobName = __expectString(data.jobName);
+  }
+  if (data.jobStatus !== undefined && data.jobStatus !== null) {
+    contents.jobStatus = __expectString(data.jobStatus);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateBulkImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBulkImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictingOperationException":
+    case "com.amazonaws.iotsitewise#ConflictingOperationException":
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotsitewise#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
+      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4557,6 +4750,92 @@ const deserializeAws_restJson1DescribeAssetPropertyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetPropertyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeBulkImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBulkImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeBulkImportJobCommandError(output, context);
+  }
+  const contents: DescribeBulkImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorReportLocation: undefined,
+    files: undefined,
+    jobConfiguration: undefined,
+    jobCreationDate: undefined,
+    jobId: undefined,
+    jobLastUpdateDate: undefined,
+    jobName: undefined,
+    jobRoleArn: undefined,
+    jobStatus: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.errorReportLocation !== undefined && data.errorReportLocation !== null) {
+    contents.errorReportLocation = deserializeAws_restJson1ErrorReportLocation(data.errorReportLocation, context);
+  }
+  if (data.files !== undefined && data.files !== null) {
+    contents.files = deserializeAws_restJson1Files(data.files, context);
+  }
+  if (data.jobConfiguration !== undefined && data.jobConfiguration !== null) {
+    contents.jobConfiguration = deserializeAws_restJson1JobConfiguration(data.jobConfiguration, context);
+  }
+  if (data.jobCreationDate !== undefined && data.jobCreationDate !== null) {
+    contents.jobCreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.jobCreationDate)));
+  }
+  if (data.jobId !== undefined && data.jobId !== null) {
+    contents.jobId = __expectString(data.jobId);
+  }
+  if (data.jobLastUpdateDate !== undefined && data.jobLastUpdateDate !== null) {
+    contents.jobLastUpdateDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.jobLastUpdateDate)));
+  }
+  if (data.jobName !== undefined && data.jobName !== null) {
+    contents.jobName = __expectString(data.jobName);
+  }
+  if (data.jobRoleArn !== undefined && data.jobRoleArn !== null) {
+    contents.jobRoleArn = __expectString(data.jobRoleArn);
+  }
+  if (data.jobStatus !== undefined && data.jobStatus !== null) {
+    contents.jobStatus = __expectString(data.jobStatus);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeBulkImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBulkImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5894,6 +6173,64 @@ const deserializeAws_restJson1ListAssociatedAssetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedAssetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListBulkImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBulkImportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListBulkImportJobsCommandError(output, context);
+  }
+  const contents: ListBulkImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    jobSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.jobSummaries !== undefined && data.jobSummaries !== null) {
+    contents.jobSummaries = deserializeAws_restJson1JobSummaries(data.jobSummaries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListBulkImportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBulkImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -7596,6 +7933,23 @@ const serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntry = (
   };
 };
 
+const serializeAws_restJson1ColumnNames = (input: (ColumnName | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1Csv = (input: Csv, context: __SerdeContext): any => {
+  return {
+    ...(input.columnNames != null && { columnNames: serializeAws_restJson1ColumnNames(input.columnNames, context) }),
+  };
+};
+
 const serializeAws_restJson1CustomerManagedS3Storage = (
   input: CustomerManagedS3Storage,
   context: __SerdeContext
@@ -7603,6 +7957,13 @@ const serializeAws_restJson1CustomerManagedS3Storage = (
   return {
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.s3ResourceArn != null && { s3ResourceArn: input.s3ResourceArn }),
+  };
+};
+
+const serializeAws_restJson1ErrorReportLocation = (input: ErrorReportLocation, context: __SerdeContext): any => {
+  return {
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.prefix != null && { prefix: input.prefix }),
   };
 };
 
@@ -7621,6 +7982,31 @@ const serializeAws_restJson1ExpressionVariables = (input: ExpressionVariable[], 
         return null as any;
       }
       return serializeAws_restJson1ExpressionVariable(entry, context);
+    });
+};
+
+const serializeAws_restJson1File = (input: File, context: __SerdeContext): any => {
+  return {
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.versionId != null && { versionId: input.versionId }),
+  };
+};
+
+const serializeAws_restJson1FileFormat = (input: FileFormat, context: __SerdeContext): any => {
+  return {
+    ...(input.csv != null && { csv: serializeAws_restJson1Csv(input.csv, context) }),
+  };
+};
+
+const serializeAws_restJson1Files = (input: File[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1File(entry, context);
     });
 };
 
@@ -7700,6 +8086,12 @@ const serializeAws_restJson1ImageFile = (input: ImageFile, context: __SerdeConte
   return {
     ...(input.data != null && { data: context.base64Encoder(input.data) }),
     ...(input.type != null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1JobConfiguration = (input: JobConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.fileFormat != null && { fileFormat: serializeAws_restJson1FileFormat(input.fileFormat, context) }),
   };
 };
 
@@ -8681,6 +9073,18 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   return retVal;
 };
 
+const deserializeAws_restJson1ColumnNames = (output: any, context: __SerdeContext): (ColumnName | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CompositeModelProperty = (
   output: any,
   context: __SerdeContext
@@ -8707,6 +9111,13 @@ const deserializeAws_restJson1ConfigurationStatus = (output: any, context: __Ser
   return {
     error: output.error != null ? deserializeAws_restJson1ConfigurationErrorDetails(output.error, context) : undefined,
     state: __expectString(output.state),
+  } as any;
+};
+
+const deserializeAws_restJson1Csv = (output: any, context: __SerdeContext): Csv => {
+  return {
+    columnNames:
+      output.columnNames != null ? deserializeAws_restJson1ColumnNames(output.columnNames, context) : undefined,
   } as any;
 };
 
@@ -8775,6 +9186,13 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1ErrorReportLocation = (output: any, context: __SerdeContext): ErrorReportLocation => {
+  return {
+    bucket: __expectString(output.bucket),
+    prefix: __expectString(output.prefix),
+  } as any;
+};
+
 const deserializeAws_restJson1ExpressionVariable = (output: any, context: __SerdeContext): ExpressionVariable => {
   return {
     name: __expectString(output.name),
@@ -8790,6 +9208,32 @@ const deserializeAws_restJson1ExpressionVariables = (output: any, context: __Ser
         return null as any;
       }
       return deserializeAws_restJson1ExpressionVariable(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1File = (output: any, context: __SerdeContext): File => {
+  return {
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
+    versionId: __expectString(output.versionId),
+  } as any;
+};
+
+const deserializeAws_restJson1FileFormat = (output: any, context: __SerdeContext): FileFormat => {
+  return {
+    csv: output.csv != null ? deserializeAws_restJson1Csv(output.csv, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Files = (output: any, context: __SerdeContext): File[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1File(entry, context);
     });
   return retVal;
 };
@@ -8937,6 +9381,32 @@ const deserializeAws_restJson1InterpolatedAssetPropertyValues = (
       return deserializeAws_restJson1InterpolatedAssetPropertyValue(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1JobConfiguration = (output: any, context: __SerdeContext): JobConfiguration => {
+  return {
+    fileFormat: output.fileFormat != null ? deserializeAws_restJson1FileFormat(output.fileFormat, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
+  return {
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+  } as any;
 };
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {

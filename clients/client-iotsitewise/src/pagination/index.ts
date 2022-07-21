@@ -16,6 +16,7 @@ export * from "./ListAssetModelsPaginator";
 export * from "./ListAssetRelationshipsPaginator";
 export * from "./ListAssetsPaginator";
 export * from "./ListAssociatedAssetsPaginator";
+export * from "./ListBulkImportJobsPaginator";
 export * from "./ListDashboardsPaginator";
 export * from "./ListGatewaysPaginator";
 export * from "./ListPortalsPaginator";

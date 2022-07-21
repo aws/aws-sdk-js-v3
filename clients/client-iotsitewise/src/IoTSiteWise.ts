@@ -53,6 +53,11 @@ import {
   CreateAssetModelCommandOutput,
 } from "./commands/CreateAssetModelCommand";
 import {
+  CreateBulkImportJobCommand,
+  CreateBulkImportJobCommandInput,
+  CreateBulkImportJobCommandOutput,
+} from "./commands/CreateBulkImportJobCommand";
+import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -128,6 +133,11 @@ import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
 } from "./commands/DescribeAssetPropertyCommand";
+import {
+  DescribeBulkImportJobCommand,
+  DescribeBulkImportJobCommandInput,
+  DescribeBulkImportJobCommandOutput,
+} from "./commands/DescribeBulkImportJobCommand";
 import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
@@ -224,6 +234,11 @@ import {
   ListAssociatedAssetsCommandInput,
   ListAssociatedAssetsCommandOutput,
 } from "./commands/ListAssociatedAssetsCommand";
+import {
+  ListBulkImportJobsCommand,
+  ListBulkImportJobsCommandInput,
+  ListBulkImportJobsCommandOutput,
+} from "./commands/ListBulkImportJobsCommand";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
@@ -696,6 +711,49 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: CreateAssetModelCommandOutput) => void
   ): Promise<CreateAssetModelCommandOutput> | void {
     const command = new CreateAssetModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
+   *       We recommend that you use this operation only with test data, and not in production environments.</p>
+   *          </note>
+   *          <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
+   *   see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a bulk import job (CLI)</a>
+   *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <important>
+   *             <p>You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk import job.
+   *       For more information about how to configure storage settings,
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+   *          </important>
+   */
+  public createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBulkImportJobCommandOutput>;
+  public createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
+  ): void;
+  public createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBulkImportJobCommandOutput) => void
+  ): void;
+  public createBulkImportJob(
+    args: CreateBulkImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBulkImportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateBulkImportJobCommandOutput) => void
+  ): Promise<CreateBulkImportJobCommandOutput> | void {
+    const command = new CreateBulkImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1249,6 +1307,44 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: DescribeAssetPropertyCommandOutput) => void
   ): Promise<DescribeAssetPropertyCommandOutput> | void {
     const command = new DescribeAssetPropertyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
+   *       We recommend that you use this operation only with test data, and not in production environments.</p>
+   *          </note>
+   *          <p>Retrieves information about a bulk import job request. For more information,
+   *     see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe a bulk import job (CLI)</a>
+   *     in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   */
+  public describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBulkImportJobCommandOutput>;
+  public describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
+  ): void;
+  public describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
+  ): void;
+  public describeBulkImportJob(
+    args: DescribeBulkImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBulkImportJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBulkImportJobCommandOutput) => void
+  ): Promise<DescribeBulkImportJobCommandOutput> | void {
+    const command = new DescribeBulkImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1986,6 +2082,44 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: ListAssociatedAssetsCommandOutput) => void
   ): Promise<ListAssociatedAssetsCommandOutput> | void {
     const command = new ListAssociatedAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
+   *             <p>This API operation is in preview release for IoT SiteWise and is subject to change.
+   *       We recommend that you use this operation only with test data, and not in production environments.</p>
+   *          </note>
+   *          <p>Retrieves a paginated list of bulk import job requests. For more information,
+   *     see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk import jobs (CLI)</a>
+   *     in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   */
+  public listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBulkImportJobsCommandOutput>;
+  public listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): void;
+  public listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): void;
+  public listBulkImportJobs(
+    args: ListBulkImportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBulkImportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): Promise<ListBulkImportJobsCommandOutput> | void {
+    const command = new ListBulkImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -85,6 +85,10 @@ import {
 import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand";
+import {
+  CreateBulkImportJobCommandInput,
+  CreateBulkImportJobCommandOutput,
+} from "./commands/CreateBulkImportJobCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
@@ -107,6 +111,10 @@ import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
 } from "./commands/DescribeAssetPropertyCommand";
+import {
+  DescribeBulkImportJobCommandInput,
+  DescribeBulkImportJobCommandOutput,
+} from "./commands/DescribeBulkImportJobCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommandInput,
@@ -160,6 +168,7 @@ import {
   ListAssociatedAssetsCommandInput,
   ListAssociatedAssetsCommandOutput,
 } from "./commands/ListAssociatedAssetsCommand";
+import { ListBulkImportJobsCommandInput, ListBulkImportJobsCommandOutput } from "./commands/ListBulkImportJobsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
@@ -210,6 +219,7 @@ export type ServiceInputTypes =
   | CreateAccessPolicyCommandInput
   | CreateAssetCommandInput
   | CreateAssetModelCommandInput
+  | CreateBulkImportJobCommandInput
   | CreateDashboardCommandInput
   | CreateGatewayCommandInput
   | CreatePortalCommandInput
@@ -226,6 +236,7 @@ export type ServiceInputTypes =
   | DescribeAssetCommandInput
   | DescribeAssetModelCommandInput
   | DescribeAssetPropertyCommandInput
+  | DescribeBulkImportJobCommandInput
   | DescribeDashboardCommandInput
   | DescribeDefaultEncryptionConfigurationCommandInput
   | DescribeGatewayCapabilityConfigurationCommandInput
@@ -246,6 +257,7 @@ export type ServiceInputTypes =
   | ListAssetRelationshipsCommandInput
   | ListAssetsCommandInput
   | ListAssociatedAssetsCommandInput
+  | ListBulkImportJobsCommandInput
   | ListDashboardsCommandInput
   | ListGatewaysCommandInput
   | ListPortalsCommandInput
@@ -280,6 +292,7 @@ export type ServiceOutputTypes =
   | CreateAccessPolicyCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetModelCommandOutput
+  | CreateBulkImportJobCommandOutput
   | CreateDashboardCommandOutput
   | CreateGatewayCommandOutput
   | CreatePortalCommandOutput
@@ -296,6 +309,7 @@ export type ServiceOutputTypes =
   | DescribeAssetCommandOutput
   | DescribeAssetModelCommandOutput
   | DescribeAssetPropertyCommandOutput
+  | DescribeBulkImportJobCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDefaultEncryptionConfigurationCommandOutput
   | DescribeGatewayCapabilityConfigurationCommandOutput
@@ -316,6 +330,7 @@ export type ServiceOutputTypes =
   | ListAssetRelationshipsCommandOutput
   | ListAssetsCommandOutput
   | ListAssociatedAssetsCommandOutput
+  | ListBulkImportJobsCommandOutput
   | ListDashboardsCommandOutput
   | ListGatewaysCommandOutput
   | ListPortalsCommandOutput

@@ -3124,6 +3124,231 @@ export namespace CreateAssetModelResponse {
   });
 }
 
+/**
+ * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+ */
+export interface ErrorReportLocation {
+  /**
+   * <p>The name of the Amazon S3 bucket to which errors associated with the bulk import job are sent.</p>
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>Amazon S3 uses the prefix as a folder name to organize data in the bucket.
+   *   Each Amazon S3 object has a key that is its unique identifier in the bucket.
+   *   Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+   *   For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>
+   *   in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   */
+  prefix: string | undefined;
+}
+
+export namespace ErrorReportLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ErrorReportLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The file in Amazon S3 where your data is saved. </p>
+ */
+export interface File {
+  /**
+   * <p>The name of the Amazon S3 bucket from which data is imported.</p>
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The key of the Amazon S3 object that contains your data. Each object has a key that is a
+   *     unique identifier. Each object has exactly one key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The version ID to identify a specific version of the Amazon S3 object that contains your data.</p>
+   */
+  versionId?: string;
+}
+
+export namespace File {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: File): any => ({
+    ...obj,
+  });
+}
+
+export enum ColumnName {
+  ALIAS = "ALIAS",
+  ASSET_ID = "ASSET_ID",
+  DATA_TYPE = "DATA_TYPE",
+  PROPERTY_ID = "PROPERTY_ID",
+  QUALITY = "QUALITY",
+  TIMESTAMP_NANO_OFFSET = "TIMESTAMP_NANO_OFFSET",
+  TIMESTAMP_SECONDS = "TIMESTAMP_SECONDS",
+  VALUE = "VALUE",
+}
+
+/**
+ * <p>A .csv file.</p>
+ */
+export interface Csv {
+  /**
+   * <p>The column names specified in the .csv file.</p>
+   */
+  columnNames?: (ColumnName | string)[];
+}
+
+export namespace Csv {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Csv): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The file format of the data.</p>
+ */
+export interface FileFormat {
+  /**
+   * <p>The .csv file format.</p>
+   */
+  csv?: Csv;
+}
+
+export namespace FileFormat {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FileFormat): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+ */
+export interface JobConfiguration {
+  /**
+   * <p>The file format of the data in Amazon S3.</p>
+   */
+  fileFormat: FileFormat | undefined;
+}
+
+export namespace JobConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBulkImportJobRequest {
+  /**
+   * <p>The unique name that helps identify the job request.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
+   */
+  jobRoleArn: string | undefined;
+
+  /**
+   * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   */
+  files: File[] | undefined;
+
+  /**
+   * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+   */
+  errorReportLocation: ErrorReportLocation | undefined;
+
+  /**
+   * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+   */
+  jobConfiguration: JobConfiguration | undefined;
+}
+
+export namespace CreateBulkImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBulkImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum JobStatus {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+}
+
+export interface CreateBulkImportJobResponse {
+  /**
+   * <p>The ID of the job.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The unique name that helps identify the job request.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The status of the bulk import job can be one of following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – IoT SiteWise is waiting for the current bulk import job to finish.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> – The bulk import job has been canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> – IoT SiteWise is processing your request to import your data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – IoT SiteWise successfully completed your request to import data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – IoT SiteWise couldn't process your request to import data from Amazon S3.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED_WITH_FAILURES</code> – IoT SiteWise completed your request to import data from Amazon S3 with errors.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *          </ul>
+   */
+  jobStatus: JobStatus | string | undefined;
+}
+
+export namespace CreateBulkImportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBulkImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateDashboardRequest {
   /**
    * <p>The ID of the project in which to create the dashboard.</p>
@@ -4237,6 +4462,106 @@ export namespace DescribeAssetPropertyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeAssetPropertyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBulkImportJobRequest {
+  /**
+   * <p>The ID of the job.</p>
+   */
+  jobId: string | undefined;
+}
+
+export namespace DescribeBulkImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBulkImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBulkImportJobResponse {
+  /**
+   * <p>The ID of the job.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The unique name that helps identify the job request.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The status of the bulk import job can be one of following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – IoT SiteWise is waiting for the current bulk import job to finish.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> – The bulk import job has been canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> – IoT SiteWise is processing your request to import your data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – IoT SiteWise successfully completed your request to import data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – IoT SiteWise couldn't process your request to import data from Amazon S3.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED_WITH_FAILURES</code> – IoT SiteWise completed your request to import data from Amazon S3 with errors.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *          </ul>
+   */
+  jobStatus: JobStatus | string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
+   */
+  jobRoleArn: string | undefined;
+
+  /**
+   * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   */
+  files: File[] | undefined;
+
+  /**
+   * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+   */
+  errorReportLocation: ErrorReportLocation | undefined;
+
+  /**
+   * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+   */
+  jobConfiguration: JobConfiguration | undefined;
+
+  /**
+   * <p>The date the job was created, in Unix epoch TIME.</p>
+   */
+  jobCreationDate: Date | undefined;
+
+  /**
+   * <p>The date the job was last updated, in Unix epoch time.</p>
+   */
+  jobLastUpdateDate: Date | undefined;
+}
+
+export namespace DescribeBulkImportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBulkImportJobResponse): any => ({
     ...obj,
   });
 }
@@ -5907,6 +6232,120 @@ export namespace ListAssociatedAssetsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAssociatedAssetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ListBulkImportJobsFilter {
+  ALL = "ALL",
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+}
+
+export interface ListBulkImportJobsRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
+   */
+  filter?: ListBulkImportJobsFilter | string;
+}
+
+export namespace ListBulkImportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBulkImportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a job summary information.</p>
+ */
+export interface JobSummary {
+  /**
+   * <p>The ID of the job.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique name that helps identify the job request.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the bulk import job can be one of following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – IoT SiteWise is waiting for the current bulk import job to finish.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> – The bulk import job has been canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> – IoT SiteWise is processing your request to import your data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – IoT SiteWise successfully completed your request to import data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – IoT SiteWise couldn't process your request to import data from Amazon S3.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED_WITH_FAILURES</code> – IoT SiteWise completed your request to import data from Amazon S3 with errors.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *          </ul>
+   */
+  status: JobStatus | string | undefined;
+}
+
+export namespace JobSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListBulkImportJobsResponse {
+  /**
+   * <p>One or more job summaries to list.</p>
+   */
+  jobSummaries: JobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListBulkImportJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBulkImportJobsResponse): any => ({
     ...obj,
   });
 }
