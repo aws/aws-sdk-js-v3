@@ -91,6 +91,27 @@ export class EC2InstanceTypeInvalidException extends __BaseException {
 }
 
 /**
+ * <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ */
+export class EC2InstanceUnavailableException extends __BaseException {
+  readonly name: "EC2InstanceUnavailableException" = "EC2InstanceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EC2InstanceUnavailableException, __BaseException>) {
+    super({
+      name: "EC2InstanceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EC2InstanceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>One of the parameters is not valid.</p>
  */
 export class InvalidArgsException extends __BaseException {
