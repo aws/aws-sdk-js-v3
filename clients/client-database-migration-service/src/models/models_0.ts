@@ -3288,9 +3288,9 @@ export interface CreateEndpointMessage {
    *          <code>EndpointType</code> value, include <code>"mysql"</code>, <code>"oracle"</code>,
    *           <code>"postgres"</code>, <code>"mariadb"</code>, <code>"aurora"</code>,
    *           <code>"aurora-postgresql"</code>, <code>"opensearch"</code>, <code>"redshift"</code>, <code>"s3"</code>,
-   *          <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
+   *          <code>"db2"</code>, <code>db2-zos</code>, <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
    *          <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
-   *          <code>"sqlserver"</code>, and <code>"neptune"</code>.</p>
+   *          <code>"sqlserver"</code>, <code>"neptune"</code>, and <code>babelfish</code>.</p>
    */
   EngineName: string | undefined;
 
@@ -8885,7 +8885,7 @@ export interface TableStatistics {
   /**
    * <p>The state of the tables described.</p>
    *          <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table
-   *          cancelled | Table error | Table all | Table updates | Table is being reloaded</p>
+   *          cancelled | Table error | Table is being reloaded</p>
    */
   TableState?: string;
 
