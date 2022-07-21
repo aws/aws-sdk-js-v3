@@ -22,6 +22,110 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * <p>The log odds metric details.</p>
+ *
+ *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
+ *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
+ */
+export interface AggregatedLogOddsMetric {
+  /**
+   * <p>
+   *             The names of all the variables.
+   *         </p>
+   */
+  variableNames: string[] | undefined;
+
+  /**
+   * <p>
+   *             The relative importance of the variables in the list to the other event variable.
+   *         </p>
+   */
+  aggregatedVariablesImportance: number | undefined;
+}
+
+export namespace AggregatedLogOddsMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedLogOddsMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The details of the impact of aggregated variables on the prediction score. </p>
+ *
+ *         <p>Account Takeover Insights (ATI) model  uses the login data you
+ *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, the model might calculate the number of times an user has logged in using the same IP address.
+ *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
+ */
+export interface AggregatedVariablesImpactExplanation {
+  /**
+   * <p>
+   *             The names of all the event variables that were used to derive the aggregated variables.
+   *         </p>
+   */
+  eventVariableNames?: string[];
+
+  /**
+   * <p>
+   *             The relative impact of the aggregated variables in terms of magnitude on the prediction scores.
+   *         </p>
+   */
+  relativeImpact?: string;
+
+  /**
+   * <p>
+   *             The raw, uninterpreted value represented as log-odds of the fraud.  These values are usually between -10 to +10, but range from -infinity to +infinity.</p>
+   *             <ul>
+   *             <li>
+   *                <p>A positive value indicates that the variables drove the risk score up.</p>
+   *             </li>
+   *             <li>
+   *                <p>A negative value indicates that the variables drove the risk score down.</p>
+   *             </li>
+   *          </ul>
+   */
+  logOddsImpact?: number;
+}
+
+export namespace AggregatedVariablesImpactExplanation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedVariablesImpactExplanation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of the relative importance of the aggregated variables.</p>
+ *
+ *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+ *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
+ *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
+ */
+export interface AggregatedVariablesImportanceMetrics {
+  /**
+   * <p>
+   *             List of variables' metrics.
+   *         </p>
+   */
+  logOddsMetrics?: AggregatedLogOddsMetric[];
+}
+
+export namespace AggregatedVariablesImportanceMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AggregatedVariablesImportanceMetrics): any => ({
+    ...obj,
+  });
+}
+
 export enum AsyncJobStatus {
   CANCELED = "CANCELED",
   CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
@@ -29,6 +133,110 @@ export enum AsyncJobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   IN_PROGRESS_INITIALIZING = "IN_PROGRESS_INITIALIZING",
+}
+
+/**
+ * <p>
+ *             The Account Takeover Insights (ATI) model performance metrics data points.
+ *         </p>
+ */
+export interface ATIMetricDataPoint {
+  /**
+   * <p>
+   *           The challenge rate. This indicates the percentage of login events that the model recommends to challenge such as
+   *           one-time password, multi-factor authentication, and investigations.
+   *         </p>
+   */
+  cr?: number;
+
+  /**
+   * <p>
+   *             The anomaly discovery rate. This metric quantifies the percentage of anomalies that can be detected by the model at the selected score threshold.
+   *             A lower score threshold increases the percentage of anomalies captured by the model, but would also require challenging a larger percentage of
+   *             login events, leading to a higher customer friction.
+   *         </p>
+   */
+  adr?: number;
+
+  /**
+   * <p>
+   *             The model's threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is
+   *             labeled as fraud.
+   *         </p>
+   */
+  threshold?: number;
+
+  /**
+   * <p>
+   *             The account takeover discovery rate. This metric quantifies the percentage of account compromise events that can be detected by the model at the selected score threshold.
+   *             This metric is only available if 50 or more entities with at-least one labeled account takeover event is present in the ingested dataset.
+   *         </p>
+   */
+  atodr?: number;
+}
+
+export namespace ATIMetricDataPoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ATIMetricDataPoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Account Takeover Insights (ATI) model performance score.
+ *         </p>
+ */
+export interface ATIModelPerformance {
+  /**
+   * <p>
+   *             The anomaly separation index (ASI) score. This metric summarizes the overall ability of the model to separate anomalous activities from the normal behavior. Depending on the business, a
+   *             large fraction of these anomalous activities can be malicious and correspond to the account takeover attacks. A model with no separability power will have the lowest possible
+   *             ASI score of 0.5, whereas the a model with a high separability power will have the highest possible ASI score of 1.0
+   *         </p>
+   */
+  asi?: number;
+}
+
+export namespace ATIModelPerformance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ATIModelPerformance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Account Takeover Insights (ATI) model training metric details.
+ *         </p>
+ */
+export interface ATITrainingMetricsValue {
+  /**
+   * <p>
+   *             The model's performance metrics data points.
+   *         </p>
+   */
+  metricDataPoints?: ATIMetricDataPoint[];
+
+  /**
+   * <p>
+   *             The model's overall performance scores.
+   *         </p>
+   */
+  modelPerformance?: ATIModelPerformance;
+}
+
+export namespace ATITrainingMetricsValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ATITrainingMetricsValue): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -554,6 +762,7 @@ export namespace CreateBatchPredictionJobResult {
 }
 
 export enum ModelTypeEnum {
+  ACCOUNT_TAKEOVER_INSIGHTS = "ACCOUNT_TAKEOVER_INSIGHTS",
   ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS",
   TRANSACTION_FRAUD_INSIGHTS = "TRANSACTION_FRAUD_INSIGHTS",
 }
@@ -836,7 +1045,7 @@ export interface LabelSchema {
    * <p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if "<code>FRAUD</code>" and "<code>LEGIT</code>" are Amazon Fraud Detector supported labels, this mapper could be: <code>{"FRAUD" => ["0"]</code>, <code>"LEGIT" => ["1"]}</code> or <code>{"FRAUD" => ["false"]</code>, <code>"LEGIT" => ["true"]}</code> or <code>{"FRAUD" => ["fraud", "abuse"]</code>, <code>"LEGIT" => ["legit", "safe"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.
    *         </p>
    */
-  labelMapper: Record<string, string[]> | undefined;
+  labelMapper?: Record<string, string[]>;
 
   /**
    * <p>The action to take for unlabeled events.</p>
@@ -865,7 +1074,7 @@ export interface TrainingDataSchema {
   /**
    * <p>The label schema.</p>
    */
-  labelSchema: LabelSchema | undefined;
+  labelSchema?: LabelSchema;
 }
 
 export namespace TrainingDataSchema {
@@ -1746,11 +1955,11 @@ export namespace FileValidationMessage {
 }
 
 /**
- * <p>The model training validation messages.</p>
+ * <p>The model training data validation metrics.</p>
  */
 export interface DataValidationMetrics {
   /**
-   * <p>The file-specific model training validation messages.</p>
+   * <p>The file-specific model training data validation messages.</p>
    */
   fileLevelMessages?: FileValidationMessage[];
 
@@ -1905,6 +2114,281 @@ export namespace TrainingResult {
 }
 
 /**
+ * <p>
+ *             The Online Fraud Insights (OFI) model performance metrics data points.
+ *         </p>
+ */
+export interface OFIMetricDataPoint {
+  /**
+   * <p>
+   *             The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.
+   *         </p>
+   */
+  fpr?: number;
+
+  /**
+   * <p>
+   *             The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.
+   *         </p>
+   */
+  precision?: number;
+
+  /**
+   * <p>
+   *             The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.
+   *         </p>
+   */
+  tpr?: number;
+
+  /**
+   * <p>
+   *             The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.
+   *         </p>
+   */
+  threshold?: number;
+}
+
+export namespace OFIMetricDataPoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OFIMetricDataPoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Online Fraud Insights (OFI) model performance score.
+ *         </p>
+ */
+export interface OFIModelPerformance {
+  /**
+   * <p>
+   *             The area under the curve (auc). This summarizes the total positive rate (tpr) and false positive rate (FPR) across all possible model score thresholds.
+   *         </p>
+   */
+  auc?: number;
+}
+
+export namespace OFIModelPerformance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OFIModelPerformance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Online Fraud Insights (OFI) model training metric details.
+ *         </p>
+ */
+export interface OFITrainingMetricsValue {
+  /**
+   * <p>
+   *             The model's performance metrics data points.
+   *         </p>
+   */
+  metricDataPoints?: OFIMetricDataPoint[];
+
+  /**
+   * <p>
+   *             The model's overall performance score.
+   *         </p>
+   */
+  modelPerformance?: OFIModelPerformance;
+}
+
+export namespace OFITrainingMetricsValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OFITrainingMetricsValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The performance metrics data points for Transaction Fraud Insights (TFI) model.
+ *         </p>
+ */
+export interface TFIMetricDataPoint {
+  /**
+   * <p>
+   *             The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud.
+   *         </p>
+   */
+  fpr?: number;
+
+  /**
+   * <p>
+   *             The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.
+   *         </p>
+   */
+  precision?: number;
+
+  /**
+   * <p>
+   *             The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.
+   *         </p>
+   */
+  tpr?: number;
+
+  /**
+   * <p>
+   *             The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any
+   *             model score 500 or above is labeled as fraud.
+   *         </p>
+   */
+  threshold?: number;
+}
+
+export namespace TFIMetricDataPoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TFIMetricDataPoint): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Transaction Fraud Insights (TFI) model performance score.
+ *         </p>
+ */
+export interface TFIModelPerformance {
+  /**
+   * <p>
+   *             The area under the curve (auc). This summarizes the total positive rate (tpr) and false positive rate (FPR) across all possible model score thresholds.
+   *         </p>
+   */
+  auc?: number;
+}
+
+export namespace TFIModelPerformance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TFIModelPerformance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The Transaction Fraud Insights (TFI) model training metric details.
+ *         </p>
+ */
+export interface TFITrainingMetricsValue {
+  /**
+   * <p>
+   *             The model's performance metrics data points.
+   *         </p>
+   */
+  metricDataPoints?: TFIMetricDataPoint[];
+
+  /**
+   * <p>
+   *             The model performance score.
+   *         </p>
+   */
+  modelPerformance?: TFIModelPerformance;
+}
+
+export namespace TFITrainingMetricsValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TFITrainingMetricsValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The training metrics details.
+ *         </p>
+ */
+export interface TrainingMetricsV2 {
+  /**
+   * <p>
+   *             The Online Fraud Insights (OFI) model training metric details.
+   *         </p>
+   */
+  ofi?: OFITrainingMetricsValue;
+
+  /**
+   * <p>
+   *             The Transaction Fraud Insights (TFI) model training metric details.
+   *         </p>
+   */
+  tfi?: TFITrainingMetricsValue;
+
+  /**
+   * <p>
+   *             The Account Takeover Insights (ATI) model training metric details.
+   *         </p>
+   */
+  ati?: ATITrainingMetricsValue;
+}
+
+export namespace TrainingMetricsV2 {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingMetricsV2): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The training result details.
+ *         </p>
+ */
+export interface TrainingResultV2 {
+  /**
+   * <p>The model training data validation metrics.</p>
+   */
+  dataValidationMetrics?: DataValidationMetrics;
+
+  /**
+   * <p>
+   *             The training metric details.
+   *         </p>
+   */
+  trainingMetricsV2?: TrainingMetricsV2;
+
+  /**
+   * <p>The variable importance metrics details.</p>
+   */
+  variableImportanceMetrics?: VariableImportanceMetrics;
+
+  /**
+   * <p>
+   *             The variable importance metrics of the aggregated variables.
+   *         </p>
+   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
+   *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
+   */
+  aggregatedVariablesImportanceMetrics?: AggregatedVariablesImportanceMetrics;
+}
+
+export namespace TrainingResultV2 {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrainingResultV2): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The details of the model version.</p>
  */
 export interface ModelVersionDetail {
@@ -1967,6 +2451,13 @@ export interface ModelVersionDetail {
    * <p>The model version ARN.</p>
    */
   arn?: string;
+
+  /**
+   * <p>
+   *             The training result details. The details include the relative importance of the variables.
+   *         </p>
+   */
+  trainingResultV2?: TrainingResultV2;
 }
 
 export namespace ModelVersionDetail {
@@ -3071,6 +3562,17 @@ export interface PredictionExplanations {
    * </p>
    */
   variableImpactExplanations?: VariableImpactExplanation[];
+
+  /**
+   * <p>
+   *             The details of the aggregated variables impact on the prediction score.
+   *         </p>
+   *
+   *         <p>Account Takeover Insights (ATI) model uses event variables from the login data you
+   *             provide to continuously calculate a set of variables (aggregated variables) based on historical events. For example, your ATI model might calculate the number of times an user has logged in using the same IP address.
+   *             In this case, event variables used to derive the aggregated variables are <code>IP address</code> and <code>user</code>.</p>
+   */
+  aggregatedVariablesImpactExplanations?: AggregatedVariablesImpactExplanation[];
 }
 
 export namespace PredictionExplanations {

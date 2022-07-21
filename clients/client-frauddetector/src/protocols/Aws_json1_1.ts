@@ -155,6 +155,12 @@ import { UpdateVariableCommandInput, UpdateVariableCommandOutput } from "../comm
 import { FraudDetectorServiceException as __BaseException } from "../models/FraudDetectorServiceException";
 import {
   AccessDeniedException,
+  AggregatedLogOddsMetric,
+  AggregatedVariablesImpactExplanation,
+  AggregatedVariablesImportanceMetrics,
+  ATIMetricDataPoint,
+  ATIModelPerformance,
+  ATITrainingMetricsValue,
   BatchCreateVariableError,
   BatchCreateVariableRequest,
   BatchCreateVariableResult,
@@ -291,6 +297,9 @@ import {
   ModelVersion,
   ModelVersionDetail,
   ModelVersionEvaluation,
+  OFIMetricDataPoint,
+  OFIModelPerformance,
+  OFITrainingMetricsValue,
   Outcome,
   PredictionExplanations,
   PredictionTimeRange,
@@ -318,10 +327,15 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResult,
+  TFIMetricDataPoint,
+  TFIModelPerformance,
+  TFITrainingMetricsValue,
   ThrottlingException,
   TrainingDataSchema,
   TrainingMetrics,
+  TrainingMetricsV2,
   TrainingResult,
+  TrainingResultV2,
   UntagResourceRequest,
   UntagResourceResult,
   UpdateDetectorVersionMetadataRequest,
@@ -5677,7 +5691,7 @@ const serializeAws_json1_1labelMapper = (input: Record<string, string[]>, contex
     }
     return {
       ...acc,
-      [key]: serializeAws_json1_1NonEmptyListOfStrings(value, context),
+      [key]: serializeAws_json1_1ListOfStrings(value, context),
     };
   }, {});
 };
@@ -6127,6 +6141,86 @@ const serializeAws_json1_1VariableEntryList = (input: VariableEntry[], context: 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1AggregatedLogOddsMetric = (
+  output: any,
+  context: __SerdeContext
+): AggregatedLogOddsMetric => {
+  return {
+    aggregatedVariablesImportance: __limitedParseFloat32(output.aggregatedVariablesImportance),
+    variableNames:
+      output.variableNames != null ? deserializeAws_json1_1ListOfStrings(output.variableNames, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AggregatedVariablesImpactExplanation = (
+  output: any,
+  context: __SerdeContext
+): AggregatedVariablesImpactExplanation => {
+  return {
+    eventVariableNames:
+      output.eventVariableNames != null
+        ? deserializeAws_json1_1ListOfStrings(output.eventVariableNames, context)
+        : undefined,
+    logOddsImpact: __limitedParseFloat32(output.logOddsImpact),
+    relativeImpact: __expectString(output.relativeImpact),
+  } as any;
+};
+
+const deserializeAws_json1_1AggregatedVariablesImportanceMetrics = (
+  output: any,
+  context: __SerdeContext
+): AggregatedVariablesImportanceMetrics => {
+  return {
+    logOddsMetrics:
+      output.logOddsMetrics != null
+        ? deserializeAws_json1_1ListOfAggregatedLogOddsMetrics(output.logOddsMetrics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ATIMetricDataPoint = (output: any, context: __SerdeContext): ATIMetricDataPoint => {
+  return {
+    adr: __limitedParseFloat32(output.adr),
+    atodr: __limitedParseFloat32(output.atodr),
+    cr: __limitedParseFloat32(output.cr),
+    threshold: __limitedParseFloat32(output.threshold),
+  } as any;
+};
+
+const deserializeAws_json1_1ATIMetricDataPointsList = (output: any, context: __SerdeContext): ATIMetricDataPoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ATIMetricDataPoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ATIModelPerformance = (output: any, context: __SerdeContext): ATIModelPerformance => {
+  return {
+    asi: __limitedParseFloat32(output.asi),
+  } as any;
+};
+
+const deserializeAws_json1_1ATITrainingMetricsValue = (
+  output: any,
+  context: __SerdeContext
+): ATITrainingMetricsValue => {
+  return {
+    metricDataPoints:
+      output.metricDataPoints != null
+        ? deserializeAws_json1_1ATIMetricDataPointsList(output.metricDataPoints, context)
+        : undefined,
+    modelPerformance:
+      output.modelPerformance != null
+        ? deserializeAws_json1_1ATIModelPerformance(output.modelPerformance, context)
+        : undefined,
   } as any;
 };
 
@@ -7085,7 +7179,7 @@ const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: deserializeAws_json1_1NonEmptyListOfStrings(value, context),
+      [key]: deserializeAws_json1_1ListOfStrings(value, context),
     };
   }, {});
 };
@@ -7109,6 +7203,36 @@ const deserializeAws_json1_1ListEventPredictionsResult = (
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
+};
+
+const deserializeAws_json1_1ListOfAggregatedLogOddsMetrics = (
+  output: any,
+  context: __SerdeContext
+): AggregatedLogOddsMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AggregatedLogOddsMetric(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfAggregatedVariablesImpactExplanations = (
+  output: any,
+  context: __SerdeContext
+): AggregatedVariablesImpactExplanation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AggregatedVariablesImpactExplanation(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1listOfEntities = (output: any, context: __SerdeContext): Entity[] => {
@@ -7446,6 +7570,10 @@ const deserializeAws_json1_1ModelVersionDetail = (output: any, context: __SerdeC
     trainingDataSource: __expectString(output.trainingDataSource),
     trainingResult:
       output.trainingResult != null ? deserializeAws_json1_1TrainingResult(output.trainingResult, context) : undefined,
+    trainingResultV2:
+      output.trainingResultV2 != null
+        ? deserializeAws_json1_1TrainingResultV2(output.trainingResultV2, context)
+        : undefined,
   } as any;
 };
 
@@ -7484,6 +7612,49 @@ const deserializeAws_json1_1NonEmptyListOfStrings = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_json1_1OFIMetricDataPoint = (output: any, context: __SerdeContext): OFIMetricDataPoint => {
+  return {
+    fpr: __limitedParseFloat32(output.fpr),
+    precision: __limitedParseFloat32(output.precision),
+    threshold: __limitedParseFloat32(output.threshold),
+    tpr: __limitedParseFloat32(output.tpr),
+  } as any;
+};
+
+const deserializeAws_json1_1OFIMetricDataPointsList = (output: any, context: __SerdeContext): OFIMetricDataPoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OFIMetricDataPoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1OFIModelPerformance = (output: any, context: __SerdeContext): OFIModelPerformance => {
+  return {
+    auc: __limitedParseFloat32(output.auc),
+  } as any;
+};
+
+const deserializeAws_json1_1OFITrainingMetricsValue = (
+  output: any,
+  context: __SerdeContext
+): OFITrainingMetricsValue => {
+  return {
+    metricDataPoints:
+      output.metricDataPoints != null
+        ? deserializeAws_json1_1OFIMetricDataPointsList(output.metricDataPoints, context)
+        : undefined,
+    modelPerformance:
+      output.modelPerformance != null
+        ? deserializeAws_json1_1OFIModelPerformance(output.modelPerformance, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Outcome = (output: any, context: __SerdeContext): Outcome => {
   return {
     arn: __expectString(output.arn),
@@ -7508,6 +7679,13 @@ const deserializeAws_json1_1OutcomeList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1PredictionExplanations = (output: any, context: __SerdeContext): PredictionExplanations => {
   return {
+    aggregatedVariablesImpactExplanations:
+      output.aggregatedVariablesImpactExplanations != null
+        ? deserializeAws_json1_1ListOfAggregatedVariablesImpactExplanations(
+            output.aggregatedVariablesImpactExplanations,
+            context
+          )
+        : undefined,
     variableImpactExplanations:
       output.variableImpactExplanations != null
         ? deserializeAws_json1_1listOfVariableImpactExplanations(output.variableImpactExplanations, context)
@@ -7646,6 +7824,49 @@ const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_1TFIMetricDataPoint = (output: any, context: __SerdeContext): TFIMetricDataPoint => {
+  return {
+    fpr: __limitedParseFloat32(output.fpr),
+    precision: __limitedParseFloat32(output.precision),
+    threshold: __limitedParseFloat32(output.threshold),
+    tpr: __limitedParseFloat32(output.tpr),
+  } as any;
+};
+
+const deserializeAws_json1_1TFIMetricDataPointsList = (output: any, context: __SerdeContext): TFIMetricDataPoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TFIMetricDataPoint(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TFIModelPerformance = (output: any, context: __SerdeContext): TFIModelPerformance => {
+  return {
+    auc: __limitedParseFloat32(output.auc),
+  } as any;
+};
+
+const deserializeAws_json1_1TFITrainingMetricsValue = (
+  output: any,
+  context: __SerdeContext
+): TFITrainingMetricsValue => {
+  return {
+    metricDataPoints:
+      output.metricDataPoints != null
+        ? deserializeAws_json1_1TFIMetricDataPointsList(output.metricDataPoints, context)
+        : undefined,
+    modelPerformance:
+      output.modelPerformance != null
+        ? deserializeAws_json1_1TFIModelPerformance(output.modelPerformance, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     message: __expectString(output.message),
@@ -7671,6 +7892,14 @@ const deserializeAws_json1_1TrainingMetrics = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1TrainingMetricsV2 = (output: any, context: __SerdeContext): TrainingMetricsV2 => {
+  return {
+    ati: output.ati != null ? deserializeAws_json1_1ATITrainingMetricsValue(output.ati, context) : undefined,
+    ofi: output.ofi != null ? deserializeAws_json1_1OFITrainingMetricsValue(output.ofi, context) : undefined,
+    tfi: output.tfi != null ? deserializeAws_json1_1TFITrainingMetricsValue(output.tfi, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TrainingResult = (output: any, context: __SerdeContext): TrainingResult => {
   return {
     dataValidationMetrics:
@@ -7680,6 +7909,30 @@ const deserializeAws_json1_1TrainingResult = (output: any, context: __SerdeConte
     trainingMetrics:
       output.trainingMetrics != null
         ? deserializeAws_json1_1TrainingMetrics(output.trainingMetrics, context)
+        : undefined,
+    variableImportanceMetrics:
+      output.variableImportanceMetrics != null
+        ? deserializeAws_json1_1VariableImportanceMetrics(output.variableImportanceMetrics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TrainingResultV2 = (output: any, context: __SerdeContext): TrainingResultV2 => {
+  return {
+    aggregatedVariablesImportanceMetrics:
+      output.aggregatedVariablesImportanceMetrics != null
+        ? deserializeAws_json1_1AggregatedVariablesImportanceMetrics(
+            output.aggregatedVariablesImportanceMetrics,
+            context
+          )
+        : undefined,
+    dataValidationMetrics:
+      output.dataValidationMetrics != null
+        ? deserializeAws_json1_1DataValidationMetrics(output.dataValidationMetrics, context)
+        : undefined,
+    trainingMetricsV2:
+      output.trainingMetricsV2 != null
+        ? deserializeAws_json1_1TrainingMetricsV2(output.trainingMetricsV2, context)
         : undefined,
     variableImportanceMetrics:
       output.variableImportanceMetrics != null
