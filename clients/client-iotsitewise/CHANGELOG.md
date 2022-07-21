@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
+
+
+### Features
+
+* **client-iotsitewise:** Added asynchronous API to ingest bulk historical and current data into IoT SiteWise. ([972d020](https://github.com/aws/aws-sdk-js-v3/commit/972d020ec9d8e713b9306aa8a39b036886127fc0))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsitewise

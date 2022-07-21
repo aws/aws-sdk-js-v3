@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
+
+
+### Features
+
+* **client-athena:** This feature allows customers to retrieve runtime statistics for completed queries ([6fe9621](https://github.com/aws/aws-sdk-js-v3/commit/6fe9621621e896fa31ad115c3865a35f00b12d3a))
+* **client-cloudwatch:** Adding support for the suppression of Composite Alarm actions ([e94c855](https://github.com/aws/aws-sdk-js-v3/commit/e94c855cd87e381d4cbf34685fe4f68da1031ffa))
+* **client-docdb:** Enable copy-on-write restore type ([9173056](https://github.com/aws/aws-sdk-js-v3/commit/91730562c1fe693c0270b088e5bd0c02d50372d4))
+* **client-ec2-instance-connect:** This release includes a new exception type "EC2InstanceUnavailableException" for SendSSHPublicKey and SendSerialConsoleSSHPublicKey APIs. ([a2aef86](https://github.com/aws/aws-sdk-js-v3/commit/a2aef86781ea0833877ada3ed3dcdbaab5d700ec))
+* **client-frauddetector:** The release introduces Account Takeover Insights (ATI) model. The ATI model detects fraud relating to account takeover. This release also adds support for new variable types: ARE_CREDENTIALS_VALID and SESSION_ID and adds new structures to Model Version APIs. ([b8837a8](https://github.com/aws/aws-sdk-js-v3/commit/b8837a8fe3ee514eed76a87d54e9165433ea0215))
+* **client-iotsitewise:** Added asynchronous API to ingest bulk historical and current data into IoT SiteWise. ([972d020](https://github.com/aws/aws-sdk-js-v3/commit/972d020ec9d8e713b9306aa8a39b036886127fc0))
+* **client-kendra:** Amazon Kendra now provides Oauth2 support for SharePoint Online. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html ([de0697a](https://github.com/aws/aws-sdk-js-v3/commit/de0697ad65ae98358ea534d9c2c90eadf4111bce))
+* **client-network-firewall:** Network Firewall now supports referencing dynamic IP sets from stateful rule groups, for IP sets stored in Amazon VPC prefix lists. ([7fb7490](https://github.com/aws/aws-sdk-js-v3/commit/7fb7490a4c093be17407d16f77151f3fa7c3e03a))
+
+
+
+
+
 # [3.134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.133.0...v3.134.0) (2022-07-20)
 
 

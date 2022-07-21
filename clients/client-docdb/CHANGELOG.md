@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
+
+
+### Features
+
+* **client-docdb:** Enable copy-on-write restore type ([9173056](https://github.com/aws/aws-sdk-js-v3/commit/91730562c1fe693c0270b088e5bd0c02d50372d4))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-docdb

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
+
+
+### Features
+
+* **client-cloudwatch:** Adding support for the suppression of Composite Alarm actions ([e94c855](https://github.com/aws/aws-sdk-js-v3/commit/e94c855cd87e381d4cbf34685fe4f68da1031ffa))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch
