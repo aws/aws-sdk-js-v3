@@ -442,6 +442,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ModifyActivityStreamCommand,
+  ModifyActivityStreamCommandInput,
+  ModifyActivityStreamCommandOutput,
+} from "./commands/ModifyActivityStreamCommand";
+import {
   ModifyCertificatesCommand,
   ModifyCertificatesCommandInput,
   ModifyCertificatesCommandOutput,
@@ -3972,6 +3977,42 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
+   *             whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
+   *             and then lock your activity stream. Restarting the activity stream isn't required. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html"> Modifying a database activity stream</a> in the
+   *                 <i>Amazon RDS User Guide</i>. </p>
+   *         <p>This operation is supported for RDS for Oracle only.</p>
+   */
+  public modifyActivityStream(
+    args: ModifyActivityStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyActivityStreamCommandOutput>;
+  public modifyActivityStream(
+    args: ModifyActivityStreamCommandInput,
+    cb: (err: any, data?: ModifyActivityStreamCommandOutput) => void
+  ): void;
+  public modifyActivityStream(
+    args: ModifyActivityStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyActivityStreamCommandOutput) => void
+  ): void;
+  public modifyActivityStream(
+    args: ModifyActivityStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyActivityStreamCommandOutput) => void),
+    cb?: (err: any, data?: ModifyActivityStreamCommandOutput) => void
+  ): Promise<ModifyActivityStreamCommandOutput> | void {
+    const command = new ModifyActivityStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

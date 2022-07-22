@@ -342,6 +342,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyActivityStreamCommandInput,
+  ModifyActivityStreamCommandOutput,
+} from "./commands/ModifyActivityStreamCommand";
 import { ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput } from "./commands/ModifyCertificatesCommand";
 import {
   ModifyCurrentDBClusterCapacityCommandInput,
@@ -576,6 +580,7 @@ export type ServiceInputTypes =
   | FailoverDBClusterCommandInput
   | FailoverGlobalClusterCommandInput
   | ListTagsForResourceCommandInput
+  | ModifyActivityStreamCommandInput
   | ModifyCertificatesCommandInput
   | ModifyCurrentDBClusterCapacityCommandInput
   | ModifyCustomDBEngineVersionCommandInput
@@ -713,6 +718,7 @@ export type ServiceOutputTypes =
   | FailoverDBClusterCommandOutput
   | FailoverGlobalClusterCommandOutput
   | ListTagsForResourceCommandOutput
+  | ModifyActivityStreamCommandOutput
   | ModifyCertificatesCommandOutput
   | ModifyCurrentDBClusterCapacityCommandOutput
   | ModifyCustomDBEngineVersionCommandOutput

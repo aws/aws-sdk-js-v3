@@ -312,6 +312,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ModifyActivityStreamCommandInput,
+  ModifyActivityStreamCommandOutput,
+} from "../commands/ModifyActivityStreamCommand";
 import { ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput } from "../commands/ModifyCertificatesCommand";
 import {
   ModifyCurrentDBClusterCapacityCommandInput,
@@ -595,7 +599,6 @@ import {
   DBSecurityGroupQuotaExceededFault,
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
-  DBSnapshotAttribute,
   DBSnapshotNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
@@ -751,6 +754,7 @@ import {
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
   DBProxyTargetAlreadyRegisteredFault,
+  DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
@@ -803,6 +807,8 @@ import {
   InvalidS3BucketFault,
   ListTagsForResourceMessage,
   MinimumEngineVersionPerAllowedValue,
+  ModifyActivityStreamRequest,
+  ModifyActivityStreamResponse,
   ModifyCertificatesMessage,
   ModifyCertificatesResult,
   ModifyCurrentDBClusterCapacityMessage,
@@ -2319,6 +2325,22 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListTagsForResourceMessage(input, context),
     Action: "ListTagsForResource",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyActivityStreamCommand = async (
+  input: ModifyActivityStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyActivityStreamRequest(input, context),
+    Action: "ModifyActivityStream",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7436,6 +7458,56 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
       throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
+  }
+};
+
+export const deserializeAws_queryModifyActivityStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyActivityStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyActivityStreamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyActivityStreamResponse(data.ModifyActivityStreamResult, context);
+  const response: ModifyActivityStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyActivityStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyActivityStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBInstanceNotFoundFault":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.rds#ResourceNotFoundFault":
+      throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -14387,6 +14459,20 @@ const serializeAws_queryLogTypeList = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryModifyActivityStreamRequest = (
+  input: ModifyActivityStreamRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ResourceArn !== undefined && input.ResourceArn !== null) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.AuditPolicyState !== undefined && input.AuditPolicyState !== null) {
+    entries["AuditPolicyState"] = input.AuditPolicyState;
+  }
+  return entries;
+};
+
 const serializeAws_queryModifyCertificatesMessage = (
   input: ModifyCertificatesMessage,
   context: __SerdeContext
@@ -18613,6 +18699,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     CustomIamInstanceProfile: undefined,
     BackupTarget: undefined,
     NetworkType: undefined,
+    ActivityStreamPolicyStatus: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -18936,6 +19023,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["NetworkType"] !== undefined) {
     contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["ActivityStreamPolicyStatus"] !== undefined) {
+    contents.ActivityStreamPolicyStatus = __expectString(output["ActivityStreamPolicyStatus"]);
   }
   return contents;
 };
@@ -21956,6 +22046,39 @@ const deserializeAws_queryMinimumEngineVersionPerAllowedValueList = (
       }
       return deserializeAws_queryMinimumEngineVersionPerAllowedValue(entry, context);
     });
+};
+
+const deserializeAws_queryModifyActivityStreamResponse = (
+  output: any,
+  context: __SerdeContext
+): ModifyActivityStreamResponse => {
+  const contents: any = {
+    KmsKeyId: undefined,
+    KinesisStreamName: undefined,
+    Status: undefined,
+    Mode: undefined,
+    EngineNativeAuditFieldsIncluded: undefined,
+    PolicyStatus: undefined,
+  };
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  if (output["KinesisStreamName"] !== undefined) {
+    contents.KinesisStreamName = __expectString(output["KinesisStreamName"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["Mode"] !== undefined) {
+    contents.Mode = __expectString(output["Mode"]);
+  }
+  if (output["EngineNativeAuditFieldsIncluded"] !== undefined) {
+    contents.EngineNativeAuditFieldsIncluded = __parseBoolean(output["EngineNativeAuditFieldsIncluded"]);
+  }
+  if (output["PolicyStatus"] !== undefined) {
+    contents.PolicyStatus = __expectString(output["PolicyStatus"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryModifyCertificatesResult = (

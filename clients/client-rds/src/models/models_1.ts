@@ -3,6 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import {
   ActivityStreamMode,
+  ActivityStreamPolicyStatus,
   ActivityStreamStatus,
   AutomationMode,
   AvailabilityZone,
@@ -17,7 +18,6 @@ import {
   DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
-  DBSnapshotAttribute,
   DBSubnetGroup,
   EventSubscription,
   ExportTask,
@@ -35,6 +35,41 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * <p>Contains the name and values of a manual DB snapshot attribute</p>
+ *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+ *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *     API.</p>
+ */
+export interface DBSnapshotAttribute {
+  /**
+   * <p>The name of the manual DB snapshot attribute.</p>
+   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
+   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *           see the <code>ModifyDBSnapshotAttribute</code>
+   *           API action.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * <p>The value or values for the manual DB snapshot attribute.</p>
+   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
+   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
+   *       is public and available for any Amazon Web Services account to copy or restore.</p>
+   */
+  AttributeValues?: string[];
+}
+
+export namespace DBSnapshotAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
@@ -3128,6 +3163,75 @@ export namespace TagListMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagListMessage): any => ({
+    ...obj,
+  });
+}
+
+export enum AuditPolicyState {
+  LOCKED_POLICY = "locked",
+  UNLOCKED_POLICY = "unlocked",
+}
+
+export interface ModifyActivityStreamRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the RDS for Oracle DB instance,
+   *             for example, <code>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</code>.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The audit policy state. When a policy is unlocked, it is read/write. When it is locked, it is
+   *             read-only. You can edit your audit policy only when the activity stream is unlocked or stopped.</p>
+   */
+  AuditPolicyState?: AuditPolicyState | string;
+}
+
+export namespace ModifyActivityStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyActivityStreamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyActivityStreamResponse {
+  /**
+   * <p>The Amazon Web Services KMS key identifier for encryption of messages in the database activity stream.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The name of the Amazon Kinesis data stream to be used for the database activity stream.</p>
+   */
+  KinesisStreamName?: string;
+
+  /**
+   * <p>The status of the modification to the database activity stream.</p>
+   */
+  Status?: ActivityStreamStatus | string;
+
+  /**
+   * <p>The mode of the database activity stream.</p>
+   */
+  Mode?: ActivityStreamMode | string;
+
+  /**
+   * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
+   */
+  EngineNativeAuditFieldsIncluded?: boolean;
+
+  /**
+   * <p>The status of the modification to the policy state of the database activity stream.</p>
+   */
+  PolicyStatus?: ActivityStreamPolicyStatus | string;
+}
+
+export namespace ModifyActivityStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyActivityStreamResponse): any => ({
     ...obj,
   });
 }

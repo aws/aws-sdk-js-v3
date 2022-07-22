@@ -163,6 +163,13 @@ export namespace AccountAttributesMessage {
 
 export type ActivityStreamMode = "async" | "sync";
 
+export enum ActivityStreamPolicyStatus {
+  locked = "locked",
+  locking_policy = "locking-policy",
+  unlocked = "unlocked",
+  unlocking_policy = "unlocking-policy",
+}
+
 export type ActivityStreamStatus = "started" | "starting" | "stopped" | "stopping";
 
 export interface AddRoleToDBClusterMessage {
@@ -7837,6 +7844,11 @@ export interface DBInstance {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>The status of the policy state of the activity stream.</p>
+   */
+  ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus | string;
 }
 
 export namespace DBInstance {
@@ -8764,7 +8776,7 @@ export interface CreateDBProxyRequest {
   /**
    * <p>The kinds of databases that the proxy can connect to.
    *           This value determines which database network protocol the proxy recognizes when it interprets
-   *         network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify <code>MYSQL</code>.
+   *         network traffic to and from the database. For Aurora MySQL and RDS for MySQL databases, specify <code>MYSQL</code>.
    *         For Aurora PostgreSQL and RDS for PostgreSQL databases, specify <code>POSTGRESQL</code>.</p>
    */
   EngineFamily: EngineFamily | string | undefined;
@@ -8902,8 +8914,8 @@ export interface DBProxy {
 
   /**
    * <p>The kinds of databases that the proxy can connect to. This value determines which database network protocol
-   *         the proxy recognizes when it interprets network traffic to and from the database. <code>MYSQL</code> supports Aurora MySQL,
-   *         RDS for MariaDB, and RDS for MySQL databases. <code>POSTGRESQL</code> supports Aurora PostgreSQL and RDS for PostgreSQL databases.</p>
+   *         the proxy recognizes when it interprets network traffic to and from the database. <code>MYSQL</code> supports Aurora MySQL
+   *         and RDS for MySQL databases. <code>POSTGRESQL</code> supports Aurora PostgreSQL and RDS for PostgreSQL databases.</p>
    */
   EngineFamily?: string;
 
@@ -13701,41 +13713,6 @@ export namespace DescribeDBSnapshotAttributesMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the name and values of a manual DB snapshot attribute</p>
- *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
- *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
- *     API.</p>
- */
-export interface DBSnapshotAttribute {
-  /**
-   * <p>The name of the manual DB snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
-   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
-   *           see the <code>ModifyDBSnapshotAttribute</code>
-   *           API action.</p>
-   */
-  AttributeName?: string;
-
-  /**
-   * <p>The value or values for the manual DB snapshot attribute.</p>
-   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
-   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
-   *       is public and available for any Amazon Web Services account to copy or restore.</p>
-   */
-  AttributeValues?: string[];
-}
-
-export namespace DBSnapshotAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
     ...obj,
   });
 }
