@@ -13,41 +13,41 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateInputSecurityGroupRequest, UpdateInputSecurityGroupResponse } from "../models/models_2";
+import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateInputSecurityGroupCommand,
-  serializeAws_restJson1UpdateInputSecurityGroupCommand,
+  deserializeAws_restJson1RebootInputDeviceCommand,
+  serializeAws_restJson1RebootInputDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdateInputSecurityGroupCommandInput extends UpdateInputSecurityGroupRequest {}
-export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecurityGroupResponse, __MetadataBearer {}
+export interface RebootInputDeviceCommandInput extends RebootInputDeviceRequest {}
+export interface RebootInputDeviceCommandOutput extends RebootInputDeviceResponse, __MetadataBearer {}
 
 /**
- * Update an Input Security Group's Whilelists.
+ * Send a reboot command to the specified input device. The device will begin rebooting within a few seconds of sending the command. When the reboot is complete, the device’s connection status will change to connected.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, UpdateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, UpdateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, RebootInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, RebootInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const command = new UpdateInputSecurityGroupCommand(input);
+ * const command = new RebootInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateInputSecurityGroupCommandInput} for command's `input` shape.
- * @see {@link UpdateInputSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link RebootInputDeviceCommandInput} for command's `input` shape.
+ * @see {@link RebootInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
-export class UpdateInputSecurityGroupCommand extends $Command<
-  UpdateInputSecurityGroupCommandInput,
-  UpdateInputSecurityGroupCommandOutput,
+export class RebootInputDeviceCommand extends $Command<
+  RebootInputDeviceCommandInput,
+  RebootInputDeviceCommandOutput,
   MediaLiveClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateInputSecurityGroupCommandInput) {
+  constructor(readonly input: RebootInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class UpdateInputSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateInputSecurityGroupCommandInput, UpdateInputSecurityGroupCommandOutput> {
+  ): Handler<RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MediaLiveClient";
-    const commandName = "UpdateInputSecurityGroupCommand";
+    const commandName = "RebootInputDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInputSecurityGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInputSecurityGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootInputDeviceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: RebootInputDeviceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +83,12 @@ export class UpdateInputSecurityGroupCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInputSecurityGroupCommand(input, context);
+  private serialize(input: RebootInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1RebootInputDeviceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateInputSecurityGroupCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInputDeviceCommandOutput> {
+    return deserializeAws_restJson1RebootInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

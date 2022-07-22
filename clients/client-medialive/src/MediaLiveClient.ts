@@ -144,11 +144,16 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "./commands/RebootInputDeviceCommand";
 import {
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import {
+  StartInputDeviceMaintenanceWindowCommandInput,
+  StartInputDeviceMaintenanceWindowCommandOutput,
+} from "./commands/StartInputDeviceMaintenanceWindowCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
@@ -216,8 +221,10 @@ export type ServiceInputTypes =
   | ListReservationsCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
+  | RebootInputDeviceCommandInput
   | RejectInputDeviceTransferCommandInput
   | StartChannelCommandInput
+  | StartInputDeviceMaintenanceWindowCommandInput
   | StartMultiplexCommandInput
   | StopChannelCommandInput
   | StopMultiplexCommandInput
@@ -275,8 +282,10 @@ export type ServiceOutputTypes =
   | ListReservationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
+  | RebootInputDeviceCommandOutput
   | RejectInputDeviceTransferCommandOutput
   | StartChannelCommandOutput
+  | StartInputDeviceMaintenanceWindowCommandOutput
   | StartMultiplexCommandOutput
   | StopChannelCommandOutput
   | StopMultiplexCommandOutput

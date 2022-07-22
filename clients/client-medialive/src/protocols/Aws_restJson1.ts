@@ -111,11 +111,16 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
+import { RebootInputDeviceCommandInput, RebootInputDeviceCommandOutput } from "../commands/RebootInputDeviceCommand";
 import {
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
 } from "../commands/RejectInputDeviceTransferCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands/StartChannelCommand";
+import {
+  StartInputDeviceMaintenanceWindowCommandInput,
+  StartInputDeviceMaintenanceWindowCommandOutput,
+} from "../commands/StartInputDeviceMaintenanceWindowCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "../commands/StartMultiplexCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../commands/StopMultiplexCommand";
@@ -1715,6 +1720,40 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
   });
 };
 
+export const serializeAws_restJson1RebootInputDeviceCommand = async (
+  input: RebootInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/reboot";
+  if (input.InputDeviceId !== undefined) {
+    const labelValue: string = input.InputDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InputDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InputDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InputDeviceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Force != null && { force: input.Force }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1RejectInputDeviceTransferCommand = async (
   input: RejectInputDeviceTransferCommandInput,
   context: __SerdeContext
@@ -1760,6 +1799,36 @@ export const serializeAws_restJson1StartChannelCommand = async (
     resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartInputDeviceMaintenanceWindowCommand = async (
+  input: StartInputDeviceMaintenanceWindowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/prod/inputDevices/{InputDeviceId}/startInputDeviceMaintenanceWindow";
+  if (input.InputDeviceId !== undefined) {
+    const labelValue: string = input.InputDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InputDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InputDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InputDeviceId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -5561,6 +5630,68 @@ const deserializeAws_restJson1PurchaseOfferingCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1RebootInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RebootInputDeviceCommandError(output, context);
+  }
+  const contents: RebootInputDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RebootInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1RejectInputDeviceTransferCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5747,6 +5878,68 @@ const deserializeAws_restJson1StartChannelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.medialive#TooManyRequestsException":
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceMaintenanceWindowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommandError(output, context);
+  }
+  const contents: StartInputDeviceMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceMaintenanceWindowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);

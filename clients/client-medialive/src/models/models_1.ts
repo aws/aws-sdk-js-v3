@@ -7137,6 +7137,49 @@ export namespace PurchaseOfferingResponse {
   });
 }
 
+export enum RebootInputDeviceForce {
+  NO = "NO",
+  YES = "YES",
+}
+
+/**
+ * A request to reboot an AWS Elemental device.
+ */
+export interface RebootInputDeviceRequest {
+  /**
+   * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
+   */
+  Force?: RebootInputDeviceForce | string;
+
+  /**
+   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+}
+
+export namespace RebootInputDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RebootInputDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Placeholder documentation for RebootInputDeviceResponse
+ */
+export interface RebootInputDeviceResponse {}
+
+export namespace RebootInputDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RebootInputDeviceResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * Placeholder documentation for RejectInputDeviceTransferRequest
  */
@@ -7291,6 +7334,39 @@ export namespace StartChannelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartChannelResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
+ */
+export interface StartInputDeviceMaintenanceWindowRequest {
+  /**
+   * The unique ID of the input device to start a maintenance window for. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
+}
+
+export namespace StartInputDeviceMaintenanceWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartInputDeviceMaintenanceWindowRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
+ */
+export interface StartInputDeviceMaintenanceWindowResponse {}
+
+export namespace StartInputDeviceMaintenanceWindowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartInputDeviceMaintenanceWindowResponse): any => ({
     ...obj,
   });
 }
@@ -7819,181 +7895,6 @@ export namespace UpdateInputRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Placeholder documentation for UpdateInputResponse
- */
-export interface UpdateInputResponse {
-  /**
-   * Placeholder documentation for Input
-   */
-  Input?: Input;
-}
-
-export namespace UpdateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * A request to update an input device.
- */
-export interface UpdateInputDeviceRequest {
-  /**
-   * The settings that you want to apply to the HD input device.
-   */
-  HdDeviceSettings?: InputDeviceConfigurableSettings;
-
-  /**
-   * The unique ID of the input device. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-
-  /**
-   * The name that you assigned to this input device (not the unique ID).
-   */
-  Name?: string;
-
-  /**
-   * The settings that you want to apply to the UHD input device.
-   */
-  UhdDeviceSettings?: InputDeviceConfigurableSettings;
-}
-
-export namespace UpdateInputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Placeholder documentation for UpdateInputDeviceResponse
- */
-export interface UpdateInputDeviceResponse {
-  /**
-   * The unique ARN of the input device.
-   */
-  Arn?: string;
-
-  /**
-   * The state of the connection between the input device and AWS.
-   */
-  ConnectionState?: InputDeviceConnectionState | string;
-
-  /**
-   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
-   */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
-
-  /**
-   * The status of software on the input device.
-   */
-  DeviceUpdateStatus?: DeviceUpdateStatus | string;
-
-  /**
-   * Settings that describe an input device that is type HD.
-   */
-  HdDeviceSettings?: InputDeviceHdSettings;
-
-  /**
-   * The unique ID of the input device.
-   */
-  Id?: string;
-
-  /**
-   * The network MAC address of the input device.
-   */
-  MacAddress?: string;
-
-  /**
-   * A name that you specify for the input device.
-   */
-  Name?: string;
-
-  /**
-   * The network settings for the input device.
-   */
-  NetworkSettings?: InputDeviceNetworkSettings;
-
-  /**
-   * The unique serial number of the input device.
-   */
-  SerialNumber?: string;
-
-  /**
-   * The type of the input device.
-   */
-  Type?: InputDeviceType | string;
-
-  /**
-   * Settings that describe an input device that is type UHD.
-   */
-  UhdDeviceSettings?: InputDeviceUhdSettings;
-}
-
-export namespace UpdateInputDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
- */
-export interface UpdateInputSecurityGroupRequest {
-  /**
-   * The id of the Input Security Group to update.
-   */
-  InputSecurityGroupId: string | undefined;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * List of IPv4 CIDR addresses to whitelist
-   */
-  WhitelistRules?: InputWhitelistRuleCidr[];
-}
-
-export namespace UpdateInputSecurityGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputSecurityGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Placeholder documentation for UpdateInputSecurityGroupResponse
- */
-export interface UpdateInputSecurityGroupResponse {
-  /**
-   * An Input Security Group
-   */
-  SecurityGroup?: InputSecurityGroup;
-}
-
-export namespace UpdateInputSecurityGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputSecurityGroupResponse): any => ({
     ...obj,
   });
 }

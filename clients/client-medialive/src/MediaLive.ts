@@ -181,6 +181,11 @@ import {
   PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
+  RebootInputDeviceCommand,
+  RebootInputDeviceCommandInput,
+  RebootInputDeviceCommandOutput,
+} from "./commands/RebootInputDeviceCommand";
+import {
   RejectInputDeviceTransferCommand,
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
@@ -190,6 +195,11 @@ import {
   StartChannelCommandInput,
   StartChannelCommandOutput,
 } from "./commands/StartChannelCommand";
+import {
+  StartInputDeviceMaintenanceWindowCommand,
+  StartInputDeviceMaintenanceWindowCommandInput,
+  StartInputDeviceMaintenanceWindowCommandOutput,
+} from "./commands/StartInputDeviceMaintenanceWindowCommand";
 import {
   StartMultiplexCommand,
   StartMultiplexCommandInput,
@@ -1568,6 +1578,38 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * Send a reboot command to the specified input device. The device will begin rebooting within a few seconds of sending the command. When the reboot is complete, the device’s connection status will change to connected.
+   */
+  public rebootInputDevice(
+    args: RebootInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootInputDeviceCommandOutput>;
+  public rebootInputDevice(
+    args: RebootInputDeviceCommandInput,
+    cb: (err: any, data?: RebootInputDeviceCommandOutput) => void
+  ): void;
+  public rebootInputDevice(
+    args: RebootInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootInputDeviceCommandOutput) => void
+  ): void;
+  public rebootInputDevice(
+    args: RebootInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: RebootInputDeviceCommandOutput) => void
+  ): Promise<RebootInputDeviceCommandOutput> | void {
+    const command = new RebootInputDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Reject the transfer of the specified input device to your AWS account.
    */
   public rejectInputDeviceTransfer(
@@ -1618,6 +1660,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: StartChannelCommandOutput) => void
   ): Promise<StartChannelCommandOutput> | void {
     const command = new StartChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Start a maintenance window for the specified input device. Starting a maintenance window will give the device up to two hours to install software. If the device was streaming prior to the maintenance, it will resume streaming when the software is fully installed. Devices automatically install updates while they are powered on and their MediaLive channels are stopped. A maintenance window allows you to update a device without having to stop MediaLive channels that use the device. The device must remain powered on and connected to the internet for the duration of the maintenance.
+   */
+  public startInputDeviceMaintenanceWindow(
+    args: StartInputDeviceMaintenanceWindowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInputDeviceMaintenanceWindowCommandOutput>;
+  public startInputDeviceMaintenanceWindow(
+    args: StartInputDeviceMaintenanceWindowCommandInput,
+    cb: (err: any, data?: StartInputDeviceMaintenanceWindowCommandOutput) => void
+  ): void;
+  public startInputDeviceMaintenanceWindow(
+    args: StartInputDeviceMaintenanceWindowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInputDeviceMaintenanceWindowCommandOutput) => void
+  ): void;
+  public startInputDeviceMaintenanceWindow(
+    args: StartInputDeviceMaintenanceWindowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInputDeviceMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: StartInputDeviceMaintenanceWindowCommandOutput) => void
+  ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> | void {
+    const command = new StartInputDeviceMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
