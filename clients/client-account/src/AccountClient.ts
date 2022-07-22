@@ -62,20 +62,32 @@ import {
   GetAlternateContactCommandOutput,
 } from "./commands/GetAlternateContactCommand";
 import {
+  GetContactInformationCommandInput,
+  GetContactInformationCommandOutput,
+} from "./commands/GetContactInformationCommand";
+import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
 } from "./commands/PutAlternateContactCommand";
+import {
+  PutContactInformationCommandInput,
+  PutContactInformationCommandOutput,
+} from "./commands/PutContactInformationCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | DeleteAlternateContactCommandInput
   | GetAlternateContactCommandInput
-  | PutAlternateContactCommandInput;
+  | GetContactInformationCommandInput
+  | PutAlternateContactCommandInput
+  | PutContactInformationCommandInput;
 
 export type ServiceOutputTypes =
   | DeleteAlternateContactCommandOutput
   | GetAlternateContactCommandOutput
-  | PutAlternateContactCommandOutput;
+  | GetContactInformationCommandOutput
+  | PutAlternateContactCommandOutput
+  | PutContactInformationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
