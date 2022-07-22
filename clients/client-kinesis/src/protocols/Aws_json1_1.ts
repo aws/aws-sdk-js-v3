@@ -8,11 +8,11 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -158,7 +158,6 @@ import {
   SubscribeToShardEvent,
   SubscribeToShardEventStream,
   SubscribeToShardInput,
-  SubscribeToShardOutput,
   Tag,
   UpdateShardCountInput,
   UpdateShardCountOutput,
@@ -1920,14 +1919,12 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
 
 export const deserializeAws_json1_1SubscribeToShardCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<SubscribeToShardCommandOutput> => {
   if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubscribeToShardCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1SubscribeToShardOutput(data, context);
+  const contents = { EventStream: deserializeAws_json1_1SubscribeToShardEventStream(output.body, context) };
   const response: SubscribeToShardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2253,6 +2250,203 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1SubscribeToShardEventStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<SubscribeToShardEventStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["SubscribeToShardEvent"] != null) {
+      return {
+        SubscribeToShardEvent: await deserializeAws_json1_1SubscribeToShardEvent_event(
+          event["SubscribeToShardEvent"],
+          context
+        ),
+      };
+    }
+    if (event["ResourceNotFoundException"] != null) {
+      return {
+        ResourceNotFoundException: await deserializeAws_json1_1ResourceNotFoundException_event(
+          event["ResourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["ResourceInUseException"] != null) {
+      return {
+        ResourceInUseException: await deserializeAws_json1_1ResourceInUseException_event(
+          event["ResourceInUseException"],
+          context
+        ),
+      };
+    }
+    if (event["KMSDisabledException"] != null) {
+      return {
+        KMSDisabledException: await deserializeAws_json1_1KMSDisabledException_event(
+          event["KMSDisabledException"],
+          context
+        ),
+      };
+    }
+    if (event["KMSInvalidStateException"] != null) {
+      return {
+        KMSInvalidStateException: await deserializeAws_json1_1KMSInvalidStateException_event(
+          event["KMSInvalidStateException"],
+          context
+        ),
+      };
+    }
+    if (event["KMSAccessDeniedException"] != null) {
+      return {
+        KMSAccessDeniedException: await deserializeAws_json1_1KMSAccessDeniedException_event(
+          event["KMSAccessDeniedException"],
+          context
+        ),
+      };
+    }
+    if (event["KMSNotFoundException"] != null) {
+      return {
+        KMSNotFoundException: await deserializeAws_json1_1KMSNotFoundException_event(
+          event["KMSNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["KMSOptInRequired"] != null) {
+      return {
+        KMSOptInRequired: await deserializeAws_json1_1KMSOptInRequired_event(event["KMSOptInRequired"], context),
+      };
+    }
+    if (event["KMSThrottlingException"] != null) {
+      return {
+        KMSThrottlingException: await deserializeAws_json1_1KMSThrottlingException_event(
+          event["KMSThrottlingException"],
+          context
+        ),
+      };
+    }
+    if (event["InternalFailureException"] != null) {
+      return {
+        InternalFailureException: await deserializeAws_json1_1InternalFailureException_event(
+          event["InternalFailureException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const deserializeAws_json1_1InternalFailureException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSAccessDeniedException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSAccessDeniedException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSAccessDeniedExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSDisabledException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSDisabledException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSDisabledExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSInvalidStateException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSInvalidStateException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSNotFoundException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSNotFoundException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSNotFoundExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSOptInRequired_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSOptInRequired> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSOptInRequiredResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1KMSThrottlingException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSThrottlingException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1KMSThrottlingExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1ResourceInUseException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1ResourceNotFoundException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_json1_1SubscribeToShardEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<SubscribeToShardEvent> => {
+  const contents: SubscribeToShardEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, deserializeAws_json1_1SubscribeToShardEvent(data, context));
+  return contents;
+};
+const deserializeAws_json1_1InternalFailureExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InternalFailureException(body, context);
+  const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3124,84 +3318,6 @@ const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __Ser
     ContinuationSequenceNumber: __expectString(output.ContinuationSequenceNumber),
     MillisBehindLatest: __expectLong(output.MillisBehindLatest),
     Records: output.Records != null ? deserializeAws_json1_1RecordList(output.Records, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1SubscribeToShardEventStream = (
-  output: any,
-  context: __SerdeContext
-): SubscribeToShardEventStream => {
-  if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
-    return {
-      InternalFailureException: deserializeAws_json1_1InternalFailureException(
-        output.InternalFailureException,
-        context
-      ),
-    };
-  }
-  if (output.KMSAccessDeniedException !== undefined && output.KMSAccessDeniedException !== null) {
-    return {
-      KMSAccessDeniedException: deserializeAws_json1_1KMSAccessDeniedException(
-        output.KMSAccessDeniedException,
-        context
-      ),
-    };
-  }
-  if (output.KMSDisabledException !== undefined && output.KMSDisabledException !== null) {
-    return {
-      KMSDisabledException: deserializeAws_json1_1KMSDisabledException(output.KMSDisabledException, context),
-    };
-  }
-  if (output.KMSInvalidStateException !== undefined && output.KMSInvalidStateException !== null) {
-    return {
-      KMSInvalidStateException: deserializeAws_json1_1KMSInvalidStateException(
-        output.KMSInvalidStateException,
-        context
-      ),
-    };
-  }
-  if (output.KMSNotFoundException !== undefined && output.KMSNotFoundException !== null) {
-    return {
-      KMSNotFoundException: deserializeAws_json1_1KMSNotFoundException(output.KMSNotFoundException, context),
-    };
-  }
-  if (output.KMSOptInRequired !== undefined && output.KMSOptInRequired !== null) {
-    return {
-      KMSOptInRequired: deserializeAws_json1_1KMSOptInRequired(output.KMSOptInRequired, context),
-    };
-  }
-  if (output.KMSThrottlingException !== undefined && output.KMSThrottlingException !== null) {
-    return {
-      KMSThrottlingException: deserializeAws_json1_1KMSThrottlingException(output.KMSThrottlingException, context),
-    };
-  }
-  if (output.ResourceInUseException !== undefined && output.ResourceInUseException !== null) {
-    return {
-      ResourceInUseException: deserializeAws_json1_1ResourceInUseException(output.ResourceInUseException, context),
-    };
-  }
-  if (output.ResourceNotFoundException !== undefined && output.ResourceNotFoundException !== null) {
-    return {
-      ResourceNotFoundException: deserializeAws_json1_1ResourceNotFoundException(
-        output.ResourceNotFoundException,
-        context
-      ),
-    };
-  }
-  if (output.SubscribeToShardEvent !== undefined && output.SubscribeToShardEvent !== null) {
-    return {
-      SubscribeToShardEvent: deserializeAws_json1_1SubscribeToShardEvent(output.SubscribeToShardEvent, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_json1_1SubscribeToShardOutput = (output: any, context: __SerdeContext): SubscribeToShardOutput => {
-  return {
-    EventStream:
-      output.EventStream != null
-        ? deserializeAws_json1_1SubscribeToShardEventStream(__expectUnion(output.EventStream), context)
-        : undefined,
   } as any;
 };
 
