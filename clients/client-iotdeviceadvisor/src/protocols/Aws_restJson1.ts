@@ -58,6 +58,7 @@ import {
   SuiteRunConfiguration,
   SuiteRunInformation,
   TestCaseRun,
+  TestCaseScenario,
   TestResult,
   ValidationException,
 } from "../models/models_0";
@@ -1422,6 +1423,8 @@ const serializeAws_restJson1SuiteDefinitionConfiguration = (
     ...(input.devicePermissionRoleArn != null && { devicePermissionRoleArn: input.devicePermissionRoleArn }),
     ...(input.devices != null && { devices: serializeAws_restJson1DeviceUnderTestList(input.devices, context) }),
     ...(input.intendedForQualification != null && { intendedForQualification: input.intendedForQualification }),
+    ...(input.isLongDurationTest != null && { isLongDurationTest: input.isLongDurationTest }),
+    ...(input.protocol != null && { protocol: input.protocol }),
     ...(input.rootGroup != null && { rootGroup: input.rootGroup }),
     ...(input.suiteDefinitionName != null && { suiteDefinitionName: input.suiteDefinitionName }),
   };
@@ -1510,6 +1513,8 @@ const deserializeAws_restJson1SuiteDefinitionConfiguration = (
     devicePermissionRoleArn: __expectString(output.devicePermissionRoleArn),
     devices: output.devices != null ? deserializeAws_restJson1DeviceUnderTestList(output.devices, context) : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
+    isLongDurationTest: __expectBoolean(output.isLongDurationTest),
+    protocol: __expectString(output.protocol),
     rootGroup: __expectString(output.rootGroup),
     suiteDefinitionName: __expectString(output.suiteDefinitionName),
   } as any;
@@ -1527,6 +1532,8 @@ const deserializeAws_restJson1SuiteDefinitionInformation = (
         ? deserializeAws_restJson1DeviceUnderTestList(output.defaultDevices, context)
         : undefined,
     intendedForQualification: __expectBoolean(output.intendedForQualification),
+    isLongDurationTest: __expectBoolean(output.isLongDurationTest),
+    protocol: __expectString(output.protocol),
     suiteDefinitionId: __expectString(output.suiteDefinitionId),
     suiteDefinitionName: __expectString(output.suiteDefinitionName),
   } as any;
@@ -1612,6 +1619,10 @@ const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContex
     testCaseDefinitionId: __expectString(output.testCaseDefinitionId),
     testCaseDefinitionName: __expectString(output.testCaseDefinitionName),
     testCaseRunId: __expectString(output.testCaseRunId),
+    testScenarios:
+      output.testScenarios != null
+        ? deserializeAws_restJson1TestCaseScenariosList(output.testScenarios, context)
+        : undefined,
     warnings: __expectString(output.warnings),
   } as any;
 };
@@ -1624,6 +1635,28 @@ const deserializeAws_restJson1TestCaseRuns = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_restJson1TestCaseRun(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TestCaseScenario = (output: any, context: __SerdeContext): TestCaseScenario => {
+  return {
+    failure: __expectString(output.failure),
+    status: __expectString(output.status),
+    systemMessage: __expectString(output.systemMessage),
+    testCaseScenarioId: __expectString(output.testCaseScenarioId),
+    testCaseScenarioType: __expectString(output.testCaseScenarioType),
+  } as any;
+};
+
+const deserializeAws_restJson1TestCaseScenariosList = (output: any, context: __SerdeContext): TestCaseScenario[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TestCaseScenario(entry, context);
     });
   return retVal;
 };

@@ -46,6 +46,11 @@ export namespace DeviceUnderTest {
   });
 }
 
+export enum Protocol {
+  MqttV3_1_1 = "MqttV3_1_1",
+  MqttV5 = "MqttV5",
+}
+
 /**
  * <p>Gets Suite Definition Configuration.</p>
  */
@@ -66,6 +71,11 @@ export interface SuiteDefinitionConfiguration {
   intendedForQualification?: boolean;
 
   /**
+   * <p> Verifies if the test suite is a long duration test. </p>
+   */
+  isLongDurationTest?: boolean;
+
+  /**
    * <p>Gets test suite root group.</p>
    */
   rootGroup?: string;
@@ -74,6 +84,11 @@ export interface SuiteDefinitionConfiguration {
    * <p>Gets the device permission ARN.</p>
    */
   devicePermissionRoleArn?: string;
+
+  /**
+   * <p> Gets the MQTT protocol that is configured in the suite definition.</p>
+   */
+  protocol?: Protocol | string;
 }
 
 export namespace SuiteDefinitionConfiguration {
@@ -404,6 +419,109 @@ export enum Status {
   STOPPING = "STOPPING",
 }
 
+export enum TestCaseScenarioStatus {
+  CANCELED = "CANCELED",
+  ERROR = "ERROR",
+  FAIL = "FAIL",
+  PASS = "PASS",
+  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+}
+
+export enum TestCaseScenarioType {
+  Advanced = "Advanced",
+  Basic = "Basic",
+}
+
+/**
+ * <p>Provides test case scenario.</p>
+ */
+export interface TestCaseScenario {
+  /**
+   * <p>Provides test case scenario ID.</p>
+   */
+  testCaseScenarioId?: string;
+
+  /**
+   * <p>Provides test case scenario type. Type is one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Advanced</p>
+   *             </li>
+   *             <li>
+   *                 <p>Basic</p>
+   *             </li>
+   *          </ul>
+   */
+  testCaseScenarioType?: TestCaseScenarioType | string;
+
+  /**
+   * <p>Provides the test case scenario status. Status is one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PASS</code>: Test passed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAIL</code>: Test failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code>: Test has not started running but is scheduled.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RUNNING</code>: Test is running.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this
+   *                     status only if you stop a suite run.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>STOPPED</code> Test is stopped. You will see this status only if you
+   *                     stop a suite run.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PASS_WITH_WARNINGS</code>: Test passed with warnings.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ERORR</code>: Test faced an error when running due to an internal
+   *                     issue.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: TestCaseScenarioStatus | string;
+
+  /**
+   * <p>Provides test case scenario failure result.</p>
+   */
+  failure?: string;
+
+  /**
+   * <p>
+   *
+   *         </p>
+   */
+  systemMessage?: string;
+}
+
+export namespace TestCaseScenario {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestCaseScenario): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Provides the test case run.</p>
  */
@@ -427,36 +545,39 @@ export interface TestCaseRun {
    * <p>Provides the test case run status. Status is one of the following:</p>
    *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>PASS</code>: Test passed.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>FAIL</code>: Test failed.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>PENDING</code>: Test has not started running but is scheduled.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>RUNNING</code>: Test is running.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this status only if you stop a suite run.</p>
+   *                 <p>
+   *                   <code>STOPPING</code>: Test is performing cleanup steps. You will see this
+   *                     status only if you stop a suite run.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> Test is stopped. You will see this status only if you stop a suite run.</p>
+   *                 <p>
+   *                   <code>STOPPED</code> Test is stopped. You will see this status only if you
+   *                     stop a suite run.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>PASS_WITH_WARNINGS</code>: Test passed with warnings.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>ERORR</code>: Test faced an error when running due to an internal issue.</p>
+   *                 <p>
+   *                   <code>ERORR</code>: Test faced an error when running due to an internal
+   *                     issue.</p>
    *             </li>
    *          </ul>
    */
@@ -486,6 +607,11 @@ export interface TestCaseRun {
    * <p>Provides test case run failure result.</p>
    */
   failure?: string;
+
+  /**
+   * <p> Provides the test scenarios for the test case run. </p>
+   */
+  testScenarios?: TestCaseScenario[];
 }
 
 export namespace TestCaseRun {
@@ -694,6 +820,16 @@ export interface SuiteDefinitionInformation {
   intendedForQualification?: boolean;
 
   /**
+   * <p> Verifies if the test suite is a long duration test. </p>
+   */
+  isLongDurationTest?: boolean;
+
+  /**
+   * <p> Gets the MQTT protocol that is configured in the suite definition.</p>
+   */
+  protocol?: Protocol | string;
+
+  /**
    * <p>Date (in Unix epoch time) when the test suite was created.</p>
    */
   createdAt?: Date;
@@ -710,7 +846,8 @@ export namespace SuiteDefinitionInformation {
 
 export interface ListSuiteDefinitionsResponse {
   /**
-   * <p>An array of objects that provide summaries of information about the suite definitions in the list.</p>
+   * <p>An array of objects that provide summaries of information about the suite definitions
+   *             in the list.</p>
    */
   suiteDefinitionInformationList?: SuiteDefinitionInformation[];
 
@@ -829,7 +966,8 @@ export namespace SuiteRunInformation {
 
 export interface ListSuiteRunsResponse {
   /**
-   * <p>An array of objects that provide summaries of information about the suite runs in the list.</p>
+   * <p>An array of objects that provide summaries of information about the suite runs in the
+   *             list.</p>
    */
   suiteRunsList?: SuiteRunInformation[];
 
