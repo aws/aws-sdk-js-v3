@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.135.0...v3.136.0) (2022-07-22)
+
+
+### Features
+
+* **client-transcribe:** Remove unsupported language codes for StartTranscriptionJob and update VocabularyFileUri for UpdateMedicalVocabulary ([574cf7e](https://github.com/aws/aws-sdk-js-v3/commit/574cf7e1aac1d8d96e145a2ae527a0c5053484bd))
+
+
+
+
+
 # [3.131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.130.0...v3.131.0) (2022-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe

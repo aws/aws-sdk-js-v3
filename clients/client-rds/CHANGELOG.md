@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.135.0...v3.136.0) (2022-07-22)
+
+
+### Features
+
+* **client-rds:** This release adds the "ModifyActivityStream" API with support for audit policy state locking and unlocking. ([b6e2600](https://github.com/aws/aws-sdk-js-v3/commit/b6e260013ef2279150962379fbcdd1c1245978ad))
+
+
+
+
+
 # [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

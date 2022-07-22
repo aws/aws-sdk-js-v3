@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.135.0...v3.136.0) (2022-07-22)
+
+
+### Features
+
+* **client-account:** This release enables customers to manage the primary contact information for their AWS accounts. For more information, see https://docs.aws.amazon.com/accounts/latest/reference/API_Operations.html ([f456886](https://github.com/aws/aws-sdk-js-v3/commit/f4568862de4e51d2a4d318d4fc5eba8f1fcaffad))
+* **client-ec2:** Added support for EC2 M1 Mac instances. For more information, please visit aws.amazon.com/mac. ([23fdb65](https://github.com/aws/aws-sdk-js-v3/commit/23fdb65cf942843e68b2f7f6057bea5965ad7d2f))
+* **client-iotdeviceadvisor:** Added new service feature (Early access only) - Long Duration Test, where customers can test the IoT device to observe how it behaves when the device is in operation for longer period. ([bb17b0c](https://github.com/aws/aws-sdk-js-v3/commit/bb17b0c83d3b7d0219932cd2781ef451a5971ac3))
+* **client-medialive:** Link devices now support remote rebooting. Link devices now support maintenance windows. Maintenance windows allow a Link device to install software updates without stopping the MediaLive channel. The channel will experience a brief loss of input from the device while updates are installed. ([3cef41f](https://github.com/aws/aws-sdk-js-v3/commit/3cef41f821a5c7f34ca7a7d0ba3f63fffdf25b56))
+* **client-rds:** This release adds the "ModifyActivityStream" API with support for audit policy state locking and unlocking. ([b6e2600](https://github.com/aws/aws-sdk-js-v3/commit/b6e260013ef2279150962379fbcdd1c1245978ad))
+* **client-transcribe:** Remove unsupported language codes for StartTranscriptionJob and update VocabularyFileUri for UpdateMedicalVocabulary ([574cf7e](https://github.com/aws/aws-sdk-js-v3/commit/574cf7e1aac1d8d96e145a2ae527a0c5053484bd))
+* **clients:** update client endpoints as of 2022-07-22 ([50714b8](https://github.com/aws/aws-sdk-js-v3/commit/50714b8b2e4e3f2c337f4ffa08748e5e3a0c34eb))
+
+
+
+
+
 # [3.135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.134.0...v3.135.0) (2022-07-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.135.0...v3.136.0) (2022-07-22)
+
+
+### Features
+
+* **client-ec2:** Added support for EC2 M1 Mac instances. For more information, please visit aws.amazon.com/mac. ([23fdb65](https://github.com/aws/aws-sdk-js-v3/commit/23fdb65cf942843e68b2f7f6057bea5965ad7d2f))
+
+
+
+
+
 # [3.132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.131.0...v3.132.0) (2022-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
