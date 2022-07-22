@@ -129,7 +129,6 @@ export enum LanguageCode {
   AF_ZA = "af-ZA",
   AR_AE = "ar-AE",
   AR_SA = "ar-SA",
-  CY_GB = "cy-GB",
   DA_DK = "da-DK",
   DE_CH = "de-CH",
   DE_DE = "de-DE",
@@ -147,8 +146,6 @@ export enum LanguageCode {
   FA_IR = "fa-IR",
   FR_CA = "fr-CA",
   FR_FR = "fr-FR",
-  GA_IE = "ga-IE",
-  GD_GB = "gd-GB",
   HE_IL = "he-IL",
   HI_IN = "hi-IN",
   ID_ID = "id-ID",
@@ -5027,7 +5024,7 @@ export interface UpdateMedicalVocabularyRequest {
    *             <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code>
    *          </p>
    */
-  VocabularyFileUri?: string;
+  VocabularyFileUri: string | undefined;
 }
 
 export namespace UpdateMedicalVocabularyRequest {
