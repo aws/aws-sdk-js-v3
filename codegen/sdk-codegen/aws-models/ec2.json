@@ -48343,6 +48343,10 @@
           {
             "value": "c7g.16xlarge",
             "name": "c7g_16xlarge"
+          },
+          {
+            "value": "mac2.metal",
+            "name": "mac2_metal"
           }
         ]
       }

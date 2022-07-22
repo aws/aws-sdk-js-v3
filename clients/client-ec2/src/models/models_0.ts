@@ -7146,6 +7146,7 @@ export type _InstanceType =
   | "m6i.metal"
   | "m6i.xlarge"
   | "mac1.metal"
+  | "mac2.metal"
   | "p2.16xlarge"
   | "p2.8xlarge"
   | "p2.xlarge"
