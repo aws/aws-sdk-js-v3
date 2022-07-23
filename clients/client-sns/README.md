@@ -62,7 +62,7 @@ To send a request, you:
 
 ```js
 // a client can be shared by different commands.
-const client = new SNSClient({ region: "REGION" });
+const client = new SNSClient({ region: "<YOUR_REGION>" });
 
 const message = {
   hello":"world"
